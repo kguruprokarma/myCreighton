@@ -3,7 +3,11 @@
 */
 
 .dataHeading{
+<<<<<<< HEAD
+    font-size: 1em; /* font size 15 in pixel */
+=======
    font-size: 15px;
+>>>>>>> origin/Sprint-2
    color: #313131;
    text-transform: uppercase; 
    margin: 0 0 8px;
@@ -12,11 +16,19 @@
 }
 
 .labelField {
+<<<<<<< HEAD
+    font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    font-family: 'open_sanslight';
+}
+.dataField {
+    font-size: 1.4em;   /* font size 21 in pixel */  
+=======
     font-size:20px;
     font-family: 'open_sanslight';
 }
 .dataField {
     font-size: 21px;  
+>>>>>>> origin/Sprint-2
 }
 
 .emailAddress .dataField {
@@ -36,6 +48,16 @@
         width: 100%;
     }
     .dataField {
+<<<<<<< HEAD
+        font-size: 1.2em;   /* font size 18 in pixel */
+        font-family: 'open_sanslight';    
+    } 
+    .labelField {
+        font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+    }
+    .dataHeading{
+        font-size: 0.9333333333333333em; /* font size 14 in pixel */
+=======
         font-size: 18px;
         font-family: 'open_sanslight';    
     } 
@@ -44,6 +66,7 @@
     }
     .dataHeading{
         font-size: 14px
+>>>>>>> origin/Sprint-2
     }
 
 }
@@ -53,6 +76,15 @@
         width: 100%;
     }
     .dataField {
+<<<<<<< HEAD
+        font-size: 1em; /* font size 15 in pixel */
+    } 
+    .labelField {
+        font-size: 0.9333333333333333em; /* font size 14 in pixel */  
+    }
+    .dataHeading{
+        font-size: 0.8666666666666667em;    /* font size 13 in pixel */
+=======
         font-size: 15px;
     } 
     .labelField {
@@ -60,6 +92,7 @@
     }
     .dataHeading{
         font-size: 13px
+>>>>>>> origin/Sprint-2
     }
 
 }

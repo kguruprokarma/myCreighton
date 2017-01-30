@@ -7,8 +7,14 @@ import ClassBoxWeek from './classBoxWeek';
 import { DATAFILTERADDINGDATA } from './utility';
 
 const ClassBox = (props) => (
+<<<<<<< HEAD
+	<article>
+		<ClassBoxWeek listOfData={DATAFILTERADDINGDATA(props.data)} />
+	</article>
+=======
 	<div>
 		<ClassBoxWeek listOfData={DATAFILTERADDINGDATA(props.data)} />
 	</div>
+>>>>>>> origin/Sprint-2
 )
 export default ClassBox;

@@ -22,12 +22,20 @@ class RelationDetail extends React.Component {
       <article className="profileRow mt30">
         <h3 className="dataHeading openSansRegular">IF NOT AGE OF MAJORITY</h3>
         <div className="control-group">
+<<<<<<< HEAD
+          <label className="control control-checkbox labelField noclons">
+=======
           <label className="control control-checkbox labelField">
+>>>>>>> origin/Sprint-2
             <input type="checkbox" name="dependent" value='parent' onChange={this.toggleParent.bind(this)} checked={this.state.flag === 'parent'} id="parent" /> <span className="openSansRegular">Parent</span>
 			    <span className="control__indicator"></span>
           </label>
           <div className="clearfix"></div>
+<<<<<<< HEAD
+          <label className="control control-checkbox labelField noclons">
+=======
           <label className="control control-checkbox labelField ">
+>>>>>>> origin/Sprint-2
             <input type="checkbox" name="dependent" value='guardian' onChange={this.toggleParent.bind(this)} checked={this.state.flag === 'guardian'} id="guardian" /> <span className="openSansRegular">Guardian</span>
             <span className="control__indicator"></span>
           </label>

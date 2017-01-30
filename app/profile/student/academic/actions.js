@@ -35,7 +35,10 @@ export function getAcademicData() {
         dispatch(receiveError({
           error: error
         }))
+<<<<<<< HEAD
+=======
         dispatch(showAcademicData())
+>>>>>>> origin/Sprint-2
       }
       )
   }

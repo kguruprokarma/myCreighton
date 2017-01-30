@@ -16,11 +16,19 @@ const routes = (
   <Provider store={store}>
     <Router history={history}>
       <Route component={Main}>
+<<<<<<< HEAD
+        <Route path='/' title="My Profile" component={Bio} />
+        <Route path='/Profile' title="My Profile" component={Bio} />
+        <Route path='/Academic' title="Academic" component={Academic} />
+        <Route path='/Classes' title="Class Schedule" component={Classes} />
+        <Route path='/ClassDetails/:id/:index' title="Class Detail" component={ClassDetails} />
+=======
         <Route path='/'  title="My Profile" component={Bio} />
         <Route path='/Profile' title="My Profile" component={Bio} />
         <Route path='/Academic' title="Academic" component={Academic} />
         <Route path='/Classes' title="Class Schedule" component={Classes} />
         <Route path='/ClassDetails/:id/:index' title="Class Details" component={ClassDetails} />
+>>>>>>> origin/Sprint-2
       </Route>
     </Router>
   </Provider>

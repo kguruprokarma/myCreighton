@@ -9,9 +9,15 @@ import BasicRow from '../../../../common/basicRow';
 const LegalName = (props) => (
       <article className="profileRow">
             <h3 className="dataHeading openSansRegular">Legal Name</h3>
+<<<<<<< HEAD
+            <BasicRow displayName="First" displayValue={props.json.first} />
+            <BasicRow displayName="Middle" displayValue={props.json.middle} />
+            <BasicRow displayName="Last" displayValue={props.json.last} />
+=======
             <BasicRow displayName="First:" displayValue={props.json.first} />
             <BasicRow displayName="Middle:" displayValue={props.json.middle} />
             <BasicRow displayName="Last:" displayValue={props.json.last} />
+>>>>>>> origin/Sprint-2
       </article>
 )
 

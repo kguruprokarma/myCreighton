@@ -23,7 +23,11 @@ let receiveError = (error) => (
 
 export function getClassDetails(id) {
   return function ( dispatch ) {
+<<<<<<< HEAD
+    dispatch( requestClassDetailsData() )
+=======
     dispatch( receiveClassDetailsData() )
+>>>>>>> origin/Sprint-2
     return classesApi.getClassDetails(id)
       .then( (response) => {		
         dispatch( receiveClassDetailsData( response ) )

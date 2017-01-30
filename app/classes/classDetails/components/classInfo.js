@@ -6,7 +6,11 @@ import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 const ClassInfo = (props) => (
+<<<<<<< HEAD
+    <article className="classInfo">
+=======
     <section className="classInfo">
+>>>>>>> origin/Sprint-2
         <Row>
             <Col xs={12}>
                 <div className="m-grayBorder">
@@ -31,6 +35,10 @@ const ClassInfo = (props) => (
                 </div>
             </Col>
         </Row>
+<<<<<<< HEAD
+    </article>
+=======
     </section>
+>>>>>>> origin/Sprint-2
 )
 export default ClassInfo;
