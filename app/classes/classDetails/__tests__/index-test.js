@@ -1,3 +1,7 @@
+/*Created Date: - 26th -01 -2017
+*Usage of file: - This file is used for unit testing index js file of class detail page*
+*/
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ClassDetails } from '../index';

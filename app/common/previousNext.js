@@ -1,44 +1,57 @@
+/*Created Date: - 26th -01 -2017
+*Usage of file: - This component is used to displays functionality of previous and next*
+*/
+
 import React from 'react'
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import classesReducer from '../classes/classList/reducer'
-import { DATASORT, DATAFILTER, DATAFILTERADDINGDATA } from '../classes/classList/components/utility';
+import { DATAFILTERADDINGDATA } from '../classes/classList/components/utility';
 import * as actionCreators from '../classes/classList/actions';
 const classIds = [];
 
 class PreviousNext extends React.Component {
-    constructor(props) {
-        super(props);
+
+    constructor() {
+        super();
+        this.getLinkIndexAndId = this.getLinkIndexAndId.bind(this);
     }
 
     componentWillMount() {
-        if (classIds[0] == undefined) {
-            let data = DATAFILTERADDINGDATA(this.props.classList.data.classes);
-            data.map((dat, index) => {
-                classIds.push({ index, id: dat.id });
-            });
+        this.props.getClassesDataByWeek();
+    }
+    
+    getLinkIndexAndId() {
+        if (this.props.classList.data && this.props.classList.data.classes.length > 0) {
+            if (classIds[0] == undefined) {
+                let data = DATAFILTERADDINGDATA(this.props.classList.data.classes);
+                data.map((dat, index) => {
+                    classIds.push({ index, id: dat.id });
+                });
+            }
+            let linkIndex = parseInt(this.props.presentIndex);
+            if (linkIndex === 0) {
+                this.previousId = classIds[linkIndex].id;
+                this.previousIndex = classIds[linkIndex].index;
+                this.nextIndex = classIds[linkIndex + 1].index;
+                this.nextId = classIds[linkIndex + 1].id;
+            } else if (classIds.length - 1 === linkIndex) {
+                this.previousId = classIds[linkIndex - 1].id;
+                this.previousIndex = classIds[linkIndex - 1].index;
+                this.nextIndex = classIds[linkIndex].index;
+                this.nextId = classIds[linkIndex].id;
+            } else if (linkIndex > 0 && linkIndex < classIds.length - 1) {
+                this.previousId = classIds[linkIndex - 1].id;
+                this.previousIndex = classIds[linkIndex - 1].index;
+                this.nextIndex = classIds[linkIndex + 1].index;
+                this.nextId = classIds[linkIndex + 1].id;
+            }
         }
     }
 
     render() {
-        let index = parseInt(this.props.presentIndex);
-        if (index === 0) {
-            this.previousId = classIds[index].id;
-            this.previousIndex = classIds[index].index;
-            this.nextIndex = classIds[index + 1].index;
-            this.nextId = classIds[index + 1].id;
-        } else if (classIds.length - 1 === index) {
-            this.previousId = classIds[index - 1].id;
-            this.previousIndex = classIds[index - 1].index;
-            this.nextIndex = classIds[index].index;
-            this.nextId = classIds[index].id;
-        } else if (index > 0 && index < classIds.length - 1) {
-            this.previousId = classIds[index - 1].id;
-            this.previousIndex = classIds[index - 1].index;
-            this.nextIndex = classIds[index + 1].index;
-            this.nextId = classIds[index + 1].id;
-        }
+        this.getLinkIndexAndId();
         return (
             <div className="row">
                 <div className="form-group col-xs-6">
@@ -53,7 +66,7 @@ class PreviousNext extends React.Component {
                     <Link to={"/ClassDetails/"
                         + this.nextId
                         + "/"
-                        + this.nextIndex} className="btn btn-primary" activeStyle={{ pointerEvents: 'none', color: 'gray', background: '#ddd', border: '#ddd' }}> Next 
+                        + this.nextIndex} className="btn btn-primary" activeStyle={{ pointerEvents: 'none', color: 'gray', background: '#ddd', border: '#ddd' }}> Next
                     <span className="glyphicon glyphicon-chevron-right"></span>
                     </Link>
                 </div>
