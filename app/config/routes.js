@@ -1,4 +1,6 @@
-
+/*Created Date: - 26th -01 -2017
+*Usage of file: - This file is used to maintain the routing of the application.*
+*/
 import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';

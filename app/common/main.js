@@ -1,3 +1,7 @@
+/*Created Date: - 19th -01 -2017
+*Usage of file: - This component is used to group the components of header, footer and content*
+*/
+
 import React from 'react';
 import { Panel, Row } from 'react-bootstrap';
 import Header from './header';

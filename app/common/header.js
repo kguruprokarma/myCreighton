@@ -1,3 +1,6 @@
+/*Created Date: - 12th -01 -2017
+*Usage of file: - This component is used to display header*
+*/
 import React from 'react';
 import { Link } from 'react-router';
 import { Grid, Row, Col } from 'react-bootstrap';
