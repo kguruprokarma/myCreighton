@@ -1,0 +1,80 @@
+/*Created Date: - 18th -01 -2017
+*Usage of file: - Styling for student profile: bio and academic*
+*/
+
+.dataHeading{
+   font-size: 15px;
+   color: #313131;
+   text-transform: uppercase; 
+   margin: 0 0 8px;
+   padding-bottom: 6px;
+   border-bottom: 1px solid #c8c7cc;
+}
+
+.labelField {
+    font-size:20px;
+    font-family: 'open_sanslight';
+}
+.dataField {
+    font-size: 21px;  
+}
+
+.emailAddress .dataField {
+    color: #0054a6;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1030px) {
+   
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+/* Profile Page css mobile view */
+@media screen and (max-width: 767px) {
+    .userData {
+        width: 100%;
+    }
+    .dataField {
+        font-size: 18px;
+        font-family: 'open_sanslight';    
+    } 
+    .labelField {
+    font-size:16px;   
+    }
+    .dataHeading{
+        font-size: 14px
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .userData {
+        width: 100%;
+    }
+    .dataField {
+        font-size: 15px;
+    } 
+    .labelField {
+    font-size:14px;   
+    }
+    .dataHeading{
+        font-size: 13px
+    }
+
+}
+/*
+@media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
+@media (max-width: 767px) and (min-resolution: 192dpi) { */
+    /* Retina specific CSS code */
+/*  .dataHeading{
+        font-size: 27px
+    }
+    .dataField {
+        font-size: 36px;
+        color: #0079b3
+    } 
+    .labelField {
+        font-size:36px;
+    }  
+}   */
