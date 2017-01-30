@@ -6,8 +6,8 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const LeftNav = (props) => (
-    <nav role="Left Navigation" role="leftNavigation" className="userLeftmenu">
-    <h3 className="announced-only">Left Navigation</h3>
+    <nav role="navigation" id="localmenu" className="userLeftmenu">
+    <h1 className="announced-only">Local menu</h1>
         <div className="list-group openSansLight">
             <Link to="/Profile" className="list-group-item active">My Profile</Link>
             <Link to="/Academic" className="list-group-item">Academic</Link>

@@ -5,8 +5,6 @@
 import React from 'react';
 
 const HeaderLabel = (props) => (
-    <article role="Class schedule" id="classSchedule" className="top-header form-group">
-        <h2 className="bebasregular headerLabel mt5 mb20">{props.headerLabel}</h2>
-    </article>
+        <h1 className="bebasregular headerLabel mt5 mb20">{props.headerLabel}</h1>
 )
 export default HeaderLabel;

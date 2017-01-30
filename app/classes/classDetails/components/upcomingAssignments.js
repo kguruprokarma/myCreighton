@@ -5,17 +5,17 @@
 import React from 'react';
 
 const UpcomingAssignments = (props) => (
-	<div className="upcomingAssignments mb25">
+	<article className="upcomingAssignments mb25">
 		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>UPCOMING ASSIGNMENTS</h4>
 		{props.json.upcomingAssignments.map((data, index) => {
 			return (
-				<div className="openSansLight fs18 gbl_lh" key={index}>
+				<div className="openSansLight fs1pt2 gbl_lh" key={index}>
 					{data.date}- {data.assignment}
 				</div>
 			)
 		})
 		}
-	</div>
+	</article>
 )
 
 export default UpcomingAssignments; 

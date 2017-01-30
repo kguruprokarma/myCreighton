@@ -23,7 +23,7 @@ let receiveError = (error) => (
 
 export function getClassDetails(id) {
   return function ( dispatch ) {
-    dispatch( receiveClassDetailsData() )
+    dispatch( requestClassDetailsData() )
     return classesApi.getClassDetails(id)
       .then( (response) => {		
         dispatch( receiveClassDetailsData( response ) )

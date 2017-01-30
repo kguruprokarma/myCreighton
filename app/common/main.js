@@ -22,12 +22,14 @@ class Main extends React.PureComponent {
         <Header />
         {/* /this is header section */}
         {/* this is main section */}
-        <main id="main-content" role="main" className="container">
+        <main role="main" id="content" className="container"><a id="maincontent"></a>
           {this.props.children}
         </main>
         {/* /this is main section */}
         {/* this is footer section */}
-        <footer className="footer"></footer>
+        <footer className="footer" role="Content info">
+        <h1 className="announced-only">Page footer</h1>
+        </footer>
         {/* /this is footer section */}
         {this.state.showPatch && <div className="popUpPatch"></div>}
       </div>

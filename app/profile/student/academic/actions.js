@@ -35,7 +35,6 @@ export function getAcademicData() {
         dispatch(receiveError({
           error: error
         }))
-        dispatch(showAcademicData())
       }
       )
   }

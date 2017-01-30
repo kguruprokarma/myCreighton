@@ -5,17 +5,17 @@
 import React from 'react';
 
 const TestsOrQuizzes = (props) => (
-	<div className="classTestOrQuizz mb25">
+	<article className="classTestOrQuizz mb25">
 		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>TEST/QUIZZES</h4>
 		{props.json.testsOrQuizzes.map((data, index) => {
 			return (
-				<div className="openSansLight fs18 gbl_lh" key={index}>
+				<div className="openSansLight fs1pt2 gbl_lh" key={index}>
 					{data.date}- {data.assignment}
 				</div>
 			)
 		})
 		}
-	</div>
+	</article>
 )
 
 export default TestsOrQuizzes; 

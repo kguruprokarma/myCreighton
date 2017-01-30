@@ -1,1 +1,1 @@
-app : Main folder of  creighton appliation 
+app : Main folder of  creighton appliation

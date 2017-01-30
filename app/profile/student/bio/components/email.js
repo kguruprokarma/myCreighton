@@ -13,7 +13,7 @@ const Email = (emailProps) => (
             <h3 className="dataHeading openSansRegular">Email</h3>
             {/* School email address */}
             <Row className="show-grid pt5 pb5">
-                  <Col xs={4} md={3} sm={4} className="labelField openSansLight">School: </Col>
+                  <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>School</label> </Col>
                   <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
                         {/* Mailto added for open mail box popup */}
                         <Mailto email={emailProps.json.school.value}>{emailProps.json.school.value}</Mailto>
@@ -21,7 +21,7 @@ const Email = (emailProps) => (
             </Row>
             {/* Personal email address */}
             <Row className="show-grid pt5 pb5">
-                  <Col xs={4} md={3} sm={4} className="labelField openSansLight">Personal: </Col>
+                  <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>Personal</label> </Col>
                   <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
                         {/* Mailto added for open mail box popup */}
                         <Mailto email={emailProps.json.personal.value}>{emailProps.json.personal.value}</Mailto>

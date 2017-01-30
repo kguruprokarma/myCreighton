@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 const ClassInfo = (props) => (
-    <section className="classInfo">
+    <article className="classInfo">
         <Row>
             <Col xs={12}>
                 <div className="m-grayBorder">
@@ -31,6 +31,6 @@ const ClassInfo = (props) => (
                 </div>
             </Col>
         </Row>
-    </section>
+    </article>
 )
 export default ClassInfo;

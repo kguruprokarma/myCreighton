@@ -7,11 +7,11 @@ import { Panel, Grid } from 'react-bootstrap';
 import BasicRow from '../../../../common/basicRow';
 
 const Dependent = (props) => (
-    <div>
-        <BasicRow displayName="First name:" displayValue={props.json.firstName} />
-        <BasicRow displayName="Middle:" displayValue={props.json.middleName} />
-        <BasicRow displayName="Last:" displayValue={props.json.lastName} />
-    </div>
+    <section>
+        <BasicRow displayName="First name" displayValue={props.json.firstName} />
+        <BasicRow displayName="Middle" displayValue={props.json.middleName} />
+        <BasicRow displayName="Last" displayValue={props.json.lastName} />
+    </section>
 )
 
 export default Dependent;

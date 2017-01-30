@@ -7,8 +7,8 @@ import ClassBoxWeek from './classBoxWeek';
 import { DATAFILTERADDINGDATA } from './utility';
 
 const ClassBox = (props) => (
-	<div>
+	<article>
 		<ClassBoxWeek listOfData={DATAFILTERADDINGDATA(props.data)} />
-	</div>
+	</article>
 )
 export default ClassBox;

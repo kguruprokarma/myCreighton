@@ -9,7 +9,7 @@ import BasicRow from '../../../../common/basicRow';
 const PrimaryContact = (props) => (
       <article className="profileRow mt30 emailAddress">
             <h3 className="dataHeading openSansRegular">Primary Contact</h3>
-            <BasicRow displayName="Phone:" displayValue={props.json.primaryPhone} />
+            <BasicRow displayName="Phone" displayValue={props.json.primaryPhone} />
       </article>
 )
 export default PrimaryContact;

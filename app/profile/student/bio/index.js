@@ -34,7 +34,6 @@ export class Profile extends React.PureComponent {
     let USER_DATA = this.props.profileData
     return (
       <section>
-        <h1 className="announced-only">Profile data</h1>
         <HeaderLabel headerLabel="My Profile" />
         {USER_DATA &&
           <Row>
