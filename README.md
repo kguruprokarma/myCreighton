@@ -19,6 +19,6 @@ Click [here](https://github.com/kguruprokarma/myCreighton):
 
 ```
 	> 
-	> 
+	> My Creighton
 ```
 

@@ -1,0 +1,31 @@
+{
+"studentProfile": {
+		"academicDetail": {
+			"status": {
+				"major": "Usman",
+				"minor": "ALi",
+				"class": "Sophomore",
+				"ranking": "89",
+				"enrollment": "Active",
+				"disciplinary": "none"
+			},
+		"advisorDetail": {
+			"name": {
+				"first": "Marshall",
+				"middle": "",
+				"last": "Zimmerman"
+			},
+			"area": "Biological sciences",
+			"office": "Bullding name Rm 314",
+			"officeHours": {
+				"startTime": "08:00",
+				"endTime": "11:30",
+				"weekDay1": "MON",
+				"weekDay2": "WED",
+				"weekDay3": "FRI"
+			},
+			"emailAddress": "mzimmerman@creighton.edu"
+			}
+		}
+	}
+}

@@ -1,0 +1,110 @@
+@import "mixins.scss";
+@import "variables.scss";
+
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+   font-family: $font-serif;
+   font-size: 14px;
+}
+.wrapper
+{
+    min-height:100%;
+    position:relative;
+}
+h1
+{
+    @include title-style();
+}
+.well
+{
+    padding:$size-ten $size-ten + 5 $size-ten $size-ten + 5;
+    overflow: hidden;
+}
+.well-primary {
+    
+    @extend .well;
+        border-color: $color-main;
+        background-color: $color-white;
+}
+
+header {
+    
+    background-color: $color-main;
+
+       .header
+        {   
+            .navbar-default 
+            {
+                background-color: $transparent;
+                border: $size-zero;
+                margin-bottom: $size-zero;
+
+               .navbar-toggle:hover, .navbar-toggle:focus {
+                    background-color: transparent;
+                }
+
+                .navbar-toggle
+                {
+                padding: $size-zero;
+                margin-top: $size-ten + 5;
+                }
+
+                .navbar-toggle
+                 {
+                    border: $size-zero;
+                 }
+
+            }
+
+            .text-logo
+            {
+                line-height: $size-twenty + 28;
+                color: $color-white;
+                font-weight: bold;
+            }
+            
+            .head-Icons
+            {
+                font-size: $size-twenty - 2;
+                color: $color-white;
+                line-height: $size-twenty + 28;
+                margin-right: $size-ten + 5;
+            }
+
+        .header .navbar-default .navbar-toggle .icon-bar
+            {
+                background-color: $color-white;
+                width: $size-twenty + 10;
+                height: $size-five - 2;
+                margin-bottom: $size-five + 1;
+            }
+
+            .header .navbar-collapse
+            {
+                background-color: $color-white;
+            }
+
+            .header .menu-heading
+            {
+                    padding: $size-ten  $size-ten + $size-five;
+            }
+
+            .nav > li 
+            {
+                border-bottom:$size-zero + 1 solid $color-lightgray;
+            }
+            
+            .header .navbar-nav
+            {
+                margin-top:$size-zero;
+            }
+        }   
+    }
+
+section
+{
+    margin-top: $size-twenty;
+}
