@@ -9,19 +9,11 @@ import BasicRow from '../../../../common/basicRow';
 const HomeAddress = (props) => (
       <article className="profileRow mt30">
             <h3 className="dataHeading openSansRegular">Home Address</h3>
-<<<<<<< HEAD
             <BasicRow displayName="Street 1" displayValue={props.json.street1} />
             <BasicRow displayName="Street 2" displayValue={props.json.street2} />
             <BasicRow displayName="City" displayValue={props.json.city} />
             <BasicRow displayName="State" displayValue={props.json.state} />
             <BasicRow displayName="ZIP Code" displayValue={props.json.postalCode} />
-=======
-            <BasicRow displayName="Street 1:" displayValue={props.json.street1} />
-            <BasicRow displayName="Street 2:" displayValue={props.json.street2} />
-            <BasicRow displayName="City:" displayValue={props.json.city} />
-            <BasicRow displayName="State:" displayValue={props.json.state} />
-            <BasicRow displayName="ZIP Code:" displayValue={props.json.postalCode} />
->>>>>>> origin/Sprint-2
       </article>
 )
 

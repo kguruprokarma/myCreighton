@@ -28,7 +28,6 @@ export class Academic extends React.PureComponent {
 		let USER_DATA = this.props.academicData
 		return (
 			<section id="academic">
-<<<<<<< HEAD
 				<HeaderLabel headerLabel="Academic" />
 				{USER_DATA &&
 					<Row>
@@ -40,20 +39,6 @@ export class Academic extends React.PureComponent {
 							<LeftNav />
 						</Col>
 					</Row>
-=======
-			<h1 className="announced-only">Academic Data</h1>
-			<HeaderLabel headerLabel="Academic" />
-				{USER_DATA &&
-						<Row>
-							<Col sm={8} md={9} xs={12} className="userData pull-right">
-								<AcademicStatus json={USER_DATA.studentProfile.academicDetail} />
-								<AdvisorInformation json={USER_DATA.studentProfile.academicDetail} />
-							</Col>
-							<Col md={3} sm={4} className="hidden-xs">
-								<LeftNav />
-							</Col>
-						</Row>
->>>>>>> origin/Sprint-2
 				}
 			</section>
 		);

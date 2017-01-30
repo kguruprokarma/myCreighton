@@ -32,24 +32,14 @@ export class ClassDetails extends React.PureComponent {
             && _.find(this.props.classDetails.data, { id: parseInt(this.props.params.id) });
         return (
             <section className="classesDeatils">
-<<<<<<< HEAD
             <HeaderLabel headerLabel="CLASS DETAIL" />
                 {(classData && Object.keys(classData).length > 0) && (<div>
-=======
-            <h3 className="announced-only">Class details heading</h3>
-                {(classData && Object.keys(classData).length > 0) && (<article>
-                    <HeaderLabel headerLabel="CLASS DETAIL" />
->>>>>>> origin/Sprint-2
                     <ClassInfo json={classData.classHeader} />
                     <ClassAssignments assignmentsData={classData} />
                     <TodaysClass json={classData} />
                     <UpcomingAssignments json={classData} />
                     <TestsOrQuizzes json={classData} />
-<<<<<<< HEAD
                 </div>)}
-=======
-                </article>)}
->>>>>>> origin/Sprint-2
                 <PreviousNext presentIndex={this.props.params.index} />
             </section>
 

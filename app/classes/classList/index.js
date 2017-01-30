@@ -26,10 +26,6 @@ export class Classes extends React.PureComponent {
     let USER_DATA = this.props.classesData
     return (
       <section id="classSchedule">
-<<<<<<< HEAD
-=======
-      <h2 className="announced-only">Class Schedule Data</h2>
->>>>>>> origin/Sprint-2
         {USER_DATA && <div>
           <Row>
             <Col md={8} sm={6} xs={12}>
