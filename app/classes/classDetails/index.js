@@ -12,7 +12,6 @@ import TodaysClass from './../classDetails/components/todaysClass';
 import UpcomingAssignments from './../classDetails/components/upcomingAssignments';
 import TestsOrQuizzes from './../classDetails/components/testsOrQuizzes';
 import * as actionCreators from './actions';
-import * as classListActionCreators from '../classList/actions';
 import style from '../classDetails/style.css';
 import * as _ from 'lodash';
 import { Link } from 'react-router';
@@ -26,7 +25,6 @@ export class ClassDetails extends React.PureComponent {
 
     componentWillMount() {
         this.props.getClassDetails(this.props.params.id);
-        this.props.getClassesDataByWeek();
     }
     render() {
 
@@ -42,7 +40,7 @@ export class ClassDetails extends React.PureComponent {
                     <UpcomingAssignments json={classData} />
                     <TestsOrQuizzes json={classData} />
                 </div>)}
-                {(classData && Object.keys(classData).length > 0 && this.props.classList.data.classes.length >1) && (
+                {(classData && Object.keys(classData).length > 0) && (
                 <PreviousNext presentIndex={this.props.params.index} />)}
             </section>
 
@@ -52,12 +50,11 @@ export class ClassDetails extends React.PureComponent {
 
 const mapStateToProps = (state) => (
     {
-        classDetails: state.classDetailsReducer.classDetails,
-        classList: state.classesReducer.classesData
+        classDetails: state.classDetailsReducer.classDetails
 
     })
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, classListActionCreators), dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClassDetails)
 
