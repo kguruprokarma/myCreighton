@@ -20,7 +20,7 @@
 			"officeHours": {
 				"startTime": "09:00am",
 				"endTime": "06:00pm",
-				"weekDays": "MON, WED, FRI"
+				"weekDays": "Mon, Wed, Fri"
 			},
 			"emailAddress": "mzimmerman@creighton.edu"
 			}
