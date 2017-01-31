@@ -3,25 +3,23 @@ import { Link } from 'react-router';
 
 export const array = {
     'paths': [
-        { 'path': '/Profile' 
-    }, {
-        'path': '/Profile'
-    }, {
-        'path': '/Academic'
-    }, {
-        'path': '/StudentLife'
-    },{ 
-        'path': '/StudentLife' }]
+        {
+            'path': '/Profile'
+        }, {
+            'path': '/Profile'
+        }, {
+            'path': '/Academic'
+        }, {
+            'path': '/StudentLife'
+        }, {
+            'path': '/StudentLife'
+        }]
 }
 
 class PreviousNext extends React.Component {
     constructor(props) {
         super(props);
         this.presentPath = this.props.presentPath;
-
-    }
-    dynamicButtonDisable() {
-        return "malappa";
 
     }
 
@@ -37,7 +35,7 @@ class PreviousNext extends React.Component {
         }
         return (
             <div className="row">
-                <div className="form-group col-xs-6"><Link to={this.previous} activeStyle={{ pointerEvents: 'none', color: 'gray' }}  className="form-group btn btn-primary">Previous</Link></div>
+                <div className="form-group col-xs-6"><Link to={this.previous} activeStyle={{ pointerEvents: 'none', color: 'gray' }} className="form-group btn btn-primary">Previous</Link></div>
                 <div className="form-group col-xs-6 text-right"><Link to={this.next} className="form-group btn btn-primary" activeStyle={{ pointerEvents: 'none', color: 'gray' }} >Next</Link></div>
             </div>
         );
