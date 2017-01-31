@@ -6,12 +6,12 @@ import React from 'react';
 import { Panel, Grid } from 'react-bootstrap';
 import BasicRow from '../../../../common/basicRow';
 
-const LegalName = (props) => (
+const LegalName = (legalNameProps) => (
       <article className="profileRow">
             <h3 className="dataHeading openSansRegular">Legal Name</h3>
-            <BasicRow displayName="First" displayValue={props.json.first} />
-            <BasicRow displayName="Middle" displayValue={props.json.middle} />
-            <BasicRow displayName="Last" displayValue={props.json.last} />
+            <BasicRow displayName="First" displayValue={legalNameProps.legalName.first} />
+            <BasicRow displayName="Middle" displayValue={legalNameProps.legalName.middle} />
+            <BasicRow displayName="Last" displayValue={legalNameProps.legalName.last} />
       </article>
 )
 

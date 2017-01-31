@@ -7,8 +7,17 @@ import {shallow} from 'enzyme';
 import HomeAddress from '../components/homeAddress';
 import SchoolAddress from '../components/schoolAddress';
 
-const defaultProps = {
-    json: {
+const homeAddressProps = {
+    homeAddress: {
+      street1: "street1 name",
+      street2: "street2 name",
+      city: "CIty name",
+      state: "state name",
+      postalCode: "500008"
+    }
+  };
+  const schoolAddressProps = {
+    schoolAddress: {
       street1: "street1 name",
       street2: "street2 name",
       city: "CIty name",
@@ -18,11 +27,11 @@ const defaultProps = {
   };
 it('HomeAddress is defined', () => {
   
-  const homeAddress = shallow(<HomeAddress {...defaultProps} />);
+  const homeAddress = shallow(<HomeAddress {...homeAddressProps} />);
   expect(homeAddress).toBeDefined();
 });
 it('SchoolAddress is defined', () => {
 
-  const schoolAddress = shallow(<SchoolAddress {...defaultProps} />);
+  const schoolAddress = shallow(<SchoolAddress {...schoolAddressProps} />);
   expect(schoolAddress).toBeDefined();
 });

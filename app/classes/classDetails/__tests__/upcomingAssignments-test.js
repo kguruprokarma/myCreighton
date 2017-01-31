@@ -6,12 +6,10 @@ describe('UpcomingAssignments component testing ----->', () => {
     it('UpcomingAssignments is defined', () => {
 
     const defaultProps = {
-        json: {
             upcomingAssignments:[ {
                 date: "01/22/2017",
                 assignment: "Home address"
             }]
-        }
     }
     const upcomingAssignments = shallow( < UpcomingAssignments {...defaultProps }  />);
         expect(upcomingAssignments).toBeDefined();

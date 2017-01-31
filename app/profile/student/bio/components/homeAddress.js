@@ -6,14 +6,14 @@ import React from 'react';
 import { Panel, Grid } from 'react-bootstrap';
 import BasicRow from '../../../../common/basicRow';
 
-const HomeAddress = (props) => (
+const HomeAddress = (homeAddressProps) => (
       <article className="profileRow mt30">
             <h3 className="dataHeading openSansRegular">Home Address</h3>
-            <BasicRow displayName="Street 1" displayValue={props.json.street1} />
-            <BasicRow displayName="Street 2" displayValue={props.json.street2} />
-            <BasicRow displayName="City" displayValue={props.json.city} />
-            <BasicRow displayName="State" displayValue={props.json.state} />
-            <BasicRow displayName="ZIP Code" displayValue={props.json.postalCode} />
+            <BasicRow displayName="Street 1" displayValue={homeAddressProps.homeAddress.street1} />
+            <BasicRow displayName="Street 2" displayValue={homeAddressProps.homeAddress.street2} />
+            <BasicRow displayName="City" displayValue={homeAddressProps.homeAddress.city} />
+            <BasicRow displayName="State" displayValue={homeAddressProps.homeAddress.state} />
+            <BasicRow displayName="ZIP Code" displayValue={homeAddressProps.homeAddress.postalCode} />
       </article>
 )
 

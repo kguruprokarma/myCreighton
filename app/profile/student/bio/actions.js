@@ -15,10 +15,10 @@ let receiveStudentProfileData = (profileData) => (
     data: profileData
   })
 
-let receiveError = (json) => (
+let receiveError = (bioJson) => (
   {
     type: types.RECEIVE_STUDENT_DATA_ERROR,
-    data: json
+    data: bioJson
   })
 
 export function getStudentProfileData() {
