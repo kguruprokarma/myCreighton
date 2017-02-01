@@ -50,8 +50,8 @@ describe('index component testing ----->', () => {
 		expect(ClassesC.find('HeaderLabel').prop('headerLabel')).toBe("Class Schedule");
 	});
 
-	it('ClassesC ClassControls to be defined', () => {
-		expect(ClassesC.find('ClassControls').length).toBe(1);
+	it('ClassesC ClassTabController to be defined', () => {
+		expect(ClassesC.find('ClassTabController').length).toBe(1);
 	});
 
 	it('ClassesC ClassBox to be defined', () => {

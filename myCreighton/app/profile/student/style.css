@@ -1,0 +1,80 @@
+/*Created Date: - 18th -01 -2017
+*Usage of file: - Styling for student profile: bio and academic*
+*/
+
+.dataHeading{
+    font-size: 1em; /* font size 15 in pixel */
+   color: #313131;
+   text-transform: uppercase; 
+   margin: 0 0 8px;
+   padding-bottom: 6px;
+   border-bottom: 1px solid #c8c7cc;
+}
+
+.labelField {
+    font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    font-family: 'open_sanslight';
+}
+.dataField {
+    font-size: 1.4em;   /* font size 21 in pixel */  
+}
+
+.emailAddress .dataField {
+    color: #0054a6;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1030px) {
+   
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+/* Profile Page css mobile view */
+@media screen and (max-width: 767px) {
+    .userData {
+        width: 100%;
+    }
+    .dataField {
+        font-size: 1.2em;   /* font size 18 in pixel */
+        font-family: 'open_sanslight';    
+    } 
+    .labelField {
+        font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+    }
+    .dataHeading{
+        font-size: 0.9333333333333333em; /* font size 14 in pixel */
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .userData {
+        width: 100%;
+    }
+    .dataField {
+        font-size: 1em; /* font size 15 in pixel */
+    } 
+    .labelField {
+        font-size: 0.9333333333333333em; /* font size 14 in pixel */  
+    }
+    .dataHeading{
+        font-size: 0.8666666666666667em;    /* font size 13 in pixel */
+    }
+
+}
+/*
+@media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
+@media (max-width: 767px) and (min-resolution: 192dpi) { */
+    /* Retina specific CSS code */
+/*  .dataHeading{
+        font-size: 27px
+    }
+    .dataField {
+        font-size: 36px;
+        color: #0079b3
+    } 
+    .labelField {
+        font-size:36px;
+    }  
+}   */

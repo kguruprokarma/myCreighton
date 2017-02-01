@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
 import HeaderLabel from './../../common/headerLabel';
-import ClassControls from './components/classControls';
+import ClassTabController from './components/classTabController';
 import ClassBox from './components/classBox';
 import * as actionCreators from './actions';
 import style from '../classList/style.css';
@@ -32,7 +32,7 @@ export class Classes extends React.PureComponent {
               <HeaderLabel headerLabel="Class Schedule" />
             </Col>
             <Col md={4} sm={6} xs={12}>
-              <ClassControls />
+              <ClassTabController />
             </Col>
           </Row>
           <ClassBox data={USER_DATA.classes} />
@@ -43,9 +43,9 @@ export class Classes extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (state) => (
+const mapStateToProps = (classesState) => (
   {
-    classesData: state.classesReducer.classesData.data
+    classesData: classesState.classesReducer.classesData.data
   })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)

@@ -5,13 +5,14 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-const ClassInfo = (props) => (
+const ClassInfo = (classInfoProps) => (
+
     <article className="classInfo">
         <Row>
             <Col xs={12}>
                 <div className="m-grayBorder">
-                    <h3 className="pull-left classDetailHeading">{props.json.name} </h3>
-                    <p className="pull-left classDetialOn">{props.json.on}</p>
+                    <h3 className="pull-left classDetailHeading">{classInfoProps.name} </h3>
+                    <p className="pull-left classDetialOn">{classInfoProps.on}</p>
                 </div>
             </Col>
         </Row>
@@ -20,12 +21,12 @@ const ClassInfo = (props) => (
                 <div className="graybtBorder pb10">
                     <Row>
                         <Col xs={6}>
-                            <p>{props.json.place}</p>
-                            <p>{props.json.recurrence} {props.json.time}</p>
+                            <p>{classInfoProps.place}</p>
+                            <p>{classInfoProps.recurrence} {classInfoProps.time}</p>
                         </Col>
                         <Col xs={6} className="text-right">
-                            <p>{props.json.by}</p>
-                            <p>Next: {props.json.date}</p>
+                            <p>{classInfoProps.by}</p>
+                            <p>Next: {classInfoProps.date}</p>
                         </Col>
                     </Row>
                 </div>

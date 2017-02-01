@@ -83,35 +83,35 @@ describe('index files in bio testing ----->', () => {
     });
     it('Check LegalName component is present', () => {
         expect(profile.find('LegalName').length).toBe(1);
-        expect(profile.find('LegalName').prop('json')).toBe(minProps.profileData.studentProfile.bioData.legalName);
+        expect(profile.find('LegalName').prop('legalName')).toBe(minProps.profileData.studentProfile.bioData.legalName);
     });
     it('Check HomeAddress component is present', () => {
         expect(profile.find('HomeAddress').length).toBe(1);
-        expect(profile.find('HomeAddress').prop('json')).toBe(minProps.profileData.studentProfile.bioData.address.home);
+        expect(profile.find('HomeAddress').prop('homeAddress')).toBe(minProps.profileData.studentProfile.bioData.address.home);
     });
     it('Check SchoolAddress component is present', () => {
         expect(profile.find('SchoolAddress').length).toBe(1);
-        expect(profile.find('SchoolAddress').prop('json')).toBe(minProps.profileData.studentProfile.bioData.address.school);
+        expect(profile.find('SchoolAddress').prop('schoolAddress')).toBe(minProps.profileData.studentProfile.bioData.address.school);
     });
     it('Check PrimaryContact component is present', () => {
         expect(profile.find('PrimaryContact').length).toBe(1);
-        expect(profile.find('PrimaryContact').prop('json')).toBe(minProps.profileData.studentProfile.bioData.contactDetail);
+        expect(profile.find('PrimaryContact').prop('primaryContact')).toBe(minProps.profileData.studentProfile.bioData.contactDetail);
     });
     it('Check EmergencyContact component is present', () => {
         expect(profile.find('EmergencyContact').length).toBe(1);
-        expect(profile.find('EmergencyContact').prop('json')).toBe(minProps.profileData.studentProfile.bioData.contactDetail.emergencyContact);
+        expect(profile.find('EmergencyContact').prop('emergencyContact')).toBe(minProps.profileData.studentProfile.bioData.contactDetail.emergencyContact);
     });
     it('Check Email component is present', () => {
         expect(profile.find('Email').length).toBe(1);
-        expect(profile.find('Email').prop('json')).toBe(minProps.profileData.studentProfile.bioData.contactDetail.email);
+        expect(profile.find('Email').prop('email')).toBe(minProps.profileData.studentProfile.bioData.contactDetail.email);
     });
     it('Check Other component is present', () => {
         expect(profile.find('Other').length).toBe(1);
-        expect(profile.find('Other').prop('json')).toBe(minProps.profileData.studentProfile.bioData.contactDetail);
+        expect(profile.find('Other').prop('other')).toBe(minProps.profileData.studentProfile.bioData.contactDetail);
     });
     it('Check RelationDetail component is present', () => {
         expect(profile.find('RelationDetail').length).toBe(1);
-        expect(profile.find('RelationDetail').prop('json')).toBe(minProps.profileData.studentProfile.bioData.contactDetail.relationDetail);
+        expect(profile.find('RelationDetail').prop('relationDetail')).toBe(minProps.profileData.studentProfile.bioData.contactDetail.relationDetail);
     });
 
 });

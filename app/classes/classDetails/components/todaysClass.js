@@ -4,13 +4,13 @@
 
 import React from 'react';
 
-const TodaysClass = (props) => (
+const TodaysClass = (todayClassProps) => (
 	<article className="todaysClass mb25">
 		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>TODAY’S CLASS</h4>
-		{props.json.todaysClass.map((data, index) => {
+		{todayClassProps.todaysClass.map((todayClass, todayClassIndex) => {
 			return (
-				<div className="openSansLight fs1pt2 gbl_lh" key={index}>
-					{data}
+				<div className="openSansLight fs1pt2 gbl_lh" key={todayClassIndex}>
+					{todayClass}
 				</div>
 			)
 		})

@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import classesReducer from '../classes/classList/reducer'
-import { DATAFILTERADDINGDATA } from '../classes/classList/components/utility';
+import { DATAFILTERADDINGDATA } from './utility';
 import * as actionCreators from '../classes/classList/actions';
 const classIds = [];
 
@@ -21,7 +21,7 @@ class PreviousNext extends React.Component {
     componentWillMount() {
         this.props.getClassesDataByWeek();
     }
-    
+
     getLinkIndexAndId() {
         if (this.props.classList.data && this.props.classList.data.classes.length > 0) {
             if (classIds[0] == undefined) {
@@ -46,6 +46,29 @@ class PreviousNext extends React.Component {
                 this.previousIndex = classIds[linkIndex - 1].index;
                 this.nextIndex = classIds[linkIndex + 1].index;
                 this.nextId = classIds[linkIndex + 1].id;
+            if (classIds.length > 1) {
+                if (linkIndex === 0) {
+                    this.previousId = classIds[linkIndex].id;
+                    this.previousIndex = classIds[linkIndex].index;
+                    this.nextIndex = classIds[linkIndex + 1].index;
+                    this.nextId = classIds[linkIndex + 1].id;
+                } else if (classIds.length - 1 === linkIndex) {
+                    this.previousId = classIds[linkIndex - 1].id;
+                    this.previousIndex = classIds[linkIndex - 1].index;
+                    this.nextIndex = classIds[linkIndex].index;
+                    this.nextId = classIds[linkIndex].id;
+                } else if (linkIndex > 0 && linkIndex < classIds.length - 1) {
+                    this.previousId = classIds[linkIndex - 1].id;
+                    this.previousIndex = classIds[linkIndex - 1].index;
+                    this.nextIndex = classIds[linkIndex + 1].index;
+                    this.nextId = classIds[linkIndex + 1].id;
+                }
+            }
+            else {
+                this.previousId = classIds[linkIndex].id;
+                this.previousIndex = classIds[linkIndex].index;
+                this.nextIndex = classIds[linkIndex].index;
+                this.nextId = classIds[linkIndex].id;
             }
         }
     }

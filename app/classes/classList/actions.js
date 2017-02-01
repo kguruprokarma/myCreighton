@@ -2,8 +2,9 @@
 *Usage of file: - This action is used to get class schedule of a user.*
 */
 
-import classesApi from '../../middleware/classes/api'
-import * as types from './actionTypes'
+
+import classesApi from '../../middleware/classes/api';
+import * as types from './actionTypes';
 
 let requestData = () => ({
   type: types.REQUEST_CLASSES_DATA

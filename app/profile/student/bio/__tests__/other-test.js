@@ -9,7 +9,7 @@ import Other from '../components/other';
 it('Other is defined', () => {
 
   const defaultProps = {
-    json: {
+    other: {
       birthDate: "13-02-1993",
       netID: "0786"
     }
