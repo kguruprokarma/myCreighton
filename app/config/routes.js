@@ -11,6 +11,7 @@ import Bio from '../profile/student/bio';
 import Academic from '../profile/student/academic';
 import Classes from '../classes/classList';
 import ClassDetails from '../classes/classDetails';
+import Dashboard from '../dashboard';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
@@ -23,6 +24,7 @@ const routes = (
         <Route path='/Academic' title="Academic" component={Academic} />
         <Route path='/Classes' title="Class Schedule" component={Classes} />
         <Route path='/ClassDetails/:id/:index' title="Class Detail" component={ClassDetails} />
+        <Route path='/Dashboard'  title="Dashboard" component={Dashboard} />
       </Route>
     </Router>
   </Provider>
