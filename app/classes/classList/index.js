@@ -19,7 +19,14 @@ export class Classes extends React.PureComponent {
   }
 
   componentWillMount() {
-    this.props.getClassesDataByWeek()
+    if (this.props.catagoryName == "Week") {
+            this.props.getClassesDataByWeek();
+        } else if (this.props.catagoryName == "List") {
+            this.props.getClassesDataForAtoZ();
+        } else if (this.props.catagoryName == "Today") {
+            this.props.getClassesDataByToday();
+        }
+        
   }
 
   render() {
@@ -35,7 +42,7 @@ export class Classes extends React.PureComponent {
               <ClassTabController />
             </Col>
           </Row>
-          <ClassBox data={USER_DATA.classes} />
+          <ClassBox data={USER_DATA.classes} catagoryName={this.props.catagoryName} />
         </div>
         }
       </section>
@@ -45,7 +52,8 @@ export class Classes extends React.PureComponent {
 
 const mapStateToProps = (classesState) => (
   {
-    classesData: classesState.classesReducer.classesData.data
+    classesData: classesState.classesReducer.classesData.data,
+    catagoryName: classesState.classesReducer.catagoryName
   })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)

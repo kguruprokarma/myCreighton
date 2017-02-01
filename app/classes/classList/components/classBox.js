@@ -4,11 +4,29 @@
 
 import React from 'react';
 import WeekClasses from './weekClasses';
-import { DATAFILTERADDINGDATA } from '../../../common/utility';
+import { DATAFILTERADDINGDATA, DATASORT, DATATIME } from '../../../common/utility';
+import AToZClasses from './aToZClasses';
+import TodayClasses from './todayClasses';
+export const classes = [];
 
-const ClassBox = (props) => (
-	<article>
-		<WeekClasses listOfData={DATAFILTERADDINGDATA(props.data)} />
-	</article>
-)
+class ClassBox extends React.Component {
+	render() {
+		return (
+			<div>
+				{
+					this.props.catagoryName === 'Today' ? (
+						<TodayClasses listOfData={DATATIME(this.props.data, 'time', 'ASC')} />
+					) : (
+							(this.props.catagoryName === 'Week' ? (
+								<WeekClasses listOfData={DATAFILTERADDINGDATA(this.props.data)} />)
+								: (<AToZClasses listOfData={DATASORT(this.props.data, 'name', 'ASC')} />)
+							)
+						)
+				}
+			</div>
+		);
+	}
+
+}
+
 export default ClassBox;

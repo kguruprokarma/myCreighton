@@ -2,14 +2,17 @@
 *Usage of file: - This component is used to displays functionality of previous and next*
 */
 
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import classesReducer from '../classes/classList/reducer'
-import { DATAFILTERADDINGDATA } from './utility';
+import { DATASORT, DATAFILTERADDINGDATA, DATATIME } from './utility';
+
 import * as actionCreators from '../classes/classList/actions';
-const classIds = [];
+
+
+let classIds = [];
 
 class PreviousNext extends React.Component {
 
@@ -19,17 +22,40 @@ class PreviousNext extends React.Component {
     }
 
     componentWillMount() {
-        this.props.getClassesDataByWeek();
+        if (this.props.catagoryName == "Week") {
+            this.props.getClassesDataByWeek();
+        } else if (this.props.catagoryName == "List") {
+            this.props.getClassesDataForAtoZ();
+        } else if (this.props.catagoryName == "Today") {
+            this.props.getClassesDataByToday();
+        }
     }
 
     getLinkIndexAndId() {
         if (this.props.classList.data && this.props.classList.data.classes.length > 0) {
-            if (classIds[0] == undefined) {
+            if (this.props.catagoryName == "Week") {
+                classIds = [];
                 let data = DATAFILTERADDINGDATA(this.props.classList.data.classes);
                 data.map((dat, index) => {
                     classIds.push({ index, id: dat.id });
                 });
+
+            } else if (this.props.catagoryName == "List") {
+                classIds = [];
+                let data = DATASORT(this.props.classList.data.classes, 'name', 'ASC');
+                data.map((dat, index) => {
+                    classIds.push({ index, id: dat.id });
+                });
+
+            } else if (this.props.catagoryName == "Today") {
+                classIds = [];
+                let data = DATATIME(this.props.classList.data.classes, 'time', 'ASC');
+                data.map((dat, index) => {
+                    classIds.push({ index, id: dat.id });
+                });
+                
             }
+
             let linkIndex = parseInt(this.props.presentIndex);
             if (classIds.length > 1) {
                 if (linkIndex === 0) {
@@ -85,7 +111,8 @@ class PreviousNext extends React.Component {
 
 const mapStateToProps = (state) => (
     {
-        classList: state.classesReducer.classesData
+        classList: state.classesReducer.classesData,
+        catagoryName: state.classesReducer.catagoryName
     })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
