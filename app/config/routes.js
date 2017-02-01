@@ -19,7 +19,7 @@ const routes = (
   <Provider store={store}>
     <Router history={history}>
       <Route component={Main}>
-        <Route path='/' title="My Profile" component={Bio} />
+        <Route path='/' title="My Profile" component={Dashboard} />
         <Route path='/Profile' title="My Profile" component={Bio} />
         <Route path='/Academic' title="Academic" component={Academic} />
         <Route path='/Classes' title="Class Schedule" component={Classes} />
