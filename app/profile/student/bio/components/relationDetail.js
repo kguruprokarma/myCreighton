@@ -33,9 +33,9 @@ class RelationDetail extends React.Component {
           </label>
         </div>
         {(this.state.flag === 'parent') ?
-          (<Dependent json={this.props.json.parent} />)
+          (<Dependent dependent={this.props.relationDetail.parent} />)
           :
-          (<Dependent json={this.props.json.guardian} />)
+          (<Dependent dependent={this.props.relationDetail.guardian} />)
         }
       </article>
     )

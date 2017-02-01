@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import classesReducer from '../classes/classList/reducer'
-import { DATAFILTERADDINGDATA } from '../classes/classList/components/utility';
+import { DATAFILTERADDINGDATA } from './utility';
 import * as actionCreators from '../classes/classList/actions';
 const classIds = [];
 

@@ -38,14 +38,14 @@ export class Profile extends React.PureComponent {
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className="userData pull-right">
-              <LegalName json={USER_DATA.studentProfile.bioData.legalName} />
-              <HomeAddress json={USER_DATA.studentProfile.bioData.address.home} />
-              <SchoolAddress json={USER_DATA.studentProfile.bioData.address.school} />
-              <PrimaryContact json={USER_DATA.studentProfile.bioData.contactDetail} />
-              <EmergencyContact json={USER_DATA.studentProfile.bioData.contactDetail.emergencyContact} />
-              <Email json={USER_DATA.studentProfile.bioData.contactDetail.email} />
-              <Other json={USER_DATA.studentProfile.bioData.contactDetail} />
-              <RelationDetail json={USER_DATA.studentProfile.bioData.contactDetail.relationDetail} />
+              <LegalName legalName={USER_DATA.studentProfile.bioData.legalName} />
+              <HomeAddress homeAddress={USER_DATA.studentProfile.bioData.address.home} />
+              <SchoolAddress schoolAddress={USER_DATA.studentProfile.bioData.address.school} />
+              <PrimaryContact primaryContact={USER_DATA.studentProfile.bioData.contactDetail} />
+              <EmergencyContact emergencyContact={USER_DATA.studentProfile.bioData.contactDetail.emergencyContact} />
+              <Email email={USER_DATA.studentProfile.bioData.contactDetail.email} />
+              <Other other={USER_DATA.studentProfile.bioData.contactDetail} />
+              <RelationDetail relationDetail={USER_DATA.studentProfile.bioData.contactDetail.relationDetail} />
             </Col>
             <Col md={3} sm={4} className="hidden-xs">
               <LeftNav />
@@ -57,9 +57,9 @@ export class Profile extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (state) => (
+const mapStateToProps = (bioState) => (
   {
-    profileData: state.studentProfileReducer.profileData.data
+    profileData: bioState.studentProfileReducer.profileData.data
 
   })
 

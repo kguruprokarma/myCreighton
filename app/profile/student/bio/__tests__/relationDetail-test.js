@@ -9,7 +9,7 @@ import RelationDetail from '../components/relationDetail';
 it('RelationDetail is defined', () => {
 
   const defaultProps = {
-    json: {
+    relationDetail: {
       parent: {
         firstName: "first Name",
         middleName: "middle Name",

@@ -45,9 +45,10 @@ export class Academic extends React.PureComponent {
 	}
 }
 
-const mapStateToProps = (state) => (
+const mapStateToProps = (acdemicState) => (
 	{
 		academicData: acdemicState.academicReducer.academicData.data
+
 	})
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)

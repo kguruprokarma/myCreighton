@@ -3,12 +3,12 @@
 */
 
 import React from 'react';
-import ClassBoxWeek from './classBoxWeek';
-import { DATAFILTERADDINGDATA } from './utility';
+import WeekClasses from './weekClasses';
+import { DATAFILTERADDINGDATA } from '../../../common/utility';
 
 const ClassBox = (props) => (
 	<article>
-		<ClassBoxWeek listOfData={DATAFILTERADDINGDATA(props.data)} />
+		<WeekClasses listOfData={DATAFILTERADDINGDATA(props.data)} />
 	</article>
 )
 export default ClassBox;

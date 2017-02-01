@@ -9,7 +9,7 @@ import Email from '../components/email';
 it('Email is defined', () => {
 
   const defaultProps = {
-    json: {
+    email: {
       school: {
         value: "School Name"
       },
