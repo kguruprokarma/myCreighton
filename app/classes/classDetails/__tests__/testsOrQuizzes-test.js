@@ -6,10 +6,12 @@ describe('TestsOrQuizzes component testing ----->', () => {
     it('TestsOrQuizzes is defined', () => {
 
     const defaultProps = {
+        json: {
             testsOrQuizzes:[ {
                 date: "01/22/2017",
                 assignment: "Home address"
             }]
+        }
     }
     const testsOrQuizzes = shallow( < TestsOrQuizzes {...defaultProps }  />);
         expect(testsOrQuizzes).toBeDefined();

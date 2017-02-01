@@ -4,19 +4,12 @@
 
 import React from 'react';
 import { Panel, Grid } from 'react-bootstrap';
-import { Row, Col } from 'react-bootstrap';
+import BasicRow from '../../../../common/basicRow';
 
-const PrimaryContact = (primaryContactProps) =>
-{ 
-	const tel = "tel:"+primaryContactProps.primaryContact.primaryPhone;
-	return (
+const PrimaryContact = (props) => (
       <article className="profileRow mt30 emailAddress">
             <h3 className="dataHeading openSansRegular">Primary Contact</h3>
-            <Row className="show-grid pt5 pb5">
-			    <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>Phone</label></Col>
-			    <Col xs={8} md={9} md={8} className="dataField"><a href={tel} className="mobileNumber">{primaryContactProps.primaryContact.primaryPhone}</a></Col>
-			</Row>
+            <BasicRow displayName="Phone" displayValue={props.json.primaryPhone} />
       </article>
-)}
+)
 export default PrimaryContact;
-

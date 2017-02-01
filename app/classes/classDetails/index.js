@@ -32,26 +32,26 @@ export class ClassDetails extends React.PureComponent {
             && _.find(this.props.classDetails.data, { id: parseInt(this.props.params.id) });
         return (
             <section className="classesDeatils">
-                <HeaderLabel headerLabel="CLASS DETAIL" />
+            <HeaderLabel headerLabel="CLASS DETAIL" />
                 {(classData && Object.keys(classData).length > 0) && (<div>
-                    <ClassInfo {...classData.classHeader} />
-                    <ClassAssignments {...classData} />
-                    <TodaysClass {...classData} />
-                    <UpcomingAssignments {...classData} />
-                    <TestsOrQuizzes {...classData} />
+                    <ClassInfo json={classData.classHeader} />
+                    <ClassAssignments assignmentsData={classData} />
+                    <TodaysClass json={classData} />
+                    <UpcomingAssignments json={classData} />
+                    <TestsOrQuizzes json={classData} />
                 </div>)}
                 {(classData && Object.keys(classData).length > 0) && (
-                    <PreviousNext presentIndex={this.props.params.index} />)}
+                <PreviousNext presentIndex={this.props.params.index} />)}
             </section>
 
         );
     }
 }
 
+
 const mapStateToProps = (classDetailsState) => (
     {
         classDetails: classDetailsState.classDetailsReducer.classDetails
-
     })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)

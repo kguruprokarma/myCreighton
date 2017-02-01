@@ -9,7 +9,7 @@ import LegalName from '../components/legalName';
 it('LegalName is defined', () => {
 
   const defaultProps = {
-    legalName: {
+    json: {
       first: "first name",
       middle: "middle name",
       last: "last name"

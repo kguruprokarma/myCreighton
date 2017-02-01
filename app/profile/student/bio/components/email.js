@@ -16,7 +16,7 @@ const Email = (emailProps) => (
                   <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>School</label> </Col>
                   <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
                         {/* Mailto added for open mail box popup */}
-                        <Mailto email={emailProps.email.school.value}>{emailProps.email.school.value}</Mailto>
+                        <Mailto email={emailProps.json.school.value}>{emailProps.json.school.value}</Mailto>
                   </Col>
             </Row>
             {/* Personal email address */}
@@ -24,7 +24,7 @@ const Email = (emailProps) => (
                   <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>Personal</label> </Col>
                   <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
                         {/* Mailto added for open mail box popup */}
-                        <Mailto email={emailProps.email.personal.value}>{emailProps.email.personal.value}</Mailto>
+                        <Mailto email={emailProps.json.personal.value}>{emailProps.json.personal.value}</Mailto>
                   </Col>
             </Row>
       </article>

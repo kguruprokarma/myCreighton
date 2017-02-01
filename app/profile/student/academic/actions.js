@@ -16,11 +16,10 @@ let receiveAcademicData = (academicData) => (
     data: academicData
   })
 
-
 let receiveError = (academicErrorJson) => (
   {
     type: types.RECEIVE_ACADEMIC_DATA_ERROR,
-    data: academicErrorJson
+    data: json
   })
 
 export function getAcademicData() {

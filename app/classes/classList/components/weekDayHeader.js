@@ -5,9 +5,9 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-const WeekDayHeader = (weekDay) => (
+const WeekDayHeader = (props) => (
 	<Row>
-		<Col xs={12}><h5 className="dayHeading bebasregular mb0">{weekDay.day}</h5></Col>
+		<Col xs={12}><h5 className="dayHeading bebasregular mb0">{props.day}</h5></Col>
 	</Row>
 );
 
