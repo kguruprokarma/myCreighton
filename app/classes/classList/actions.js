@@ -2,7 +2,6 @@
 *Usage of file: - This action is used to get class schedule of a user.*
 */
 
-
 import classesApi from '../../middleware/classes/api';
 import * as types from './actionTypes';
 

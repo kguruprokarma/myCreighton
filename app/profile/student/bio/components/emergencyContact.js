@@ -5,7 +5,6 @@
 import React from 'react';
 import { Panel, Grid } from 'react-bootstrap';
 import BasicRow from '../../../../common/basicRow';
-
 import { Row, Col } from 'react-bootstrap';
 
 const EmergencyContact = (emergencyProps) => {

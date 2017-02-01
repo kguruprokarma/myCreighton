@@ -9,7 +9,6 @@ import PrimaryContact from '../components/primaryContact';
 it('PrimaryContact is defined', () => {
 
   const defaultProps = {
-
     primaryContact: {
       primaryPhone: "7207585058"
     }

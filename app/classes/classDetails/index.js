@@ -47,9 +47,11 @@ export class ClassDetails extends React.PureComponent {
         );
     }
 }
+
 const mapStateToProps = (classDetailsState) => (
     {
         classDetails: classDetailsState.classDetailsReducer.classDetails
+
     })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)

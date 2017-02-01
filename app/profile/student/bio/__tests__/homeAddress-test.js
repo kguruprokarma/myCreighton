@@ -26,7 +26,7 @@ const homeAddressProps = {
     }
   };
 it('HomeAddress is defined', () => {
-
+  
   const homeAddress = shallow(<HomeAddress {...homeAddressProps} />);
   expect(homeAddress).toBeDefined();
 });

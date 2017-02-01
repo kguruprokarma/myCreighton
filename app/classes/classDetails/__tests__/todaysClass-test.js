@@ -5,7 +5,6 @@ import TodaysClass from '../components/todaysClass';
 describe('TodaysClass component testing ----->', () => {
     it('TodaysClass is defined', () => {
 
-
     const defaultProps = {        
             todaysClass:[ {
                 json: "01/22/2017"

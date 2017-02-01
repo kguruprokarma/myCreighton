@@ -4,13 +4,13 @@
 
 import React from 'react';
 
-const UpcomingAssignments = (upcomingAssignProps) => (
+const UpcomingAssignments = (props) => (
 	<article className="upcomingAssignments mb25">
 		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>UPCOMING ASSIGNMENTS</h4>
-		{upcomingAssignProps.upcomingAssignments.map((assignment, assignmentIndex) => {
+		{props.json.upcomingAssignments.map((data, index) => {
 			return (
-				<div className="openSansLight fs1pt2 gbl_lh" key={assignmentIndex}>
-					{assignment.date}- {assignment.assignment}
+				<div className="openSansLight fs1pt2 gbl_lh" key={index}>
+					{data.date}- {data.assignment}
 				</div>
 			)
 		})
