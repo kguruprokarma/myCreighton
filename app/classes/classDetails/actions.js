@@ -2,8 +2,8 @@
 *Usage of file: - This action is used to get selected class details of a user.*
 */
 
-import classesApi from '../../middleware/classes/api';
-import * as types from './actionTypes';
+import classesApi from '../../middleware/classes/api'
+import * as types from './actionTypes'
 
 let requestClassDetailsData = () => ({
   type: types.REQUEST_CLASS_DETAILS_DATA

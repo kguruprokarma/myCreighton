@@ -9,7 +9,7 @@ import EmergencyContact from '../components/emergencyContact';
 it('EmergencyContact is defined', () => {
 
   const defaultProps = {
-    emergencyContact: {
+    json: {
       name: {
         first: "First Name",
         last: "Last Name"

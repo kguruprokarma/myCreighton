@@ -4,13 +4,13 @@
 
 import React from 'react';
 
-const ClassAssignments = (classAssignProps) => (
+const ClassAssignments = (props) => (
 	<article className="classAssignment mb25 mt20">
 		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>ASSIGNMENTS DUE</h4>
-		{classAssignProps.assignmentsDue.map((classesDue, classesDueIndex) => {
+		{props.assignmentsData.assignmentsDue.map((data, index) => {
 			return (
-				<div className="openSansLight fs1pt2 gbl_lh" key={classesDueIndex}>
-					{classesDue}
+				<div className="openSansLight fs1pt2 gbl_lh" key={index}>
+					{data}
 				</div>
 			)
 		})

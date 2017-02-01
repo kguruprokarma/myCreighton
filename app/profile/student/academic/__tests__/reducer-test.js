@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import reducer from '../reducer'
-import * as types from '../actionTypes'
+import * as types from '../actionTypeS'
 
 describe('<learnerReducer />', () => {
 	it('should return the initial state', () => {

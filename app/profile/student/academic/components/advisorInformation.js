@@ -15,12 +15,7 @@ const AcademicStatus = (academicProps) => (
       displayValue={academicProps.json.advisorDetail.name.first + ' '
         + academicProps.json.advisorDetail.name.last} />
     <BasicRow displayName="Area" displayValue={academicProps.json.advisorDetail.area} />
-    <Row className="show-grid pt5 pb5">
-      <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>Office</label></Col>
-      <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
-        <a>{academicProps.json.advisorDetail.office}</a>
-      </Col>
-    </Row>
+    <BasicRow displayName="Office" displayValue={academicProps.json.advisorDetail.office} />
     <BasicRow displayName="Office Hours"
       displayValue={academicProps.json.advisorDetail.officeHours.startTime + ' - '
         + academicProps.json.advisorDetail.officeHours.endTime + '., '

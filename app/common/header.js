@@ -5,7 +5,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-const Header = () => (
+const Header = (props) => (
   <header id="header" role="banner">
   <h1 className="announced-only">Page header</h1>
     <Grid>

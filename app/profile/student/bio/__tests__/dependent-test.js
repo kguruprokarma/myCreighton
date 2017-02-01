@@ -9,8 +9,7 @@ import Dependent from '../components/dependent';
 it('Dependent is defined', () => {
 
   const defaultProps = {
-
-    dependent: {
+    json: {
       firstName: "John",
       middleName: "J",
       lastName: "Edward"

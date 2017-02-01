@@ -19,10 +19,6 @@
     font-size: 1.4em;   /* font size 21 in pixel */  
 }
 
-.mobileNumber{
-    text-decoration: none !important;
-}
-
 .emailAddress .dataField {
     color: #0054a6;
     cursor: pointer;
