@@ -3,11 +3,14 @@
  */
 
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
 
 const Header = () => (
-    <section>
-
-    </section>
+    <header id="header" role="banner" className="container-fluid">
+        <Row>
+            
+        </Row>
+    </header>
 )
 
 export default Header;
