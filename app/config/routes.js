@@ -19,12 +19,12 @@ const routes = (
   <Provider store={store}>
     <Router history={history}>
       <Route component={Main}>
-        <Route path='/' title="My Profile" component={Dashboard} />
-        <Route path='/Profile' title="My Profile" component={Bio} />
-        <Route path='/Academic' title="Academic" component={Academic} />
-        <Route path='/Classes' title="Class Schedule" component={Classes} />
-        <Route path='/ClassDetails/:id/:index' title="Class Detail" component={ClassDetails} />
-        <Route path='/Dashboard'  title="Dashboard" component={Dashboard} />
+        <Route path='/' title="" component={Dashboard} />
+        <Route path='/Profile' title="My Profile - " component={Bio} />
+        <Route path='/Academic' title="Academic - " component={Academic} />
+        <Route path='/Classes' title="Class Schedule - " component={Classes} />
+        <Route path='/ClassDetails/:id/:index' title="Class Detail - " component={ClassDetails} />
+        <Route path='/Dashboard'  title="" component={Dashboard} />
       </Route>
     </Router>
   </Provider>

@@ -19,7 +19,7 @@ class Main extends React.PureComponent {
     this.setState({ showPatch: !this.state.showPatch })
   }
   render() {
-    document.title = this.props.children.props.route.title + " - MyCreighton";
+    document.title = this.props.children.props.route.title + "MyCreighton";
     return (
       <div className="view-container">
         {/* this is header section */}
