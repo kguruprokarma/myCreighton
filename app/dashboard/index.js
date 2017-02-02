@@ -1,11 +1,12 @@
-/**
- * Created by Usman on 12/23/2016.
- */
+/*Created Date: - 3rd -02 -2017
+*Usage of file: - TMerge individual components of Dashboard into this file..*
+*/
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import UserDetail from './components/userDetail';
 import MealPlanView from './components/mealPlanView';
 import Module from './components/module';
+import ToggalMealPlan from './components/toggalMealPlan';
 import style from './style/style.css';
 
 //export const imgurl = './app/assets/images/todo-icon.jpg';
@@ -14,6 +15,7 @@ export default class dashboard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { shouldHide: true };
+		this.onClick= this.onClick.bind(this);
 	}
 
 	onClick() {
@@ -33,15 +35,8 @@ export default class dashboard extends Component {
 					<div className="col-xs-12 form-group">
 						<div className="row">
 							<UserDetail />
-								<div className="col-xs-3 hidden-lg hidden-md hidden-sm">
-									<a className="doller-icon pull-right"><img src={'./app/assets/images/doller-icon.jpg'} alt="" onClick={this.onClick.bind(this)} /></a>
-								</div>
-								<div className="col-sm-9 col-xs-12">
-									<div className={this.state.shouldHide ? 'hide' : 'show'}>
-										<MealPlanView />
-									</div>
-									<a className="doller-icon pull-right hidden-xs"><span onClick={this.onClick.bind(this)}>{this.state.shouldHide ? 'Show' : 'Hide'}</span></a>
-								</div>
+							<ToggalMealPlan toggal={this.onClick}/>
+							<MealPlanView showMeal={this.state.shouldHide} toggalMeal={this.onClick} />								
 							</div>
 						</div>
 					</div>
