@@ -10,12 +10,12 @@ export const classes = [];
 
 const todayClasses = (todayProps) => (
 	<div>
-		<div className="row dayBox"><div className="col-xs-12">Today</div></div>
+		<WeekDayHeader day="Today" />
 		{
 			todayProps.listOfData.map((todayClass, index) => {
 				return (
 					<div key={index} id="cls">
-						<Link to={"ClassDetails/" + todayClass.id + "/" + index}>
+						<Link to={"ClassDetails/" + todayProps.catagory + "/" + todayClass.id + "/" + index}>
 							<ClassInfo data={todayClass} />
 						</Link>
 					</div>

@@ -16,18 +16,27 @@ export class Classes extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    if (this.props.catagoryName == "Week") {
-            this.props.getClassesDataByWeek();
-        } else if (this.props.catagoryName == "List") {
-            this.props.getClassesDataForAtoZ();
-        } else if (this.props.catagoryName == "Today") {
-            this.props.getClassesDataByToday();
-        }
-        
+    this.state = { selected: 'Week' }
+    this.props.getClassesDataByWeek();
+    this.props.onCatagoryChange('Week');
+    this.onChangeOfTab = this.onChangeOfTab.bind(this);
+  }
+
+  onChangeOfTab(catagoryName) {
+    this.setState({ selected: catagoryName });
+    this.props.onCatagoryChange(catagoryName);
+    if (catagoryName === "Week") {
+      this.props.getClassesDataByWeek();
+    } else if (catagoryName === "List") {
+      this.props.getClassesDataForAtoZ();
+    } else if (catagoryName === "Today") {
+      this.props.getClassesDataByToday();
+    }
+    
   }
 
   render() {
-    let USER_DATA = this.props.classesData
+    let USER_DATA = this.props.classesData;
     return (
       <section id="classSchedule">
         {USER_DATA && <div>
@@ -36,7 +45,7 @@ export class Classes extends React.PureComponent {
               <HeaderLabel headerLabel="Class Schedule" />
             </Col>
             <Col md={4} sm={6} xs={12}>
-              <ClassTabController />
+              <ClassTabController state={this.state.selected} onChangeTab={this.onChangeOfTab} />
             </Col>
           </Row>
           <ClassBox data={USER_DATA.classes} catagoryName={this.props.catagoryName} />
@@ -47,11 +56,13 @@ export class Classes extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (classesState) => (
-  {
-    classesData: classesState.classesReducer.classesData.data,
-    catagoryName: classesState.classesReducer.catagoryName
-  })
+const mapStateToProps = (classesState) => {
+  return (
+    {
+      classesData: classesState.classesReducer.classesData.data,
+      catagoryName: classesState.classesReducer.catagoryName
+    })
+}
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
 

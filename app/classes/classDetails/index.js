@@ -41,7 +41,7 @@ export class ClassDetails extends React.PureComponent {
                     <TestsOrQuizzes {...classData} />
                 </div>)}
                 {(classData && Object.keys(classData).length > 0) && (
-                    <PreviousNext presentIndex={this.props.params.index} />)}
+                    <PreviousNext presentCategory={this.props.params.categoryName} presentIndex={this.props.params.index} />)}
             </section>
 
         );
