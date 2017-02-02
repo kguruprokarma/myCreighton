@@ -14,11 +14,8 @@ import style from '../classList/style.css';
 
 export class Classes extends React.PureComponent {
 
-  constructor() {
-    super()
-  }
-
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     if (this.props.catagoryName == "Week") {
             this.props.getClassesDataByWeek();
         } else if (this.props.catagoryName == "List") {

@@ -7,14 +7,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../actions';
 
-class classControls extends Component {
+class classTabController extends Component {
 
     constructor() {
         super();
+        
     }
 
     componentWillMount() {
-        this.state = { selected: 'Week' }
+            this.state = { selected: 'Week' }
     }
 
     todayList() {
@@ -40,7 +41,7 @@ class classControls extends Component {
             <div>
                 <div className="btn-group btn-group-justified form-group">
                     <a className={"btn " + (this.state.selected === 'Today' ? 'btn-primary' : 'btn-default')} onClick={this.todayList.bind(this)}>Today</a>
-                    <a className={"btn " + (this.state.selected === 'Week'  ? 'btn-primary' : 'btn-default')} onClick={this.weekList.bind(this)}>Week</a>
+                    <a className={"btn " + (this.state.selected === 'Week' ? 'btn-primary' : 'btn-default')} onClick={this.weekList.bind(this)}>Week</a>
                     <a className={"btn " + (this.state.selected === 'List' ? 'btn-primary' : 'btn-default')} onClick={this.aToZList.bind(this)}>A-Z</a>
                 </div>
             </div>
@@ -56,4 +57,4 @@ const mapStateToProps = (state) => (
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(classControls)
+export default connect(mapStateToProps, mapDispatchToProps)(classTabController)
