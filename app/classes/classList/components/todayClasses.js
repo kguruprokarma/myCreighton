@@ -6,6 +6,7 @@ import React from 'react';
 import style from '../style.css';
 import ClassInfo from './classInfo';
 import { Link } from 'react-router';
+import WeekDayHeader from './weekDayHeader';
 export const classes = [];
 
 const todayClasses = (todayProps) => (
