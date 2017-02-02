@@ -9,15 +9,15 @@ import ClassInfo from './classInfo';
 import { Link } from 'react-router';
 export const classes = [];
 
-const ClassBoxAtoZList = (props) => (
+const aToZClasses = (aToZProps) => (
 	<div>
 		<WeekDayHeader day="A-Z" />
 		{
-			props.listOfData.map((data, index) => {
+			aToZProps.listOfData.map((aToZClass, index) => {
 				return (
 					<div key={index} id="cls">
-						<Link to={"ClassDetails/" + data.id + "/" + index}>
-							<ClassInfo data={data} />
+						<Link to={"ClassDetails/" + aToZClass.id + "/" + index}>
+							<ClassInfo data={aToZClass} />
 						</Link>
 					</div>
 				)
@@ -25,4 +25,4 @@ const ClassBoxAtoZList = (props) => (
 		}
 	</div>
 )
-export default ClassBoxAtoZList;
+export default aToZClasses;

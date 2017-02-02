@@ -8,15 +8,15 @@ import ClassInfo from './classInfo';
 import { Link } from 'react-router';
 export const classes = [];
 
-const ClassBoxToday = (props) => (
+const todayClasses = (todayProps) => (
 	<div>
 		<div className="row dayBox"><div className="col-xs-12">Today</div></div>
 		{
-			props.listOfData.map((data, index) => {
+			todayProps.listOfData.map((todayClass, index) => {
 				return (
 					<div key={index} id="cls">
-						<Link to={"ClassDetails/" + data.id + "/" + index}>
-							<ClassInfo data={data} />
+						<Link to={"ClassDetails/" + todayClass.id + "/" + index}>
+							<ClassInfo data={todayClass} />
 						</Link>
 					</div>
 				)
@@ -24,4 +24,4 @@ const ClassBoxToday = (props) => (
 		}
 	</div>
 )
-export default ClassBoxToday;
+export default todayClasses;
