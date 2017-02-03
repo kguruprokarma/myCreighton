@@ -15,11 +15,11 @@ class ClassBox extends React.Component {
 			<div>
 				{
 					this.props.catagoryName === 'Today' ? (
-						<TodayClasses listOfData={DATATIME(this.props.data, 'time', 'ASC')} />
+						<TodayClasses catagory={this.props.catagoryName} listOfData={DATATIME(this.props.data, 'time', 'ASC')} />
 					) : (
 							(this.props.catagoryName === 'Week' ? (
-								<WeekClasses listOfData={DATAFILTERADDINGDATA(this.props.data)} />)
-								: (<AToZClasses listOfData={DATASORT(this.props.data, 'name', 'ASC')} />)
+								<WeekClasses catagory={this.props.catagoryName} listOfData={DATAFILTERADDINGDATA(this.props.data)} />)
+								: (<AToZClasses catagory={this.props.catagoryName} listOfData={DATASORT(this.props.data, 'name', 'ASC')} />)
 							)
 						)
 				}

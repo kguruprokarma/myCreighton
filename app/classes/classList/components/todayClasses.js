@@ -6,16 +6,21 @@ import React from 'react';
 import style from '../style.css';
 import ClassInfo from './classInfo';
 import { Link } from 'react-router';
+import WeekDayHeader from './weekDayHeader';
 export const classes = [];
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+const today = (new Date());
+const day = days[today.getDay()] + " " + months[today.getMonth()] + " " + today.getDate();
 
 const todayClasses = (todayProps) => (
 	<div>
-		<div className="row dayBox"><div className="col-xs-12">Today</div></div>
+		<WeekDayHeader day={day} />
 		{
 			todayProps.listOfData.map((todayClass, index) => {
 				return (
 					<div key={index} id="cls">
-						<Link to={"ClassDetails/" + todayClass.id + "/" + index}>
+						<Link to={"ClassDetails/" + todayProps.catagory + "/" + todayClass.id + "/" + index}>
 							<ClassInfo data={todayClass} />
 						</Link>
 					</div>

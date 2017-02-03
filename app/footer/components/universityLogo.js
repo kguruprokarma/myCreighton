@@ -6,7 +6,7 @@ import React from 'react';
 
 const UniversityLogo = () => (
     <section>
-
+    	<img src="../../assets/images/myCreighton.PNG" alt="logo"/>
     </section>
 )
 

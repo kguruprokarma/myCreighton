@@ -8,7 +8,7 @@
             "place": "Building Rm 119",
             "on": "poetry",
             "date": "jan 28",
-            "recurrence": "Fri"
+            "recurrence": "Sa"
         },
         {
             "id": "2",
@@ -18,7 +18,7 @@
             "place": "Hopper Lecture 100",
             "on": "20th-century politics in th U.S",
             "date": "jan 28",
-            "recurrence": "MW"
+            "recurrence": "Sa"
         },
         {
             "id": "3",
@@ -28,7 +28,7 @@
             "place": "Room 105",
             "on": "Christianity in context",
             "date": "jan 28",
-            "recurrence": "Wed"
+            "recurrence": "Sa"
         }
     ]
 }
