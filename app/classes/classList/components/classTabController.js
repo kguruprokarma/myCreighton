@@ -3,11 +3,9 @@
 */
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actionCreators from '../actions';
 
-class classTabController extends Component {
+
+class ClassTabController extends Component {
 
     onChange(state) {
         this.props.onChangeTab(state)
@@ -25,12 +23,4 @@ class classTabController extends Component {
     }
 }
 
-
-const mapStateToProps = (state) => (
-    {
-
-    })
-
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(classTabController)
+export default ClassTabController
