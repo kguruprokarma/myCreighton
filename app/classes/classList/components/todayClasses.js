@@ -8,10 +8,14 @@ import ClassInfo from './classInfo';
 import { Link } from 'react-router';
 import WeekDayHeader from './weekDayHeader';
 export const classes = [];
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+const today = (new Date());
+const day = days[today.getDay()] + " " + months[today.getMonth()] + " " + today.getDate();
 
 const todayClasses = (todayProps) => (
 	<div>
-		<WeekDayHeader day="Today" />
+		<WeekDayHeader day={day} />
 		{
 			todayProps.listOfData.map((todayClass, index) => {
 				return (
