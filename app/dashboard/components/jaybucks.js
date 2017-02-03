@@ -4,11 +4,11 @@
 
 import React from 'react';
 
-const Jaybucks = (jaybucks) => (		
-		<li>
-			<div className="jbvalue visible-xs">$750.25</div>
-			<div className="jbText">JAYBUCK$ <span className="jbvalue hidden-xs">$750.25</span></div>
-		</li>						
+const Jaybucks = (jaybucks) => (	
+	<div>
+		<span className="jbvalue openSansLight">$750.25</span>
+		<span className="jbText openSansBold">JAYBUCK$</span>
+	</div>						
 )
 
 export default Jaybucks; 

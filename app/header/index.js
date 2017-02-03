@@ -27,13 +27,15 @@ class Header extends React.PureComponent{
     }
     render(){
         return(
-            <section>
-                <div className="container hidden-xs">
+            <header>
+            	<h1 className="announced-only">Page header</h1>
+                <div className="container">
                     <Row >
-                        <Col xs={6} md={6}><h1 className="appheading">
-                            <Title path = {this.props.currentState}/></h1>
+                        <Col xs={6} md={6}>
+                            <Title path = {this.props.currentState}/>
                         </Col>
-                        <ul className="list-inline zerobtm-margin">
+                        <Col xs={6} md={6}>
+                        <ul className="list-inline">
                             <li className="head-Icons">
                                 <div className='popUp'>
                                     <span className='glyphicon glyphicon-user' onClick={this.showPopUp}></span>
@@ -43,10 +45,11 @@ class Header extends React.PureComponent{
                                     </div>
                                 </div>
                             </li>
-                        </ul>                        
+                        </ul> 
+                        </Col>                       
                     </Row>
                 </div>
-            </section>
+            </header>
         );
     }
 }

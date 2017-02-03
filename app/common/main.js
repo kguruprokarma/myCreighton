@@ -31,10 +31,7 @@ class Main extends React.PureComponent {
                 </main>
                 {/* /this is main section */}
                 {/* this is footer section */}
-                <footer className="footer" role="Content info">
-                    <h1 className="announced-only">Page footer</h1>
                     <Footer />
-                </footer>
                 {/* /this is footer section */}
                 {this.state.showPatch && <div className="popUpPatch"></div>}
             </div>

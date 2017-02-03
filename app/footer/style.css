@@ -1,0 +1,10 @@
+.footer-address, .copy-right {
+    text-align:center;
+    line-height: 1.8em;
+}
+
+@media screen and (max-width: 767px) {
+   .footer-address, copy-right {
+    text-align:left;
+    } 
+}

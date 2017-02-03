@@ -4,11 +4,12 @@
 
 import React from 'react';
 
-const Dining = (dining) => (		
-		<li>
-			<div className="jbvalue visible-xs">$360.00</div>
-			<div className="jbText">DINING <span className="jbvalue hidden-xs">$360.00</span></div>
-		</li>						
+const Dining = (dining) => (
+
+	<div>
+		<span className="jbvalue openSansLight">$360.00</span>
+		<span className="jbText openSansBold">DINING</span>
+	</div>
 )
 
 export default Dining; 

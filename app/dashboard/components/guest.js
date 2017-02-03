@@ -4,11 +4,11 @@
 
 import React from 'react';
 
-const Guest = (guest) => (		
-		<li>
-			<div className="jbvalue visible-xs">5</div>
-			<div className="jbText">Guest <span className="jbvalue hidden-xs">5</span></div>
-		</li>						
+const Guest = (guest) => (
+	<div>
+		<span className="jbvalue openSansLight">5</span>
+		<span className="jbText openSansBold">Guest</span>
+	</div>
 )
 
 export default Guest; 

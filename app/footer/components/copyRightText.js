@@ -5,8 +5,6 @@
 import React from 'react';
 
 const CopyRightText = () => (
-    <section>
-    	<p>&copy; 2017 Creighton University</p>
-    </section>
+    	<p className="copy-right">&copy; 2017 Creighton University</p>
 )
 export default CopyRightText;

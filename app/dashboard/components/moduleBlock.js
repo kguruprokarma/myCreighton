@@ -4,29 +4,30 @@
 
 import React from 'react';
 import { Link } from 'react-router';
+import { Well, Row, Col } from 'react-bootstrap';
 
 const ModuleBlock = (modulesprops) => {
-	
+
 	const moduleBlocks = modulesprops.modulelist.map((moduleDetail, moduleIndex) => {
-	return(	
-		<div className="well white-well" key={moduleIndex}>	
-			<div className="row" >
-				<div className="col-xs-3 col-md-12">
-					<img src={moduleDetail.imgURL} />
-				</div>
-				<div className="col-xs-9 col-md-12">
-					<h4><Link to={moduleDetail.linkto}>{moduleDetail.name}</Link></h4>
-					<span>{moduleDetail.desc}</span>
-				</div>
-			</div>
-		</div>
+		return (
+			<Well bsSize="large" className="white-well" key={moduleIndex}>
+				<Row>
+					<Col xs={3} md={12}>
+					{/*	<img src={moduleDetail.imgURL} /> */}
+					</Col>
+					<Col xs={9} md={12}>
+						<h3 className="well-title openSansLight"><Link to={moduleDetail.linkto}>{moduleDetail.name}</Link> {moduleDetail.name==='School & Semester'? <span className="well-badge"><span>1</span></span> : '' }</h3>
+						<div className="well-caption">{moduleDetail.description}</div>
+					</Col>
+				</Row>
+			</Well>
 		);
-		})
-		return(
-			<div>
-				{moduleBlocks}
-			</div>
-			);					
+	})
+	return (
+		<div>
+			{moduleBlocks}
+		</div>
+	);
 };
 
 export default ModuleBlock; 

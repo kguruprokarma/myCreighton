@@ -7,26 +7,33 @@ import Swipes from './swipes';
 import Guest from './guest';
 import Dining from './dining';
 import Jaybucks from './jaybucks';
+import { Link } from 'react-router';
+import { Well, Row, Col } from 'react-bootstrap';
 
 const MealPlan = (mealPlan) => (
-	<div className="col-sm-9 col-xs-12">
+	<section id="mealPlan">
+		<h1 className="announced-only">Meal Plan</h1>
 		<div className={mealPlan.showMeal ? 'hide' : 'show'}>
-			<div className="row">
-				<div className="col-xs-12">
-					<div className="well green-well">
-						<ul className="list-inline listflex row text-center">
-							<Swipes />
-							<Guest />
-							<Dining />
-							<Jaybucks />
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<a className="doller-icon pull-right hidden-xs"><span onClick={mealPlan.toggalMeal}>{mealPlan.showMeal ? 'Show' : 'Hide'}</span></a>
-	</div>
-		
+			<Well bsSize="small" className="jaybucksWell">
+				<Row>
+					<Col sm={11} xs={10}>
+					<ul className="list-inline listflex row text-center">
+						<li><Swipes /></li>
+					<li><Guest /></li>
+					<li><Dining /></li>
+					<li><Jaybucks /></li>
+					</ul>
+					</Col>
+			<Col sm={1} xs={2}>
+				<div className="angle-right text-right"><Link><i className="fa fa-angle-right fs1pt86" aria-hidden="true"></i></Link></div>
+			</Col>
+					
+				</Row>
+			</Well>
+		</div >
+	<a className="doller-icon pull-right hidden-xs"><span onClick={mealPlan.toggleMeal}>{mealPlan.showMeal ? 'Show' : 'Hide'}</span></a>
+	</section >
+
 )
 
 export default MealPlan; 

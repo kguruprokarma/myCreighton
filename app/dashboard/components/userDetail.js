@@ -6,10 +6,11 @@ import React from 'react';
 import Avatar from 'react-avatar';
 
 const UserDetail = (userDetail) => (
-		<div className="col-xs-9 col-sm-3">
+		<section id="avatar">
+		<h1 className="announced-only">Avatar</h1>
 			<Avatar name="Usman" size={50} round={true} />
-			<strong> Usman</strong> - Student
-		</div>
+			<span className="openSansRegular avatar-name"> Usman</span> <span className="openSansBold user-type">- Student</span>
+		</section>
 )
 
 export default UserDetail; 

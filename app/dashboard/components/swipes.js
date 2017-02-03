@@ -4,11 +4,11 @@
 
 import React from 'react';
 
-const Swipes = (swipes) => (		
-		<li>
-			<div className="jbvalue visible-xs">15</div>
-			<div className="jbText">SWIPES(SAT) <span className="jbvalue hidden-xs">15</span></div>
-		</li>						
+const Swipes = (swipes) => (
+	<div>
+		<span className="jbvalue openSansLight">15</span>
+		<span className="jbText openSansBold">SWIPES(SAT)</span>
+	</div>
 )
 
 export default Swipes; 
