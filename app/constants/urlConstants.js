@@ -9,4 +9,5 @@ export const CLASSES_DATA = '/classesByWeek.json';
 export const CLASSES_DATA_ATOZ = '/classesByAtoZ.json';
 export const CLASSES_DATA_TODAY = '/classesOfToday.json';
 export const PROFILE_DATA = '/myProfile.json'; 
-export const CLASS_DETAILS_DATA = '/classDetails.json'; 
+export const CLASS_DETAILS_DATA = '/classDetails.json';
+export const STAFF_PROFILE_DATA = '/myProfileStaff.json';
