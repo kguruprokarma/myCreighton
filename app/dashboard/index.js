@@ -9,36 +9,9 @@ import ModuleBlock from './components/moduleBlock';
 import ToggleMealPlan from './components/toggleMealPlan';
 import style from './style.css';
 import { Row, Col } from 'react-bootstrap';
+import DashboardModulesList from '../common/dashboardModulesDetail';
+const dashboardModulesList = DashboardModulesList;
 
-const dashboardModulesList = [
-	[
-		{
-			"imgURL": "./app/assets/images/school-icon.jpg",
-			"linkto": "/schoolSemester",
-			"name": 'School & Semester',
-			"description": "School Stuff I am responsible for."
-		},
-		{
-			"imgURL": "./app/assets/images/classes-icon.jpg",
-			"linkto": "/classes",
-			"name": "Classes",
-			"description": "What I  need for each className."
-		}],
-	[
-		{
-			"imgURL": "./app/assets/images/todo-icon.jpg",
-			"linkto": "/ToDo",
-			"name": "To-Do List",
-			"description": "What I need to do."
-		},
-		{
-			"imgURL": "./app/assets/images/events-icon.jpg",
-			"linkto": "/Events",
-			"name": "Next Events",
-			"description": "What I need to be ready for."
-		}
-	]
-];
 
 export default class dashboard extends Component {
 
