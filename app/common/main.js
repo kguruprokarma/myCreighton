@@ -5,7 +5,7 @@
 import React from 'react';
 import { Panel, Row } from 'react-bootstrap';
 import Header from './header';
-//import Footer from './Footer';
+import Footer from '../footer/index';
 
 class Main extends React.PureComponent {
   constructor() {
@@ -32,7 +32,8 @@ class Main extends React.PureComponent {
         {/* /this is main section */}
         {/* this is footer section */}
         <footer className="footer" role="Content info">
-        <h1 className="announced-only">Page footer</h1>
+          <h1 className="announced-only">Page footer</h1>
+          <Footer />
         </footer>
         {/* /this is footer section */}
         {this.state.showPatch && <div className="popUpPatch"></div>}
