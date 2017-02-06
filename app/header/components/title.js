@@ -9,11 +9,7 @@ import HeaderTitle from './headerTitle';
 
 const Title = (currentPath) => {
     return (
-        <section>
-            <Col xs={12} sm={6}>
-                <h1 className="bebasregular logo mt10 mb10 fs1pt4">{HeaderTitle(currentPath)}</h1>
-            </Col>
-        </section>
+        <h1 className="bebasregular logo mt10 mb10 fs1pt4">{HeaderTitle(currentPath)}</h1>
     )
 }
 

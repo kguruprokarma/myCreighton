@@ -4,7 +4,17 @@
 }
 
 @media screen and (max-width: 767px) {
-   .footer-address, copy-right {
-    text-align:left;
+
+   .footer-address, .copy-right {
+        text-align:left;
+    }
+    .footer {
+        height: 140px;
+    } 
+}
+@media screen and (max-width: 480px) {
+
+    .footer {
+        height: 120px;
     } 
 }

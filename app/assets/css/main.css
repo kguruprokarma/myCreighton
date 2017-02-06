@@ -166,7 +166,10 @@ h1, h2, h3, h4, h5 {
 .userLeftmenu .list-group-item.active {
     background-color: transparent;
     border-color: #efefef;
-    color: #313131
+    color: #313131;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
 }
 /* End of Left Menu */
 /* Header Label */

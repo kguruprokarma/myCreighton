@@ -10,24 +10,21 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import Style from './style.css';
 
 const Footer = () => (
-    <footer className="footer" role="Content info">
-	<h1 className="announced-only">Page footer</h1>
+	<footer className="footer" role="Content info">
+		<h1 className="announced-only">Page footer</h1>
 		<Grid>
-		<Row>
-		<Col xs={6} sm={2}>
-			<UniversityLogo />
-		</Col>
-		<Col xs={6} sm={8}>
-			<UniversityAddress />
-			<CopyRightText />
-		</Col>
-		</Row>
+			<Row>
+				<Col xs={6} sm={2}>
+					<UniversityLogo />
+				</Col>
+				<Col xs={6} sm={8}>
+					<UniversityAddress />
+					<div className="hidden-xs"><CopyRightText /></div>
+				</Col>
+				<Col xs={12} className="visible-xs"><CopyRightText /></Col>
+			</Row>
 		</Grid>
-      	
-    	
-    	
-    	
-    </footer>
+	</footer>
 )
 
 export default Footer;

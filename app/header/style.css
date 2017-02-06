@@ -2,18 +2,14 @@
 .customPopUp{
     min-width: 250px;
     background: #fff;
-    border-radius: 10px;
-    padding: 15px 0px;
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
 }
 
 .popUpText{
     margin-left: 15px;
     padding: 8px 0px;
-}
-
-.customPopUpHeader{
-    margin-left: 15px;
-    margin-bottom: 14px;
 }
 
 .customPopUp .logOut{
@@ -41,11 +37,12 @@
 
 .popUpContainer{
     position: absolute;
-    top:48px;
+    top:50px;
     right: -10px;
     z-index: 100;
     line-height: 20px;
     font-size: 14px;
+    z-index: 900;
 }
 
 .popupPointer
@@ -65,13 +62,69 @@
     height: 100%;
     width: 100%;
     background: rgba(0,0,0,0.5);
+    z-index: 20;
 }
 
-.customPopUp hr{
-    margin:0;
-}
-
-.popUpContainer a{
+.popUpContainer a {
     color: #0054a6;
     text-align: left;
+}
+
+.hamburgerMenu {
+ margin-top:3px;
+}
+
+.hamburgerMenu img {
+    max-width: 34px;
+}
+
+.customPopUp .list-group {
+    margin-bottom:0;
+}
+
+.customPopUp .list-group .list-group-item {
+    border-left:0;
+    border-right:0;
+    background-color:transparent;
+    font-family: 'open_sansregular';
+}
+
+.customPopUp .list-group .list-group-item:first-child {
+    border-top:0;
+}
+
+.customPopUp .list-group .list-group-item:last-child {
+    border-bottom:0;
+}
+
+.customPopUp .list-group .list-group-item a:hover, 
+.customPopUp .list-group .list-group-item a:focus, .customPopUp .list-group .list-group-item a.active{
+    color: #313131;
+    text-decoration:none;
+}
+.customPopUp .list-group .list-group-item a {
+    width: 100%;
+}
+
+.tileInfo {
+    color: #313131;
+    margin-left:8px;
+    font-size: 1.2em;   /* font size 18 in pixel */
+    line-height: 1.6em;
+    font-family: 'open_sansregular';
+} 
+.sb-avatar {
+    float: left;
+}
+
+@media screen and (max-width: 767px) {
+   
+   .customPopUp .list-group .list-group-item {
+        font-family: 'open_sanslight';
+   }
+
+   .tileInfo {
+    font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+   }
+
 }

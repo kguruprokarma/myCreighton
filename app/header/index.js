@@ -10,14 +10,15 @@ import ProfileMenu from '../header/components/profileMenu';
 import Title from '../header/components/title';
 import Style from './style.css';
 
-class Header extends React.PureComponent{
+class Header extends React.PureComponent {
     constructor() {
         super();
         this.state = {
             showPopUp: false
         }
         this.showPopUp = this.showPopUp.bind(this);
-        this.goBack = this.goBack.bind(this);  }
+        this.goBack = this.goBack.bind(this);
+    }
     showPopUp() {
         this.props.showPatch();
         this.setState({ showPopUp: !this.state.showPopUp });
@@ -25,28 +26,31 @@ class Header extends React.PureComponent{
     goBack() {
         browserHistory.goBack();
     }
-    render(){
-        return(
+    render() {
+        return (
             <header>
-            	<h1 className="announced-only">Page header</h1>
+                <h1 className="announced-only">Page header</h1>
                 <div className="container">
                     <Row >
-                        <Col xs={10} md={6}>
-                            <Title path = {this.props.currentState}/>
+                        <Col xs={2} md={6} className="visible-xs hamburgerMenu">
+                            <img src={'./assets/images/menu.png'} />
+                        </Col>
+                        <Col xs={8} md={6}>
+                            <Title path={this.props.currentState} />
                         </Col>
                         <Col xs={2} md={6}>
-                        <ul className="pull-right list-inline">
-                            <li className="head-Icons">
-                                <div className='popUp'>
-                                    <span className='glyphicon glyphicon-user' onClick={this.showPopUp}></span>
-                                    <div className='popUpContainer'>
-                                        {this.state.showPopUp &&
-                                           <ProfileMenu showPopValue={this.showPopUp} />}
+                            <ul className="pull-right list-inline">
+                                <li className="head-Icons">
+                                    <div className='popUp'>
+                                        <span className='glyphicon glyphicon-user' onClick={this.showPopUp}></span>
+                                        <div className='popUpContainer'>
+                                            {this.state.showPopUp &&
+                                                <ProfileMenu showPopValue={this.showPopUp} />}
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        </ul> 
-                        </Col>                       
+                                </li>
+                            </ul>
+                        </Col>
                     </Row>
                 </div>
             </header>
