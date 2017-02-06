@@ -14,7 +14,7 @@ describe('ToggleMealPlan component testing ----->', () => {
     });
 
     it('UserDetail component Avatar is there or not', () => {
-        expect(userDetail.find('Avatar').length).toBe(2);
+        expect(userDetail.find('Avatar').length).toBe(1);
     });
 
 });
