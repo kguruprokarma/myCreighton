@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import CustomPopUpHeader from './customPopUpHeader';
-import style from './style.css';
 import { Grid, Row, Col, ListGroupItem, ListGroup } from 'react-bootstrap';
 
 class CustomPopUp extends React.Component {

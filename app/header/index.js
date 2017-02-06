@@ -8,7 +8,7 @@ import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 import { Nav, Navbar, NavItem, Col, Row, Image } from 'react-bootstrap';
 import ProfileMenu from '../header/components/profileMenu';
 import Title from '../header/components/title';
-
+import Style from './style.css';
 
 class Header extends React.PureComponent{
     constructor() {
@@ -31,11 +31,11 @@ class Header extends React.PureComponent{
             	<h1 className="announced-only">Page header</h1>
                 <div className="container">
                     <Row >
-                        <Col xs={6} md={6}>
+                        <Col xs={10} md={6}>
                             <Title path = {this.props.currentState}/>
                         </Col>
-                        <Col xs={6} md={6}>
-                        <ul className="list-inline">
+                        <Col xs={2} md={6}>
+                        <ul className="pull-right list-inline">
                             <li className="head-Icons">
                                 <div className='popUp'>
                                     <span className='glyphicon glyphicon-user' onClick={this.showPopUp}></span>

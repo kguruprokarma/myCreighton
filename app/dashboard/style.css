@@ -44,10 +44,11 @@
        width: 10px;
        height: 10px;
        float:right;
-   }
+}
+
 .listflex li {
        margin-right: .66em;
-   }
+}
 
 .listflex li:first-child {
     margin-left:.4em;
@@ -72,19 +73,20 @@
     -moz-border-radius: 5px;
     -webkit-border-radius:5px;
     box-shadow: none;
-    text-align:center;
 }
 
 .well-title {
     font-size: 2.1333333333333333em;    /* font size 32 in pixel */
     color: #0054a6;
     line-height:normal;
-    margin-bottom:0;
-   
+    margin-bottom:0;  
+    text-align: center;
 }
+
 .well-title a:hover, .well-title a:hover {
     text-decoration:none;
 }
+
 .well-badge {
     width:14px;
     height:14px;
@@ -94,7 +96,6 @@
     border-radius:50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
-    margin-left: 10px;
     top: -6px;
     position: relative;
 }
@@ -114,8 +115,33 @@
     color: #757575;  
 }
 
+.wel-title, .well-caption {
+    text-align:center;
+}
+
+.doller-icon span {
+     font-size: 0.6666666666666666em; /* font size 10 in pixel */
+}
+
+.doller-icon img {
+    max-width:32px;
+}
+
 /* Media for small devices */
+
+
+@media screen and (min-width: 992px) {
+
+    .moduleImage img {
+        max-width: 60px;
+    }
+
+    .moduleImage {
+        text-align:center;
+    }
+}
 @media screen and (min-width: 768px) and (max-width:1010px) {
+
     .jbvalue {
        font-size: 1.4666666666666666em; /* font size 22 in pixel */
     }
@@ -123,20 +149,31 @@
     .jbvalue {
        float:right;
     } 
+
    .angle-right {
        line-height: 0.6666666666666666em; /* line-height 10 in pixel */
     } 
+
+    .well-title {
+        font-size: 1.6em;    /* font size 24 in pixel */
+        text-align:left;
+    }
+
+    .well-caption {
+        font-size: 1em; /* font size 15 in pixel */
+        text-align:left;
+    }
 }
 
 @media screen and (min-width: 480px) and  (max-width: 767px) {
+
     .angle-right {
         top: 0;
     }
 }
 @media screen and (max-width: 767px) {
-  
-
-   .jaybucksWell {
+      
+  .jaybucksWell {
        padding-left:10px;
        padding-right: 10px;
        padding-top: 10px;
@@ -183,32 +220,31 @@
         height: 18px;
         
     }
+
     .angle-right {
         right: 0px;
     }
+
     .jaybucksWell {
         margin-top:14px;
     }
+
     .doller-icon {
-         width:30px;
-        height:30px;
-        text-align:center;
-        display: inline-block;
-        border-radius:50%;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        border:2px solid #73b865;
-        color: #73b865;
-        margin-top: 10px;
+        margin-top:10px;
     }
-    .doller-icon i{
-        margin-top:6px;
+
+    .well-title {
+        font-size: 1.4666666666666666em; /* font size 22 in pixel */
+        text-align:left;
     }
-    .doller-icon:hover, .doller-icon:focus i, .doller-icon:active i, .doller-icon:focus{
-        color: #73b865;
+
+    .well-caption {
+        font-size: 1em; /* font size 15 in pixel */
+        text-align:left;
     }
 }
 @media screen and (max-width: 480px) {
+
     .jbvalue {
         float:none;
         width: 100%;
@@ -232,6 +268,7 @@
     
 }
 @media screen and (max-width: 360px) {
+
    .jbvalue {
        float:none;
        width: 100%;
@@ -256,7 +293,14 @@
     .angle-right {
         right: 4px;
     }
-    
-    
 
+    .well-title {
+        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+        text-align:left;
+    }
+
+    .well-caption {
+        font-size: 0.9333333333333333em; /* font size 14 in pixel */
+        text-align:left;
+    }
 }
