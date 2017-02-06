@@ -6,7 +6,10 @@ import React from 'react';
 import { Panel, Row } from 'react-bootstrap';
 import Header from '../header/index';
 import Footer from '../footer/index';
+import { translate} from 'react-i18next';
+import i18n from '../i18n';
 
+@translate([],{ wait: true })
 class Main extends React.PureComponent {
     constructor() {
         super();
