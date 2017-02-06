@@ -7,7 +7,7 @@ import { Panel, Row } from 'react-bootstrap';
 import Header from '../header/index';
 import Footer from '../footer/index';
 import { translate } from 'react-i18next';
-import Navigation from './mainNav'
+
 import i18n from '../i18n';
 
 @translate([], { wait: true })
@@ -29,8 +29,6 @@ class Main extends React.PureComponent {
             <div className="view-container">
                 {/* this is header section */}
                 <Header showPatch={this.showPatch} currentState={this.props.location.pathname} />
-                {/* this is Navigation section */}
-                <Navigation />
                 {/* /this is header section */}
                 {/* this is main section */}
                 <main role="main" id="content" className="container"><a id="maincontent"></a>
