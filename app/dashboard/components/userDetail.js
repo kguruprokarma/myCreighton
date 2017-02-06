@@ -8,8 +8,8 @@ import Avatar from 'react-avatar';
 const UserDetail = (userDetail) => (
 		<section id="avatar">
 		<h1 className="announced-only">Avatar</h1>
-			<Avatar name="Usman" size={50} round={true} />
-			<span className="openSansRegular avatar-name"> Usman</span> <span className="openSansBold user-type">- Student</span>
+			<Avatar name="John" size={50} round={true} />
+			<span className="openSansRegular avatar-name"> John</span> <span className="openSansBold user-type">- Student</span>
 		</section>
 )
 

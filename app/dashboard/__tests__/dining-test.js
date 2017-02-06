@@ -6,7 +6,9 @@ import {shallow} from 'enzyme';
 import Dining from '../components/dining';
 
 it('Dining is defined', () => {
-
-  const dining = shallow(<Dining />);
+	const diningTestProps = {
+		"diningTitle": "diningTitle"
+	};
+  const dining = shallow(<Dining {...diningTestProps} />);
   expect(dining).toBeDefined();
 });
