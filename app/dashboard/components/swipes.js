@@ -4,10 +4,10 @@
 
 import React from 'react';
 
-const Swipes = (swipes) => (
+const Swipes = (swipesProps) => (
 	<div>
 		<span className="jbvalue openSansLight">15</span>
-		<span className="jbText openSansBold">SWIPES(SAT)</span>
+		<span className="jbText openSansBold">{swipesProps.swipeTitle}(SAT)</span>
 	</div>
 )
 

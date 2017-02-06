@@ -22,12 +22,7 @@ export default class dashboard extends Component {
 	}
 
 	onClick() {
-		if (this.state.shouldHide) {
-			this.setState({ shouldHide: false });
-		}
-		else {
-			this.setState({ shouldHide: true });
-		}
+		this.setState({ shouldHide: !this.state.shouldHide });	
 	}
 
 	render() {

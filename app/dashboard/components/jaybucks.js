@@ -4,10 +4,10 @@
 
 import React from 'react';
 
-const Jaybucks = (jaybucks) => (	
+const Jaybucks = (jaybucksProps) => (	
 	<div>
 		<span className="jbvalue openSansLight">$750.25</span>
-		<span className="jbText openSansBold">JAYBUCK$</span>
+		<span className="jbText openSansBold">{jaybucksProps.jaybucksTitle}$</span>
 	</div>						
 )
 

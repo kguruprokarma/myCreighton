@@ -4,11 +4,11 @@
 
 import React from 'react';
 
-const Dining = (dining) => (
+const Dining = (diningProps) => (
 
 	<div>
 		<span className="jbvalue openSansLight">$360.00</span>
-		<span className="jbText openSansBold">DINING</span>
+		<span className="jbText openSansBold">{diningProps.diningTitle}</span>
 	</div>
 )
 
