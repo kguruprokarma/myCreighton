@@ -9,7 +9,7 @@ import { Link } from 'react-router';
 import DayHeader from './dayHeader';
 import { todayHeader } from '../../../common/utility';
 
-const todayClasses = (todayProps) => (
+const TodayClasses = (todayProps) => (
 	<div>
 		<DayHeader day={todayHeader()} />
 		{
@@ -25,4 +25,4 @@ const todayClasses = (todayProps) => (
 		}
 	</div>
 )
-export default todayClasses;
+export default TodayClasses;

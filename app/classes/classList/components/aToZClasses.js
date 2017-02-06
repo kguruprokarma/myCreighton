@@ -8,7 +8,7 @@ import ClassInfo from './classInfo';
 import { Link } from 'react-router';
 export const classes = [];
 
-const aToZClasses = (aToZProps) => (
+const AToZClasses = (aToZProps) => (
 	<div>
 		{
 			aToZProps.listOfData.map((aToZClass, index) => {
@@ -23,4 +23,4 @@ const aToZClasses = (aToZProps) => (
 		}
 	</div>
 )
-export default aToZClasses;
+export default AToZClasses;
