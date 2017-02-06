@@ -11,11 +11,14 @@ import Bio from '../profile/student/bio';
 import Academic from '../profile/student/academic';
 import Classes from '../classes/classList';
 import ClassDetails from '../classes/classDetails';
-import Dashboard from '../dashboard';
+import Dashboard from '../dashboard/index'
+import { I18nextProvider } from 'react-i18next'; // as we build ourself via webpack
+import i18n from '../i18n'; // initialized i18next instance
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
 const routes = (
+  <I18nextProvider i18n={i18n}>
   <Provider store={store}>
     <Router history={history}>
       <Route component={Main}>
@@ -28,6 +31,7 @@ const routes = (
       </Route>
     </Router>
   </Provider>
+</I18nextProvider>
 )
 
 export default routes
