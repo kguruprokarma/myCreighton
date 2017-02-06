@@ -6,10 +6,11 @@ import React from 'react';
 import { Panel, Row } from 'react-bootstrap';
 import Header from '../header/index';
 import Footer from '../footer/index';
-import { translate} from 'react-i18next';
+import { translate } from 'react-i18next';
+
 import i18n from '../i18n';
 
-@translate([],{ wait: true })
+@translate([], { wait: true })
 class Main extends React.PureComponent {
     constructor() {
         super();
@@ -22,8 +23,8 @@ class Main extends React.PureComponent {
         this.setState({ showPatch: !this.state.showPatch })
     }
     render() {
-    const { t } = this.props;
-    document.title = this.props.children.props.route.title + t('common:myCreighton');
+        const { t } = this.props;
+        document.title = this.props.children.props.route.title + t('common:myCreighton');
         return (
             <div className="view-container">
                 {/* this is header section */}
@@ -35,7 +36,7 @@ class Main extends React.PureComponent {
                 </main>
                 {/* /this is main section */}
                 {/* this is footer section */}
-                    <Footer />
+                <Footer />
                 {/* /this is footer section */}
                 {this.state.showPatch && <div className="popUpPatch"></div>}
             </div>
