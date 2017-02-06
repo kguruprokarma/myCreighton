@@ -1,46 +1,63 @@
+
 .customPopUp{
-    width: 250px;
+    min-width: 250px;
     background: #fff;
     border-radius: 10px;
     padding: 15px 0px;
 }
+
 .popUpText{
     margin-left: 15px;
-    padding: 10px 0px;
+    padding: 8px 0px;
 }
+
 .customPopUpHeader{
     margin-left: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 14px;
 }
-.tileInfo{
-    margin-left: 15px;
-}
+
 .customPopUp .logOut{
     margin-top: 55px;
     position: relative; 
+    text-align:left;
+    top: 4px;
 }
+
 .customPopUpItem{
     position: relative;
 }
-.glyphicon-user{
+.popUp .glyphicon-user {
+    font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+}
+.popUp .glyphicon-user:hover{
     cursor: pointer;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    background: #fff;
 }
+
 .popUp{
-    position: absolute;
-     top:20px;
-    right: 20px;
-     z-index: 100;
+    position: relative;
+    z-index: 100;
+    top: 5px;
 }
+
 .popUpContainer{
     position: absolute;
-    top:50px;
-    right: 2px;
+    top:48px;
+    right: -10px;
     z-index: 100;
+    line-height: 20px;
+    font-size: 14px;
 }
+
+.popupPointer
+{
+    background: url('./../assets/images/popup-arrow.png') no-repeat;
+    position:absolute;
+    top:-11px;
+    right: 10px;
+    width: 20px;
+    height: 11px;
+}
+
 .popUpPatch{
     position: absolute;
     top:0px;
@@ -49,6 +66,12 @@
     width: 100%;
     background: rgba(0,0,0,0.5);
 }
+
 .customPopUp hr{
     margin:0;
+}
+
+.popUpContainer a{
+    color: #0054a6;
+    text-align: left;
 }

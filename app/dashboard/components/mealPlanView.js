@@ -25,7 +25,7 @@ const MealPlan = (mealPlan) => (
 					</ul>
 					</Col>
 			<Col sm={1} xs={2}>
-				<div className="angle-right text-right"><Link><i className="fa fa-angle-right fs1pt86" aria-hidden="true"></i></Link></div>
+				<div className="angle-right text-right"><Link><img src={'./assets/images/more.png'} /></Link></div>
 			</Col>
 					
 				</Row>
