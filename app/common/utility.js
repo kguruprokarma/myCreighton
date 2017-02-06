@@ -41,7 +41,6 @@ export const DATAFILTERADDINGDATA = (dataArray) => {
 	let newArray = [];
 	let count;
 	const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-	const dayOrder = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 
 	let filterlist = data.map(function(item) {
 		let year = new Date().getFullYear();
@@ -67,11 +66,18 @@ export const DATAFILTERADDINGDATA = (dataArray) => {
 		}
 	};
 	
-	dayOrder.map((day) => {
+	days.map((day) => {
 		DATATIME(newObject[day], 'time', 'ASC').map((data, index) => {
 			newArray.push(data);
 		});
 	});
 	
 	return newArray;
+}
+
+export const todayHeader = () => {
+	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+	let today = new Date();
+	return days[today.getDay()] + " " + months[today.getMonth()] + " " + today.getDate();
 }
