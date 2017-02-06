@@ -4,10 +4,10 @@
 
 import React from 'react';
 
-const Guest = (guest) => (
+const Guest = (guestProps) => (
 	<div>
 		<span className="jbvalue openSansLight">5</span>
-		<span className="jbText openSansBold">Guest</span>
+		<span className="jbText openSansBold">{guestProps.guestTitle}</span>
 	</div>
 )
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import WeekDayHeader from '../components/weekDayHeader';
+import DayHeader from '../components/dayHeader';
 
 describe('WeekDayHeader component testing ----->', () => {
 
@@ -8,18 +8,18 @@ describe('WeekDayHeader component testing ----->', () => {
       "day": "Tuesday"
   };
 
-  const WeekDayHeaderC = shallow(<WeekDayHeader  day={defaultProps.day}/>);
+  const DayHeaderC = shallow(<DayHeader  day={defaultProps.day}/>);
 
   it('WeekDayHeader is defined', () => {
-    expect(WeekDayHeaderC).toBeDefined();
+    expect(DayHeaderC).toBeDefined();
   });
 
   it('WeekDayHeader header text', () => {
-    expect(WeekDayHeaderC.find('h5').text()).toBe("Tuesday");
+    expect(DayHeaderC.find('h5').text()).toBe("Tuesday");
   });
 
   it('WeekDayHeader recived props', () => {
-     expect(WeekDayHeaderC.unrendered.props.day).toBe(defaultProps.day);
+     expect(DayHeaderC.unrendered.props.day).toBe(defaultProps.day);
   });
 
 });

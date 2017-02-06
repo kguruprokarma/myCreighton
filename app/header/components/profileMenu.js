@@ -5,6 +5,7 @@
 import React from 'react';
 import CustomPopUp from '../../common/customPopUp';
 
+
 const CUSTOM_POP_UP_DATA = {
     'headerData': {
         'imgData': './app/assets/images/school-icon.jpg',
