@@ -69,7 +69,6 @@ body {
 /* Header */
 header {
     background-color:#0054a6;
-    margin-bottom: 14px;
 	min-height: 40px;
 	color: #fff;
 	line-height: 36px;
@@ -126,6 +125,11 @@ h1, h2, h3, h4, h5 {
 .view-container {
    padding-bottom:160px;
 }
+
+#content {
+    margin-top:20px;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -172,14 +176,17 @@ h1, h2, h3, h4, h5 {
     -webkit-border-radius: 0;
 }
 /* End of Left Menu */
+
 /* Header Label */
 .headerLabel {
     font-size: 1.4em;   /* font size 21 in pixel */
     color: #0054a6;
 }
+
 .headerLinks{
 	text-align:right;
 }
+
 .graybtBorder{
 	border-bottom:1px solid #c8c7cc;
 	overflow: hidden;
@@ -192,50 +199,62 @@ h1, h2, h3, h4, h5 {
 	float:left;
 	margin-right: 10px;
 }
+
 .inline-display {
 	display: inline;
 }
+
 .announced-only{
     left: -1200px;
     position: absolute;
     top: -1200px;
     z-index: 3;
 }
+
 /* radio and checkbox css */
 label {
     font-weight: normal;
 }
+
 label:after {
     content: ": ";
 }
+
 label.noclons:after {
 content:"";
 }
+
 *, *::before, *::after {
     animation-play-state: paused !important;
     -webkit-animation-play-state: paused !important;
 }
+
 .control-group {
     text-align: left;
 }
+
 .control {
     cursor: pointer;
     margin-bottom: 10px;
     padding-left: 30px;
     position: relative;
 }
+
 input {
     overflow: visible;
 }
+
 [type="checkbox"], [type="radio"] {
     box-sizing: border-box;
     padding: 0;
 }
+
 .control input {
     opacity: 0;
     position: absolute;
     z-index: -1;
 }
+
 .control__indicator {
     background: #fff none repeat scroll 0 0; 
     border: #0054a6 solid 1px;
@@ -245,18 +264,22 @@ input {
     top: 5px;
     width: 20px;
 }
+
 .control__indicator:after {
     content: "";
     display: none;
     position: absolute;
 }
+
 .control input:checked ~ .control__indicator {
     background: #0054a6 none repeat scroll 0 0; 
     top: 5px;
 }
+
 .control input:checked ~ .control__indicator:after {
     display: block;
 }
+
 .control input:disabled ~ .control__indicator { 
     background: #e6e6e6 none repeat scroll 0 0;
     border: none;
@@ -264,6 +287,7 @@ input {
     pointer-events: none;
     top: 5px;
 }
+
 .control input:disabled:checked ~ .control__indicator { 
     background: #0c0c0c none repeat scroll 0 0;
 }
@@ -274,6 +298,7 @@ input {
     -webkit-border-radius: 50%;
     -moz-border-radius:50%;
 }
+
 .control-radio .control__indicator:after {
     background: #fff none repeat scroll 0 0;
     border-radius: 50%;
@@ -284,13 +309,16 @@ input {
     top: 6px;
     width: 6px;
 }
+
 .control-radio input:disabled ~ .control__indicator:after {
     background: #d2d2d2 none repeat scroll 0 0;
 }
+
 .control-radio input[disabled]+.control__indicator:after {
     left: 7px;
     top: 7px;
 }
+
 /* checkbox */
 .control-checkbox .control__indicator:after {
     -moz-border-bottom-colors: none;
@@ -308,6 +336,7 @@ input {
     -webkit-transform: rotate(45deg);
     width: 5px;
 }
+
 .control-checkbox input[disabled]+.control__indicator:after {
     left: 8px;
     top: 4px;
@@ -341,16 +370,20 @@ input {
     
 }
 @media screen and (max-width: 767px) {
+
     .logo {
 		text-align:center;
 	}
+
 	.headerLinks {
 		text-align: center;
 	}
+
 	.m-grayBorder 
  	{
 		border-bottom:1px solid #c8c7cc;
 	}
+
     .control__indicator, 
     .control input:checked ~  .control__indicator, 
     .control input:disabled ~ .control__indicator {

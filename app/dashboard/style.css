@@ -97,6 +97,7 @@
     -webkit-border-radius: 50%;
     top: -6px;
     position: relative;
+    margin-left: 6px;
 }
 
 .well-badge span {
@@ -126,6 +127,10 @@
 .doller-icon img {
     max-width:32px;
 }
+
+.doller-icon {
+        margin-top:4px;
+    }
 
 /* Media for small devices */
 @media screen and (min-width: 992px) {
@@ -168,6 +173,11 @@
         font-size: 1em; /* font size 15 in pixel */
         text-align:left;
     }
+
+    .white-well {
+        min-height: 100px;
+    }
+    
 }
 
 @media screen and (min-width: 360px) and  (max-width: 492px) {
@@ -286,6 +296,7 @@
     }
     
 }
+
 @media screen and (max-width: 360px) {
 
    .jbvalue {
