@@ -27,7 +27,7 @@ class Main extends React.PureComponent {
     }
     render() {
         const { t } = this.props;
-        document.title = this.props.children.props.route.title + t('common:myCreighton');
+        document.title = this.props.children.props.route.title + t('common:MY_CREIGHTON');
         return (
             <div className="view-container">
                 {/* this is header section */}
