@@ -25,10 +25,6 @@ export class Dashboard extends Component {
 		this.props.getUserDetailsData()
 	}
 
-/*	componentWillMount() {
-		
-	}
-*/
 	onClick() {
 		this.setState({ shouldHide: !this.state.shouldHide });	
 	}
