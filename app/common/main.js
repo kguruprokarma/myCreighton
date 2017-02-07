@@ -28,7 +28,7 @@ class Main extends React.PureComponent {
         return (
             <div className="view-container">
                 {/* this is header section */}
-                <Header showPatch={this.showPatch} currentState={this.props.location.pathname} />
+                <Header showPatch={this.showPatch} currentState={this.props.location.pathname} param={this.props.params} />
                 {/* /this is header section */}
                 {/* this is main section */}
                 <main role="main" id="content" className="container"><a id="maincontent"></a>
