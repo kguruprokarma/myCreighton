@@ -10,8 +10,8 @@ const ModuleBlock = (modulesprops) => {
 
 	const moduleBlocks = modulesprops.modulelist.map((moduleDetail, moduleIndex) => {
 		return (
-			<Link to={moduleDetail.linkto}>
-			<Well bsSize="large" className="white-well" key={moduleIndex}>
+			<Link to={moduleDetail.linkto} key={moduleIndex}>
+			<Well bsSize="large" className="white-well" >
 				<Row>
 					<Col xs={3} md={12}  className="moduleImage">
 						<img src={moduleDetail.imgURL} />
