@@ -11,6 +11,7 @@ import * as actionCreators from '../header/actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import i18n from '../i18n';
+import Navigation from '../common/mainNav';
 
 @translate([], { wait: true })
 class Main extends React.PureComponent {
@@ -32,6 +33,9 @@ class Main extends React.PureComponent {
             <div className="view-container">
                 {/* this is header section */}
                 <Header currentState={this.props.location.pathname} param={this.props.params} />
+                {/* Main Navigation */}
+                <Navigation navDisplay={this.props.navData} />
+                {/* ./Main Navigation */}
                 {/* /this is header section */}
                 {/* this is main section */}
                 <main role="main" id="content" className="container"><a id="maincontent"></a>
@@ -46,10 +50,11 @@ class Main extends React.PureComponent {
         );
     }
 }
-const mapStateToProps = (popUpState) => {
+const mapStateToProps = (storeData) => {
   return (
     {
-      popUpData: popUpState.headerReducer.showPopUp
+      popUpData: storeData.headerReducer.showPopUp, 
+      navData: storeData.headerReducer.showNav
     })
 }
 

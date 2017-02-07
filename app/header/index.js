@@ -13,7 +13,8 @@ import Title from '../header/components/title';
 import * as _ from 'lodash';
 import Style from './style.css';
 import * as actionCreators from './actions';
-import Navigation from '../common/mainNav'
+
+
 class Header extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -32,7 +33,11 @@ class Header extends React.PureComponent {
         }
     }
     navClick() {
-        this.setState({ showNav: !this.state.showNav });
+         if (!this.props.navData) {
+            this.props.navOpen();
+        } else {
+            this.props.navClose();
+        }
     }
     goBack() {
         browserHistory.goBack();
@@ -45,18 +50,17 @@ class Header extends React.PureComponent {
         }
 
         return (
-            <div>
                 <header>
                     <h1 className="announced-only">Page header</h1>
                     <div className="container">
                         <Row >
-                            <Col xs={2} sm={2} md={6} className="visible-xs hamburgerMenu">
+                            <Col xs={2} sm={2} md={6} className="visible-xs visible-sm hamburgerMenu">
                                 <img src={'./assets/images/menu.png'} onClick={this.navClick} />
                             </Col>
-                            <Col xs={8} md={6} sm={10} className="hidden-xs">
+                            <Col xs={8} sm={10} md={6} className="hidden-xs hidden-sm">
                                 <h2 className="bebasregular logo mt10 mb10 fs1pt4">MYCREIGHTON</h2>
                             </Col>
-                            <Col xs={8} md={6} sm={8} className="visible-xs">
+                            <Col xs={8} sm={8} md={6} className="visible-xs visible-sm text-center">
                                 <Title path={this.props.currentState} classDetails={title} />
                             </Col>
                             <Col xs={2} md={6} sm={2}>
@@ -75,10 +79,7 @@ class Header extends React.PureComponent {
                         </Row>
                     </div>
                 </header>
-                {/* Main Navigation */}
-                <Navigation navDisplay={this.state.showNav} />
-                {/* ./Main Navigation */}
-            </div>
+       
         );
     }
 }
@@ -86,7 +87,8 @@ class Header extends React.PureComponent {
 const mapStateToProps = (storeData) => (
     {
         classDetails: storeData.classDetailsReducer.classDetails,
-        popUpData: storeData.headerReducer.showPopUp
+        popUpData: storeData.headerReducer.showPopUp,
+        navData: storeData.headerReducer.showNav
     })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)

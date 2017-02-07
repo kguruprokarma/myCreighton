@@ -13,14 +13,14 @@ class MainNav extends React.Component {
                 <h1 className="announced-only">Navigation</h1>
                 <Grid>
                     <Row>
-                        <ul className="main-navigation">
-                            <li className="navigation-item"><a href="#">Library Search <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
-                            <li className="navigation-item"><a href="#">Where To Find It <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
-                            <li className="navigation-item"><a href="#">Campus Directory <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
-                            <li className="navigation-item"><a href="#">DoIT Services & Support <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
-                            <li className="navigation-item"><a href="#">Academic Calendar <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
-                            <li className="navigation-item"><a href="#">Campus Map <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
-                            <li className="navigation-item"><a href="#" >Notifications<span className="well-badge"><span>1</span></span> <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
+                        <ul className="main-navigation fs0pt93">
+                            <li className="navigation-item"><a href="#">Library Search <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
+                            <li className="navigation-item"><a href="#">Where To Find It <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
+                            <li className="navigation-item"><a href="#">Campus Directory <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
+                            <li className="navigation-item"><a href="#">DoIT Services & Support <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
+                            <li className="navigation-item"><a href="#">Academic Calendar <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
+                            <li className="navigation-item"><a href="#">Campus Map <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
+                            <li className="navigation-item"><a href="#" >Notifications<span className="well-badge"><span>1</span></span> <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md "></span></a></li>
                         </ul>
                     </Row>
                 </Grid>

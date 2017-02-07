@@ -22,3 +22,25 @@ export function popUpClose() {
     dispatch(closePopUp())
   }
 }
+
+let openNav = () => ({
+  type: types.OPEN_NAV
+})
+
+let closeNav = () => (
+  {
+    type: types.CLOSE_NAV
+  })
+
+export function navOpen() {
+  return function (dispatch) {
+    dispatch(openNav())
+  }
+}
+
+export function navClose() {
+  return function (dispatch) {
+    dispatch(closeNav())
+  }
+}
+
