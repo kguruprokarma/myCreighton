@@ -2,37 +2,46 @@
 *Usage of file: - TMerge individual components of Dashboard into this file..*
 */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import UserDetail from './components/userDetail';
-import MealPlanView from './components/mealPlanView';
+import MealPlanView from './mealPlan';
 import ModuleBlock from './components/moduleBlock';
 import ToggleMealPlan from './components/toggleMealPlan';
 import style from './style.css';
 import { Row, Col } from 'react-bootstrap';
 import DashboardModulesList from '../common/dashboardModulesDetail';
 const dashboardModulesList = DashboardModulesList;
+import * as actionCreators from './actions';
 
 
-export default class dashboard extends Component {
+export class Dashboard extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = { shouldHide: true };
 		this.onClick = this.onClick.bind(this);
+		this.props.getUserDetailsData()
 	}
 
+/*	componentWillMount() {
+		
+	}
+*/
 	onClick() {
 		this.setState({ shouldHide: !this.state.shouldHide });	
 	}
 
 	render() {
+		let USER_DETAIL = this.props.userDetailsData;
 		return (
 
 			<section id="dashboard">
 				<h1 className="announced-only">Dashboard</h1>
 				<Row className="mb20">
 					<Col sm={5} xs={10} md={5}>
-						<UserDetail />
+						{USER_DETAIL && <UserDetail userDetail={USER_DETAIL}/>}
 					</Col>
 					<Col xs={2} className="hidden-lg hidden-md hidden-sm">
 						<ToggleMealPlan toggle={this.onClick} />
@@ -57,5 +66,13 @@ export default class dashboard extends Component {
 		);
 	}
 }
+const mapStateToProps = (dashboardState) => (
+	{
+		userDetailsData: dashboardState.dashboardReducer.userDetailsData.data
 
+	})
+
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
 

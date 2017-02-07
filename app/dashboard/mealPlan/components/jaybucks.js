@@ -6,7 +6,7 @@ import React from 'react';
 
 const Jaybucks = (jaybucksProps) => (	
 	<div>
-		<span className="jbvalue openSansLight">$750.25</span>
+		<span className="jbvalue openSansLight">${jaybucksProps.jaybucksCount}</span>
 		<span className="jbText openSansBold">{jaybucksProps.jaybucksTitle}$</span>
 	</div>						
 )
