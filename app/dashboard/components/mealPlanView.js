@@ -36,7 +36,7 @@ export default class MealPlan extends Component {
 						</Col>
 					</Well>
 				</div >
-				<a className="doller-icon pull-right hidden-xs"><span onClick={this.props.toggleMeal}>{this.props.showMeal ? 'Show' : 'Hide'}</span></a>
+				<a className="doller-icon pull-right hidden-xs openSansBold"><span onClick={this.props.toggleMeal}>{this.props.showMeal ? 'Show' : 'Hide'}</span></a>
 			</section >
 
 		)

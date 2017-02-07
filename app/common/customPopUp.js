@@ -15,14 +15,14 @@ class CustomPopUp extends React.Component {
         </ListGroupItem>
 
         {this.props.items.popUpItems.map((item, index) => (
-          <ListGroupItem key={item.itemName}>
+          <ListGroupItem key={item.itemName} className="openSansLight">
             <Link to={item.link} onClick={this.props.showPop}  activeClassName="active">
               {item.itemName}
             </Link>
           </ListGroupItem>
         ))}
         {/*
-        <ListGroupItem className='logOut'>
+        <ListGroupItem className='logOut openSansLight'>
           <Link to="logout/"  activeClassName="active">
             Logout
           </Link>
