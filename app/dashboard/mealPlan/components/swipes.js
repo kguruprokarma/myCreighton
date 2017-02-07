@@ -6,8 +6,8 @@ import React from 'react';
 
 const Swipes = (swipesProps) => (
 	<div>
-		<span className="jbvalue openSansLight">15</span>
-		<span className="jbText openSansBold">{swipesProps.swipeTitle}(SAT)</span>
+		<span className="jbvalue openSansLight">{swipesProps.swipeCount}</span>
+		<span className="jbText openSansBold">{swipesProps.swipeTitle}({swipesProps.expire})</span>
 	</div>
 )
 

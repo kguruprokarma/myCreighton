@@ -7,7 +7,7 @@ import React from 'react';
 const Dining = (diningProps) => (
 
 	<div>
-		<span className="jbvalue openSansLight">$360.00</span>
+		<span className="jbvalue openSansLight">${diningProps.diningCount}</span>
 		<span className="jbText openSansBold">{diningProps.diningTitle}</span>
 	</div>
 )

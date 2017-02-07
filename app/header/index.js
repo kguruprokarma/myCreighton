@@ -10,6 +10,7 @@ import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 import { Nav, Navbar, NavItem, Col, Row, Image } from 'react-bootstrap';
 import ProfileMenu from '../header/components/profileMenu';
 import Title from '../header/components/title';
+import * as _ from 'lodash';
 import Style from './style.css';
 import * as actionCreators from './actions';
 import Navigation from '../common/mainNav'
@@ -29,7 +30,6 @@ class Header extends React.PureComponent {
         }else{
             this.props.popUpClose();
         }
-       // this.setState({ showPopUp: !this.state.showPopUp });
     }
     navClick(){
         this.setState({ showNav: !this.state.showNav });
@@ -38,6 +38,12 @@ class Header extends React.PureComponent {
         browserHistory.goBack();
     }
     render() {
+        let classData = this.props.classDetails && this.props.classDetails.data;
+        let title;
+        if (classData && this.props.param.id) {
+            title = (_.find(classData, { "id": parseInt(this.props.param.id) })).classHeader.name;
+        }
+
         return (
             <div>
             <header>
@@ -47,9 +53,9 @@ class Header extends React.PureComponent {
                         <Col xs={2} md={6} className="visible-xs hamburgerMenu">
                             <img src={'./assets/images/menu.png'} onClick={this.navClick} />
                         </Col>
-                                        
+
                         <Col xs={8} md={6}>
-                            <Title path={this.props.currentState} />
+                            <Title path={this.props.currentState} classDetails={title}/>
                         </Col>
                         <Col xs={2} md={6}>
                             <ul className="pull-right list-inline">
@@ -57,7 +63,7 @@ class Header extends React.PureComponent {
                                     <div className='popUp'>
                                         <span className='glyphicon glyphicon-user' onClick={this.showPopUp}></span>
                                         <div className='popUpContainer'>
-                                            {this.props.popUpData &&
+                                        {this.props.popUpData &&
                                                 <ProfileMenu showPopValue={this.showPopUp} />}
                                         </div>
                                     </div>
@@ -73,12 +79,14 @@ class Header extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (popUpState) => {
-  return (
-    {
-      popUpData: popUpState.headerReducer.showPopUp
-    })
-}
+
+
+
+const mapStateToProps = (storeData) => (
+{
+    classDetails: storeData.classDetailsReducer.classDetails,
+    popUpData: storeData.headerReducer.showPopUp
+})
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
 

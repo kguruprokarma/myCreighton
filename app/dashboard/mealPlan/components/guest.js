@@ -6,7 +6,7 @@ import React from 'react';
 
 const Guest = (guestProps) => (
 	<div>
-		<span className="jbvalue openSansLight">5</span>
+		<span className="jbvalue openSansLight">{guestProps.guestCount}</span>
 		<span className="jbText openSansBold">{guestProps.guestTitle}</span>
 	</div>
 )

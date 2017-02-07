@@ -25,7 +25,7 @@ export class Academic extends React.PureComponent {
 	}
 
 	render() {
-		let USER_DATA = this.props.academicData
+		let USER_DATA = this.props.userDetailsData
 		return (
 			<section id="academic">
 				<HeaderLabel headerLabel="Academic" />
