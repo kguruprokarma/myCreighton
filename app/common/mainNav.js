@@ -9,7 +9,6 @@ import { Grid, Row } from 'react-bootstrap';
 class MainNav extends React.Component {
     render() {
         return (
-
             <nav role="Navigation" id="navigation" className={this.props.navDisplay ? 'openNav' : 'closeNav'}>
                 <h1 className="announced-only">Navigation</h1>
                 <Grid>
@@ -21,7 +20,7 @@ class MainNav extends React.Component {
                             <li className="navigation-item"><a href="#">DoIT Services & Support <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
                             <li className="navigation-item"><a href="#">Academic Calendar <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
                             <li className="navigation-item"><a href="#">Campus Map <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
-                            <li className="navigation-item"><a href="#" >Notifications <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
+                            <li className="navigation-item"><a href="#" >Notifications<span className="well-badge"><span>1</span></span> <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md hidden-sm"></span></a></li>
                         </ul>
                     </Row>
                 </Grid>
