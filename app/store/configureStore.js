@@ -9,6 +9,7 @@ import academicReducer  from '../profile/student/academic/reducer'
 import studentProfileReducer  from '../profile/student/bio/reducer'
 import classesReducer from '../classes/classList/reducer'
 import classDetailsReducer  from '../classes/classDetails/reducer'
+import headerReducer  from '../header/reducer'
 import dashboardReducer  from '../dashboard/reducer'
 import mealPlanReducer  from '../dashboard/mealPlan/reducer'
 import { routerReducer as routing } from 'react-router-redux'
@@ -23,7 +24,7 @@ const enhancers = compose(
 const configureStore = preloadedState => {
   const store = createStore( 
 	combineReducers({
-  	studentProfileReducer, academicReducer,classesReducer,classDetailsReducer,dashboardReducer,mealPlanReducer, routing
+  	studentProfileReducer, academicReducer,classesReducer,classDetailsReducer,dashboardReducer,mealPlanReducer, headerReducer, routing
     }),
 	preloadedState,
     compose(
