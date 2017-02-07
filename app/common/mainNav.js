@@ -14,7 +14,6 @@ class MainNav extends React.Component {
                 <Grid>
                     <Row>
                         <ul className="main-navigation fs0pt93">
-                            <li className="navigation-item"> <a href="#">Creighton Services and Resources <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
                             <li className="navigation-item"><a href="#">Library Search <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
                             <li className="navigation-item"><a href="#">Where To Find It <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
                             <li className="navigation-item"><a href="#">Campus Directory <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
