@@ -32,10 +32,10 @@ export  class MealPlan extends Component {
 						<Col sm={11} xs={10}>
 							<Row>{MEALPLAN_DATA &&
 								<ul className="list-inline listflex row text-center">
-									<li><Swipes expire={MEALPLAN_DATA.mealBalance.swipesExpire}  swipeCount={MEALPLAN_DATA.mealBalance.remainSwipes} swipeTitle={t('common:Swipes')} /></li>
-									<li><Guest guestCount={MEALPLAN_DATA.mealBalance.guestSwipes}  guestTitle={t('common:Guest')} /></li>
-									<li><Dining diningCount={MEALPLAN_DATA.mealBalance.dinning}  diningTitle={t('common:Dining')} /></li>
-									<li><Jaybucks jaybucksCount={MEALPLAN_DATA.mealBalance.jaybucks}  jaybucksTitle={t('common:Jaybucks')} /></li>
+									<li><Swipes expire={MEALPLAN_DATA.mealBalance.swipesExpire}  swipeCount={MEALPLAN_DATA.mealBalance.remainSwipes} swipeTitle={t('common:SWIPES')} /></li>
+									<li><Guest guestCount={MEALPLAN_DATA.mealBalance.guestSwipes}  guestTitle={t('common:GUEST')} /></li>
+									<li><Dining diningCount={MEALPLAN_DATA.mealBalance.dinning}  diningTitle={t('common:DINING')} /></li>
+									<li><Jaybucks jaybucksCount={MEALPLAN_DATA.mealBalance.jaybucks}  jaybucksTitle={t('common:JAY_BUCKS')} /></li>
 								</ul>}
 							</Row>
 						</Col>
