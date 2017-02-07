@@ -32,7 +32,7 @@ export class ClassDetails extends React.PureComponent {
             && _.find(this.props.classDetails.data, { id: parseInt(this.props.params.id) });
         return (
             <section className="classesDeatils">
-                <HeaderLabel headerLabel="CLASS DETAIL" />
+               <div className="hidden-xs"> <HeaderLabel headerLabel="CLASS DETAIL" /></div>
                 {(classData && Object.keys(classData).length > 0) && (<div>
                     <ClassInfo {...classData.classHeader} />
                     <ClassAssignments {...classData} />
@@ -43,7 +43,6 @@ export class ClassDetails extends React.PureComponent {
                 {(classData && Object.keys(classData).length > 0) && (
                     <PreviousNext presentCategory={this.props.params.categoryName} presentIndex={this.props.params.index} />)}
             </section>
-
         );
     }
 }

@@ -32,18 +32,18 @@
 
 .popUp{
     position: relative;
-    z-index: 100;
+    z-index: 1000;
     top: 5px;
 }
 
 .popUpContainer{
     position: absolute;
-    top:50px;
+    top:40px;
     right: -10px;
     z-index: 100;
     line-height: 20px;
     font-size: 14px;
-    z-index: 900;
+    z-index: 1000;
 }
 
 .popupPointer
@@ -63,7 +63,7 @@
     height: 100%;
     width: 100%;
     background: rgba(0,0,0,0.5);
-    z-index: 20;
+    z-index: 900;
 }
 
 .popUpContainer a {
@@ -115,10 +115,13 @@
     line-height: 1.6em;
     font-family: 'open_sansregular';
 } 
+
 .sb-avatar {
     float: left;
 }
 
+
+/* Media for small devices */
 @media screen and (max-width: 767px) {
    
     .tileInfo {

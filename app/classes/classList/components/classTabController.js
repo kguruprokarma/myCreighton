@@ -12,13 +12,11 @@ class ClassTabController extends Component {
     };
     render() {
         return (
-            <div>
-                <div className="btn-group btn-group-justified form-group">
-                    <a className={"btn " + (this.props.state === 'Today' ? 'btn-primary' : 'btn-default')} onClick={this.onChange.bind(this, "Today")}>Today</a>
-                    <a className={"btn " + (this.props.state === 'Week' ? 'btn-primary' : 'btn-default')} onClick={this.onChange.bind(this, "Week")}>Week</a>
-                    <a className={"btn " + (this.props.state === 'List' ? 'btn-primary' : 'btn-default')} onClick={this.onChange.bind(this, "List")}>A-Z</a>
+                <div className="btn-group btn-group-justified form-group openSansRegular fs0pt86">
+                    <a className={"btn " + (this.props.state === 'Today' ? 'btn-default active' : 'btn-default')} onClick={this.onChange.bind(this, "Today")}>Today</a>
+                    <a className={"btn " + (this.props.state === 'Week' ? 'btn-default active' : 'btn-default')} onClick={this.onChange.bind(this, "Week")}>Week</a>
+                    <a className={"btn " + (this.props.state === 'List' ? 'btn-default active' : 'btn-default')} onClick={this.onChange.bind(this, "List")}>A-Z</a>
                 </div>
-            </div>
         );
     }
 }

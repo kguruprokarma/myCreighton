@@ -41,10 +41,10 @@ export class Classes extends React.PureComponent {
       <section id="classSchedule">
         {USER_DATA && <div>
           <Row>
-            <Col md={8} sm={6} xs={12}>
+            <Col md={8} sm={6} xs={12}  className="hidden-xs">
               <HeaderLabel headerLabel="Class Schedule" />
             </Col>
-            <Col md={4} sm={6} xs={12}>
+            <Col md={4} sm={6} xs={12} className="controller-buttons">
               <ClassTabController state={this.state.selected} onChangeTab={this.onChangeOfTab} />
             </Col>
           </Row>
