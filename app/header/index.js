@@ -3,20 +3,21 @@
  */
 
 import React from 'react';
-import { Link, browserHistory } from 'react-router'
+import { Link, browserHistory } from 'react-router';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 import { Nav, Navbar, NavItem, Col, Row, Image } from 'react-bootstrap';
 import ProfileMenu from '../header/components/profileMenu';
 import Title from '../header/components/title';
-import { connect } from 'react-redux';
 import * as _ from 'lodash';
 import Style from './style.css';
+import * as actionCreators from './actions';
 import Navigation from '../common/mainNav'
 class Header extends React.PureComponent {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            showPopUp: false,
             showNav:false
         }
         this.showPopUp = this.showPopUp.bind(this);
@@ -24,8 +25,11 @@ class Header extends React.PureComponent {
         this.navClick = this.navClick.bind(this);
     }
     showPopUp() {
-        this.props.showPatch();
-        this.setState({ showPopUp: !this.state.showPopUp });
+        if(!this.props.popUpData){
+            this.props.popUpOpen();
+        }else{
+            this.props.popUpClose();
+        }
     }
     navClick(){
         this.setState({ showNav: !this.state.showNav });
@@ -59,8 +63,8 @@ class Header extends React.PureComponent {
                                     <div className='popUp'>
                                         <span className='glyphicon glyphicon-user' onClick={this.showPopUp}></span>
                                         <div className='popUpContainer'>
-                                            {this.state.showPopUp &&
-                                            <ProfileMenu showPopValue={this.showPopUp} />}
+                                        {this.props.popUpData &&
+                                                <ProfileMenu showPopValue={this.showPopUp} />}
                                         </div>
                                     </div>
                                 </li>
@@ -75,11 +79,17 @@ class Header extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (classDetailsState) => (
+
+
+
+const mapStateToProps = (storeData) => (
 {
-    classDetails: classDetailsState.classDetailsReducer.classDetails
+    classDetails: storeData.classDetailsReducer.classDetails,
+    popUpData: storeData.headerReducer.showPopUp
 })
 
-export default connect(mapStateToProps)(Header)
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
 
 

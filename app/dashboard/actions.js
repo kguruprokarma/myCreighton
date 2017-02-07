@@ -2,7 +2,7 @@
 *Usage of file: - This action is used to get user details of a current logged in user.*
 */
 
-import userDetailsApi from '../../middleware/dashboard/api';
+import UserDetailsApi from '../middleware/dashboard/api';
 import * as types from './actionTypes';
 
 
@@ -13,7 +13,7 @@ let requestUserDetailsData = () => ({
 let receiveUserDetailsData = (userDetails) => (
   {
     type: types.RECEIVE_USER_DETAILS_DATA,
-    data: userDetailsData
+    data: userDetails
   })
 
 let receiveUserDetailsError = (error) => (
@@ -25,7 +25,7 @@ let receiveUserDetailsError = (error) => (
 export function getUserDetailsData() {
   return function (dispatch) {
     dispatch(requestUserDetailsData())
-    return userDetailsApi.getUserDetailsData().then((response) => {
+    return UserDetailsApi.getUserDetailsData().then((response) => {
         dispatch(receiveUserDetailsData(response))
       })
       .catch((error) => {

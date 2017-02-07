@@ -3,7 +3,7 @@
 */
 import React from 'react';
 import {shallow} from 'enzyme';
-import Dining from '../components/dining';
+import Dining from '../mealPlan/components/dining';
 
 it('Dining is defined', () => {
 	const diningTestProps = {

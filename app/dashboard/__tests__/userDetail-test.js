@@ -4,8 +4,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import UserDetail from '../components/userDetail';
-import { translate} from 'react-i18next';
-import i18n from '../../i18n';
 
 describe('ToggleMealPlan component testing ----->', () => {
 
