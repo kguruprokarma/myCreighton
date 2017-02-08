@@ -16,7 +16,7 @@ const ModuleBlock = (modulesprops) => {
 					<Col xs={3} md={12}  className="moduleImage">
 						<img src={moduleDetail.imgURL} />
 					</Col>
-					<Col xs={9} md={12}>
+					<Col xs={9} md={12}  className="moduleImage">
 						<h3 className="well-title openSansLight">{moduleDetail.name}{moduleDetail.name==='School & Semester'? <span className="well-badge"><span>1</span></span> : '' }</h3>
 						<div className="well-caption">{moduleDetail.description}</div>
 					</Col>
