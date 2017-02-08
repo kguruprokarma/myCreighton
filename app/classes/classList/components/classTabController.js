@@ -15,9 +15,9 @@ class ClassTabController extends Component {
     render() {
         return (
             <div className="btn-group btn-group-justified form-group openSansRegular fs0pt86">
-                <Link to={'classes/today'} className={"btn " + (this.props.state === 'today' ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, 'today')}>Today</Link>
-                <Link to={'classes/week'} className={"btn " + (this.props.state === 'week' ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, 'week')}>Week</Link>
-                <Link to={'classes/list'} className={"btn " + (this.props.state === 'list' ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, 'list')}>A-Z</Link>
+                <Link to={'classes/today'} className={"btn " + (this.props.state === 'today' ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, 'today')}>{this.props.i18nTranslate('common:TODAY')}</Link>
+                <Link to={'classes/week'} className={"btn " + (this.props.state === 'week' ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, 'week')}>{this.props.i18nTranslate('common:WEEK')}</Link>
+                <Link to={'classes/list'} className={"btn " + (this.props.state === 'list' ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, 'list')}>{this.props.i18nTranslate('common:A-Z')}</Link>
             </div>
         );
     }

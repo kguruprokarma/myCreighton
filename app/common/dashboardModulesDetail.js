@@ -47,8 +47,7 @@ export const  modulesBlocksData = (roleType) => {
 										"description": "What I need to be ready for."
 									}
 								]);
-		  }
-		  console.log('modulesData',modulesData)
+		  }		  
 		  return modulesData;
 		};
 

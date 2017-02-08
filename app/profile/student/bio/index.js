@@ -19,7 +19,10 @@ import styles from '../style.css';
 import LeftNav from '../../../common/leftNav';
 import { Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../../common/headerLabel';
+import { translate } from 'react-i18next';
+import i18n from '../../../i18n';
 
+@translate([], { wait: true })
 export class Profile extends React.PureComponent {
 
   constructor() {
@@ -31,10 +34,11 @@ export class Profile extends React.PureComponent {
   }
 
   render() {
-    let USER_DATA = this.props.profileData
+    let USER_DATA = this.props.profileData;
+    const { t } = this.props;
     return (
       <section>
-        <HeaderLabel headerLabel="My Profile" />
+        <HeaderLabel headerLabel={t('common:MY_PROFILE')} />
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className="userData pull-right">

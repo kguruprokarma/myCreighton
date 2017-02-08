@@ -13,7 +13,10 @@ import styles from '../style.css';
 import LeftNav from '../../../common/leftNav';
 import { Grid, Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../../common/headerLabel';
+import { translate } from 'react-i18next';
+import i18n from '../../../i18n';
 
+@translate([], { wait: true })
 export class Academic extends React.PureComponent {
 
 	constructor() {
@@ -25,10 +28,11 @@ export class Academic extends React.PureComponent {
 	}
 
 	render() {
-		let USER_DATA = this.props.academicData
+		let USER_DATA = this.props.academicData;
+		 const { t } = this.props;
 		return (
 			<section id="academic">
-				<HeaderLabel headerLabel="Academic" />
+				<HeaderLabel headerLabel={t('common:ACADEMIC')} />
 				{USER_DATA &&
 					<Row>
 						<Col sm={8} md={9} xs={12} className="userData pull-right">

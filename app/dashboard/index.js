@@ -14,9 +14,11 @@ import { Row, Col } from 'react-bootstrap';
 import  DashboardModulesList from '../common/dashboardModulesDetail';
 
 import * as actionCreators from './actions';
+import { translate } from 'react-i18next';
+import i18n from '../i18n';
 
 const { func, object } = PropTypes;
-
+@translate([], { wait: true })
 export class Dashboard extends Component {
     
     static propTypes = {
@@ -38,10 +40,10 @@ export class Dashboard extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.role !== nextProps.params.roletype) {
-            this.role = nextProps.params.roletype || "Student";
-            this.props.getUserDetailsData(`/${this.role}.json`);
-        }
+        // if (this.role !== nextProps.params.roletype) {
+        //     this.role = nextProps.params.roletype || "Student";
+        //     this.props.getUserDetailsData(`/${this.role}.json`);
+        // }
     }
 
 	onClick = () => this.setState({ shouldHide: !this.state.shouldHide });
@@ -49,12 +51,13 @@ export class Dashboard extends Component {
 	render() {
 		const { userDetailsData, params: { roletype } } = this.props;
 		const dashboardModulesList = DashboardModulesList(roletype || "Student");
+		const { t } = this.props;
 		return (
 			<section id="dashboard">
-				<h1 className="announced-only">Dashboard</h1>
+				<h1 className="announced-only">{t('common:DASHBOARD')}</h1>
 				<Row className="mb20">
 					<Col sm={5} xs={10} md={5}>
-						{userDetailsData && <UserDetail userDetail={{...userDetailsData, userRole: roletype || "Student" }}/>}
+						{userDetailsData && <UserDetail userDetail={{...userDetailsData, userRole: roletype || "Student", i18nTranslate:t }} />}
 					</Col>
 					<Col xs={2} className="hidden-lg hidden-md hidden-sm">
 						<ToggleMealPlan toggle={this.onClick} />
@@ -66,7 +69,7 @@ export class Dashboard extends Component {
 
 				<article id="wells">
 					<Row>
-						<h1 className="announced-only">Well Section</h1>
+						<h1 className="announced-only">{t('common:WELL_SECTION')}</h1>
 						<Col md={5} sm={6}>
 							<ModuleBlock modulelist={dashboardModulesList[0]} />
 						</Col>
