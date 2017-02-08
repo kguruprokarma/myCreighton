@@ -23,8 +23,7 @@ let receiveUserDetailsError = (error) => (
 })
 
 export function getUserDetailsData(roleType) {
-  return function (dispatch) {      
-    console.log(roleType);
+  return function (dispatch) {
     dispatch(requestUserDetailsData())
     return UserDetailsApi.getUserDetailsData(roleType).then((response) => {
         dispatch(receiveUserDetailsData(response))

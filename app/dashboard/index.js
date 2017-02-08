@@ -30,9 +30,12 @@ export class Dashboard extends Component {
     };
 
     componentWillMount() {
+        console.log(this.props.params.roletype);
         this.role = this.props.params.roletype;
         if (this.role) {
             this.props.getUserDetailsData(`/${this.role}.json`);
+        } else {
+            this.props.getUserDetailsData(`/Student.json`);
         }
     }
 
@@ -53,7 +56,7 @@ export class Dashboard extends Component {
 				<h1 className="announced-only">Dashboard</h1>
 				<Row className="mb20">
 					<Col sm={5} xs={10} md={5}>
-						{userDetailsData && <UserDetail userDetail={{...userDetailsData, userRole: roletype}}/>}
+						{userDetailsData && <UserDetail userDetail={{...userDetailsData, userRole: roletype || 'Student'}}/>}
 					</Col>
 					<Col xs={2} className="hidden-lg hidden-md hidden-sm">
 						<ToggleMealPlan toggle={this.onClick} />
