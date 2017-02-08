@@ -91,12 +91,6 @@ header a:focus {
     color: #fff;
 }
 /* End Header */
-/* start menu */
-.menu-xs {
-    position: absolute;
-    z-index: 9;
-}
-/* End menu */
 .wrapper
 {
 	/* Layout wrapper */

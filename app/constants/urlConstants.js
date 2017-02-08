@@ -13,5 +13,5 @@ export const API_GATEWAY = 'http://api-gateway01.creighton.edu';//'http://reduxb
 export const API_DATA = "/studentProfile/"; //'/myProfile.json';//http://reduxblog.herokuapp.com/api/posts 
 export const CLASS_DETAILS_DATA = '/classDetails.json';
 export const STAFF_PROFILE_DATA = '/myProfileStaff.json';
-export const USER_DETAILS_DATA = '/getUserDetails.json';
+export const Student = '/Student.json';
 export const MEAL_PLAN_DATA = '/getMealPlan.json'

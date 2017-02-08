@@ -1,7 +1,7 @@
 /*Created Date: - 3rd -02 -2017
 *Usage of file: - TMerge individual components of Dashboard into this file..*
 */
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
@@ -11,33 +11,49 @@ import ModuleBlock from './components/moduleBlock';
 import ToggleMealPlan from './components/toggleMealPlan';
 import style from './style.css';
 import { Row, Col } from 'react-bootstrap';
-import DashboardModulesList from '../common/dashboardModulesDetail';
-const dashboardModulesList = DashboardModulesList;
+import  DashboardModulesList from '../common/dashboardModulesDetail';
+
 import * as actionCreators from './actions';
 
+const { func, object } = PropTypes;
 
 export class Dashboard extends Component {
+    
+    static propTypes = {
+        getUserDetailsData: func,
+        params: object,
+        userDetailsData: object,
+    };
+    
+    state = {
+        shouldHide: true,
+    };
 
-	constructor(props) {
-		super(props);
-		this.state = { shouldHide: true };
-		this.onClick = this.onClick.bind(this);
-		this.props.getUserDetailsData()
-	}
+    componentWillMount() {
+        this.role = this.props.params.roletype;
+        if (this.role) {
+            this.props.getUserDetailsData(`/${this.role}.json`);
+        }
+    }
 
-	onClick() {
-		this.setState({ shouldHide: !this.state.shouldHide });	
-	}
+    componentWillReceiveProps(nextProps) {
+        if (this.role !== nextProps.params.roletype) {
+            this.role = nextProps.params.roletype;
+            this.props.getUserDetailsData(`/${this.role}.json`);
+        }
+    }
+
+	onClick = () => this.setState({ shouldHide: !this.state.shouldHide });
 
 	render() {
-		let USER_DETAIL = this.props.userDetailsData;
+		const { userDetailsData, params: { roletype } } = this.props;
+		const dashboardModulesList = DashboardModulesList(roletype);
 		return (
-
 			<section id="dashboard">
 				<h1 className="announced-only">Dashboard</h1>
 				<Row className="mb20">
 					<Col sm={5} xs={10} md={5}>
-						{USER_DETAIL && <UserDetail userDetail={USER_DETAIL}/>}
+						{userDetailsData && <UserDetail userDetail={{...userDetailsData, userRole: roletype}}/>}
 					</Col>
 					<Col xs={2} className="hidden-lg hidden-md hidden-sm">
 						<ToggleMealPlan toggle={this.onClick} />

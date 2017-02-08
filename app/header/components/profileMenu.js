@@ -18,6 +18,15 @@ const CUSTOM_POP_UP_DATA = {
     },{
         'itemName':'Academic',
         'link':'/Academic'
+    },{
+        'itemName':'Student',
+        'link':'/Dashboard/Student'
+    },{
+        'itemName':'Staff',
+        'link':'/Dashboard/Staff'
+    },{
+        'itemName':'Faculty',
+        'link':'/Dashboard/Faculty'
     }]
 };
 
