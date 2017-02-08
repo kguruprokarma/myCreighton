@@ -3,7 +3,7 @@
 */
 import React from 'react';
 import { shallow } from 'enzyme';
-import MealPlan from '../mealPlan/index';
+import { MealPlan } from '../index';
 
 describe('MealPlan component testing ----->', () => {
 
