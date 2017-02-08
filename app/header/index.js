@@ -14,7 +14,7 @@ import Style from './style.css';
 import * as actionCreators from './actions';
 
 
-class Header extends React.PureComponent {
+export class Header extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {

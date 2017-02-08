@@ -13,6 +13,6 @@ describe('MainNav testing ----->', () => {
   });
 
   it('MainNav should contain list-group-item component', () => {
-    expect(mainNav.find('.list-group-item').length).toBe(7);
+    expect(mainNav.find('.main-navigation').length).toBe(1);
   });
 });
