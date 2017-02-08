@@ -13,7 +13,6 @@ export const  modulesBlocksData = (roleType) => {
 										"name": 'School & Semester',
 										"description": "School Stuff I am responsible for."
 									},
-
 									{
 										"imgURL": "./assets/images/nextevent.png",
 										"linkto": "",
@@ -32,9 +31,8 @@ export const  modulesBlocksData = (roleType) => {
 		  else
 		  {
 		  	modulesData.push([
-								
 
-									{
+							{
 										"imgURL": "./assets/images/classes.png",
 										"linkto": "",
 										"name": 'Campus Directory',

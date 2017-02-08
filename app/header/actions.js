@@ -11,6 +11,15 @@ let closePopUp = () => (
     type: types.CLOSE_POPUP
   })
 
+let openNav = () => ({
+  type: types.OPEN_NAV
+})
+
+let closeNav = () => (
+  {
+    type: types.CLOSE_NAV
+  })
+
 export function popUpOpen() {
   return function (dispatch) {
     dispatch(openPopUp())
@@ -23,15 +32,6 @@ export function popUpClose() {
   }
 }
 
-let openNav = () => ({
-  type: types.OPEN_NAV
-})
-
-let closeNav = () => (
-  {
-    type: types.CLOSE_NAV
-  })
-
 export function navOpen() {
   return function (dispatch) {
     dispatch(openNav())
@@ -43,4 +43,6 @@ export function navClose() {
     dispatch(closeNav())
   }
 }
+
+
 

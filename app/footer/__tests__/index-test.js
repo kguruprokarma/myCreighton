@@ -15,8 +15,4 @@ describe('Footer component testing ----->', () => {
 	it('Footer should contain UniversityAddress component', () => {
 		expect(FooterC.find('UniversityAddress').length).toBe(1);
 	});
-
-	it('Footer should contain CopyRightText component', () => {
-		expect(FooterC.find('CopyRightText').length).toBe(1);
-	});
 });

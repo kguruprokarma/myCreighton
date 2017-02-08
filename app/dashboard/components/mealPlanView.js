@@ -35,9 +35,8 @@ export default class MealPlan extends Component {
 							<div className="angle-right text-right"><Link><img src={'./assets/images/more.png'} /></Link></div>
 						</Col>
 					</Well>
-				</div >
-				<a className="doller-icon pull-right hidden-xs openSansBold"><span onClick={this.props.toggleMeal}>{this.props.showMeal ? <img src={'./assets/images/money.png'} /> : 'Hide'}</span></a>
-			</section >
+				</div>
+			</section>
 
 		)
 	}

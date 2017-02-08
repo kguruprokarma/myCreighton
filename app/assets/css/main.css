@@ -372,12 +372,10 @@ input {
 
 @media screen and (min-width: 768px) {
 
-    
-
     .main-navigation {
             list-style: none;
             padding: 0;
-            margin: 0 0 20px 0;
+            margin: 0;
     }
 
     .main-navigation li {
@@ -388,7 +386,6 @@ input {
    
    #navigation {
         display: block;
-        height: 42px;
         border-bottom: 1px solid #d5d5d5;
     }
     
@@ -404,17 +401,8 @@ input {
     }
     
 }
-@media screen and (min-width: 1000px) and (max-width: 1170px) {
-    .main-navigation li {
-        padding-right: 4px;
-    }
-}
 
-@media screen and (max-width: 992px) {
-
-    .container {
-        width: 100%;
-    }
+@media screen and (max-width: 1024px) {
 
     #navigation
      {
@@ -423,15 +411,14 @@ input {
         z-index: 100;
         top: 46px;
         width: 100%;
-        overflow: hidden;
         height: 100%;
      }
-
+     
      .openNav {
         transition: .5s;
         -moz-transition: .5s;
         -webkit-transition: .5s;
-        left: 0;
+        left: 0; 
     }
 
     .closeNav {
@@ -439,11 +426,14 @@ input {
         -moz-transition: .5s;
         -webkit-transition: .5s;
         left: -100%;
-
     }
 
     .main-navigation {
         margin: 0;
+        padding: 0;
+    }
+
+    .main-navigation li {
         padding: 0;
     }
 
@@ -456,6 +446,25 @@ input {
         border-bottom: 1px solid #ccc;
         display: block;
     }
+
+    .main-navigation .glyphicon.glyphicon-chevron-right {
+        padding-top: 12px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1010px) {
+   
+    .main-navigation li a {
+        line-height: 2.6em;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    .container {
+        width: 100%;
+    }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -479,13 +488,16 @@ input {
         top: 3px;
 	}
 
-    .view-container {
-        padding-bottom:120px;
-    }    
+}
+
+@media screen and (max-width: 767px) {
+
+    .main-navigation .glyphicon.glyphicon-chevron-right {
+        padding-top: 2px;
+    }
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
     /* Retina specific CSS code */
     
 }
-

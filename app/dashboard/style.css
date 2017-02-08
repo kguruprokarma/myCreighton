@@ -177,6 +177,14 @@
     .white-well {
         min-height: 100px;
     }
+
+    .moduleImage {
+        vertical-align:middle;
+        max-height: 58px;
+    }
+    .moduleImage img {
+        max-height: 58px;
+    }
     
 }
 
