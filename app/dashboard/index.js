@@ -14,9 +14,11 @@ import { Row, Col } from 'react-bootstrap';
 import  DashboardModulesList from '../common/dashboardModulesDetail';
 
 import * as actionCreators from './actions';
+import { translate } from 'react-i18next';
+import i18n from '../i18n';
 
 const { func, object } = PropTypes;
-
+@translate([], { wait: true })
 export class Dashboard extends Component {
     
     static propTypes = {
@@ -49,14 +51,16 @@ export class Dashboard extends Component {
 	onClick = () => this.setState({ shouldHide: !this.state.shouldHide });
 
 	render() {
-		const { userDetailsData  } = this.props;
+		const { userDetailsData, t  } = this.props;
 		const dashboardModulesList = DashboardModulesList(this.role);
+
 		return (
 			<section id="dashboard">
-				<h1 className="announced-only">Dashboard</h1>
+				<h1 className="announced-only">{t('common:DASHBOARD')}</h1>
 				<Row className="mb20">
 					<Col sm={5} xs={10} md={5}>
-						{userDetailsData && <UserDetail userDetail={userDetailsData}/>}
+						{userDetailsData && <UserDetail userDetail={userDetailsData} i18nTranslate={t} />}
+
 					</Col>
 					<Col xs={2} className="hidden-lg hidden-md hidden-sm">
 						<ToggleMealPlan toggle={this.onClick} />
@@ -68,7 +72,7 @@ export class Dashboard extends Component {
 
 				<article id="wells">
 					<Row>
-						<h1 className="announced-only">Well Section</h1>
+						<h1 className="announced-only">{t('common:WELL_SECTION')}</h1>
 						<Col md={5} sm={6}>
 							<ModuleBlock modulelist={dashboardModulesList[0]} />
 						</Col>

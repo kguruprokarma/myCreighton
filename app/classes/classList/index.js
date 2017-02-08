@@ -11,7 +11,10 @@ import ClassTabController from './components/classTabController';
 import ClassBox from './components/classBox';
 import * as actionCreators from './actions';
 import style from '../classList/style.css';
+import { translate } from 'react-i18next';
+import i18n from '../../i18n';
 
+@translate([], { wait: true })
 export class Classes extends React.PureComponent {
 
   constructor(props) {
@@ -34,18 +37,19 @@ export class Classes extends React.PureComponent {
   render() {
 
     let USER_DATA = this.props.classesData;
+    const { t } = this.props;
     return (
       <section id="classSchedule">
         {USER_DATA && <div>
           <Row>
             <Col md={8} sm={6} xs={12} className="hidden-xs">
-              <HeaderLabel headerLabel="Class Schedule" />
+              <HeaderLabel headerLabel={t('common:CLASS_SCHEDULE')} />
             </Col>
             <Col md={4} sm={6} xs={12} className="controller-buttons">
-              <ClassTabController state={this.props.params.classTab} onChangeOfTab={this.onChangeOfTab} />
+              <ClassTabController state={this.props.params.classTab} onChangeOfTab={this.onChangeOfTab} i18nTranslate={t} />
             </Col>
           </Row>
-          <ClassBox data={USER_DATA.classes} catagoryName={this.props.params.classTab} />
+          <ClassBox data={USER_DATA.classes} catagoryName={this.props.params.classTab} i18nTranslate={t} />
         </div>
         }
       </section>

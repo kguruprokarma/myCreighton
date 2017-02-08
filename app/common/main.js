@@ -43,7 +43,7 @@ class Main extends React.PureComponent {
                 </main>
                 {/* /this is main section */}
                 {/* this is footer section */}
-                <Footer />
+                <Footer/>
                 {/* /this is footer section */}
                 {this.props.popUpData && <div className="popUpPatch" onClick={this.hidePopUp}></div>}
             </div>

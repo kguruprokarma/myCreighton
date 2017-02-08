@@ -17,7 +17,7 @@ const TodayClasses = (todayProps) => (
 				return (
 					<div key={index} id="cls">
 						<Link to={"ClassDetails/" + todayProps.catagory + "/" + todayClass.id + "/" + index}>
-							<ClassInfo data={todayClass} />
+							<ClassInfo data={todayClass} i18nTranslate={todayProps.i18nTranslate} />
 						</Link>
 					</div>
 				)

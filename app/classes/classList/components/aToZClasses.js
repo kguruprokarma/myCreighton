@@ -15,7 +15,7 @@ const AToZClasses = (aToZProps) => (
 				return (
 					<div key={index} id="cls">
 						<Link to={"ClassDetails/" + aToZProps.catagory + "/" + aToZClass.id + "/" + index}>
-							<ClassInfo data={aToZClass} />
+							<ClassInfo data={aToZClass} i18nTranslate={aToZProps.i18nTranslate} />
 						</Link>
 					</div>
 				)

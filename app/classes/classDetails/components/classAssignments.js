@@ -6,7 +6,7 @@ import React from 'react';
 
 const ClassAssignments = (classAssignProps) => (
 	<article className="classAssignment mb25 mt20">
-		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>ASSIGNMENTS DUE</h4>
+		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>{classAssignProps.i18nTranslate('common:ASSIGNMENTS_DUE')}</h4>
 		{classAssignProps.assignmentsDue.map((classesDue, classesDueIndex) => {
 			return (
 				<div className="openSansLight fs1pt2 gbl_lh" key={classesDueIndex}>

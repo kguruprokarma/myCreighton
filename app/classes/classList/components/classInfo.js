@@ -20,7 +20,7 @@ const ClassInfo = (classInfoProps) => (
 			</Col>
 			<Col md={2} sm={3} className="text-right">
 				<div className="classTime">{classInfoProps.data.recurrence} {classInfoProps.data.time}</div>
-				<div className="classDate"><span className="openSansRegular">Next:</span> {classInfoProps.data.date}</div>
+				<div className="classDate"><span className="openSansRegular">{classInfoProps.i18nTranslate('çommon:NEXT')}:</span> {classInfoProps.data.date}</div>
 			</Col>
 		</div>
 		<Row className="visible-xs mobileClassesList row">
@@ -34,7 +34,7 @@ const ClassInfo = (classInfoProps) => (
 				<h3 className="mb0 classesHeading">{classInfoProps.data.name} </h3>
 			</Col>
 			<Col xs={5} className="text-right">
-				<span className="classDate"><label>Next:</label> {classInfoProps.data.date}</span>
+				<span className="classDate"><label>{classInfoProps.i18nTranslate('çommon:NEXT')}:</label> {classInfoProps.data.date}</span>
 			</Col>
 			<Col xs={7}>
 				<span className="classPlace">{classInfoProps.data.place}</span>

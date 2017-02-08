@@ -5,19 +5,23 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Grid, Row } from 'react-bootstrap';
+import { translate } from 'react-i18next';
+import i18n from '../i18n';
 
+@translate([], { wait: true })
 class MainNav extends React.Component {
     render() {
+        const { t } = this.props;
         return (
             <nav role="Navigation" id="navigation" className={this.props.navDisplay ? 'openNav' : 'closeNav'}>
-                <h1 className="announced-only">Navigation</h1>
+                <h1 className="announced-only">{t('common:NAVIGATION')}</h1>
                 <Grid>
                     <Row>
                         <ul className="main-navigation fs0pt93">
-                            <li className="navigation-item"><a href="#">Creighton Services and Resources <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
-                            <li className="navigation-item"><a href="#">Campus Directory <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
-                            <li className="navigation-item"><a href="#">Library Search <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
-                            <li className="navigation-item"><a href="#">DoIT Services and Support <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
+                            <li className="navigation-item"><a href="#">{t('common:CREIGHTON_SERVICES_AND_RESOURCES')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
+                            <li className="navigation-item"><a href="#">{t('common:CAMPUS_DIRECTORY')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
+                            <li className="navigation-item"><a href="#">{t('common:LIBRARY_SEARCH')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
+                            <li className="navigation-item"><a href="#">{t('common:DOIT_SERVICES_AND_SUPPORT')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
                         </ul>
                     </Row>
                 </Grid>
