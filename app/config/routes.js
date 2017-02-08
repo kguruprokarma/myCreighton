@@ -28,6 +28,7 @@ const routes = (
         <Route path='/Classes/:classTab' title="Class Schedule - " component={Classes} />
         <Route path='/ClassDetails/:categoryName/:id/:index' title="Class Detail - " component={ClassDetails} />
         <Route path='/Dashboard' title="" component={Dashboard} />
+        <Route path='/Dashboard/:roletype' title="" component={Dashboard} />
       </Route>
     </Router>
   </Provider>

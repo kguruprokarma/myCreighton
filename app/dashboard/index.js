@@ -30,16 +30,18 @@ export class Dashboard extends Component {
     };
 
     componentWillMount() {
-        console.log(this.props.params.roletype);
-        this.role = this.props.params.roletype || "Student";
+        this.role = this.props.params.roletype;
         if (this.role !== undefined) {
             this.props.getUserDetailsData(`/${this.role}.json`);
-        } 
+        } else {
+            this.role = 'Student';
+            this.props.getUserDetailsData(`/Student.json`);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.role !== nextProps.params.roletype) {
-            this.role = nextProps.params.roletype || "Student";
+        if (this.role !== nextProps.params.roletype && nextProps.params.roletype) {
+            this.role = nextProps.params.roletype;
             this.props.getUserDetailsData(`/${this.role}.json`);
         }
     }
@@ -47,14 +49,14 @@ export class Dashboard extends Component {
 	onClick = () => this.setState({ shouldHide: !this.state.shouldHide });
 
 	render() {
-		const { userDetailsData, params: { roletype } } = this.props;
-		const dashboardModulesList = DashboardModulesList(roletype || "Student");
+		const { userDetailsData  } = this.props;
+		const dashboardModulesList = DashboardModulesList(this.role);
 		return (
 			<section id="dashboard">
 				<h1 className="announced-only">Dashboard</h1>
 				<Row className="mb20">
 					<Col sm={5} xs={10} md={5}>
-						{userDetailsData && <UserDetail userDetail={{...userDetailsData, userRole: roletype || "Student" }}/>}
+						{userDetailsData && <UserDetail userDetail={userDetailsData}/>}
 					</Col>
 					<Col xs={2} className="hidden-lg hidden-md hidden-sm">
 						<ToggleMealPlan toggle={this.onClick} />
