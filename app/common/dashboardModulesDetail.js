@@ -21,7 +21,7 @@ export const  modulesBlocksData = (roleType) => {
 									}],
 									[{
 										"imgURL": "./assets/images/classes.png",
-										"linkto": "",
+										"linkto": "/classes",
 										"name": 'classes',
 										"description": "School Stuff I am responsible for."
 									}]
