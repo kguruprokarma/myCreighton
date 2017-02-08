@@ -54,16 +54,16 @@ class Header extends React.PureComponent {
                     <h1 className="announced-only">Page header</h1>
                     <div className="container">
                         <Row >
-                            <Col xs={2} sm={2} md={6} className="visible-xs visible-sm hamburgerMenu">
+                            <Col xs={2} sm={2} className="hidden-lg hamburgerMenu">
                                 <img src={'./assets/images/menu.png'} onClick={this.navClick} />
                             </Col>
-                            <Col xs={8} sm={10} md={6} className="hidden-xs hidden-sm">
+                            <Col lg={10} className="visible-lg">
                                 <h2 className="bebasregular logo mt10 mb10 fs1pt4">MYCREIGHTON</h2>
                             </Col>
-                            <Col xs={8} sm={8} md={6} className="visible-xs visible-sm text-center">
+                            <Col xs={8} sm={8} className="hidden-lg text-center">
                                 <Title path={this.props.currentState} classDetails={title} />
                             </Col>
-                            <Col xs={2} md={6} sm={2}>
+                            <Col xs={2} sm={2}>
                                 <ul className="pull-right list-inline">
                                     <li className="head-Icons">
                                         <div className='popUp'>

@@ -14,13 +14,10 @@ class MainNav extends React.Component {
                 <Grid>
                     <Row>
                         <ul className="main-navigation fs0pt93">
-                            <li className="navigation-item"><a href="#">Library Search <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
-                            <li className="navigation-item"><a href="#">Where To Find It <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
-                            <li className="navigation-item"><a href="#">Campus Directory <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
-                            <li className="navigation-item"><a href="#">DoIT Services & Support <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
-                            <li className="navigation-item"><a href="#">Academic Calendar <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
-                            <li className="navigation-item"><a href="#">Campus Map <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md"></span></a></li>
-                            <li className="navigation-item"><a href="#" >Notifications<span className="well-badge"><span>1</span></span> <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg hidden-md "></span></a></li>
+                            <li className="navigation-item"><a href="#">Creighton Services and Resources <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
+                            <li className="navigation-item"><a href="#">Campus Directory <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
+                            <li className="navigation-item"><a href="#">Library Search <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
+                            <li className="navigation-item"><a href="#">DoIT Services and Support <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
                         </ul>
                     </Row>
                 </Grid>
