@@ -1,12 +1,14 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Header from '../index';
+import { Header } from '../index';
 
 describe('Header component testing ----->', () => {
 	const defaultProps = {
 		  showPopUp: true,
 		  showPatch:() =>{},
-		  showPopUp:()=>{}
+		  showPopUp:()=>{},
+		  popUpData:()=>{true},
+		  showNav:false
         } 
 		
 	const HeaderC = shallow(<Header {...defaultProps}/>);
@@ -19,7 +21,7 @@ describe('Header component testing ----->', () => {
 	});
 
 	it('Header should contain ProfileMenu component', () => {
-		HeaderC.setState({showPopUp: true});
 		expect(HeaderC.find('ProfileMenu').length).toBe(1);
 	});
+
 });
