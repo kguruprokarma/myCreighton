@@ -21,12 +21,12 @@ export const  modulesBlocksData = (roleType) => {
 									}],
 									[{
 										"imgURL": "./assets/images/classes.png",
-										"linkto": "/classes",
+										"linkto": "/classes/week",
 										"name": 'classes',
 										"description": "School Stuff I am responsible for."
 									}]
-								)								
-							 
+								)
+
 		  }
 		  else
 		  {
@@ -39,14 +39,14 @@ export const  modulesBlocksData = (roleType) => {
 										"description": "Online directory of Creighton staff."
 									}
 								],
-								[		
+								[
 									{
 										"imgURL": "./assets/images/nextevent.png",
 										"linkto": "",
 										"name": "Next Events",
 										"description": "What I need to be ready for."
 									}
-								]); 
+								]);
 		  }
 		  console.log('modulesData',modulesData)
 		  return modulesData;

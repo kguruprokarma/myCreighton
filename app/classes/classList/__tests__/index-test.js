@@ -9,9 +9,12 @@ import {Classes} from '../index';
 describe('index component testing ----->', () => {
   	const defaultProps = {
 		getClassesDataByWeek: ()=>{},
-		selected: 'Week',
+		selected: 'week',
 		onChangeOfTab:()=>{},
 	  onCatagoryChange: () =>{},
+		params:{
+			classTab:'week'
+		},
 		classesData:{
       	classes:[
 				  {

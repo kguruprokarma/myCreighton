@@ -25,11 +25,9 @@ const routes = (
         <Route path='/' title="" component={Dashboard} />
         <Route path='/Profile' title="My Profile - " component={Bio} />
         <Route path='/Academic' title="Academic - " component={Academic} />
-        <Route path='/Classes' title="Class Schedule - " component={Classes} />
+        <Route path='/Classes/:classTab' title="Class Schedule - " component={Classes} />
         <Route path='/ClassDetails/:categoryName/:id/:index' title="Class Detail - " component={ClassDetails} />
         <Route path='/Dashboard' title="" component={Dashboard} />
-        <Route path='/Dashboard/:roletype' title="" component={Dashboard} />
-    
       </Route>
     </Router>
   </Provider>

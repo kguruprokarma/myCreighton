@@ -8,7 +8,7 @@ const initialState = {
 	classesData: {},
 	isLoading: false,
 	error: false,
-	catagoryName: "Week"
+	catagoryName: "week"
 };
 
 const classesReducer = (state = initialState, action = null) => {

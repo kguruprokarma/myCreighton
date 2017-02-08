@@ -14,10 +14,10 @@ class ClassBox extends React.Component {
 		return (
 			<div>
 				{
-					this.props.catagoryName === 'Today' ? (
+					this.props.catagoryName === 'today' ? (
 						<TodayClasses catagory={this.props.catagoryName} listOfData={DATATIME(this.props.data, 'time', 'ASC')} />
 					) : (
-							(this.props.catagoryName === 'Week' ? (
+							(this.props.catagoryName === 'week' ? (
 								<WeekClasses catagory={this.props.catagoryName} listOfData={DATAFILTERADDINGDATA(this.props.data)} />)
 								: (<AToZClasses catagory={this.props.catagoryName} listOfData={DATASORT(this.props.data, 'name', 'ASC')} />)
 							)

@@ -14,7 +14,7 @@ const AToZClasses = (aToZProps) => (
 			aToZProps.listOfData.map((aToZClass, index) => {
 				return (
 					<div key={index} id="cls">
-						<Link to={"ClassDetails/" +aToZProps.catagory+ "/" +  aToZClass.id + "/" + index}>
+						<Link to={"ClassDetails/" + aToZProps.catagory + "/" + aToZClass.id + "/" + index}>
 							<ClassInfo data={aToZClass} />
 						</Link>
 					</div>

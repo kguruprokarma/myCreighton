@@ -24,11 +24,11 @@ class PreviousNext extends React.Component {
 
     componentWillMount() {
         let catagory = this.props.presentCategory;
-        if (catagory == "Week") {
+        if (catagory == "week") {
             this.props.getClassesDataByWeek();
-        } else if (catagory == "List") {
+        } else if (catagory == "list") {
             this.props.getClassesDataForAtoZ();
-        } else if (catagory == "Today") {
+        } else if (catagory == "today") {
             this.props.getClassesDataByToday();
         }
     }
@@ -42,15 +42,15 @@ class PreviousNext extends React.Component {
     getLinkIndexAndId() {
         if (this.props.classList.data && this.props.classList.data.classes.length > 0) {
             let catagory = this.props.presentCategory;
-            if (catagory == "Week") {
+            if (catagory == "week") {
                 classIds = [];
                 let classes = DATAFILTERADDINGDATA(this.props.classList.data.classes);
                 this.pushClassesToClassIdsArray(classes);
-            } else if (catagory == "List") {
+            } else if (catagory == "list") {
                 classIds = [];
                 let classes = DATASORT(this.props.classList.data.classes, 'name', 'ASC');
                 this.pushClassesToClassIdsArray(classes);
-            } else if (catagory == "Today") {
+            } else if (catagory == "today") {
                 classIds = [];
                 let classes = DATATIME(this.props.classList.data.classes, 'time', 'ASC');
                 this.pushClassesToClassIdsArray(classes)

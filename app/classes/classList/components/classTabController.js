@@ -3,20 +3,22 @@
 */
 
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 
 class ClassTabController extends Component {
 
-    onChange(state) {
-        this.props.onChangeTab(state)
-    };
+    onDayChange(day) {
+        this.props.onChangeOfTab(day)
+    }
+
     render() {
         return (
-                <div className="btn-group btn-group-justified form-group openSansRegular fs0pt86">
-                    <a className={"btn " + (this.props.state === 'Today' ? 'btn-default active' : 'btn-default')} onClick={this.onChange.bind(this, "Today")}>Today</a>
-                    <a className={"btn " + (this.props.state === 'Week' ? 'btn-default active' : 'btn-default')} onClick={this.onChange.bind(this, "Week")}>Week</a>
-                    <a className={"btn " + (this.props.state === 'List' ? 'btn-default active' : 'btn-default')} onClick={this.onChange.bind(this, "List")}>A-Z</a>
-                </div>
+            <div className="btn-group btn-group-justified form-group openSansRegular fs0pt86">
+                <Link to={'classes/today'} className={"btn " + (this.props.state === 'today' ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, 'today')}>Today</Link>
+                <Link to={'classes/week'} className={"btn " + (this.props.state === 'week' ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, 'week')}>Week</Link>
+                <Link to={'classes/list'} className={"btn " + (this.props.state === 'list' ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, 'list')}>A-Z</Link>
+            </div>
         );
     }
 }
