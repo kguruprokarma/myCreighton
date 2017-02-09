@@ -12,7 +12,12 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
-    }
+    },
+    "collectCoverage": true,
+    "coverageFormats": [
+      "json",
+      "html"
+    ]
   },
   "author": "",
   "license": "ISC",
