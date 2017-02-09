@@ -6,7 +6,6 @@ import { Grid, Row, Col, ListGroupItem, ListGroup } from 'react-bootstrap';
 class CustomPopUp extends React.Component {
   render() {
     let header = this.props.items.headerData;
-
     return (<div className='customPopUp'>
       <span className="popupPointer"></span>
       <ListGroup>

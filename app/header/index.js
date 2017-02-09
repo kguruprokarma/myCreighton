@@ -32,14 +32,14 @@ export class Header extends React.PureComponent {
             this.props.popUpOpen();
         } else {
             this.props.popUpClose();
-        }
+        }        
     }
     navClick() {
         if (!this.props.navData) {
             this.props.navOpen();
         } else {
             this.props.navClose();
-        }
+        }        
     }
     goBack() {
         browserHistory.goBack();
@@ -67,7 +67,7 @@ export class Header extends React.PureComponent {
                                         <span className='glyphicon glyphicon-user' onClick={this.showPopUp}></span>
                                         <div className='popUpContainer'>
                                             {this.props.popUpData &&
-                                                <ProfileMenu showPopValue={this.showPopUp} />}
+                                                <ProfileMenu showPopValue={this.showPopUp} userDetail={this.props.userDetailsData} />}
                                         </div>
                                     </div>
                                 </li>
@@ -83,7 +83,8 @@ export class Header extends React.PureComponent {
 const mapStateToProps = (storeData) => (
     {
         popUpData: storeData.headerReducer.showPopUp,
-        navData: storeData.headerReducer.showNav
+        navData: storeData.headerReducer.showNav,
+        userDetailsData: storeData.dashboardReducer.userDetailsData.data
     })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)

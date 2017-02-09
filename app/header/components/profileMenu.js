@@ -33,7 +33,7 @@ const CUSTOM_POP_UP_DATA = {
 
 const ProfileMenu = (profileProps) => (
     <section>
-        <CustomPopUp showPop={profileProps.showPopValue} items={CUSTOM_POP_UP_DATA} />
+        <CustomPopUp showPop={profileProps.showPopValue} items={{...CUSTOM_POP_UP_DATA, headerData: profileProps.userDetail}} />
     </section>
 )
 

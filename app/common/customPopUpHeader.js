@@ -5,8 +5,8 @@ import Avatar from 'react-avatar';
 class CustomPopUpHeader extends React.Component {
   render() {
     return (<div className='customPopUpHeader'>
-      <Avatar name={this.props.headerData.name} size={25} round={true} />
-      <span className='tileInfo' >{this.props.headerData.name}</span>
+      <Avatar name={this.props.headerData.userName.fullName} size={25} round={true} />
+      <span className='tileInfo' >{this.props.headerData.userName.fullName}</span>
     </div>
     );
   }
