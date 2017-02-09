@@ -42,17 +42,17 @@ export class Profile extends React.PureComponent {
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className="userData pull-right">
-              <LegalName legalName={USER_DATA.studentProfile.bioData.legalName} />
-              <HomeAddress homeAddress={USER_DATA.studentProfile.bioData.address.home} />
-              <SchoolAddress schoolAddress={USER_DATA.studentProfile.bioData.address.school} />
-              <PrimaryContact primaryContact={USER_DATA.studentProfile.bioData.contactDetail} />
-              <EmergencyContact emergencyContact={USER_DATA.studentProfile.bioData.contactDetail.emergencyContact} />
-              <Email email={USER_DATA.studentProfile.bioData.contactDetail.email} />
-              <Other other={USER_DATA.studentProfile.bioData.contactDetail} />
-              <RelationDetail relationDetail={USER_DATA.studentProfile.bioData.contactDetail.relationDetail} />
+              <LegalName legalName={USER_DATA.studentProfile.bioData.legalName} i18nTranslate={t} />
+              <HomeAddress homeAddress={USER_DATA.studentProfile.bioData.address.home} i18nTranslate={t} />
+              <SchoolAddress schoolAddress={USER_DATA.studentProfile.bioData.address.school} i18nTranslate={t} />
+              <PrimaryContact primaryContact={USER_DATA.studentProfile.bioData.contactDetail} i18nTranslate={t} />
+              <EmergencyContact emergencyContact={USER_DATA.studentProfile.bioData.contactDetail.emergencyContact} i18nTranslate={t} />
+              <Email email={USER_DATA.studentProfile.bioData.contactDetail.email} i18nTranslate={t} />
+              <Other other={USER_DATA.studentProfile.bioData.contactDetail} i18nTranslate={t} />
+              <RelationDetail relationDetail={USER_DATA.studentProfile.bioData.contactDetail.relationDetail} i18nTranslate={t} />
             </Col>
             <Col md={3} sm={4} className="hidden-xs">
-              <LeftNav />
+              <LeftNav i18nTranslate={t} />
             </Col>
           </Row>
         }

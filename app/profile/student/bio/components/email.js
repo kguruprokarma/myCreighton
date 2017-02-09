@@ -10,10 +10,10 @@ import { Row, Col } from 'react-bootstrap';
 
 const Email = (emailProps) => (
       <article className="profileRow mt30">
-            <h3 className="dataHeading openSansRegular">Email</h3>
+            <h3 className="dataHeading openSansRegular">{emailProps.i18nTranslate('common:EMAIL')}</h3>
             {/* School email address */}
             <Row className="show-grid pt5 pb5">
-                  <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>School</label> </Col>
+                  <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>{emailProps.i18nTranslate('common:SCHOOL')}</label> </Col>
                   <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
                         {/* Mailto added for open mail box popup */}
                         <Mailto email={emailProps.email.school.value}>{emailProps.email.school.value}</Mailto>
@@ -21,7 +21,7 @@ const Email = (emailProps) => (
             </Row>
             {/* Personal email address */}
             <Row className="show-grid pt5 pb5">
-                  <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>Personal</label> </Col>
+                  <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>{emailProps.i18nTranslate('common:PERSONAL')}</label> </Col>
                   <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
                         {/* Mailto added for open mail box popup */}
                         <Mailto email={emailProps.email.personal.value}>{emailProps.email.personal.value}</Mailto>

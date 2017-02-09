@@ -8,9 +8,9 @@ import BasicRow from '../../../../common/basicRow';
 
 const Dependent = (depenndentProps) => (
     <div>
-        <BasicRow displayName="First name" displayValue={depenndentProps.dependent.firstName} />
-        <BasicRow displayName="Middle" displayValue={depenndentProps.dependent.middleName} />
-        <BasicRow displayName="Last" displayValue={depenndentProps.dependent.lastName} />
+        <BasicRow displayName={depenndentProps.i18nTranslate('COMMON:FIRST_NAME')} displayValue={depenndentProps.dependent.firstName} />
+        <BasicRow displayName={depenndentProps.i18nTranslate('COMMON:MIDDLE')} displayValue={depenndentProps.dependent.middleName} />
+        <BasicRow displayName={depenndentProps.i18nTranslate('COMMON:LAST')} displayValue={depenndentProps.dependent.lastName} />
     </div>
 )
 

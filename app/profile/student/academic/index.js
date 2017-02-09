@@ -29,18 +29,18 @@ export class Academic extends React.PureComponent {
 
 	render() {
 		let USER_DATA = this.props.academicData;
-		 const { t } = this.props;
+		const { t } = this.props;
 		return (
 			<section id="academic">
 				<HeaderLabel headerLabel={t('common:ACADEMIC')} />
 				{USER_DATA &&
 					<Row>
 						<Col sm={8} md={9} xs={12} className="userData pull-right">
-							<AcademicStatus json={USER_DATA.studentProfile.academicDetail} />
-							<AdvisorInformation json={USER_DATA.studentProfile.academicDetail} />
+							<AcademicStatus json={USER_DATA.studentProfile.academicDetail} i18nTranslate={t} />
+							<AdvisorInformation json={USER_DATA.studentProfile.academicDetail} i18nTranslate={t} />
 						</Col>
 						<Col md={3} sm={4} className="hidden-xs">
-							<LeftNav />
+							<LeftNav i18nTranslate={t} />
 						</Col>
 					</Row>
 				}
