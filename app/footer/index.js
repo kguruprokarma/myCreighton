@@ -8,10 +8,17 @@ import UniversityAddress from './components/universityAddress';
 import UniversityLogo from './components/universityLogo';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Style from './style.css';
+import { translate } from 'react-i18next';
+import i18n from '../i18n';
 
-const Footer = () => (
-	<footer className="footer" role="Content info">
-		<h1 className="announced-only">Page footer</h1>
+@translate([], { wait: true })
+export class Footer extends React.PureComponent {
+	
+render(){
+	 const { t } = this.props;
+	return(
+		<footer className="footer" role="Content info">
+		<h1 className="announced-only">{t('common:PAGE_FOOTER')}</h1>
 		<Grid>
 			<Row>
 				<Col xs={6} sm={2}>
@@ -25,6 +32,8 @@ const Footer = () => (
 			</Row>
 		</Grid>
 	</footer>
-)
+	)
 
+}
+}
 export default Footer;

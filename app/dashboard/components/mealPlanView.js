@@ -18,7 +18,7 @@ export default class MealPlan extends Component {
 		const { t } = this.props;
 		return (
 			<section id="mealPlan">
-				<h1 className="announced-only">Meal Plan</h1>
+				<h1 className="announced-only">{t('common:MEAL_PLAN')}</h1>
 				<div className={this.props.showMeal ? 'hide' : 'show'}>
 					<Well bsSize="small" className="jaybucksWell">
 						<Col sm={11} xs={10}>

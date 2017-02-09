@@ -6,7 +6,7 @@ import React from 'react';
 
 const TestsOrQuizzes = (testOrQuizzeProps) => (
 	<article className="classTestOrQuizz mb25">
-		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>TEST/QUIZZES</h4>
+		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>{testOrQuizzeProps.i18nTranslate('common:TEST/QUIZZES')}</h4>
 		{testOrQuizzeProps.testsOrQuizzes.map((testInfo, testIndex) => {
 			return (
 				<div className="openSansLight fs1pt2 gbl_lh" key={testIndex}>

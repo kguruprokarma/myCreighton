@@ -3,7 +3,7 @@
 */
 import React from 'react';
 import { shallow, mount, render  } from 'enzyme';
-import {MealPlan} from '../mealPlan/index';
+import {MealPlan} from '../index';
 
 const defaultProps ={
     getMealPlanData:()=>{},
@@ -18,38 +18,38 @@ const defaultProps ={
 }
 }
 
-const wrapper = shallow(
+const mealPlanC = shallow(
         <MealPlan  {...defaultProps}/>
   );
 describe('I18nextProvidergg', () => {
 
     it('should provide i18n context', () => {
-        expect(wrapper).toBeDefined();
+        expect(mealPlanC).toBeDefined();
     });
     
     it('MealPlan component Swipes is there or not', () => {
-        expect(wrapper.find('Swipes').length).toBe(1);
-        expect(wrapper.find('Swipes').props().swipeCount).toBe(defaultProps.mealPlanData.mealBalance.remainSwipes);
+        expect(mealPlanC.find('Swipes').length).toBe(1);
+        expect(mealPlanC.find('Swipes').props().swipeCount).toBe(defaultProps.mealPlanData.mealBalance.remainSwipes);
     });
 
     it('MealPlan component Guest is there or not', () => {
-        expect(wrapper.find('Guest').length).toBe(1);
+        expect(mealPlanC.find('Guest').length).toBe(1);
     });
 
     it('MealPlan component Dining is there or not', () => {
-        expect(wrapper.find('Dining').length).toBe(1);
+        expect(mealPlanC.find('Dining').length).toBe(1);
     });
 
     it('MealPlan component Dining is there or not', () => {
-        expect(wrapper.find('Jaybucks').length).toBe(1);
+        expect(mealPlanC.find('Jaybucks').length).toBe(1);
     });
 
     it('MealPlan component Dining is there or not', () => {
-        expect(wrapper.find('Jaybucks').length).toBe(1);
+        expect(mealPlanC.find('Jaybucks').length).toBe(1);
     });
 
     it('MealPlan component buttons', () => {
-        expect(wrapper.find('a').length).toBe(1);
+        expect(mealPlanC.find('a').length).toBe(1);
     });
 
 });

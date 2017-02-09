@@ -22,10 +22,10 @@ let receiveUserDetailsError = (error) => (
     data: error
 })
 
-export function getUserDetailsData() {
+export function getUserDetailsData(roleType) {
   return function (dispatch) {
     dispatch(requestUserDetailsData())
-    return UserDetailsApi.getUserDetailsData().then((response) => {
+    return UserDetailsApi.getUserDetailsData(roleType).then((response) => {
         dispatch(receiveUserDetailsData(response))
       })
       .catch((error) => {

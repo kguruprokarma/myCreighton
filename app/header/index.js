@@ -12,9 +12,12 @@ import ProfileMenu from '../header/components/profileMenu';
 import Title from '../header/components/title';
 import Style from './style.css';
 import * as actionCreators from './actions';
+import Navigation from '../common/mainNav'
+import { translate } from 'react-i18next';
+import i18n from '../i18n';
 
-
-class Header extends React.PureComponent {
+@translate([], { wait: true })
+export class Header extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,16 +45,17 @@ class Header extends React.PureComponent {
         browserHistory.goBack();
     }
     render() {
+        const { t } = this.props;
         return (
             <header>
-                <h1 className="announced-only">Page header</h1>
+                <h1 className="announced-only">{t('common:PAGE_HEADER')}</h1>
                 <div className="container">
                     <Row >
                         <Col xs={2} sm={2} className="hidden-lg hamburgerMenu">
                             <img src={'./assets/images/menu.png'} onClick={this.navClick} />
                         </Col>
                         <Col lg={10} className="visible-lg">
-                            <h2 className="bebasregular logo mt10 mb10 fs1pt4">MYCREIGHTON</h2>
+                            <h2 className="bebasregular logo mt10 mb10 fs1pt4">{t('common:MYCREIGHTON')}</h2>
                         </Col>
                         <Col xs={8} sm={8} className="hidden-lg text-center">
                             <Title path={this.props.currentState} />

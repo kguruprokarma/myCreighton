@@ -10,24 +10,24 @@ import { Row, Col } from 'react-bootstrap';
 
 const AcademicStatus = (academicProps) => (
   <article className="profileRow mt30">
-    <h3 className="dataHeading openSansRegular">Advisor Information</h3>
-    <BasicRow displayName="Name"
+    <h3 className="dataHeading openSansRegular">{academicProps.i18nTranslate('common:ADVISOR_INFORMATION')}</h3>
+    <BasicRow displayName={academicProps.i18nTranslate('common:NAME')}
       displayValue={academicProps.json.advisorDetail.name.first + ' '
         + academicProps.json.advisorDetail.name.last} />
-    <BasicRow displayName="Area" displayValue={academicProps.json.advisorDetail.area} />
+    <BasicRow displayName={academicProps.i18nTranslate('common:AREA')} displayValue={academicProps.json.advisorDetail.area} />
     <Row className="show-grid pt5 pb5">
-      <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>Office</label></Col>
+      <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>{academicProps.i18nTranslate('common:OFFICE')}</label></Col>
       <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
         <a>{academicProps.json.advisorDetail.office}</a>
       </Col>
     </Row>
-    <BasicRow displayName="Office Hours"
+    <BasicRow displayName={academicProps.i18nTranslate('common:OFFICE_HOURS')}
       displayValue={academicProps.json.advisorDetail.officeHours.startTime + ' - '
         + academicProps.json.advisorDetail.officeHours.endTime + '., '
         + academicProps.json.advisorDetail.officeHours.weekDays} />
     {/* Mailto added for open mail box popup */}
     <Row className="show-grid pt5 pb5">
-      <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>Email</label></Col>
+      <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>{academicProps.i18nTranslate('common:EMAIL')}</label></Col>
       <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
         <Mailto email={academicProps.json.advisorDetail.emailAddress}>{academicProps.json.advisorDetail.emailAddress}</Mailto>
       </Col>

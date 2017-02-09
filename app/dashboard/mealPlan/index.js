@@ -25,7 +25,7 @@ export  class MealPlan extends Component {
 		let MEALPLAN_DATA = this.props.mealPlanData;
 		return (
 			<section id="mealPlan">
-				<h1 className="announced-only">Meal Plan</h1>
+				<h1 className="announced-only">{i18n.t('common:MEAL_PLAN')}</h1>
 				<div className={this.props.showMeal ? 'hide' : 'show'}>
 					<Well bsSize="small" className="jaybucksWell">
 						<Col sm={11} xs={10}>

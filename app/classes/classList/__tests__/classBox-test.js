@@ -5,7 +5,7 @@ import ClassBox from '../components/classBox';
 describe('ClassBox component testing ----->', () => {
 
   const defaultProps = {
-    catagoryName: 'Week',
+    catagoryName: 'week',
     data: [
       {
         "name": "English 112",

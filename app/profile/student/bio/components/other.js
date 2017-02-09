@@ -8,9 +8,9 @@ import BasicRow from '../../../../common/basicRow';
 
 const Other = (otherProps) => (
 	<article className="profileRow mt30">
-		<h3 className="dataHeading openSansRegular">Other</h3>
-		<BasicRow displayName="Birthdate" displayValue={otherProps.other.birthDate} />
-		<BasicRow displayName="NetID" displayValue={otherProps.other.netID} />
+		<h3 className="dataHeading openSansRegular">{otherProps.i18nTranslate('common:OTHER')}</h3>
+		<BasicRow displayName={otherProps.i18nTranslate('common:BIRTHDATE')} displayValue={otherProps.other.birthDate} />
+		<BasicRow displayName={otherProps.i18nTranslate('common:NETID')} displayValue={otherProps.other.netID} />
 	</article>
 )
 

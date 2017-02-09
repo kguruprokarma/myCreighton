@@ -11,33 +11,54 @@ import ModuleBlock from './components/moduleBlock';
 import ToggleMealPlan from './components/toggleMealPlan';
 import style from './style.css';
 import { Row, Col } from 'react-bootstrap';
-import DashboardModulesList from '../common/dashboardModulesDetail';
-const dashboardModulesList = DashboardModulesList;
+import  DashboardModulesList from '../common/dashboardModulesDetail';
+
 import * as actionCreators from './actions';
+import { translate } from 'react-i18next';
+import i18n from '../i18n';
 
-
+@translate([], { wait: true })
 export class Dashboard extends Component {
+ 
+    constructor(props) {
+        super(props);
+        this.state = { shouldHide: true };
+        this.onClick = this.onClick.bind(this);
+        this.props.getUserDetailsData(`/Student`)
+    }
+    
+    onClick() {
+        this.setState({ shouldHide: !this.state.shouldHide });
+    }
 
-	constructor(props) {
-		super(props);
-		this.state = { shouldHide: true };
-		this.onClick = this.onClick.bind(this);
-		this.props.getUserDetailsData()
-	}
+    componentWillMount() {
+        this.role = this.props.params.roletype;
+        if (this.role !== undefined) {
+            this.props.getUserDetailsData(`/${this.role}`);
+        } else {
+            this.role = 'Student';
+            this.props.getUserDetailsData(`/Student`);
+        }
+    }
 
-	onClick() {
-		this.setState({ shouldHide: !this.state.shouldHide });	
-	}
+    componentWillReceiveProps(nextProps) {
+        if (this.role !== nextProps.params.roletype && nextProps.params.roletype) {
+            this.role = nextProps.params.roletype;
+            this.props.getUserDetailsData(`/${this.role}`);
+        }
+    }
 
 	render() {
-		let USER_DETAIL = this.props.userDetailsData;
-		return (
+		const { userDetailsData, t  } = this.props;
+		const dashboardModulesList = DashboardModulesList(this.role);
 
+		return (
 			<section id="dashboard">
-				<h1 className="announced-only">Dashboard</h1>
+				<h1 className="announced-only">{t('common:DASHBOARD')}</h1>
 				<Row className="mb20">
 					<Col sm={5} xs={10} md={5}>
-						{USER_DETAIL && <UserDetail userDetail={USER_DETAIL}/>}
+						{userDetailsData && <UserDetail userDetail={userDetailsData} i18nTranslate={t} />}
+
 					</Col>
 					<Col xs={2} className="hidden-lg hidden-md hidden-sm">
 						<ToggleMealPlan toggle={this.onClick} />
@@ -49,7 +70,7 @@ export class Dashboard extends Component {
 
 				<article id="wells">
 					<Row>
-						<h1 className="announced-only">Well Section</h1>
+						<h1 className="announced-only">{t('common:WELL_SECTION')}</h1>
 						<Col md={5} sm={6}>
 							<ModuleBlock modulelist={dashboardModulesList[0]} />
 						</Col>

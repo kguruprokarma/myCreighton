@@ -11,44 +11,45 @@ import ClassTabController from './components/classTabController';
 import ClassBox from './components/classBox';
 import * as actionCreators from './actions';
 import style from '../classList/style.css';
+import { translate } from 'react-i18next';
+import i18n from '../../i18n';
 
+@translate([], { wait: true })
 export class Classes extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = { selected: 'Week' }
-    this.props.getClassesDataByWeek();
-    this.props.onCatagoryChange('Week');
     this.onChangeOfTab = this.onChangeOfTab.bind(this);
+    this.onChangeOfTab(this.props.params.classTab);
   }
 
   onChangeOfTab(catagoryName) {
-    this.setState({ selected: catagoryName });
     this.props.onCatagoryChange(catagoryName);
-    if (catagoryName === "Week") {
+    if (catagoryName === "week") {
       this.props.getClassesDataByWeek();
-    } else if (catagoryName === "List") {
+    } else if (catagoryName === "list") {
       this.props.getClassesDataForAtoZ();
-    } else if (catagoryName === "Today") {
+    } else if (catagoryName === "today") {
       this.props.getClassesDataByToday();
     }
-    
   }
 
   render() {
+
     let USER_DATA = this.props.classesData;
+    const { t } = this.props;
     return (
       <section id="classSchedule">
         {USER_DATA && <div>
           <Row>
-            <Col md={8} sm={6} xs={12}  className="hidden-xs">
-              <HeaderLabel headerLabel="Class Schedule" />
+            <Col md={8} sm={6} xs={12} className="hidden-xs">
+              <HeaderLabel headerLabel={t('common:CLASS_SCHEDULE')} />
             </Col>
             <Col md={4} sm={6} xs={12} className="controller-buttons">
-              <ClassTabController state={this.state.selected} onChangeTab={this.onChangeOfTab} />
+              <ClassTabController state={this.props.params.classTab} onChangeOfTab={this.onChangeOfTab} i18nTranslate={t} />
             </Col>
           </Row>
-          <ClassBox data={USER_DATA.classes} catagoryName={this.props.catagoryName} />
+          <ClassBox data={USER_DATA.classes} catagoryName={this.props.params.classTab} i18nTranslate={t} />
         </div>
         }
       </section>

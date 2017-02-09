@@ -19,7 +19,10 @@ import styles from '../style.css';
 import LeftNav from '../../../common/leftNav';
 import { Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../../common/headerLabel';
+import { translate } from 'react-i18next';
+import i18n from '../../../i18n';
 
+@translate([], { wait: true })
 export class Profile extends React.PureComponent {
 
   constructor() {
@@ -31,24 +34,25 @@ export class Profile extends React.PureComponent {
   }
 
   render() {
-    let USER_DATA = this.props.profileData
+    let USER_DATA = this.props.profileData;
+    const { t } = this.props;
     return (
       <section>
-        <HeaderLabel headerLabel="My Profile" />
+        <HeaderLabel headerLabel={t('common:MY_PROFILE')} />
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className="userData pull-right">
-              <LegalName legalName={USER_DATA.studentProfile.bioData.legalName} />
-              <HomeAddress homeAddress={USER_DATA.studentProfile.bioData.address.home} />
-              <SchoolAddress schoolAddress={USER_DATA.studentProfile.bioData.address.school} />
-              <PrimaryContact primaryContact={USER_DATA.studentProfile.bioData.contactDetail} />
-              <EmergencyContact emergencyContact={USER_DATA.studentProfile.bioData.contactDetail.emergencyContact} />
-              <Email email={USER_DATA.studentProfile.bioData.contactDetail.email} />
-              <Other other={USER_DATA.studentProfile.bioData.contactDetail} />
-              <RelationDetail relationDetail={USER_DATA.studentProfile.bioData.contactDetail.relationDetail} />
+              <LegalName legalName={USER_DATA.studentProfile.bioData.legalName} i18nTranslate={t} />
+              <HomeAddress homeAddress={USER_DATA.studentProfile.bioData.address.home} i18nTranslate={t} />
+              <SchoolAddress schoolAddress={USER_DATA.studentProfile.bioData.address.school} i18nTranslate={t} />
+              <PrimaryContact primaryContact={USER_DATA.studentProfile.bioData.contactDetail} i18nTranslate={t} />
+              <EmergencyContact emergencyContact={USER_DATA.studentProfile.bioData.contactDetail.emergencyContact} i18nTranslate={t} />
+              <Email email={USER_DATA.studentProfile.bioData.contactDetail.email} i18nTranslate={t} />
+              <Other other={USER_DATA.studentProfile.bioData.contactDetail} i18nTranslate={t} />
+              <RelationDetail relationDetail={USER_DATA.studentProfile.bioData.contactDetail.relationDetail} i18nTranslate={t} />
             </Col>
             <Col md={3} sm={4} className="hidden-xs">
-              <LeftNav />
+              <LeftNav i18nTranslate={t} />
             </Col>
           </Row>
         }
