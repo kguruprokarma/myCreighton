@@ -1,7 +1,7 @@
 /*Created Date: - 3rd -02 -2017
 *Usage of file: - TMerge individual components of Dashboard into this file..*
 */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
@@ -17,38 +17,36 @@ import * as actionCreators from './actions';
 import { translate } from 'react-i18next';
 import i18n from '../i18n';
 
-const { func, object } = PropTypes;
 @translate([], { wait: true })
 export class Dashboard extends Component {
+ 
+    constructor(props) {
+        super(props);
+        this.state = { shouldHide: true };
+        this.onClick = this.onClick.bind(this);
+        this.props.getUserDetailsData(`/Student`)
+    }
     
-    static propTypes = {
-        getUserDetailsData: func,
-        params: object,
-        userDetailsData: object,
-    };
-    
-    state = {
-        shouldHide: true,
-    };
+    onClick() {
+        this.setState({ shouldHide: !this.state.shouldHide });
+    }
 
     componentWillMount() {
         this.role = this.props.params.roletype;
         if (this.role !== undefined) {
-            this.props.getUserDetailsData(`/${this.role}.json`);
+            this.props.getUserDetailsData(`/${this.role}`);
         } else {
             this.role = 'Student';
-            this.props.getUserDetailsData(`/Student.json`);
+            this.props.getUserDetailsData(`/Student`);
         }
     }
 
     componentWillReceiveProps(nextProps) {
         if (this.role !== nextProps.params.roletype && nextProps.params.roletype) {
             this.role = nextProps.params.roletype;
-            this.props.getUserDetailsData(`/${this.role}.json`);
+            this.props.getUserDetailsData(`/${this.role}`);
         }
     }
-
-	onClick = () => this.setState({ shouldHide: !this.state.shouldHide });
 
 	render() {
 		const { userDetailsData, t  } = this.props;

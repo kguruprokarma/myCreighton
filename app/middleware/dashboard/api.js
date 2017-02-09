@@ -6,7 +6,7 @@ import axios from 'axios';
 import * as urlConstants from '../../constants/urlConstants';
 
 let DashboardApi = {
-  getUserDetailsData: (roleType) => axios.get(urlConstants.ROOT_URL + roleType)
+  getUserDetailsData: (roleType) => axios.get(urlConstants.ROOT_URL + roleType + '.json')
 }
 
 export default DashboardApi
