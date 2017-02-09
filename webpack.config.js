@@ -56,6 +56,7 @@ Object.assign(exports, {
     new CopyWebpackPlugin([
       { from: __dirname + '/app/assets', to: __dirname + '/build/assets' },
       { from: __dirname + '/app/mock_data', to: __dirname + '/build/mock_data' },
+      { from: __dirname + '/app/locales', to: __dirname + '/build/app/locales' },
     ]),
     new HtmlWebpackPlugin({
       chunksSortMode: 'dependency',
