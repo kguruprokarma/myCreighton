@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from './actions';
 
-@translate([], { wait: true })
+
 export  class MealPlan extends Component {
 	constructor(props) {
 			super(props);			
@@ -23,7 +23,6 @@ export  class MealPlan extends Component {
 		}
 	render() {
 		let MEALPLAN_DATA = this.props.mealPlanData;
-		const { t } = this.props;
 		return (
 			<section id="mealPlan">
 				<h1 className="announced-only">Meal Plan</h1>
@@ -32,10 +31,10 @@ export  class MealPlan extends Component {
 						<Col sm={11} xs={10}>
 							<Row>{MEALPLAN_DATA &&
 								<ul className="list-inline listflex row text-center">
-									<li><Swipes expire={MEALPLAN_DATA.mealBalance.swipesExpire}  swipeCount={MEALPLAN_DATA.mealBalance.remainSwipes} swipeTitle={t('common:SWIPES')} /></li>
-									<li><Guest guestCount={MEALPLAN_DATA.mealBalance.guestSwipes}  guestTitle={t('common:GUEST')} /></li>
-									<li><Dining diningCount={MEALPLAN_DATA.mealBalance.dinning}  diningTitle={t('common:DINING')} /></li>
-									<li><Jaybucks jaybucksCount={MEALPLAN_DATA.mealBalance.jaybucks}  jaybucksTitle={t('common:JAY_BUCKS')} /></li>
+									<li><Swipes expire={MEALPLAN_DATA.mealBalance.swipesExpire}  swipeCount={MEALPLAN_DATA.mealBalance.remainSwipes} swipeTitle={i18n.t('common:SWIPES')} /></li>
+									<li><Guest guestCount={MEALPLAN_DATA.mealBalance.guestSwipes}  guestTitle={i18n.t('common:Guest')} /></li>
+									<li><Dining diningCount={MEALPLAN_DATA.mealBalance.dinning}  diningTitle={i18n.t('common:Dining')} /></li>
+									<li><Jaybucks jaybucksCount={MEALPLAN_DATA.mealBalance.jaybucks}  jaybucksTitle={i18n.t('common:Jaybucks')} /></li>
 								</ul>}
 							</Row>
 						</Col>
@@ -43,9 +42,9 @@ export  class MealPlan extends Component {
 							<div className="angle-right text-right"><Link><img src={'./assets/images/more.png'} /></Link></div>
 						</Col>
 					</Well>
-				</div>
-				<a className="doller-icon pull-right hidden-xs openSansBold"><span onClick={this.props.toggleMeal}>{this.props.showMeal ? <img src={'./assets/images/money.png'} /> : 'Hide'}</span></a>
-			</section>
+				</div >
+				<a className="doller-icon pull-right hidden-xs"><span onClick={this.props.toggleMeal}>{this.props.showMeal ? 'Show' : 'Hide'}</span></a>
+			</section >
 
 		)
 	}
