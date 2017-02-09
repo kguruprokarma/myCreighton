@@ -34,7 +34,7 @@ class Main extends React.PureComponent {
                 {/* this is header section */}
                 <Header currentState={this.props.location.pathname} param={this.props.params} />
                 {/* Main Navigation */}
-                <Navigation navDisplay={this.props.navData} />
+                <Navigation navDisplay={this.props.navData} userRole={this.props.params && this.props.params.roletype} />
                 {/* ./Main Navigation */}
                 {/* /this is header section */}
                 {/* this is main section */}
