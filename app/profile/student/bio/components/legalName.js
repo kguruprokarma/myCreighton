@@ -8,10 +8,10 @@ import BasicRow from '../../../../common/basicRow';
 
 const LegalName = (legalNameProps) => (
       <article className="profileRow">
-            <h3 className="dataHeading openSansRegular">Legal Name</h3>
-            <BasicRow displayName="First" displayValue={legalNameProps.legalName.first} />
-            <BasicRow displayName="Middle" displayValue={legalNameProps.legalName.middle} />
-            <BasicRow displayName="Last" displayValue={legalNameProps.legalName.last} />
+            <h3 className="dataHeading openSansRegular">{legalNameProps.i18nTranslate('common:LEGAL_NAME')}</h3>
+            <BasicRow displayName={legalNameProps.i18nTranslate('common:FIRST')} displayValue={legalNameProps.legalName.first} />
+            <BasicRow displayName={legalNameProps.i18nTranslate('common:MIDDLE')} displayValue={legalNameProps.legalName.middle} />
+            <BasicRow displayName={legalNameProps.i18nTranslate('common:LAST')} displayValue={legalNameProps.legalName.last} />
       </article>
 )
 

@@ -8,12 +8,12 @@ import BasicRow from '../../../../common/basicRow';
 
 const HomeAddress = (homeAddressProps) => (
       <article className="profileRow mt30">
-            <h3 className="dataHeading openSansRegular">Home Address</h3>
-            <BasicRow displayName="Street 1" displayValue={homeAddressProps.homeAddress.street1} />
-            <BasicRow displayName="Street 2" displayValue={homeAddressProps.homeAddress.street2} />
-            <BasicRow displayName="City" displayValue={homeAddressProps.homeAddress.city} />
-            <BasicRow displayName="State" displayValue={homeAddressProps.homeAddress.state} />
-            <BasicRow displayName="ZIP Code" displayValue={homeAddressProps.homeAddress.postalCode} />
+            <h3 className="dataHeading openSansRegular">{homeAddressProps.i18nTranslate('common:HOME_ADDRESS')}</h3>
+            <BasicRow displayName={homeAddressProps.i18nTranslate('common:STREET_1')} displayValue={homeAddressProps.homeAddress.street1} />
+            <BasicRow displayName={homeAddressProps.i18nTranslate('common:STREET_2')} displayValue={homeAddressProps.homeAddress.street2} />
+            <BasicRow displayName={homeAddressProps.i18nTranslate('common:CITY')} displayValue={homeAddressProps.homeAddress.city} />
+            <BasicRow displayName={homeAddressProps.i18nTranslate('common:STATE')} displayValue={homeAddressProps.homeAddress.state} />
+            <BasicRow displayName={homeAddressProps.i18nTranslate('common:ZIP_CODE')} displayValue={homeAddressProps.homeAddress.postalCode} />
       </article>
 )
 

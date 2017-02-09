@@ -18,6 +18,13 @@ Object.assign(exports, {
     publicPath: '/'
   },
   module: {
+    preLoaders: [
+            {
+                test: /\.js$/,
+                loader: 'eslint-loader',
+                exclude: /node_modules/
+            }
+        ],
     loaders: [
       {
         test: /\.js?$/, 
@@ -56,6 +63,7 @@ Object.assign(exports, {
     new CopyWebpackPlugin([
       { from: __dirname + '/app/assets', to: __dirname + '/build/assets' },
       { from: __dirname + '/app/mock_data', to: __dirname + '/build/mock_data' },
+      { from: __dirname + '/app/locales', to: __dirname + '/build/app/locales' },
     ]),
     new HtmlWebpackPlugin({
       chunksSortMode: 'dependency',
