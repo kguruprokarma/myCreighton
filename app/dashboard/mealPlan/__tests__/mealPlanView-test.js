@@ -4,7 +4,8 @@
 import React from 'react';
 import { shallow, mount, render  } from 'enzyme';
 import {MealPlan} from '../index';
-import i18n from '../../../i18n';
+import i18n from '../../../__mock_i18n__/i18n_mockKeys';
+
 const defaultProps ={
     getMealPlanData:()=>{},
     mealPlanData:{
@@ -15,19 +16,8 @@ const defaultProps ={
             "dinning": "360.00",
             "jaybucks": "750.25"
         }
-    },
-    common:{
-        "MEAL_PLAN":"Food-123",
-        "SWIPES":"Gold",
-        "Guest":"Silver",
-        "Dining":"Steel",
-        "Jaybucks":"Consumption"
     }
 }
-
-i18n.t = jest.fn((val) => {
-    return defaultProps.common[val.split(':')[1]];
-});
 
 const mealPlanC = shallow(<MealPlan {...defaultProps}/>);
 describe('I18nextProvidergg', () => {
@@ -39,7 +29,7 @@ describe('I18nextProvidergg', () => {
     it('MealPlan component Swipes is there or not', () => {
         expect(mealPlanC.find('Swipes').length).toBe(1);
         expect(mealPlanC.find('Swipes').props().swipeCount).toBe(defaultProps.mealPlanData.mealBalance.remainSwipes);
-        expect(mealPlanC.find('Swipes').props().swipeTitle).toBe(defaultProps.common.SWIPES);
+        expect(mealPlanC.find('Swipes').props().swipeTitle).toBe(i18n.properties['SWIPES']);
     });
 
     it('MealPlan component Guest is there or not', () => {
