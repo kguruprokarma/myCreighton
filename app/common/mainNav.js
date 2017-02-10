@@ -26,6 +26,8 @@ class MainNav extends React.Component {
                             }
                             <li className="navigation-item"><a href="#">{t('common:LIBRARY_SEARCH')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
                             <li className="navigation-item"><a href="#">{t('common:DOIT_SERVICES_AND_SUPPORT')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
+                            <li className="navigation-item"><a href="#">{t('common:ACADEMIC_CALENDAR')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>                            
+                            <li className="navigation-item"><a href="#">{t('common:CAMPUS_MAP')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
                         </ul>
                     </Row>
                 </Grid>
