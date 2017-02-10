@@ -24,7 +24,7 @@ export class Dashboard extends Component {
         super(props);
         this.state = { shouldHide: true };
         this.onClick = this.onClick.bind(this);
-        this.props.getUserDetailsData(`/Student`)
+        this.props.getUserDetailsData(`/student`)
     }
     
     onClick() {
@@ -36,8 +36,8 @@ export class Dashboard extends Component {
         if (this.role !== undefined) {
             this.props.getUserDetailsData(`/${this.role}`);
         } else {
-            this.role = 'Student';
-            this.props.getUserDetailsData(`/Student`);
+            this.role = 'student';
+            this.props.getUserDetailsData(`/student`);
         }
     }
 
@@ -64,7 +64,7 @@ export class Dashboard extends Component {
 						<ToggleMealPlan toggle={this.onClick} />
 					</Col>
 					<Col xs={12} sm={7} md={7}>
-						<MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} />
+						<MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetailsData}/>
 					</Col>
 				</Row>
 

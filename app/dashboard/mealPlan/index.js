@@ -18,10 +18,18 @@ import * as actionCreators from './actions';
 
 export  class MealPlan extends Component {
 	constructor(props) {
-			super(props);			
-			this.props.getMealPlanData()
-		}
-	render() {
+		super(props);
+	}
+    
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
+        if (this.role !== nextProps.role.userRole && nextProps.role) {
+            this.role = nextProps.role.userRole;
+            this.props.getMealPlanData(this.role);
+        }
+    }
+    
+	render() {        
 		let MEALPLAN_DATA = this.props.mealPlanData;
 		return (
 			<section id="mealPlan">

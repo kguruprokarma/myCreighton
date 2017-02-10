@@ -22,10 +22,10 @@ let receiveMealPlansError = (error) => (
     data: error
 })
 
-export function getMealPlanData() {
+export function getMealPlanData(role) {
   return function (dispatch) {
     dispatch(requestMealPlanDetailsData())
-    return MealPlanApi.getMealPlanData().then((response) => {
+    return MealPlanApi.getMealPlanData(role).then((response) => {
         dispatch(receiveMealPlansData(response))
       })
       .catch((error) => {

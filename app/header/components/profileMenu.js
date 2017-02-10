@@ -20,13 +20,13 @@ const CUSTOM_POP_UP_DATA = {
         'link':'/Academic'
     },{
         'itemName':'Student',
-        'link':'/Dashboard/Student'
+        'link':'/Dashboard/student'
     },{
         'itemName':'Staff',
-        'link':'/Dashboard/Staff'
+        'link':'/Dashboard/staff'
     },{
         'itemName':'Faculty',
-        'link':'/Dashboard/Faculty'
+        'link':'/Dashboard/faculty'
     }]
 };
 

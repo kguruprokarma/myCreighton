@@ -39,7 +39,8 @@ export class Header extends React.PureComponent {
             this.props.navOpen();
         } else {
             this.props.navClose();
-        }        
+              
+        }
     }
     goBack() {
         browserHistory.goBack();
