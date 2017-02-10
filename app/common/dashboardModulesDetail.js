@@ -6,7 +6,7 @@ import React from 'react';
 
 export const  modulesBlocksData = (roleType) => {
 	const modulesData = [];
-		  if (roleType === 'Student') {
+		  if (roleType === 'student') {
 		  		modulesData.push([{
 										"imgURL": "./assets/images/school.png",
 										"linkto": "",
