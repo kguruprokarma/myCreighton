@@ -301,6 +301,7 @@
 
     .user-type {
         font-size: 1em; /* font size 15 in pixel */
+        text-transform: capitalize;
     }
     
 }
