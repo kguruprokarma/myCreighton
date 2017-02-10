@@ -22,7 +22,7 @@ class MainNav extends React.Component {
                         <ul className="main-navigation fs0pt93">
                             <li className="navigation-item"><a href="#">{t('common:CREIGHTON_SERVICES_AND_RESOURCES')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li> 
                             {
-                            role == 'Student' || role == undefined ? <li className="navigation-item"><a href="#">{t('common:CAMPUS_DIRECTORY')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li> : null
+                            role == 'student' || role == undefined ? <li className="navigation-item"><a href="#">{t('common:CAMPUS_DIRECTORY')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li> : null
                             }
                             <li className="navigation-item"><a href="#">{t('common:LIBRARY_SEARCH')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
                             <li className="navigation-item"><a href="#">{t('common:DOIT_SERVICES_AND_SUPPORT')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
