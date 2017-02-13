@@ -12,18 +12,18 @@ export const  modulesBlocksData = (roleType) => {
 										"linkto": "",
 										"name": 'School & Semester',
 										"description": "School Stuff I am responsible for."
-									},
-									{
+									}],
+                                  [{
+										"imgURL": "./assets/images/classes.png",
+										"linkto": "/classes/week",
+										"name": 'classes',
+										"description": "What I need for each class"
+									}],
+									[{
 										"imgURL": "./assets/images/nextevent.png",
 										"linkto": "",
 										"name": "Next Events",
 										"description": "What I need to be ready for."
-									}],
-									[{
-										"imgURL": "./assets/images/classes.png",
-										"linkto": "/classes/week",
-										"name": 'classes',
-										"description": "School Stuff I am responsible for."
 									}]
 								)
 

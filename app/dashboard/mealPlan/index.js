@@ -22,6 +22,7 @@ export  class MealPlan extends Component {
 	}
     
     componentWillReceiveProps(nextProps) {
+        console.log(nextProps.role);
         if (this.role !== nextProps.role.userRole && nextProps.role) {
             this.role = nextProps.role.userRole;
             this.props.getMealPlanData(this.role);

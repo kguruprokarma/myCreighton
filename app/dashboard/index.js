@@ -77,6 +77,11 @@ export class Dashboard extends Component {
 						<Col md={5} sm={6} className="col-md-offset-2">
 							<ModuleBlock modulelist={dashboardModulesList[1]} />
 						</Col>
+                        { this.role == "student" || this.role == undefined ? 
+                        <Col md={5} sm={6} >
+							<ModuleBlock modulelist={dashboardModulesList[2]} />
+						</Col> : null
+                        }
 					</Row>
 				</article>
 			</section>
