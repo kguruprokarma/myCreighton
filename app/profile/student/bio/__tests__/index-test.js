@@ -79,7 +79,7 @@ describe('index files in bio testing ----->', () => {
 
     it('Check HeaderLabel is "My Profile"', () => {
         expect(profile.find('HeaderLabel').length).toBe(1);
-    	expect(profile.find('HeaderLabel').prop('headerLabel')).toBe("My Profile");
+    	expect(profile.find('HeaderLabel').prop('headerLabel')).toBe("PROFILE_MY_PROFILE");
     });
     it('Check LegalName component is present', () => {
         expect(profile.find('LegalName').length).toBe(1);

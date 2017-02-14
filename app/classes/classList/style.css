@@ -10,28 +10,34 @@
     font-size: 0.8em;   /* font size 12 in pixel */
     border-top:1px solid #c8c7cc;    
 }
+
 .classesHeading{
     font-size: 1.7333333333333334em;    /* font size 26 in pixel */
     line-height: 32px;
     color: #313131;
     font-family: 'open_sanslight';
 }
+
 .classOn, .classPlace, .classBy, .classTime, .classDate {
     font-size: 1em; /* font size 15 in pixel */
     font-family: 'open_sansregular';
     line-height: 22px;
 }
+
 .classOn, .classDate
 {
      color: #9a9a9a;
      
 }
+
 .classPlace, .classBy, .classTime {
     color: #313131;
 }
+
 .classTime {
     font-family: 'open_sanssemibold';
 }
+
 .mobileClassesList, .desktopClassesList {
         border-left:8px solid #d7d7d7;
         overflow: hidden;
@@ -39,14 +45,46 @@
         padding-top:10px;
         padding-bottom:10px;
 }
+
 .classDate label{
     font-weight: normal;
 }
+
 .classOn {
         padding-left: 10px;
-    }
-@media screen and (min-width:992px)
+}
+
+.controller-buttons .btn-group a {
+    border-color: #019cdb;
+    color: #019cdb;
+}
+
+.controller-buttons .btn-group a.active, 
+.controller-buttons .btn-group a:focus,
+.controller-buttons .btn-group a.active:hover {
+    background-color: #019cdb;
+    color: #fff;
+    box-shadow: none;
+    border-color:#019cdb;
+}
+
+.controller-buttons .btn-group a:hover {
+    background-color:#fff;
+    color: #019cdb;
+}
+
+.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-right:0;
+}
+
+.btn-group>.btn:last-child:not(:first-child), 
+.btn-group>.dropdown-toggle:not(:first-child)
 {
+    border-left: 0;
+}
+
+/* Media for small devices */
+@media screen and (min-width:992px) {
     .classOn {
         padding-left: 10px;
     }
@@ -60,6 +98,7 @@
         margin-top:10px;
     }
 }
+
 @media screen and (min-width:768px) and (max-width:992px) {
     .classOn {
         width: 100%;
@@ -73,8 +112,9 @@
         padding-left:23px;
     }
 }
-@media (max-width:767px)
-{
+
+@media screen and  (max-width:767px) {
+
     .dayHeading
     {
         margin-left:-15px;
@@ -112,6 +152,9 @@
     }
     .classDate label{
         font-size: 0.9333333333333333em; /* font size 14 in pixel */
+    }
+    .controller-buttons .btn-group a {
+        font-size: 1.2em;   /* font size 18 in pixel */
     }
     
 }

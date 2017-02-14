@@ -1,3 +1,7 @@
+/*Created Date: - 30 -01 -2017
+*Usage of file: - This script is for unit test of reducer.*
+*/
+
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import reducer from '../reducer'

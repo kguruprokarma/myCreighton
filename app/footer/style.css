@@ -1,0 +1,34 @@
+.footer-address, .copy-right {
+    text-align:center;
+    line-height: 1.8em;
+}
+
+.phone-no {
+    padding-left:20px;
+}
+
+.text-divider {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+@media screen and (max-width: 767px) {
+
+   .footer-address, .copy-right {
+        text-align:left;
+    }
+    .footer {
+        height: 140px;
+    } 
+    .phone-no {
+        display: block;
+        text-align: center;
+        padding-left:0;
+    }
+}
+@media screen and (max-width: 480px) {
+
+    .footer {
+        height: 120px;
+    } 
+}

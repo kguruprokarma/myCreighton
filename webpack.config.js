@@ -6,10 +6,10 @@ const webpack = require('webpack')
 const isProduction = process.env.NODE_ENV === 'production'
 
 Object.assign(exports, {
-  context: path.resolve(__dirname, './app'), 
-  entry: {    
-    app: [ './index' ],
-    vendor: [ 'react', 'react-dom', 'redux' ]
+  context: path.resolve(__dirname, './app'),
+  entry: {
+    app: ['./index'],
+    vendor: ['react', 'react-dom', 'redux']
   },
   output: {
     path: path.join(__dirname, 'build'),
@@ -18,10 +18,17 @@ Object.assign(exports, {
     publicPath: '/'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
-        test: /\.js?$/, 
-        exclude: /node_modules/, 
+        test: /\.js?$/,
+        exclude: /node_modules/,
         loaders: ['babel-loader']
       },
       {
@@ -32,7 +39,7 @@ Object.assign(exports, {
           'css-loader?modules&importLoaders=1&sourceMap'
           //'postcss-loader' Malappa removed for loader issue while building
         ]*/
-         loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader'
       },
       {
         test: /node_modules\/.*\.css$/,
@@ -43,7 +50,7 @@ Object.assign(exports, {
       },
       {
         test: /\.(png|gif|jpe?g|svg)$/,
-        loaders: [ 'url-loader' ]
+        loaders: ['url-loader']
       }
     ]
   },
@@ -56,6 +63,7 @@ Object.assign(exports, {
     new CopyWebpackPlugin([
       { from: __dirname + '/app/assets', to: __dirname + '/build/assets' },
       { from: __dirname + '/app/mock_data', to: __dirname + '/build/mock_data' },
+      { from: __dirname + '/app/locales', to: __dirname + '/build/app/locales' }
     ]),
     new HtmlWebpackPlugin({
       chunksSortMode: 'dependency',
@@ -107,12 +115,12 @@ if (isProduction) {
       pathinfo: true
     }),
     devServer: {
-        outputPath: path.join(__dirname, 'build'),
-        colors: true,
-        historyApiFallback: true,
-        host:'0.0.0.0',
-        port:8000,
-        inline:true
+      outputPath: path.join(__dirname, 'build'),
+      colors: true,
+      historyApiFallback: true,
+      host: '0.0.0.0',
+      port: 8000,
+      inline: true
     }
   })
 }

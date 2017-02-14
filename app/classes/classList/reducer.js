@@ -1,13 +1,14 @@
 /*Created Date: - 23rd -01 -2017
-*Usage of file: - it maintains the state.*
-*/
+ *Usage of file: - it maintains the state.*
+ */
 
 import * as types from './actionTypes';
 
 const initialState = {
 	classesData: {},
 	isLoading: false,
-	error: false
+	error: false,
+	catagoryName: "week"
 };
 
 const classesReducer = (state = initialState, action = null) => {
@@ -27,6 +28,10 @@ const classesReducer = (state = initialState, action = null) => {
 			return Object.assign({}, state, {
 				isLoading: false,
 				classesData: action.data
+			})
+		case types.ON_CATAGORY_CHANGE:
+			return Object.assign({}, state, {
+				catagoryName: action.data
 			})
 		default:
 			return state

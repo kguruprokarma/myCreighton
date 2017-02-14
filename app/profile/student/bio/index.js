@@ -12,29 +12,30 @@ import PrimaryContact from './components/primaryContact';
 import EmergencyContact from './components/emergencyContact';
 import Email from './components/email';
 import Other from './components/other';
-import RelationDetail from './components/relationDetail'
+import RelationDetail from './components/relationDetail';
 import * as actionCreators from './actions';
 import { Link } from 'react-router';
 import styles from '../style.css';
 import LeftNav from '../../../common/leftNav';
 import { Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../../common/headerLabel';
+import { translateText } from '../../../common/translate';
 
 export class Profile extends React.PureComponent {
 
   constructor() {
-    super()
+    super();
   }
 
   componentWillMount() {
-    this.props.getStudentProfileData()
+    this.props.getStudentProfileData();
   }
 
   render() {
-    let USER_DATA = this.props.profileData
+    let USER_DATA = this.props.profileData;
     return (
       <section>
-        <HeaderLabel headerLabel="My Profile" />
+        <HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} />
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className="userData pull-right">
@@ -61,8 +62,8 @@ const mapStateToProps = (bioState) => (
   {
     profileData: bioState.studentProfileReducer.profileData.data
 
-  })
+  });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
