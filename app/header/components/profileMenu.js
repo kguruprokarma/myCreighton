@@ -28,6 +28,9 @@ const CUSTOM_POP_UP_DATA = {
     },{
         'itemName':'Faculty',
         'link': ROUTE_URL.DASHBOARD +ROUTE_URL.FACULTY 
+    },{
+        'itemName':'Staff profile',
+        'link': ROUTE_URL.STAFF
     }]
 };
 

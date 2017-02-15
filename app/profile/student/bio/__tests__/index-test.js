@@ -9,6 +9,7 @@ import { Profile } from '../index';
 describe('index files in bio testing ----->', () => {
     const minProps = {
         getStudentProfileData: () => { },
+		profile: 'STUDENT',
         profileData: {
 						"studentProfile": {
 						        "bioData": {
@@ -90,8 +91,8 @@ describe('index files in bio testing ----->', () => {
         expect(profile.find('HomeAddress').prop('homeAddress')).toBe(minProps.profileData.studentProfile.bioData.address.home);
     });
     it('Check SchoolAddress component is present', () => {
-        expect(profile.find('SchoolAddress').length).toBe(1);
-        expect(profile.find('SchoolAddress').prop('schoolAddress')).toBe(minProps.profileData.studentProfile.bioData.address.school);
+        expect(profile.find('Address').length).toBe(1);
+        expect(profile.find('Address').prop('address')).toBe(minProps.profileData.studentProfile.bioData.address.school);
     });
     it('Check PrimaryContact component is present', () => {
         expect(profile.find('PrimaryContact').length).toBe(1);
@@ -113,5 +114,4 @@ describe('index files in bio testing ----->', () => {
         expect(profile.find('RelationDetail').length).toBe(1);
         expect(profile.find('RelationDetail').prop('relationDetail')).toBe(minProps.profileData.studentProfile.bioData.contactDetail.relationDetail);
     });
-
 });

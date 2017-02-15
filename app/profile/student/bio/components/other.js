@@ -12,6 +12,8 @@ const Other = (otherProps) => (
 		<h3 className="dataHeading openSansRegular">{translateText('common:PROFILE_OTHER')}</h3>
 		<BasicRow displayName={translateText('common:PROFILE_BIRTHDATE')} displayValue={otherProps.other.birthDate} />
 		<BasicRow displayName={translateText('common:NET_ID')} displayValue={otherProps.other.netID} />
+		{(otherProps['profile'] && otherProps['profile']==='STAFF') && <BasicRow displayName={translateText('common:STAFF_EMPLOYEE_NUMBER')}
+																				 displayValue={otherProps.other.employeeNumber} />}
 	</article>
 );
 

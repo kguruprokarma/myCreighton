@@ -7,10 +7,11 @@ import * as types from './actionTypes';
 const initialState = {
   profileData: {},
   isLoading: false,
-  error: false
+  error: false,
+  profile: 'STUDENT'
 };
 
-const studentProfileReducer = (state = initialState, action = null) => {
+const profileReducer = (state = initialState, action = null) => {
 	switch(action && action.type) {
 		case types.RECEIVE_STUDENT_DATA_ERROR:
 			return Object.assign( {}, state, {
@@ -26,6 +27,24 @@ const studentProfileReducer = (state = initialState, action = null) => {
 		case types.RECEIVE_STUDENT_PROFILE_DATA:
 			return Object.assign( {}, state, {
 			isLoading: false,
+			profile: types.STUDENT_PROFILE_NAME,
+			profileData: action.data
+		});
+		case types.RECEIVE_STAFF_DATA_ERROR:
+			return Object.assign( {}, state, {
+			isLoading: false,
+			error: true,
+			profileData: []	
+		});
+		case types.REQUEST_STAFF_PROFILE_DATA:
+			return Object.assign( {}, state, {
+			isLoading: true,
+			error: false
+		});
+		case types.RECEIVE_STAFF_PROFILE_DATA:
+			return Object.assign( {}, state, {
+			isLoading: false,
+			profile: types.STAFF_PROFILE_NAME,
 			profileData: action.data
 		});
 		default:
@@ -34,4 +53,4 @@ const studentProfileReducer = (state = initialState, action = null) => {
 };
 	
 	
-export default studentProfileReducer;
+export default profileReducer;

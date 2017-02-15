@@ -1,19 +1,19 @@
 /*Created Date: - 18th -01 -2017
-*Usage of file: - Merge individual components into this file.*
-*/
+ *Usage of file: - Merge individual components into this file.*
+ */
 
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import LegalName from './components/legalName';
 import HomeAddress from './components/homeAddress';
-import SchoolAddress from './components/schoolAddress';
+import Address from './components/address';
 import PrimaryContact from './components/primaryContact';
 import EmergencyContact from './components/emergencyContact';
 import Email from './components/email';
 import Other from './components/other';
 import RelationDetail from './components/relationDetail';
-import * as actionCreators from './actions';
+import * as actionCreators from '../../actions';
 import { Link } from 'react-router';
 import styles from '../style.css';
 import LeftNav from '../../../common/leftNav';
@@ -32,16 +32,16 @@ export class Profile extends React.PureComponent {
   }
 
   render() {
-    let USER_DATA = this.props.profileData;
+    let USER_DATA = this.props.profile === 'STUDENT' &&  this.props.profileData;
     return (
-      <section>
-        <HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} />
-        {USER_DATA &&
+        <section>
+          <HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} />
+          {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className="userData pull-right">
               <LegalName legalName={USER_DATA.studentProfile.bioData.legalName} />
               <HomeAddress homeAddress={USER_DATA.studentProfile.bioData.address.home} />
-              <SchoolAddress schoolAddress={USER_DATA.studentProfile.bioData.address.school} />
+              <Address address={USER_DATA.studentProfile.bioData.address.school} profile={this.props.profile}/>
               <PrimaryContact primaryContact={USER_DATA.studentProfile.bioData.contactDetail} />
               <EmergencyContact emergencyContact={USER_DATA.studentProfile.bioData.contactDetail.emergencyContact} />
               <Email email={USER_DATA.studentProfile.bioData.contactDetail.email} />
@@ -52,17 +52,18 @@ export class Profile extends React.PureComponent {
               <LeftNav />
             </Col>
           </Row>
-        }
-      </section>
+          }
+        </section>
     );
   }
 }
 
 const mapStateToProps = (bioState) => (
-  {
-    profileData: bioState.studentProfileReducer.profileData.data
+{
+  profileData: bioState.profileReducer.profileData.data,
+  profile: bioState.profileReducer.profile
 
-  });
+});
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 

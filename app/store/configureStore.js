@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import academicReducer  from '../profile/student/academic/reducer';
-import studentProfileReducer  from '../profile/student/bio/reducer';
+import profileReducer  from '../profile/reducer';
 import classesReducer from '../classes/classList/reducer';
 import classDetailsReducer  from '../classes/classDetails/reducer';
 import headerReducer  from '../header/reducer';
@@ -24,7 +24,7 @@ const enhancers = compose(
 const configureStore = preloadedState => {
   const store = createStore( 
 	combineReducers({
-  	studentProfileReducer, academicReducer, classesReducer, classDetailsReducer, dashboardReducer, mealPlanReducer, headerReducer, routing
+        profileReducer, academicReducer, classesReducer, classDetailsReducer, dashboardReducer, mealPlanReducer, headerReducer, routing
     }),
 	preloadedState,
     compose(
