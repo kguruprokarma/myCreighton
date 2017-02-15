@@ -63,4 +63,53 @@ describe('<Student bio reducer />', () => {
 			}
 		)
 	})
+
+
+    it('should handle RECEIVE_STAFF_DATA_ERROR', () => {
+        expect(
+            reducer([], {
+                type: types.RECEIVE_STAFF_DATA_ERROR,
+                data:{id:'1'},
+                isLoading: false,
+                error:false
+            })
+        ).toEqual(
+            {
+                profileData: [],
+                isLoading: false,
+                error: true
+
+            }
+        )
+    })
+
+    it('should handle REQUEST_STAFF_PROFILE_DATA', () => {
+        expect(
+            reducer([], {
+                type: types.REQUEST_STAFF_PROFILE_DATA,
+                data:{id:'1'}
+            })
+        ).toEqual(
+            {
+                isLoading: true,
+                error: false,
+            }
+        )
+    })
+
+    it('should handle RECEIVE_STAFF_PROFILE_DATA', () => {
+        expect(
+            reducer([], {
+                type: types.RECEIVE_STAFF_PROFILE_DATA,
+                data:{id:'1'},
+                isLoading: false,
+                error: false
+            })
+        ).toEqual(
+            {
+                isLoading: false,
+                profileData:{id:'1'}
+            }
+        )
+    })
 })
