@@ -1,0 +1,65 @@
+.footer-address, .copy-right {
+    line-height: 1.8em;
+}
+
+.footer-address {
+    color: #757575;
+}
+
+.footer-section {
+    border-top: 1px solid #d5d5d5;
+}
+.footer-space {
+    padding-left:8px;
+}
+
+.text-divider {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.foot-nav{
+    text-align: center;
+    padding-left: 20px;
+    font-size: 1em; /* font size 15 in pixel */
+}
+
+ .copy-right {
+     padding-left: 20px;
+ }
+
+@media screen and (min-width: 768px) and  (max-width: 1024px) { 
+
+    .footer-address {
+        margin-top: 0;
+    } 
+    .foot-nav {
+        display: block;
+        padding-left: 0;
+        text-align: left;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+
+    .footer {
+        height: 204px;
+    } 
+
+    .footer-space, .copy-right, .foot-nav, .footer-address  {
+        display: block;
+        text-align: center;
+        padding-left:0;
+    }
+    
+    .university-logo {
+        max-width: 150px;
+        height: auto;
+        margin: auto;
+    }
+    
+    .space-mb {
+        margin-bottom: 24px;
+    }
+}

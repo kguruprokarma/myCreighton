@@ -20,7 +20,7 @@ const data = {
 		        }
         	]
 }
-describe('async actions', () => {
+describe('Class list actions testing', () => {
   beforeEach(function () {
     moxios.install()
   });
@@ -28,7 +28,7 @@ describe('async actions', () => {
   afterEach(function () {
     moxios.uninstall()
   });
-  it('testing action retrival case', () => {
+  it('testing action sequence for success case', () => {
      moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.CLASSES_DATA, {
       status: 200,
       response:  data
@@ -48,7 +48,7 @@ describe('async actions', () => {
       })
   });
 
-  it('testing action failure case', () => {
+  it('testing action  sequence for failure case', () => {
      moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.CLASSES_DATA, {
       status: 404,
       responseText:  "error"

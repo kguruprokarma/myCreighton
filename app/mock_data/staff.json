@@ -1,0 +1,10 @@
+{
+	"userName": {
+		"firstName": "Jane",
+		"middleName": "",
+		"lastName": "Archer",
+		"fullName": "Jane R. Archer"
+	},
+	"userImageURL": "",
+	"userRole": "staff"
+}

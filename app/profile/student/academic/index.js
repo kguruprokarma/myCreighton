@@ -13,22 +13,23 @@ import styles from '../style.css';
 import LeftNav from '../../../common/leftNav';
 import { Grid, Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../../common/headerLabel';
+import { translateText } from '../../../common/translate';
 
 export class Academic extends React.PureComponent {
 
 	constructor() {
-		super()
+		super();
 	}
 
 	componentWillMount() {
-		this.props.getAcademicData()
+		this.props.getAcademicData();
 	}
 
 	render() {
-		let USER_DATA = this.props.academicData
+		let USER_DATA = this.props.academicData;
 		return (
 			<section id="academic">
-				<HeaderLabel headerLabel="Academic" />
+				<HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} />
 				{USER_DATA &&
 					<Row>
 						<Col sm={8} md={9} xs={12} className="userData pull-right">
@@ -49,8 +50,8 @@ const mapStateToProps = (acdemicState) => (
 	{
 		academicData: acdemicState.academicReducer.academicData.data
 
-	})
+	});
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Academic)
+export default connect(mapStateToProps, mapDispatchToProps)(Academic);
