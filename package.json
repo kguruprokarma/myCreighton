@@ -10,6 +10,7 @@
     "start": "webpack-dev-server"
   },
   "jest": {
+    "setupTestFrameworkScriptFile":"<rootDir>/app/__mock_i18n__/localstoarge_mock.js",
     "moduleNameMapper": {
       "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
     },

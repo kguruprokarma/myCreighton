@@ -2,7 +2,7 @@
     "userDetails1": [
         {
             "email": "nt123",
-            "password":"1234",
+            "password":"mycreighton",
             "userName": {
                 "firstName": "John",
                 "middleName": "",
@@ -14,7 +14,7 @@
         },
         {
             "email": "nt234",
-            "password":"1234",
+            "password":"mycreighton",
             "userName": {
                 "firstName": "Jane",
                 "middleName": "",
@@ -26,7 +26,7 @@
         },
         {
             "email": "nt456",
-            "password":"1234",
+            "password":"mycreighton",
             "userName": {
                 "firstName": "Adam",
                 "middleName": "",

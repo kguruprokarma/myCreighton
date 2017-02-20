@@ -19,6 +19,16 @@ describe('CustomPopUp testing ----->', () => {
       "userImageURL": "",
       "userRole": "student"
     },
+    userData: {
+      "userName": {
+        "firstName": "John",
+        "middleName": "J",
+        "lastName": "Edward",
+        "fullName": "John J. Edward"
+      },
+      "userImageURL": "",
+      "userRole": "student"
+    },
     userRole:'student',
     getUserDetailsData:()=>{
       return '/student';

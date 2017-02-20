@@ -12,20 +12,20 @@ let lastHeader = null;
 let presentHeader;
 
 const WeekClasses = (weekProps) => (
-	<div>
-		{
-			weekProps.listOfData.map((weekClass, classIndex) => {
-				presentHeader = weekClass.day;
-				return (
-					<div key={classIndex} id="cls">
-						{lastHeader !== presentHeader && <DayHeader day={lastHeader = weekClass.day} />}
-						<Link to={ROUTE_URL.CLASS_DETAILS +"/"+ weekProps.catagory + "/" + weekClass.id + "/" + classIndex}>
-							<ClassInfo data={weekClass} />
-						</Link>
-					</div>
-				);
-			})
-		}
-	</div>
+  <div>
+    {
+      weekProps.listOfData.map((weekClass, classIndex) => {
+        presentHeader = weekClass.day;
+        return (
+          <div key={classIndex} id='cls'>
+            {lastHeader !== presentHeader && <DayHeader day={lastHeader = weekClass.day} />}
+            <Link to={ROUTE_URL.CLASS_DETAILS + '/' + weekProps.catagory + '/' + weekClass.id + '/' + classIndex}>
+              <ClassInfo data={weekClass} />
+            </Link>
+          </div>
+        );
+      })
+    }
+  </div>
 );
 export default WeekClasses;

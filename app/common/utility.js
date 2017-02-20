@@ -82,3 +82,7 @@ export const todayHeader = () => {
 	let today = new Date();
 	return days[today.getDay()] + " " + months[today.getMonth()] + " " + today.getDate();
 };
+
+export const AuthUserDetails = () => {
+	return localStorage.roleInfo?JSON.parse(localStorage.roleInfo):{};
+};

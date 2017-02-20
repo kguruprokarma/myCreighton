@@ -531,7 +531,9 @@ input {
     }
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
-    /* Retina specific CSS code */
-    
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  img[src*=".svg"] {
+    width: 100%; 
+  }
 }
+

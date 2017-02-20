@@ -10,43 +10,43 @@ export const profileMenuList = (roleType) => {
   const profileMenu = {
     student: [
       {
-        'itemName': 'My Profile',
+        'itemName': CommonConstants.MY_PROFILE,
         'link': ROUTE_URL.PROFILE // '/Profile'
       },
       {
-        'itemName': 'Academic',
+        'itemName': CommonConstants.ACADEMIC,
         'link': ROUTE_URL.ACADEMIC //'/Academic'
       },
       {
-        'itemName': 'Signout',
+        'itemName': CommonConstants.SIGN_OUT,
         'link': ''
       }
     ],
     staff: [
       {
-        'itemName': 'My Profile',
+        'itemName': CommonConstants.MY_PROFILE,
         'link': ''
       },
       {
-        'itemName': 'Professional',
+        'itemName': CommonConstants.PROFESSIONAL,
         'link': ''
       },
       {
-        'itemName': 'Signout',
+        'itemName': CommonConstants.SIGN_OUT,
         'link': ''
       }
     ],
     faculty: [
       {
-        'itemName': 'My Profile',
+        'itemName': CommonConstants.MY_PROFILE,
         'link': ''
       },
       {
-        'itemName': 'Academic',
+        'itemName': CommonConstants.ACADEMIC,
         'link': ''
       },
       {
-        'itemName': 'Signout',
+        'itemName': CommonConstants.SIGN_OUT,
         'link': ''
       }
     ]

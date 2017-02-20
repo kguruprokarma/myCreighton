@@ -9,7 +9,9 @@ describe('ToggleMealPlan component testing ----->', () => {
     const userDetailTestProps = {
         "userDetail":{
             "userName": {
-                "fullName": "Usman"
+                "fullName": "Usman",
+                "firstName": "Mohammad",
+                "lastName": "Ali"
             },
             "userRole": "Student"
         }

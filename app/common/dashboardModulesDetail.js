@@ -5,27 +5,30 @@
 import React from 'react';
 import * as ROUTE_URL from '../constants/routeContants';
 import * as CommonConstants from '../constants/commonConstants';
-
+import { translateText } from './translate';
 export const  modulesBlocksData = (roleType) => {
 	const modulesData = [];
 		  if (roleType === CommonConstants.ROLE_STUDENT) {
 		  		modulesData.push([{
 										"imgURL": "./assets/images/school.png",
 										"linkto": "",
-										"name": 'School & Semester',
-										"description": "School Stuff I am responsible for."
+										"name": translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER'),
+										"description": translateText('common:DASH_BOARD_SCHOOL_STUFF'),
+										"class": "school-img"
 									}],
 									[{
 										"imgURL": "./assets/images/classes.png",
 										"linkto": ROUTE_URL.CLASSES + ROUTE_URL.WEEK, //"/classes/week",
-										"name": 'Classes',
-										"description": "What I need for each class."
+										"name": translateText('common:DASH_BOARD_CLASSES'),
+										"description": translateText('common:DASH_BOARD_WHAT_I_NEED_CLASS'),
+										"class": "classes-img"
 									}],
 									[{
 										"imgURL": "./assets/images/nextevent.png",
 										"linkto": "",
-										"name": "Next Events",
-										"description": "What I need to be ready for."
+										"name": translateText('common:DASH_BOARD_NEXT_EVENTS'),
+										"description": translateText('common:DASH_BOARD_WHAT_I_NEED_READY'),
+										"class": "nextevent-img"
 									}]
 								)
 
@@ -37,16 +40,19 @@ export const  modulesBlocksData = (roleType) => {
 							{
 										"imgURL": "./assets/images/classes.png",
 										"linkto": "",
-										"name": 'Campus Directory',
-										"description": "Online directory of Creighton staff."
+										"name": translateText('common:DASH_BOARD_CAMPUS_DIRECTORY'),
+										"description": translateText('common:DASH_BOARD_ONLINE_DIRECTORY'),
+										"class": "campus-img"
 									}
 								],
 								[
 									{
 										"imgURL": "./assets/images/nextevent.png",
 										"linkto": "",
-										"name": "Next Events",
-										"description": "What I need to be ready for."
+										"class": "nextevent-img",
+										"name": translateText('common:DASH_BOARD_NEXT_EVENTS'),
+										"description": translateText('common:DASH_BOARD_MY_LISTS'),
+										"class": "nextevent-img"
 									}
 								]);
 		  }		  

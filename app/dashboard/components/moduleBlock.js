@@ -13,10 +13,10 @@ const ModuleBlock = (modulesprops) => {
         <Well bsSize='large' className='white-well' >
           <Row>
             <Col xs={3} md={12} className='moduleImage'>
-              <img src={moduleDetail.imgURL} alt={moduleDetail.name} />
+              <img src={moduleDetail.imgURL} alt={moduleDetail.name} className={moduleDetail.class} />
             </Col>
-            <Col xs={9} md={12} className='moduleImage'>
-              <h3 className='well-title openSansLight'>{moduleDetail.name}{moduleDetail.name === 'School & Semester' ? <span className='well-badge'><span>1</span></span> : '' }</h3>
+            <Col xs={9} md={12}>
+              <h3 className='well-title openSansLight'>{moduleDetail.name}</h3>
               <div className='well-caption'>{moduleDetail.description}</div>
             </Col>
           </Row>

@@ -14,7 +14,7 @@
   "STUDENT_GUARDIAN": "Guardian",
   "ASSIGNMENTS_DUE": "ASSIGNMENTS DUE",
   "UPCOMING_ASSIGNMENTS": "UPCOMING ASSIGNMENTS",
-  "CREIGHTON_SERVICES_AND_RESOURCES": "Creighton Services and Resources",
+  "CREIGHTON_SERVICES_AND_RESOURCES": "Creighton Services & Resources",
   "ACADEMIC_STATUS": "Academic Status",
   "PROFILE_MAJOR": "Major",
   "PROFILE_MINOR": "Minor",
@@ -78,7 +78,16 @@
   "DASH_BOARD_WELL_SECTION": "Well Section",
   "USER_DETAIL_AVATAR": "Avatar",
   "NAVIGATION_MENU": "Navigation",
-
+  "DASH_BOARD_SCHOOL_AND_SEMESTER": "School & Semester",
+  "DASH_BOARD_CLASSES": "Classes",
+  "DASH_BOARD_NEXT_EVENTS": "Next Events",
+  "DASH_BOARD_CAMPUS_DIRECTORY": "Campus Directory",
+  "DASH_BOARD_SCHOOL_STUFF" : "School stuff I am responsible for.",
+  "DASH_BOARD_WHAT_I_NEED_CLASS":"What I need for each class.",
+  "DASH_BOARD_WHAT_I_NEED_READY" : "What I need to be ready for.",
+  "DASH_BOARD_MY_LISTS" : "My lists of what needs to be done and when.",
+  "DASH_BOARD_ONLINE_DIRECTORY" : "Online directory of Creighton staff.",
+  
   "PAGE_FOOTER": "Page footer",
   "PAGE_HEADER": "Page header",
 

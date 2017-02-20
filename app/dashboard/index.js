@@ -14,7 +14,7 @@ import DashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
 import style from './style.css';
-
+import {AuthUserDetails} from '../common/utility';
 const dashboardModulesList = DashboardModulesList;
 
 export class Dashboard extends Component {
@@ -23,34 +23,23 @@ export class Dashboard extends Component {
     super(props);
     this.state = { shouldHide: true };
     this.onClick = this.onClick.bind(this);
-    this.props.getUserDetailsData(`/${this.props.userRole}`);
+    this.role = this.props.userData?this.props.userData.userRole : AuthUserDetails().userRole;
+    if(this.role)
+      this.props.getUserDetailsData(`/${this.role}`);
   }
 
   componentWillMount() {
-    this.role = this.props.params.roletype;
-    if (this.role !== undefined) {
-      this.props.getUserDetailsData(`/${this.props.userRole}`);
-    } else {
-      this.props.getUserDetailsData(`/${this.props.userRole}`);
-    }
-    if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
-      this.setState({ shouldHide: false });
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.role !== nextProps.params.roletype && nextProps.params.roletype) {
-      this.role = nextProps.params.roletype;
+    this.role = this.props.userData?this.props.userData.userRole : AuthUserDetails().userRole;
+    if(this.role)
       this.props.getUserDetailsData(`/${this.role}`);
 
-      if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
-        this.setState({ shouldHide: false });
-      }
-      else {
+    if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
+      this.setState({ shouldHide: false });
+    } else {
         this.setState({ shouldHide: true });
       }
-    }
   }
+
 
   onClick() {
     this.setState({ shouldHide: !this.state.shouldHide });
@@ -58,7 +47,7 @@ export class Dashboard extends Component {
 
   render() {
     const { userDetailsData } = this.props;
-    const dashboardModulesList = DashboardModulesList(this.props.userRole);
+    const dashboardModulesList = DashboardModulesList(this.role);
     return (
       <section id='dashboard'>
         <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
@@ -77,16 +66,15 @@ export class Dashboard extends Component {
           <Row>
             <h1 className='announced-only'>{translateText('common:DASH_BOARD_WELL_SECTION')}</h1>
             <Col md={5} sm={6}>
-              <ModuleBlock modulelist={dashboardModulesList[0]} />
+              {this.role && <ModuleBlock modulelist={dashboardModulesList[0]} />}
             </Col>
             <Col md={5} sm={6} className='col-md-offset-2'>
-              <ModuleBlock modulelist={dashboardModulesList[1]} />
+              {this.role && <ModuleBlock modulelist={dashboardModulesList[1]} />}
             </Col>
             {
-              this.props.userRole === CommonConstants.ROLE_STUDENT || this.props.userRole === undefined ?
-                <Col md={5} sm={6} >
+              this.role === CommonConstants.ROLE_STUDENT && <Col md={5} sm={6} >
                   <ModuleBlock modulelist={dashboardModulesList[2]} />
-                </Col> : null
+                </Col> 
             }
           </Row>
         </article>
@@ -97,7 +85,7 @@ export class Dashboard extends Component {
 const mapStateToProps = (dashboardState) => (
   {
     userDetailsData: dashboardState.dashboardReducer.userDetailsData.data,
-    userRole: dashboardState.auth.data.userRole
+    userData: dashboardState.auth.data
   }
 );
 

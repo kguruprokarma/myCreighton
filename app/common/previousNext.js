@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import classesReducer from '../classes/classList/reducer';
 import { DATASORT, DATAFILTERADDINGDATA, DATATIME } from './utility';
 import * as ROUTE_URL from '../constants/routeContants';
-
+import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from '../classes/classList/actions';
 
 
@@ -25,11 +25,11 @@ class PreviousNext extends React.Component {
 
     componentWillMount() {
         let catagory = this.props.presentCategory;
-        if (catagory === "week") {
+        if (catagory === CommonConstants.WEEK) {
             this.props.getClassesDataByWeek();
-        } else if (catagory === "list") {
+        } else if (catagory === CommonConstants.LIST) {
             this.props.getClassesDataForAtoZ();
-        } else if (catagory === "today") {
+        } else if (catagory === CommonConstants.TODAY) {
             this.props.getClassesDataByToday();
         }
     }
@@ -43,15 +43,15 @@ class PreviousNext extends React.Component {
     getLinkIndexAndId() {
         if (this.props.classList.data && this.props.classList.data.classes.length > 0) {
             let catagory = this.props.presentCategory;
-            if (catagory === "week") {
+            if (catagory === CommonConstants.WEEK) {
                 classIds = [];
                 let classes = DATAFILTERADDINGDATA(this.props.classList.data.classes);
                 this.pushClassesToClassIdsArray(classes);
-            } else if (catagory === "list") {
+            } else if (catagory === CommonConstants.LIST) {
                 classIds = [];
                 let classes = DATASORT(this.props.classList.data.classes, 'name', 'ASC');
                 this.pushClassesToClassIdsArray(classes);
-            } else if (catagory === "today") {
+            } else if (catagory === CommonConstants.TODAY) {
                 classIds = [];
                 let classes = DATATIME(this.props.classList.data.classes, 'time', 'ASC');
                 this.pushClassesToClassIdsArray(classes);
@@ -64,13 +64,13 @@ class PreviousNext extends React.Component {
                     this.previousIndex = classIds[linkIndex].index;
                     this.nextIndex = classIds[linkIndex + 1].index;
                     this.nextId = classIds[linkIndex + 1].id;
-                } 
+                }
                 else if (classIds.length - 1 === linkIndex) {
                     this.previousId = classIds[linkIndex - 1].id;
                     this.previousIndex = classIds[linkIndex - 1].index;
                     this.nextIndex = classIds[linkIndex].index;
                     this.nextId = classIds[linkIndex].id;
-                } 
+                }
                 else if (linkIndex > 0 && linkIndex < classIds.length - 1) {
                     this.previousId = classIds[linkIndex - 1].id;
                     this.previousIndex = classIds[linkIndex - 1].index;
@@ -92,7 +92,7 @@ class PreviousNext extends React.Component {
         return (
             <div className="row">
                 <div className="form-group col-xs-6">
-                    <Link to={ROUTE_URL.CLASS_DETAILS +"/" + this.props.presentCategory + "/"
+                    <Link to={ROUTE_URL.CLASS_DETAILS + "/" + this.props.presentCategory + "/"
                         + this.previousId
                         + "/"
                         + this.previousIndex} activeStyle={{ pointerEvents: 'none', color: 'gray', background: '#ddd', border: '#ddd' }} className="btn btn-primary">
@@ -100,7 +100,7 @@ class PreviousNext extends React.Component {
                     </Link>
                 </div>
                 <div className="form-group col-xs-6 text-right">
-                    <Link to={ROUTE_URL.CLASS_DETAILS +"/" + this.props.presentCategory + "/"
+                    <Link to={ROUTE_URL.CLASS_DETAILS + "/" + this.props.presentCategory + "/"
                         + this.nextId
                         + "/"
                         + this.nextIndex} className="btn btn-primary" activeStyle={{ pointerEvents: 'none', color: 'gray', background: '#ddd', border: '#ddd' }}> Next

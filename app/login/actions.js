@@ -23,21 +23,15 @@ let receiveError=(error)=>({
 export function loginUser({ email, password }) {  
     return function ( dispatch ) {
     return loginApi.getLoginDetails(email, password)
-      .then( (response) => {		
-          console.log("email: ", email)
-          //if(response.data.userDetails1)
-          console.log("userDetails1: ", response.data.userDetails1)
+      .then( (response) => {
           let val = _.find(response.data.userDetails1, { 'email':email });
-          console.log("val: ", val);
-       // dispatch( receiveClassDetailsData( response ) )
        if(val != undefined)
        {
-       // window.location.href = '/dashboard';
+        localStorage.setItem("roleInfo", JSON.stringify(val));
         dispatch( authiorisedUser( {
           data: val
         } ) )
         hashHistory.replace('/dashboard');
-        //Router.transitionTo('/dashboard');
        }
       }
     )
@@ -50,22 +44,6 @@ export function loginUser({ email, password }) {
     )
   }
 }
-
-// export function loginUser({ email, password }) {  
-//     console.log(email, password);
-//   return function(dispatch) {
-//     axios.post('./app/mock_data/loginDetails.json', { email, password })
-//     .then(response => {
-//       cookie.save('token', response.data.token, { path: '/' });
-//       dispatch({ type: AUTH_USER });
-//       window.location.href = CLIENT_ROOT_URL + '/dashboard';
-//     })
-//     .catch((error) => {
-//         console.log("error.response: ", error);
-//       errorHandler(dispatch, error.response, AUTH_ERROR)
-//     });
-//     }
-//   }
 
  function errorHandler(dispatch, error, type) {
   console.log('Error type: ', type);

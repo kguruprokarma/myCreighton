@@ -12,6 +12,7 @@ import ClassBox from './components/classBox';
 import * as actionCreators from './actions';
 import style from '../classList/style.css';
 import { translateText } from '../../common/translate';
+import * as CommonConstants from '../../constants/commonConstants';
 
 export class Classes extends React.PureComponent {
 
@@ -19,23 +20,23 @@ export class Classes extends React.PureComponent {
     super(props);
     this.onChangeOfTab = this.onChangeOfTab.bind(this);
     this.onChangeOfTab(this.props.params.classtab);
-    this.state = {presentState:''}
+    this.state = { presentState: '' }
   }
 
-  componentWillReceiveProps(nextProps){
-     if(this.state.presentState !== nextProps.params.classtab) {
-        this.setState({presentState:nextProps.params.classtab});
-        this.onChangeOfTab(nextProps.params.classtab);
-     }
-  } 
+  componentWillReceiveProps(nextProps) {
+    if (this.state.presentState !== nextProps.params.classtab) {
+      this.setState({ presentState: nextProps.params.classtab });
+      this.onChangeOfTab(nextProps.params.classtab);
+    }
+  }
 
   onChangeOfTab(catagoryName) {
     this.props.onCatagoryChange(catagoryName);
-    if (catagoryName === "week") {
+    if (catagoryName === CommonConstants.WEEK) {
       this.props.getClassesDataByWeek();
-    } else if (catagoryName === "list") {
+    } else if (catagoryName === CommonConstants.LIST) {
       this.props.getClassesDataForAtoZ();
-    } else if (catagoryName === "today") {
+    } else if (catagoryName === CommonConstants.TODAY) {
       this.props.getClassesDataByToday();
     }
   }

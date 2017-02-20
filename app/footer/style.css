@@ -60,6 +60,8 @@
     }
     
     .space-mb {
-        margin-bottom: 24px;
+        padding-bottom: 18px;
+        display: block;
+        line-height: 1.24em;
     }
 }
