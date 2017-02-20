@@ -6,29 +6,30 @@ import React from 'react';
 import { Panel, Grid } from 'react-bootstrap';
 import BasicRow from '../../../../common/basicRow';
 import Dependent from './dependent';
+import { translateText } from '../../../../common/translate';
 
 class RelationDetail extends React.Component {
   constructor() {
     super();
     this.state = {
       flag: 'parent'
-    }
+    };
   }
   toggleParent(depen) {
-    this.setState({ flag: depen.target.value })
+    this.setState({ flag: depen.target.value });
   }
   render() {
     return (
       <article className="profileRow mt30">
-        <h3 className="dataHeading openSansRegular">IF NOT AGE OF MAJORITY</h3>
+        <h3 className="dataHeading openSansRegular">{translateText('common:IF_NOT_AGE_OF_MAJORITY')}</h3>
         <div className="control-group">
           <label className="control control-checkbox labelField noclons">
-            <input type="checkbox" name="dependent" value='parent' onChange={this.toggleParent.bind(this)} checked={this.state.flag === 'parent'} id="parent" /> <span className="openSansRegular">Parent</span>
-			    <span className="control__indicator"></span>
+            <input type="checkbox" name="dependent" value='parent' onChange={this.toggleParent.bind(this)} checked={this.state.flag === 'parent'} id="parent" /> <span className="openSansRegular">{translateText('common:STUDENT_PARENT')}</span>
+            <span className="control__indicator"></span>
           </label>
           <div className="clearfix"></div>
           <label className="control control-checkbox labelField noclons">
-            <input type="checkbox" name="dependent" value='guardian' onChange={this.toggleParent.bind(this)} checked={this.state.flag === 'guardian'} id="guardian" /> <span className="openSansRegular">Guardian</span>
+            <input type="checkbox" name="dependent" value='guardian' onChange={this.toggleParent.bind(this)} checked={this.state.flag === 'guardian'} id="guardian" /> <span className="openSansRegular">{translateText('common:STUDENT_GUARDIAN')}</span>
             <span className="control__indicator"></span>
           </label>
         </div>
@@ -38,7 +39,7 @@ class RelationDetail extends React.Component {
           (<Dependent dependent={this.props.relationDetail.guardian} />)
         }
       </article>
-    )
+    );
   }
 }
 

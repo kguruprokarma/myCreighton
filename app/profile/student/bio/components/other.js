@@ -5,13 +5,14 @@
 import React from 'react';
 import { Panel, Grid } from 'react-bootstrap';
 import BasicRow from '../../../../common/basicRow';
+import { translateText } from '../../../../common/translate';
 
 const Other = (otherProps) => (
 	<article className="profileRow mt30">
-		<h3 className="dataHeading openSansRegular">Other</h3>
-		<BasicRow displayName="Birthdate" displayValue={otherProps.other.birthDate} />
-		<BasicRow displayName="NetID" displayValue={otherProps.other.netID} />
+		<h3 className="dataHeading openSansRegular">{translateText('common:PROFILE_OTHER')}</h3>
+		<BasicRow displayName={translateText('common:PROFILE_BIRTHDATE')} displayValue={otherProps.other.birthDate} />
+		<BasicRow displayName={translateText('common:NET_ID')} displayValue={otherProps.other.netID} />
 	</article>
-)
+);
 
 export default Other;

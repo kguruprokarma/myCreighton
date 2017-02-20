@@ -11,11 +11,6 @@ describe('ClassTabController component testing ----->', () => {
   });
 
   it('ClassTabController component buttons', () => {
-    expect(ClassTabControllerC.find('a').length).toBe(3);
+    expect(ClassTabControllerC.find('Link').length).toBe(3);
   });
-
-  it('ClassTabController component buttons text', () => {
-    expect(ClassTabControllerC.find('a').at(1).text()).toBe("Week");
-  });
-
 });

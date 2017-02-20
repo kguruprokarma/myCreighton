@@ -10,5 +10,5 @@ const BasicRow = (basicRowProps) => (
     <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>{basicRowProps.displayName}</label></Col>
     <Col xs={8} md={9} md={8} className="dataField">{basicRowProps.displayValue}</Col>
   </Row>
-)
+);
 export default BasicRow;

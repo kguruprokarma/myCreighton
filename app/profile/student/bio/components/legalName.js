@@ -5,15 +5,16 @@
 import React from 'react';
 import { Panel, Grid } from 'react-bootstrap';
 import BasicRow from '../../../../common/basicRow';
+import { translateText } from '../../../../common/translate';
 
 const LegalName = (legalNameProps) => (
       <article className="profileRow">
-            <h3 className="dataHeading openSansRegular">Legal Name</h3>
-            <BasicRow displayName="First" displayValue={legalNameProps.legalName.first} />
-            <BasicRow displayName="Middle" displayValue={legalNameProps.legalName.middle} />
-            <BasicRow displayName="Last" displayValue={legalNameProps.legalName.last} />
+            <h3 className="dataHeading openSansRegular">{translateText('common:PROFILE_LEGAL_NAME')}</h3>
+            <BasicRow displayName={translateText('common:PROFILE_FIRST')} displayValue={legalNameProps.legalName.first} />
+            <BasicRow displayName={translateText('common:PROFILE_MIDDLE')} displayValue={legalNameProps.legalName.middle} />
+            <BasicRow displayName={translateText('common:PROFILE_LAST')} displayValue={legalNameProps.legalName.last} />
       </article>
-)
+);
 
 export default LegalName;
 

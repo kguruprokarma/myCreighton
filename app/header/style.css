@@ -1,0 +1,145 @@
+
+.customPopUp{
+    min-width: 250px;
+    background: #fff;
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+}
+
+.popUpText{
+    margin-left: 15px;
+    padding: 8px 0px;
+}
+
+.customPopUp .logOut{
+    margin-top: 55px;
+    position: relative; 
+    text-align:left;
+    top: 4px;
+}
+
+.customPopUpItem{
+    position: relative;
+}
+.popUp .glyphicon-user {
+    font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    top: 4px;
+}
+.popUp .glyphicon-user:hover{
+    cursor: pointer;
+}
+
+.popUp{
+    position: relative;
+    z-index: 1000;
+    top: 5px;
+}
+
+.popUpContainer{
+    position: absolute;
+    top:40px;
+    right: -10px;
+    z-index: 100;
+    line-height: 20px;
+    font-size: 14px;
+    z-index: 1000;
+    min-width: 300px;
+}
+
+.popupPointer
+{
+    background: url('./../assets/images/popup-arrow.png') no-repeat;
+    position:absolute;
+    top:-11px;
+    right: 10px;
+    width: 20px;
+    height: 11px;
+}
+
+.popUpPatch{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 900;
+}
+
+.popUpContainer a {
+    color: #0054a6;
+    text-align: left;
+}
+
+.hamburgerMenu {
+ margin-top:3px;
+}
+
+.hamburgerMenu img {
+    max-width: 34px;
+}
+
+.customPopUp .list-group {
+    margin-bottom:0;
+}
+
+.customPopUp .list-group .list-group-item {
+    border-left:0;
+    border-right:0;
+    background-color:transparent;
+    padding:0;
+}
+.customPopUp .list-group .list-group-item a {
+    padding:10px 15px;
+    display: block;
+}
+
+.customPopUp .list-group .list-group-item:first-child {
+    border-top:0;
+    padding: 10px 15px;
+}
+
+.customPopUp .list-group .list-group-item:last-child {
+    border-bottom:0;
+}
+
+.customPopUp .list-group .list-group-item a:hover, 
+.customPopUp .list-group .list-group-item a:focus, .customPopUp .list-group .list-group-item a.active{
+    color: #313131;
+    text-decoration:none;
+}
+.tileInfo {
+    color: #313131;
+    margin-left:8px;
+    font-size: 1.2em;   /* font size 18 in pixel */
+    line-height: 1.6em;
+    font-family: 'open_sansregular';
+} 
+
+.sb-avatar {
+    float: left;
+}
+
+.customPopUp .user-type {
+    font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+}
+
+.popUpContainer .avatar-name {
+    font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    line-height: 2.6em;
+}
+
+.popUpContainer #avatar {
+    overflow: hidden;
+}
+
+/* Media for small devices */
+@media screen and (max-width: 767px) {
+   
+    .tileInfo {
+        font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+    }
+    
+
+}

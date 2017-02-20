@@ -1,7 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import WeekClasses from '../components/weekClasses';
-import WeekDayHeader from '../components/weekDayHeader';
 import { DATASORT, DATAFILTERADDINGDATA } from '../../../common/utility';
 
 const classes = [
@@ -67,11 +66,11 @@ describe('WeekClasses component testing ----->', () => {
   });
 
   it('WeekClasses component contails WeekDayHeader component length', () => {
-    expect(WeekClassesC.find('WeekDayHeader').length).toBe(3);
+    expect(WeekClassesC.find('DayHeader').length).toBe(3);
   });
 
   it('WeekClasses component contails WeekDayHeader rendering order', () => {
-    let items = WeekClassesC.find('WeekDayHeader');
+    let items = WeekClassesC.find('DayHeader');
     expect(items.at(2).props().day).toBe("Friday");
     expect(items.at(0).props().day).toBe("Monday");
   });

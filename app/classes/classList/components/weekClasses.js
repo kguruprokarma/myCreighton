@@ -4,28 +4,28 @@
 
 import React from 'react';
 import { Link } from 'react-router';
-import WeekDayHeader from './weekDayHeader';
+import DayHeader from './dayHeader';
 import ClassInfo from './classInfo';
+import * as ROUTE_URL from '../../../constants/routeContants';
 
 let lastHeader = null;
 let presentHeader;
 
 const WeekClasses = (weekProps) => (
-	<div>
-		{
-			weekProps.listOfData.map((weekClass, classIndex) => {
-				presentHeader = weekClass.day;
-				return (
-					<div key={classIndex} id="cls">
-						{lastHeader !== presentHeader && <WeekDayHeader day={lastHeader = weekClass.day} />}
-						<Link to={"ClassDetails/" + weekClass.id + "/" + classIndex}>
-							<ClassInfo data={weekClass} />
-						</Link>
-					</div>
-				)
-
-			})
-		}
-	</div>
-)
+  <div>
+    {
+      weekProps.listOfData.map((weekClass, classIndex) => {
+        presentHeader = weekClass.day;
+        return (
+          <div key={classIndex} id='cls'>
+            {lastHeader !== presentHeader && <DayHeader day={lastHeader = weekClass.day} />}
+            <Link to={ROUTE_URL.CLASS_DETAILS + '/' + weekProps.catagory + '/' + weekClass.id + '/' + classIndex}>
+              <ClassInfo data={weekClass} />
+            </Link>
+          </div>
+        );
+      })
+    }
+  </div>
+);
 export default WeekClasses;

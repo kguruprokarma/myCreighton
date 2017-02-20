@@ -1,236 +1,241 @@
-[{
-  "id": 1,
-  "classHeader": {
-    "name": "English 112",
-    "time": "11am-12pm",
-    "by": "Miller",
-    "place": "Building Rm 119",
-    "on": "poetry",
-    "date": "jan 27",
-    "recurrence": "Fri"
+[
+  {
+    "id": 1,
+    "classHeader": {
+      "name": "English 112",
+      "time": "11am-12pm",
+      "by": "Miller",
+      "place": "Building Rm 119",
+      "on": "poetry",
+      "date": "jan 28",
+      "recurrence": "Fri"
+    },
+    "assignmentsDue": [
+      "Read chapter 15",
+      "Lab results hand in class"
+    ],
+    "todaysClass": [
+      "Chapter 15 - photosynthesis reaction",
+      "Prep for quiz"
+    ],
+    "upcomingAssignments": [
+      {
+        "date": "Jan26",
+        "assignment": "Study guide chapters 14-15"
+      },
+      {
+        "date": "Feb 7",
+        "assignment": "Mid-term paper Krebs cycle"
+      }
+    ],
+    "testsOrQuizzes": [
+      {
+        "date": "Jan 31",
+        "assignment": "Quiz chapters 14-15"
+      },
+      {
+        "date": "Feb 16",
+        "assignment": "Lab exams"
+      }
+    ]
   },
-  "assignmentsDue": [
-    "Read chapter 15",
-    "Lab results hand in class"
-  ],
-  "todaysClass": [
-    "Chapter 15 - photosynthesis reaction",
-    "Prep for quiz"
-  ],
-  "upcomingAssignments": [
-    {
-      "date": "Jan26",
-      "assignment": "Study guide chapters 14-15"
+  {
+    "id": 2,
+    "classHeader": {
+      "name": "Political science 223",
+      "time": "3pm-4pm",
+      "by": "Dow",
+      "place": "Hopper Lecture 100",
+      "on": "20th-century politics in the U.S",
+      "date": "jan 23",
+      "recurrence": "MW"
     },
-    {
-      "date": "Feb 7",
-      "assignment": "Mid-term paper Krebs cycle"
-    }
-  ],
-  "testsOrQuizzes": [
-    {
-      "date": "Jan 31",
-      "assignment": "Quiz chapters 14-15"
-    },
-    {
-      "date": "Feb 16",
-      "assignment": "Lab exams"
-    }
-  ]
-},
-{ 
-  "id":2,
-  "classHeader": {
-    "name": "Political science 223",
-    "time": "3pm-4pm",
-    "by": "Dow",
-    "place": "Hopper Lecture 100",
-    "on": "20th-century policities in the U.S",
-    "date": "jan 23",
-    "recurrence": "MW"
+    "assignmentsDue": [
+      "Read chapter 12 Summary"
+    ],
+    "todaysClass": [
+      "Chapter 14 - 20th-century politics in the U.S",
+      "Prep for quiz"
+    ],
+    "upcomingAssignments": [
+      {
+        "date": "Jan24",
+        "assignment": "Study guide chapters 12-13"
+      },
+      {
+        "date": "Feb 6",
+        "assignment": "Mid-term paper"
+      }
+    ],
+    "testsOrQuizzes": [
+      {
+        "date": "Jan 30",
+        "assignment": "Quiz chapters 12-13"
+      },
+      {
+        "date": "Feb 15",
+        "assignment": "Mid-term exams"
+      }
+    ]
   },
-  "assignmentsDue": [
-    "Read chapter 12 Summary"
-  ],
-  "todaysClass": [
-    "Chapter 14 - 20th-century policities in the U.S",
-    "Prep for quiz"
-  ],
-  "upcomingAssignments": [
-    {
-      "date": "Jan24",
-      "assignment": "Study guide chapters 12-13"
+  {
+    "id": 3,
+    "classHeader": {
+      "name": "Theology 100",
+      "time": "7am-8am",
+      "by": "Miller",
+      "place": "Room 105",
+      "on": "Christianity in context",
+      "date": "jan 25",
+      "recurrence": "Wed"
     },
-    {
-      "date": "Feb 6",
-      "assignment": "Mid-term paper"
-    }
-  ],
-  "testsOrQuizzes": [
-    {
-      "date": "Jan 30",
-      "assignment": "Quiz chapters 12-13"
-    },
-    {
-      "date": "Feb 15",
-      "assignment": "Mid-term exams"
-    }
-  ]
-},{
-  "id": 3,
-  "classHeader": {
-    "name": "Theology 100",
-    "time": "7am-8am",
-    "by": "Miller",
-    "place": "Room 105",
-    "on": "God and religious belief",
-    "date": "jan 25",
-    "recurrence": "Wed"
+    "assignmentsDue": [
+      "Read chapter 15",
+      "Lab results hand in class"
+    ],
+    "todaysClass": [
+      "Chapter 15 - Christianity in context",
+      "Prep for quiz"
+    ],
+    "upcomingAssignments": [
+      {
+        "date": "Jan26",
+        "assignment": "Study guide chapters 14-15"
+      },
+      {
+        "date": "Feb 3",
+        "assignment": "Mid-term paper"
+      }
+    ],
+    "testsOrQuizzes": [
+      {
+        "date": "Jan 26",
+        "assignment": "Quiz chapters 14-15"
+      },
+      {
+        "date": "Feb 10",
+        "assignment": "Lab exams"
+      }
+    ]
   },
-  "assignmentsDue": [
-    "Read chapter 15",
-    "Lab results hand in class"
-  ],
-  "todaysClass": [
-    "Chapter 15 - God and religious belief",
-    "Prep for quiz"
-  ],
-  "upcomingAssignments": [
-    {
-      "date": "Jan26",
-      "assignment": "Study guide chapters 14-15"
+  {
+    "id": 4,
+    "classHeader": {
+      "name": "Philosophy 100",
+      "time": "1pm-2pm",
+      "by": "Johnston",
+      "place": "Building Rm 200",
+      "on": "Introduction to Western thought",
+      "date": "jan 25",
+      "recurrence": "Wed"
     },
-    {
-      "date": "Feb 3",
-      "assignment": "Mid-term paper"
-    }
-  ],
-  "testsOrQuizzes": [
-    {
-      "date": "Jan 26",
-      "assignment": "Quiz chapters 14-15"
-    },
-    {
-      "date": "Feb 10",
-      "assignment": "Lab exams"
-    }
-  ]
-},{
-  "id": 4,
-  "classHeader": {
-    "name": "Philosophy 100",
-    "time": "1pm-2pm",
-    "by": "Johnston",
-    "place": "Building Rm 200",
-    "on": "fundamental nature of knowledge",
-    "date": "jan 25",
-    "recurrence": "Wed"
+    "assignmentsDue": [
+      "Read chapter 15",
+      "Lab results hand in class"
+    ],
+    "todaysClass": [
+      "Chapter 15 -  Western Thought",
+      "Prep for quiz"
+    ],
+    "upcomingAssignments": [
+      {
+        "date": "Jan26",
+        "assignment": "Study guide chapters 10-12"
+      },
+      {
+        "date": "Feb 2",
+        "assignment": "Mid-term paper"
+      }
+    ],
+    "testsOrQuizzes": [
+      {
+        "date": "Jan 25",
+        "assignment": "Quiz chapters 14-15"
+      },
+      {
+        "date": "Feb 9",
+        "assignment": "Lab"
+      }
+    ]
   },
-  "assignmentsDue": [
-    "Read chapter 15",
-    "Lab results hand in class"
-  ],
-  "todaysClass": [
-    "Chapter 15 -  study of the fundamental nature of knowledge",
-    "Prep for quiz"
-  ],
-  "upcomingAssignments": [
-    {
-      "date": "Jan26",
-      "assignment": "Study guide chapters 10-12"
+  {
+    "id": 5,
+    "classHeader": {
+      "name": "Environmental science 223",
+      "time": "4pm-5pm",
+      "by": "Dow",
+      "place": "Hopper Lecture 100",
+      "on": "Global warming",
+      "date": "jan 30",
+      "recurrence": "MW"
     },
-    {
-      "date": "Feb 2",
-      "assignment": "Mid-term paper"
-    }
-  ],
-  "testsOrQuizzes": [
-    {
-      "date": "Jan 25",
-      "assignment": "Quiz chapters 14-15"
-    },
-    {
-      "date": "Feb 9",
-      "assignment": "Lab"
-    }
-  ]
-},{
-  "id": 5,
-  "classHeader": {
-    "name": "Environmental science 223",
-    "time": "4pm-5pm",
-    "by": "Dow",
-    "place": "Hopper Lecture 100",
-    "on": "Global warming",
-    "date": "jan 30",
-    "recurrence": "MW"
+    "assignmentsDue": [
+      "Read chapter 15",
+      "Lab results hand in class"
+    ],
+    "todaysClass": [
+      "Chapter 15 - Global warming",
+      "Prep for quiz"
+    ],
+    "upcomingAssignments": [
+      {
+        "date": "Jan26",
+        "assignment": "Study guide chapters 14-15"
+      },
+      {
+        "date": "Feb 7",
+        "assignment": "Mid-term paper Krebs cycle"
+      }
+    ],
+    "testsOrQuizzes": [
+      {
+        "date": "Jan 31",
+        "assignment": "Quiz chapters 14-15"
+      },
+      {
+        "date": "Feb 16",
+        "assignment": "Lab exams"
+      }
+    ]
   },
-  "assignmentsDue": [
-    "Read chapter 15",
-    "Lab results hand in class"
-  ],
-  "todaysClass": [
-    "Chapter 15 - Global warming",
-    "Prep for quiz"
-  ],
-  "upcomingAssignments": [
-    {
-      "date": "Jan26",
-      "assignment": "Study guide chapters 14-15"
+  {
+    "id": 6,
+    "classHeader": {
+      "name": "Chemistry 100",
+      "time": "8am-9pm",
+      "by": "Miller",
+      "place": "Building Rm 119",
+      "on": "Organic Chemistry",
+      "date": "jan 25",
+      "recurrence": "Wed"
     },
-    {
-      "date": "Feb 7",
-      "assignment": "Mid-term paper Krebs cycle"
-    }
-  ],
-  "testsOrQuizzes": [
-    {
-      "date": "Jan 31",
-      "assignment": "Quiz chapters 14-15"
-    },
-    {
-      "date": "Feb 16",
-      "assignment": "Lab exams"
-    }
-  ]
-},{
-  "id": 6,
-  "classHeader": {
-    "name": "Chemistry 100",
-    "time": "8am-9pm",
-    "by": "Miller",
-    "place": "Building Rm 119",
-    "on": "Organic Chemistry",
-    "date": "jan 25",
-    "recurrence": "Wed"
-  },
-  "assignmentsDue": [
-    "Read chapter 15",
-    "Lab results hand in class"
-  ],
-  "todaysClass": [
-    "Chapter 15 - photosynthesis reaction",
-    "Prep for quiz"
-  ],
-  "upcomingAssignments": [
-    {
-      "date": "Jan26",
-      "assignment": "Study guide chapters 5-6"
-    },
-    {
-      "date": "Feb 2",
-      "assignment": "Mid-term paper Krebs cycle"
-    }
-  ],
-  "testsOrQuizzes": [
-    {
-      "date": "Jan 26",
-      "assignment": "Quiz chapters 14-15"
-    },
-    {
-      "date": "Feb 17",
-      "assignment": "Lab exams"
-    }
-  ]
-}
+    "assignmentsDue": [
+      "Read chapter 15",
+      "Lab results hand in class"
+    ],
+    "todaysClass": [
+      "Chapter 15 - photosynthesis reaction",
+      "Prep for quiz"
+    ],
+    "upcomingAssignments": [
+      {
+        "date": "Jan26",
+        "assignment": "Study guide chapters 5-6"
+      },
+      {
+        "date": "Feb 2",
+        "assignment": "Mid-term paper Krebs cycle"
+      }
+    ],
+    "testsOrQuizzes": [
+      {
+        "date": "Jan 26",
+        "assignment": "Quiz chapters 14-15"
+      },
+      {
+        "date": "Feb 17",
+        "assignment": "Lab exams"
+      }
+    ]
+  }
 ]

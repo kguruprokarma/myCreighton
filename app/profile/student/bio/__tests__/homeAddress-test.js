@@ -5,7 +5,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import HomeAddress from '../components/homeAddress';
-import SchoolAddress from '../components/schoolAddress';
+import SchoolAddress from '../components/address';
 
 const homeAddressProps = {
     homeAddress: {
@@ -17,7 +17,8 @@ const homeAddressProps = {
     }
   };
   const schoolAddressProps = {
-    schoolAddress: {
+    shouldShowWhenStaff:false,
+    address: {
       street1: "street1 name",
       street2: "street2 name",
       city: "CIty name",
