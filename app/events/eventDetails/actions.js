@@ -1,34 +1,34 @@
 /* Created Date: - 17-FEB-2017
  * actions for next events
  */
-import NextEventsApi from '../../middleware/events/api';
+import EventsDetailApi from '../../middleware/events/api';
 import * as types from './actionTypes';
 
 
-let requestNextEventsData = () => ({
-  type: types.REQUEST_NEXT_EVENTS_DATA
+let requestEventsDetailData = () => ({
+  type: types.REQUEST_EVENTS_DETAIL_DATA
 });
 
-let receiveNextEventsData = (nextEvents) => (
+let receiveEventsDetailData = (eventsDetails) => (
   {
-    type: types.RECEIVE_NEXT_EVENTS_DATA,
-    data: nextEvents
+    type: types.RECEIVE_EVENTS_DETAIL_DATA,
+    data: eventsDetails
   });
 
-let receiveNextEventsError = (error) => (
+let receiveEventsDetailError = (error) => (
   {
-    type: types.RECEIVE_NEXT_EVENTS_DATA_ERROR,
+    type: types.RECEIVE_EVENTS_DETAIL_DATA_ERROR,
     data: error
   });
 
 export function getEventsDetail() {
   return function (dispatch) {
-    dispatch(requestNextEventsData());
-    return NextEventsApi.getEventsDetail().then((response) => {
-      dispatch(receiveNextEventsData(response));
+    dispatch(requestEventsDetailData());
+    return EventsDetailApi.getEventsDetail().then((response) => {
+      dispatch(receiveEventsDetailData(response));
     })
       .catch((error) => {
-        dispatch(receiveNextEventsError({
+        dispatch(receiveEventsDetailError({
           error: error
         }));
       });
