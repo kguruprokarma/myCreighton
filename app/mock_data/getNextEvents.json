@@ -1,57 +1,110 @@
-[{
-	"id": 345423,
-	"title": "English 112",
-	"location": "Building Rm 119",
-	"date": "Jan 24, 2017",
-	"start_time": "13:00:00",
-	"end_time": "14:00:00",
-	"todo": null
-}, {
-	"id": 234,
-	"title": "English 112",
-	"location": "Building Rm 119",
-	"date": "Jan 24, 2017",
-	"start_time": "13:00:00",
-	"end_time": "14:00:00",
-	"todo": {
-		"isTodo": true
-	}
-}, {
-	"id": 67,
-	"title": "English 112",
-	"location": "Building Rm 119",
-	"date": "Jan 24, 2017",
-	"start_time": "13:00:00",
-	"end_time": "14:00:00",
-	"todo": {
-		"isTodo": false
-	}
-}, {
-	"id": 76,
-	"title": "English 112",
-	"location": "Building Rm 119",
-	"date": "Jan 24, 2017",
-	"start_time": "13:00:00",
-	"end_time": "14:00:00",
-	"todo": {
-		"isTodo": true
-	}
-}, {
-	"id": 23,
-	"title": "English 112",
-	"location": "Building Rm 119",
-	"date": "Jan 24, 2017",
-	"start_time": "13:00:00",
-	"end_time": "14:00:00",
-	"todo": null
-}, {
-	"id": 78,
-	"title": "English 112",
-	"location": "Building Rm 119",
-	"date": "Jan 24, 2017",
-	"start_time": "11:00:00",
-	"end_time": "12:00:00",
-	"todo": {
-		"isTodo": true
-	}
-}]
+[
+  {
+    "eventId": 243,
+    "classes": {
+      "title": "English 112",
+      "sub_title": "Next events English 112",
+      "location": "Building Rm 119",
+      "next_class_start_date": "feb 22",
+      "next_class_start_time": "3pm - 4pm",
+      "test": false,
+      "quizzes": true
+    },
+    "assignments": {
+      "title": "English 112",
+      "class": "English 112",
+      "due_date": "feb 22",
+      "details": "Assignments"
+    },
+    "quizzes": {
+      "title": "English 112",
+      "class": "English 112",
+      "date": "feb 22",
+      "time": "4pm - 5pm",
+      "description": "Quizzes",
+      "points": 10,
+      "no_of_question": 20
+    },
+    "outlook": {
+      "title": "English 112",
+      "date": "feb 23",
+      "startTime": "2pm",
+      "endTime": "3pm",
+      "organizer": "university",
+      "location": "Building Rm 119",
+      "description": "outlook details"
+    }
+  },
+  {
+    "eventId": 23,
+    "classes": {
+      "title": "English 112",
+      "sub_title": "Next events English 112",
+      "location": "Building Rm 119",
+      "next_class_start_date": "feb 22",
+      "next_class_start_time": "3pm - 4pm",
+      "test": false,
+      "quizzes": true
+    },
+    "assignments": {
+      "title": "English 112",
+      "class": "English 112",
+      "due_date": "feb 22",
+      "details": "Assignments"
+    },
+    "quizzes": {
+      "title": "English 112",
+      "class": "English 112",
+      "date": "feb 22",
+      "time": "4pm - 5pm",
+      "description": "Quizzes",
+      "points": 10,
+      "no_of_question": 20
+    },
+    "outlook": {
+      "title": "English 112",
+      "date": "feb 23",
+      "startTime": "2pm",
+      "endTime": "3pm",
+      "organizer": "university",
+      "location": "Building Rm 119",
+      "description": "outlook details"
+    }
+  },
+  {
+    "eventId": 43,
+    "classes": {
+      "title": "English 112",
+      "sub_title": "Next events English 112",
+      "location": "Building Rm 119",
+      "next_class_start_date": "feb 22",
+      "next_class_start_time": "3pm - 4pm",
+      "test": false,
+      "quizzes": true
+    },
+    "assignments": {
+      "title": "English 112",
+      "class": "English 112",
+      "due_date": "feb 22",
+      "details": "Assignments"
+    },
+    "quizzes": {
+      "title": "English 112",
+      "class": "English 112",
+      "date": "feb 22",
+      "time": "4pm - 5pm",
+      "description": "Quizzes",
+      "points": 10,
+      "no_of_question": 20
+    },
+    "outlook": {
+      "title": "English 112",
+      "date": "feb 23",
+      "startTime": "2pm",
+      "endTime": "3pm",
+      "organizer": "university",
+      "location": "Building Rm 119",
+      "description": "outlook details"
+    }
+  }
+]
