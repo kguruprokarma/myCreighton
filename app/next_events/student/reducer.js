@@ -5,7 +5,7 @@
 import * as types from './actionTypes';
 
 const initialState = {
-  nextEventsData: {},
+  nextEvents: {},
   isLoading: false,
   error: false
 };
