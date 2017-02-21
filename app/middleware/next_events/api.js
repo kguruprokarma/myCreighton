@@ -5,7 +5,7 @@ import axios from 'axios';
 import * as urlConstants from '../../constants/urlConstants';
 
 let nextEventsApi = {
-  getNextEvents: () => axios.get(urlConstants.ROOT_URL + urlConstants.NEXT_EVENTS)
+  getNextEvents: () => axios.get(urlConstants.ROOT_URL + urlConstants.NEXT_EVENTS_STUDENT)
 };
 
 export default nextEventsApi;

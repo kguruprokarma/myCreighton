@@ -1,7 +1,7 @@
 /* Created Date: - 17-FEB-2017
  * actions for next events
  */
-import NextEventsApi from '../middleware/next_events/api';
+import NextEventsApi from '../../middleware/next_events/api';
 import * as types from './actionTypes';
 
 
