@@ -16,7 +16,7 @@ describe('Next Event list reducer testing ----->', () => {
 
 	it('reducer recieve state',()=>{
 		let data = {"name":"myCreighton"}
-		let expectedState = {isLoading:false, eventsData:data};
+		let expectedState = {isLoading:true, eventsData:data};
 		let afterState = reducer({}, {type: types.RECEIVE_EVENTS_DATA, data: data});
 		expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
 	});
