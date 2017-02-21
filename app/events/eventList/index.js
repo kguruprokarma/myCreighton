@@ -12,6 +12,7 @@ import Quizzes from '../eventList/components/quizzes';
 import OutlookCalendar from '../eventList/components/outlookCalendar';
 import AcademicMilestones from '../eventList/components/academicMilestones';
 import { SEGREGATEDATA,DATESORT } from '../../common/utility';
+import * as NextEventsConstants from '../../constants/nextEventsConstants';
 
 export class EventList extends React.PureComponent {
 
@@ -33,11 +34,11 @@ export class EventList extends React.PureComponent {
          { EVENT_DATA.map(function( eventType, index){ 
             return (
               <div key={index} id="cls">
-                {eventType.type === 'classes' &&  <Classes data = {eventType}/>} 
-                {eventType.type === 'assignments' && <Assignments data = {eventType}/>}
-                {eventType.type === 'testOrQuizzes' && <Quizzes data = {eventType}/>} 
-                {eventType.type === 'academicMilestones' && <AcademicMilestones data = {eventType}/>} 
-                {eventType.type === 'outlook' && <OutlookCalendar data = {eventType}/>}
+                {eventType.type === NextEventsConstants.CLASSES &&  <Classes data = {eventType}/>}
+                {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data = {eventType}/>}
+                {eventType.type === NextEventsConstants.TEST_OR_QUIZZES && <Quizzes data = {eventType}/>}
+                {eventType.type === NextEventsConstants.ACADEMIC_MILESTONES && <AcademicMilestones data = {eventType}/>}
+                {eventType.type === NextEventsConstants.OUTLOOK && <OutlookCalendar data = {eventType}/>}
               </div>
             ); 
            })
