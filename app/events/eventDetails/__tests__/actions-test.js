@@ -56,7 +56,7 @@ describe('Next Events Student actions', () => {
   });
   
   it('Succes test case fro next events', () => {
-     moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.NEXT_EVENTS_STUDENT, {
+     moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.EVENTS_DETAIL_STUDENT, {
       status: 200,
       response:  data
     });
@@ -66,7 +66,7 @@ describe('Next Events Student actions', () => {
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getNextEvents())
+    return store.dispatch(actions.getEventsDetail())
       .then(() => { 
       	let result = store.getActions();
         expect(result[0].type).toEqual( expectedActions[0].type);
@@ -76,7 +76,7 @@ describe('Next Events Student actions', () => {
   });
 
   it('failure test case for next events', () => {
-     moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.NEXT_EVENTS_STUDENT, {
+     moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.EVENTS_DETAIL_STUDENT, {
       status: 404,
       responseText:  "error"
     });
@@ -86,7 +86,7 @@ describe('Next Events Student actions', () => {
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getNextEvents())
+    return store.dispatch(actions.getEventsDetail())
       .then(() => { 
       	let result = store.getActions();
         expect(result[0].type).toEqual( expectedActions[0].type);

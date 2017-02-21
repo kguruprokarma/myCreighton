@@ -1,7 +1,7 @@
 /* Created Date: - 17-FEB-2017
  * actions for next events
  */
-import NextEventsApi from '../../middleware/next_events/api';
+import NextEventsApi from '../../middleware/events/api';
 import * as types from './actionTypes';
 
 
@@ -21,10 +21,10 @@ let receiveNextEventsError = (error) => (
     data: error
   });
 
-export function getNextEvents() {
+export function getEventsDetail() {
   return function (dispatch) {
     dispatch(requestNextEventsData());
-    return NextEventsApi.getNextEvents().then((response) => {
+    return NextEventsApi.getEventsDetail().then((response) => {
       dispatch(receiveNextEventsData(response));
     })
       .catch((error) => {
