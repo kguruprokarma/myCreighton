@@ -1,0 +1,61 @@
+{  
+    "type":{
+      "classes":[  
+         {  
+            "className":"English 112",
+            "meetingLocation":"Building Rm 119",
+            "startTime":"1:00 p.m.",
+            "endTime":"2:00 p.m.",
+            "date":"February 10, 2017",
+            "dateofOccurrence":"Fri"
+         },
+         {  
+            "className":"Chemistry 105",
+            "meetingLocation":"Building Rm 119",
+            "startTime":"1:00 p.m.",
+            "endTime":"2:00 p.m.",
+            "date":"February 12, 2017",
+            "dateofOccurrence":"Fri"
+         }
+      ],
+      "assignments":[  
+         {  
+            "title":"Assig.: Krebs cycle paper",
+            "class":"Chemistry 105",
+            "date":"February 15, 2017",
+            "dueDate":"jan 23",
+            "dueTime":"11:59 p.m."
+         }
+      ],
+      "testOrQuizzes":[  
+         {  
+            "title":"Chemistry Test",
+            "class":"Chemistry 105 Lab",
+            "date":"February 01, 2017",
+            "dueDate":"Jan 17, 2017",
+            "dueTime":"11:59 p.m."
+         }
+      ],
+      "academicMilestones":[  
+         {  
+            "title":"Test: Chapters 4-5",
+            "date":"February 18, 2017",
+            "startDate":"Jan 26",
+            "endDate":"Jan 27",
+            "startTime":"10:00 a.m.",
+            "endTime":"12:00 noon"
+         }
+      ],
+      "outlook":[
+         {  
+            "title":"Test: OutLook Chapters 4-5",
+            "date":"February 27, 2017",
+            "startDate":"Jan 26",
+            "endDate":"Jan 27",
+            "startTime":"10:00 a.m.",
+            "endTime":"12:00 noon",
+            "location":"US"
+         }
+      ]
+    }
+}

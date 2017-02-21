@@ -25,7 +25,7 @@ export const  modulesBlocksData = (roleType) => {
 									}],
 									[{
 										"imgURL": "./assets/images/nextevent.png",
-										"linkto": "",
+										"linkto": ROUTE_URL.EVENT_LIST,
 										"name": translateText('common:DASH_BOARD_NEXT_EVENTS'),
 										"description": translateText('common:DASH_BOARD_WHAT_I_NEED_READY'),
 										"class": "nextevent-img"

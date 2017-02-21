@@ -17,7 +17,8 @@ export const LIST = '/list';
 export const STUDENT = '/student';
 export const STAFF = '/staff';
 export const FACULTY = '/faculty';
-export const NEXT_EVENTS_STUDENT = '/nextevents'
+export const NEXT_EVENTS_STUDENT = '/nextevents';
+export const EVENT_LIST = '/eventlist';
 
 /*
 * Relative path url's parameters for components

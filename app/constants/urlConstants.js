@@ -17,3 +17,4 @@ export const USER_DETAILS_DATA = '/getUserDetails.json';
 export const MEAL_PLAN_DATA = '/getMealPlan.json';
 export const LOGIN_DETAILS_DATA = '/loginDetails.json';
 export const NEXT_EVENTS_STUDENT = '/getNextEvents.json';
+export const EVENTS_DATA = '/eventList.json';

@@ -18,6 +18,7 @@ import NextEventStudent from '../next_events/student';
 import { I18nextProvider } from 'react-i18next'; // as we build ourself via webpack
 import i18n from '../i18n'; // initialized i18next instance
 import * as ROUTE_URL from '../constants/routeContants';
+import EventList from '../events/eventList';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
@@ -35,6 +36,7 @@ const routes = (
         <Route path={ROUTE_URL.DASHBOARD + ROUTE_URL.USER_ROLE_TYPE} title='' component={Dashboard} />
         <Route path={ROUTE_URL.STAFF }  title="Staff Profile -" component={StaffProfile} />
         <Route path={ROUTE_URL.NEXT_EVENTS_STUDENT }  title="Next Events" component={NextEventStudent} />
+        <Route path={ROUTE_URL.EVENT_LIST} title='' component={EventList} />
       </Route>
     </Router>
   </Provider>

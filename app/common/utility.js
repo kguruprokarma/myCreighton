@@ -86,3 +86,34 @@ export const todayHeader = () => {
 export const AuthUserDetails = () => {
 	return localStorage.roleInfo?JSON.parse(localStorage.roleInfo):{};
 };
+
+export const SEGREGATEDATA = (list) => {
+	let newArray = [];
+	for (var key in list) {
+		var arr = list[key];
+		let keys = Object.keys(arr);
+		for (var j = 0; j < keys.length; j++) {
+			var obj;
+			let dataSize = arr[keys[j]].length;
+			if (dataSize > 0) {
+				var data = arr[keys[j]];
+				for (var i = 0; i < dataSize; i++) {
+					obj = data[i];
+					obj.type = keys[j];
+					newArray.push(obj)
+				}
+			}
+		}
+	}
+	return newArray;
+};
+
+export const DATESORT = (dataArray, key) => {
+	let date = dataArray;
+	let sortByKey = key;
+	let sortedData = date.sort(function (a, b) {
+		var dateA = new Date(a[sortByKey] ), dateB = new Date(b[sortByKey])
+		return dateA - dateB
+	})
+	return sortedData;
+};

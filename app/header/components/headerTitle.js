@@ -24,4 +24,7 @@ export default function (argument) {
     title = translateText('common:PROFILE_ACADEMIC');
     return title;
   }
+  if (rootURL[1] === HEADER.EVENT_LIST) {
+    title = translateText('common:NEXT_EVENTS');
+  }
 }
