@@ -33,6 +33,7 @@ const routes = (
         <Route path={ROUTE_URL.DASHBOARD} title= '' component={Dashboard} />
         <Route path={ROUTE_URL.DASHBOARD + ROUTE_URL.USER_ROLE_TYPE} title='' component={Dashboard} />
         <Route path={ROUTE_URL.STAFF }  title="Staff Profile -" component={StaffProfile} />
+        <Route path={ROUTE_URL.NEXT_EVENTS_STUDENT }  title="Next Events" component={NextEventStudent} />
       </Route>
     </Router>
   </Provider>
