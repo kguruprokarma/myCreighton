@@ -36,7 +36,6 @@ export function loginUser({ email, password }) {
       }
     )
       .catch( (error) => {
-          console.log("error: ", error)
         dispatch( receiveError( {
           error: error
         } ) )
@@ -46,9 +45,6 @@ export function loginUser({ email, password }) {
 }
 
  function errorHandler(dispatch, error, type) {
-  console.log('Error type: ', type);
-  console.log(error);
-
   let errorMessage = error.response ? error.response.data : error;
 
    // NOT AUTHENTICATED ERROR
