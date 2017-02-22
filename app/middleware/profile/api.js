@@ -7,7 +7,8 @@ import * as urlConstants from '../../constants/urlConstants';
 
 let ProfileApi = {
   getProfileData: () => axios.get( urlConstants.ROOT_URL + urlConstants.PROFILE_DATA),
-  getStaffProfileData: () => axios.get(urlConstants.ROOT_URL + urlConstants.STAFF_PROFILE_DATA)
+  getStaffProfileData: () => axios.get(urlConstants.ROOT_URL + urlConstants.STAFF_PROFILE_DATA),
+  getFacultyProfileData: () => axios.get(urlConstants.ROOT_URL + urlConstants.FACULTY_PROFILE_DATA)
 };
 
 export default ProfileApi;

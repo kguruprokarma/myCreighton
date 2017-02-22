@@ -37,6 +37,22 @@ let receiveStaffProfileError = (bioJson) => (
   data: bioJson
 });
 
+let requestFacultyProfileData = () => ({
+  type: types.REQUEST_FACULTY_PROFILE_DATA
+});
+
+let receiveFacultyProfileData = (profileData) => (
+{
+  type: types.RECEIVE_FACULTY_PROFILE_DATA,
+  data: profileData
+});
+
+let receiveFacultyProfileError = (bioJson) => (
+{
+  type: types.RECEIVE_FACULTY_DATA_ERROR,
+  data: bioJson
+});
+
 export function getStudentProfileData() {
   return function (dispatch) {
     dispatch(requestStudentProfileData());
@@ -64,6 +80,23 @@ export function getStaffProfileData() {
       )
       .catch((error) => {
         dispatch(receiveStaffProfileError({
+          error: error
+        }));
+      }
+      );
+  };
+}
+
+export function getFacultyProfileData() {
+  return function (dispatch) {
+    dispatch(requestFacultyProfileData());
+    return profileApi.getFacultyProfileData()
+      .then((response) => {
+        dispatch(receiveFacultyProfileData(response));
+      }
+      )
+      .catch((error) => {
+        dispatch(receiveFacultyProfileError({
           error: error
         }));
       }
