@@ -14,16 +14,16 @@ const Email = (emailProps) => (
             <h3 className="dataHeading openSansRegular">{translateText('common:PROFILE_EMAIL')}</h3>
             {/* School email address */}
             <Row className="show-grid pt5 pb5">
-                  <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>{translateText('common:PROFILE_SCHOOL')}</label> </Col>
-                  <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
+                  <Col xs={4} md={4} sm={4} className="labelField openSansLight"><label>{translateText('common:PROFILE_SCHOOL')}</label> </Col>
+                  <Col xs={8} md={8} md={8} className="dataField emailAddress wordBreak">
                         {/* Mailto added for open mail box popup */}
                         <Mailto email={emailProps.email.school.value}>{emailProps.email.school.value}</Mailto>
                   </Col>
             </Row>
             {/* Personal email address */}
             <Row className="show-grid pt5 pb5">
-                  <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>{translateText('common:PROFILE_PERSONAL')}</label> </Col>
-                  <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
+                  <Col xs={4} md={4} sm={4} className="labelField openSansLight"><label>{translateText('common:PROFILE_PERSONAL')}</label> </Col>
+                  <Col xs={8} md={8} md={8} className="dataField emailAddress wordBreak">
                         {/* Mailto added for open mail box popup */}
                         <Mailto email={emailProps.email.personal.value}>{emailProps.email.personal.value}</Mailto>
                   </Col>

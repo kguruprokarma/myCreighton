@@ -29,7 +29,7 @@ export class Academic extends React.PureComponent {
 		let USER_DATA = this.props.academicData;
 		return (
 			<section id="academic">
-				<HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} />
+				<div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} /></div>
 				{USER_DATA &&
 					<Row>
 						<Col sm={8} md={9} xs={12} className="userData pull-right">

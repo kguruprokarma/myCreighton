@@ -15,7 +15,7 @@ import * as actionCreators from '../classes/classList/actions';
 
 let classIds = [];
 
-class PreviousNext extends React.Component {
+export class PreviousNext extends React.Component {
 
     constructor() {
         super();

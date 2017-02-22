@@ -17,8 +17,8 @@ const AcademicStatus = (academicProps) => (
         + academicProps.json.advisorDetail.name.last} />
     <BasicRow displayName={translateText('common:PROFILE_AREA')} displayValue={academicProps.json.advisorDetail.area} />
     <Row className="show-grid pt5 pb5">
-      <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>{translateText('common:PROFILE_OFFICE')}</label></Col>
-      <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
+      <Col xs={4} md={4} sm={4} className="labelField openSansLight"><label>{translateText('common:PROFILE_OFFICE')}</label></Col>
+      <Col xs={8} md={8} md={8} className="dataField emailAddress wordBreak">
         <a>{academicProps.json.advisorDetail.office}</a>
       </Col>
     </Row>
@@ -28,8 +28,8 @@ const AcademicStatus = (academicProps) => (
         + academicProps.json.advisorDetail.officeHours.weekDays} />
     {/* Mailto added for open mail box popup */}
     <Row className="show-grid pt5 pb5">
-      <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>{translateText('common:PROFILE_EMAIL')}</label></Col>
-      <Col xs={8} md={9} md={8} className="dataField emailAddress wordBreak">
+      <Col xs={4} md={4} sm={4} className="labelField openSansLight"><label>{translateText('common:PROFILE_EMAIL')}</label></Col>
+      <Col xs={8} md={8} md={8} className="dataField emailAddress wordBreak">
         <Mailto email={academicProps.json.advisorDetail.emailAddress}>{academicProps.json.advisorDetail.emailAddress}</Mailto>
       </Col>
     </Row>

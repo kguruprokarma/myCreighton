@@ -7,7 +7,7 @@ import { translateText } from '../../../common/translate';
 
 const Dining = (diningProps) => (
   <div>
-    <span className='jbvalue openSansLight'><span>$</span>{diningProps.diningCount}</span>
+    <span className='jbvalue openSansLight'><span className="meal-doller">$</span>{diningProps.diningCount}</span>
     <span className='jbText openSansBold'>{translateText('common:MEAL_PLAN_DINING')}</span>
   </div>
 );

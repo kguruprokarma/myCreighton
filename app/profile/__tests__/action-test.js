@@ -145,7 +145,7 @@ describe('async actions', () => {
   it('testing action for profile data for student retrival case', () => {
      moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.PROFILE_DATA, {
       status: 200,
-      response:  data
+      response:  studentData
     });
     const expectedActions = [
       { type: types.REQUEST_STUDENT_PROFILE_DATA },
@@ -186,7 +186,7 @@ describe('async actions', () => {
     it('testing action for profile data for staff retrival case', () => {
         moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.STAFF_PROFILE_DATA, {
             status: 200,
-            response:  data
+            response:  staffProfileData
         });
         const expectedActions = [
             { type: types.REQUEST_STAFF_PROFILE_DATA },
@@ -204,7 +204,7 @@ describe('async actions', () => {
     });
 
     it('testing action failure for staff profile case', () => {
-        moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.PROFILE_DATA, {
+        moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.STAFF_PROFILE_DATA, {
             status: 404,
             responseText:  "error"
         });

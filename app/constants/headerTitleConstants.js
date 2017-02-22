@@ -11,3 +11,4 @@ export const ACADEMIC = 'academic';
 export const CLASSES = 'classes';
 export const CLASS_DETAILS = 'classdetails';
 export const DASHBOARD = 'dashboard';
+export const STAFF_PROFILE = 'staff'; 

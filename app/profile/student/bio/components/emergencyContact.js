@@ -16,8 +16,8 @@ const EmergencyContact = (emergencyProps) => {
             <BasicRow displayName={translateText('common:PROFILE_FIRST_NAME')} displayValue={emergencyProps.emergencyContact.name.first} />
             <BasicRow displayName={translateText('common:PROFILE_LAST_NAME')} displayValue={emergencyProps.emergencyContact.name.last} />
             <Row className="show-grid pt5 pb5">
-			    <Col xs={4} md={3} sm={4} className="labelField openSansLight"><label>{translateText('common:PROFILE_PHONE')}</label></Col>
-			    <Col xs={8} md={9} md={8} className="dataField"><a href={tel} className="mobileNumber">{emergencyProps.emergencyContact.phone}</a></Col>
+			    <Col xs={4} md={4} sm={4} className="labelField openSansLight"><label>{translateText('common:PROFILE_PHONE')}</label></Col>
+			    <Col xs={8} md={8} md={8} className="dataField"><a href={tel} className="mobileNumber">{emergencyProps.emergencyContact.phone}</a></Col>
 			</Row>
             <BasicRow displayName={translateText('common:PROFILE_RELATIONSHIP')} displayValue={emergencyProps.emergencyContact.relation} />
       </article>
