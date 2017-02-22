@@ -8,30 +8,30 @@ import * as types from './actionTypes';
 
 let requestUserDetailsData = () => ({
   type: types.REQUEST_USER_DETAILS_DATA
-})
+});
 
 let receiveUserDetailsData = (userDetails) => (
   {
     type: types.RECEIVE_USER_DETAILS_DATA,
     data: userDetails
-  })
+  });
 
 let receiveUserDetailsError = (error) => (
   {
     type: types.RECEIVE_USER_DETAILS_DATA_ERROR,
     data: error
-})
+  });
 
 export function getUserDetailsData(roleType) {
   return function (dispatch) {
-    dispatch(requestUserDetailsData())
+    dispatch(requestUserDetailsData());
     return UserDetailsApi.getUserDetailsData(roleType).then((response) => {
-        dispatch(receiveUserDetailsData(response))
-      })
+      dispatch(receiveUserDetailsData(response));
+    })
       .catch((error) => {
         dispatch(receiveUserDetailsError({
           error: error
-        }))
-      })
-  }
+        }));
+      });
+  };
 }

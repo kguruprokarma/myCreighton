@@ -7,7 +7,7 @@ import { shallow } from 'enzyme';
 import ModuleBlock from '../components/moduleBlock';
 
 const defaultProps = [{
-    "description": "School Stuff I am responsible for.",
+    "description": "School stuff I am responsible for.",
     "imgURL": "./app/assets/images/school-icon.jpg",
     "linkto": "/schoolSemester",
     "name": "School & Semester"

@@ -27,8 +27,7 @@ describe('header actions', () => {
     store.dispatch(actions.navOpen());
     expect(store.getActions()).toEqual(expectedActions);
   });
-
-  it('testing action retrival case', () => {
+it('testing action retrival case', () => {
     const expectedActions = [{ type: types.CLOSE_NAV }];
     const store = mockStore();
     store.dispatch(actions.navClose());

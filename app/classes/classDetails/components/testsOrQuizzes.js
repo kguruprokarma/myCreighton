@@ -3,10 +3,11 @@
 */
 
 import React from 'react';
+import { translateText } from '../../../common/translate';
 
 const TestsOrQuizzes = (testOrQuizzeProps) => (
 	<article className="classTestOrQuizz mb25">
-		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>{testOrQuizzeProps.i18nTranslate('common:TEST/QUIZZES')}</h4>
+		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>{translateText('common:TEST_QUIZZES')}</h4>
 		{testOrQuizzeProps.testsOrQuizzes.map((testInfo, testIndex) => {
 			return (
 				<div className="openSansLight fs1pt2 gbl_lh" key={testIndex}>

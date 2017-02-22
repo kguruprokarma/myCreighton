@@ -17,21 +17,21 @@ const academicReducer = (state = initialState, action = null) => {
 				isLoading: false,
 				error: true,
 				academicData: []
-			})
+			});
 		case types.REQUEST_ACADEMIC_DATA:
 			return Object.assign({}, state, {
 				isLoading: true,
 				error: false
-			})
+			});
 		case types.RECEIVE_ACADEMIC_DATA:
 			return Object.assign({}, state, {
 				isLoading: false,
 				academicData: action.data
-			})
+			});
 		default:
-			return state
+			return state;
 	}
-}
+};
 
 
-export default academicReducer
+export default academicReducer;

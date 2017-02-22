@@ -4,11 +4,13 @@ import { Header } from '../index';
 
 describe('Header component testing ----->', () => {
 	const defaultProps = {
-		  showPopUp: true,
+		  showPopUp: ()=>{},
 		  showPatch:() =>{},
-		  showPopUp:()=>{},
-		  popUpData:()=>{true},
-		  showNav:false
+		  navClick:()=>{},
+		  popUpData:true,
+		  popUpOpen:()=>{},
+		  showNav:false,
+		  popUpClose:()=>{}
         } 
 		
 	const HeaderC = shallow(<Header {...defaultProps}/>);
@@ -20,8 +22,7 @@ describe('Header component testing ----->', () => {
 		expect(HeaderC.find('Title').length).toBe(1);
 	});
 
-	it('Header should contain ProfileMenu component', () => {
-		expect(HeaderC.find('ProfileMenu').length).toBe(1);
-	});
+	/*
+	*/
 
 });

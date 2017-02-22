@@ -19,7 +19,11 @@ const data =   {
                     "jaybucks": "750.25"
                   }
                 }
-describe('async actions', () => {
+const role = ['student', 'staff', 'faculty', 'invalid'];
+const strMealPlanJson = 'MealPlan.json';
+const urlSeperator = '/';
+
+describe('Test cases for meal plan based on role', () => {
   beforeEach(function () {
     moxios.install()
   });
@@ -27,8 +31,8 @@ describe('async actions', () => {
   afterEach(function () {
     moxios.uninstall()
   });
-  it('testing action retrival case', () => {
-     moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.MEAL_PLAN_DATA, {
+  it('test case for student role', () => {
+     moxios.stubRequest(urlConstants.ROOT_URL + urlSeperator + role[0] + strMealPlanJson, {
       status: 200,
       response:  data
     });
@@ -38,7 +42,47 @@ describe('async actions', () => {
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getMealPlanData())
+    return store.dispatch(actions.getMealPlanData(role[0]))
+      .then(() => { 
+        let result = store.getActions();
+        expect(result[0].type).toEqual( expectedActions[0].type);
+        expect(result[1].data.data).toEqual(expectedActions[1].data);
+        expect(result[1].type).toEqual(expectedActions[1].type);
+      })
+  });
+
+   it('test case for staff role', () => {
+     moxios.stubRequest(urlConstants.ROOT_URL + urlSeperator + role[1] + strMealPlanJson, {
+      status: 200,
+      response:  data
+    });
+    const expectedActions = [
+      { type: types.REQUEST_MEAL_PLAN_DATA },
+      { type: types.RECEIVE_MEAL_PLAN_DATA, data: data}
+    ]
+    const store = mockStore()
+
+    return store.dispatch(actions.getMealPlanData(role[1]))
+      .then(() => { 
+        let result = store.getActions();
+        expect(result[0].type).toEqual( expectedActions[0].type);
+        expect(result[1].data.data).toEqual(expectedActions[1].data);
+        expect(result[1].type).toEqual(expectedActions[1].type);
+      })
+  });
+    
+  it('test case for faculty role', () => {
+     moxios.stubRequest(urlConstants.ROOT_URL + urlSeperator + role[2] + strMealPlanJson, {
+      status: 200,
+      response:  data
+    });
+    const expectedActions = [
+      { type: types.REQUEST_MEAL_PLAN_DATA },
+      { type: types.RECEIVE_MEAL_PLAN_DATA, data: data}
+    ]
+    const store = mockStore()
+
+    return store.dispatch(actions.getMealPlanData(role[2]))
       .then(() => { 
         let result = store.getActions();
         expect(result[0].type).toEqual( expectedActions[0].type);
@@ -48,7 +92,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure case', () => {
-     moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.MEAL_PLAN_DATA, {
+     moxios.stubRequest(urlConstants.ROOT_URL + urlSeperator + role[3] + strMealPlanJson, {
       status: 404,
       responseText:  "error"
     });
@@ -58,7 +102,7 @@ describe('async actions', () => {
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getMealPlanData())
+    return store.dispatch(actions.getMealPlanData(role[3]))
       .then(() => { 
         let result = store.getActions();
         expect(result[0].type).toEqual( expectedActions[0].type);

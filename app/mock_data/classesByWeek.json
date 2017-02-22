@@ -7,7 +7,7 @@
             "by": "Miller",
             "place": "Building Rm 119",
             "on": "poetry",
-            "date": "jan 27",
+            "date": "jan 28",
             "recurrence": "Fri"
         },
         {
@@ -16,7 +16,7 @@
             "time": "3pm - 4pm",
             "by": "Dow",
             "place": "Hopper Lecture 100",
-            "on": "20th-century politics in th U.S",
+            "on": "20th-century politics in the U.S",
             "date": "jan 23",
             "recurrence": "MW"
         },
@@ -26,7 +26,7 @@
             "time": "3pm - 4pm",
             "by": "Dow",
             "place": "Hopper Lecture 100",
-            "on": "20th-century politics in th U.S",
+            "on": "20th-century politics in the U.S",
             "date": "jan 25",
             "recurrence": "MW"
         },
@@ -75,7 +75,7 @@
             "name": "Chemistry 100",
             "time": "8am - 9pm",
             "by": "Miller",
-            "place": "Chemistry 105",
+            "place": "Building Rm 119",
             "on": "Organic Chemistry",
             "date": "jan 25",
             "recurrence": "Wed"

@@ -13,34 +13,31 @@ import styles from '../style.css';
 import LeftNav from '../../../common/leftNav';
 import { Grid, Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../../common/headerLabel';
-import { translate } from 'react-i18next';
-import i18n from '../../../i18n';
+import { translateText } from '../../../common/translate';
 
-@translate([], { wait: true })
 export class Academic extends React.PureComponent {
 
 	constructor() {
-		super()
+		super();
 	}
 
 	componentWillMount() {
-		this.props.getAcademicData()
+		this.props.getAcademicData();
 	}
 
 	render() {
 		let USER_DATA = this.props.academicData;
-		const { t } = this.props;
 		return (
 			<section id="academic">
-				<HeaderLabel headerLabel={t('common:ACADEMIC')} />
+				<div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} /></div>
 				{USER_DATA &&
 					<Row>
 						<Col sm={8} md={9} xs={12} className="userData pull-right">
-							<AcademicStatus json={USER_DATA.studentProfile.academicDetail} i18nTranslate={t} />
-							<AdvisorInformation json={USER_DATA.studentProfile.academicDetail} i18nTranslate={t} />
+							<AcademicStatus json={USER_DATA.studentProfile.academicDetail} />
+							<AdvisorInformation json={USER_DATA.studentProfile.academicDetail} />
 						</Col>
 						<Col md={3} sm={4} className="hidden-xs">
-							<LeftNav i18nTranslate={t} />
+							<LeftNav />
 						</Col>
 					</Row>
 				}
@@ -53,8 +50,8 @@ const mapStateToProps = (acdemicState) => (
 	{
 		academicData: acdemicState.academicReducer.academicData.data
 
-	})
+	});
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Academic)
+export default connect(mapStateToProps, mapDispatchToProps)(Academic);

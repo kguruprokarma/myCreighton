@@ -1,6 +1,6 @@
 /*Created Date: - 20th -01 -2017
-*Usage of file: - Merge individual components into this file.*
-*/
+ *Usage of file: - Merge individual components into this file.*
+ */
 
 import React from 'react';
 import { bindActionCreators } from 'redux';
@@ -11,25 +11,32 @@ import ClassTabController from './components/classTabController';
 import ClassBox from './components/classBox';
 import * as actionCreators from './actions';
 import style from '../classList/style.css';
-import { translate } from 'react-i18next';
-import i18n from '../../i18n';
+import { translateText } from '../../common/translate';
+import * as CommonConstants from '../../constants/commonConstants';
 
-@translate([], { wait: true })
 export class Classes extends React.PureComponent {
 
   constructor(props) {
     super(props);
     this.onChangeOfTab = this.onChangeOfTab.bind(this);
-    this.onChangeOfTab(this.props.params.classTab);
+    this.onChangeOfTab(this.props.params.classtab);
+    this.state = { presentState: '' }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.state.presentState !== nextProps.params.classtab) {
+      this.setState({ presentState: nextProps.params.classtab });
+      this.onChangeOfTab(nextProps.params.classtab);
+    }
   }
 
   onChangeOfTab(catagoryName) {
     this.props.onCatagoryChange(catagoryName);
-    if (catagoryName === "week") {
+    if (catagoryName === CommonConstants.WEEK) {
       this.props.getClassesDataByWeek();
-    } else if (catagoryName === "list") {
+    } else if (catagoryName === CommonConstants.LIST) {
       this.props.getClassesDataForAtoZ();
-    } else if (catagoryName === "today") {
+    } else if (catagoryName === CommonConstants.TODAY) {
       this.props.getClassesDataByToday();
     }
   }
@@ -37,19 +44,18 @@ export class Classes extends React.PureComponent {
   render() {
 
     let USER_DATA = this.props.classesData;
-    const { t } = this.props;
     return (
       <section id="classSchedule">
         {USER_DATA && <div>
           <Row>
             <Col md={8} sm={6} xs={12} className="hidden-xs">
-              <HeaderLabel headerLabel={t('common:CLASS_SCHEDULE')} />
+              <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} /></div>
             </Col>
             <Col md={4} sm={6} xs={12} className="controller-buttons">
-              <ClassTabController state={this.props.params.classTab} onChangeOfTab={this.onChangeOfTab} i18nTranslate={t} />
+              <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />
             </Col>
           </Row>
-          <ClassBox data={USER_DATA.classes} catagoryName={this.props.params.classTab} i18nTranslate={t} />
+          <ClassBox data={USER_DATA.classes} catagoryName={this.props.params.classtab} />
         </div>
         }
       </section>

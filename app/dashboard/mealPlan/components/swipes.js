@@ -3,12 +3,13 @@
 */
 
 import React from 'react';
+import { translateText } from '../../../common/translate';
 
 const Swipes = (swipesProps) => (
-	<div>
-		<span className="jbvalue openSansLight">{swipesProps.swipeCount}</span>
-		<span className="jbText openSansBold">{swipesProps.swipeTitle}({swipesProps.expire})</span>
-	</div>
-)
+  <div>
+    <span className='jbvalue openSansLight'>{swipesProps.swipeCount}</span>
+    <span className='jbText openSansBold'>{translateText('common:MEAL_PLAN_SWIPES')}&nbsp;({swipesProps.expire})</span>
+  </div>
+);
 
-export default Swipes; 
+export default Swipes;

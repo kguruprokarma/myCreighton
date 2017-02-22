@@ -5,44 +5,42 @@
 import React from 'react';
 import { Panel, Grid } from 'react-bootstrap';
 import BasicRow from '../../../../common/basicRow';
+import * as CommonConstants from '../../../../constants/commonConstants';
 import Dependent from './dependent';
-import { translate } from 'react-i18next';
-import i18n from '../../../../i18n';
+import { translateText } from '../../../../common/translate';
 
-@translate([], { wait: true })
 class RelationDetail extends React.Component {
   constructor() {
     super();
     this.state = {
-      flag: 'parent'
-    }
+      flag: CommonConstants.STUDENT_PARENT
+    };
   }
   toggleParent(depen) {
-    this.setState({ flag: depen.target.value })
+    this.setState({ flag: depen.target.value });
   }
   render() {
-    const { t } = this.props;
     return (
       <article className="profileRow mt30">
-        <h3 className="dataHeading openSansRegular">{t('common:IF_NOT_AGE_OF_MAJORITY')}</h3>
+        <h3 className="dataHeading openSansRegular">{translateText('common:IF_NOT_AGE_OF_MAJORITY')}</h3>
         <div className="control-group">
           <label className="control control-checkbox labelField noclons">
-            <input type="checkbox" name="dependent" value='parent' onChange={this.toggleParent.bind(this)} checked={this.state.flag === 'parent'} id="parent" /> <span className="openSansRegular">{t('common:PARENT')}</span>
+            <input type="checkbox" name="dependent" value='parent' onChange={this.toggleParent.bind(this)} checked={this.state.flag === CommonConstants.STUDENT_PARENT} id="parent" /> <span className="openSansRegular">{translateText('common:STUDENT_PARENT')}</span>
             <span className="control__indicator"></span>
           </label>
           <div className="clearfix"></div>
           <label className="control control-checkbox labelField noclons">
-            <input type="checkbox" name="dependent" value='guardian' onChange={this.toggleParent.bind(this)} checked={this.state.flag === 'guardian'} id="guardian" /> <span className="openSansRegular">{t('common:GUARDIAN')}</span>
+            <input type="checkbox" name="dependent" value='guardian' onChange={this.toggleParent.bind(this)} checked={this.state.flag === CommonConstants.STUDENT_GUARDIAN} id="guardian" /> <span className="openSansRegular">{translateText('common:STUDENT_GUARDIAN')}</span>
             <span className="control__indicator"></span>
           </label>
         </div>
-        {(this.state.flag === 'parent') ?
-          (<Dependent dependent={this.props.relationDetail.parent} i18nTranslate={t} />)
+        {(this.state.flag === CommonConstants.STUDENT_PARENT) ?
+          (<Dependent dependent={this.props.relationDetail.parent} />)
           :
-          (<Dependent dependent={this.props.relationDetail.guardian} i18nTranslate={t} />)
+          (<Dependent dependent={this.props.relationDetail.guardian} />)
         }
       </article>
-    )
+    );
   }
 }
 

@@ -1,20 +1,67 @@
 .footer-address, .copy-right {
-    text-align:center;
     line-height: 1.8em;
+}
+
+.footer-address {
+    color: #757575;
+}
+
+.footer-section {
+    border-top: 1px solid #d5d5d5;
+}
+.footer-space {
+    padding-left:8px;
+}
+
+.text-divider {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.foot-nav{
+    text-align: center;
+    padding-left: 20px;
+    font-size: 1em; /* font size 15 in pixel */
+}
+
+ .copy-right {
+     padding-left: 20px;
+ }
+
+@media screen and (min-width: 768px) and  (max-width: 1024px) { 
+
+    .footer-address {
+        margin-top: 0;
+    } 
+    .foot-nav {
+        display: block;
+        padding-left: 0;
+        text-align: left;
+    }
+    
 }
 
 @media screen and (max-width: 767px) {
 
-   .footer-address, .copy-right {
-        text-align:left;
-    }
     .footer {
-        height: 140px;
+        height: 204px;
     } 
-}
-@media screen and (max-width: 480px) {
 
-    .footer {
-        height: 120px;
-    } 
+    .footer-space, .copy-right, .foot-nav, .footer-address  {
+        display: block;
+        text-align: center;
+        padding-left:0;
+    }
+    
+    .university-logo {
+        max-width: 150px;
+        height: auto;
+        margin: auto;
+    }
+    
+    .space-mb {
+        padding-bottom: 18px;
+        display: block;
+        line-height: 1.24em;
+    }
 }

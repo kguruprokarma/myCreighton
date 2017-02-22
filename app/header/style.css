@@ -44,6 +44,7 @@
     line-height: 20px;
     font-size: 14px;
     z-index: 1000;
+    min-width: 300px;
 }
 
 .popupPointer
@@ -120,6 +121,18 @@
     float: left;
 }
 
+.customPopUp .user-type {
+    font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+}
+
+.popUpContainer .avatar-name {
+    font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    line-height: 2.6em;
+}
+
+.popUpContainer #avatar {
+    overflow: hidden;
+}
 
 /* Media for small devices */
 @media screen and (max-width: 767px) {
@@ -127,5 +140,6 @@
     .tileInfo {
         font-size: 1.0666666666666667em;    /* font size 16 in pixel */
     }
+    
 
 }

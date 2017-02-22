@@ -5,33 +5,33 @@
 import * as types from './actionTypes';
 
 const initialState = {
-	mealPlanData: {},
-	isLoading: false,
-	error: false
+  mealPlanData: {},
+  isLoading: false,
+  error: false
 };
 
 const mealPlanReducer = (state = initialState, action = null) => {
-	switch (action && action.type) {		
-		case types.REQUEST_MEAL_PLAN_DATA:
-			return Object.assign({}, state, {
-				isLoading: true,
-				error: false
-			})
-		case types.RECEIVE_MEAL_PLAN_DATA:
-			return Object.assign({}, state, {
-				isLoading: false,
-				mealPlanData: action.data
-			})
-        case types.RECEIVE_MEAL_PLAN_DATA_ERROR:
-            return Object.assign({}, state, {
-                isLoading: false,
-                error: true,
-                mealPlanData: []
-            })
-		default:
-			return state
-	}
-}
+  switch (action && action.type) {
+    case types.REQUEST_MEAL_PLAN_DATA:
+      return Object.assign({}, state, {
+        isLoading: true,
+        error: false
+      });
+    case types.RECEIVE_MEAL_PLAN_DATA:
+      return Object.assign({}, state, {
+        isLoading: false,
+        mealPlanData: action.data
+      });
+    case types.RECEIVE_MEAL_PLAN_DATA_ERROR:
+      return Object.assign({}, state, {
+        isLoading: false,
+        error: true,
+        mealPlanData: []
+      });
+    default:
+      return state;
+  }
+};
 
 
-export default mealPlanReducer
+export default mealPlanReducer;

@@ -14,7 +14,7 @@
 .classesHeading{
     font-size: 1.7333333333333334em;    /* font size 26 in pixel */
     line-height: 32px;
-    color: #313131;
+    color: #019cdb;
     font-family: 'open_sanslight';
 }
 
@@ -39,7 +39,7 @@
 }
 
 .mobileClassesList, .desktopClassesList {
-        border-left:8px solid #d7d7d7;
+        border-left:8px solid #019cdb   ;
         overflow: hidden;
         border-top:1px solid #c8c7cc;
         padding-top:10px;
@@ -60,12 +60,23 @@
 }
 
 .controller-buttons .btn-group a.active, 
-.controller-buttons .btn-group a:hover, 
-.controller-buttons .btn-group a:focus {
+.controller-buttons .btn-group a.active:hover {
     background-color: #019cdb;
     color: #fff;
     box-shadow: none;
     border-color:#019cdb;
+}
+
+.btn-default.focus, .btn-default:focus {
+    background-color:#fff;
+    outline: none;
+    box-shadow: none;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+}
+.controller-buttons .btn-group a:hover {
+    background-color:#fff;
+    color: #019cdb;
 }
 
 .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
@@ -99,7 +110,7 @@
         width: 100%;
         padding-left: 0;  
     }
-    .classesHeading{
+    .classesHeading {
         font-size: 1.6em;    /* font size 24 in pixel */
     }
     .dayHeading

@@ -5,8 +5,8 @@
 import axios from 'axios';
 import * as urlConstants from '../../constants/urlConstants';
 
-let MealPlanApi = {
-  getMealPlanData: (role) => axios.get(urlConstants.ROOT_URL + '/' + role + "MealPlan.json")
-}
+const MealPlanApi = {
+  getMealPlanData: (role) => axios.get(`${urlConstants.ROOT_URL}/${role}MealPlan.json`)
+};
 
-export default MealPlanApi
+export default MealPlanApi;

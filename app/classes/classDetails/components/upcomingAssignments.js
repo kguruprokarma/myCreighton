@@ -3,10 +3,11 @@
 */
 
 import React from 'react';
+import { translateText } from '../../../common/translate';
 
 const UpcomingAssignments = (upcomingAssignProps) => (
 	<article className="upcomingAssignments mb25">
-		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>{upcomingAssignProps.i18nTranslate('common:UPCOMING_ASSIGNMENTS')}</h4>
+		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>{translateText('common:UPCOMING_ASSIGNMENTS')}</h4>
 		{upcomingAssignProps.upcomingAssignments.map((assignment, assignmentIndex) => {
 			return (
 				<div className="openSansLight fs1pt2 gbl_lh" key={assignmentIndex}>

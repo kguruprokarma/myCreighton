@@ -3,38 +3,47 @@
  */
 import React from 'react';
 import { shallow } from 'enzyme';
-import CustomPopUp from '../customPopUp';
+import {CustomPopUp} from '../customPopUp';
+import * as ROUTE_URL from '../../constants/routeContants';
 
 
 describe('CustomPopUp testing ----->', () => {
   const defaultProps = {
-    items:
-    {
-      'headerData': {
-        'imgData': './app/assets/images/school-icon.jpg',
-        'name': 'John',
-        'role': 'Student'
+      userDetailsData: {
+      "userName": {
+        "firstName": "John",
+        "middleName": "J",
+        "lastName": "Edward",
+        "fullName": "John J. Edward"
       },
-      'popUpItems': [{
-        'itemName': 'My Profile',
-        'link': '/Profile'
-      }, {
-        'itemName': 'Academic',
-        'link': '/Academic'
-      }]
+      "userImageURL": "",
+      "userRole": "student"
     },
-    showPop: () => { }
-  }
-  const customPopUp = shallow(<CustomPopUp {...defaultProps} />);
+    userData: {
+      "userName": {
+        "firstName": "John",
+        "middleName": "J",
+        "lastName": "Edward",
+        "fullName": "John J. Edward"
+      },
+      "userImageURL": "",
+      "userRole": "student"
+    },
+    userRole:'student',
+    getUserDetailsData:()=>{
+      return '/student';
+    }
+  };
+  const customPopUpC = shallow(<CustomPopUp {...defaultProps}  />);
   it('CustomPopUp is defined', () => {
-    expect(customPopUp).toBeDefined();
+    expect(customPopUpC).toBeDefined();
   });
 
   it('CustomPopUp should contain ListGroup component', () => {
-    expect(customPopUp.find('ListGroup').length).toBe(1);
+    expect(customPopUpC.find('ListGroup').length).toBe(1);
   });
 
   it('CustomPopUp should contain ListGroupItem component', () => {
-    expect(customPopUp.find('ListGroupItem').length).toBe(3);
+    expect(customPopUpC.find('ListGroupItem').length).toBe(4);
   });
 });

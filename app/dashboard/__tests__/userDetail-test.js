@@ -6,8 +6,18 @@ import { shallow } from 'enzyme';
 import UserDetail from '../components/userDetail';
 
 describe('ToggleMealPlan component testing ----->', () => {
+    const userDetailTestProps = {
+        "userDetail":{
+            "userName": {
+                "fullName": "Usman",
+                "firstName": "Mohammad",
+                "lastName": "Ali"
+            },
+            "userRole": "Student"
+        }
+    }
 
-    const userDetail = shallow(<UserDetail />);
+    const userDetail = shallow(<UserDetail {...userDetailTestProps}/>);
 
     it('UserDetail component is defined', () => {
         expect(userDetail).toBeDefined();

@@ -1,40 +1,56 @@
 /*Created Date: - 2nd -02 -2017
- *Usage of file: - This component is ProfileMenu for Header details *
+ *Usage of file: - This component is ProfileMenu for Header details and based on role, it will retrun the data*
  */
 
 import React from 'react';
-import CustomPopUp from '../../common/customPopUp';
+import * as ROUTE_URL from '../../constants/routeContants';
+import * as CommonConstants from '../../constants/commonConstants';
 
-
-const CUSTOM_POP_UP_DATA = {
-    'headerData': {
-        'imgData': './app/assets/images/school-icon.jpg',
-        'name': 'John J. Edward',
-        'role': 'Student'
-    },
-    'popUpItems':[{
-        'itemName':'My Profile',
-        'link':'/Profile'
-    },{
-        'itemName':'Academic',
-        'link':'/Academic'
-    },{
-        'itemName':'Student',
-        'link':'/Dashboard/student'
-    },{
-        'itemName':'Staff',
-        'link':'/Dashboard/staff'
-    },{
-        'itemName':'Faculty',
-        'link':'/Dashboard/faculty'
-    }]
+export const profileMenuList = (roleType) => {
+  const profileMenu = {
+    student: [
+      {
+        'itemName': CommonConstants.MY_PROFILE,
+        'link': ROUTE_URL.PROFILE // '/Profile'
+      },
+      {
+        'itemName': CommonConstants.ACADEMIC,
+        'link': ROUTE_URL.ACADEMIC //'/Academic'
+      },
+      {
+        'itemName': CommonConstants.SIGN_OUT,
+        'link': ''
+      }
+    ],
+    staff: [
+      {
+        'itemName': CommonConstants.MY_PROFILE,
+        'link': ROUTE_URL.STAFF
+      },
+      {
+        'itemName': CommonConstants.PROFESSIONAL,
+        'link': ''
+      },
+      {
+        'itemName': CommonConstants.SIGN_OUT,
+        'link': ''
+      }
+    ],
+    faculty: [
+      {
+        'itemName': CommonConstants.MY_PROFILE,
+        'link': ''
+      },
+      {
+        'itemName': CommonConstants.ACADEMIC,
+        'link': ''
+      },
+      {
+        'itemName': CommonConstants.SIGN_OUT,
+        'link': ''
+      }
+    ]
+  };
+  return profileMenu[roleType];
 };
-
-
-const ProfileMenu = (profileProps) => (
-    <section>
-        <CustomPopUp showPop={profileProps.showPopValue} items={{...CUSTOM_POP_UP_DATA, headerData: profileProps.userDetail}} />
-    </section>
-)
-
-export default ProfileMenu;
+export default profileMenuList;

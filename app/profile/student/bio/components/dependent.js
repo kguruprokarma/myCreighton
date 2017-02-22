@@ -5,13 +5,14 @@
 import React from 'react';
 import { Panel, Grid } from 'react-bootstrap';
 import BasicRow from '../../../../common/basicRow';
+import { translateText } from '../../../../common/translate';
 
-const Dependent = (dependentProps) => (
+const Dependent = (depenndentProps) => (
     <div>
-        <BasicRow displayName={dependentProps.i18nTranslate('COMMON:FIRST_NAME')} displayValue={dependentProps.dependent.firstName} />
-        <BasicRow displayName={dependentProps.i18nTranslate('COMMON:MIDDLE')} displayValue={dependentProps.dependent.middleName} />
-        <BasicRow displayName={dependentProps.i18nTranslate('COMMON:LAST')} displayValue={dependentProps.dependent.lastName} />
+        <BasicRow displayName={translateText('COMMON:PROFILE_FIRST')} displayValue={depenndentProps.dependent.firstName} />
+        <BasicRow displayName={translateText('COMMON:PROFILE_MIDDLE')} displayValue={depenndentProps.dependent.middleName} />
+        <BasicRow displayName={translateText('COMMON:PROFILE_LAST')} displayValue={depenndentProps.dependent.lastName} />
     </div>
-)
+);
 
 export default Dependent;

@@ -4,8 +4,10 @@
 
 import React from 'react';
 
-const ToggleMealPlan = (toggleMealPlan) => (		
-			<a className="doller-icon pull-right"><img src={'./assets/images/money.png'} onClick={toggleMealPlan.toggle} /></a>						
-)
+const ToggleMealPlan = (toggleMealPlan) => (
+  <a className='doller-icon pull-right' >
+    <img src={'./assets/images/money.png'} alt='toggle' onClick={toggleMealPlan.toggle} />
+  </a>
+);
 
-export default ToggleMealPlan; 
+export default ToggleMealPlan;

@@ -25,7 +25,7 @@ p{
     font-family: 'open_sansregular';
     font-size: 1.0666666666666667em;    /* font size 16 in pixel */
     padding-left: 10px;
-    line-height: 30px;
+    line-height: 2.2em;
      
 }
 
@@ -54,6 +54,7 @@ clsDetailContent{
 
 /* Media for small devices */
 @media (max-width:767px) {
+
     .classDetailHeading{
         width: 100%;
         float:none !important;
@@ -61,15 +62,17 @@ clsDetailContent{
         line-height: 28px;
         margin-bottom: 4px;
     }
+
     .classDetialOn {
         font-size: 1.3333333333333333em;    /* font size 20 in pixel */
         padding-left: 0;
         width: 100%;
-        line-height: 26px;
+        line-height: 1em;
         float: none !important;  
         margin-bottom:8px;
         
-    }  
+    } 
+
     .classInfo .m-grayBorder {
         padding-bottom: 4px;
         margin-bottom:10px;

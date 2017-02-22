@@ -28,8 +28,7 @@ describe('I18nextProvidergg', () => {
 
     it('MealPlan component Swipes is there or not', () => {
         expect(mealPlanC.find('Swipes').length).toBe(1);
-        expect(mealPlanC.find('Swipes').props().swipeCount).toBe(defaultProps.mealPlanData.mealBalance.remainSwipes);
-        expect(mealPlanC.find('Swipes').props().swipeTitle).toBe(i18n.properties['SWIPES']);
+        expect(mealPlanC.find('Swipes').props().swipeCount).toBe(defaultProps.mealPlanData.mealBalance.remainSwipes);        
     });
 
     it('MealPlan component Guest is there or not', () => {
@@ -40,11 +39,7 @@ describe('I18nextProvidergg', () => {
         expect(mealPlanC.find('Dining').length).toBe(1);
     });
 
-    it('MealPlan component Dining is there or not', () => {
-        expect(mealPlanC.find('Jaybucks').length).toBe(1);
-    });
-
-    it('MealPlan component Dining is there or not', () => {
+    it('MealPlan component Jaybucks is there or not', () => {
         expect(mealPlanC.find('Jaybucks').length).toBe(1);
     });
 

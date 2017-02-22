@@ -5,6 +5,7 @@
 import React from 'react';
 
 const CopyRightText = () => (
-    	<p className="copy-right">&copy; 2017 Creighton University</p>
-)
+    	<span className="copy-right">&copy; 2017 Creighton University</span>
+);
+
 export default CopyRightText;

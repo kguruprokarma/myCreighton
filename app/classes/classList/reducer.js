@@ -1,6 +1,6 @@
 /*Created Date: - 23rd -01 -2017
-*Usage of file: - it maintains the state.*
-*/
+ *Usage of file: - it maintains the state.*
+ */
 
 import * as types from './actionTypes';
 

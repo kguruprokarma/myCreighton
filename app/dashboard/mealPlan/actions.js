@@ -6,32 +6,33 @@ import MealPlanApi from '../../middleware/dashboard/mealplanapi';
 import * as types from './actionTypes';
 
 
-let requestMealPlanDetailsData = () => ({
+const requestMealPlanDetailsData = () => ({
   type: types.REQUEST_MEAL_PLAN_DATA
-})
+});
 
-let receiveMealPlansData = (mealPlan) => (
+const receiveMealPlansData = (mealPlan) => (
   {
     type: types.RECEIVE_MEAL_PLAN_DATA,
     data: mealPlan
-  })
+  });
 
-let receiveMealPlansError = (error) => (
+const receiveMealPlansError = (error) => (
   {
     type: types.RECEIVE_MEAL_PLAN_DATA_ERROR,
     data: error
-})
+  }
+);
 
 export function getMealPlanData(role) {
   return function (dispatch) {
-    dispatch(requestMealPlanDetailsData())
+    dispatch(requestMealPlanDetailsData());
     return MealPlanApi.getMealPlanData(role).then((response) => {
-        dispatch(receiveMealPlansData(response))
-      })
+      dispatch(receiveMealPlansData(response));
+    })
       .catch((error) => {
         dispatch(receiveMealPlansError({
           error: error
-        }))
-      })
-  }
+        }));
+      });
+  };
 }

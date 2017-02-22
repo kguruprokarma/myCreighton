@@ -6,35 +6,61 @@ import React from 'react';
 import { Panel, Row } from 'react-bootstrap';
 import Header from '../header/index';
 import Footer from '../footer/index';
-import { translate } from 'react-i18next';
+import { browserHistory, hashHistory } from 'react-router'; 
 import * as actionCreators from '../header/actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import i18n from '../i18n';
 import Navigation from '../common/mainNav';
-
-@translate([], { wait: true })
+import { translateText } from '../common/translate';
+import { translate } from 'react-i18next';
+import i18n from '../i18n';
+@translate([],{wait:true})
 class Main extends React.PureComponent {
     constructor() {
         super();
-        this.hidePopUp = this.hidePopUp.bind(this);
+        this.hidePopUp = this.hidePopUp.bind(this); 
+        this.state = {
+            isLogin :false
+        }
     }
     hidePopUp() {
-        if(!this.props.popUpData){
+        if(!this.props.popUpData) {
             this.props.popUpOpen();
-        }else{
+        }
+        else {
             this.props.popUpClose();
+        }
+        
+    }
+    componentWillMount(){
+        if (localStorage.roleInfo === undefined) {
+            hashHistory.replace('/');
+            this.setState({isLogin:false});
+        }else if (localStorage.roleInfo === undefined || this.props.location.pathname === '/') {
+            this.setState({isLogin:false});
+        }else{
+            this.setState({isLogin:true});
+        }
+    }
+    componentWillReceiveProps(nextProps) {
+        if (localStorage.roleInfo === undefined && nextProps.location.pathname !== '/') {
+            hashHistory.replace('/');
+            this.setState({isLogin:false});
+        } else if (localStorage.roleInfo && nextProps.location.pathname !== '/') {
+            this.setState({isLogin:true});
+        } else if (localStorage.roleInfo === undefined || nextProps.location.pathname === '/') {
+            this.setState({isLogin:false});
         }
     }
     render() {
-        const { t } = this.props;
-        document.title = this.props.children.props.route.title + t('common:MY_CREIGHTON');
+        
+        document.title = this.props.children.props.route.title + translateText('common:MY_CREIGHTON');
         return (
             <div className="view-container">
                 {/* this is header section */}
-                <Header currentState={this.props.location.pathname} param={this.props.params} />
+                {this.state.isLogin && <Header currentState={this.props.location.pathname} param={this.props.params} />}
                 {/* Main Navigation */}
-                <Navigation navDisplay={this.props.navData} userRole={this.props.params && this.props.params.roletype} />
+                {this.state.isLogin && <Navigation navDisplay={this.props.navData} />}
                 {/* ./Main Navigation */}
                 {/* /this is header section */}
                 {/* this is main section */}
@@ -43,7 +69,7 @@ class Main extends React.PureComponent {
                 </main>
                 {/* /this is main section */}
                 {/* this is footer section */}
-                <Footer/>
+                 {this.state.isLogin && <Footer />}
                 {/* /this is footer section */}
                 {this.props.popUpData && <div className="popUpPatch" onClick={this.hidePopUp}></div>}
             </div>
@@ -55,9 +81,9 @@ const mapStateToProps = (storeData) => {
     {
       popUpData: storeData.headerReducer.showPopUp, 
       navData: storeData.headerReducer.showNav
-    })
-}
+    });
+};
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

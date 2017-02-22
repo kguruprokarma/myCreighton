@@ -3,13 +3,13 @@
 */
 
 import React from 'react';
+import { translateText } from '../../../common/translate';
 
 const Dining = (diningProps) => (
+  <div>
+    <span className='jbvalue openSansLight'><span className="meal-doller">$</span>{diningProps.diningCount}</span>
+    <span className='jbText openSansBold'>{translateText('common:MEAL_PLAN_DINING')}</span>
+  </div>
+);
 
-	<div>
-		<span className="jbvalue openSansLight">${diningProps.diningCount}</span>
-		<span className="jbText openSansBold">{diningProps.diningTitle}</span>
-	</div>
-)
-
-export default Dining; 
+export default Dining;

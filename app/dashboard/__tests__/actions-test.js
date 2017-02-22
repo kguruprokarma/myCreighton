@@ -11,15 +11,15 @@ import * as urlConstants from '../../constants/urlConstants';
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
 const data =   {
-					"userName": {
-						"firstName": "Mohammad",
-						"middleName": "Usman",
-						"lastName": "Ali",
-						"fullName": "Usman Ali"
-					},
-					"userImageURL": "",
-					"userRole": "Student"
-				}
+  "userName": {
+    "firstName": "John",
+    "middleName": "J",
+    "lastName": "Edward",
+    "fullName": "John J. Edward"
+  },
+  "userImageURL": "",
+  "userRole": "student"
+}
 describe('async actions', () => {
   beforeEach(function () {
     moxios.install()
@@ -29,7 +29,7 @@ describe('async actions', () => {
     moxios.uninstall()
   });
   it('testing action retrival case', () => {
-     moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.USER_DETAILS_DATA, {
+     moxios.stubRequest(urlConstants.ROOT_URL + '/student.json', {
       status: 200,
       response:  data
     });
@@ -39,7 +39,7 @@ describe('async actions', () => {
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getUserDetailsData())
+    return store.dispatch(actions.getUserDetailsData('/student'))
       .then(() => { 
       	let result = store.getActions();
         expect(result[0].type).toEqual( expectedActions[0].type);
@@ -49,7 +49,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure case', () => {
-     moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.USER_DETAILS_DATA, {
+     moxios.stubRequest(urlConstants.ROOT_URL + '/student.json', {
       status: 404,
       responseText:  "error"
     });
@@ -59,7 +59,7 @@ describe('async actions', () => {
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getUserDetailsData())
+    return store.dispatch(actions.getUserDetailsData('/student'))
       .then(() => { 
       	let result = store.getActions();
         expect(result[0].type).toEqual( expectedActions[0].type);

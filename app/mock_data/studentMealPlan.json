@@ -1,9 +1,9 @@
 {
 	"mealBalance": {
-		"remainSwipes": "03",
+		"remainSwipes": "13",
 		"swipesExpire": "SAT",
-		"guestSwipes": "50",
-		"dinning": "30.00",
-		"jaybucks": "50.25"
+		"guestSwipes": "5",
+		"dinning": "360.00",
+		"jaybucks": "750.25"
 	}
 }
