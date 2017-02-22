@@ -11,7 +11,7 @@ import Assignments from '../eventList/components/assignments';
 import Quizzes from '../eventList/components/quizzes';
 import OutlookCalendar from '../eventList/components/outlookCalendar';
 import AcademicMilestones from '../eventList/components/academicMilestones';
-import { SEGREGATEDATA,DATESORT } from '../../common/utility';
+import { SEGREGATEDATA, DATESORT } from '../../common/utility';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 
 export class EventList extends React.PureComponent {
@@ -19,32 +19,39 @@ export class EventList extends React.PureComponent {
   constructor(props) {
     super(props);
   }
-  
-  componentWillMount(){
+
+  componentWillMount() {
     this.props.getEventsData();
   }
 
-  render() {   
-    let EVENT_DATA =  DATESORT(SEGREGATEDATA (this.props.eventsData),'date');
-    console.log("EventList",EVENT_DATA) 
-    return (      
+  componentWillUnmount() {
+    this.props.clear();
+  }
+
+  render() {
+    let EVENT_DATA = DATESORT(SEGREGATEDATA(this.props.eventsData), 'date');
+    return (
       <section id="classSchedule">
 
-       {EVENT_DATA && <div>
-         { EVENT_DATA.map(function( eventType, index){ 
+        {EVENT_DATA && <div>
+          <Row>   <Col md={8} sm={6} xs={12}>
+            <div><HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} /></div>
+          </Col>
+          </Row>
+          {EVENT_DATA.map(function (eventType, index) {
             return (
               <div key={index} id="cls">
-                {eventType.type === NextEventsConstants.CLASSES &&  <Classes data = {eventType}/>}
-                {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data = {eventType}/>}
-                {eventType.type === NextEventsConstants.TEST_OR_QUIZZES && <Quizzes data = {eventType}/>}
-                {eventType.type === NextEventsConstants.ACADEMIC_MILESTONES && <AcademicMilestones data = {eventType}/>}
-                {eventType.type === NextEventsConstants.OUTLOOK && <OutlookCalendar data = {eventType}/>}
+                {eventType.type === NextEventsConstants.CLASSES && <Classes data={eventType} />}
+                {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
+                {eventType.type === NextEventsConstants.TEST_OR_QUIZZES && <Quizzes data={eventType} />}
+                {eventType.type === NextEventsConstants.ACADEMIC_MILESTONES && <AcademicMilestones data={eventType} />}
+                {eventType.type === NextEventsConstants.OUTLOOK && <OutlookCalendar data={eventType} />}
               </div>
-            ); 
-           })
+            );
+          })
           }
-           </div>
-          }           
+        </div>
+        }
       </section>
     );
   }

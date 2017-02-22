@@ -51,7 +51,7 @@ export class Header extends React.PureComponent {
   render() {
     return (
       <header>
-        <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}r</h1>
+        <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}</h1>
         <div className='container'>
           <Row >
             <Col xs={2} sm={2} className='hidden-lg hamburgerMenu'>

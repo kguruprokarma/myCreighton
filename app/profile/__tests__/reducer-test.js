@@ -12,7 +12,8 @@ describe('<Student bio reducer />', () => {
 		expect(reducer(undefined, {})).toEqual({
               profileData: {},
               isLoading: false,
-              error: false
+              error: false,
+              profile: 'STUDENT'
 		})
 	})
 
@@ -52,14 +53,15 @@ describe('<Student bio reducer />', () => {
 		expect(
 			reducer([], {
 				type: types.RECEIVE_STUDENT_PROFILE_DATA,
-				data:{id:'1'},
                 isLoading: false,
-                error: false				
+                data:{id:'1'},
+                error: false	
 			})
 		).toEqual(
 			{
 				isLoading: false,		   
-                profileData:{id:'1'}
+                profileData:{id:'1'},
+                profile: types.STUDENT_PROFILE_NAME
 			}
 		)
 	})
@@ -108,7 +110,8 @@ describe('<Student bio reducer />', () => {
         ).toEqual(
             {
                 isLoading: false,
-                profileData:{id:'1'}
+                profileData:{id:'1'},
+                profile:types.STAFF_PROFILE_NAME
             }
         )
     })

@@ -11,8 +11,8 @@ const Address = (schoolAddressProps) => (
     <article className="profileRow mt30">
         {
 
-            schoolAddressProps.shouldShowWhenStaff ?<h3 className="dataHeading openSansRegular">{translateText('common:STAFF_MAILING_ADDRESS')}</h3> :
-                <h3 className="dataHeading openSansRegular">{translateText('common:PROFILE_SCHOOL_ADDRESS_'+schoolAddressProps.profile)}</h3>
+            schoolAddressProps.shouldShowWhenStaff || schoolAddressProps.shouldShowWhenFaculty ?<h3 className="dataHeading openSansRegular">{translateText('common:MAILING_ADDRESS')}</h3> :
+                <h3 className="dataHeading openSansRegular">{schoolAddressProps.profile == 'STUDENT' ? translateText('common:PROFILE_SCHOOL_ADDRESS_'+schoolAddressProps.profile ) : translateText('common:PROFILE_SCHOOL_ADDRESS' )}</h3>
         }       
         <BasicRow displayName={translateText('common:PROFILE_STREET_1')} displayValue={schoolAddressProps.address.street1} />
         <BasicRow displayName={translateText('common:PROFILE_STREET_2')} displayValue={schoolAddressProps.address.street2} />

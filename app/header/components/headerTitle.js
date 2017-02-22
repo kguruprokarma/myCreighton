@@ -16,7 +16,7 @@ export default function (argument) {
      title = translateText('common:CLASS_DETAIL');
      return title;
   }
-  if (rootURL[1] === HEADER.PROFILE) {
+  if (rootURL[1] === HEADER.PROFILE || rootURL[1] === HEADER.STAFF_PROFILE) {
     title = translateText('common:PROFILE_MY_PROFILE');
     return title;
   }

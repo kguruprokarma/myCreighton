@@ -49,14 +49,16 @@
   "PROFILE_OTHER": "Other",
   "PROFILE_BIRTHDATE": "Birthdate",
   "PROFILE_PRIMARY_CONTACT": "Primary Contact",
-  "PROFILE_SCHOOL_ADDRESS": "School Address",
+  "PROFILE_SCHOOL_ADDRESS_STUDENT": "School Address",
+  "PROFILE_SCHOOL_ADDRESS": "School/Office Address",
 
-  "STAFF_MAILING_ADDRESS": "Mailing Address",
+  "MAILING_ADDRESS": "Mailing Address",
   "STAFF_FAMILY": "Family",
   "STAFF_MARITAL_STATUS": "Marital Status",
   "STAFF_SPOUSE_NAME": "Spouse Name",
   "STAFF_DEPENDENTS_NAME": "Dependents Name",
   "STAFF_EMPLOYEE_NUMBER": "Employee Number",
+  "STAFF_PROFESSIONAL": "Professional",
 
   "CLASS_SCHEDULE": "CLASS SCHEDULE",
   "CLASS_DETAIL": "CLASS DETAIL",

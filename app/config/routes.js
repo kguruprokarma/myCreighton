@@ -17,8 +17,8 @@ import StaffProfile from '../profile/staff';
 import { I18nextProvider } from 'react-i18next'; // as we build ourself via webpack
 import i18n from '../i18n'; // initialized i18next instance
 import * as ROUTE_URL from '../constants/routeContants';
-import EventList from '../events/eventList';
-import EventsDetail from '../events/eventsDetail';
+import EventList from '../nextEvents/eventList';
+import EventsDetail from '../nextEvents/eventsDetail';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);

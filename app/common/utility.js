@@ -1,9 +1,10 @@
+import * as CommonConstants from '../constants/commonConstants';
 /*Data sort method is used to sort the array items in asending or decending order*/
 export const DATASORT = (dataArray, key, order) => {
 	let data = dataArray;
 	let sortByKey = key;
-	let sortOrder = order || 'ASC';
-	let sortedData = (sortOrder === 'ASC') ? ([...data].sort((a, b) => {
+	let sortOrder = order || CommonConstants.SORT_CLASS;
+	let sortedData = (sortOrder === CommonConstants.SORT_CLASS) ? ([...data].sort((a, b) => {
 		return a[sortByKey] > b[sortByKey];
 	})) : ([...data].sort((a, b) => {
 		return a[sortByKey] < b[sortByKey];
@@ -15,7 +16,7 @@ export const DATASORT = (dataArray, key, order) => {
 export const DATATIME = (dataArray, key, order) => {
 	let data = dataArray;
 	let sortByKey = key;
-	let sortOrder = order || 'ASC';
+	let sortOrder = order || CommonConstants.SORT_CLASS;
 	let sortedData = [...data].sort((a, b) => {
 		let timePart1 = a[key].split('-')[0];
 		let timePart2 = b[key].split('-')[0];
@@ -68,7 +69,7 @@ export const DATAFILTERADDINGDATA = (dataArray) => {
 	
 	days.map((day) => {
 		//removed 'index' from the 'map((data, index)' because it is throwing error: 'index' is defined but never used 
-		DATATIME(newObject[day], 'time', 'ASC').map((data) => {
+		DATATIME(newObject[day], 'time', CommonConstants.SORT_CLASS).map((data) => {
 			newArray.push(data);
 		});
 	});

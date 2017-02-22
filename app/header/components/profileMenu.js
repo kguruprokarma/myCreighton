@@ -25,7 +25,7 @@ export const profileMenuList = (roleType) => {
     staff: [
       {
         'itemName': CommonConstants.MY_PROFILE,
-        'link': ''
+        'link': ROUTE_URL.STAFF
       },
       {
         'itemName': CommonConstants.PROFESSIONAL,

@@ -20,6 +20,7 @@ import LeftNav from '../../common/leftNav';
 import { Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../common/headerLabel';
 import { translateText } from '../../common/translate';
+import * as CommonConstants from '../../constants/commonConstants';
 
 export class StaffProfile extends React.PureComponent {
 
@@ -31,10 +32,10 @@ export class StaffProfile extends React.PureComponent {
   }
 
   render() {
-    let PROFILE_DATA = this.props.profile === 'STAFF' && this.props.profileData;
+    let PROFILE_DATA = this.props.profile === CommonConstants.STAFF_LABEL && this.props.profileData;
     return (
       <section>
-        <HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} />
+       <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')}/></div>
         {PROFILE_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className="userData pull-right">
@@ -45,11 +46,11 @@ export class StaffProfile extends React.PureComponent {
               <PrimaryContact primaryContact={PROFILE_DATA.staffProfile.bioData.contactDetail} />
               <EmergencyContact emergencyContact={PROFILE_DATA.staffProfile.bioData.contactDetail.emergencyContact} />
               <Email email={PROFILE_DATA.staffProfile.bioData.contactDetail.email} />
-              <Other other={PROFILE_DATA.staffProfile.bioData.contactDetail} profile={this.props.profile}/>
+              <Other other={PROFILE_DATA.staffProfile.bioData.contactDetail} profile={this.props.profile} />
               <FamilyDetail familyDetail={PROFILE_DATA.staffProfile.bioData.contactDetail.familyDetails} />
             </Col>
             <Col md={3} sm={4} className="hidden-xs">
-              <LeftNav />
+              <LeftNav role={this.props.profile} />
             </Col>
           </Row>
         }

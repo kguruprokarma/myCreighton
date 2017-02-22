@@ -20,7 +20,7 @@ const data =   {
   "userImageURL": "",
   "userRole": "student"
 }
-xdescribe('async actions', () => {
+describe('async actions', () => {
   beforeEach(function () {
     moxios.install()
   });
@@ -29,7 +29,7 @@ xdescribe('async actions', () => {
     moxios.uninstall()
   });
   it('testing action retrival case', () => {
-     moxios.stubRequest(urlConstants.ROOT_URL + 'student.json', {
+     moxios.stubRequest(urlConstants.ROOT_URL + '/student.json', {
       status: 200,
       response:  data
     });
@@ -49,7 +49,7 @@ xdescribe('async actions', () => {
   });
 
   it('testing action failure case', () => {
-     moxios.stubRequest(urlConstants.ROOT_URL + 'student.json', {
+     moxios.stubRequest(urlConstants.ROOT_URL + '/student.json', {
       status: 404,
       responseText:  "error"
     });

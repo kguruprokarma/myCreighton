@@ -49,7 +49,7 @@ export class Classes extends React.PureComponent {
         {USER_DATA && <div>
           <Row>
             <Col md={8} sm={6} xs={12} className="hidden-xs">
-              <HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} />
+              <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} /></div>
             </Col>
             <Col md={4} sm={6} xs={12} className="controller-buttons">
               <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />

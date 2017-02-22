@@ -5,7 +5,7 @@ import axios from 'axios';
 import * as urlConstants from '../../constants/urlConstants';
 
 const AcademicApi = {
-  getAcademicData: () => axios.get(urlConstants.ROOT_URL + urlConstants.ACADEMIC_DATA)    
+  getAcademicData: () => axios.get('http://api-gateway01.creighton.edu/studentAcademic/single?primaryKey=asdfdsg&primaryValue=2775739283')    
 };
 
 export default AcademicApi;
