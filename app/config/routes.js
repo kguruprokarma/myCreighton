@@ -14,6 +14,7 @@ import Classes from '../classes/classList';
 import ClassDetails from '../classes/classDetails';
 import Dashboard from '../dashboard/index';
 import StaffProfile from '../profile/staff';
+import FacultyProfile from '../profile/faculty';
 import { I18nextProvider } from 'react-i18next'; // as we build ourself via webpack
 import i18n from '../i18n'; // initialized i18next instance
 import * as ROUTE_URL from '../constants/routeContants';
@@ -36,7 +37,8 @@ const routes = (
         <Route path={ROUTE_URL.DASHBOARD + ROUTE_URL.USER_ROLE_TYPE} title='' component={Dashboard} />
         <Route path={ROUTE_URL.STAFF }  title="Staff Profile -" component={StaffProfile} />
         <Route path={ROUTE_URL.EVENT_LIST} title='' component={EventList} />
-        <Route path={ROUTE_URL.EVENT_LIST + ROUTE_URL.EVENTS_DETAIL }  title='' component={EventsDetail} />  
+        <Route path={ROUTE_URL.EVENT_LIST + ROUTE_URL.EVENTS_DETAIL }  title='' component={EventsDetail} />
+        <Route path={ROUTE_URL.FACULTY }  title="Faculty Profile -" component={FacultyProfile} />
       </Route>
     </Router>
   </Provider>

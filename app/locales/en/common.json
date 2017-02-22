@@ -60,6 +60,12 @@
   "STAFF_EMPLOYEE_NUMBER": "Employee Number",
   "STAFF_PROFESSIONAL": "Professional",
 
+    "FACULTY_FAMILY": "Family",
+  "FACULTY_MARITAL_STATUS": "Marital Status",
+  "FACULTY_SPOUSE_NAME": "Spouse Name",
+  "FACULTY_DEPENDENTS_NAME": "Dependents Name",
+
+
   "CLASS_SCHEDULE": "CLASS SCHEDULE",
   "CLASS_DETAIL": "CLASS DETAIL",
   "TEST_QUIZZES": "TEST/QUIZZES",

@@ -3,6 +3,7 @@ export const ROLE_STUDENT = 'student';
 export const STUDENT_LABEL = 'STUDENT';
 export const ROLE_STAFF = 'staff';
 export const STAFF_LABEL = 'STAFF';
+export const FACULTY_LABEL = 'FACULTY';
 export const ROLE_FACULTY = 'faculty';
 export const STUDENT_PARENT = 'parent';
 export const STUDENT_GUARDIAN = 'guardian';
