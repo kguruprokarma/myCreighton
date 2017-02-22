@@ -10,7 +10,7 @@ import * as types from '../actionTypes'
 describe('Next events test suit for students', () => {
 	it('should return the initial state', () => {
 		expect(reducer(undefined, {})).toEqual({
-              eventsDetails: {},
+              eventsDetail: {},
               isLoading: false,
               error: false
 		});
@@ -26,7 +26,7 @@ describe('Next events test suit for students', () => {
 			})
 		).toEqual(
 			{
-              eventsDetails: [],
+              eventsDetail: [],
               isLoading: false,
               error: true
 
@@ -59,7 +59,7 @@ describe('Next events test suit for students', () => {
 		).toEqual(
 			{
 				isLoading: false,		   
-                eventsDetails:{id:'1'}
+                eventsDetail:{id:'1'}
 			}
 		);
 	});

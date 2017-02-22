@@ -28,6 +28,7 @@ export const CLASS_TAB_PARAM = '/:classtab';
 export const USER_ROLE_TYPE = '/:roletype';
 export const ID_PARAM = '/:id';
 export const INDEX_PARAM = '/:index';
+export const EVENTS_DETAIL = '/:eventsdetail';
 
 
 

@@ -5,12 +5,12 @@
 import * as types from './actionTypes';
 
 const initialState = {
-  eventsDetails: {},
+  eventsDetail: {},
   isLoading: false,
   error: false
 };
 
-const eventsDetailsReducer = (state = initialState, action = null) => {
+const eventsDetailReducer = (state = initialState, action = null) => {
   switch (action && action.type) {
     case types.REQUEST_EVENTS_DETAIL_DATA:
       return Object.assign({}, state, {
@@ -20,17 +20,17 @@ const eventsDetailsReducer = (state = initialState, action = null) => {
     case types.RECEIVE_EVENTS_DETAIL_DATA:
       return Object.assign({}, state, {
         isLoading: false,
-        eventsDetails: action.data
+        eventsDetail: action.data
       });
     case types.RECEIVE_EVENTS_DETAIL_DATA_ERROR:
       return Object.assign({}, state, {
         isLoading: false,
         error: true,
-        eventsDetails: []
+        eventsDetail: []
       });
     default:
       return state;
   }
 };
 
-export default eventsDetailsReducer;
+export default eventsDetailReducer;

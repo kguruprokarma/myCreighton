@@ -9,10 +9,10 @@ let requestEventsDetailData = () => ({
   type: types.REQUEST_EVENTS_DETAIL_DATA
 });
 
-let receiveEventsDetailData = (eventsDetails) => (
+let receiveEventsDetailData = (eventsDetail) => (
   {
     type: types.RECEIVE_EVENTS_DETAIL_DATA,
-    data: eventsDetails
+    data: eventsDetail
   });
 
 let receiveEventsDetailError = (error) => (

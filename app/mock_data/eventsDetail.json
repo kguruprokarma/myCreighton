@@ -1,110 +1,23 @@
 [
   {
-    "eventId": 243,
-    "classes": {
-      "title": "English 112",
-      "sub_title": "Next events English 112",
-      "location": "Building Rm 119",
-      "next_class_start_date": "feb 22",
-      "next_class_start_time": "3pm - 4pm",
-      "test": false,
-      "quizzes": true
-    },
-    "assignments": {
-      "title": "English 112",
-      "class": "English 112",
-      "due_date": "feb 22",
-      "details": "Assignments"
-    },
-    "quizzes": {
-      "title": "English 112",
-      "class": "English 112",
-      "date": "feb 22",
-      "time": "4pm - 5pm",
-      "description": "Quizzes",
-      "points": 10,
-      "no_of_question": 20
-    },
-    "outlook": {
-      "title": "English 112",
-      "date": "feb 23",
-      "startTime": "2pm",
-      "endTime": "3pm",
-      "organizer": "university",
-      "location": "Building Rm 119",
-      "description": "outlook details"
-    }
-  },
-  {
-    "eventId": 23,
-    "classes": {
-      "title": "English 112",
-      "sub_title": "Next events English 112",
-      "location": "Building Rm 119",
-      "next_class_start_date": "feb 22",
-      "next_class_start_time": "3pm - 4pm",
-      "test": false,
-      "quizzes": true
-    },
-    "assignments": {
-      "title": "English 112",
-      "class": "English 112",
-      "due_date": "feb 22",
-      "details": "Assignments"
-    },
-    "quizzes": {
-      "title": "English 112",
-      "class": "English 112",
-      "date": "feb 22",
-      "time": "4pm - 5pm",
-      "description": "Quizzes",
-      "points": 10,
-      "no_of_question": 20
-    },
-    "outlook": {
-      "title": "English 112",
-      "date": "feb 23",
-      "startTime": "2pm",
-      "endTime": "3pm",
-      "organizer": "university",
-      "location": "Building Rm 119",
-      "description": "outlook details"
-    }
-  },
-  {
     "eventId": 43,
+    "eventType": "assignments",
     "classes": {
-      "title": "English 112",
-      "sub_title": "Next events English 112",
-      "location": "Building Rm 119",
-      "next_class_start_date": "feb 22",
-      "next_class_start_time": "3pm - 4pm",
-      "test": false,
-      "quizzes": true
+      "title": "Chemistry 105",
+      "location": "Hopper Lecture 100",
+      "next_class_start_date": "Jan 25, 2017",
+      "time": "3:00 p.m. to 4:00 p.m.",
+      "startIn": "Tomorrow - Starts 17 hr 20 min"
     },
-    "assignments": {
-      "title": "English 112",
-      "class": "English 112",
-      "due_date": "feb 22",
-      "details": "Assignments"
+    "instructor": {
+      "name": "Gary Johnson",
+      "contact": "402.280.3944",
+      "office": "Building Rm 143",
+      "hours": [
+        {"time": "9:00 a.m. to 3:00 p.m. Mon"},
+        {"time": "1:00 p.m. to 5:00 p.m. Thur"}
+      ]
     },
-    "quizzes": {
-      "title": "English 112",
-      "class": "English 112",
-      "date": "feb 22",
-      "time": "4pm - 5pm",
-      "description": "Quizzes",
-      "points": 10,
-      "no_of_question": 20
-    },
-    "outlook": {
-      "title": "English 112",
-      "date": "feb 23",
-      "startTime": "2pm",
-      "endTime": "3pm",
-      "organizer": "university",
-      "location": "Building Rm 119",
-      "description": "outlook details"
-    }
+    "eventNotes": "notes"
   }
 ]
