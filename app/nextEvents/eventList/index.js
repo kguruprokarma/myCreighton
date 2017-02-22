@@ -24,9 +24,12 @@ export class EventList extends React.PureComponent {
     this.props.getEventsData();
   }
 
+  componentWillUnmount() {
+    this.props.clear();
+  }
+
   render() {   
     let EVENT_DATA =  DATESORT(SEGREGATEDATA (this.props.eventsData),'date');
-    console.log("EventList",EVENT_DATA) 
     return (      
       <section id="classSchedule">
 

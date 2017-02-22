@@ -22,6 +22,16 @@ let receiveError = (error) => (
     data: error
   })
 
+  let clear = () => ({
+    type: types.CLEAR
+  })
+
+  export function clear() {
+    return function (dispatch) {
+      dispatch(clear());
+    }
+  }
+
 export function getEventsData() {
   return function (dispatch) {
     dispatch(requestData())
