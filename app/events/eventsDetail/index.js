@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
+import Classes from '../eventsDetail/components/classes';
+import Instructor from '../eventsDetail/components/instructor';
 
 export class EventsDetail extends React.PureComponent {
   constructor(){
@@ -18,7 +20,11 @@ export class EventsDetail extends React.PureComponent {
   
   render() {
     const EVENT_DETAILS = this.props.eventsDetail;
-    return (<div>next event</div>);
+    return (<div>
+      {EVENT_DETAILS && <Classes data={EVENT_DETAILS.classes}/>}
+      {EVENT_DETAILS && <Instructor data={EVENT_DETAILS.instructor}/> }
+            
+    </div>);
   }
 }
 
