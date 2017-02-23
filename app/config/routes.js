@@ -40,7 +40,7 @@ const routes = (
         <Route path={ROUTE_URL.EVENT_LIST} title='' component={EventList} />
         <Route path={ROUTE_URL.EVENT_LIST + ROUTE_URL.EVENTS_DETAIL }  title='' component={EventsDetail} />
         <Route path={ROUTE_URL.FACULTY }  title="Faculty Profile -" component={FacultyProfile} />
-        <Route path='/ClassEvent'  title="Staff Profile -" component={ClassEvent} />
+        <Route path={ROUTE_URL.CLASS_EVENT }  title="Staff Profile -" component={ClassEvent} />
       </Route>
     </Router>
   </Provider>
