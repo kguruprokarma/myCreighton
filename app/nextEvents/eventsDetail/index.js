@@ -9,6 +9,7 @@ import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
 import Classes from './components/classes';
 import Instructor from './components/instructor';
+import Assignments from './components/assignments';
 
 export class EventsDetail extends React.PureComponent {
   constructor(){
@@ -23,6 +24,7 @@ export class EventsDetail extends React.PureComponent {
     return (<div>
       {EVENT_DETAILS && <Classes data={EVENT_DETAILS.classes}/>}
       {EVENT_DETAILS && <Instructor data={EVENT_DETAILS.instructor}/> }
+      {EVENT_DETAILS && <Assignments data={EVENT_DETAILS.assignments}/>}
             
     </div>);
   }

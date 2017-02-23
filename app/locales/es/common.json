@@ -74,6 +74,9 @@
 
   "PAGE_FOOTER": "Pie de página",
   "PAGE_HEADER": "Encabezado de página",
+  
+  "ASSIGNMENT": "Asignaciones",
+  "EVENT_NOTES": "NOTAS DEL EVENTO",
 
   "NET_ID": "NetID"
 }

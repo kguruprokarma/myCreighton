@@ -100,6 +100,8 @@
   "PAGE_HEADER": "Page header",
 
   "NEXT_EVENTS":"NEXTEVENTS",
+  "ASSIGNMENT": "Assignments",
+  "EVENT_NOTES": "EVENT NOTES",
 
   "NET_ID": "NetID"
 }
