@@ -7,8 +7,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
-import Classes from '../eventsDetail/components/classes';
-import Instructor from '../eventsDetail/components/instructor';
+import Classes from './components/classes';
+import Instructor from './components/instructor';
 
 export class EventsDetail extends React.PureComponent {
   constructor(){
