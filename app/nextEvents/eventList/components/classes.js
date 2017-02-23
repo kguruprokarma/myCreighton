@@ -10,6 +10,7 @@ const Classes = (classesProps) => (
     <div className='desktopClassesList'>
       <Col md={6} sm={6}>
         <h3 className='pull-left mb0 classesHeading'>{classesProps.data.className} </h3>
+        <span className='pull-left classOn'>{classesProps.data.date}</span>
         <span className='pull-left classOn'>{classesProps.data.startTime} to {classesProps.data.endTime}</span>
       </Col>
       <Col md={2} sm={2}>

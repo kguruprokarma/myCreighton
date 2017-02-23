@@ -38,9 +38,9 @@ const routes = (
         <Route path={ROUTE_URL.DASHBOARD + ROUTE_URL.USER_ROLE_TYPE} title='' component={Dashboard} />
         <Route path={ROUTE_URL.STAFF }  title="Staff Profile -" component={StaffProfile} />
         <Route path={ROUTE_URL.EVENT_LIST} title='' component={EventList} />
-        <Route path={ROUTE_URL.EVENT_LIST + ROUTE_URL.EVENTS_DETAIL }  title='' component={EventsDetail} />
         <Route path={ROUTE_URL.FACULTY }  title="Faculty Profile -" component={FacultyProfile} />
         <Route path={ROUTE_URL.CLASS_EVENT }  title="Staff Profile -" component={ClassEvent} />
+        <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENTS_DETAIL_TYPE + ROUTE_URL.ID_PARAM} title='Event Detail - ' component={EventsDetail} />
       </Route>
     </Router>
   </Provider>
