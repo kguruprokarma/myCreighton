@@ -3,16 +3,15 @@
 */
 
 import React from 'react';
-import { Panel, Grid } from 'react-bootstrap';
 import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
 
 const Dependent = (depenndentProps) => (
-    <div>
-        <BasicRow displayName={translateText('COMMON:PROFILE_FIRST')} displayValue={depenndentProps.dependent.firstName} />
-        <BasicRow displayName={translateText('COMMON:PROFILE_MIDDLE')} displayValue={depenndentProps.dependent.middleName} />
-        <BasicRow displayName={translateText('COMMON:PROFILE_LAST')} displayValue={depenndentProps.dependent.lastName} />
-    </div>
+  <div>
+    <BasicRow displayName={translateText('COMMON:PROFILE_FIRST')} displayValue={depenndentProps.dependent.firstName} />
+    <BasicRow displayName={translateText('COMMON:PROFILE_MIDDLE')} displayValue={depenndentProps.dependent.middleName} />
+    <BasicRow displayName={translateText('COMMON:PROFILE_LAST')} displayValue={depenndentProps.dependent.lastName} />
+  </div>
 );
 
 export default Dependent;

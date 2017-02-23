@@ -8,7 +8,7 @@ const Quizze = (quizzeProps) => (
   <section className='classesWeek' id='classesWeekList'>
     <div className='desktopClassesList'>
       <Col md={6} sm={6}>
-        <h3 className='pull-left mb0 classesHeading'>{quizzeProps.data.title} </h3>
+        <h3 className='pull-left mb0 eventHeading'>{quizzeProps.data.title} </h3>
         <span className='pull-left classOn'>{quizzeProps.data.dueDate}</span>
       </Col>
       <Col md={2} sm={2}>

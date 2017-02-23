@@ -14,7 +14,7 @@ import DashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
 import style from './style.css';
-import {AuthUserDetails} from '../common/utility';
+import {authUserDetails} from '../common/utility';
 const dashboardModulesList = DashboardModulesList;
 
 export class Dashboard extends Component {
@@ -23,13 +23,13 @@ export class Dashboard extends Component {
     super(props);
     this.state = { shouldHide: true };
     this.onClick = this.onClick.bind(this);
-    this.role = this.props.userData?this.props.userData.userRole : AuthUserDetails().userRole;
+    this.role = this.props.userData?this.props.userData.userRole : authUserDetails().userRole;
     if(this.role)
       this.props.getUserDetailsData(`/${this.role}`);
   }
 
   componentWillMount() {
-    this.role = this.props.userData?this.props.userData.userRole : AuthUserDetails().userRole;
+    this.role = this.props.userData?this.props.userData.userRole : authUserDetails().userRole;
     if(this.role)
       this.props.getUserDetailsData(`/${this.role}`);
 

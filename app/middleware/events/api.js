@@ -4,7 +4,7 @@
 import axios from 'axios';
 import * as urlConstants from '../../constants/urlConstants';
 
-let EventListApi = {
+const EventListApi = {
   getEventData: () => axios.get(urlConstants.ROOT_URL + urlConstants.EVENTS_DATA),
   getEventsDetail: () => axios.get(urlConstants.ROOT_URL + urlConstants.EVENTS_DETAIL)  
 };

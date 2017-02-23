@@ -5,28 +5,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link ,hashHistory} from 'react-router';
+import { Link, hashHistory} from 'react-router';
 import { ListGroupItem, ListGroup } from 'react-bootstrap';
 import * as actionCreators from '../dashboard/actions';
 import UserDetail from '../dashboard/components/userDetail';
-import ProfileMenu from '../header/components/profileMenu';
-import {AuthUserDetails} from './utility'; 
+import profileMenu from '../header/components/profileMenu';
+import {authUserDetails} from './utility'; 
 import * as CommonConstants from '../constants/commonConstants';
 
 export class CustomPopUp extends React.Component {
   constructor(props) {
     super(props);    
-    this.role = this.props.userData?this.props.userData.userRole : AuthUserDetails().userRole;
-    if(this.role)
+    this.role = this.props.userData?this.props.userData.userRole : authUserDetails().userRole;
+    if (this.role) {
       this.props.getUserDetailsData(`/${this.role}`);
+    }
   }
-  signOut(){
+  signOut() {
     localStorage.removeItem('roleInfo');
     hashHistory.replace('/');
   }
   render() {
     const { userDetailsData } = this.props;
-    const ProfileMenus = ProfileMenu(this.role);
+    const ProfileMenus = profileMenu(this.role);
 
     return (<div className='customPopUp'>
       <span className='popupPointer'>&nbsp;</span>
@@ -34,9 +35,9 @@ export class CustomPopUp extends React.Component {
         <ListGroupItem>
           {userDetailsData && <div> <UserDetail userDetail={userDetailsData} /></div>}
         </ListGroupItem>
-        {ProfileMenus.map((item, index) => (
+        {ProfileMenus.map((item) => (
           <ListGroupItem key={item.itemName} className='openSansLight'>
-            <Link to={item.link} onClick={item.itemName === CommonConstants.SIGN_OUT?this.signOut.bind(this): this.props.showPopValue} activeClassName='active'>
+            <Link to={item.link} onClick={item.itemName === CommonConstants.SIGN_OUT ? this.signOut.bind(this) : this.props.showPopValue} activeClassName='active'>
               {item.itemName}
             </Link>
           </ListGroupItem>
@@ -48,6 +49,10 @@ export class CustomPopUp extends React.Component {
   }
 }
 
+CustomPopUp.propTypes = {
+  userData: React.PropTypes.string,
+  showPopValue: React.PropTypes.string
+};
 
 const mapStateToProps = (dashboardState) => (
   {
@@ -55,6 +60,11 @@ const mapStateToProps = (dashboardState) => (
     userData: dashboardState.auth.data
   }
 );
+
+mapStateToProps.propTypes = {
+  userDetailsData: React.PropTypes.string
+};
+
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 

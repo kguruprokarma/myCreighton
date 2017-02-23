@@ -108,7 +108,7 @@ export const todayHeader = () => {
 	return days[today.getDay()] + " " + months[today.getMonth()] + " " + today.getDate();
 };
 
-export const AuthUserDetails = () => {
+export const authUserDetails = () => {
 	return localStorage.roleInfo?JSON.parse(localStorage.roleInfo):{};
 };
 

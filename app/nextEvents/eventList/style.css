@@ -1,5 +1,5 @@
-/*Created Date: - 18th -01 -2017
-*Usage of file: - this file is used to add styles to class list.*
+/*Created Date: - 23rd -02 -2017
+*Usage of file: - this file is used to add styles to Event list.*
 */
 
 .dayHeading {
@@ -11,7 +11,7 @@
     border-top:1px solid #c8c7cc;    
 }
 
-.classesHeading{
+.eventHeading{
     font-size: 1.7333333333333334em;    /* font size 26 in pixel */
     line-height: 32px;
     color: #019cdb;

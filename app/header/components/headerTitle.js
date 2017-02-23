@@ -12,9 +12,9 @@ export default function (argument) {
     title = translateText('common:CLASS_SCHEDULE');
     return title;
   }
-  if (rootURL[1] === HEADER.CLASS_DETAILS) {    
-     title = translateText('common:CLASS_DETAIL');
-     return title;
+  if (rootURL[1] === HEADER.CLASS_DETAILS) {
+    title = translateText('common:CLASS_DETAIL');
+    return title;
   }
   if (rootURL[1] === HEADER.PROFILE || rootURL[1] === HEADER.STAFF_PROFILE) {
     title = translateText('common:PROFILE_MY_PROFILE');
@@ -26,5 +26,6 @@ export default function (argument) {
   }
   if (rootURL[1] === HEADER.EVENT_LIST) {
     title = translateText('common:NEXT_EVENTS');
+    return title;
   }
 }

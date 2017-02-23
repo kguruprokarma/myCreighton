@@ -13,9 +13,9 @@ import * as actionCreators from './actions';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import { translateText } from '../../common/translate';
 import { SEGREGATEDATA, DATESORT, DATATIMEEVENTLIST} from '../../common/utility';
+import Styles from './style.css';
 
 export class EventList extends React.PureComponent {
-
 
   componentWillMount() {
     this.props.getEventsData();
@@ -51,8 +51,6 @@ export class EventList extends React.PureComponent {
     );
   }
 }
-
-
 
 const mapStateToProps = (eventsState) => {
   return (

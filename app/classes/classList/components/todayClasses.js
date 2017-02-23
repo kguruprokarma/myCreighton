@@ -21,7 +21,8 @@ const TodayClasses = (todayProps) => (
               </Link>
             </div>
           );
-        })
+        }
+      )
         }
   </div>
 );
