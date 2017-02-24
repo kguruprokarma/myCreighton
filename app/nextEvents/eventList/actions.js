@@ -6,44 +6,44 @@ import EventListApi from '../../middleware/events/api';
 import * as types from './actionTypes';
 
 
-let requestData = () => ({
+const requestData = () => ({
   type: types.REQUEST_EVENTS_DATA
-})
+});
 
-let receiveEventsData = (eventsData) => (
+const receiveEventsData = (eventsData) => (
   {
     type: types.RECEIVE_EVENTS_DATA,
     data: eventsData
-  })
+  });
 
-let receiveError = (error) => (
+const receiveError = (error) => (
   {
     type: types.RECEIVE_EVENTS_DATA_ERROR,
     data: error
-  })
+  });
 
-  let clear = () => ({
-    type: types.CLEAR
-  })
+let clear = () => ({
+  type: types.CLEAR
+});
 
-  export function clear() {
-    return function (dispatch) {
-      dispatch(clear());
-    }
-  }
+export function clear() {
+  return function (dispatch) {
+    dispatch(clear());
+  };
+}
 
 export function getEventsData() {
   return function (dispatch) {
-    dispatch(requestData())
+    dispatch(requestData());
     return EventListApi.getEventData().then((response) => {
-      dispatch(receiveEventsData(response))
+      dispatch(receiveEventsData(response));
     }
     )
       .catch((error) => {
         dispatch(receiveError({
           error: error
-        }))
+        }));
       }
-      )
-  }
+      );
+  };
 }

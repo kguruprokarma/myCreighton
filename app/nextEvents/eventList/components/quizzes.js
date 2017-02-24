@@ -2,7 +2,7 @@
 *Usage of file: - This component is used to display Next Event Outlook Quizze details.*
 */
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 const Quizze = (quizzeProps) => (
   <section className='classesWeek' id='classesWeekList'>

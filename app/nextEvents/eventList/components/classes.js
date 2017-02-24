@@ -13,7 +13,7 @@ const Classes = (classesProps) => (
         <span className='pull-left eventOn'>{classesProps.data.startTime} to {classesProps.data.endTime}</span>
       </Col>
       <Col md={2} sm={2}>
-        <span className='deventPlace'>{classesProps.data.meetingLocation}</span>
+        <span className='eventPlace'>{classesProps.data.meetingLocation}</span>
       </Col>
       <Col md={2} sm={1} className='text-center'>
         <span className='eventBy'>{classesProps.data.dateofOccurrence}</span>

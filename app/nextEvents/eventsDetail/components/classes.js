@@ -2,8 +2,8 @@
  * To display the event details for classes
  */
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
-import { translateText } from '../../../common/translate';
+//import { Col, Row } from 'react-bootstrap';
+//import { translateText } from '../../../common/translate';
 
 const Classes = (classDetails) => (
   <section>
