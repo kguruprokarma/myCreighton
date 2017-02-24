@@ -42,16 +42,15 @@ export class Classes extends React.PureComponent {
   }
 
   render() {
-
-    let USER_DATA = this.props.classesData;
+    const USER_DATA = this.props.classesData;
     return (
-      <section id="classSchedule">
+      <section id='classSchedule'>
         {USER_DATA && <div>
           <Row>
-            <Col md={8} sm={6} xs={12} className="hidden-xs">
+            <Col md={8} sm={6} xs={12} className='hidden-xs'>
               <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} /></div>
             </Col>
-            <Col md={4} sm={6} xs={12} className="controller-buttons">
+            <Col md={4} sm={6} xs={12} className='controller-buttons'>
               <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />
             </Col>
           </Row>
@@ -64,12 +63,11 @@ export class Classes extends React.PureComponent {
 }
 
 const mapStateToProps = (classesState) => {
-  return (
-    {
-      classesData: classesState.classesReducer.classesData.data,
-      catagoryName: classesState.classesReducer.catagoryName
-    })
-}
+  return ({
+    classesData: classesState.classesReducer.classesData.data,
+    catagoryName: classesState.classesReducer.catagoryName
+  });
+};
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
 

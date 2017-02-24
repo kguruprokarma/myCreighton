@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { loginUser } from './actions';
 
 const form = reduxForm({
-  form: 'login',
+  form: 'login'
 });
 
 class Login extends Component {
@@ -27,20 +27,20 @@ class Login extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div className="col-sm-6 col-sm-offset-3">
+      <div className='col-sm-6 col-sm-offset-3'>
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           {this.renderAlert()}
-          <div className="form-group">
+          <div className='form-group'>
             <label>NetID</label>
-            <Field name="email" className="form-control" component="input" type="text" />
+            <Field name='email' className='form-control' component='input' type='text' />
           </div>
-          <div className="form-group">
+          <div className='form-group'>
             <label>Password</label>
-            <Field name="password" className="form-control" component="input" type="password" />
+            <Field name='password' className='form-control' component='input' type='password' />
           </div>
-          <button type="submit" className="btn btn-primary">Login</button> 
+          <button type='submit' className='btn btn-primary'>Login</button>
         </form>
-        <Link to="/forgot-password">Forgot Password?</Link>
+        <Link to='/forgot-password'>Forgot Password?</Link>
       </div>
     );
   }
@@ -50,7 +50,7 @@ function mapStateToProps(state) {
   return {
     errorMessage: state.auth.error,
     message: state.auth.message,
-    authenticated: state.auth.authenticated,
+    authenticated: state.auth.authenticated
   };
 }
 

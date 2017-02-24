@@ -3,8 +3,7 @@
 */
 
 //import * as types from './actionTypes'
-import LoginApi from '../middleware/Login/api';
-import axios from 'axios';  
+//import axios from 'axios';  
 import { browserHistory, hashHistory } from 'react-router';  
 import {Router}  from 'react-router';
 //import cookie from 'react-cookie';  

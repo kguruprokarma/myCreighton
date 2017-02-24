@@ -24,7 +24,7 @@ const ClassInfo = (classInfoProps) => (
         <div className='classDate'><span className='openSansRegular'>{translateText('çommon:NEXT')}:</span> {classInfoProps.data.date}</div>
       </Col>
     </div>
-    <Row className='visible-xs mobileClassesList row'>
+    <Row className='visible-xs mobileClassesList'>
       <Col xs={7}>
         <span className='classOn'>{classInfoProps.data.on}</span>
       </Col>

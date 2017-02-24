@@ -6,7 +6,7 @@ import { Col } from 'react-bootstrap';
 
 const OutlookCalendar = (outlookCalendarProps) => (
   <section className='eventOutlook' id='eventOutlookList'>
-    <div className='desktopClassesList'>
+    <div className='hidden-xs desktopEventsList'>
       <Col md={6} sm={6}>
         <h3 className='pull-left mb0 eventHeading'>{outlookCalendarProps.data.title} </h3>
         <span className='pull-left eventOn'>{outlookCalendarProps.data.startDate}to {outlookCalendarProps.data.endDate}</span>

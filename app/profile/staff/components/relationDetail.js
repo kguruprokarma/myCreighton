@@ -4,10 +4,10 @@
 
 import React from 'react';
 import { Panel, Grid } from 'react-bootstrap';
-import BasicRow from '../../../../common/basicRow';
-import * as CommonConstants from '../../../../constants/commonConstants';
+import BasicRow from '../../../common/basicRow';
+import * as CommonConstants from '../../../constants/commonConstants';
 import Dependent from './dependent';
-import { translateText } from '../../../../common/translate';
+import { translateText } from '../../../common/translate';
 
 class RelationDetail extends React.Component {
   constructor() {
@@ -35,9 +35,9 @@ class RelationDetail extends React.Component {
           </label>
         </div>
         {(this.state.flag === CommonConstants.STUDENT_PARENT) ?
-          (<Dependent dependent={this.props.parentDetail} />)
+          (<Dependent dependent={this.props.relationDetail.parent} />)
           :
-          (<Dependent dependent={this.props.guardianDetail} />)
+          (<Dependent dependent={this.props.relationDetail.guardian} />)
         }
       </article>
     );
