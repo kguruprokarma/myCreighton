@@ -11,6 +11,7 @@ const initialState = {
 };
 
 const eventDetailsReducer = (state = initialState, action = null) => {
+  console.log("action.data: ", action.data)
   switch (action && action.type) {
     case types.REQUEST_EVENT_DETAILS_DATA:
       return Object.assign({}, state, {

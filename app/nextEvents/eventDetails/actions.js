@@ -5,17 +5,17 @@ import EventDetailsApi from '../../middleware/events/api';
 import * as types from './actionTypes';
 
 
-let requestEventDetailsData = () => ({
+const requestEventDetailsData = () => ({
   type: types.REQUEST_EVENT_DETAILS_DATA
 });
 
-let receiveEventDetailsData = (eventDetails) => (
+const receiveEventDetailsData = (eventDetails) => (
   {
     type: types.RECEIVE_EVENT_DETAILS_DATA,
-    data: eventsDetail
+    data: eventDetails
   });
 
-let receiveEventDetailsError = (error) => (
+const receiveEventDetailsError = (error) => (
   {
     type: types.RECEIVE_EVENT_DETAILS_DATA_ERROR,
     data: error

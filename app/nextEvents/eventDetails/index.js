@@ -16,17 +16,18 @@ export class EventDetails extends React.PureComponent {
   constructor(){
     super();
   }
-  componentWillMount() {
+  componentWillMount() {    
+    this.eventType = this.props.params.eventdetailstype;
+    this.eventId = this.props.params.id;
+    
     this.props.getEventDetails();
   }
   
   render() {
-    const eventType = this.props.params.eventdetailstype;
-    const eventId = this.props.params.id;
-    const EVENT_DETAILS = this.props.eventDetailsData.type.assignments[0] || this.props.eventDetailsData.assignments;
+    const details = this.props.eventDetailsData;    
     return (<div>
-      {eventType === NextEventsConstants.CLASSES && <Classes data={EVENT_DETAILS}/>}
-      {eventType === NextEventsConstants.ASSIGNMENTS && <Assignments data={EVENT_DETAILS}/>}            
+  {this.eventType === NextEventsConstants.ASSIGNMENTS && details && <Assignments data={details.assignments}/>
+    }            
             
     </div>);
   }

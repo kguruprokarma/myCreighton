@@ -20,6 +20,7 @@ export class CustomPopUp extends React.Component {
     if (this.role) {
       this.props.getUserDetailsData(`/${this.role}`);
     }
+    this.signOut = this.signOut.bind(this);
   }
   signOut() {
     localStorage.removeItem('roleInfo');
@@ -37,7 +38,7 @@ export class CustomPopUp extends React.Component {
         </ListGroupItem>
         {ProfileMenus.map((item) => (
           <ListGroupItem key={item.itemName} className='openSansLight'>
-            <Link to={item.link} onClick={item.itemName === CommonConstants.SIGN_OUT ? this.signOut.bind(this) : this.props.showPopValue} activeClassName='active'>
+            <Link to={item.link} onClick={item.itemName === CommonConstants.SIGN_OUT ? this.signOut : this.props.showPopValue} activeClassName='active'>
               {item.itemName}
             </Link>
           </ListGroupItem>
@@ -51,7 +52,9 @@ export class CustomPopUp extends React.Component {
 
 CustomPopUp.propTypes = {
   userData: React.PropTypes.string,
-  showPopValue: React.PropTypes.string
+  showPopValue: React.PropTypes.string,
+  getUserDetailsData: React.PropTypes.sting,
+  userDetailsData: React.PropTypes.sting
 };
 
 const mapStateToProps = (dashboardState) => (

@@ -3,11 +3,11 @@
  */
 
 import React from 'react';
-import HeaderTitle from './headerTitle';
+import headerTitle from './headerTitle';
 
 const Title = (currentPath) => {
   return (
-    <h1 className='bebasregular logo mt10 mb10 fs1pt4'>{HeaderTitle(currentPath)}</h1>
+    <h1 className='bebasregular logo mt10 mb10 fs1pt4'>{headerTitle(currentPath)}</h1>
   );
 };
 
