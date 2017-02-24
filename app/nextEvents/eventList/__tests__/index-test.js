@@ -12,44 +12,51 @@ describe('index component testing for Next Events ----->', () => {
                   "type": {
                         "classes": [
                               {
+                                    "id": "1",
                                     "className": "English 112",
                                     "meetingLocation": "Building Rm 119",
-                                    "startTime": "1:00 p.m.",
-                                    "endTime": "2:00 p.m.",
-                                    "date": "February 9, 2017",
+                                    "startTime": "8:00 a.m.",
+                                    "endTime": "10:00 a.m.",
+                                    "date": "Feb 2, 2017",
                                     "dateofOccurrence": "Fri"
                               },
                               {
+                                    "id": "2",
                                     "className": "Chemistry 105",
                                     "meetingLocation": "Building Rm 119",
-                                    "startTime": "1:00 p.m.",
-                                    "endTime": "2:00 p.m.",
-                                    "date": "February 18, 2017",
+                                    "startTime": "3:00 p.m.",
+                                    "endTime": "4:00 p.m.",
+                                    "date": "Feb 2, 2017",
                                     "dateofOccurrence": "Fri"
                               }
                         ],
                         "assignments": [
                               {
+                                    "id": "3",
                                     "title": "Assig.: Krebs cycle paper",
                                     "class": "Chemistry 105",
-                                    "date": "February 02, 2017",
+                                    "date": "Feb 2, 2017",
                                     "dueDate": "jan 23",
-                                    "dueTime": "11:59 p.m."
+                                    "dueTime": "11:59 p.m.",
+                                    "startTime": "1:00 p.m."
                               }
                         ],
                         "testOrQuizzes": [
                               {
+                                    "id": "4",
                                     "title": "Chemistry Test",
                                     "class": "Chemistry 105 Lab",
-                                    "date": "February 01, 2017",
-                                    "dueDate": "Jan 27, 2017",
-                                    "dueTime": "11:59 p.m."
+                                    "date": "Feb 02, 2017",
+                                    "dueDate": "Jan 17, 2017",
+                                    "dueTime": "11:59 a.m.",
+                                    "startTime": "1:00 p.m."
                               }
                         ],
                         "academicMilestones": [
                               {
+                                    "id": "5",
                                     "title": "Test: Chapters 4-5",
-                                    "date": "February 28, 2017",
+                                    "date": "Feb 3, 2017",
                                     "startDate": "Jan 26",
                                     "endDate": "Jan 27",
                                     "startTime": "10:00 a.m.",
@@ -58,8 +65,9 @@ describe('index component testing for Next Events ----->', () => {
                         ],
                         "outlook": [
                               {
-                                    "title": "Test: Chapters 4-5",
-                                    "date": "February 27, 2017",
+                                    "id": "6",
+                                    "title": "Test: OutLook Chapters 4-5",
+                                    "date": "Feb 4, 2017",
                                     "startDate": "Jan 26",
                                     "endDate": "Jan 27",
                                     "startTime": "10:00 a.m.",
