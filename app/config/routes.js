@@ -21,6 +21,7 @@ import i18n from '../i18n'; // initialized i18next instance
 import * as ROUTE_URL from '../constants/routeContants';
 import EventList from '../nextEvents/eventList';
 import EventsDetail from '../nextEvents/eventsDetail';
+import * as interceptor from './interceptor';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
