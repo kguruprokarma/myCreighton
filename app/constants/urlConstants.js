@@ -18,4 +18,4 @@ export const FACULTY_PROFILE_DATA = '/myProfileFaculty.json';
 export const MEAL_PLAN_DATA = '/getMealPlan.json';
 export const LOGIN_DETAILS_DATA = '/loginDetails.json';
 export const EVENTS_DATA = '/eventList.json';
-export const EVENTS_DETAIL = '/eventsDetail.json';
+export const EVENT_DETAILS = '/eventDetails.json';
