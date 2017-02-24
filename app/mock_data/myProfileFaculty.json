@@ -1,60 +1,60 @@
- {
-     "facultyProfile": {
+{
+    "facultyProfile": {
         "bioData": {
             "legalName": {
-                "first": "Adam",
-                "middle": "S",
-                "last": "John"
+                "first": "Jane",
+                "middle": "R",
+                "last": "Archer"
             },
             "address": {
                 "home": {
-                    "street1": "12345 Nicolas St",
-                    "street2": "21st",
+                    "street1": "2345 Nicolas St",
+                    "street2": "25th",
                     "city": "Omaha",
                     "state": "Nebraska",
-                    "postalCode": "68154-1234"
+                    "postalCode": "57365-2345"
                 },
                 "school": {
-                    "street1": "2112 California St",
-                    "street2": "22nd",
+                    "street1": "3113 California St",
+                    "street2": "24th",
                     "city": "Omaha",
                     "state": "Nebraska",
                     "postalCode": "68179"
                 },
                 "mailing": {
-                    "street1": "2112 California St",
-                    "street2": "22nd",
+                    "street1": "3113 California St",
+                    "street2": "24th",
                     "city": "Omaha",
                     "state": "Nebraska",
-                    "postalCode": "68179"  
+                    "postalCode": "68179"
                 }
             },
             "contactDetail": {
-                "primaryPhone": "402.334.0477",
+                "primaryPhone": "302.134.1477",
                 "emergencyContact": {
                     "name": {
                         "first": "Mary",
                         "middle": "J",
                         "last": "John"
                     },
-                    "phone": "402.333.5671",
+                    "phone": "302.322.4671",
                     "relation": "Mother"
                 },
                 "email": {
                     "school": {
-                        "value": "12345678g@creighton.edu"
-                    }, 
+                        "value": "john@creighton.edu"
+                    },
                     "personal": {
-                        "value": "bluejfan2019@yahoo.com"
+                        "value": "john123@yahoo.com"
                     }
                 },
-                "birthDate": "May 5, 1997",
-                "netID": "bbb12345",
-                "employeeNumber": "1234",
+                "birthDate": "April 7, 1993",
+                "netID": "Ab123",
+                "employeeNumber": "3331",
                 "familyDetails": {
                     "maritalStatus": "Married",
-                    "spouseName": "Jessi",
-                    "dependentsName": "Jessi"
+                    "spouseName": "Annika",
+                    "dependentsName": "Annika"
                 }
             }
         }
