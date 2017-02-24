@@ -19,3 +19,6 @@ export const MEAL_PLAN_DATA = '/getMealPlan.json';
 export const LOGIN_DETAILS_DATA = '/loginDetails.json';
 export const EVENTS_DATA = '/eventList.json';
 export const EVENTS_DETAIL = '/eventsDetail.json';
+export const STUDENT_ACADEMIC = '/studentAcademic';
+export const STUDENT_ACADEMIC_SINGLE = '/single';
+export const STUDENT_PROFILE = '/studentProfile';

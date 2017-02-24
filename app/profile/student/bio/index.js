@@ -21,6 +21,7 @@ import { Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../../common/headerLabel';
 import { translateText } from '../../../common/translate';
 import * as CommonConstants from '../../../constants/commonConstants';
+import { authUserDetails } from '../../../common/utility';
 
 export class Profile extends React.PureComponent {
 
@@ -29,7 +30,11 @@ export class Profile extends React.PureComponent {
   }
 
   componentWillMount() {
-    this.props.getStudentProfileData();
+    let userReqObj = authUserDetails();
+    userReqObj = {};
+    userReqObj.primaryKey = 'netid';
+    userReqObj.primaryValue ='5de48407ab';    
+    this.props.getStudentProfileData(userReqObj);
   }
 
   render() {
@@ -40,14 +45,12 @@ export class Profile extends React.PureComponent {
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className="userData pull-right">
-              <LegalName legalName={USER_DATA.studentProfile.bioData.legalName} />
-              <HomeAddress homeAddress={USER_DATA.studentProfile.bioData.address.home} />
-              <Address address={USER_DATA.studentProfile.bioData.address.school} profile={this.props.profile} />
-              <PrimaryContact primaryContact={USER_DATA.studentProfile.bioData.contactDetail} />
-              <EmergencyContact emergencyContact={USER_DATA.studentProfile.bioData.contactDetail.emergencyContact} />
-              <Email email={USER_DATA.studentProfile.bioData.contactDetail.email} />
-              <Other other={USER_DATA.studentProfile.bioData.contactDetail} profile={this.props.profile} />
-              <RelationDetail relationDetail={USER_DATA.studentProfile.bioData.contactDetail.relationDetail} />
+              <LegalName legalName={USER_DATA.data[0].legal_name} />
+              <HomeAddress homeAddress={USER_DATA.data[0].home_address} />
+              <PrimaryContact primaryContact={USER_DATA.data[0].primary_phone_no} />
+              <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} />
+              <Email email={USER_DATA.data[0].email} />
+              <RelationDetail parentDetail={USER_DATA.data[0].parent} gurdianDetail={USER_DATA.data[0].guardian} />
             </Col>
             <Col md={3} sm={4} className="hidden-xs">
               <LeftNav role={this.props.profile} />

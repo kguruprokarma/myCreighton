@@ -53,10 +53,10 @@ let receiveFacultyProfileError = (bioJson) => (
   data: bioJson
 });
 
-export function getStudentProfileData() {
+export function getStudentProfileData(reqObj) {
   return function (dispatch) {
     dispatch(requestStudentProfileData());
-    return profileApi.getProfileData()
+    return profileApi.getProfileData(reqObj)
       .then((response) => {
         dispatch(receiveStudentProfileData(response));
       }
