@@ -35,7 +35,8 @@ const routes = (
         <Route path={ROUTE_URL.ACADEMIC} title='Academic - ' component={Academic} />
         <Route path={ROUTE_URL.CLASSES + ROUTE_URL.CLASS_TAB_PARAM} title='Class Schedule - ' component={Classes} />
         <Route path={ROUTE_URL.CLASS_DETAILS + ROUTE_URL.CATEGORY_NAME_PARAM + ROUTE_URL.ID_PARAM + ROUTE_URL.INDEX_PARAM} title='Class Detail - ' component={ClassDetails} />
-        <Route path={ROUTE_URL.DASHBOARD} title= '' component={Dashboard} />
+        <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.ID_PARAM} title='Class Event Detail - ' component={ClassDetails} />
+        <Route path={ROUTE_URL.DASHBOARD} title='' component={Dashboard} />
         <Route path={ROUTE_URL.DASHBOARD + ROUTE_URL.USER_ROLE_TYPE} title='' component={Dashboard} />
         <Route path={ROUTE_URL.STAFF }  title="Staff Profile -" component={StaffProfile} />
         <Route path={ROUTE_URL.EVENT_LIST} title='' component={EventList} />
