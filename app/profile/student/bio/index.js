@@ -47,9 +47,11 @@ export class Profile extends React.PureComponent {
             <Col sm={8} md={9} xs={12} className="userData pull-right">
               <LegalName legalName={USER_DATA.data[0].legal_name} />
               <HomeAddress homeAddress={USER_DATA.data[0].home_address} />
+              <Address />
               <PrimaryContact primaryContact={USER_DATA.data[0].primary_phone_no} />
               <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} />
               <Email email={USER_DATA.data[0].email} />
+              <Other />
               <RelationDetail parentDetail={USER_DATA.data[0].parent} gurdianDetail={USER_DATA.data[0].guardian} />
             </Col>
             <Col md={3} sm={4} className="hidden-xs">
