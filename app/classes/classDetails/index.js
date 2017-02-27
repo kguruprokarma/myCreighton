@@ -29,7 +29,9 @@ export class ClassDetails extends React.PureComponent {
       && _.find(this.props.classDetails.data, { id: parseInt(this.props.params.id) });
     return (
       <section className='classesDeatils'>
-        <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} /></div>
+        <div className='hidden-xs'>
+          {this.props.params.eventdetailstype === 'classes' ? <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS_CLASSES')} />:<HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />}
+        </div>
         {(classData && Object.keys(classData).length > 0) && (<div>
           <ClassInfo {...classData.classHeader} />
           <ClassAssignments {...classData} />
