@@ -35,17 +35,17 @@ export class Academic extends React.PureComponent {
   render() {
     let USER_DATA = this.props.academicData;
     return (
-      <section id="academic">
+      <section id='academic'>
         <HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} />
         {USER_DATA &&
           <Row>
-            <Col sm={8} md={9} xs={12} className="userData pull-right">
+            <Col sm={8} md={9} xs={12} className='userData pull-right'>
               {/*<AcademicStatus json={USER_DATA.studentProfile.academicDetail} />
                             <AdvisorInformation json={USER_DATA.studentProfile.academicDetail} />*/}
               <AcademicStatus json={USER_DATA.data[0]} />
               <AdvisorInformation json={USER_DATA.data[0]} />
             </Col>
-            <Col md={3} sm={4} className="hidden-xs">
+            <Col md={3} sm={4} className='hidden-xs'>
               <LeftNav role={this.props.profile} />
             </Col>
           </Row>
