@@ -8,6 +8,8 @@ import moxios from 'moxios'
 import * as types from '../actionTypes';
 import * as actions from '../actions';
 import * as urlConstants from '../../constants/urlConstants';
+import { authUserDetails } from '../../common/utility';
+
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const studentData = {
@@ -55,8 +57,11 @@ describe('async actions', () => {
   afterEach(function () {
     moxios.uninstall()
   });
+  let userReqObj = {};
+  userReqObj.primaryKey = 'netid';
+  userReqObj.primaryValue = '5de48407ab';
   it('testing action for profile data for student retrival case', () => {
-    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.PROFILE_DATA, {
+    moxios.stubRequest(urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE + '?primaryKey=netid&primaryValue=5de48407ab', {
       status: 200,
       response: studentData
     });
@@ -64,11 +69,10 @@ describe('async actions', () => {
       { type: types.REQUEST_STUDENT_PROFILE_DATA },
       { type: types.RECEIVE_STUDENT_PROFILE_DATA, data: studentData }
     ]
-    const store = mockStore()
-
-    return store.dispatch(actions.getStudentProfileData())
+    const store = mockStore();
+    return store.dispatch(actions.getStudentProfileData(userReqObj))
       .then(() => {
-        let result = store.getActions();
+        let result = store.getActions(userReqObj);
         expect(result[0].type).toEqual(expectedActions[0].type);
         expect(result[1].data.data).toEqual(expectedActions[1].data);
         expect(result[1].type).toEqual(expectedActions[1].type);
@@ -76,7 +80,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure for student profile case', () => {
-    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.PROFILE_DATA, {
+    moxios.stubRequest(urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE + '?primaryKey=netid&primaryValue=5de48407ab', {
       status: 404,
       responseText: "error"
     });
@@ -84,11 +88,10 @@ describe('async actions', () => {
       { type: types.REQUEST_STUDENT_PROFILE_DATA },
       { type: types.RECEIVE_STUDENT_DATA_ERROR, data: "error" }
     ]
-    const store = mockStore()
-
-    return store.dispatch(actions.getStudentProfileData())
+    const store = mockStore();
+    return store.dispatch(actions.getStudentProfileData(userReqObj))
       .then(() => {
-        let result = store.getActions();
+        let result = store.getActions(userReqObj);
         expect(result[0].type).toEqual(expectedActions[0].type);
         expect(JSON.stringify(result[1].data.error.response.data)).toEqual(JSON.stringify(expectedActions[1].data));
         expect(result[1].type).toEqual(expectedActions[1].type);

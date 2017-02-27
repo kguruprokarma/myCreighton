@@ -31,8 +31,11 @@ describe('async actions', () => {
   afterEach(function () {
     moxios.uninstall()
   });
+   let userReqObj = {};
+    userReqObj.primaryKey = 'netid';
+    userReqObj.primaryValue = '2775739283';
   it('testing action retrival case', () => {
-    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.ACADEMIC_DATA, {
+    moxios.stubRequest(urlConstants.API_GATEWAY + urlConstants.STUDENT_ACADEMIC + urlConstants.STUDENT_ACADEMIC_SINGLE + '?primaryKey=netid&primaryValue=2775739283', {
       status: 200,
       response: data
     });
@@ -42,7 +45,7 @@ describe('async actions', () => {
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getAcademicData())
+    return store.dispatch(actions.getAcademicData(userReqObj))
       .then(() => {
         let result = store.getActions();
         expect(result[0].type).toEqual(expectedActions[0].type);
@@ -52,7 +55,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure case', () => {
-    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.ACADEMIC_DATA, {
+    moxios.stubRequest(urlConstants.API_GATEWAY + urlConstants.STUDENT_ACADEMIC + urlConstants.STUDENT_ACADEMIC_SINGLE + '?primaryKey=netid&primaryValue=2775739283', {
       status: 404,
       responseText: "error"
     });
@@ -62,7 +65,7 @@ describe('async actions', () => {
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getAcademicData())
+    return store.dispatch(actions.getAcademicData(userReqObj))
       .then(() => {
         let result = store.getActions();
         expect(result[0].type).toEqual(expectedActions[0].type);
