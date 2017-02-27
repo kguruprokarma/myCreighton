@@ -16,6 +16,7 @@ import style from '../classDetails/style.css';
 import * as _ from 'lodash';
 import PreviousNext from '../../common/previousNext';
 import { translateText } from '../../common/translate';
+import * as HEADER from '../../constants/headerTitleConstants';
 
 export class ClassDetails extends React.PureComponent {
 
@@ -30,7 +31,7 @@ export class ClassDetails extends React.PureComponent {
     return (
       <section className='classesDeatils'>
         <div className='hidden-xs'>
-          {this.props.params.eventdetailstype === 'classes' ? <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS_CLASSES')} />:<HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />}
+          {this.props.params.eventdetailstype === HEADER.CLASSES ? <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS_CLASSES')} />:<HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />}
         </div>
         {(classData && Object.keys(classData).length > 0) && (<div>
           <ClassInfo {...classData.classHeader} />
