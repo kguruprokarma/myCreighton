@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
-import Classes from './components/classes';
 import Instructor from './components/instructor';
 import Assignments from './components/assignments';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
