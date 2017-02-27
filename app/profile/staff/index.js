@@ -35,10 +35,10 @@ export class StaffProfile extends React.PureComponent {
     let PROFILE_DATA = this.props.profile === CommonConstants.STAFF_LABEL && this.props.profileData;
     return (
       <section>
-       <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')}/></div>
+        <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
         {PROFILE_DATA &&
           <Row>
-            <Col sm={8} md={9} xs={12} className="userData pull-right">
+            <Col sm={8} md={9} xs={12} className='userData pull-right'>
               <LegalName legalName={PROFILE_DATA.staffProfile.bioData.legalName} />
               <HomeAddress homeAddress={PROFILE_DATA.staffProfile.bioData.address.home} />
               <Address address={PROFILE_DATA.staffProfile.bioData.address.school} profile={this.props.profile} />
@@ -49,7 +49,7 @@ export class StaffProfile extends React.PureComponent {
               <Other other={PROFILE_DATA.staffProfile.bioData.contactDetail} profile={this.props.profile} />
               <FamilyDetail familyDetail={PROFILE_DATA.staffProfile.bioData.contactDetail.familyDetails} />
             </Col>
-            <Col md={3} sm={4} className="hidden-xs">
+            <Col md={3} sm={4} className='hidden-xs'>
               <LeftNav role={this.props.profile} />
             </Col>
           </Row>

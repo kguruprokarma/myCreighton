@@ -5,53 +5,53 @@
 import profileApi from '../middleware/profile/api';
 import * as types from './actionTypes';
 
-let requestStudentProfileData = () => ({
+const requestStudentProfileData = () => ({
   type: types.REQUEST_STUDENT_PROFILE_DATA
 });
 
-let receiveStudentProfileData = (profileData) => (
+const receiveStudentProfileData = (profileData) => (
   {
     type: types.RECEIVE_STUDENT_PROFILE_DATA,
     data: profileData
   });
 
-let receiveStudentProfileError = (bioJson) => (
+const receiveStudentProfileError = (bioJson) => (
   {
     type: types.RECEIVE_STUDENT_DATA_ERROR,
     data: bioJson
   });
 
-let requestStaffProfileData = () => ({
+const requestStaffProfileData = () => ({
   type: types.REQUEST_STAFF_PROFILE_DATA
 });
 
-let receiveStaffProfileData = (profileData) => (
-{
-  type: types.RECEIVE_STAFF_PROFILE_DATA,
-  data: profileData
-});
+const receiveStaffProfileData = (profileData) => (
+  {
+    type: types.RECEIVE_STAFF_PROFILE_DATA,
+    data: profileData
+  });
 
-let receiveStaffProfileError = (bioJson) => (
-{
-  type: types.RECEIVE_STAFF_DATA_ERROR,
-  data: bioJson
-});
+const receiveStaffProfileError = (bioJson) => (
+  {
+    type: types.RECEIVE_STAFF_DATA_ERROR,
+    data: bioJson
+  });
 
-let requestFacultyProfileData = () => ({
+const requestFacultyProfileData = () => ({
   type: types.REQUEST_FACULTY_PROFILE_DATA
 });
 
-let receiveFacultyProfileData = (profileData) => (
-{
-  type: types.RECEIVE_FACULTY_PROFILE_DATA,
-  data: profileData
-});
+const receiveFacultyProfileData = (profileData) => (
+  {
+    type: types.RECEIVE_FACULTY_PROFILE_DATA,
+    data: profileData
+  });
 
-let receiveFacultyProfileError = (bioJson) => (
-{
-  type: types.RECEIVE_FACULTY_DATA_ERROR,
-  data: bioJson
-});
+const receiveFacultyProfileError = (bioJson) => (
+  {
+    type: types.RECEIVE_FACULTY_DATA_ERROR,
+    data: bioJson
+  });
 
 export function getStudentProfileData(reqObj) {
   return function (dispatch) {

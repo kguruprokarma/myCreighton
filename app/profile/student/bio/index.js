@@ -44,7 +44,7 @@ export class Profile extends React.PureComponent {
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
         {USER_DATA &&
           <Row>
-            <Col sm={8} md={9} xs={12} className="userData pull-right">
+            <Col sm={8} md={9} xs={12} className='userData pull-right'>
               <LegalName legalName={USER_DATA.data[0].legal_name} />
               <HomeAddress homeAddress={USER_DATA.data[0].home_address} />
               <Address />
@@ -54,7 +54,7 @@ export class Profile extends React.PureComponent {
               <Other />
               <RelationDetail parentDetail={USER_DATA.data[0].parent} gurdianDetail={USER_DATA.data[0].guardian} />
             </Col>
-            <Col md={3} sm={4} className="hidden-xs">
+            <Col md={3} sm={4} className='hidden-xs'>
               <LeftNav role={this.props.profile} />
             </Col>
           </Row>
