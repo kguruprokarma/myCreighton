@@ -11,6 +11,7 @@ import Classes from './components/classes';
 import Instructor from './components/instructor';
 import Assignments from './components/assignments';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
+import style from '../eventsDetail/style.css';
 
 export class EventDetails extends React.PureComponent {
   constructor(){
