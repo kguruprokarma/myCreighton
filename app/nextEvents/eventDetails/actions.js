@@ -21,10 +21,10 @@ const receiveEventDetailsError = (error) => (
     data: error
   });
 
-export function getEventDetails() {
+export function getEventDetails(eventType) {
   return function (dispatch) {
     dispatch(requestEventDetailsData());
-    return EventDetailsApi.getEventDetails().then((response) => {
+    return EventDetailsApi.getEventDetails(eventType).then((response) => {
       dispatch(receiveEventDetailsData(response));
     })
       .catch((error) => {

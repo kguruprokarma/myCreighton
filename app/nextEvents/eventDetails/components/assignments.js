@@ -17,11 +17,10 @@ const Assignments = (assignmentsDetails) => (
           <Col md={4} sm={6} xs={6}>
 
             <div>{translateText('common:TITLE')}:</div>
-            <div>title:</div>
-            <div>Class:</div>
-            <div>Date:</div>
-            <div>Due Date:</div>
-            <div>Due Time:</div>
+            <div>{translateText('common:CLASS')}:</div>
+            <div>{translateText('common:DATE')}:</div>
+            <div>{translateText('common:DUE_DATE')}:</div>
+            <div>{translateText('common:DUE_TIME')}:</div>
           </Col>
           <Col md={8} sm={6} xs={6}>
             <div>{assignmentsDetails.data.title}</div>
@@ -34,7 +33,7 @@ const Assignments = (assignmentsDetails) => (
         </Row>
         <Row className="openSansLight fs1pt2 gbl_lh">
           <Col md={4} sm={6} xs={6}>
-            <div>EVENTS NOTES</div>
+            <div>{translateText('common:EVENTS_NOTES')}</div>
           </Col>
           <Col md={8} sm={6} xs={12}>
             <div>{assignmentsDetails.data.eventNotes}</div>

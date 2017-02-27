@@ -21,7 +21,7 @@ export class EventDetails extends React.PureComponent {
     this.eventType = this.props.params.eventdetailstype;
     this.eventId = this.props.params.id;
     
-    this.props.getEventDetails();
+    this.props.getEventDetails(this.eventType.toUpperCase());
   }
   
   render() {

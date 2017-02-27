@@ -87,6 +87,11 @@
   "NEXT_EVENTS":"NEXT EVENTS",
   "ASSIGNMENT": "Assignments",
   "EVENT_NOTES": "EVENT NOTES",
+  "DUE_DATE": "Due date",
+  "DUE_TIME": "Due time",
+  "DATE": "Date",
+  "CLASS": "Class",
+  "EVENTS_NOTES": "EVENTS NOTES",
 
   "NET_ID": "NetID"
 }
