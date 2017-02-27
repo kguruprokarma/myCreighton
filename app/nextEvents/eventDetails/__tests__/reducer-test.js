@@ -10,7 +10,7 @@ import * as types from '../actionTypes'
 describe('Next events test suit for students', () => {
 	it('should return the initial state', () => {
 		expect(reducer(undefined, {})).toEqual({
-              eventsDetail: {},
+              eventDetails: {},
               isLoading: false,
               error: false
 		});
@@ -19,14 +19,14 @@ describe('Next events test suit for students', () => {
 	it('should handle the next event error', () => {
 		expect(
 			reducer([], {
-				type: types.RECEIVE_EVENTS_DETAIL_DATA_ERROR,
+				type: types.RECEIVE_EVENT_DETAILS_DATA_ERROR,
                 data:{id:'1'},
                 isLoading: false,
                 error:false
 			})
 		).toEqual(
 			{
-              eventsDetail: [],
+              eventDetails: [],
               isLoading: false,
               error: true
 
@@ -37,7 +37,7 @@ describe('Next events test suit for students', () => {
    it('should handle the request next events data', () => {
 	 	expect(
      		reducer([], {
-	 			type: types.REQUEST_EVENTS_DETAIL_DATA,
+	 			type: types.REQUEST_EVENT_DETAILS_DATA,
 	 			data:{id:'1'}
 	 		})
 	 	).toEqual(
@@ -51,7 +51,7 @@ describe('Next events test suit for students', () => {
     it('should handle the receive next events data', () => {
 		expect(
 			reducer([], {
-				type: types.RECEIVE_EVENTS_DETAIL_DATA,
+				type: types.RECEIVE_EVENT_DETAILS_DATA,
 				data:{id:'1'},
                 isLoading: false,
                 error: false				
@@ -59,7 +59,7 @@ describe('Next events test suit for students', () => {
 		).toEqual(
 			{
 				isLoading: false,		   
-                eventsDetail:{id:'1'}
+                eventDetails:{id:'1'}
 			}
 		);
 	});

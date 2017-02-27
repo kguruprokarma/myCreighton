@@ -13,7 +13,7 @@ import headerReducer  from '../header/reducer';
 import dashboardReducer  from '../dashboard/reducer';
 import mealPlanReducer  from '../dashboard/mealPlan/reducer';
 import eventsReducer from '../nextEvents/eventList/reducer';
-import eventsDetailReducer from '../nextEvents/eventsDetail/reducer';
+import eventDetailsReducer from '../nextEvents/eventDetails/reducer';
 import auth  from '../login/reducer';
 import { routerReducer as routing } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
@@ -38,7 +38,7 @@ const reducers = {
   mealPlanReducer:mealPlanReducer,
   headerReducer:headerReducer,
   eventsReducer:eventsReducer,
-  eventsDetailReducer: eventsDetailReducer,
+  eventDetailsReducer: eventDetailsReducer,
   routing:routing
 }
 

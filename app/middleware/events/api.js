@@ -6,7 +6,7 @@ import * as urlConstants from '../../constants/urlConstants';
 
 const EventListApi = {
   getEventData: () => axios.get(urlConstants.ROOT_URL + urlConstants.EVENTS_DATA),
-  getEventsDetail: () => axios.get(urlConstants.ROOT_URL + urlConstants.EVENTS_DETAIL)  
+  getEventDetails: () => axios.get(urlConstants.ROOT_URL + urlConstants.EVENT_DETAILS)  
 };
 
 export default EventListApi;

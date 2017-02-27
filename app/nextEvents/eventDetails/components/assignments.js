@@ -7,13 +7,16 @@ import { translateText } from '../../../common/translate';
 
 const Assignments = (assignmentsDetails) => (
   <section>
-    <div>{translateText('common:ASSIGNMENTS')}</div>
+    <div className="classAssignment mt20">
+      <h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>{translateText('common:ASSIGNMENTS')}</h4>
+    </div>
     <div>
       <Row> <Col md={12} sm={12} xs={12}>
         <div>{assignmentsDetails.data.name}</div>
-        <Row>
+        <Row className="openSansLight fs1pt2 gbl_lh">
           <Col md={4} sm={6} xs={6}>
 
+            <div>{translateText('common:TITLE')}:</div>
             <div>title:</div>
             <div>Class:</div>
             <div>Date:</div>
@@ -26,11 +29,10 @@ const Assignments = (assignmentsDetails) => (
             <div>{assignmentsDetails.data.date}</div>
             <div>{assignmentsDetails.data.dueDate}</div>
             <div>{assignmentsDetails.data.dueTime}</div>
-            <div>Make an appointment</div>
+            <a href="">Make an appointment</a>
           </Col>
         </Row>
-
-        <Row>
+        <Row className="openSansLight fs1pt2 gbl_lh">
           <Col md={4} sm={6} xs={6}>
             <div>EVENTS NOTES</div>
           </Col>
