@@ -50,7 +50,7 @@ export class FacultyProfile extends React.PureComponent {
               <FamilyDetail familyDetail={PROFILE_DATA.facultyProfile.bioData.contactDetail.familyDetails} />
             </Col>
             <Col md={3} sm={4} className="hidden-xs">
-              <LeftNav role={this.props.profile}/>
+              <LeftNav role={this.props.profile} />
             </Col>
           </Row>
         }
