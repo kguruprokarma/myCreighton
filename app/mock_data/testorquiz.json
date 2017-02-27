@@ -1,0 +1,15 @@
+{
+    "id": 4,
+    "eventType": "testorquiz",
+    "quizzes":
+    {
+        "title": "Chemistry Test",
+        "class": "Chemistry 105 Lab",
+        "date": "Feb 02, 2017",
+        "startTime": "9 am",
+        "endTime": "10:30 am.",
+        "point_worth": "75 points, 15% total grade",
+        "number_of_questions": "22 multiple choice, plus 3 essay",
+        "description": "Exam 3 covers Mill's greatest happiness principle and Bentham's principle of utility. Concepts: Classic, Act, Prefence and Rule, utilitarianism; Hedonic Calculus, loer and higher pleasures."
+    }
+}

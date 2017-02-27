@@ -38,7 +38,7 @@ export class EventList extends React.PureComponent {
               <div key={index}>
                 {eventType.type === NextEventsConstants.CLASSES && <Classes data={eventType} />}
                 {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
-                {eventType.type === NextEventsConstants.TEST_OR_QUIZZES && <Quizzes data={eventType} />}
+                {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} />}
                 {eventType.type === NextEventsConstants.ACADEMIC_MILESTONES && <AcademicMilestones data={eventType} />}
                 {eventType.type === NextEventsConstants.OUTLOOK && <OutlookCalendar data={eventType} />}
               </div>

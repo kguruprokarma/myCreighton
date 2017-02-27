@@ -15,7 +15,6 @@ import * as actionCreators from './actions';
 import Navigation from '../common/mainNav';
 import { translateText } from '../common/translate';
 
-
 export class Header extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -49,6 +48,7 @@ export class Header extends React.PureComponent {
     browserHistory.goBack();
   }
   render() {
+    console.log("this.props.currentState: ", this.props.currentState);
     return (
       <header>
         <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}</h1>

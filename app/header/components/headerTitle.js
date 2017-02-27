@@ -36,4 +36,8 @@ export default function (argument) {
     title = translateText('common:STAFF_PROFESSIONAL');
     return title;
   }
+  if (rootURL[2] === HEADER.EVENT_TEST_DETAILS && rootURL[1] === HEADER.EVENT_DETAILS) {
+    title = translateText('common:NEXT_EVENTS_TEST_DETAIL');
+    return title;
+  }
 }

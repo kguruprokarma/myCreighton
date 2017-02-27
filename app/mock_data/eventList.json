@@ -31,7 +31,7 @@
         "startTime": "1:00 p.m."
       }
     ],
-    "testOrQuizzes": [
+    "testOrQuiz": [
       {
         "id":4,
         "title": "Chemistry Test",

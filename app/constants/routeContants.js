@@ -18,8 +18,9 @@ export const STUDENT = '/student';
 export const STAFF = '/staff';
 export const FACULTY = '/faculty';
 export const EVENT_LIST = '/eventlist';
-export const EVENT_DETAILS = '/eventDetails';
+//export const EVENT_DETAILS = '/eventDetails';
 export const PROFESSIONAL = '/professional';
+export const EVENT_DETAILS = '/eventdetails';
 
 /*
 * Relative path url's parameters for components
@@ -31,8 +32,3 @@ export const USER_ROLE_TYPE = '/:roletype';
 export const ID_PARAM = '/:id';
 export const INDEX_PARAM = '/:index';
 export const EVENT_DETAILS_TYPE = '/:eventdetailstype';
-
-
-
-
-
