@@ -2,11 +2,12 @@
   "eventId": 43,
   "eventType": "assignments",  
   "assignments": {  
-    "title":"Assig.: Krebs cycle paper",
+    "title":"Krebs Cycle Paper",
+    "subTitle": "Submit paper in BlueLine",
     "class":"Chemistry 105",
-    "date":"February 15, 2017",
-    "dueDate":"jan 23",
-    "dueTime":"11:59 p.m."
+    "date":"Feb 15, 2017",
+    "dueTime":"11:59 p.m.",
+    "desc": "Write 5 or more pages on the Citric Acid Cycle. Be sure to address particular inputs and outputs such as Acetyl Co-A, NADH, FAFH2, and ATP. First explain the cycle. Identify the indicators of chemical change, including formation of a precipitate, evolution of a gas, color change,absorption or loss of heat energy."
   },
-  "eventNotes": "notes"
+  "eventNotes": ""
 }

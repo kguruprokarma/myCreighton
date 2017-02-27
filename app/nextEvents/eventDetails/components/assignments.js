@@ -7,43 +7,37 @@ import { translateText } from '../../../common/translate';
 
 const Assignments = (assignmentsDetails) => (
   <section>
-    <div className="classAssignment mt20">
-      <h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>{translateText('common:ASSIGNMENTS')}</h4>
+    <div className='classAssignment mt20'>
+      <h4 className='detailSubhead graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>{translateText('common:ASSIGNMENTS')}</h4>
     </div>
     <div>
-      <Row> <Col md={12} sm={12} xs={12}>
-        <div>{assignmentsDetails.data.name}</div>
-        <Row className="openSansLight fs1pt2 gbl_lh">
-          <Col md={4} sm={6} xs={6}>
-
-            <div>{translateText('common:TITLE')}:</div>
-            <div>{translateText('common:CLASS')}:</div>
-            <div>{translateText('common:DATE')}:</div>
-            <div>{translateText('common:DUE_DATE')}:</div>
-            <div>{translateText('common:DUE_TIME')}:</div>
-          </Col>
-          <Col md={8} sm={6} xs={6}>
-            <div>{assignmentsDetails.data.title}</div>
-            <div>{assignmentsDetails.data.class}</div>
-            <div>{assignmentsDetails.data.date}</div>
-            <div>{assignmentsDetails.data.dueDate}</div>
-            <div>{assignmentsDetails.data.dueTime}</div>
-            <a href="">Make an appointment</a>
-          </Col>
-        </Row>
-        <Row className="openSansLight fs1pt2 gbl_lh">
-          <Col md={4} sm={6} xs={6}>
+      <Row className='openSansLight fs1pt2 gbl_lh'> 
+        <Col md={12} sm={12} xs={12}>        
+          <div>{assignmentsDetails.data.title}</div>
+          <div>{assignmentsDetails.data.class}</div>
+          <Row>
+            <Col md={6}>
+              Due <div>{assignmentsDetails.data.dueTime}</div>
+            </Col>
+            <Col md={6}>
+              <div>{assignmentsDetails.data.date}</div>
+            </Col>
+          </Row>
+          <div>ASSIGNMENT DETAILS</div>
+          <div>{assignmentsDetails.data.desc}</div>
+        </Col>              
+      </Row>
+      { assignmentsDetails.data.eventNotes === '' ?
+        <Row className='openSansLight fs1pt2 gbl_lh'>
+          <Col md={12} sm={12} xs={12}>
             <div>{translateText('common:EVENTS_NOTES')}</div>
           </Col>
-          <Col md={8} sm={6} xs={12}>
+          <Col md={12} sm={12} xs={12}>
             <div>{assignmentsDetails.data.eventNotes}</div>
           </Col>
-        </Row>
-      </Col>
-      </Row>
+        </Row> : ''
+      }
     </div>
-
   </section>
 );
-
 export default Assignments;
