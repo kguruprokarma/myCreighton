@@ -14,6 +14,7 @@ import dashboardReducer  from '../dashboard/reducer';
 import mealPlanReducer  from '../dashboard/mealPlan/reducer';
 import eventsReducer from '../nextEvents/eventList/reducer';
 import eventDetailsReducer from '../nextEvents/eventDetails/reducer';
+import professionalReducer  from '../profile/staff/professional/reducer';
 import auth  from '../login/reducer';
 import { routerReducer as routing } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
@@ -32,13 +33,14 @@ const reducers = {
   auth:auth,
   profileReducer:profileReducer,
   academicReducer: academicReducer,
-  classesReducer:classesReducer, 
+  classesReducer:classesReducer,
   classDetailsReducer:classDetailsReducer,
   dashboardReducer:dashboardReducer,
   mealPlanReducer:mealPlanReducer,
   headerReducer:headerReducer,
   eventsReducer:eventsReducer,
   eventDetailsReducer: eventDetailsReducer,
+  professionalReducer:professionalReducer,
   routing:routing
 }
 

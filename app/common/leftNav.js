@@ -12,10 +12,10 @@ const LeftNav = (leftNavProps) => (
   <nav role='navigation' id='localmenu' className='userLeftmenu'>
     <h1 className='announced-only'>{translateText('common:LOCAL_MENU')}</h1>
     <div className='list-group openSansLight'>
-      <Link to={leftNavProps.role === CommonConstants.STUDENT_LABEL ? ROUTE_URL.PROFILE : (leftNavProps.role === CommonConstants.STAFF_LABEL ? ROUTE_URL.STAFF : ROUTE_URL.FACULTY)} className='list-group-item' activeClassName='active' >
+      <Link to={(leftNavProps.role === CommonConstants.STUDENT_LABEL) ? ROUTE_URL.PROFILE : (leftNavProps.role === CommonConstants.STAFF_LABEL ? ROUTE_URL.STAFF : ROUTE_URL.FACULTY)} className='list-group-item' activeClassName='active' >
         {translateText('common:PROFILE_MY_PROFILE')}
       </Link>
-      <Link to={leftNavProps.role === CommonConstants.STUDENT_LABEL ? ROUTE_URL.ACADEMIC : (leftNavProps.role === CommonConstants.STAFF_LABEL ? '' : '')} className='list-group-item' activeClassName='active' >
+      <Link to={(leftNavProps.role === CommonConstants.STUDENT_LABEL) ? ROUTE_URL.ACADEMIC : (leftNavProps.role === CommonConstants.STAFF_LABEL ? ROUTE_URL.PROFESSIONAL : '')} className='list-group-item' activeClassName='active' >
         {(leftNavProps.role === CommonConstants.STAFF_LABEL ? translateText('common:STAFF_PROFESSIONAL') : translateText('common:PROFILE_ACADEMIC'))}
       </Link>
     </div>

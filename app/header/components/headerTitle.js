@@ -28,4 +28,12 @@ export default function (argument) {
     title = translateText('common:NEXT_EVENTS');
     return title;
   }
+  if (rootURL[2] === HEADER.CLASSES && rootURL[1] === HEADER.EVENT_DETAILS) {
+    title = translateText('common:NEXT_EVENTS_CLASSES');
+    return title;
+  }
+  if (rootURL[1] === HEADER.PROFESSIONAL) {
+    title = translateText('common:STAFF_PROFESSIONAL');
+    return title;
+  }
 }

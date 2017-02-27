@@ -8,7 +8,7 @@ import * as ROUTE_URL from '../../../constants/routeContants';
 
 const Classes = (classesProps) => (
   <section className='eventClasses' id='eventsClassesList'>
-    <Link to={ROUTE_URL.EVENT_DETAILS + '/' + classesProps.data.id}>
+    <Link to={`${ROUTE_URL.EVENT_DETAILS}/${classesProps.data.type}/${classesProps.data.id}`}>
       <div className='hidden-xs desktopEventsList'>
         <Col md={6} sm={6}>
           <h3 className='pull-left mb0 eventHeading'>{classesProps.data.className} </h3>

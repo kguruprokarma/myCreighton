@@ -19,6 +19,7 @@ export const STAFF = '/staff';
 export const FACULTY = '/faculty';
 export const EVENT_LIST = '/eventlist';
 export const EVENT_DETAILS = '/eventDetails';
+export const PROFESSIONAL = '/professional';
 
 /*
 * Relative path url's parameters for components

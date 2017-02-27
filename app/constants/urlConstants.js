@@ -8,6 +8,7 @@ export const ACADEMIC_DATA = '/academic_data.json';
 export const CLASSES_DATA = '/classesByWeek.json';
 export const CLASSES_DATA_ATOZ = '/classesByAtoZ.json';
 export const CLASSES_DATA_TODAY = '/classesOfToday.json';
+export const PROFESSIONAL_DATA = '/professional_data.json';
 export const PROFILE_DATA = '/myProfile.json';
 export const API_GATEWAY = 'http://api-gateway01.creighton.edu'; //'http://reduxblog.herokuapp.com';
 export const API_DATA = '/studentProfile/'; //'/myProfile.json'; //http://reduxblog.herokuapp.com/api/posts

@@ -8,7 +8,8 @@ describe('<learnerReducer />', () => {
 		expect(reducer(undefined, {})).toEqual({
               academicData: {},
               isLoading: false,
-              error: false
+              error: false,
+			  profile: 'STUDENT'
 		})
 	})
 

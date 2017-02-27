@@ -58,7 +58,7 @@ export class Academic extends React.PureComponent {
 const mapStateToProps = (academicState) => (
   {
     academicData: academicState.academicReducer.academicData.data,
-    profile: academicState.profileReducer.profile
+    profile: academicState.academicReducer.profile
 
   });
 
