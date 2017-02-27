@@ -20,6 +20,7 @@ import i18n from '../i18n'; // initialized i18next instance
 import * as ROUTE_URL from '../constants/routeContants';
 import EventList from '../nextEvents/eventList';
 import EventDetails from '../nextEvents/eventDetails';
+import Professional from '../profile/staff/professional';
 import * as interceptor from './interceptor';
 
 const store = configureStore();
@@ -41,6 +42,7 @@ const routes = (
         <Route path={ROUTE_URL.EVENT_LIST} title='' component={EventList} />
         <Route path={ROUTE_URL.FACULTY }  title="Faculty Profile -" component={FacultyProfile} />
         <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM} title='Event Detail - ' component={EventDetails} />
+        <Route path={ROUTE_URL.PROFESSIONAL} title='Professional - ' component={Professional} />
       </Route>
     </Router>
   </Provider>

@@ -14,3 +14,4 @@ export const DASHBOARD = 'dashboard';
 export const STAFF_PROFILE = 'staff'; 
 export const EVENT_LIST = 'eventlist';
 export const EVENT_DETAILS = 'eventDetails';
+export const PROFESSIONAL = 'professional';

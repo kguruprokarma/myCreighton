@@ -7,7 +7,8 @@ import * as types from './actionTypes';
 const initialState = {
   academicData: {},
   isLoading: false,
-  error: false
+  error: false,
+  profile: 'STUDENT'
 };
 
 const academicReducer = (state = initialState, action = null) => {

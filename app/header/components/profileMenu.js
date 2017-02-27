@@ -29,7 +29,7 @@ export const profileMenuList = (roleType) => {
       },
       {
         'itemName': CommonConstants.PROFESSIONAL,
-        'link': ''
+        'link': ROUTE_URL.PROFESSIONAL
       },
       {
         'itemName': CommonConstants.SIGN_OUT,
