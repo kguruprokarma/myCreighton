@@ -21,39 +21,49 @@ import { Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../common/headerLabel';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
+import * as URL_CONSTANTS from '../../constants/urlConstants';
+import FacultyProfileView from './components/profile';
+import FacultyAcademicView from './components/academic';
 
 export class FacultyProfile extends React.PureComponent {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.headerText = '';
   }
   componentWillMount() {
-    this.props.getFacultyProfileData();
+    if (this.props.params.facultyprofileparam === URL_CONSTANTS.PROFILE) {    
+      this.props.getFacultyProfileData();
+      this.headerText = translateText('common:PROFILE_MY_PROFILE');
+    }
+    if (this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC) { 
+      this.headerText = translateText('common:ACADEMIC'); this.props.getFacultyProfileData();  
+      this.props.getFacultyAcademicData();
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.params.facultyprofileparam && this.url !== nextProps.params.facultyprofileparam) {
+      this.url = nextProps.params.facultyprofileparam;
+      if (this.url === URL_CONSTANTS.PROFILE) {    
+        this.headerText = translateText('common:PROFILE_MY_PROFILE');
+        this.props.getFacultyProfileData();
+      }
+      if (this.url === URL_CONSTANTS.ACADEMIC) {  
+        this.headerText = translateText('common:ACADEMIC');  this.props.getFacultyProfileData();
+        this.props.getFacultyAcademicData();
+      }
+    } 
   }
 
   render() {
-    let PROFILE_DATA = this.props.profile === CommonConstants.FACULTY_LABEL && this.props.profileData;
+    const PROFILE_DATA = this.props.profile === CommonConstants.FACULTY_LABEL && this.props.profileData;
+    console.log(PROFILE_DATA);
     return (
       <section>
-        <HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} />
-        {PROFILE_DATA &&
-          <Row>
-            <Col sm={8} md={9} xs={12} className="userData pull-right">
-              <LegalName legalName={PROFILE_DATA.facultyProfile.bioData.legalName} />
-              <HomeAddress homeAddress={PROFILE_DATA.facultyProfile.bioData.address.home} />
-              <Address address={PROFILE_DATA.facultyProfile.bioData.address.school} profile={this.props.profile} />
-              <Address address={PROFILE_DATA.facultyProfile.bioData.address.mailing} shouldShowWhenFaculty={true} profile={this.props.profile} />
-              <PrimaryContact primaryContact={PROFILE_DATA.facultyProfile.bioData.contactDetail} />
-              <EmergencyContact emergencyContact={PROFILE_DATA.facultyProfile.bioData.contactDetail.emergencyContact} />
-              <Email email={PROFILE_DATA.facultyProfile.bioData.contactDetail.email} />
-              <Other other={PROFILE_DATA.facultyProfile.bioData.contactDetail} profile={this.props.profile} />
-              <FamilyDetail familyDetail={PROFILE_DATA.facultyProfile.bioData.contactDetail.familyDetails} />
-            </Col>
-            <Col md={3} sm={4} className="hidden-xs">
-              <LeftNav role={this.props.profile} />
-            </Col>
-          </Row>
-        }
+        <HeaderLabel headerLabel={this.headerText} />
+        {this.props.params.facultyprofileparam === URL_CONSTANTS.PROFILE && PROFILE_DATA && <FacultyProfileView data={PROFILE_DATA} facultyProfile={this.props.profile} />}
+        {this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC && PROFILE_DATA && <FacultyAcademicView data={PROFILE_DATA} facultyProfile={this.props.profile} />}
       </section>
     );
   }
@@ -68,4 +78,4 @@ const mapStateToProps = (bioState) => (
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(FacultyProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(FacultyProfile);

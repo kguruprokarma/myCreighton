@@ -107,5 +107,21 @@
  "STAFF_APPLICATIONS/TOOLS": "Applications/Tools",
  "STAFF_GROUP": "Group",
 
+  "COMMON_TITLE": "Title",
+  "COMMON_CLASS": "Class",
+  "COMMON_DATE": "Date",
+  "COMMON_TIME": "Time",
+  "COMMON_DESCRIPTION": "Description",
+  "QUIZ_POINTS_WORTH": "Points Worth",
+  "QUIZ_NUMBER_OF_QUESTIONS": "Number of Questions",
+  "STATUS": "Status",
+  "CREDIT_HOURS": "Credit hours",
+  "CURRENT_COURSES": "Current courses",
+  "PAST_COURSES": "Past courses",
+  "TEACHING_ASSISTANTS": "Teaching assistants",
+  "LOCATION": "Location",
+  "INSTRUCTION": "INSTRUCTION",
+  "OFFICE_INFORMATION": "OFFICE INFORMATION",
+
   "NET_ID": "NetID"
 }

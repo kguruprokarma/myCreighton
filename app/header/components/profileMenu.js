@@ -39,11 +39,11 @@ export const profileMenuList = (roleType) => {
     faculty: [
       {
         'itemName': CommonConstants.MY_PROFILE,
-        'link': ROUTE_URL.FACULTY
+        'link': ROUTE_URL.FACULTY + ROUTE_URL.PROFILE
       },
       {
         'itemName': CommonConstants.ACADEMIC,
-        'link': ''
+        'link': ROUTE_URL.FACULTY + ROUTE_URL.ACADEMIC
       },
       {
         'itemName': CommonConstants.SIGN_OUT,

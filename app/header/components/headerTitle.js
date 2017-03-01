@@ -40,4 +40,8 @@ export default function (argument) {
     title = translateText('common:NEXT_EVENTS_TEST_DETAIL');
     return title;
   }
+  if (rootURL[2] === HEADER.ASSIGNMENTS && rootURL[1] === HEADER.EVENT_DETAILS) {
+    title = translateText('common:ASSIGNMENTS');
+    return title;
+  }
 }

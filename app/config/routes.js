@@ -40,7 +40,7 @@ const routes = (
           <Route path={ROUTE_URL.DASHBOARD + ROUTE_URL.USER_ROLE_TYPE} title='' component={Dashboard} />
           <Route path={ROUTE_URL.STAFF} title='Staff Profile -' component={StaffProfile} />
           <Route path={ROUTE_URL.EVENT_LIST} title='' component={EventList} />
-          <Route path={ROUTE_URL.FACULTY} title='Faculty Profile -' component={FacultyProfile} />
+          <Route path={ROUTE_URL.FACULTY + ROUTE_URL.FACULTY_PROFILE_PARAM} title='Faculty Profile -' component={FacultyProfile} />
           <Route path={ROUTE_URL.PROFESSIONAL} title='Professional - ' component={Professional} />
           <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM} title='Event Detail - ' component={EventDetails} />
         </Route>

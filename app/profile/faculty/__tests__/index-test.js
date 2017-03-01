@@ -11,6 +11,7 @@ describe('index files in faculty testing ----->', () => {
     const minProps = {
         getFacultyProfileData: () => { },
         profile: 'FACULTY',
+        facultyprofileparam: 'profile',
         profileData: {
             "facultyProfile": {
                 "bioData": {

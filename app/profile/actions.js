@@ -53,6 +53,23 @@ const receiveFacultyProfileError = (bioJson) => (
     data: bioJson
   });
 
+const requestFacultyAcademicData = () => (
+  {
+    type: types.REQUEST_FACULTY_ACADEMIC_DATA
+  });
+
+const receiveFacultyAcademicData = (facultyAcamedic) => (
+  {
+    type: types.RECEIVE_FACULTY_ACADEMIC_DATA,
+    data: facultyAcamedic
+  });
+
+const receiveFacultyAcademicDataError = (facultyAcamedicError) => (
+  {
+    type: types.RECEIVE_FACULTY_ACADEMIC_DATA_ERROR,
+    data: facultyAcamedicError
+  });
+
 export function getStudentProfileData(reqObj) {
   return function (dispatch) {
     dispatch(requestStudentProfileData());
@@ -101,5 +118,19 @@ export function getFacultyProfileData() {
         }));
       }
       );
+  };
+}
+
+// action method to get the faculty academic data
+export function getFacultyAcademicData() {
+  return function (dispatch) {
+    dispatch(requestFacultyAcademicData());
+    return profileApi.getFacultyAcademicData().then((response) => {
+      dispatch(receiveFacultyAcademicData(response));
+    }).catch((error) => {
+      dispatch(receiveFacultyAcademicDataError({
+        error: error
+      }));
+    });
   };
 }

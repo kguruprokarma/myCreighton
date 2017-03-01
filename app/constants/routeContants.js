@@ -32,3 +32,4 @@ export const USER_ROLE_TYPE = '/:roletype';
 export const ID_PARAM = '/:id';
 export const INDEX_PARAM = '/:index';
 export const EVENT_DETAILS_TYPE = '/:eventdetailstype';
+export const FACULTY_PROFILE_PARAM = '/:facultyprofileparam';

@@ -64,6 +64,23 @@ const profileReducer = (state = initialState, action = null) => {
         profile: types.FACULTY_PROFILE_NAME,
         profileData: action.data
       });
+    case types.REQUEST_FACULTY_ACADEMIC_DATA:
+      return Object.assign({}, state, {
+        isLoading: true,
+        error: false
+      });
+    case types.RECEIVE_FACULTY_ACADEMIC_DATA:
+      return Object.assign({}, state, {
+        isLoading: false,
+        profile: types.FACULTY_PROFILE_NAME,
+        profileData: action.data
+      });
+    case types.RECEIVE_FACULTY_ACADEMIC_DATA_ERROR:
+      return Object.assign({}, state, {
+        isLoading: false,
+        error: true,
+        profileData: []
+      });
     default:
       return state;
   }
