@@ -11,7 +11,7 @@ import Instructor from './components/instructor';
 import Assignments from './components/assignments';
 import TestOrQuiz from './components/testOrQuiz';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
-import style from '../eventsDetail/style.css';
+import style from '../eventDetails/style.css';
 import HeaderLabel from './../../common/headerLabel';
 import * as HEADER from '../../constants/headerTitleConstants';
 
@@ -28,9 +28,9 @@ export class EventDetails extends React.PureComponent {
     console.log("eventdetailstype: ", this.props.params.eventdetailstype);
     console.log("EVENT_TEST_DETAILS,  ", this.props.params.eventdetailstype === HEADER.EVENT_TEST_DETAILS);
     return (<section> 
-      <div className='hidden-xs'>
+      {/*<div className='hidden-xs'>
           {this.props.params.eventdetailstype === HEADER.EVENT_TEST_DETAILS ? <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS_TEST_DETAIL')} />:<HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />}
-      </div>
+      </div>*/}
       {details && <div>
           {this.eventType === NextEventsConstants.ASSIGNMENTS && details && <Assignments data={details.assignments} />}
           {this.eventType === NextEventsConstants.TEST_OR_QUIZ && details && <TestOrQuiz data={details.quizzes} />}            
