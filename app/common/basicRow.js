@@ -10,7 +10,7 @@ const BasicRow = (basicRowProps) => (
     <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor={basicRowProps.displayName}>{basicRowProps.displayName}</label></Col>
     {basicRowProps.pdType ? <Col xs={8} md={8} sm={8} className='dataField'>{
       basicRowProps.displayValue.map((pdSkills, skillIndex) => {
-        return (<div key={skillIndex}>{pdSkills}</div>)
+        return (<div key={skillIndex}>{pdSkills}</div>);
       })}</Col> : 
     <Col xs={8} md={9} sm={8} className='dataField'>{basicRowProps.displayValue}</Col>}
   </Row>

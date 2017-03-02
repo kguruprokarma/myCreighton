@@ -28,7 +28,7 @@ export class FacultyProfile extends React.PureComponent {
       this.headerText = translateText('common:PROFILE_MY_PROFILE');
     }
     if (this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC) { 
-      this.headerText = translateText('common:ACADEMIC'); this.props.getFacultyProfileData();  
+      this.headerText = translateText('common:ACADEMIC');
       this.props.getFacultyAcademicData();
     }
   }
@@ -41,7 +41,7 @@ export class FacultyProfile extends React.PureComponent {
         this.props.getFacultyProfileData();
       }
       if (this.url === URL_CONSTANTS.ACADEMIC) {  
-        this.headerText = translateText('common:ACADEMIC');  this.props.getFacultyProfileData();
+        this.headerText = translateText('common:ACADEMIC');
         this.props.getFacultyAcademicData();
       }
     } 
