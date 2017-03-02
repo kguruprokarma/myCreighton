@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import TodayClasses from '../components/todayClasses';
-import { todayHeader, DATATIME } from '../../../common/utility';
+import { todayHeader, DataTime } from '../../../common/utility';
 describe('TodayClasses component testing ----->', () => {
 
   const defaultProps = {
@@ -39,7 +39,7 @@ describe('TodayClasses component testing ----->', () => {
     ]
   };
   const todayHeaderText = todayHeader();
-  const TodayClassesC = shallow(<TodayClasses  listOfData={DATATIME(defaultProps.classes, 'time')}/>);
+  const TodayClassesC = shallow(<TodayClasses  listOfData={DataTime(defaultProps.classes, 'time')}/>);
 
   it('TodayClasses is defined', () => {
     expect(TodayClassesC).toBeDefined();

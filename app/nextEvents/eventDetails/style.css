@@ -1,0 +1,42 @@
+.eventheaderLabel {
+    padding-bottom: 20px;
+}
+
+.eventDate {
+    font: #c8c7cc;
+    text-align: right;
+    line-height: 10px;
+}
+
+.eventTitle {
+    font-size: 1.7333333333333334em;
+    line-height: 32px;
+    color: #313131;
+    font-family: 'open_sanslight';
+}
+
+.eventSubject {
+    font-size: 1.1333333333333333em;
+    font: black;
+    font-family: 'open_sansregular', sans-serif;
+}
+
+.eventTiming {
+    line-height: 15px;
+    line-height: 1.42857143;
+}
+
+.eventDetail {
+    font: black;
+    text-transform: uppercase;
+    line-height: 1.42857143;
+}
+
+.eventNotes {
+    font: black;
+    line-height: 1.42857143;
+}
+
+.eventDetailsTitle {
+    border-bottom:4px solid #ccc;
+}

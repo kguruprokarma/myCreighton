@@ -20,7 +20,7 @@ export class Classes extends React.PureComponent {
     super(props);
     this.onChangeOfTab = this.onChangeOfTab.bind(this);
     this.onChangeOfTab(this.props.params.classtab);
-    this.state = { presentState: '' }
+    this.state = { presentState: '' };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -42,20 +42,20 @@ export class Classes extends React.PureComponent {
   }
 
   render() {
-
-    let USER_DATA = this.props.classesData;
+    const classListData = this.props;
+    const USER_DATA = classListData.classesData;
     return (
-      <section id="classSchedule">
+      <section id='classSchedule'>
         {USER_DATA && <div>
           <Row>
-            <Col md={8} sm={6} xs={12} className="hidden-xs">
-              <HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} />
+            <Col md={8} sm={6} xs={12} className='hidden-xs'>
+              <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} /></div>
             </Col>
-            <Col md={4} sm={6} xs={12} className="controller-buttons">
+            <Col md={4} sm={6} xs={12} className='controller-buttons'>
               <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />
             </Col>
           </Row>
-          <ClassBox data={USER_DATA.classes} catagoryName={this.props.params.classtab} />
+          <ClassBox data={USER_DATA.classes} catagoryName={classListData.params.classtab} />
         </div>
         }
       </section>
@@ -63,14 +63,12 @@ export class Classes extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (classesState) => {
-  return (
-    {
-      classesData: classesState.classesReducer.classesData.data,
-      catagoryName: classesState.classesReducer.catagoryName
-    })
-}
+const mapStateToProps = (classesState) => (
+  {
+    classesData: classesState.classesReducer.classesData.data,
+    catagoryName: classesState.classesReducer.catagoryName
+  });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Classes)
+export default connect(mapStateToProps, mapDispatchToProps)(Classes);

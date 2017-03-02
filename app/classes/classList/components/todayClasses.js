@@ -13,16 +13,14 @@ const TodayClasses = (todayProps) => (
   <div>
     <DayHeader day={todayHeader()} />
     {
-        todayProps.listOfData.map((todayClass, index) => {
-          return (
-            <div key={index} id='cls'>
-              <Link to={ROUTE_URL.CLASS_DETAILS + '/'+ todayProps.catagory + '/' + todayClass.id + '/' + index}>
-                <ClassInfo data={todayClass} />
-              </Link>
-            </div>
-          );
-        })
-        }
+      todayProps.listOfData.map((todayClass, index) => (
+        <div key={index} id='cls'>
+          <Link to={`${ROUTE_URL.CLASS_DETAILS}/${todayProps.catagory}/${todayClass.id}/${index}`}>
+            <ClassInfo data={todayClass} />
+          </Link>
+        </div>
+      ))
+    }
   </div>
 );
 

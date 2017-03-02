@@ -20,6 +20,8 @@ import LeftNav from '../../../common/leftNav';
 import { Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../../common/headerLabel';
 import { translateText } from '../../../common/translate';
+import * as CommonConstants from '../../../constants/commonConstants';
+import { authUserDetails } from '../../../common/utility';
 
 export class Profile extends React.PureComponent {
 
@@ -28,42 +30,46 @@ export class Profile extends React.PureComponent {
   }
 
   componentWillMount() {
-    this.props.getStudentProfileData();
+    let userReqObj = authUserDetails();
+    userReqObj = {};
+    userReqObj.primaryKey = 'netid';
+    userReqObj.primaryValue ='9274b95f72';    
+    this.props.getStudentProfileData(userReqObj);
   }
 
   render() {
-    let USER_DATA = this.props.profile === 'STUDENT' &&  this.props.profileData;
+    let USER_DATA = this.props.profile === CommonConstants.STUDENT_LABEL && this.props.profileData;
     return (
-        <section>
-          <HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} />
-          {USER_DATA &&
+      <section>
+        <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
+        {USER_DATA &&
           <Row>
-            <Col sm={8} md={9} xs={12} className="userData pull-right">
-              <LegalName legalName={USER_DATA.studentProfile.bioData.legalName} />
-              <HomeAddress homeAddress={USER_DATA.studentProfile.bioData.address.home} />
-              <Address address={USER_DATA.studentProfile.bioData.address.school} profile={this.props.profile}/>
-              <PrimaryContact primaryContact={USER_DATA.studentProfile.bioData.contactDetail} />
-              <EmergencyContact emergencyContact={USER_DATA.studentProfile.bioData.contactDetail.emergencyContact} />
-              <Email email={USER_DATA.studentProfile.bioData.contactDetail.email} />
-              <Other other={USER_DATA.studentProfile.bioData.contactDetail} />
-              <RelationDetail relationDetail={USER_DATA.studentProfile.bioData.contactDetail.relationDetail} />
+            <Col sm={8} md={9} xs={12} className='userData pull-right'>
+              <LegalName legalName={USER_DATA.data[0].legal_name} />
+              <HomeAddress homeAddress={USER_DATA.data[0].home_address} />
+              <Address schoolAddress={USER_DATA.data[0].school_address}  />
+              <PrimaryContact primaryContact={USER_DATA.data[0].primary_phone_no} />
+              <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} />
+              <Email email={USER_DATA.data[0].email} />
+              <Other profile={this.props.profile} detail={USER_DATA.data[0]} />
+              <RelationDetail parentDetail={USER_DATA.data[0].parent} gurdianDetail={USER_DATA.data[0].guardian} />
             </Col>
-            <Col md={3} sm={4} className="hidden-xs">
-              <LeftNav />
+            <Col md={3} sm={4} className='hidden-xs'>
+              <LeftNav role={this.props.profile} />
             </Col>
           </Row>
-          }
-        </section>
+        }
+      </section>
     );
   }
 }
 
 const mapStateToProps = (bioState) => (
-{
-  profileData: bioState.profileReducer.profileData.data,
-  profile: bioState.profileReducer.profile
+  {
+    profileData: bioState.profileReducer.profileData.data,
+    profile: bioState.profileReducer.profile
 
-});
+  });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 

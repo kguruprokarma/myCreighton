@@ -6,17 +6,15 @@ import React from 'react';
 import { translateText } from '../../../common/translate';
 
 const ClassAssignments = (classAssignProps) => (
-	<article className="classAssignment mb25 mt20">
-		<h4 className="detailSubhead graybtBorder mb10"><span className="documentIcon">&nbsp;</span>{translateText('common:ASSIGNMENTS_DUE')}</h4>
-		{classAssignProps.assignmentsDue.map((classesDue, classesDueIndex) => {
-			return (
-				<div className="openSansLight fs1pt2 gbl_lh" key={classesDueIndex}>
-					{classesDue}
-				</div>
-			)
-		})
-		}
-	</article>
-)
+  <article className='classAssignment mb25 mt20'>
+    <h4 className='detailSubhead graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>{translateText('common:ASSIGNMENTS_DUE')}</h4>
+    {classAssignProps.assignmentsDue.map((classesDue, classesDueIndex) => (
+      <div className='openSansLight fs1pt2 gbl_lh' key={classesDueIndex}>
+        {classesDue}
+      </div>
+    ))
+    }
+  </article>
+);
 
-export default ClassAssignments; 
+export default ClassAssignments;

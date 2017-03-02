@@ -14,47 +14,46 @@ import TestsOrQuizzes from './../classDetails/components/testsOrQuizzes';
 import * as actionCreators from './actions';
 import style from '../classDetails/style.css';
 import * as _ from 'lodash';
-import { Link } from 'react-router';
-import PreviousNext from "../../common/previousNext";
+import PreviousNext from '../../common/previousNext';
 import { translateText } from '../../common/translate';
+import * as HEADER from '../../constants/headerTitleConstants';
 
 export class ClassDetails extends React.PureComponent {
 
-    constructor() {
-        super()
-    }
+  
+  componentWillMount() {
+    this.props.getClassDetails(this.props.params.id);
+  }
+  render() {
 
-    componentWillMount() {
-        this.props.getClassDetails(this.props.params.id);
-    }
-    render() {
-
-        let classData = this.props.classDetails && this.props.classDetails.data
-            && _.find(this.props.classDetails.data, { id: parseInt(this.props.params.id) });
-        return (
-            <section className="classesDeatils">
-                <div className="hidden-xs"> <HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} /></div>
-                {(classData && Object.keys(classData).length > 0) && (<div>
-                    <ClassInfo {...classData.classHeader} />
-                    <ClassAssignments {...classData} />
-                    <TodaysClass {...classData} />
-                    <UpcomingAssignments {...classData} />
-                    <TestsOrQuizzes {...classData} />
-                </div>)}
-                {(classData && Object.keys(classData).length > 0) && (
-                    <PreviousNext presentCategory={this.props.params.categoryname} presentIndex={this.props.params.index} />)}
-            </section>
-        );
-    }
+    const classData = this.props.classDetails && this.props.classDetails.data
+      && _.find(this.props.classDetails.data, { id: parseInt(this.props.params.id) });
+    return (
+      <section className='classesDeatils'>
+        <div className='hidden-xs'>
+          <HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />
+        </div>
+        {(classData && Object.keys(classData).length > 0) && (<div>
+          <ClassInfo {...classData.classHeader} />
+          <ClassAssignments {...classData} />
+          <TodaysClass {...classData} />
+          <UpcomingAssignments {...classData} />
+          <TestsOrQuizzes {...classData} />
+        </div>)}
+        {this.props.params.index ? (classData && Object.keys(classData).length > 0) && (
+        <PreviousNext presentCategory={this.props.params.categoryname} presentIndex={this.props.params.index} />):''}
+      </section>
+    );
+  }
 }
 
 const mapStateToProps = (classDetailsState) => (
-    {
-        classDetails: classDetailsState.classDetailsReducer.classDetails
+  {
+    classDetails: classDetailsState.classDetailsReducer.classDetails
+  }
+);
 
-    })
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(ClassDetails)
+export default connect(mapStateToProps, mapDispatchToProps)(ClassDetails);
 

@@ -1,62 +1,60 @@
- {
-     "staffProfile": {
-        "bioData": {
-            "legalName": {
-                "first": "Adam",
-                "middle": "F",
-                "last": "John"
+{
+    "timing": "-1.343",
+    "data": [
+        {
+            "netid": "5de48407ab",
+            "birth_date": "1992-05-26",
+            "email": {
+                "school_email": "5de48407ab@creighton.edu",
+                "personal_email":"9274b95f72@creighton.edu"
             },
-            "address": {
-                "home": {
-                    "street1": "12345 Nicolas St",
-                    "street2": "21st",
-                    "city": "Omaha",
-                    "state": "Nebraska",
-                    "postalCode": "68154-1234"
-                },
-                "school": {
-                    "street1": "2112 California St",
-                    "street2": "22nd",
-                    "city": "Omaha",
-                    "state": "Nebraska",
-                    "postalCode": "68179"
-                },
-                "mailing": {
-                    "street1": "2112 California St",
-                    "street2": "22nd",
-                    "city": "Omaha",
-                    "state": "Nebraska",
-                    "postalCode": "68179"  
-                }
+            "emergency_contact": {
+                "first_name": "3ee294b7e7",
+                "last_name": "541af1c56f",
+                "middle_name": null,
+                "phone":"402.280.2700",
+                "relationship":"Mother"
             },
-            "contactDetail": {
-                "primaryPhone": "402.334.0477",
-                "emergencyContact": {
-                    "name": {
-                        "first": "Mary",
-                        "middle": "J",
-                        "last": "John"
-                    },
-                    "phone": "402.333.5671",
-                    "relation": "Mother"
-                },
-                "email": {
-                    "school": {
-                        "value": "12345678g@creighton.edu"
-                    }, 
-                    "personal": {
-                        "value": "bluejfan2019@yahoo.com"
-                    }
-                },
-                "birthDate": "May 5, 1997",
-                "netID": "bbb12345",
-                "employeeNumber": "1234",
-                "familyDetails": {
-                    "maritalStatus": "Married",
-                    "spouseName": "Jessi",
-                    "dependentsName": "Jessi"
-                }
+            "guardian": {
+                "first_name": null,
+                "last_name": null,
+                "middle_name": null
+            },
+            "home_address": {
+                "Address_type": "PR",
+                "SPRADDR_CITY": "Waterloo",
+                "SPRADDR_STATE": "IA",
+                "SPRADDR_STREET_LINE1": "1195 Ridgemont Rd",
+                "SPRADDR_STREET_LINE2": "35th",
+                "SPRADDR_STREET_LINE3": null,
+                "SPRADDR_ZIP": "50701-4841"
+            },
+            "legal_name": {
+                "first_name": "190eb3ebae",
+                "last_name": "541af1c56f",
+                "middle_name": "James"
+            },
+            "parent": {
+                "first_name": "5d1ad170fa",
+                "last_name": "60ddcb016d",
+                "middle_name": "M"
+            },
+            "family_details": {
+                "maritalStatus": "Married",
+                "spouseName": "Annika",
+                "dependentsName": "Annika"
+            },
+            "pidm": "3375259",
+            "primary_phone_no": "402.280.2700",
+            "school_address": {
+                "Address_type": "CU",
+                "SPRADDR_CITY": "Omaha",
+                "SPRADDR_STATE": "NE",
+                "SPRADDR_STREET_LINE1": "Gallagher Hall Box 0044",
+                "SPRADDR_STREET_LINE2": "25th",
+                "SPRADDR_STREET_LINE3": null,
+                "SPRADDR_ZIP": "68178"
             }
         }
-    }
+    ]
 }

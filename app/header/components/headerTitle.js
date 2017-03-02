@@ -16,12 +16,32 @@ export default function (argument) {
      title = translateText('common:CLASS_DETAIL');
      return title;
   }
-  if (rootURL[1] === HEADER.PROFILE) {
+  if (rootURL[1] === HEADER.PROFILE || rootURL[1] === HEADER.STAFF_PROFILE) {
     title = translateText('common:PROFILE_MY_PROFILE');
     return title;
   }
   if (rootURL[1] === HEADER.ACADEMIC) {
     title = translateText('common:PROFILE_ACADEMIC');
+    return title;
+  }
+  if (rootURL[1] === HEADER.EVENT_LIST) {
+    title = translateText('common:NEXT_EVENTS');
+    return title;
+  }
+  if (rootURL[2] === HEADER.CLASS_DETAILS && rootURL[1] === HEADER.EVENT_DETAILS) {
+    title = translateText('common:CLASS_DETAIL');
+    return title;
+  }
+  if (rootURL[1] === HEADER.PROFESSIONAL) {
+    title = translateText('common:STAFF_PROFESSIONAL');
+    return title;
+  }
+  if (rootURL[2] === HEADER.EVENT_TEST_DETAILS && rootURL[1] === HEADER.EVENT_DETAILS) {
+    title = translateText('common:NEXT_EVENTS_TEST_DETAIL');
+    return title;
+  }
+  if (rootURL[2] === HEADER.ASSIGNMENTS && rootURL[1] === HEADER.EVENT_DETAILS) {
+    title = translateText('common:ASSIGNMENTS');
     return title;
   }
 }

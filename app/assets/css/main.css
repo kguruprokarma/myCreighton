@@ -233,11 +233,11 @@ content:"";
 
 .control-group {
     text-align: left;
+    margin-bottom: 10px;
 }
 
 .control {
     cursor: pointer;
-    margin-bottom: 10px;
     padding-left: 30px;
     position: relative;
 }

@@ -5,6 +5,8 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Row, Col } from 'react-bootstrap';
+import { translateText } from '../../common/translate';
 import LegalName from '../student/bio/components/legalName';
 import HomeAddress from '../student/bio/components/homeAddress';
 import Address from '../student/bio/components/address';
@@ -14,42 +16,36 @@ import Email from '../student/bio/components/email';
 import Other from '../student/bio/components/other';
 import FamilyDetail from './components/family';
 import * as actionCreators from '../actions';
-import { Link } from 'react-router';
-import styles from '../student/style.css';
 import LeftNav from '../../common/leftNav';
-import { Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../common/headerLabel';
-import { translateText } from '../../common/translate';
+import * as CommonConstants from '../../constants/commonConstants';
 
 export class StaffProfile extends React.PureComponent {
 
-  constructor() {
-    super();
-  }
   componentWillMount() {
     this.props.getStaffProfileData();
   }
 
   render() {
-    let PROFILE_DATA = this.props.profile === 'STAFF' && this.props.profileData;
+    const USER_DATA = this.props.profile === CommonConstants.STAFF_LABEL && this.props.profileData;
     return (
       <section>
-        <HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} />
-        {PROFILE_DATA &&
+        <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
+        {USER_DATA &&
           <Row>
-            <Col sm={8} md={9} xs={12} className="userData pull-right">
-              <LegalName legalName={PROFILE_DATA.staffProfile.bioData.legalName} />
-              <HomeAddress homeAddress={PROFILE_DATA.staffProfile.bioData.address.home} />
-              <Address address={PROFILE_DATA.staffProfile.bioData.address.school} profile={this.props.profile} />
-              <Address address={PROFILE_DATA.staffProfile.bioData.address.mailing} shouldShowWhenStaff={true} profile={this.props.profile} />
-              <PrimaryContact primaryContact={PROFILE_DATA.staffProfile.bioData.contactDetail} />
-              <EmergencyContact emergencyContact={PROFILE_DATA.staffProfile.bioData.contactDetail.emergencyContact} />
-              <Email email={PROFILE_DATA.staffProfile.bioData.contactDetail.email} />
-              <Other other={PROFILE_DATA.staffProfile.bioData.contactDetail} profile={this.props.profile}/>
-              <FamilyDetail familyDetail={PROFILE_DATA.staffProfile.bioData.contactDetail.familyDetails} />
+            <Col sm={8} md={9} xs={12} className='userData pull-right'>
+              <LegalName legalName={USER_DATA.data[0].legal_name} />
+              <HomeAddress homeAddress={USER_DATA.data[0].home_address} />
+              <Address schoolAddress={USER_DATA.data[0].school_address} profile={this.props.profile} />
+              <Address schoolAddress={USER_DATA.data[0].school_address} shouldShowWhenStaff={true} profile={this.props.profile} />
+              <PrimaryContact primaryContact={USER_DATA.data[0].primary_phone_no} />
+              <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} />
+              <Email email={USER_DATA.data[0].email} />
+              <Other profile={this.props.profile} detail={USER_DATA.data[0]} />
+              <FamilyDetail familyDetail={USER_DATA.data[0].family_details} />
             </Col>
-            <Col md={3} sm={4} className="hidden-xs">
-              <LeftNav />
+            <Col md={3} sm={4} className='hidden-xs'>
+              <LeftNav role={this.props.profile} />
             </Col>
           </Row>
         }
@@ -67,4 +63,4 @@ const mapStateToProps = (bioState) => (
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(StaffProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(StaffProfile);

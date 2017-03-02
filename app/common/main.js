@@ -35,6 +35,9 @@ class Main extends React.PureComponent {
     componentWillMount(){
         if (localStorage.roleInfo === undefined) {
             hashHistory.replace('/');
+            this.setState({isLogin:false});
+        }else if (localStorage.roleInfo === undefined || this.props.location.pathname === '/') {
+            this.setState({isLogin:false});
         }else{
             this.setState({isLogin:true});
         }

@@ -6,81 +6,81 @@ import classesApi from '../../middleware/classes/api';
 import * as types from './actionTypes';
 
 
-let requestData = () => ({
+const requestData = () => ({
   type: types.REQUEST_CLASSES_DATA
-})
+});
 
-let receiveClassesData = (classesData) => (
+const receiveClassesData = (classesData) => (
   {
     type: types.RECEIVE_CLASSES_DATA,
     data: classesData
-  })
+  });
 
-let receiveError = (error) => (
+const receiveError = (error) => (
   {
     type: types.RECEIVE_CLASSES_DATA_ERROR,
     data: error
-})
+  });
 
-let catagoryChange = (str) => (
+const catagoryChange = (str) => (
   {
     type: types.ON_CATAGORY_CHANGE,
     data: str
-  })
+  });
 
 export function onCatagoryChange(str) {
   return function (dispatch) {
-    dispatch(catagoryChange(str))
-  }
+    dispatch(catagoryChange(str));
+  };
 }
 
 export function getClassesDataByWeek() {
   return function (dispatch) {
-    dispatch(requestData())
+    dispatch(requestData());
     return classesApi.getClassesDataByWeek().then((response) => {
-        dispatch(receiveClassesData(response))
-      }
-      )
+      dispatch(receiveClassesData(response));
+    }
+    )
       .catch((error) => {
         dispatch(receiveError({
           error: error
-        }))
+        }));
       }
-      )
-  }
+      );
+  };
 }
 
 export function getClassesDataByToday() {
   return function (dispatch) {
-    dispatch(requestData())
+    dispatch(requestData());
     return classesApi.getClassesDataByToday()
       .then((response) => {
-        dispatch(receiveClassesData(response))
+        dispatch(receiveClassesData(response));
       }
       )
       .catch((error) => {
         dispatch(receiveError({
           error: error
-        }))
+        }));
       }
-      )
-  }
+      );
+  };
 }
 
 
 export function getClassesDataForAtoZ() {
   return function (dispatch) {
-    dispatch(requestData())
+    dispatch(requestData());
     return classesApi.getClassesAtoZData()
       .then((response) => {
-        dispatch(receiveClassesData(response))
+        dispatch(receiveClassesData(response));
       }
       )
       .catch((error) => {
         dispatch(receiveError({
           error: error
-        }))
+        }));
       }
-      )
-  }
+      );
+  };
 }

@@ -11,6 +11,7 @@ import * as actionCreators from '../dashboard/actions';
 import UserDetail from '../dashboard/components/userDetail';
 import ProfileMenu from '../header/components/profileMenu';
 import {AuthUserDetails} from './utility'; 
+import * as CommonConstants from '../constants/commonConstants';
 
 export class CustomPopUp extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export class CustomPopUp extends React.Component {
         </ListGroupItem>
         {ProfileMenus.map((item, index) => (
           <ListGroupItem key={item.itemName} className='openSansLight'>
-            <Link to={item.link} onClick={item.itemName === 'Signout'?this.signOut.bind(this): this.props.showPopValue} activeClassName='active'>
+            <Link to={item.link} onClick={item.itemName === CommonConstants.SIGN_OUT?this.signOut.bind(this): this.props.showPopValue} activeClassName='active'>
               {item.itemName}
             </Link>
           </ListGroupItem>

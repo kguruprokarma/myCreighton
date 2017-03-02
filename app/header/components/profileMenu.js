@@ -25,11 +25,11 @@ export const profileMenuList = (roleType) => {
     staff: [
       {
         'itemName': CommonConstants.MY_PROFILE,
-        'link': ''
+        'link': ROUTE_URL.STAFF
       },
       {
         'itemName': CommonConstants.PROFESSIONAL,
-        'link': ''
+        'link': ROUTE_URL.PROFESSIONAL
       },
       {
         'itemName': CommonConstants.SIGN_OUT,
@@ -39,11 +39,11 @@ export const profileMenuList = (roleType) => {
     faculty: [
       {
         'itemName': CommonConstants.MY_PROFILE,
-        'link': ''
+        'link': ROUTE_URL.FACULTY + ROUTE_URL.PROFILE
       },
       {
         'itemName': CommonConstants.ACADEMIC,
-        'link': ''
+        'link': ROUTE_URL.FACULTY + ROUTE_URL.ACADEMIC
       },
       {
         'itemName': CommonConstants.SIGN_OUT,

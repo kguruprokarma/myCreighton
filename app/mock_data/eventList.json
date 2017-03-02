@@ -1,0 +1,78 @@
+{
+  "type": {
+    "classesdetails": [
+      {
+        "id":1,
+        "className": "English 112",
+        "meetingLocation": "Building Rm 321",
+        "startTime": "11am",
+        "endTime": "12am",
+        "startDate": "Jan 28, 2017",
+        "startIn": "Starts in 4 hr 20 min"
+      },
+      {
+        "id":2,
+        "className": "Political science 223",
+        "meetingLocation": "Hopper Lecture 100",
+        "startTime": "3pm",
+        "endTime": "4pm",
+        "startDate": "Jan 23, 2017",
+        "startIn": "Starts in 3 hr 20 min"
+      },
+      {
+        "id":3,
+        "className": "Theology 100",
+        "meetingLocation": "Christianity in context",
+        "startTime": "4pm",
+        "endTime": "2pm",
+        "startDate": "Jan 25, 2017",
+        "startIn": "2 days"
+      },
+      {
+        "id":4,
+        "className": "Philosophy 100",
+        "meetingLocation": "Building Rm 200",
+        "startTime": "1pm",
+        "endTime": "5pm",
+        "startDate": "Jan 25, 2017",
+        "startIn": "Tomorrow"
+      } ,
+      {
+        "id":5,
+        "className": "Environmental science 223",
+        "meetingLocation": "Dr. Kelly’s office",
+        "startTime": "4pm.",
+        "endTime": "5pm",
+        "startDate": "Jan 30, 2017",
+        "startIn": "2 days"
+      }
+    ],
+    "assignments": [
+      {
+        "id":6,
+        "title": "Krebs Cycle Paper",
+        "class": "Chemistry 105",
+        "dueDate": "Jan 24, 2017",
+        "dueTime": "02:00 pm."
+      },
+      {
+        "id":7,
+        "title": "Assig #5: Phosphate buffer & malon…",
+        "class": "Chemistry 105 lab",
+        "dueDate": "Jan 27, 2017",
+        "dueTime": "11:59 pm.",
+        "startIn": "4days"
+      }
+    ],
+    "testorquiz": [
+      {
+        "id":8,
+        "title": "Chapter 2: Utilitarianism",
+        "class": "Philosophy 100",
+        "dueDate": "Jan 25, 2017",
+        "dueTime": "11:59 am.",
+        "caption":"Test in class"
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "appointment": {
+        "department": "Natural Sciences - Biology",
+        "school": "Arts & Sciences",
+        "status": "Tenure"
+    },
+    "instruction":{
+        "status": "",
+        "creditHours": 12,
+        "currentCourses": ["BIO 201 - C", "BIO 205 - AJ", "BIO 310 - 1", "BIO 341 - 1"],
+        "pastCourses": ["BIO 297", "BIO 362", "BIO 463", "CHM 371"],
+        "teachingAssistants": ["Ramesh Pavarti", "Laura Feltman", "Meiu Zhou"]
+    },
+    "officeInformation": {
+        "location": "Rigge Science Building Rm 314",
+        "officeHours": {
+            "startTime": "09:00am",
+            "endTime": "06:00pm",
+            "weekDays": "Mon, Wed, Fri"
+        }
+    }
+}
