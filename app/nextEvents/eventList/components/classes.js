@@ -12,7 +12,7 @@ const Classes = (classesProps) => (
       <div className='hidden-xs desktopEventsList'>
         <Col md={6} sm={6}>
           <h3 className='pull-left mb0 eventHeading'>{classesProps.data.className} </h3>
-          <span className='eventOn pull-left'>{classesProps.data.date}</span>
+          <span className='eventOn pull-left'>{classesProps.data.startsIn}</span>
         </Col>
         <Col md={2} sm={2}>
           <span className='eventPlace'>{classesProps.data.meetingLocation}</span>
@@ -23,7 +23,7 @@ const Classes = (classesProps) => (
         </Col>
 
         <Col md={1} sm={1} className='text-right'>
-          <span className='eventTime'>{classesProps.data.startTime}to {classesProps.data.endTime}</span>
+          <span className='eventTime'>{classesProps.data.startTime} - {classesProps.data.endTime}</span>
         </Col>
         <Col md={1} sm={1} className='text-right'>
           <a>Remove</a>
@@ -37,6 +37,7 @@ const Classes = (classesProps) => (
           <span className='eventDate'>{classesProps.data.startDate}</span>
         </Col>
         <Col xs={7}>
+          <span className='eventDate'>{classesProps.data.startsIn}</span>
           <h3 className='mb0 eventHeading'>{classesProps.data.className}</h3>
         </Col>
         <Col xs={5} className='text-right'>
@@ -46,7 +47,7 @@ const Classes = (classesProps) => (
           <span className='eventBy'>{classesProps.data.meetingLocation}</span>
         </Col>
         <Col xs={5} className='text-right'>
-          <span className='eventTime'>{classesProps.data.startTime} to {classesProps.data.endTime}</span>
+          <span className='eventTime'>{classesProps.data.startTime} - {classesProps.data.endTime}</span>
         </Col>
       </Row>
     </Link>

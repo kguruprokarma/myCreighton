@@ -12,17 +12,17 @@ import OfficeInformation from '../components/officeInformation';
 import LeftNav from '../../../common/leftNav';
 
 const FacultyAcademic = (facultyAcademicData) => (
-  <article className='profileRow mt30'>     
+  <article className='profileRow mt30'>
     <Row>
-            <Col sm={8} md={9} xs={12} className="userData pull-right">
-              <Appointment />
-              <OfficeInformation />
-              <Instruction />
-            </Col>
-            <Col md={3} sm={4} className="hidden-xs">
-              <LeftNav role={facultyAcademicData.facultyProfile} />
-            </Col>
-          </Row>
+      <Col sm={8} md={9} xs={12} className='userData pull-right'>
+        <Appointment />
+        <OfficeInformation />
+        <Instruction />
+      </Col>
+      <Col md={3} sm={4} className='hidden-xs'>
+        <LeftNav role={facultyAcademicData.facultyProfile} />
+      </Col>
+    </Row>
   </article>
 );
 

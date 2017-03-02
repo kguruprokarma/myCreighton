@@ -5,24 +5,18 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Row, Col } from 'react-bootstrap';
+import { translateText } from '../../../common/translate';
+import { authUserDetails } from '../../../common/utility';
 import AcademicStatus from './components/academicStatus';
 import AdvisorInformation from './components/advisorInformation';
-import { Link } from 'react-router';
 import * as actionCreators from './actions';
 import * as profileActionCreators from '../../actions';
 import styles from '../style.css';
 import LeftNav from '../../../common/leftNav';
-import { Grid, Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../../common/headerLabel';
-import { translateText } from '../../../common/translate';
-import { authUserDetails } from '../../../common/utility';
-import * as CommonConstants from '../../../constants/commonConstants';
 
 export class Academic extends React.PureComponent {
-
-  constructor() {
-    super();
-  }
 
   componentWillMount() {
     let userReqObj = authUserDetails();
@@ -33,7 +27,7 @@ export class Academic extends React.PureComponent {
   }
 
   render() {
-    let USER_DATA = this.props.academicData;
+    const USER_DATA = this.props.academicData;
     return (
       <section id='academic'>
         <HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} />

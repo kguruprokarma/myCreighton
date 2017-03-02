@@ -13,11 +13,11 @@ const Quiz = (quizProps) => (
 
         <Col md={6} sm={6}>
           <h3 className='pull-left mb0 eventHeading'>{quizProps.data.title} </h3>
-          <span className='pull-left eventOn'>{quizProps.data.dueDate}</span>
+          <span className='pull-left eventOn'>{quizProps.data.caption}</span>
         </Col>
 
         <Col md={2} sm={2}>
-          <span className='eventPlace'>{quizProps.data.dueTime}</span>
+          <span className='eventPlace'>{quizProps.data.class}</span>
         </Col>
         <Col md={2} sm={2} className='text-center'>
           <span className='eventOn'>{quizProps.data.dueDate}</span>
@@ -39,17 +39,18 @@ const Quiz = (quizProps) => (
           <span className='eventBy'>{quizProps.data.meetingLocation}</span>
         </Col>
         <Col xs={7}>
+         <span className='eventBy'>{quizProps.data.caption}</span>
           <h3 className='mb0 eventHeading'>{quizProps.data.title}</h3>
         </Col>
         <Col xs={5} className='text-right'>
+        <span className='eventDate'>{quizProps.data.dueDate}</span>
           <a>Remove</a>
         </Col>
-        <Col xs={7}>
-          <span className='eventDate'>{quizProps.data.dateofOccurrence}</span>
+        <Col xs={7}>          
           <span className='eventPlace'>{quizProps.data.class}</span>
         </Col>
         <Col xs={5} className='text-right'>
-          <span className='eventTime'>{quizProps.data.startTime} to {quizProps.data.endTime}</span>
+          <span className='eventTime'>{quizProps.data.startTime} - {quizProps.data.endTime}</span>
         </Col>
       </Row>
     </Link>

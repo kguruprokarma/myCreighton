@@ -13,8 +13,8 @@ export default function (argument) {
     return title;
   }
   if (rootURL[1] === HEADER.CLASS_DETAILS) {    
-     title = translateText('common:CLASS_DETAIL');
-     return title;
+    title = translateText('common:CLASS_DETAIL');
+    return title;
   }
   if (rootURL[1] === HEADER.PROFILE || rootURL[1] === HEADER.STAFF_PROFILE) {
     title = translateText('common:PROFILE_MY_PROFILE');

@@ -23,8 +23,6 @@ const receiveEventClassDetailsError = (error) => (
     data: error
   });
 
-  
-
 export function getEventClassDetails(eventType) {
   return function (dispatch) {
     dispatch(requestEventClassDetailsData());
@@ -58,8 +56,6 @@ const receiveEventAssignmentDetailsError = (error) => (
     data: error
   });
 
-  
-
 export function getEventAssignmentDetails(eventType) {
   return function (dispatch) {
     dispatch(requestEventAssignmentDetailsData());
@@ -92,8 +88,6 @@ const receiveEventQuizDetailsError = (error) => (
     type: types.RECEIVE_EVENT_QUIZ_DETAILS_DATA_ERROR,
     data: error
   });
-
-  
 
 export function getEventQuizDetails(eventType) {
   return function (dispatch) {

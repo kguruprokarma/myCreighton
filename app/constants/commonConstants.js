@@ -17,3 +17,5 @@ export const WEEK = 'week';
 export const LIST = 'list';
 export const TODAY = 'today';
 export const SORT_CLASS = 'ASC';
+
+export const CHANGE_LANGUAGE='Change Language';

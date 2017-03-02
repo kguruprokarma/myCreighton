@@ -44,6 +44,6 @@ describe('CustomPopUp testing ----->', () => {
   });
 
   it('CustomPopUp should contain ListGroupItem component', () => {
-    expect(customPopUpC.find('ListGroupItem').length).toBe(4);
+    expect(customPopUpC.find('ListGroupItem').length).toBe(5);
   });
 });

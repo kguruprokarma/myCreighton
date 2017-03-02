@@ -5,24 +5,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link ,hashHistory} from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import { ListGroupItem, ListGroup } from 'react-bootstrap';
 import * as actionCreators from '../dashboard/actions';
 import UserDetail from '../dashboard/components/userDetail';
 import ProfileMenu from '../header/components/profileMenu';
-import {AuthUserDetails} from './utility'; 
+import { AuthUserDetails } from './utility';
 import * as CommonConstants from '../constants/commonConstants';
+import i18n from '../i18n';
 
 export class CustomPopUp extends React.Component {
   constructor(props) {
-    super(props);    
-    this.role = this.props.userData?this.props.userData.userRole : AuthUserDetails().userRole;
-    if(this.role)
+    super(props);
+    this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
+    if (this.role)
       this.props.getUserDetailsData(`/${this.role}`);
   }
-  signOut(){
+  signOut() {
     localStorage.removeItem('roleInfo');
+    sessionStorage.removeItem("lang");
     hashHistory.replace('/');
+    location.reload();
+  }
+  changeLanguage() {
+    sessionStorage.setItem('lang', 'es');
+    i18n.init({ lng: sessionStorage.getItem('lang') });
+    location.reload();
   }
   render() {
     const { userDetailsData } = this.props;
@@ -35,8 +43,8 @@ export class CustomPopUp extends React.Component {
           {userDetailsData && <div> <UserDetail userDetail={userDetailsData} /></div>}
         </ListGroupItem>
         {ProfileMenus.map((item, index) => (
-          <ListGroupItem key={item.itemName} className='openSansLight'>
-            <Link to={item.link} onClick={item.itemName === CommonConstants.SIGN_OUT?this.signOut.bind(this): this.props.showPopValue} activeClassName='active'>
+          <ListGroupItem key={item.itemName} onClick={item.itemName === CommonConstants.CHANGE_LANGUAGE ? this.changeLanguage.bind(this) : ''} className='openSansLight'>
+            <Link to={item.link} onClick={item.itemName === CommonConstants.SIGN_OUT ? this.signOut.bind(this) : this.props.showPopValue} activeClassName='active'>
               {item.itemName}
             </Link>
           </ListGroupItem>

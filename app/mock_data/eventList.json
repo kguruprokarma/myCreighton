@@ -8,7 +8,7 @@
         "startTime": "11am",
         "endTime": "12am",
         "startDate": "Jan 28, 2017",
-        "startIn": "Starts in 4 hr 20 min"
+        "startsIn": "Starts in 4 hr 20 min"
       },
       {
         "id":2,
@@ -17,7 +17,7 @@
         "startTime": "3pm",
         "endTime": "4pm",
         "startDate": "Jan 23, 2017",
-        "startIn": "Starts in 3 hr 20 min"
+        "startsIn": "Starts in 3 hr 20 min"
       },
       {
         "id":3,
@@ -26,7 +26,7 @@
         "startTime": "4pm",
         "endTime": "2pm",
         "startDate": "Jan 25, 2017",
-        "startIn": "2 days"
+        "startsIn": "2 days"
       },
       {
         "id":4,
@@ -35,7 +35,7 @@
         "startTime": "1pm",
         "endTime": "5pm",
         "startDate": "Jan 25, 2017",
-        "startIn": "Tomorrow"
+        "startsIn": "Tomorrow"
       } ,
       {
         "id":5,
@@ -44,7 +44,7 @@
         "startTime": "4pm.",
         "endTime": "5pm",
         "startDate": "Jan 30, 2017",
-        "startIn": "2 days"
+        "startsIn": "2 days"
       }
     ],
     "assignments": [
@@ -53,7 +53,8 @@
         "title": "Krebs Cycle Paper",
         "class": "Chemistry 105",
         "dueDate": "Jan 24, 2017",
-        "dueTime": "02:00 pm."
+        "dueTime": "02:00 pm.",
+        "startsIn": "2days"
       },
       {
         "id":7,
@@ -61,7 +62,7 @@
         "class": "Chemistry 105 lab",
         "dueDate": "Jan 27, 2017",
         "dueTime": "11:59 pm.",
-        "startIn": "4days"
+        "startsIn": "4days"
       }
     ],
     "testorquiz": [

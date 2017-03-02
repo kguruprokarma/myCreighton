@@ -3,53 +3,51 @@
 */
 
 //import * as types from './actionTypes'
-import LoginApi from '../middleware/Login/api';
-import axios from 'axios';  
-import { browserHistory, hashHistory } from 'react-router';  
-import {Router}  from 'react-router';
+
+
+import { hashHistory } from 'react-router';  
+import * as _ from 'lodash';
 //import cookie from 'react-cookie';  
 import loginApi from '../middleware/Login/api';
-import * as _ from 'lodash';
-import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FORGOT_PASSWORD_REQUEST, RESET_PASSWORD_REQUEST, PROTECTED_TEST } from './actionTypes';
+import { AUTH_USER, AUTH_ERROR } from './actionTypes';
 
-let authiorisedUser=(data)=> ({
-  type:AUTH_USER,
-  data:data
+const authiorisedUser=(data) => ({
+  type: AUTH_USER,
+  data: data
 });
-let receiveError=(error)=>({
-  type:AUTH_ERROR,
-  data:error
+const receiveError=(error) => ({
+  type: AUTH_ERROR,
+  data: error
 });
 export function loginUser({ email, password }) {  
-    return function ( dispatch ) {
+  return function ( dispatch ) {
     return loginApi.getLoginDetails(email, password)
       .then( (response) => {
-          let val = _.find(response.data.userDetails1, { 'email':email });
-       if(val != undefined)
-       {
-        localStorage.setItem("roleInfo", JSON.stringify(val));
-        dispatch( authiorisedUser( {
-          data: val
-        } ) )
-        hashHistory.replace('/dashboard');
-       }
+        const val = _.find(response.data.userDetails1, { 'email': email });
+        if (val !== undefined) {
+          localStorage.setItem('roleInfo', JSON.stringify(val));
+          dispatch( authiorisedUser( {
+            data: val
+          } ) );
+          hashHistory.replace('/dashboard');
+        }
       }
     )
       .catch( (error) => {
-          console.log("error: ", error)
+        console.log('error: ', error);
         dispatch( receiveError( {
           error: error
-        } ) )
+        } ) );
       }
-    )
-  }
+    );
+  };
 }
 
- function errorHandler(dispatch, error, type) {
+function errorHandler(dispatch, error, type) {
   console.log('Error type: ', type);
   console.log(error);
 
-  let errorMessage = error.response ? error.response.data : error;
+  const errorMessage = error.response ? error.response.data : error;
 
    // NOT AUTHENTICATED ERROR
 //   if (error.status === 401 || error.response.status === 401) {
@@ -59,7 +57,7 @@ export function loginUser({ email, password }) {
 
   dispatch({
     type,
-    payload: errorMessage,
+    payload: errorMessage
   });
 }
 
