@@ -12,9 +12,9 @@ export const ACADEMIC_DATA = '/academic_data.json';
 export const CLASSES_DATA = '/classesByWeek.json';
 export const CLASSES_DATA_ATOZ = '/classesByAtoZ.json';
 export const CLASSES_DATA_TODAY = '/classesOfToday.json';
-export const PROFESSIONAL_DATA = '/professional_data.json';
 export const PROFILE_DATA = '/myProfile.json';
 export const CLASS_DETAILS_DATA = '/classDetails.json';
+export const CLASSESDETAILS = '/classDetails.json';
 export const STAFF_PROFILE_DATA = '/myProfileStaff.json';
 export const USER_DETAILS_DATA = '/getUserDetails.json';
 export const FACULTY_PROFILE_DATA = '/myProfileFaculty.json';
@@ -24,6 +24,7 @@ export const LOGIN_DETAILS_DATA = '/loginDetails.json';
 export const EVENTS_DATA = '/eventList.json';
 export const ASSIGNMENTS = '/assignments.json';
 export const TESTORQUIZ = '/testorquiz.json';
+export const PROFESSIONAL_DATA = '/professional_data.json';
 
 ///
 /// Add API related links below

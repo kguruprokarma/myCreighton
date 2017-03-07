@@ -4,31 +4,99 @@
 import EventDetailsApi from '../../middleware/events/api';
 import * as types from './actionTypes';
 
-
-const requestEventDetailsData = () => ({
-  type: types.REQUEST_EVENT_DETAILS_DATA
+/*
+* Event Class details
+*/
+const requestEventClassDetailsData = () => ({
+  type: types.REQUEST_EVENT_CLASS_DETAILS_DATA
 });
 
-const receiveEventDetailsData = (eventDetails) => (
+const receiveEventClassDetailsData = (eventDetails) => (
   {
-    type: types.RECEIVE_EVENT_DETAILS_DATA,
+    type: types.RECEIVE_EVENT_CLASS_DETAILS_DATA,
     data: eventDetails
   });
 
-const receiveEventDetailsError = (error) => (
+const receiveEventClassDetailsError = (error) => (
   {
-    type: types.RECEIVE_EVENT_DETAILS_DATA_ERROR,
+    type: types.RECEIVE_EVENT_CLASS_DETAILS_DATA_ERROR,
     data: error
   });
 
-export function getEventDetails(eventType) {
+export function getEventClassDetails(eventType) {
   return function (dispatch) {
-    dispatch(requestEventDetailsData());
+    dispatch(requestEventClassDetailsData());
     return EventDetailsApi.getEventDetails(eventType).then((response) => {
-      dispatch(receiveEventDetailsData(response));
+      dispatch(receiveEventClassDetailsData(response));
     })
       .catch((error) => {
-        dispatch(receiveEventDetailsError({
+        dispatch(receiveEventClassDetailsError({
+          error: error
+        }));
+      });
+  };
+}
+
+/*
+* Event Assignment details
+*/
+const requestEventAssignmentDetailsData = () => ({
+  type: types.REQUEST_EVENT_ASSIGNMENTS_DETAILS_DATA
+});
+
+const receiveEventAssignmentDetailsData = (eventDetails) => (
+  {
+    type: types.RECEIVE_EVENT_ASSIGNMENTS_DETAILS_DATA,
+    data: eventDetails
+  });
+
+const receiveEventAssignmentDetailsError = (error) => (
+  {
+    type: types.RECEIVE_EVENT_ASSIGNMENTS_DETAILS_DATA_ERROR,
+    data: error
+  });
+
+export function getEventAssignmentDetails(eventType) {
+  return function (dispatch) {
+    dispatch(requestEventAssignmentDetailsData());
+    return EventDetailsApi.getEventDetails(eventType).then((response) => {
+      dispatch(receiveEventAssignmentDetailsData(response));
+    })
+      .catch((error) => {
+        dispatch(receiveEventAssignmentDetailsError({
+          error: error
+        }));
+      });
+  };
+}
+
+/*
+* Event Quiz details
+*/
+const requestEventQuizDetailsData = () => ({
+  type: types.REQUEST_EVENT_QUIZ_DETAILS_DATA
+});
+
+const receiveEventQuizDetailsData = (eventDetails) => (
+  {
+    type: types.RECEIVE_EVENT_QUIZ_DETAILS_DATA,
+    data: eventDetails
+  });
+
+const receiveEventQuizDetailsError = (error) => (
+  {
+    type: types.RECEIVE_EVENT_QUIZ_DETAILS_DATA_ERROR,
+    data: error
+  });
+
+export function getEventQuizDetails(eventType) {
+  return function (dispatch) {
+    dispatch(requestEventQuizDetailsData());
+    return EventDetailsApi.getEventDetails(eventType).then((response) => {
+      dispatch(receiveEventQuizDetailsData(response));
+    })
+      .catch((error) => {
+        dispatch(receiveEventQuizDetailsError({
           error: error
         }));
       });

@@ -24,13 +24,12 @@ describe('index files in bio testing ----->', () => {
           "parent": { "first_name": null, "last_name": null, "middle_name": null },
           "pidm": "3268947",
           "primary_phone_no": null,
-          "school_address": null
+          "school_address": "schooladdress"
         }
       ]
     }
   };
      const profile = shallow(<Profile {...minProps} />);
-
     it('Profile is defined', () => {
     expect(profile).toBeDefined();
   });
@@ -47,10 +46,9 @@ it('Check HomeAddress component is present', () => {
   expect(profile.find('HomeAddress').length).toBe(1);
   expect(profile.find('HomeAddress').prop('homeAddress')).toBe(minProps.profileData.data[0].home_address);
 });
-// it('Check SchoolAddress component is present', () => {
-//   expect(profile.find('Address').length).toBe(1);
-//   expect(profile.find('Address').prop('address')).toBe(minProps.profileData.studentProfile.bioData.address.school);
-// });
+it('Check SchoolAddress component is present', () => {
+  expect(profile.find('Address').length).toBe(1);
+});
 it('Check PrimaryContact component is present', () => {
   expect(profile.find('PrimaryContact').length).toBe(1);
   expect(profile.find('PrimaryContact').prop('primaryContact')).toBe(minProps.profileData.data[0].primary_phone_no);
@@ -63,10 +61,10 @@ it('Check Email component is present', () => {
   expect(profile.find('Email').length).toBe(1);
   expect(profile.find('Email').prop('email')).toBe(minProps.profileData.data[0].email);
 });
-// it('Check Other component is present', () => {
-//   expect(profile.find('Other').length).toBe(1);
-//   expect(profile.find('Other').prop('other')).toBe(minProps.profileData.studentProfile.bioData.contactDetail);
-// });
+it('Check Other component is present', () => {
+  expect(profile.find('Other').length).toBe(1);
+  expect(profile.find('Other').prop('detail')).toBe(minProps.profileData.data[0]);
+});
 it('Check RelationDetail component is present', () => {
   expect(profile.find('RelationDetail').length).toBe(1);
   expect(profile.find('RelationDetail').prop('parentDetail')).toBe(minProps.profileData.data[0].parent);

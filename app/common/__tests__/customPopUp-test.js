@@ -10,15 +10,19 @@ import * as ROUTE_URL from '../../constants/routeContants';
 describe('CustomPopUp testing ----->', () => {
   const defaultProps = {
       userDetailsData: {
-      "userName": {
-        "firstName": "John",
-        "middleName": "J",
-        "lastName": "Edward",
-        "fullName": "John J. Edward"
+        data:[
+          {
+            "legal_name": {
+              "first_name": "John",
+              "middle_name": "J",
+              "last_name": "Edward",
+              "full_name": "John J. Edward"
+            },
+            "userImageURL": "",
+            "userRole": "student"
+          }
+        ]
       },
-      "userImageURL": "",
-      "userRole": "student"
-    },
     userData: {
       "userName": {
         "firstName": "John",
@@ -44,6 +48,6 @@ describe('CustomPopUp testing ----->', () => {
   });
 
   it('CustomPopUp should contain ListGroupItem component', () => {
-    expect(customPopUpC.find('ListGroupItem').length).toBe(4);
+    expect(customPopUpC.find('ListGroupItem').length).toBe(5);
   });
 });

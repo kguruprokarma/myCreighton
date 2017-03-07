@@ -9,22 +9,21 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Family from '../components/family';
-import i18n from '../../../__mock_i18n__/i18n_mockKeys'
 
 const familyProps = {
-    familyDetail: {
-        maritalStatus: "street1 name",
-        spouseName: "street2 name",
-        dependentsName: "CIty name"
-    }
+  familyDetail: {
+    maritalStatus: 'street1 name',
+    spouseName: 'street2 name',
+    dependentsName: 'CIty name'
+  }
 };
 const familyAddress = shallow(<Family {...familyProps} />);
 it('Family is defined', () => {
-    expect(familyAddress).toBeDefined();
+  expect(familyAddress).toBeDefined();
 });
 
 it('Family should profileRow class', () => {
-    expect(familyAddress.find('.profileRow').length).toBe(1);
+  expect(familyAddress.find('.profileRow').length).toBe(1);
 });
 
 

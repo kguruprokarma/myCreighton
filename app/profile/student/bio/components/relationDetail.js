@@ -22,12 +22,12 @@ class RelationDetail extends React.Component {
       <article className='profileRow mt30'>
         <h3 className='dataHeading openSansRegular'>{translateText('common:IF_NOT_AGE_OF_MAJORITY')}</h3>
         <div className='control-group'>
-          <label htmlFor='Parent' className='control control-checkbox labelField noclons'>
+          <label className='control control-checkbox labelField noclons'>
             <input type='checkbox' name='dependent' value='parent' onChange={this.toggleParent.bind(this)} checked={this.state.flag === CommonConstants.STUDENT_PARENT} id='parent' /> <span className='openSansRegular'>{translateText('common:STUDENT_PARENT')}</span>
             <span className='control__indicator'>&nbsp;</span>
           </label>
-          <div className='clearfix'>&nbsp;</div>
-          <label htmlFor='guardian' className='control control-checkbox labelField noclons'>
+          <div className='clearfix'></div>
+          <label className='control control-checkbox labelField noclons'>
             <input type='checkbox' name='dependent' value='guardian' onChange={this.toggleParent.bind(this)} checked={this.state.flag === CommonConstants.STUDENT_GUARDIAN} id='guardian' /> <span className='openSansRegular'>{translateText('common:STUDENT_GUARDIAN')}</span>
             <span className='control__indicator'>&nbsp;</span>
           </label>
@@ -35,7 +35,7 @@ class RelationDetail extends React.Component {
         {(this.state.flag === CommonConstants.STUDENT_PARENT) ?
           (<Dependent dependent={this.props.parentDetail} />)
           :
-          (<Dependent dependent={this.props.guardianDetail} />)
+          (<Dependent dependent={this.props.gurdianDetail} />)
         }
       </article>
     );

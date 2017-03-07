@@ -24,7 +24,7 @@ const ClassInfo = (classInfoProps) => (
         <div className='classDate'><span className='openSansRegular'>{translateText('çommon:NEXT')}:</span> {classInfoProps.data.date}</div>
       </Col>
     </div>
-    <Row className='visible-xs mobileClassesList'>
+    <Row className='visible-xs mobileClassesList row'>
       <Col xs={7}>
         <span className='classOn'>{classInfoProps.data.on}</span>
       </Col>
@@ -35,7 +35,7 @@ const ClassInfo = (classInfoProps) => (
         <h3 className='mb0 classesHeading'>{classInfoProps.data.name} </h3>
       </Col>
       <Col xs={5} className='text-right'>
-        <span className='classDate'><label htmlFor='next'>{translateText('common:NEXT')}:</label> {classInfoProps.data.date}</span>
+        <span className='classDate'><label>{translateText('çommon:NEXT')}:</label> {classInfoProps.data.date}</span>
       </Col>
       <Col xs={7}>
         <span className='classPlace'>{classInfoProps.data.place}</span>

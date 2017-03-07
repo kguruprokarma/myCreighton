@@ -16,9 +16,9 @@ const EmergencyContact = (emergencyProps) => {
       <BasicRow displayName={translateText('common:PROFILE_LAST_NAME')} displayValue={emergencyProps.emergencyContact.last_name} />
       <Row className='show-grid pt5 pb5'>
         <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Phone'>{translateText('common:PROFILE_PHONE')}</label></Col>
-        <Col xs={8} md={9} sm={8} className='dataField'><a href={tel} className='mobileNumber'>402.280.2700</a></Col>
+        <Col xs={8} md={9} sm={8} className='dataField'><a href={tel} className='mobileNumber'>{emergencyProps.emergencyContact.phone}</a></Col>
       </Row>
-      <BasicRow displayName={translateText('common:PROFILE_RELATIONSHIP')} displayValue='Guardian' />
+      <BasicRow displayName={translateText('common:PROFILE_RELATIONSHIP')} displayValue={emergencyProps.emergencyContact.relationship} />
     </article>
   );
 };

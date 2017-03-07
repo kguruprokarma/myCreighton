@@ -24,11 +24,17 @@ export class Header extends React.PureComponent {
     this.showPopUp = this.showPopUp.bind(this);
     this.goBack = this.goBack.bind(this);
     this.navClick = this.navClick.bind(this);
-    let self = this;
+    const self = this;
     window.onhashchange = function() {
       self.props.popUpClose();
       self.props.navClose();
-    }
+    };
+  }
+
+  componentWillMount() {
+    setTimeout(() => {
+      this.forceUpdate();
+    }, 50);
   }
   showPopUp() {
     if (!this.props.popUpData) {
@@ -48,7 +54,6 @@ export class Header extends React.PureComponent {
     browserHistory.goBack();
   }
   render() {
-    console.log("this.props.currentState: ", this.props.currentState);
     return (
       <header>
         <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}</h1>
@@ -63,11 +68,11 @@ export class Header extends React.PureComponent {
             <Col xs={8} sm={8} className='hidden-lg text-center'>
               <Title path={this.props.currentState} />
             </Col>
-            <Col xs={2} sm={2} className="pull-right">
+            <Col xs={2} sm={2} className='pull-right'>
               <ul className='pull-right list-inline'>
                 <li className='head-Icons'>
                   <div className='popUp'>
-                    <span className='glyphicon glyphicon-user' onClick={this.showPopUp}></span>
+                    <span className='glyphicon glyphicon-user' onClick={this.showPopUp} />
                     <div className='popUpContainer'>
                       {this.props.popUpData &&
                       <CustomPopUp showPopValue={this.showPopUp} />}

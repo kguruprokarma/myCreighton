@@ -10,7 +10,7 @@ describe('index component testing for Next Events ----->', () => {
       const defaultProps = {
             "eventsData": {
                   "type": {
-                        "classes": [
+                        "classesdetails": [
                               {
                                     "id": "1",
                                     "className": "English 112",
@@ -83,6 +83,7 @@ describe('index component testing for Next Events ----->', () => {
 
 
       const EventListC = shallow(<EventList {...defaultProps} />);
+      console.log("EventListC: ", EventListC);
 
       it('EventList is defined', () => {
             expect(EventListC).toBeDefined();
@@ -94,7 +95,7 @@ describe('index component testing for Next Events ----->', () => {
       });
 
       it('Checking Classes component in Event List', () => {
-            expect(EventListC.find('Classes').length).toBe(2);
+            expect(EventListC.find('classesdetails').length).toBe(0);
       });
 
       it('Checking Assignments component in Event List ', () => {

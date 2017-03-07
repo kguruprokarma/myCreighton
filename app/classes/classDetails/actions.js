@@ -5,37 +5,37 @@
 import classesApi from '../../middleware/classes/api';
 import * as types from './actionTypes';
 
-let requestClassDetailsData = () => ({
+const requestClassDetailsData = () => ({
   type: types.REQUEST_CLASS_DETAILS_DATA
-})
+});
 
-let receiveClassDetailsData = (classDetails) => (
-{	
-  type: types.RECEIVE_CLASS_DETAILS_DATA,
-  data: classDetails
-})
+const receiveClassDetailsData = (classDetails) => (
+  {
+    type: types.RECEIVE_CLASS_DETAILS_DATA,
+    data: classDetails
+  });
 
-let receiveError = (error) => (
-{
-  type: types.RECEIVE_CLASS_DETAILS_ERROR,
-  data: error
-})
+const receiveError = (error) => (
+  {
+    type: types.RECEIVE_CLASS_DETAILS_ERROR,
+    data: error
+  });
 
 export function getClassDetails(id) {
-  return function ( dispatch ) {
-    dispatch( requestClassDetailsData() )
+  return function (dispatch) {
+    dispatch(requestClassDetailsData());
     return classesApi.getClassDetails(id)
-      .then( (response) => {		
-        dispatch( receiveClassDetailsData( response ) )
+      .then((response) => {
+        dispatch(receiveClassDetailsData(response));
       }
-    )
-      .catch( (error) => {
-        dispatch( receiveError( {
+      )
+      .catch((error) => {
+        dispatch(receiveError({
           error: error
-        } ) )
+        }));
       }
-    )
-  }
+      );
+  };
 }
 
 

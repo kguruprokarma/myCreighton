@@ -14,30 +14,34 @@ import DashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
 import style from './style.css';
-import {authUserDetails} from '../common/utility';
-const dashboardModulesList = DashboardModulesList;
+import { AuthUserDetails } from '../common/utility';
 
+const dashboardModulesList = DashboardModulesList;
+const userReqObj = {};
+userReqObj.primaryKey = 'netid';
 export class Dashboard extends Component {
 
   constructor(props) {
     super(props);
     this.state = { shouldHide: true };
     this.onClick = this.onClick.bind(this);
-    this.role = this.props.userData?this.props.userData.userRole : authUserDetails().userRole;
-    if(this.role)
-      this.props.getUserDetailsData(`/${this.role}`);
+    this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
+    userReqObj.primaryValue = AuthUserDetails().netid;
+    if (this.role) { this.props.getUserDetailsData(userReqObj); }
   }
 
   componentWillMount() {
-    this.role = this.props.userData?this.props.userData.userRole : authUserDetails().userRole;
-    if(this.role)
-      this.props.getUserDetailsData(`/${this.role}`);
+    this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
+    if (this.role) { this.props.getUserDetailsData(userReqObj); }
 
     if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
       this.setState({ shouldHide: false });
     } else {
-        this.setState({ shouldHide: true });
-      }
+      this.setState({ shouldHide: true });
+    }
+    setTimeout(() => {
+      this.forceUpdate();
+    }, 40);
   }
 
 
@@ -47,19 +51,22 @@ export class Dashboard extends Component {
 
   render() {
     const { userDetailsData } = this.props;
+    if (userDetailsData) {
+      userDetailsData.data[0].legal_name.userRole = AuthUserDetails().userRole;
+    }
     const dashboardModulesList = DashboardModulesList(this.role);
     return (
       <section id='dashboard'>
         <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
         <Row className='mb20'>
           <Col sm={5} xs={10} md={5}>
-            {userDetailsData && <UserDetail userDetail={userDetailsData} />}
+            {userDetailsData && <UserDetail userDetail={userDetailsData.data[0].legal_name} />}
           </Col>
           <Col xs={2} className='hidden-lg hidden-md hidden-sm'>
             <ToggleMealPlan toggle={this.onClick} />
           </Col>
           <Col xs={12} sm={7} md={7}>
-            <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetailsData} />
+            {userDetailsData && <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetailsData.data[0].legal_name} />}
           </Col>
         </Row>
         <article id='wells'>
@@ -73,8 +80,8 @@ export class Dashboard extends Component {
             </Col>
             {
               this.role === CommonConstants.ROLE_STUDENT && <Col md={5} sm={6} >
-                  <ModuleBlock modulelist={dashboardModulesList[2]} />
-                </Col> 
+                <ModuleBlock modulelist={dashboardModulesList[2]} />
+              </Col>
             }
           </Row>
         </article>

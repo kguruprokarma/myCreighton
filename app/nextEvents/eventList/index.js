@@ -23,8 +23,8 @@ export class EventList extends React.PureComponent {
 
   render() {
   let EVENT_DATA;
-  if(this.props.eventsData && this.props.eventsData.type){
-    EVENT_DATA = DATATIMEEVENTLIST(DATESORT(SEGREGATEDATA(this.props.eventsData), 'date'), 'startTime');
+  if(this.props.eventsData && this.props.eventsData.type){    
+   EVENT_DATA = DATESORT(SEGREGATEDATA(this.props.eventsData), 'startDate','dueDate','startTime','dueTime');
   }
     return (
       <section> 
@@ -36,7 +36,7 @@ export class EventList extends React.PureComponent {
           {EVENT_DATA.map((eventType, index) => {
             return (
               <div key={index}>
-                {eventType.type === NextEventsConstants.CLASSES && <Classes data={eventType} />}
+                {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} />}
                 {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
                 {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} />}
                 {eventType.type === NextEventsConstants.ACADEMIC_MILESTONES && <AcademicMilestones data={eventType} />}

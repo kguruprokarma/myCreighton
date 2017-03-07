@@ -1,22 +1,39 @@
-{
-    "appointment": {
-        "department": "Natural Sciences - Biology",
-        "school": "Arts & Sciences",
-        "status": "Tenure"
-    },
-    "instruction":{
-        "status": "",
-        "creditHours": 12,
-        "currentCourses": ["BIO 201 - C", "BIO 205 - AJ", "BIO 310 - 1", "BIO 341 - 1"],
-        "pastCourses": ["BIO 297", "BIO 362", "BIO 463", "CHM 371"],
-        "teachingAssistants": ["Ramesh Pavarti", "Laura Feltman", "Meiu Zhou"]
-    },
-    "officeInformation": {
-        "location": "Rigge Science Building Rm 314",
-        "officeHours": {
-            "startTime": "09:00am",
-            "endTime": "06:00pm",
-            "weekDays": "Mon, Wed, Fri"
+{ 
+    "academic": [
+    {
+        "appointment": {
+            "department": "Natural Sciences - Biology",
+            "school": "Arts & Sciences",
+            "status": "Tenure"
+        },
+        "instruction":{
+            "status": "Faculty member",
+            "creditHours": 12,
+            "currentCourses": [
+                {"crus_id":"4","course_name":"BIO 201 - C"}, 
+                {"crus_id":"2","course_name":"BIO 205 - AJ"},
+                {"crus_id":"67","course_name":"BIO 310 - 1"},
+                {"crus_id":"46","course_name":"BIO 341 - 1"}
+            ],
+            "pastCourses": [
+                {"crus_id":"43","course_name":"BIO 297"},
+                {"crus_id":"23","course_name":"BIO 362"},
+                {"crus_id":"89","course_name":"BIO 463"},
+                {"crus_id":"232","course_name":"CHM 371"}
+            ],
+            "teachingAssistants": [
+                {"assit_id":"543","assit_name":"Ramesh Pavarti"},
+                {"assit_id":"232","assit_name":"Laura Feltman"},
+                {"assit_id":"123","assit_name":"Meiu Zhou"}
+            ]
+        },
+        "officeInformation": {
+            "location": "Rigge Science Building Rm 314",
+            "officeHours": {
+                "startTime": "09:00am",
+                "endTime": "06:00pm",
+                "weekDays": "Mon, Wed, Fri"
+            }
         }
-    }
+    }]
 }

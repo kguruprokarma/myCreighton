@@ -3,45 +3,91 @@
  */
 
 import React from 'react';
+import { Col, Row, button } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import * as _ from 'lodash';
 import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
 import Instructor from './components/instructor';
 import Assignments from './components/assignments';
 import TestOrQuiz from './components/testOrQuiz';
+import ClassDetails from './components/classDetails';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
-import style from '../eventDetails/style.css';
+import Style from '../eventDetails/style.css';
 import HeaderLabel from './../../common/headerLabel';
 import * as HEADER from '../../constants/headerTitleConstants';
 
 export class EventDetails extends React.PureComponent {
 
-  componentWillMount() {    
+  componentWillMount() {
     this.eventType = this.props.params.eventdetailstype;
     this.eventId = this.props.params.id;
-    this.props.getEventDetails(this.eventType.toUpperCase());
+    console.log('this.eventType: ', this.eventType);
+
+
+    if (this.eventType === NextEventsConstants.ASSIGNMENTS) {
+      this.props.getEventAssignmentDetails(this.eventType.toUpperCase());
+    } else if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
+      this.props.getEventQuizDetails(this.eventType.toUpperCase());
+    } else if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
+      this.props.getEventClassDetails(this.eventType.toUpperCase());
+    }
   }
-  
+
   render() {
-    const details = this.props.eventDetailsData;
-    console.log("eventdetailstype: ", this.props.params.eventdetailstype);
-    console.log("EVENT_TEST_DETAILS,  ", this.props.params.eventdetailstype === HEADER.EVENT_TEST_DETAILS);
-    return (<section> 
-      {/*<div className='hidden-xs'>
-          {this.props.params.eventdetailstype === HEADER.EVENT_TEST_DETAILS ? <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS_TEST_DETAIL')} />:<HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />}
-      </div>*/}
-      {details && <div>
-          {this.eventType === NextEventsConstants.ASSIGNMENTS && details && <Assignments data={details.assignments} />}
-          {this.eventType === NextEventsConstants.TEST_OR_QUIZ && details && <TestOrQuiz data={details.quizzes} />}            
-        </div>
-        }
-    </section> );
+    let details;
+    let headerText;
+    if (this.eventType === NextEventsConstants.ASSIGNMENTS) {
+      details = this.props.eventAssignmentDetailsData;
+      headerText = translateText('common:NEXT_EVENTS_ASSIGNMENTS');
+    } else if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
+      details = this.props.eventQuizDetailsData;
+      headerText = translateText('common:NEXT_EVENTS_TEST_DETAIL');
+    } else if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
+      details = this.props.eventClassDetailsData;
+      headerText = translateText('common:NEXT_EVENTS_CLASSES');
+    }
+
+    if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
+      this.classData = details && _.find(details, { id: parseInt(this.eventId) });
+    }
+
+    return (<section>
+      <div className='hidden-xs mb10 eventDetailsTitle'>
+        <Row>
+          <Col sm={6}>
+            <div>
+              <HeaderLabel headerLabel={headerText} />
+            </div>
+          </Col>
+          <Col sm={6}>
+            <button type='button' className='btn btn-primary nextEventBtn'>
+              <span>
+                <figure className='nextevent-logo'>
+                  <img src='../../assets/images/nextevent.png' />
+                </figure>
+              </span>
+              <span className='float-right'>Next Events</span>
+            </button>
+          </Col>
+        </Row>
+      </div>
+      {details && <div> {console.log('CLASS DETAILS2: ', this.classData)}
+        {this.eventType === NextEventsConstants.ASSIGNMENTS && details && <Assignments data={details.assignments} />}
+        {this.eventType === NextEventsConstants.TEST_OR_QUIZ && details && <TestOrQuiz data={details.quizzes} />}
+        {this.eventType === NextEventsConstants.CLASSES_DETAILS && this.classData && <ClassDetails data={this.classData} />}
+      </div>
+      }
+    </section>);
   }
 }
 
 const mapStateToProps = (eventDetailsState) => ({
-  eventDetailsData: eventDetailsState.eventDetailsReducer.eventDetails.data
+  eventClassDetailsData: eventDetailsState.eventDetailsReducer.eventClassDetails.data,
+  eventAssignmentDetailsData: eventDetailsState.eventDetailsReducer.eventAssignmentDetails.data,
+  eventQuizDetailsData: eventDetailsState.eventDetailsReducer.eventQuizDetails.data
+
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);

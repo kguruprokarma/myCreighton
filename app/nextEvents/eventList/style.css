@@ -45,12 +45,77 @@
         padding-bottom:10px;
 }
 
+.desktopEventsList {
+    padding-bottom:0;
+}
+
 .eventDate label{
     font-weight: normal;
 }
 
 .eventOn {
         padding-left: 10px;
+}
+
+.remove-list {
+    position: relative;
+    height: 100%;
+    margin-top: -10px;
+    padding-bottom: 10px;
+}
+
+.remove-list:hover,
+.remove-list:focus,
+.remove-list:active  {
+    background-color:#ff0000;
+    color: #fff;
+}
+
+.remove-icon {
+    background: url(../../assets/images/removesvg_red.png) no-repeat center center;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    display: inline-block;
+    text-indent:-9999px;
+    margin-top:14px;
+    background-size: contain;
+}
+
+.remove-list p {
+    visibility: hidden;
+    margin-bottom:6px;
+
+}
+
+.remove-list:hover p,
+.remove-list:focus p,
+.remove-list:active p {
+    visibility: visible;
+}
+
+div.remove-list:hover .remove-icon,
+div.remove-list:focus .remove-icon,
+div.remove-list:active .remove-icon  {
+    background: url(../../assets/images/removesvg.png) no-repeat 0 0;
+}
+
+.assignIcon {
+    background: url(../../assets/images/assignment_icon.png) no-repeat 0 0;
+    width: 20px;
+    height: 26px;
+    overflow: hidden;
+    display: inline-block;
+    text-indent: -9999px;
+}
+
+.testIcon {
+    background: url(../../assets/images/test_icon.png) no-repeat 0 0;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    display: inline-block;
+    text-indent: -9999px;
 }
 
 @media (max-width: 767px) {

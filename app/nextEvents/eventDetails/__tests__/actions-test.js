@@ -61,12 +61,12 @@ describe('Next Events Student actions', () => {
       response:  data
     });
     const expectedActions = [
-      { type: types.REQUEST_EVENT_DETAILS_DATA },
-      { type: types.RECEIVE_EVENT_DETAILS_DATA, data: data}
+      { type: types.REQUEST_EVENT_CLASS_DETAILS_DATA },
+      { type: types.RECEIVE_EVENT_CLASS_DETAILS_DATA, data: data}
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getEventDetails())
+    return store.dispatch(actions.getEventClassDetails())
       .then(() => { 
       	let result = store.getActions();
         expect(result[0].type).toEqual( expectedActions[0].type);
@@ -81,12 +81,12 @@ describe('Next Events Student actions', () => {
       responseText:  "error"
     });
     const expectedActions = [
-      { type: types.REQUEST_EVENT_DETAILS_DATA },
-      { type: types.RECEIVE_EVENT_DETAILS_DATA_ERROR, data:"error"}
+      { type: types.REQUEST_EVENT_CLASS_DETAILS_DATA },
+      { type: types.RECEIVE_EVENT_CLASS_DETAILS_DATA_ERROR, data:"error"}
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getEventDetails())
+    return store.dispatch(actions.getEventClassDetails())
       .then(() => { 
       	let result = store.getActions();
         expect(result[0].type).toEqual( expectedActions[0].type);

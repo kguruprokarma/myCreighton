@@ -1,62 +1,60 @@
 {
-    "staffProfile": {
-        "bioData": {
-            "legalName": {
-                "first": "Jane",
-                "middle": "R",
-                "last": "Archer"
+    "timing": "-1.343",
+    "data": [
+        {
+            "netid": "5de48407ab",
+            "birth_date": "1992-05-26",
+            "email": {
+                "school_email": "5de48407ab@creighton.edu",
+                "personal_email":"9274b95f72@creighton.edu"
             },
-            "address": {
-                "home": {
-                    "street1": "2345 Nicolas St",
-                    "street2": "25th",
-                    "city": "Omaha",
-                    "state": "Nebraska",
-                    "postalCode": "57365-2345"
-                },
-                "school": {
-                    "street1": "3113 California St",
-                    "street2": "24th",
-                    "city": "Omaha",
-                    "state": "Nebraska",
-                    "postalCode": "68179"
-                },
-                "mailing": {
-                    "street1": "3113 California St",
-                    "street2": "24th",
-                    "city": "Omaha",
-                    "state": "Nebraska",
-                    "postalCode": "68179"
-                }
+            "emergency_contact": {
+                "first_name": "3ee294b7e7",
+                "last_name": "541af1c56f",
+                "middle_name": null,
+                "phone":"402.280.2700",
+                "relationship":"Mother"
             },
-            "contactDetail": {
-                "primaryPhone": "302.134.1477",
-                "emergencyContact": {
-                    "name": {
-                        "first": "Mary",
-                        "middle": "J",
-                        "last": "John"
-                    },
-                    "phone": "302.322.4671",
-                    "relation": "Mother"
-                },
-                "email": {
-                    "school": {
-                        "value": "john@creighton.edu"
-                    },
-                    "personal": {
-                        "value": "john123@yahoo.com"
-                    }
-                },
-                "birthDate": "April 7, 1993",
-                "netID": "Ab123",
-                "employeeNumber": "3331",
-                "familyDetails": {
-                    "maritalStatus": "Married",
-                    "spouseName": "Annika",
-                    "dependentsName": "Annika"
-                }
+            "guardian": {
+                "first_name": null,
+                "last_name": null,
+                "middle_name": null
+            },
+            "home_address": {
+                "Address_type": "PR",
+                "SPRADDR_CITY": "Waterloo",
+                "SPRADDR_STATE": "IA",
+                "SPRADDR_STREET_LINE1": "1195 Ridgemont Rd",
+                "SPRADDR_STREET_LINE2": "35th",
+                "SPRADDR_STREET_LINE3": null,
+                "SPRADDR_ZIP": "50701-4841"
+            },
+            "legal_name": {
+                "first_name": "190eb3ebae",
+                "last_name": "541af1c56f",
+                "middle_name": "James"
+            },
+            "parent": {
+                "first_name": "5d1ad170fa",
+                "last_name": "60ddcb016d",
+                "middle_name": "M"
+            },
+            "family_details": {
+                "maritalStatus": "Married",
+                "spouseName": "Annika",
+                "dependentsName": "Annika"
+            },
+            "pidm": "3375259",
+            "primary_phone_no": "402.280.2700",
+            "school_address": {
+                "Address_type": "CU",
+                "SPRADDR_CITY": "Omaha",
+                "SPRADDR_STATE": "NE",
+                "SPRADDR_STREET_LINE1": "Gallagher Hall Box 0044",
+                "SPRADDR_STREET_LINE2": "25th",
+                "SPRADDR_STREET_LINE3": null,
+                "SPRADDR_ZIP": "68178"
             }
         }
-    }
+    ]
 }

@@ -8,7 +8,6 @@ import moxios from 'moxios';
 import * as types from '../actionTypes';
 import * as actions from '../actions';
 import * as urlConstants from '../../constants/urlConstants';
-import { authUserDetails } from '../../common/utility';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -52,25 +51,29 @@ const staffProfileData = {
 
 const facultyAcademicData = {
   'appointment': {
-      'department': 'Natural Sciences - Biology',
-      'school': 'Arts & Sciences',
-      'status': 'Tenure'
-    },
+    'department': 'Natural Sciences - Biology',
+    'school': 'Arts & Sciences',
+    'status': 'Tenure'
+  },
   'instruction': {
-      'status': '',
-      'creditHours': 12,
-      'currentCourses': ['BIO 201 - C', 'BIO 205 - AJ', 'BIO 310 - 1', 'BIO 341 - 1'],
-      'pastCourses': ['BIO 297', 'BIO 362', 'BIO 463', 'CHM 371'],
-      'teachingAssistants': ['Ramesh Pavarti', 'Laura Feltman', 'Meiu Zhou']
-    },
+    'status': '',
+    'creditHours': 12,
+    'currentCourses': ['BIO 201 - C', 'BIO 205 - AJ', 'BIO 310 - 1', 'BIO 341 - 1'],
+    'pastCourses': ['BIO 297', 'BIO 362', 'BIO 463', 'CHM 371'],
+    'teachingAssistants': ['Ramesh Pavarti', 'Laura Feltman', 'Meiu Zhou']
+  },
   'officeInformation': {
-      'location': 'Rigge Science Building Rm 314',
-      'officeHours': {
-          'startTime': '09:00am',
-          'endTime': '06:00pm',
-          'weekDays': 'Mon, Wed, Fri'
-        }
+    'location': 'Rigge Science Building Rm 314',
+    'officeHours': {
+      'startTime': '09:00am',
+      'endTime': '06:00pm',
+      'weekDays': 'Mon, Wed, Fri'
     }
+  }
+};
+
+const facultyProfileData = {
+
 };
 
 describe('async actions', () => {
@@ -85,7 +88,7 @@ describe('async actions', () => {
   userReqObj.primaryKey = 'netid';
   userReqObj.primaryValue = '5de48407ab';
   it('testing action for profile data for student retrival case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE  }?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 200,
       response: studentData
     });
@@ -104,7 +107,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure for student profile case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE  }?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 404,
       responseText: 'error'
     });
@@ -155,6 +158,46 @@ describe('async actions', () => {
     const store = mockStore();
 
     return store.dispatch(actions.getStaffProfileData())
+      .then(() => {
+        const result = store.getActions();
+        expect(result[0].type).toEqual(expectedActions[0].type);
+        expect(JSON.stringify(result[1].data.error.response.data)).toEqual(JSON.stringify(expectedActions[1].data));
+        expect(result[1].type).toEqual(expectedActions[1].type);
+      });
+  });
+
+  it('Success test case for faculty Profile', () => {
+    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.FACULTY_PROFILE_DATA, {
+      status: 200,
+      response: facultyProfileData
+    });
+    const expectedActions = [
+      { type: types.REQUEST_FACULTY_PROFILE_DATA },
+      { type: types.RECEIVE_FACULTY_PROFILE_DATA, data: facultyProfileData }
+    ];
+    const store = mockStore();
+
+    return store.dispatch(actions.getFacultyProfileData())
+      .then(() => {
+        const result = store.getActions();
+        expect(result[0].type).toEqual(expectedActions[0].type);
+        expect(result[1].data.data).toEqual(expectedActions[1].data);
+        expect(result[1].type).toEqual(expectedActions[1].type);
+      });
+  });
+
+  it('faculty profile action test case for error', () => {
+    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.FACULTY_PROFILE_DATA, {
+      status: 404,
+      responseText: 'error'
+    });
+    const expectedActions = [
+      { type: types.REQUEST_FACULTY_PROFILE_DATA },
+      { type: types.RECEIVE_FACULTY_DATA_ERROR, data: 'error' }
+    ];
+    const store = mockStore();
+
+    return store.dispatch(actions.getFacultyProfileData())
       .then(() => {
         const result = store.getActions();
         expect(result[0].type).toEqual(expectedActions[0].type);

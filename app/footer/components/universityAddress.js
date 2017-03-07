@@ -12,5 +12,4 @@ const UniversityAddress = () => (
     <FooterNav />
   </p>
 );
-
 export default UniversityAddress;

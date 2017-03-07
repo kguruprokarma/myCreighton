@@ -1,39 +1,69 @@
-.headerLabel {
+.eventheaderLabel {
     padding-bottom: 20px;
-    border-bottom: 4px solid #d7d7d7;
 }
 
-.eventDate{
-    font: #c8c7cc;
-    text-align: right;
-    line-height: 10px;
-}
-
-.eventTitle{
-    font-size: 1.7333333333333334em;
+.eventDetailTitle {
+    font-size: 1.7333333333333334em;    /* font size 26 in pixel */
     line-height: 32px;
     color: #313131;
     font-family: 'open_sanslight';
+    margin-bottom: 4px;
 }
 
-.eventSubject{
+.eventDetailSubject {
+    font-size: 1.133333333333333em;
+    color: #313131;
+    font-family: 'open_sansregular', 'sans-serif';
+    margin-bottom: 8px;
+}
+
+.eventTiming {
+    font-family: 'open_sansregular', 'sans-serif';
     font-size: 1.1333333333333333em;
-    font: black;
-    font-family: 'open_sansregular', sans-serif;
-}
-
-.eventTiming{
-    line-height: 15px;
+    color: #313131;
     line-height: 1.42857143;
+
 }
 
-.eventDetail{
-    font: black;
+.eventDetail {
+    font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+    color: #313131;
     text-transform: uppercase;
-    line-height: 1.42857143;
+    font-family: 'open_sansregular';
+    line-height: 38px;
 }
 
-.eventNotes{
-    font: black;
-    line-height: 1.42857143;
+.eventNotes {
+    color: #313131;
+    font-size: 1.2em;   /* font size 18 in pixel */
+    font-family: 'open_sanslight';
+}
+
+.eventDetailsTitle {
+    border-bottom:4px solid #d7d7d7;
+}
+
+.nextEventBtn {
+    background-color:white;
+    border:1px solid #0054a6;
+    border-radius: 5px;
+    float: right;
+    height: 30px;
+    width: 161px;
+    color: #0054a6;
+    font-family: 'open_sansregular';
+    font-size: 1em; /* font size 15 in pixel */
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.nextevent-logo {
+    width: 17px;
+    height: 20px;
+    float: left;
+    vertical-align: top;
+}
+
+img {
+    margin-bottom: 8px;
 }

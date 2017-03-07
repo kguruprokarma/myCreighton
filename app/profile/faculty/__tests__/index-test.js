@@ -10,6 +10,7 @@ import i18n from '../../../__mock_i18n__/i18n_mockKeys';
 describe('index files in faculty testing ----->', () => {
   const minProps = {
     getFacultyProfileData: () => { },
+    getFacultyAcademicData: () => { },
     profile: 'FACULTY',
     params: {
       facultyprofileparam: 'profile'
@@ -25,5 +26,12 @@ describe('index files in faculty testing ----->', () => {
   it('Check HeaderLabel is "My Profile"', () => {
     expect(facultyProfile.find('HeaderLabel').length).toBe(1);
     expect(facultyProfile.find('HeaderLabel').prop('headerLabel')).toBe(i18n.properties.PROFILE_MY_PROFILE);
+  });
+
+  /* for academic */
+  minProps.params.facultyprofileparam = 'academic';
+  const facultyAcademic = shallow(<FacultyProfile {...minProps} />);
+  it('FacultyProfile is defined', () => {
+    expect(facultyAcademic).toBeDefined();
   });
 });

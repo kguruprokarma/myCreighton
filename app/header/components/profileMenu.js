@@ -18,6 +18,10 @@ export const profileMenuList = (roleType) => {
         'link': ROUTE_URL.ACADEMIC //'/Academic'
       },
       {
+        'itemName': CommonConstants.CHANGE_LANGUAGE,
+        'link': ''
+      },
+      {
         'itemName': CommonConstants.SIGN_OUT,
         'link': ''
       }
@@ -32,6 +36,10 @@ export const profileMenuList = (roleType) => {
         'link': ROUTE_URL.PROFESSIONAL
       },
       {
+        'itemName': CommonConstants.CHANGE_LANGUAGE,
+        'link': ''
+      },
+      {
         'itemName': CommonConstants.SIGN_OUT,
         'link': ''
       }
@@ -44,6 +52,10 @@ export const profileMenuList = (roleType) => {
       {
         'itemName': CommonConstants.ACADEMIC,
         'link': ROUTE_URL.FACULTY + ROUTE_URL.ACADEMIC
+      },
+      {
+        'itemName': CommonConstants.CHANGE_LANGUAGE,
+        'link': ''
       },
       {
         'itemName': CommonConstants.SIGN_OUT,

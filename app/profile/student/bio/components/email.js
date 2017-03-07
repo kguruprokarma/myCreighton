@@ -23,7 +23,7 @@ const Email = (emailProps) => (
       <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Profile Personal'>{translateText('common:PROFILE_PERSONAL')}</label> </Col>
       <Col xs={8} md={9} sm={8} className='dataField emailAddress wordBreak'>
         {/* Mailto added for open mail box popup */}
-        <Mailto email={emailProps.email.school_email}>{emailProps.email.school_email}</Mailto>
+        <Mailto email={emailProps.email.school_email}>{emailProps.email.personal_email}</Mailto>
       </Col>
     </Row>
   </article>

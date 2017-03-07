@@ -6,7 +6,7 @@ i18n
   .use(XHR)
   .use(LanguageDetector)
   .init({
-    "load": ['en', 'en-US'],
+    "load": ['en', 'en-US', 'es'],
     "backend": {
       "loadPath": './app/locales/{{lng}}/{{ns}}.json',
     },
@@ -15,13 +15,13 @@ i18n
     // have a common namespace used around the full app
     ns: ['common'], //List all locale json file names here
     defaultNS: 'common',
-    "lng": "en",
+    lng: 'en',
     debug: true,
     interpolation: {
       escapeValue: false // not needed for react!!
-    },
+    }
 
-    
+
   });
 
 

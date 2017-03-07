@@ -20,7 +20,7 @@ export class Classes extends React.PureComponent {
     super(props);
     this.onChangeOfTab = this.onChangeOfTab.bind(this);
     this.onChangeOfTab(this.props.params.classtab);
-    this.state = { presentState: '' }
+    this.state = { presentState: '' };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -42,7 +42,8 @@ export class Classes extends React.PureComponent {
   }
 
   render() {
-    const USER_DATA = this.props.classesData;
+    const classListData = this.props;
+    const USER_DATA = classListData.classesData;
     return (
       <section id='classSchedule'>
         {USER_DATA && <div>
@@ -54,7 +55,7 @@ export class Classes extends React.PureComponent {
               <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />
             </Col>
           </Row>
-          <ClassBox data={USER_DATA.classes} catagoryName={this.props.params.classtab} />
+          <ClassBox data={USER_DATA.classes} catagoryName={classListData.params.classtab} />
         </div>
         }
       </section>
@@ -62,13 +63,12 @@ export class Classes extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (classesState) => {
-  return ({
+const mapStateToProps = (classesState) => (
+  {
     classesData: classesState.classesReducer.classesData.data,
     catagoryName: classesState.classesReducer.catagoryName
   });
-};
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Classes)
+export default connect(mapStateToProps, mapDispatchToProps)(Classes);

@@ -7,7 +7,7 @@ import { Row, Col } from 'react-bootstrap';
 import { translateText } from '../../../../common/translate';
 
 const PrimaryContact = (primaryContactProps) => {
-  const tel = 'tel:' + primaryContactProps.primaryContact;
+  const tel = `tel:${  primaryContactProps.primaryContact}`;
   return (
     <article className='profileRow mt30 emailAddress'>
       <h3 className='dataHeading openSansRegular'>{translateText('common:PROFILE_PRIMARY_CONTACT')}</h3>
