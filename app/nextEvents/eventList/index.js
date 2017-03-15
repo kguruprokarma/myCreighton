@@ -25,7 +25,7 @@ export class EventList extends React.PureComponent {
     super();
     this.userReqObj = {};
     this.userReqObj.primaryKey = 'netid';
-    this.userReqObj.primaryValue = '6cb4db8459';
+    this.userReqObj.primaryValue = authUserDetails().netid;
   }
   componentWillMount() {
     if (this.userReqObj !== undefined && authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {

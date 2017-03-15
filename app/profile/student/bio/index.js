@@ -28,7 +28,7 @@ export class Profile extends React.PureComponent {
     let userReqObj = authUserDetails();
     userReqObj = {};
     userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = '9274b95f72';
+    userReqObj.primaryValue = authUserDetails().netid;
     this.props.getStudentProfileData(userReqObj);
   }
 

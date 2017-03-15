@@ -14,6 +14,7 @@ import style from '../classList/style.css';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import Spinner from '../../common/spinner';
+import { authUserDetails } from '../../common/utility';
 
 export class Classes extends React.PureComponent {
 
@@ -22,7 +23,7 @@ export class Classes extends React.PureComponent {
 
     this.userReqObj = {};
     this.userReqObj.primaryKey = 'netid';
-    this.userReqObj.primaryValue = '6cb4db8459';
+    this.userReqObj.primaryValue = authUserDetails().netid;
 
     this.onChangeOfTab = this.onChangeOfTab.bind(this);
     this.onChangeOfTab(this.props.params.classtab);
