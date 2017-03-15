@@ -2,7 +2,7 @@
  * Contains the test case for faculty academic officeInformation
  */
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import OfficeInformation from '../components/officeInformation';
 
 const facultyOfficeInformationProps = {

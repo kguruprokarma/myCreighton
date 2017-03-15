@@ -3,8 +3,8 @@
 */
 
 import React from 'react';
-import BasicRow from '../../../common/basicRow';
-import { translateText } from '../../../common/translate';
+import BasicRow from '../../../../common/basicRow';
+import { translateText } from '../../../../common/translate';
 
 const FamilyDetail = (familyProps) => (
   <article className='profileRow'>

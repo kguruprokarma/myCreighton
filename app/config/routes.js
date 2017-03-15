@@ -15,7 +15,8 @@ import Classes from '../classes/classList';
 import ClassDetails from '../classes/classDetails';
 import Dashboard from '../dashboard/index';
 import StaffProfile from '../profile/staff';
-import FacultyProfile from '../profile/faculty';
+import FacultyProfile from '../profile/faculty/bio';
+import FacultyAcademic from '../profile/faculty/academic';
 import i18n from '../i18n'; // initialized i18next instance
 import * as ROUTE_URL from '../constants/routeContants';
 import EventList from '../nextEvents/eventList';
@@ -38,7 +39,8 @@ const routes = (
           <Route path={ROUTE_URL.DASHBOARD} title='' component={Dashboard} />
           <Route path={ROUTE_URL.DASHBOARD + ROUTE_URL.USER_ROLE_TYPE} title='' component={Dashboard} />
           <Route path={ROUTE_URL.STAFF + ROUTE_URL.PROFILE} title='Staff Profile -' component={StaffProfile} />
-          <Route path={ROUTE_URL.FACULTY + ROUTE_URL.FACULTY_PROFILE_PARAM} title='Faculty Profile -' component={FacultyProfile} />
+          <Route path={ROUTE_URL.FACULTY + ROUTE_URL.PROFILE} title='Faculty Profile -' component={FacultyProfile} />
+          <Route path={ROUTE_URL.FACULTY + ROUTE_URL.ACADEMIC} title='Faculty Academic -' component={FacultyAcademic} />
           <Route path={ROUTE_URL.EVENT_LIST} title='' component={EventList} />
           <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.EVENT_ASSIGN_DUE} title='Event Detail - ' component={EventDetails} />
           <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM} title='Event Detail - ' component={EventDetails} />

@@ -21,7 +21,7 @@ import HeaderLabel from '../../common/headerLabel';
 import * as CommonConstants from '../../constants/commonConstants';
 import { authUserDetails } from '../../common/utility';
 import Spinner from '../../common/spinner';
-import FamilyDetail from '../faculty/components/family';
+import FamilyDetail from '../faculty/bio/components/family';
 
 export class StaffProfile extends React.PureComponent {
 

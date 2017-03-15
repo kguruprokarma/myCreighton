@@ -2,7 +2,7 @@
  * Contains the test case for faculty academic 
  */
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import Appointment from '../components/appointment';
 
 const facultyAppointmentProps = {

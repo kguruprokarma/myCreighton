@@ -7,7 +7,7 @@ import { Row, Col } from 'react-bootstrap';
 import Appointment from '../components/appointment';
 import Instruction from '../components/instruction';
 import OfficeInformation from '../components/officeInformation';
-import LeftNav from '../../../common/leftNav';
+import LeftNav from '../../../../common/leftNav';
 
 const FacultyAcademic = (facultyAcademicData) => (
   <article className='profileRow mt30'>{console.log(facultyAcademicData)}
@@ -15,7 +15,7 @@ const FacultyAcademic = (facultyAcademicData) => (
     <Row>
       <Col sm={8} md={9} xs={12} className='userData pull-right'>
         <Appointment data={facultyAcademicData.data.data[0]} />
-        {/*<OfficeInformation data={facultyAcademicData.data.data[0]} />*/}
+        <OfficeInformation data={facultyAcademicData.data.data[0]} />
         <Instruction data={facultyAcademicData.data.data} />
       </Col>
       <Col md={3} sm={4} className='hidden-xs'>
