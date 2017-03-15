@@ -9,11 +9,13 @@ import Other from '../components/other';
 it('Other is defined', () => {
 
   const defaultProps = {
-    other: {
-      birthDate: "13-02-1993",
-      netID: "0786"
+      detail:{
+        birth_date: "13-02-1993",
+        netid: "0786"
+      },
+      profile: "STAFF"
     }
-  }
+  
   const other = shallow(<Other {...defaultProps} />);
 
   expect(other).toBeDefined();

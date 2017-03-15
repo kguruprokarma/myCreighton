@@ -3,36 +3,39 @@
 */
 
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import HomeAddress from '../components/homeAddress';
 import SchoolAddress from '../components/address';
 
 const homeAddressProps = {
-    homeAddress: {
-      street1: "street1 name",
-      street2: "street2 name",
-      city: "CIty name",
-      state: "state name",
-      postalCode: "500008"
-    }
-  };
-  const schoolAddressProps = {
-    shouldShowWhenStaff:false,
-    address: {
-      street1: "street1 name",
-      street2: "street2 name",
-      city: "CIty name",
-      state: "state name",
-      postalCode: "500008"
-    }
-  };
+  homeAddress: {
+    Address_type: 'CU',
+    SPRADDR_CITY: 'Omaha',
+    SPRADDR_STATE: 'NE',
+    SPRADDR_STREET_LINE1: 'Gallagher Hall Box 0044',
+    SPRADDR_STREET_LINE2: '25th',
+    SPRADDR_STREET_LINE3: null,
+    SPRADDR_ZIP: '68178'
+  }
+};
+const schoolAddressProps = {
+  shouldShowWhenStaff: false,
+  schoolAddress: {
+    Address_type: 'CU',
+    SPRADDR_CITY: 'Omaha',
+    SPRADDR_STATE: 'NE',
+    SPRADDR_STREET_LINE1: 'Gallagher Hall Box 0044',
+    SPRADDR_STREET_LINE2: '25th',
+    SPRADDR_STREET_LINE3: null,
+    SPRADDR_ZIP: '68178'
+  }
+};
 it('HomeAddress is defined', () => {
-  
   const homeAddress = shallow(<HomeAddress {...homeAddressProps} />);
   expect(homeAddress).toBeDefined();
 });
-it('SchoolAddress is defined', () => {
 
+it('SchoolAddress is defined', () => {
   const schoolAddress = shallow(<SchoolAddress {...schoolAddressProps} />);
-  expect(schoolAddress).toBeDefined();
+  expect(schoolAddress).toBeDefin
 });

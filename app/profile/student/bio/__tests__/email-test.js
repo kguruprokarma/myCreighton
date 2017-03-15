@@ -9,14 +9,7 @@ import Email from '../components/email';
 it('Email is defined', () => {
 
   const defaultProps = {
-    email: {
-      school: {
-        value: "School Name"
-      },
-      personal: {
-        value: "Home address"
-      }
-    }
+    email: { "school_email": "bab74e76ba@creighton.edu" },
   }
   const email = shallow(<Email {...defaultProps} />);
 

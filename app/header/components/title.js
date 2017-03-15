@@ -3,14 +3,10 @@
  */
 
 import React from 'react';
-import { Link } from 'react-router';
-import { Grid, Row, Col } from 'react-bootstrap';
-import HeaderTitle from './headerTitle';
+import headerTitle from './headerTitle';
 
-const Title = (currentPath) => {
-    return (
-        <h1 className="bebasregular logo mt10 mb10 fs1pt4">{HeaderTitle(currentPath)}</h1>
-    );
-};
+const Title = (currentPath) => (
+  <h1 className='bebasregular logo mt10 mb10 fs1pt4'>{headerTitle(currentPath)}</h1>
+  );
 
 export default Title;

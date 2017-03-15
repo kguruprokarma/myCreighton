@@ -19,7 +19,7 @@ describe('HeaderTitle component testing ----->', () => {
 		expect(ClassTitleC).toBe(i18n.properties['CLASS_SCHEDULE']);
 	});
 
-	const classDetailPath = { path:'/classdetails' }
+	const classDetailPath = { path:'/classesdetails' }
 	let ClassDetailsTitleC = HeaderTitle(classDetailPath);
 	it('Class details path is defined', () => {
 		expect(ClassDetailsTitleC).toBe(i18n.properties['CLASS_DETAIL']);

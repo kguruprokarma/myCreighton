@@ -17,6 +17,7 @@
 }
 .dataField {
     font-size: 1.4em;   /* font size 21 in pixel */  
+    font-family: 'open_sanslight';   
 }
 
 .mobileNumber{
@@ -28,57 +29,65 @@
     cursor: pointer;
 }
 
-@media screen and (min-width: 1030px) {
-   
-}
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-
-}
 /* Profile Page css mobile view */
 @media screen and (max-width: 767px) {
+
     .userData {
         width: 100%;
     }
+
     .dataField {
-        font-size: 1.2em;   /* font size 18 in pixel */
-        font-family: 'open_sanslight';    
+        font-size: 1.2em;   /* font size 18 in pixel */ 
     } 
+
     .labelField {
         font-size: 1.0666666666666667em;    /* font size 16 in pixel */
     }
+
     .dataHeading{
         font-size: 0.9333333333333333em; /* font size 14 in pixel */
     }
 
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 400px) {
     .userData {
         width: 100%;
     }
+
     .dataField {
         font-size: 1em; /* font size 15 in pixel */
     } 
+
     .labelField {
         font-size: 0.9333333333333333em; /* font size 14 in pixel */  
     }
+
     .dataHeading{
         font-size: 0.8666666666666667em;    /* font size 13 in pixel */
     }
 
-}
-/*
-@media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
-@media (max-width: 767px) and (min-resolution: 192dpi) { */
-    /* Retina specific CSS code */
-/*  .dataHeading{
-        font-size: 27px
+    .control-checkbox {
+        line-height: 24px;
     }
+
+}
+
+@media screen and (max-width: 320px) {
+
+    .userData {
+        width: 100%;
+    }
+    
     .dataField {
-        font-size: 36px;
-        color: #0079b3
+        font-size: 0.9333333333333333em; /* font size 14 in pixel */  
     } 
+
     .labelField {
-        font-size:36px;
-    }  
-}   */
+        font-size: 0.8em;   /* font size 12 in pixel */
+    }
+
+    .dataHeading{
+        font-size: 0.8666666666666667em;    /* font size 13 in pixel */
+    }
+}

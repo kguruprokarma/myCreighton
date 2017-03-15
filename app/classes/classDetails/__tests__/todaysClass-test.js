@@ -6,8 +6,9 @@ describe('TodaysClass component testing ----->', () => {
     it('TodaysClass is defined', () => {
 
     const defaultProps = {        
-            todaysClass:[ {
-                json: "01/22/2017"
+            data:[ {
+                json: "01/22/2017",
+                length:() =>{}
             }]        
     }
     const todaysClass = shallow( < TodaysClass {...defaultProps }  />);

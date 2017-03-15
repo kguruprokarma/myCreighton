@@ -9,5 +9,11 @@
 export const PROFILE = 'profile'; 
 export const ACADEMIC = 'academic';
 export const CLASSES = 'classes';
-export const CLASS_DETAILS = 'classdetails';
+export const CLASS_DETAILS = 'classesdetails';
 export const DASHBOARD = 'dashboard';
+export const STAFF_PROFILE = 'staff'; 
+export const EVENT_LIST = 'eventlist';
+export const PROFESSIONAL = 'professional';
+export const EVENT_DETAILS = 'eventdetails';
+export const EVENT_TEST_DETAILS = 'testorquiz';
+export const ASSIGNMENTS = 'assignments';

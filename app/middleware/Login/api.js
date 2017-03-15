@@ -5,8 +5,8 @@
 import axios from 'axios';
 import * as urlConstants from '../../constants/urlConstants';
 
-let LoginApi = {
-  getLoginDetails: (email, password) => axios.get( urlConstants.ROOT_URL + urlConstants.LOGIN_DETAILS_DATA)
+const LoginApi = {
+  getLoginDetails: () => axios.get(urlConstants.ROOT_URL + urlConstants.LOGIN_DETAILS_DATA)
 };
 
 export default LoginApi;

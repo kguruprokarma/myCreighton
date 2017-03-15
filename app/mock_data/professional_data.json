@@ -1,0 +1,34 @@
+{
+	"professionalDetail": {
+		"businessInformation": {
+			"title": "Sr. HR generalist",
+			"organization": "Human Resources",
+			"department": "Recruiting",
+			"reportsTo": "June Director",
+			"hireDate": "July 1, 2003",
+			"payroll": "Active",
+			"assignNo": "12345678"
+		},
+		"professionalDevelopment": {
+			"expertiseOrSkills": [
+				"Staffing",
+				"Recruiting",
+				"Diversity training",
+				"Employee relations",
+				"Performance management",
+				"Compensation",
+				"Accommodations",
+				"General HR questions"
+			],
+			"applicationsOrTools": [
+				"HR software",
+				"Health records software"
+			],
+			"group": [
+				"Dentistry",
+				"Medicine",
+				"Pharmacy"
+			]
+		}
+	}
+}

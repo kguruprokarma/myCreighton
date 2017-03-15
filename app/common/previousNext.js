@@ -4,119 +4,28 @@
 
 import React from 'react';
 import { Link } from 'react-router';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import classesReducer from '../classes/classList/reducer';
-import { DATASORT, DATAFILTERADDINGDATA, DATATIME } from './utility';
 import * as ROUTE_URL from '../constants/routeContants';
 import * as CommonConstants from '../constants/commonConstants';
-import * as actionCreators from '../classes/classList/actions';
+import { translateText } from '../common/translate';
 
-
-let classIds = [];
-
-class PreviousNext extends React.Component {
-
-    constructor() {
-        super();
-        this.getLinkIndexAndId = this.getLinkIndexAndId.bind(this);
-        this.pushClassesToClassIdsArray = this.pushClassesToClassIdsArray.bind(this);
-    }
-
-    componentWillMount() {
-        let catagory = this.props.presentCategory;
-        if (catagory === CommonConstants.WEEK) {
-            this.props.getClassesDataByWeek();
-        } else if (catagory === CommonConstants.LIST) {
-            this.props.getClassesDataForAtoZ();
-        } else if (catagory === CommonConstants.TODAY) {
-            this.props.getClassesDataByToday();
-        }
-    }
-
-    pushClassesToClassIdsArray(classes) {
-        classes.map((classData, index) => {
-            classIds.push({ index, id: classData.id });
-        });
-    }
-
-    getLinkIndexAndId() {
-        if (this.props.classList.data && this.props.classList.data.classes.length > 0) {
-            let catagory = this.props.presentCategory;
-            if (catagory === CommonConstants.WEEK) {
-                classIds = [];
-                let classes = DATAFILTERADDINGDATA(this.props.classList.data.classes);
-                this.pushClassesToClassIdsArray(classes);
-            } else if (catagory === CommonConstants.LIST) {
-                classIds = [];
-                let classes = DATASORT(this.props.classList.data.classes, 'name', 'ASC');
-                this.pushClassesToClassIdsArray(classes);
-            } else if (catagory === CommonConstants.TODAY) {
-                classIds = [];
-                let classes = DATATIME(this.props.classList.data.classes, 'time', 'ASC');
-                this.pushClassesToClassIdsArray(classes);
-            }
-
-            let linkIndex = parseInt(this.props.presentIndex);
-            if (classIds.length > 1) {
-                if (linkIndex === 0) {
-                    this.previousId = classIds[linkIndex].id;
-                    this.previousIndex = classIds[linkIndex].index;
-                    this.nextIndex = classIds[linkIndex + 1].index;
-                    this.nextId = classIds[linkIndex + 1].id;
-                }
-                else if (classIds.length - 1 === linkIndex) {
-                    this.previousId = classIds[linkIndex - 1].id;
-                    this.previousIndex = classIds[linkIndex - 1].index;
-                    this.nextIndex = classIds[linkIndex].index;
-                    this.nextId = classIds[linkIndex].id;
-                }
-                else if (linkIndex > 0 && linkIndex < classIds.length - 1) {
-                    this.previousId = classIds[linkIndex - 1].id;
-                    this.previousIndex = classIds[linkIndex - 1].index;
-                    this.nextIndex = classIds[linkIndex + 1].index;
-                    this.nextId = classIds[linkIndex + 1].id;
-                }
-            }
-            else {
-                this.previousId = classIds[linkIndex].id;
-                this.previousIndex = classIds[linkIndex].index;
-                this.nextIndex = classIds[linkIndex].index;
-                this.nextId = classIds[linkIndex].id;
-            }
-        }
-    }
-
-    render() {
-        this.getLinkIndexAndId();
-        return (
-            <div className="row">
-                <div className="form-group col-xs-6">
-                    <Link to={ROUTE_URL.CLASS_DETAILS + "/" + this.props.presentCategory + "/"
-                        + this.previousId
-                        + "/"
-                        + this.previousIndex} activeStyle={{ pointerEvents: 'none', color: 'gray', background: '#ddd', border: '#ddd' }} className="btn btn-primary">
-                        <span className="glyphicon glyphicon-chevron-left"></span> Previous
-                    </Link>
-                </div>
-                <div className="form-group col-xs-6 text-right">
-                    <Link to={ROUTE_URL.CLASS_DETAILS + "/" + this.props.presentCategory + "/"
-                        + this.nextId
-                        + "/"
-                        + this.nextIndex} className="btn btn-primary" activeStyle={{ pointerEvents: 'none', color: 'gray', background: '#ddd', border: '#ddd' }}> Next
-                    <span className="glyphicon glyphicon-chevron-right"></span>
-                    </Link>
-                </div>
-            </div>
-        );
-    }
+export class PreviousNext extends React.Component {
+  render() {
+    const previousNextData = this.props;
+    return (
+      <div className='row' >
+        <div className='form-group col-xs-6'>
+          <Link to={`${ROUTE_URL.CLASS_DETAILS}/${previousNextData.presentCategory}/${previousNextData.prevItem}`}  className={`btn btn-primary ${previousNextData.currentIndex===0?'disableButton':''}` }>
+            <span className='glyphicon glyphicon-chevron-left' /> {translateText('common:PREVIOUS')}
+          </Link>
+        </div>
+        <div className='form-group col-xs-6 text-right'>
+          <Link to={`${ROUTE_URL.CLASS_DETAILS}/${previousNextData.presentCategory}/${previousNextData.nextItem}`} className={`btn btn-primary ${previousNextData.currentIndex===previousNextData.totalLength?'disableButton':''}` }> {translateText('common:NEXT')}
+            <span className='glyphicon glyphicon-chevron-right' />
+          </Link>
+        </div>
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = (state) => (
-    {
-        classList: state.classesReducer.classesData
-    });
-
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(PreviousNext);
+export default PreviousNext;

@@ -2,47 +2,46 @@
 import * as types from './actionTypes';
 
 
-let openPopUp = () => ({
+const openPopUp = () => ({
   type: types.OPEN_POPUP
-})
+});
 
-let closePopUp = () => (
+const closePopUp = () => (
   {
     type: types.CLOSE_POPUP
-  })
+  });
 
-let openNav = () => ({
+const openNav = () => ({
   type: types.OPEN_NAV
-})
+});
 
-let closeNav = () => (
+const closeNav = () => (
   {
     type: types.CLOSE_NAV
-  })
+  });
 
 export function popUpOpen() {
   return function (dispatch) {
-    dispatch(openPopUp())
-  }
+    dispatch(openPopUp());
+  };
 }
 
 export function popUpClose() {
   return function (dispatch) {
-    dispatch(closePopUp())
-  }
+    dispatch(closePopUp());
+  };
 }
 
 export function navOpen() {
   return function (dispatch) {
-    dispatch(openNav())
-  }
+    dispatch(openNav());
+  };
 }
 
 export function navClose() {
   return function (dispatch) {
-    dispatch(closeNav())
-  }
+    dispatch(closeNav());
+  };
 }
-
 
 

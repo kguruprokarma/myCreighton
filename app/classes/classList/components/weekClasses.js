@@ -19,7 +19,7 @@ const WeekClasses = (weekProps) => (
         return (
           <div key={classIndex} id='cls'>
             {lastHeader !== presentHeader && <DayHeader day={lastHeader = weekClass.day} />}
-            <Link to={ROUTE_URL.CLASS_DETAILS + '/' + weekProps.catagory + '/' + weekClass.id + '/' + classIndex}>
+            <Link to={`${ROUTE_URL.CLASS_DETAILS}/${weekProps.catagory}/${weekClass.sis_source_id}`}>
               <ClassInfo data={weekClass} />
             </Link>
           </div>

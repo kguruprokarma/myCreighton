@@ -1,62 +1,57 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import TodayClasses from '../components/todayClasses';
-import { todayHeader, DATATIME } from '../../../common/utility';
-describe('TodayClasses component testing ----->', () => {
+import { todayHeader, DATETIME } from '../../../common/utility';
 
+describe('TodayClasses component testing ----->', () => {
   const defaultProps = {
-    "classes": [
-        {
-            "id": "1",
-            "name": "English 112",
-            "time": "11am - 12pm",
-            "by": "Miller",
-            "place": "Building Rm 119",
-            "on": "poetry",
-            "date": "jan 28",
-            "recurrence": "Sa"
+    'data': [
+      {
+        'student_pidm': '3423821',
+        'term_code': '201670',
+        'term_crn': '72788',
+        'class_begin_time': '1800',
+        'class_building_code': 'EPLY',
+        'class_end_time': '2030',
+        'class_held_build_desc': 'Eppley Building',
+        'class_room_code': '211',
+        'class_schedule': 'M',
+        'course_credit_hrs': '3',
+        'course_number': '515',
+        'course_section': 'N',
+        'course_title': 'Law And Health Systems',
+        'inst_email': 'MDD82239',
+        'inst_id': 'af73207668',
+        'instructor_name': {
+          'first_name': 'f089eaef57',
+          'last_name': '436cd08981',
+          'middle_name': 'Dale'
         },
-        {
-            "id": "2",
-            "name": "Political science 223",
-            "time": "3pm - 4pm",
-            "by": "Dow",
-            "place": "Hopper Lecture 100",
-            "on": "20th-century politics in th U.S",
-            "date": "jan 28",
-            "recurrence": "Sa"
-        },
-        {
-            "id": "3",
-            "name": "Theology 100",
-            "time": "7am - 8am",
-            "by": "Miller",
-            "place": "Room 105",
-            "on": "Christianity in context",
-            "date": "jan 28",
-            "recurrence": "Sa"
-        }
+        'netid': '6cb4db8459',
+        'sis_source_id': '201670_HAP_515_N',
+        'subject_code': 'HAP',
+        'term_description': 'Fall 2016'
+      }
     ]
   };
   const todayHeaderText = todayHeader();
-  const TodayClassesC = shallow(<TodayClasses  listOfData={DATATIME(defaultProps.classes, 'time')}/>);
+  const TodayClassesC = shallow(<TodayClasses listOfData={defaultProps.data} />);
 
   it('TodayClasses is defined', () => {
     expect(TodayClassesC).toBeDefined();
   });
 
   it('TodayClasses header text', () => {
-    let item = TodayClassesC.find('DayHeader');
+    const item = TodayClassesC.find('DayHeader');
     expect(item.props().day).toBe(todayHeaderText);
   });
 
   it('WeekClasses component contails ClassInfo component length', () => {
-    expect(TodayClassesC.find('ClassInfo').length).toBe(3);
+    expect(TodayClassesC.find('ClassInfo').length).toBe(1);
   });
 
   it('WeekClasses component contails ClassInfo rendering order', () => {
-    let items = TodayClassesC.find('ClassInfo');
-    expect(JSON.stringify(items.at(0).props().data)).toBe(JSON.stringify(defaultProps.classes[2]));
+    const items = TodayClassesC.find('ClassInfo');
+    expect(JSON.stringify(items.at(0).props().data)).toBe(JSON.stringify(defaultProps.data[0]));
   });
-
 });

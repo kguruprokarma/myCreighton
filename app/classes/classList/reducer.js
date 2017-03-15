@@ -5,38 +5,58 @@
 import * as types from './actionTypes';
 
 const initialState = {
-	classesData: {},
-	isLoading: false,
-	error: false,
-	catagoryName: "week"
+  classesData: {},
+  assignmentsData: {},
+  isLoading: false,
+  error: false,
+  catagoryName: 'week'
 };
 
 const classesReducer = (state = initialState, action = null) => {
-	switch (action && action.type) {
-		case types.RECEIVE_CLASSES_DATA_ERROR:
-			return Object.assign({}, state, {
-				isLoading: false,
-				error: true,
-				classesData: []
-			})
-		case types.REQUEST_CLASSES_DATA:
-			return Object.assign({}, state, {
-				isLoading: true,
-				error: false
-			})
-		case types.RECEIVE_CLASSES_DATA:
-			return Object.assign({}, state, {
-				isLoading: false,
-				classesData: action.data
-			})
-		case types.ON_CATAGORY_CHANGE:
-			return Object.assign({}, state, {
-				catagoryName: action.data
-			})
-		default:
-			return state
-	}
-}
+  switch (action && action.type) {
+    case types.RECEIVE_CLASSES_DATA_ERROR:
+      return Object.assign({}, state, {
+        isLoading: false,
+        error: true,
+        classesData: []
+      });
+    case types.REQUEST_CLASSES_DATA:
+      return Object.assign({}, state, {
+        isLoading: true,
+        error: false
+      });
+    case types.RECEIVE_CLASSES_DATA:
+      return Object.assign({}, state, {
+        isLoading: false,
+        classesData: action.data
+      });
+    case types.ON_CATAGORY_CHANGE:
+      return Object.assign({}, state, {
+        catagoryName: action.data
+      });
+
+      
+    case types.RECEIVE_ASSIGNMENTS_DATA_ERROR:
+      return Object.assign({}, state, {
+        isLoading: false,
+        error: true,
+        assignmentsData: []
+      });
+    case types.REQUEST_ASSIGNMENTS_DATA:
+      return Object.assign({}, state, {
+        isLoading: true,
+        error: false
+      });
+    case types.RECEIVE_ASSIGNMENTS_DATA:
+      return Object.assign({}, state, {
+        isLoading: false,
+        assignmentsData: action.data
+      });
+      
+    default:
+      return state;
+  }
+};
 
 
-export default classesReducer
+export default classesReducer;

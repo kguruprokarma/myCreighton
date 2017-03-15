@@ -9,7 +9,7 @@
 export const PROFILE = '/profile'; 
 export const ACADEMIC = '/academic';
 export const CLASSES = '/classes';
-export const CLASS_DETAILS = '/classdetails';
+export const CLASS_DETAILS = '/classesdetails';
 export const DASHBOARD = '/dashboard';
 export const TODAY = '/today';
 export const WEEK = '/week';
@@ -17,7 +17,9 @@ export const LIST = '/list';
 export const STUDENT = '/student';
 export const STAFF = '/staff';
 export const FACULTY = '/faculty';
-
+export const EVENT_LIST = '/eventlist';
+export const EVENT_DETAILS = '/eventdetails';
+export const PROFESSIONAL = '/professional';
 
 /*
 * Relative path url's parameters for components
@@ -28,7 +30,7 @@ export const CLASS_TAB_PARAM = '/:classtab';
 export const USER_ROLE_TYPE = '/:roletype';
 export const ID_PARAM = '/:id';
 export const INDEX_PARAM = '/:index';
-
-
-
-
+export const EVENT_DETAILS_TYPE = '/:eventdetailstype';
+export const FACULTY_PROFILE_PARAM = '/:facultyprofileparam';
+export const FACULTY_ACADEMIC_PARAM = '/:facultyacademicparam';
+export const EVENT_ASSIGN_DUE = '/:assigndue';

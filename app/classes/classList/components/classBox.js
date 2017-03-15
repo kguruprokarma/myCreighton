@@ -4,31 +4,25 @@
 
 import React from 'react';
 import WeekClasses from './weekClasses';
-import { DATAFILTERADDINGDATA, DATASORT, DATATIME } from '../../../common/utility';
+import { DATAFILTERADDINGDATA, DATASORT, DATETIME } from '../../../common/utility';
 import AToZClasses from './aToZClasses';
 import TodayClasses from './todayClasses';
 import * as CommonConstants from '../../../constants/commonConstants';
 
 export const classes = [];
 
-class ClassBox extends React.Component {
-  render() {
-    return (
-      <div>
-        {
-          this.props.catagoryName === CommonConstants.TODAY ? (
-            <TodayClasses catagory={this.props.catagoryName} listOfData={DATATIME(this.props.data, 'time', 'ASC')} />
-          ) : (
-              (this.props.catagoryName === CommonConstants.WEEK ? (
-                <WeekClasses catagory={this.props.catagoryName} listOfData={DATAFILTERADDINGDATA(this.props.data)} />)
-                : (<AToZClasses catagory={this.props.catagoryName} listOfData={DATASORT(this.props.data, 'name', 'ASC')} />)
-              )
-            )
-        }
-      </div>
-    );
-  }
-
-}
-
+const ClassBox = (classBoxProps) => (
+  <div>
+    {
+      classBoxProps.catagoryName === CommonConstants.TODAY ? (
+        <TodayClasses catagory={classBoxProps.catagoryName} listOfData={DATETIME(classBoxProps.data.data, 'class_begin_time', 'class_end_time', 'ASC')} />
+      ) : (
+          (classBoxProps.catagoryName === CommonConstants.WEEK ? (
+            <WeekClasses catagory={classBoxProps.catagoryName} listOfData={DATAFILTERADDINGDATA(classBoxProps.data.data)} />)
+            : (<AToZClasses catagory={classBoxProps.catagoryName} listOfData={DATASORT(classBoxProps.data.data, 'course_title', 'ASC')} />)
+          )
+        )
+    }
+  </div>
+);
 export default ClassBox;

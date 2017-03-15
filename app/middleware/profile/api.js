@@ -5,9 +5,11 @@
 import axios from 'axios';
 import * as urlConstants from '../../constants/urlConstants';
 
-let ProfileApi = {
-  getProfileData: () => axios.get( urlConstants.ROOT_URL + urlConstants.PROFILE_DATA),
-  getStaffProfileData: () => axios.get(urlConstants.ROOT_URL + urlConstants.STAFF_PROFILE_DATA)
+const ProfileApi = {
+  getProfileData: (reqObj) => axios.get( urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE, {params: reqObj} ),
+  getStaffProfileData: (reqObj) => axios.get(urlConstants.API_GATEWAY + urlConstants.STAFF_BIO + urlConstants.STUDENT_ACADEMIC_SINGLE, {params: reqObj} ),
+  getFacultyProfileData: (reqObj) => axios.get(urlConstants.API_GATEWAY + urlConstants.FACULTY_BIO + urlConstants.API_SINGLE, { params: reqObj }),
+  getFacultyAcademicData: (reqObj) => axios.get(urlConstants.API_GATEWAY + urlConstants.FACULTY_LEARN + urlConstants.API_SINGLE, { params: reqObj })
 };
 
 export default ProfileApi;

@@ -5,114 +5,41 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { StaffProfile } from '../index';
-import i18n from '../../../__mock_i18n__/i18n_mockKeys'
+import i18n from '../../../__mock_i18n__/i18n_mockKeys';
 
 describe('index files in staff testing ----->', () => {
-    const minProps = {
-        getStaffProfileData: () => { },
-        profile: 'STAFF',
-        profileData: {
-            "staffProfile": {
-                "bioData": {
-                    "legalName": {
-                        "first": "John",
-                        "middle": "J",
-                        "last": "Edward"
-                    },
-                    "address": {
-                        "home": {
-                            "street1": "12345 Nicolas St",
-                            "street2": "21st",
-                            "city": "Omaha",
-                            "state": "Nebraska",
-                            "postalCode": "68154-1234"
-                        },
-                        "school": {
-                            "street1": "2112 California St",
-                            "street2": "22nd",
-                            "city": "Omaha",
-                            "state": "Nebraska",
-                            "postalCode": "68179"
-                        },
-                        "mailing": {
-                            "street1": "California West",
-                            "street2": "7th",
-                            "city": "Omaha",
-                            "state": "Omaha West",
-                            "postalCode": "89567"
-                        }
+  const minProps = {
+    getStaffProfileData: () => { },
+    profile: 'STAFF',
+    profileData: { 'timing': '-4.353', 'data': [{ 'netid': 'ed8ad0b875', 'banner_pidm': '3439269', 'date_of_birth': '1992-03-15 00:00:00.0', 'emergency_contact': { 'first_name': '19669702ab', 'last_name': '0f2eb7129e' }, 'emp_number': '27523', 'faculty_address': { 'home_Address_line1': '1015 North 14th Street', 'home_Address_line2': 'Apt 201', 'home_Address_line3': null, 'home_State_code': 'NE', 'home_postal_code': '68102', 'home_town_or_city': 'Omaha' }, 'faculty_name': { 'first_name': '248715109e', 'last_name': '0f2eb7129e', 'middle_name': 'D' }, 'full_name': 'e739e1f8ba', 'mail_address': { 'mail_Address_line1': null, 'mail_Address_line2': null, 'mail_Address_line3': null, 'mail_State_code': null, 'mail_postal_code': null, 'mail_town_or_city': null }, 'marital_status': 'S', 'personal_email': 'ellietoscan@gmail.com', 'phone': '', 'work_address': { 'work_Address_line1': null, 'work_Address_line2': null, 'work_Address_line3': null, 'work_State_code': null, 'work_postal_code': null, 'work_town_or_city': null }, 'work_email': null }] }
+  };
+  const staffProfile = shallow(<StaffProfile {...minProps} />);
 
-                    },
-                    "contactDetail": {
-                        "primaryPhone": "402.334.0477",
-                        "emergencyContact": {
-                            "name": {
-                                "first": "Mary",
-                                "middle": "J",
-                                "last": "Edward"
-                            },
-                            "phone": "402.333.5671",
-                            "relation": "Mother"
-                        },
-                        "email": {
-                            "school": {
-                                "value": "12345678g@creighton.edu"
-                            },
-                            "personal": {
-                                "value": "bluejfan2019@yahoo.com"
-                            }
-                        },
-                        "birthDate": "May 5, 1997",
-                        "netID": "bbb12345",
-                        "employeeNumber": "1234",
-                        "familyDetails": {
-                            "maritalStatus": "Married",
-                            "spouseName": "Jessi",
-                            "dependentsName": "Jessi"
-                        }
-                    }
-                }
-            }
-        }
-    }
-    const staffProfile = shallow(<StaffProfile {...minProps} />);
+  it('StaffProfile is defined', () => {
+    expect(staffProfile).toBeDefined();
+  });
 
-    it('StaffProfile is defined', () => {
-        expect(staffProfile).toBeDefined();
-    });
+  it('Check HeaderLabel is "My Profile"', () => {
+    expect(staffProfile.find('HeaderLabel').length).toBe(1);
+    expect(staffProfile.find('HeaderLabel').prop('headerLabel')).toBe(i18n.properties.PROFILE_MY_PROFILE);
+  });
+  it('Check LegalName component is present', () => {
+    expect(staffProfile.find('LegalName').length).toBe(1);
+    expect(staffProfile.find('LegalName').prop('legalName')).toBe(minProps.profileData.data[0].staff_name);
+  });
 
-    it('Check HeaderLabel is "My Profile"', () => {
-        expect(staffProfile.find('HeaderLabel').length).toBe(1);
-        expect(staffProfile.find('HeaderLabel').prop('headerLabel')).toBe(i18n.properties['PROFILE_MY_PROFILE']);
-    });
-    it('Check LegalName component is present', () => {
-        expect(staffProfile.find('LegalName').length).toBe(1);
-        expect(staffProfile.find('LegalName').prop('legalName')).toBe(minProps.profileData.staffProfile.bioData.legalName);
-    });
 
-    it('Check HomeAddress component is present', () => {
-        expect(staffProfile.find('HomeAddress').length).toBe(1);
-        expect(staffProfile.find('HomeAddress').prop('homeAddress')).toBe(minProps.profileData.staffProfile.bioData.address.home);
-    });
-    it('Check PrimaryContact component is present', () => {
-        expect(staffProfile.find('PrimaryContact').length).toBe(1);
-        expect(staffProfile.find('PrimaryContact').prop('primaryContact')).toBe(minProps.profileData.staffProfile.bioData.contactDetail);
-    });
-    it('Check EmergencyContact component is present', () => {
-        expect(staffProfile.find('EmergencyContact').length).toBe(1);
-        expect(staffProfile.find('EmergencyContact').prop('emergencyContact')).toBe(minProps.profileData.staffProfile.bioData.contactDetail.emergencyContact);
-    });
-    it('Check Email component is present', () => {
-        expect(staffProfile.find('Email').length).toBe(1);
-        expect(staffProfile.find('Email').prop('email')).toBe(minProps.profileData.staffProfile.bioData.contactDetail.email);
-    });
-    it('Check Other component is present', () => {
-        expect(staffProfile.find('Other').length).toBe(1);
-        expect(staffProfile.find('Other').prop('other')).toBe(minProps.profileData.staffProfile.bioData.contactDetail);
-    });
-    it('Check FamilyDetail component is present', () => {
-        expect(staffProfile.find('FamilyDetail').length).toBe(1);
-        expect(staffProfile.find('FamilyDetail').prop('familyDetail')).toBe(minProps.profileData.staffProfile.bioData.contactDetail.familyDetails);
-    });
+  it('Check PrimaryContact component is present', () => {
+    expect(staffProfile.find('PrimaryContact').length).toBe(1);
+    expect(staffProfile.find('PrimaryContact').prop('primaryContact')).toBe(minProps.profileData.data[0].phone);
+  });
+  it('Check EmergencyContact component is present', () => {
+    expect(staffProfile.find('EmergencyContact').length).toBe(1);
+    expect(staffProfile.find('EmergencyContact').prop('emergencyContact')).toBe(minProps.profileData.data[0].emergency_contact);
+  });
 
+  it('Check Other component is present', () => {
+    expect(staffProfile.find('Other').length).toBe(1);
+    expect(staffProfile.find('Other').prop('detail')).toBe(minProps.profileData.data[0]);
+  });
 });

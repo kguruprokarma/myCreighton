@@ -3,14 +3,14 @@
  */
 
 import React from 'react';
-import { Link } from 'react-router';
 import FooterNav from './footerNav';
 import CopyRightText from './copyRightText';
+import { translateText } from '../../common/translate';
 
 const UniversityAddress = () => (
-	<p className='footer-address mt15'><span className='space-mb'>2500 California Plaza, Omaha, NE 68178 <a href='tel:402.280.2700' className='footer-space'>402.280.2700</a></span>
-		<CopyRightText />
-		<FooterNav />
-	</p>
+  <p className='footer-address mt15'><span className='space-mb'>{translateText('common:FOOTER_UNIVERSITY_ADDRESS')}<a href='tel:402.280.2700' className='footer-space'>402.280.2700</a></span>
+    <CopyRightText />
+    <FooterNav />
+  </p>
 );
 export default UniversityAddress;

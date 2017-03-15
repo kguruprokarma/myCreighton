@@ -17,9 +17,9 @@ class ClassTabController extends Component {
   render() {
     return (
       <div className='btn-group btn-group-justified form-group openSansRegular fs0pt86'>
-        <Link to={ROUTE_URL.CLASSES + ROUTE_URL.TODAY} className={'btn ' + (this.props.state === CommonConstants.TODAY ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, CommonConstants.TODAY)}>{translateText('common:CLASSES_TODAY')}</Link>
-        <Link to={ROUTE_URL.CLASSES + ROUTE_URL.WEEK} className={'btn ' + (this.props.state === CommonConstants.WEEK ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, CommonConstants.WEEK)}>{translateText('common:CLASSES_WEEK')}</Link>
-        <Link to={ROUTE_URL.CLASSES + ROUTE_URL.LIST} className={'btn ' + (this.props.state === CommonConstants.LIST ? 'btn-default active' : 'btn-default')} onClick={this.onDayChange.bind(this, CommonConstants.LIST)}>{translateText('common:CLASSES_A-Z')}</Link>
+        <Link to={ROUTE_URL.CLASSES + ROUTE_URL.TODAY} className={`btn ${this.props.state === CommonConstants.TODAY ? 'btn-default active' : 'btn-default'}`} onClick={this.onDayChange.bind(this, CommonConstants.TODAY)}>{translateText('common:CLASSES_TODAY')}</Link>
+        <Link to={ROUTE_URL.CLASSES + ROUTE_URL.WEEK} className={`btn ${this.props.state === CommonConstants.WEEK ? 'btn-default active' : 'btn-default'}`} onClick={this.onDayChange.bind(this, CommonConstants.WEEK)}>{translateText('common:CLASSES_WEEK')}</Link>
+        <Link to={ROUTE_URL.CLASSES + ROUTE_URL.LIST} className={`btn ${this.props.state === CommonConstants.LIST ? 'btn-default active' : 'btn-default'}`} onClick={this.onDayChange.bind(this, CommonConstants.LIST)}>{translateText('common:CLASSES_A-Z')}</Link>
       </div>
     );
   }

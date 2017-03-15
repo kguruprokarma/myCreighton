@@ -5,11 +5,11 @@
 import academicApi from '../../../middleware/academic/api';
 import * as types from './actionTypes';
 
-let requestData = () => ({
+const requestData = () => ({
   type: types.REQUEST_ACADEMIC_DATA
 });
 
-let receiveAcademicData = (academicData) => (
+const receiveAcademicData = (academicData) => (
   {
 
     type: types.RECEIVE_ACADEMIC_DATA,
@@ -17,16 +17,16 @@ let receiveAcademicData = (academicData) => (
   });
 
 
-let receiveError = (academicErrorJson) => (
+const receiveError = (academicErrorJson) => (
   {
     type: types.RECEIVE_ACADEMIC_DATA_ERROR,
     data: academicErrorJson
   });
 
-export function getAcademicData() {
+export function getAcademicData(reqObj) {
   return function (dispatch) {
     dispatch(requestData());
-    return academicApi.getAcademicData()
+    return academicApi.getAcademicData(reqObj)
       .then((response) => {
         dispatch(receiveAcademicData(response));
       }
