@@ -5,7 +5,6 @@
 import EventListApi from '../../middleware/events/api';
 import * as types from './actionTypes';
 
-
 const requestData = () => ({
   type: types.REQUEST_EVENTS_DATA
 });
@@ -32,10 +31,10 @@ export function clear() {
   };
 }
 
-export function getEventsData() {
+export function getEventsData(reqObj) {
   return function (dispatch) {
     dispatch(requestData());
-    return EventListApi.getEventData().then((response) => {
+    return EventListApi.getEventsData(reqObj).then((response) => {
       dispatch(receiveEventsData(response));
     }
     )

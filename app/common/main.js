@@ -8,13 +8,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { translateText } from '../common/translate';
-import i18n from '../i18n';
 import * as actionCreators from '../header/actions';
 import Footer from '../footer/index';
 import Navigation from '../common/mainNav';
 import Header from '../header/index';
 
 @translate([], { wait: true })
+
 class Main extends React.PureComponent {
 
   constructor() {
@@ -23,9 +23,6 @@ class Main extends React.PureComponent {
     this.state = {
       isLogin: false
     };
-    if (sessionStorage.getItem('lang') !== null) {
-      i18n.init({ lng: sessionStorage.getItem('lang') });
-    }
   }
 
   componentWillMount() {

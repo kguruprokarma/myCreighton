@@ -10,19 +10,15 @@ import * as ROUTE_URL from '../../constants/routeContants';
 describe('CustomPopUp testing ----->', () => {
   const defaultProps = {
       userDetailsData: {
-        data:[
-          {
-            "legal_name": {
-              "first_name": "John",
-              "middle_name": "J",
-              "last_name": "Edward",
-              "full_name": "John J. Edward"
-            },
-            "userImageURL": "",
-            "userRole": "student"
-          }
-        ]
+      "userName": {
+        "firstName": "John",
+        "middleName": "J",
+        "lastName": "Edward",
+        "fullName": "John J. Edward"
       },
+      "userImageURL": "",
+      "userRole": "student"
+    },
     userData: {
       "userName": {
         "firstName": "John",

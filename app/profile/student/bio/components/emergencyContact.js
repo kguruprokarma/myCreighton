@@ -12,13 +12,13 @@ const EmergencyContact = (emergencyProps) => {
   return (
     <article className='profileRow mt30'>
       <h3 className='dataHeading openSansRegular'>{translateText('common:PROFILE_EMERGENCY_CONTACT')}</h3>
-      <BasicRow displayName={translateText('common:PROFILE_FIRST_NAME')} displayValue={emergencyProps.emergencyContact.first_name} />
-      <BasicRow displayName={translateText('common:PROFILE_LAST_NAME')} displayValue={emergencyProps.emergencyContact.last_name} />
+      <BasicRow displayName={translateText('common:PROFILE_FIRST_NAME')} displayValue={emergencyProps.emergencyContact ? emergencyProps.emergencyContact.first_name : ''} />
+      <BasicRow displayName={translateText('common:PROFILE_LAST_NAME')} displayValue={emergencyProps.emergencyContact ? emergencyProps.emergencyContact.last_name : ''} />
       <Row className='show-grid pt5 pb5'>
         <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Phone'>{translateText('common:PROFILE_PHONE')}</label></Col>
-        <Col xs={8} md={9} sm={8} className='dataField'><a href={tel} className='mobileNumber'>{emergencyProps.emergencyContact.phone}</a></Col>
+        <Col xs={8} md={9} sm={8} className='dataField'><a href={tel} className='mobileNumber'>{emergencyProps.phone ? emergencyProps.phone : ''}</a></Col>
       </Row>
-      <BasicRow displayName={translateText('common:PROFILE_RELATIONSHIP')} displayValue={emergencyProps.emergencyContact.relationship} />
+      <BasicRow displayName={translateText('common:PROFILE_RELATIONSHIP')} displayValue={emergencyProps.relation ? emergencyProps.relation : ''} />
     </article>
   );
 };

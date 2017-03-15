@@ -15,7 +15,7 @@ const TodayClasses = (todayProps) => (
     {
       todayProps.listOfData.map((todayClass, index) => (
         <div key={index} id='cls'>
-          <Link to={`${ROUTE_URL.CLASS_DETAILS}/${todayProps.catagory}/${todayClass.id}/${index}`}>
+          <Link to={`${ROUTE_URL.CLASS_DETAILS}/${todayProps.catagory}/${todayClass.sis_source_id}`}>
             <ClassInfo data={todayClass} />
           </Link>
         </div>

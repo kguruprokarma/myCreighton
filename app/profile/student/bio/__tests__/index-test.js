@@ -24,7 +24,7 @@ describe('index files in bio testing ----->', () => {
           "parent": { "first_name": null, "last_name": null, "middle_name": null },
           "pidm": "3268947",
           "primary_phone_no": null,
-          "school_address": "schooladdress"
+          "school_address": null
         }
       ]
     }
@@ -59,7 +59,6 @@ it('Check EmergencyContact component is present', () => {
 });
 it('Check Email component is present', () => {
   expect(profile.find('Email').length).toBe(1);
-  expect(profile.find('Email').prop('email')).toBe(minProps.profileData.data[0].email);
 });
 it('Check Other component is present', () => {
   expect(profile.find('Other').length).toBe(1);

@@ -28,16 +28,32 @@ const catagoryChange = (str) => (
     data: str
   });
 
+  const requestAssignmentsData = () => ({
+  type: types.REQUEST_ASSIGNMENTS_DATA
+  });
+
+const receiveAssignmentsData = (assignmentsData) => (
+  {
+    type: types.RECEIVE_ASSIGNMENTS_DATA,
+    data: assignmentsData
+  });
+
+const receiveAssignmentsError = (error) => (
+  {
+    type: types.RECEIVE_ASSIGNMENTS_DATA_ERROR,
+    data: error
+  });
+
 export function onCatagoryChange(str) {
   return function (dispatch) {
     dispatch(catagoryChange(str));
   };
 }
 
-export function getClassesDataByWeek() {
+export function getClassesDataByWeek(reqObj) {
   return function (dispatch) {
     dispatch(requestData());
-    return classesApi.getClassesDataByWeek().then((response) => {
+    return classesApi.getClassesDataByWeek(reqObj).then((response) => {
       dispatch(receiveClassesData(response));
     }
     )
@@ -50,10 +66,10 @@ export function getClassesDataByWeek() {
   };
 }
 
-export function getClassesDataByToday() {
+export function getClassesDataByToday(reqObj) {
   return function (dispatch) {
     dispatch(requestData());
-    return classesApi.getClassesDataByToday()
+    return classesApi.getClassesDataByToday(reqObj)
       .then((response) => {
         dispatch(receiveClassesData(response));
       }
@@ -68,10 +84,10 @@ export function getClassesDataByToday() {
 }
 
 
-export function getClassesDataForAtoZ() {
+export function getClassesDataForAtoZ(reqObj) {
   return function (dispatch) {
     dispatch(requestData());
-    return classesApi.getClassesAtoZData()
+    return classesApi.getClassesAtoZData(reqObj)
       .then((response) => {
         dispatch(receiveClassesData(response));
       }
@@ -84,3 +100,20 @@ export function getClassesDataForAtoZ() {
       );
   };
 }
+
+export function getAssignmentDetails(reqObj) {
+  return function (dispatch) {
+    dispatch(requestAssignmentsData());
+    return classesApi.getAssignmentDetails(reqObj)
+      .then((response) => {
+        dispatch(receiveAssignmentsData(response));
+      }
+      )
+      .catch((error) => {
+        dispatch(receiveAssignmentsError({
+          error: error
+        }));
+      }
+      );
+  };
+  }

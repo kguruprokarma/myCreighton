@@ -30,24 +30,7 @@ const studentData = {
   ]
 };
 
-const staffProfileData = {
-  'timing': '-18.934',
-  'data': [
-    {
-      'netid': 'bab74e76ba',
-      'birth_date': '1988-06-06',
-      'email': { 'school_email': 'bab74e76ba@creighton.edu' },
-      'emergency_contact': { 'first_name': null, 'last_name': null, 'middle_name': null },
-      'guardian': { 'first_name': null, 'last_name': null, 'middle_name': null },
-      'home_address': null,
-      'legal_name': { 'first_name': '3f0c9b03e8', 'last_name': 'e5eb1d7455', 'middle_name': 'R' },
-      'parent': { 'first_name': null, 'last_name': null, 'middle_name': null },
-      'pidm': '3268947',
-      'primary_phone_no': null,
-      'school_address': null
-    }
-  ]
-};
+const staffProfileData = { 'timing': '-4.353', 'data': [{ 'netid': 'ed8ad0b875', 'banner_pidm': '3439269', 'date_of_birth': '1992-03-15 00:00:00.0', 'emergency_contact': { 'first_name': '19669702ab', 'last_name': '0f2eb7129e' }, 'emp_number': '27523', 'faculty_address': { 'home_Address_line1': '1015 North 14th Street', 'home_Address_line2': 'Apt 201', 'home_Address_line3': null, 'home_State_code': 'NE', 'home_postal_code': '68102', 'home_town_or_city': 'Omaha' }, 'faculty_name': { 'first_name': '248715109e', 'last_name': '0f2eb7129e', 'middle_name': 'D' }, 'full_name': 'e739e1f8ba', 'mail_address': { 'mail_Address_line1': null, 'mail_Address_line2': null, 'mail_Address_line3': null, 'mail_State_code': null, 'mail_postal_code': null, 'mail_town_or_city': null }, 'marital_status': 'S', 'personal_email': 'ellietoscan@gmail.com', 'phone': '', 'work_address': { 'work_Address_line1': null, 'work_Address_line2': null, 'work_Address_line3': null, 'work_State_code': null, 'work_postal_code': null, 'work_town_or_city': null }, 'work_email': null }] };
 
 const facultyAcademicData = {
   'appointment': {
@@ -127,7 +110,7 @@ describe('async actions', () => {
 
 
   it('testing action for profile data for staff retrival case', () => {
-    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.STAFF_PROFILE_DATA, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STAFF_BIO + urlConstants.STUDENT_ACADEMIC_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 200,
       response: staffProfileData
     });
@@ -137,9 +120,9 @@ describe('async actions', () => {
     ];
     const store = mockStore();
 
-    return store.dispatch(actions.getStaffProfileData())
+    return store.dispatch(actions.getStaffProfileData(userReqObj))
       .then(() => {
-        const result = store.getActions();
+        const result = store.getActions(userReqObj);
         expect(result[0].type).toEqual(expectedActions[0].type);
         expect(result[1].data.data).toEqual(expectedActions[1].data);
         expect(result[1].type).toEqual(expectedActions[1].type);
@@ -147,7 +130,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure for staff profile case', () => {
-    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.STAFF_PROFILE_DATA, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STAFF_BIO + urlConstants.STUDENT_ACADEMIC_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 404,
       responseText: 'error'
     });
@@ -157,9 +140,9 @@ describe('async actions', () => {
     ];
     const store = mockStore();
 
-    return store.dispatch(actions.getStaffProfileData())
+    return store.dispatch(actions.getStaffProfileData(userReqObj))
       .then(() => {
-        const result = store.getActions();
+        const result = store.getActions(userReqObj);
         expect(result[0].type).toEqual(expectedActions[0].type);
         expect(JSON.stringify(result[1].data.error.response.data)).toEqual(JSON.stringify(expectedActions[1].data));
         expect(result[1].type).toEqual(expectedActions[1].type);
@@ -167,7 +150,7 @@ describe('async actions', () => {
   });
 
   it('Success test case for faculty Profile', () => {
-    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.FACULTY_PROFILE_DATA, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.FACULTY_BIO + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 200,
       response: facultyProfileData
     });
@@ -177,9 +160,9 @@ describe('async actions', () => {
     ];
     const store = mockStore();
 
-    return store.dispatch(actions.getFacultyProfileData())
+    return store.dispatch(actions.getFacultyProfileData(userReqObj))
       .then(() => {
-        const result = store.getActions();
+        const result = store.getActions(userReqObj);
         expect(result[0].type).toEqual(expectedActions[0].type);
         expect(result[1].data.data).toEqual(expectedActions[1].data);
         expect(result[1].type).toEqual(expectedActions[1].type);
@@ -187,7 +170,7 @@ describe('async actions', () => {
   });
 
   it('faculty profile action test case for error', () => {
-    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.FACULTY_PROFILE_DATA, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.FACULTY_BIO + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 404,
       responseText: 'error'
     });
@@ -197,9 +180,9 @@ describe('async actions', () => {
     ];
     const store = mockStore();
 
-    return store.dispatch(actions.getFacultyProfileData())
+    return store.dispatch(actions.getFacultyProfileData(userReqObj))
       .then(() => {
-        const result = store.getActions();
+        const result = store.getActions(userReqObj);
         expect(result[0].type).toEqual(expectedActions[0].type);
         expect(JSON.stringify(result[1].data.error.response.data)).toEqual(JSON.stringify(expectedActions[1].data));
         expect(result[1].type).toEqual(expectedActions[1].type);
@@ -207,7 +190,7 @@ describe('async actions', () => {
   });
 
   it('Success test case for faculty Academic', () => {
-    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.FACULTY_ACADEMIC_DATA, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.FACULTY_LEARN + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 200,
       response: facultyAcademicData
     });
@@ -217,9 +200,9 @@ describe('async actions', () => {
     ];
     const store = mockStore();
 
-    return store.dispatch(actions.getFacultyAcademicData())
+    return store.dispatch(actions.getFacultyAcademicData(userReqObj))
       .then(() => {
-        const result = store.getActions();
+        const result = store.getActions(userReqObj);
         expect(result[0].type).toEqual(expectedActions[0].type);
         expect(result[1].data.data).toEqual(expectedActions[1].data);
         expect(result[1].type).toEqual(expectedActions[1].type);
@@ -227,7 +210,7 @@ describe('async actions', () => {
   });
 
   it('faculty academic action test case for error', () => {
-    moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.FACULTY_ACADEMIC_DATA, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.FACULTY_LEARN + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 404,
       responseText: 'error'
     });
@@ -237,9 +220,9 @@ describe('async actions', () => {
     ];
     const store = mockStore();
 
-    return store.dispatch(actions.getFacultyAcademicData())
+    return store.dispatch(actions.getFacultyAcademicData(userReqObj))
       .then(() => {
-        const result = store.getActions();
+        const result = store.getActions(userReqObj);
         expect(result[0].type).toEqual(expectedActions[0].type);
         expect(JSON.stringify(result[1].data.error.response.data)).toEqual(JSON.stringify(expectedActions[1].data));
         expect(result[1].type).toEqual(expectedActions[1].type);

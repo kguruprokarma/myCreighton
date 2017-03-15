@@ -17,8 +17,7 @@ import style from './style.css';
 import { AuthUserDetails } from '../common/utility';
 
 const dashboardModulesList = DashboardModulesList;
-const userReqObj = {};
-userReqObj.primaryKey = 'netid';
+
 export class Dashboard extends Component {
 
   constructor(props) {
@@ -26,22 +25,18 @@ export class Dashboard extends Component {
     this.state = { shouldHide: true };
     this.onClick = this.onClick.bind(this);
     this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
-    userReqObj.primaryValue = AuthUserDetails().netid;
-    if (this.role) { this.props.getUserDetailsData(userReqObj); }
+    if (this.role) { this.props.getUserDetailsData(`/${this.role}`); }
   }
 
   componentWillMount() {
     this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
-    if (this.role) { this.props.getUserDetailsData(userReqObj); }
+    if (this.role) { this.props.getUserDetailsData(`/${this.role}`); }
 
     if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
       this.setState({ shouldHide: false });
     } else {
       this.setState({ shouldHide: true });
     }
-    setTimeout(() => {
-      this.forceUpdate();
-    }, 40);
   }
 
 
@@ -51,22 +46,19 @@ export class Dashboard extends Component {
 
   render() {
     const { userDetailsData } = this.props;
-    if (userDetailsData) {
-      userDetailsData.data[0].legal_name.userRole = AuthUserDetails().userRole;
-    }
     const dashboardModulesList = DashboardModulesList(this.role);
     return (
       <section id='dashboard'>
         <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
         <Row className='mb20'>
           <Col sm={5} xs={10} md={5}>
-            {userDetailsData && <UserDetail userDetail={userDetailsData.data[0].legal_name} />}
+            {userDetailsData && <UserDetail userDetail={userDetailsData} />}
           </Col>
           <Col xs={2} className='hidden-lg hidden-md hidden-sm'>
             <ToggleMealPlan toggle={this.onClick} />
           </Col>
           <Col xs={12} sm={7} md={7}>
-            {userDetailsData && <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetailsData.data[0].legal_name} />}
+            <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetailsData} />
           </Col>
         </Row>
         <article id='wells'>

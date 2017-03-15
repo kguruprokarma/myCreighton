@@ -6,58 +6,92 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link, hashHistory } from 'react-router';
-import { ListGroupItem, ListGroup } from 'react-bootstrap';
+import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
 import * as actionCreators from '../dashboard/actions';
 import UserDetail from '../dashboard/components/userDetail';
 import ProfileMenu from '../header/components/profileMenu';
 import { AuthUserDetails } from './utility';
-import * as CommonConstants from '../constants/commonConstants';
 import i18n from '../i18n';
+import { translateText } from '../common/translate';
 
 export class CustomPopUp extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      languageState: true
+    };
     this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
-    const userReqObj = {};
-    userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = AuthUserDetails().netid;
-    if (this.role) { this.props.getUserDetailsData(userReqObj); }
+    if (this.role) {
+      this.props.getUserDetailsData(`/${this.role}`);
+    }
+    this.languageChangeBind = this.changeLanguage.bind(this);
+    this.signOutBind = this.signOut.bind(this);
   }
+
   signOut() {
     localStorage.removeItem('roleInfo');
-    sessionStorage.removeItem('lang');
+    localStorage.removeItem('lang');
     hashHistory.replace('/');
     location.reload();
   }
-  changeLanguage() {
-    sessionStorage.setItem('lang', 'es');
-    i18n.init({ lng: sessionStorage.getItem('lang') });
+  changeLanguage(langKey) {
+    localStorage.setItem('lang', langKey);
+    localStorage.setItem('temp', localStorage.getItem('i18nextLng'));
+    i18n.init({ lng: localStorage.getItem('lang') });
+
     location.reload();
   }
   render() {
     const { userDetailsData } = this.props;
     const ProfileMenus = ProfileMenu(this.role);
-
+    const languages = [{ 'langkey': 'en', 'language': 'English' }, { 'langkey': 'es', 'language': 'Spanish' }];
     return (<div className='customPopUp'>
       <span className='popupPointer'>&nbsp;</span>
-      <ListGroup>
+      {this.state.languageState && <ListGroup>
         <ListGroupItem>
-          {userDetailsData && <div> <UserDetail userDetail={userDetailsData.data[0].legal_name} /></div>}
+          {userDetailsData && <div> <UserDetail userDetail={userDetailsData} /></div>}
         </ListGroupItem>
-        {ProfileMenus.map((item, index) => (
-          <ListGroupItem key={item.itemName} onClick={item.itemName === CommonConstants.CHANGE_LANGUAGE ? this.changeLanguage.bind(this) : ''} className='openSansLight'>
-            <Link to={item.link} onClick={item.itemName === CommonConstants.SIGN_OUT ? this.signOut.bind(this) : this.props.showPopValue} activeClassName='active'>
-              {item.itemName}
-            </Link>
+        {ProfileMenus.map((item) => (
+          <ListGroupItem key={item.itemName} className='openSansLight'>
+            {
+              item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ? <span onClick={() => { this.setState({ languageState: false }); }} >
+                <Link> {item.itemName}</Link>
+              </span> : <Link to={item.link} onClick={item.itemName === translateText('common:COMMON_SIGN_OUT') ? this.signOutBind : this.props.showPopValue} activeClassName='active'>
+                {item.itemName}
+              </Link>
+            }
           </ListGroupItem>
         ))}
       </ListGroup>
+      }
+      {!(this.state.languageState) &&
+        <ListGroup>
+          <ListGroupItem className='openSansLight'>
+            <Row>
+              <Col sm={2}>
+                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); }} />
+              </Col>
+              <Col sm={10}>
+                <p className='selectLang pt5'>Select Language</p>
+              </Col>
+            </Row>
+          </ListGroupItem>
+          {languages.map((lanItem) => (
+            <ListGroupItem key={lanItem.language} onClick={() => { this.languageChangeBind(lanItem.langkey); }} className='openSansLight'>
+              <Link>{lanItem.language}</Link>
+            </ListGroupItem>
+          ))}
+        </ListGroup>
+      }
     </div>
-
     );
   }
 }
 
+CustomPopUp.propTypes = {
+  showPopValue: React.PropTypes.string,
+  userData: React.PropTypes.string
+};
 
 const mapStateToProps = (dashboardState) => (
   {

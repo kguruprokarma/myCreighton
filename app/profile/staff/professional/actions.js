@@ -5,28 +5,26 @@
 import ProfessionalApi from '../../../middleware/professional/api';
 import * as types from './actionTypes';
 
-let requestData = () => ({
+const requestData = () => ({
   type: types.REQUEST_PROFESSIONAL_DATA
 });
 
-let receiveProfessionalData = (professionalData) => (
+const receiveProfessionalData = (professionalData) => (
   {
-
     type: types.RECEIVE_PROFESSIONAL_DATA,
     data: professionalData
   });
 
-
-let receiveError = (professionalError) => (
+const receiveError = (professionalError) => (
   {
     type: types.RECEIVE_PROFESSIONAL_DATA_ERROR,
     data: professionalError
   });
 
-export function getProfessionalData() {
+export function getProfessionalData(reqObj) {
   return function (dispatch) {
     dispatch(requestData());
-    return ProfessionalApi.getProfessionalData()
+    return ProfessionalApi.getProfessionalData(reqObj)
       .then((response) => {
         dispatch(receiveProfessionalData(response));
       }

@@ -33,5 +33,4 @@ const userDetailsReducer = (state = initialState, action = null) => {
   }
 };
 
-
 export default userDetailsReducer;

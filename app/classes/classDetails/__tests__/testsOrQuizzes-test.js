@@ -6,9 +6,11 @@ describe('TestsOrQuizzes component testing ----->', () => {
     it('TestsOrQuizzes is defined', () => {
 
     const defaultProps = {
-            testsOrQuizzes:[ {
+            data:[ {
                 date: "01/22/2017",
-                assignment: "Home address"
+                assignment: "Home address",
+                length:() =>{},
+                data:[]
             }]
     }
     const testsOrQuizzes = shallow( < TestsOrQuizzes {...defaultProps }  />);

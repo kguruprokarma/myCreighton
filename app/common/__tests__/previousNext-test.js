@@ -7,101 +7,71 @@ import { PreviousNext } from '../previousNext';
 
 
 describe('PreviousNext testing ----->', () => {
-    const defaultProps = {
-        "classList": {
-            "data":
-            {
-                "classes": [
-                    {
-                        "id": "1",
-                        "name": "English 112",
-                        "time": "11am - 12pm",
-                        "by": "Miller",
-                        "place": "Building Rm 119",
-                        "on": "poetry",
-                        "date": "jan 28",
-                        "recurrence": "Fri"
-                    },
-                    {
-                        "id": "2",
-                        "name": "Political science 223",
-                        "time": "3pm - 4pm",
-                        "by": "Dow",
-                        "place": "Hopper Lecture 100",
-                        "on": "20th-century politics in the U.S",
-                        "date": "jan 23",
-                        "recurrence": "MW"
-                    },
-                    {
-                        "id": "2",
-                        "name": "Political science 223",
-                        "time": "3pm - 4pm",
-                        "by": "Dow",
-                        "place": "Hopper Lecture 100",
-                        "on": "20th-century politics in the U.S",
-                        "date": "jan 25",
-                        "recurrence": "MW"
-                    },
-                    {
-                        "id": "3",
-                        "name": "Theology 100",
-                        "time": "7am - 8am",
-                        "by": "Miller",
-                        "place": "Room 105",
-                        "on": "Christianity in context",
-                        "date": "jan 25",
-                        "recurrence": "Wed"
-                    },
-                    {
-                        "id": "4",
-                        "name": "Philosophy 100",
-                        "time": "1pm - 2pm",
-                        "by": "johnston",
-                        "place": "Building Rm 200",
-                        "on": "Introduction to Western thought",
-                        "date": "jan 25",
-                        "recurrence": "Wed"
-                    },
-                    {
-                        "id": "5",
-                        "name": "Environmental science 223",
-                        "time": "4pm - 5pm",
-                        "by": "Dow",
-                        "place": "Hopper Lecture 100",
-                        "on": "Global warming",
-                        "date": "jan 30",
-                        "recurrence": "MW"
-                    },
-                    {
-                        "id": "5",
-                        "name": "Environmental science 223",
-                        "time": "4pm - 5pm",
-                        "by": "Dow",
-                        "place": "Hopper Lecture 100",
-                        "on": "Global warming",
-                        "date": "jan 25",
-                        "recurrence": "MW"
-                    },
-                    {
-                        "id": "6",
-                        "name": "Chemistry 100",
-                        "time": "8am - 9pm",
-                        "by": "Miller",
-                        "place": "Building Rm 119",
-                        "on": "Organic Chemistry",
-                        "date": "jan 25",
-                        "recurrence": "Wed"
-                    }
-                ]
-            }
-        },
-        presentCategory: 'week',
-        getClassesDataByWeek: () => {
-        }
-    };
-    const previousNext = shallow(<PreviousNext {...defaultProps} />);
-    it('PreviousNext is defined', () => {
-        expect(previousNext).toBeDefined();
-    });
-
+  const defaultProps = {
+    'classList': {
+      'data':
+      {
+        'classes': [
+          {
+            'date': 'jan 29',
+            'student_pidm': '3423821',
+            'term_code': '201670',
+            'term_crn': '72788',
+            'class_begin_time': '1800',
+            'class_building_code': 'EPLY',
+            'class_end_time': '2030',
+            'class_held_build_desc': 'Eppley Building',
+            'class_room_code': '211',
+            'class_schedule': 'M',
+            'course_credit_hrs': '3',
+            'course_number': '515',
+            'course_section': 'N',
+            'course_title': 'Law And Health Systems',
+            'inst_email': 'MDD82239',
+            'inst_id': 'af73207668',
+            'instructor_name': {
+              'first_name': 'f089eaef57',
+              'last_name': '436cd08981',
+              'middle_name': 'Dale'
+            },
+            'netid': '6cb4db8459',
+            'id': '6cb4db8459',
+            'sis_source_id': '201670_HAP_515_N',
+            'subject_code': 'HAP',
+            'term_description': 'Fall 2016'
+          },
+          {
+            'date': 'jan 9',
+            'student_pidm': '3423821',
+            'term_code': '201670',
+            'term_crn': '72788',
+            'class_begin_time': '1800',
+            'class_building_code': 'EPLY',
+            'class_end_time': '2030',
+            'class_held_build_desc': 'Eppley Building',
+            'class_room_code': '211',
+            'class_schedule': 'M',
+            'course_credit_hrs': '3',
+            'course_number': '515',
+            'course_section': 'N',
+            'course_title': 'Law And Health Systems',
+            'inst_email': 'MDD82239',
+            'inst_id': 'af73207668',
+            'netid': '6cb4db8459',
+            'id': '6cb4db8459',
+            'sis_source_id': '201670_HAP_515_N',
+            'subject_code': 'HAP',
+            'term_description': 'Fall 2016'
+          }
+        ]
+      }
+    },
+    presentCategory: 'week',
+    getClassesDataByWeek: () => {
+    }
+  };
+  const previousNext = shallow(<PreviousNext {...defaultProps} />);
+  it('PreviousNext is defined', () => {
+    expect(previousNext).toBeDefined();
+  });
 });

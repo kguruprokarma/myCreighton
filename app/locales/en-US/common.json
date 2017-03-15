@@ -50,6 +50,20 @@
   "PROFILE_BIRTHDATE": "Birthdate",
   "PROFILE_PRIMARY_CONTACT": "Primary Contact",
   "PROFILE_SCHOOL_ADDRESS": "School Address",
+  "PROFILE_SCHOOL_ADDRESS_FACULTY": "School/Office Address",
+  "MAILING_ADDRESS": "Mailing Address",
+  "WORK_ADDRESS": "Work Address",
+  "STAFF_FAMILY": "Family",
+  "STAFF_MARITAL_STATUS": "Marital status",
+  "STAFF_SPOUSE_NAME": "Spouse",
+  "STAFF_DEPENDENTS_NAME": "Dependents",
+  "STAFF_EMPLOYEE_NUMBER": "Employee no.",
+  "STAFF_PROFESSIONAL": "Professional",
+
+  "FACULTY_FAMILY": "Family",
+  "FACULTY_MARITAL_STATUS": "Marital status",
+  "FACULTY_SPOUSE_NAME": "Spouse",
+  "FACULTY_DEPENDENTS_NAME": "Dependents",
 
   "CLASS_SCHEDULE": "CLASS SCHEDULE",
   "CLASS_DETAIL": "CLASS DETAIL",
@@ -107,8 +121,8 @@
  "STAFF_HIRE_DATE": "Hire date",
  "STAFF_PAYROLL": "Payroll",
  "STAFF_ASSIGN_NO": "Assign. no.",
- "STAFF_EXPERTISE/SKILLS": "Expertise/Skills",
- "STAFF_APPLICATIONS/TOOLS": "Applications/Tools",
+ "STAFF_EXPERTISE/SKILLS": "Expertise/skills",
+ "STAFF_APPLICATIONS/TOOLS": "Applications/tools",
  "STAFF_GROUP": "Group(s)",
 
   "COMMON_TITLE": "Title",
@@ -126,6 +140,36 @@
   "LOCATION": "Location",
   "INSTRUCTION": "INSTRUCTION",
   "OFFICE_INFORMATION": "OFFICE INFORMATION",
+  "COMMON_SUNDAY": "Sunday",
+  "COMMON_MONDAY": "Monday", 
+  "COMMON_TUESDAY": "Tuesday", 
+  "COMMON_WEDNESDAY": "Wednesday", 
+  "COMMON_THURSDAY": "Thursday", 
+  "COMMON_FRIDAY": "Friday", 
+  "COMMON_SATURDAY": "Saturday",
 
-  "NET_ID": "NetID"
+  "COMMON_JAN": "Jan", 
+  "COMMON_FEB": "Feb", 
+  "COMMON_MAR": "Mar", 
+  "COMMON_APR": "Apr", 
+  "COMMON_MAY": "May", 
+  "COMMON_JUNE": "June", 
+  "COMMON_JULY": "July", 
+  "COMMON_AUG": "Aug", 
+  "COMMON_SEPT": "Sept", 
+  "COMMON_OCT": "Oct", 
+  "COMMON_NOV": "Nov", 
+  "COMMON_DEC": "Dec",
+  
+  "COMMON_SCHOOL": "School",
+  "COMMON_WORK": "Work",
+  "COMMON_PERSONAL": "Personal",
+  "WORK_ADDRESS": "Work Address",
+
+  "NET_ID": "NetID",
+  
+  "PREVIOUS": "Previous",
+
+  "NO_RESPONSE": "Server error...!!",
+  "NO_CONTENT": "No Content Available"
 }

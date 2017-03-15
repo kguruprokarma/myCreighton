@@ -4,61 +4,61 @@
 
 import React from 'react';
 import * as ROUTE_URL from '../../constants/routeContants';
-import * as CommonConstants from '../../constants/commonConstants';
+import { translateText } from '../../common/translate';
 
 export const profileMenuList = (roleType) => {
   const profileMenu = {
     student: [
       {
-        'itemName': CommonConstants.MY_PROFILE,
+        'itemName': translateText('common:PROFILE_MY_PROFILE'),
         'link': ROUTE_URL.PROFILE // '/Profile'
       },
       {
-        'itemName': CommonConstants.ACADEMIC,
+        'itemName': translateText('common:PROFILE_ACADEMIC'),
         'link': ROUTE_URL.ACADEMIC //'/Academic'
       },
       {
-        'itemName': CommonConstants.CHANGE_LANGUAGE,
+        'itemName': translateText('common:COMMON_CHANGE_LANGUAGE'),
         'link': ''
       },
       {
-        'itemName': CommonConstants.SIGN_OUT,
+        'itemName': translateText('common:COMMON_SIGN_OUT'),
         'link': ''
       }
     ],
     staff: [
       {
-        'itemName': CommonConstants.MY_PROFILE,
-        'link': ROUTE_URL.STAFF
+        'itemName': translateText('common:PROFILE_MY_PROFILE'),
+        'link': ROUTE_URL.STAFF + ROUTE_URL.PROFILE
       },
       {
-        'itemName': CommonConstants.PROFESSIONAL,
-        'link': ROUTE_URL.PROFESSIONAL
+        'itemName': translateText('common:STAFF_PROFESSIONAL'),
+        'link': ROUTE_URL.STAFF + ROUTE_URL.PROFESSIONAL
       },
       {
-        'itemName': CommonConstants.CHANGE_LANGUAGE,
+        'itemName': translateText('common:COMMON_CHANGE_LANGUAGE'),
         'link': ''
       },
       {
-        'itemName': CommonConstants.SIGN_OUT,
+        'itemName': translateText('common:COMMON_SIGN_OUT'),
         'link': ''
       }
     ],
     faculty: [
       {
-        'itemName': CommonConstants.MY_PROFILE,
+        'itemName': translateText('common:PROFILE_MY_PROFILE'),
         'link': ROUTE_URL.FACULTY + ROUTE_URL.PROFILE
       },
       {
-        'itemName': CommonConstants.ACADEMIC,
+        'itemName': translateText('common:PROFILE_ACADEMIC'),
         'link': ROUTE_URL.FACULTY + ROUTE_URL.ACADEMIC
       },
       {
-        'itemName': CommonConstants.CHANGE_LANGUAGE,
+        'itemName': translateText('common:COMMON_CHANGE_LANGUAGE'),
         'link': ''
       },
       {
-        'itemName': CommonConstants.SIGN_OUT,
+        'itemName': translateText('common:COMMON_SIGN_OUT'),
         'link': ''
       }
     ]

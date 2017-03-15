@@ -8,9 +8,9 @@ import { translateText } from '../../../common/translate';
 
 const FamilyDetail = (familyProps) => (
   <article className='profileRow'>
-    <BasicRow displayName={translateText('common:FACULTY_MARITAL_STATUS')} displayValue={familyProps.familyDetail.maritalStatus} />
-    <BasicRow displayName={translateText('common:FACULTY_SPOUSE_NAME')} displayValue={familyProps.familyDetail.spouseName} />
-    <BasicRow displayName={translateText('common:FACULTY_DEPENDENTS_NAME')} displayValue={familyProps.familyDetail.dependentsName} />
+    <BasicRow displayName={translateText('common:FACULTY_MARITAL_STATUS')} displayValue={familyProps.familyDetail.marital_status} />
+    <BasicRow displayName={translateText('common:FACULTY_SPOUSE_NAME')} displayValue={familyProps.familyDetail.spouse_name} />
+    <BasicRow displayName={translateText('common:FACULTY_DEPENDENTS_NAME')} displayValue={familyProps.familyDetail.child_name} />
   </article>
 );
 

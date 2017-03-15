@@ -33,5 +33,4 @@ const mealPlanReducer = (state = initialState, action = null) => {
   }
 };
 
-
 export default mealPlanReducer;

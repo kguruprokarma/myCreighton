@@ -1,7 +1,7 @@
 {
     "userDetails1": [
         {
-            "netid": "5de48407ab",
+            "email": "nt123",
             "password":"mycreighton",
             "userName": {
                 "firstName": "John",
@@ -13,7 +13,7 @@
             "userRole": "student"
         },
         {
-            "netid": "bab74e76ba",
+            "email": "nt234",
             "password":"mycreighton",
             "userName": {
                 "firstName": "Jane",
@@ -25,7 +25,7 @@
             "userRole": "staff"
         },
         {
-            "netid": "fd2a4f6c24",
+            "email": "nt456",
             "password":"mycreighton",
             "userName": {
                 "firstName": "Adam",

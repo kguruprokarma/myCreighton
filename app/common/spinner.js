@@ -1,9 +1,12 @@
 import React from 'react';
 
 const Spinner = () => (
-  <div className='loadingImg'>
-    <img src={'./assets/images/ajax-loader.gif'} alt='toggle' />
-  </div>
-  );
+  <section>
+    <div className='loaderPatch' />
+    <div className='loadingImg'>
+      <img src={'./assets/images/loading-img.gif'} alt='toggle' />
+    </div>
+  </section>
+);
 
 export default Spinner;

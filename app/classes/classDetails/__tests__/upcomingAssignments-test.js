@@ -6,7 +6,7 @@ describe('UpcomingAssignments component testing ----->', () => {
     it('UpcomingAssignments is defined', () => {
 
     const defaultProps = {
-            upcomingAssignments:[ {
+            data:[ {
                 date: "01/22/2017",
                 assignment: "Home address"
             }]

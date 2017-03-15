@@ -12,7 +12,7 @@ describe('<Student bio reducer />', () => {
       profileData: {},
       isLoading: false,
       error: false,
-      profile: 'STUDENT'
+      profile: ''
     });
   });
 

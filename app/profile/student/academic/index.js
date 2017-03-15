@@ -23,7 +23,7 @@ export class Academic extends React.PureComponent {
     let userReqObj = authUserDetails();
     userReqObj = {};
     userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = authUserDetails().netid;
+    userReqObj.primaryValue = '2775739283';
     this.props.getAcademicData(userReqObj);
   }
 

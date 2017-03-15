@@ -1,6 +1,7 @@
 /*Created Date: - 21 -02 -2017
  *Usage of file: - This component is used to display Next Event Outlook Calendar details.*
  */
+
 import React from 'react';
 import { Col } from 'react-bootstrap';
 

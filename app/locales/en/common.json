@@ -6,6 +6,10 @@
   "MEAL_PLAN_GUEST": "GUEST",
   "MEAL_PLAN_JAY_BUCKS": "JAYBUCK",
   "MEAL_PLAN": "Meal Plan",
+  "MEAL_HIDE": "Hide",
+
+ "COMMON_SIGN_OUT": "Signout",
+ "COMMON_CHANGE_LANGUAGE": "Change Language",
 
   "PROFILE_ACADEMIC": "Academic",
   "PROFILE_MY_PROFILE": "My Profile",
@@ -27,7 +31,7 @@
   "PROFILE_AREA": "Area",
   "PROFILE_OFFICE": "Office",
   "PROFILE_OFFICE_HOURS": "Office hours",
-  "PROFILE_EMAIL": "Email",
+  "PROFILE_EMAIL": "EMAIL",
   "LOCAL_MENU": "Local menu",
   "PROFILE_FIRST_NAME": "First name",
   "PROFILE_LAST_NAME": "Last name",
@@ -53,17 +57,19 @@
   "PROFILE_SCHOOL_ADDRESS_FACULTY": "School/Office Address",
 
   "MAILING_ADDRESS": "Mailing Address",
+  "WORK_ADDRESS": "Work Address",
   "STAFF_FAMILY": "Family",
-  "STAFF_MARITAL_STATUS": "Marital Status",
+  "STAFF_MARITAL_STATUS": "Marital status",
   "STAFF_SPOUSE_NAME": "Spouse",
   "STAFF_DEPENDENTS_NAME": "Dependents",
   "STAFF_EMPLOYEE_NUMBER": "Employee no.",
   "STAFF_PROFESSIONAL": "Professional",
 
   "FACULTY_FAMILY": "Family",
-  "FACULTY_MARITAL_STATUS": "Marital Status",
+  "FACULTY_MARITAL_STATUS": "Marital status",
   "FACULTY_SPOUSE_NAME": "Spouse",
   "FACULTY_DEPENDENTS_NAME": "Dependents",
+  "FACULTY_APPOINTMENT": "APPOINTMENT",
 
 
   "CLASS_SCHEDULE": "CLASS SCHEDULE",
@@ -130,8 +136,8 @@
   "STAFF_HIRE_DATE": "Hire date",
   "STAFF_PAYROLL": "Payroll",
   "STAFF_ASSIGN_NO": "Assign. no.",
-  "STAFF_EXPERTISE/SKILLS": "Expertise/Skills",
-  "STAFF_APPLICATIONS/TOOLS": "Applications/Tools",
+  "STAFF_EXPERTISE/SKILLS": "Expertise/skills",
+  "STAFF_APPLICATIONS/TOOLS": "Applications/tools",
   "STAFF_GROUP": "Group(s)",
 
   "QUIZ_POINTS_WORTH": "Points Worth",
@@ -144,7 +150,41 @@
   "INSTRUCTION": "INSTRUCTION",
   "OFFICE_INFORMATION": "OFFICE INFORMATION",
 
+  "COMMON_SUNDAY": "Sunday",  
+  "COMMON_MONDAY": "Monday", 
+  "COMMON_TUESDAY": "Tuesday", 
+  "COMMON_WEDNESDAY": "Wednesday", 
+  "COMMON_THURSDAY": "Thursday", 
+  "COMMON_FRIDAY": "Friday", 
+  "COMMON_SATURDAY": "Saturday",
 
-  "NET_ID": "NetID"
+  "COMMON_JAN": "Jan", 
+  "COMMON_FEB": "Feb", 
+  "COMMON_MAR": "Mar", 
+  "COMMON_APR": "Apr", 
+  "COMMON_MAY": "May", 
+  "COMMON_JUNE": "June", 
+  "COMMON_JULY": "July", 
+  "COMMON_AUG": "Aug", 
+  "COMMON_SEPT": "Sept", 
+  "COMMON_OCT": "Oct", 
+  "COMMON_NOV": "Nov", 
+  "COMMON_DEC": "Dec",
+
+  "COMMON_SCHOOL": "School",
+  "COMMON_WORK": "Work",
+  "COMMON_PERSONAL": "Personal",  
+
+  "NET_ID": "NetID",
+
+  "PREVIOUS": "Previous",
+  
+  "NO_RESPONSE": "Server error...!!",
+  "NO_CONTENT": "No Content Available",
+
+  "FOOTER_SITE": "Site",
+  "FOOTER_FEEDBACK": "Feedback",
+  "FOOTER_UNIVERSITY_ADDRESS": "2500 California Plaza, Omaha, NE 68178",
+  "FOOTER_CREIGHTON_UNIVERSITY": "2017 Creighton University"
 }
 

@@ -19,10 +19,6 @@ const data =   {
   },
   "userImageURL": "",
   "userRole": "student"
-};
-const userReqObj= {
-  primaryKey: "",
-  primaryValue: ""
 }
 describe('async actions', () => {
   beforeEach(function () {
@@ -33,7 +29,7 @@ describe('async actions', () => {
     moxios.uninstall()
   });
   it('testing action retrival case', () => {
-     moxios.stubRequest(urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE + '?primaryKey=' + userReqObj.primaryKey + '&primaryValue=' + userReqObj.primaryValue, {
+     moxios.stubRequest(urlConstants.ROOT_URL + '/student.json', {
       status: 200,
       response:  data
     });
@@ -43,7 +39,7 @@ describe('async actions', () => {
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getUserDetailsData(userReqObj))
+    return store.dispatch(actions.getUserDetailsData('/student'))
       .then(() => { 
       	let result = store.getActions();
         expect(result[0].type).toEqual( expectedActions[0].type);
@@ -53,7 +49,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure case', () => {
-     moxios.stubRequest(urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE + '?primaryKey=' + userReqObj.primaryKey + '&primaryValue=' + userReqObj.primaryValue, {
+     moxios.stubRequest(urlConstants.ROOT_URL + '/student.json', {
       status: 404,
       responseText:  "error"
     });
@@ -63,7 +59,7 @@ describe('async actions', () => {
     ]
     const store = mockStore()
 
-    return store.dispatch(actions.getUserDetailsData(userReqObj))
+    return store.dispatch(actions.getUserDetailsData('/student'))
       .then(() => { 
       	let result = store.getActions();
         expect(result[0].type).toEqual( expectedActions[0].type);

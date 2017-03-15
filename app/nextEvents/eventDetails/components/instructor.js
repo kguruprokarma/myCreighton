@@ -1,9 +1,9 @@
 /* Created on 22-feb-2017
  * To display the event details for instructor's
  */
+
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-// import { translateText } from '../../../common/translate';
 
 const Instructor = (instructorDetails) => (
   <section>
@@ -14,7 +14,6 @@ const Instructor = (instructorDetails) => (
         <div className='openSansLight fs1pt2 gbl_lh'>{instructorDetails.data.name}</div>
         <Row className='openSansLight fs1pt2 gbl_lh'>
           <Col md={4} sm={6} xs={6}>
-
             <div>Contact:</div>
             <div>Office:</div>
             <div>Hours:</div>
@@ -27,7 +26,6 @@ const Instructor = (instructorDetails) => (
             <a href=''>Make an appointment</a>
           </Col>
         </Row>
-
         <Row className='openSansLight fs1pt2 gbl_lh'>
           <Col md={4} sm={6} xs={6}>
             <div>EVENTS NOTES</div>
@@ -39,7 +37,6 @@ const Instructor = (instructorDetails) => (
       </Col>
       </Row>
     </div>
-
   </section>
 );
 

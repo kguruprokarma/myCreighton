@@ -55,7 +55,7 @@ describe('Next Events Student actions', () => {
     moxios.uninstall()
   });
   
-  it('Succes test case for next events', () => {
+  xit('Succes test case for next events', () => {
      moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.EVENT_DETAILS, {
       status: 200,
       response:  data
@@ -75,7 +75,7 @@ describe('Next Events Student actions', () => {
       })
   });
 
-  it('failure test case for next events', () => {
+  xit('failure test case for next events', () => {
      moxios.stubRequest(urlConstants.ROOT_URL + urlConstants.EVENT_DETAILS, {
       status: 404,
       responseText:  "error"

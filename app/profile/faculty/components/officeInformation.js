@@ -1,6 +1,7 @@
 /*Created Date: - 01, Mar 2017
  * Cointains faculty academic screen components*
  */
+
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import BasicRow from '../../../common/basicRow';

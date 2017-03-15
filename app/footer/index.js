@@ -3,28 +3,28 @@
 */
 
 import React from 'react';
+import { Grid, Row, Col } from 'react-bootstrap';
 import UniversityAddress from './components/universityAddress';
 import UniversityLogo from './components/universityLogo';
-import { Grid, Row, Col } from 'react-bootstrap';
 import Style from './style.css';
 import { translateText } from '../common/translate';
 
 const Footer = () => (
-  <footer className="footer fs0pt93 " role="Content info">
-    <h1 className="announced-only">{translateText('common:PAGE_FOOTER')}</h1>
+  <footer className='footer fs0pt93 ' role='Content info'>
+    <h1 className='announced-only'>{translateText('common:PAGE_FOOTER')}</h1>
     <Grid>
       <div className='footer-section pt15 pb15'>
-      <Row>
-        <Col xs={12} sm={2} md={2}>
-          <UniversityLogo />
-        </Col>
-        <Col xs={12} sm={10} md={10}>
-          <UniversityAddress />
-        </Col>
+        <Row>
+          <Col xs={12} sm={2} md={2}>
+            <UniversityLogo />
+          </Col>
+          <Col xs={12} sm={10} md={10}>
+            <UniversityAddress />
+          </Col>
         </Row>
-        </div>
+      </div>
     </Grid>
   </footer>
-)
+);
 
 export default Footer;

@@ -46,7 +46,6 @@
 .nextEventBtn {
     background-color:white;
     border:1px solid #0054a6;
-    border-radius: 5px;
     float: right;
     height: 30px;
     width: 161px;
@@ -55,15 +54,37 @@
     font-size: 1em; /* font size 15 in pixel */
     padding-top: 3px;
     padding-bottom: 3px;
+    cursor: pointer;
+}
+
+.btn-primary.nextEventBtn:hover, 
+.btn-primary.nextEventBtn:active,  
+.btn-primary.nextEventBtn:focus  {
+    background-color: #fff;
+    color: #0054a6;
+    box-shadow: none;
+    outline: none;
+} 
+
+.nextEventBtnTxt {
+    line-height: 21px;
+}
+
+.btn-primary.nextEventBtn:hover, .btn-primary.nextEventBtn:active,  .btn-primary.nextEventBtn:focus  {
+    background-color: #fff;
+    color: #0054a6;
+    box-shadow: none;
+    outline: none;
 }
 
 .nextevent-logo {
-    width: 17px;
-    height: 20px;
+    background-image: url(../../assets/images/nextevent-button.png);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 23px;
     float: left;
-    vertical-align: top;
-}
-
-img {
-    margin-bottom: 8px;
+    overflow: hidden;
+    margin-top: -1px;
+    margin-bottom: 1px;
+    display: inline-block;
 }

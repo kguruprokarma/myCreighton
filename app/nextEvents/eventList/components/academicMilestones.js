@@ -1,9 +1,9 @@
 /*Created Date: - 21 -02 -2017
 *Usage of file: - This component is used to display Next Event Academic Milestones details.*
 */
+
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-
 
 const AcademicMilestones = (academicMilestonesProps) => (
   <section className='academicMilestone' id='academicMilestoneList'>

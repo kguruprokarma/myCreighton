@@ -11,55 +11,8 @@ describe('index files in staff testing ----->', () => {
   const minProps = {
     getStaffProfileData: () => { },
     profile: 'STAFF',
-    profileData: {
-      'timing': '-1.343',
-      'data': [
-        {
-          'netid': '5de48407ab',
-          'birth_date': '1992-05-26',
-          'email': {
-            'school_email': '5de48407ab@creighton.edu'
-          },
-          'emergency_contact': {
-            'first_name': '3ee294b7e7',
-            'last_name': '541af1c56f',
-            'middle_name': null
-          },
-          'guardian': {
-            'first_name': null,
-            'last_name': null,
-            'middle_name': null
-          },
-          'home_address': {
-            'Address_type': 'PR',
-            'SPRADDR_CITY': 'Waterloo',
-            'SPRADDR_STATE': 'IA',
-            'SPRADDR_STREET_LINE1': '1195 Ridgemont Rd',
-            'SPRADDR_STREET_LINE2': null,
-            'SPRADDR_STREET_LINE3': null,
-            'SPRADDR_ZIP': '50701-4841'
-          },
-          'legal_name': {
-            'first_name': '190eb3ebae',
-            'last_name': '541af1c56f',
-            'middle_name': 'James'
-          },
-          'parent': {
-            'first_name': null,
-            'last_name': null,
-            'middle_name': null
-          },
-          'family_details': {
-            'maritalStatus': 'Married',
-            'spouseName': 'Annika',
-            'dependentsName': 'Annika'
-          },
-          'pidm': '3375259',
-          'primary_phone_no': null,
-          'school_address': null
-        }
-      ]
-    }};
+    profileData: { 'timing': '-4.353', 'data': [{ 'netid': 'ed8ad0b875', 'banner_pidm': '3439269', 'date_of_birth': '1992-03-15 00:00:00.0', 'emergency_contact': { 'first_name': '19669702ab', 'last_name': '0f2eb7129e' }, 'emp_number': '27523', 'faculty_address': { 'home_Address_line1': '1015 North 14th Street', 'home_Address_line2': 'Apt 201', 'home_Address_line3': null, 'home_State_code': 'NE', 'home_postal_code': '68102', 'home_town_or_city': 'Omaha' }, 'faculty_name': { 'first_name': '248715109e', 'last_name': '0f2eb7129e', 'middle_name': 'D' }, 'full_name': 'e739e1f8ba', 'mail_address': { 'mail_Address_line1': null, 'mail_Address_line2': null, 'mail_Address_line3': null, 'mail_State_code': null, 'mail_postal_code': null, 'mail_town_or_city': null }, 'marital_status': 'S', 'personal_email': 'ellietoscan@gmail.com', 'phone': '', 'work_address': { 'work_Address_line1': null, 'work_Address_line2': null, 'work_Address_line3': null, 'work_State_code': null, 'work_postal_code': null, 'work_town_or_city': null }, 'work_email': null }] }
+  };
   const staffProfile = shallow(<StaffProfile {...minProps} />);
 
   it('StaffProfile is defined', () => {
@@ -72,31 +25,21 @@ describe('index files in staff testing ----->', () => {
   });
   it('Check LegalName component is present', () => {
     expect(staffProfile.find('LegalName').length).toBe(1);
-    expect(staffProfile.find('LegalName').prop('legalName')).toBe(minProps.profileData.data[0].legal_name);
+    expect(staffProfile.find('LegalName').prop('legalName')).toBe(minProps.profileData.data[0].staff_name);
   });
 
-  it('Check HomeAddress component is present', () => {
-    expect(staffProfile.find('HomeAddress').length).toBe(1);
-    expect(staffProfile.find('HomeAddress').prop('homeAddress')).toBe(minProps.profileData.data[0].home_address);
-  });
+
   it('Check PrimaryContact component is present', () => {
     expect(staffProfile.find('PrimaryContact').length).toBe(1);
-    expect(staffProfile.find('PrimaryContact').prop('primaryContact')).toBe(minProps.profileData.data[0].primary_phone_no);
+    expect(staffProfile.find('PrimaryContact').prop('primaryContact')).toBe(minProps.profileData.data[0].phone);
   });
   it('Check EmergencyContact component is present', () => {
     expect(staffProfile.find('EmergencyContact').length).toBe(1);
     expect(staffProfile.find('EmergencyContact').prop('emergencyContact')).toBe(minProps.profileData.data[0].emergency_contact);
   });
-  it('Check Email component is present', () => {
-    expect(staffProfile.find('Email').length).toBe(1);
-    expect(staffProfile.find('Email').prop('email')).toBe(minProps.profileData.data[0].email);
-  });
+
   it('Check Other component is present', () => {
     expect(staffProfile.find('Other').length).toBe(1);
     expect(staffProfile.find('Other').prop('detail')).toBe(minProps.profileData.data[0]);
-  });
-  it('Check FamilyDetail component is present', () => {
-    expect(staffProfile.find('FamilyDetail').length).toBe(1);
-    expect(staffProfile.find('FamilyDetail').prop('familyDetail')).toBe(minProps.profileData.data[0].family_details);
   });
 });

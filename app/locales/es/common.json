@@ -1,11 +1,15 @@
 {
- "MY_CREIGHTON": "MICREYENTE",
+ "MY_CREIGHTON": "MYCREIGHTON",
 
   "MEAL_PLAN_SWIPES": "MALA CERVEZA",
   "MEAL_PLAN_DINING": "COMIDA",
   "MEAL_PLAN_GUEST": "HUÉSPED",
   "MEAL_PLAN_JAY_BUCKS": "JAYBUCK",
   "MEAL_PLAN": "Régimen de comidas",
+  "MEAL_HIDE": "Esconder",
+
+  "COMMON_SIGN_OUT": "Desconectar",
+  "COMMON_CHANGE_LANGUAGE": "Cambiar idioma",
 
   "PROFILE_ACADEMIC": "Académico",
   "PROFILE_MY_PROFILE": "Mi perfil",
@@ -27,7 +31,7 @@
   "PROFILE_AREA": "Zona",
   "PROFILE_OFFICE": "Oficina",
   "PROFILE_OFFICE_HOURS": "Horas de oficina",
-  "PROFILE_EMAIL": "Email",
+  "PROFILE_EMAIL": "CORREO ELECTRÓNICO",
   "LOCAL_MENU": "Menú local",
   "PROFILE_FIRST_NAME": "Nombre de pila",
   "PROFILE_LAST_NAME": "Apellido",
@@ -64,6 +68,7 @@
   "FACULTY_MARITAL_STATUS": "Estado civil",
   "FACULTY_SPOUSE_NAME": "Esposa",
   "FACULTY_DEPENDENTS_NAME": "Dependientes",
+  "FACULTY_APPOINTMENT": "CITA",
 
   "CLASS_SCHEDULE": "HORARIO DE CLASE",
   "CLASS_DETAIL": "DETALLE DE LA CLASE",
@@ -71,7 +76,7 @@
   "TODAYS_CLASS": "Hoy CLASE",
   "NEXT": "Siguiente",
   "CLASSES_WEEK": "Semana",
-  "CLASSES_A-Z": "A-Z",
+  "CLASSES_A-Z": "UN-Z",
   "CLASSES_TODAY": "HOY",
   "LIBRARY_SEARCH": "Búsqueda de biblioteca",
   "WHERE_TO_FIND_IT": "Dónde encontrarlo",
@@ -112,16 +117,16 @@
   "NEXT_EVENTS_TEST_DETAIL_HEADER": "DETALLE DE LA PRUEBA",
   "NEXT_EVENTS_ASSIGNMENTS_HEADER": "DETALLES DE LA ASIGNACIÓN",
 
-  "COMMON_TITLE": "Title",
-  "COMMON_CLASS": "Class",
-  "COMMON_DATE": "Date",
-  "COMMON_TIME": "Time",
-  "COMMON_DESCRIPTION": "Description",
-  "QUIZ_POINTS": "Points",
-  "QUIZ_NUMBER_OF_QUESTIONS": "Number of Questions",
+  "COMMON_TITLE": "Título",
+  "COMMON_CLASS": "Clase",
+  "COMMON_DATE": "Fecha",
+  "COMMON_TIME": "Hora",
+  "COMMON_DESCRIPTION": "Descripción",
+  "QUIZ_POINTS": "Puntos",
+  "QUIZ_NUMBER_OF_QUESTIONS": "numero de preguntas",
 
-  "STAFF_BUSINESS_INFORMATION": "BUSINESS INFORMATION",
-  "STAFF_PROFESSIONAL_DEVELOPMENT" : "PROFESSIONAL DEVELOPMENT",
+  "STAFF_BUSINESS_INFORMATION": "INFORMACIÓN DE NEGOCIOS",
+  "STAFF_PROFESSIONAL_DEVELOPMENT" : "DESARROLLO PROFESIONAL",
   "STAFF_TITLE": "Título",
   "STAFF_ORGANIZATION": "Organización",
   "STAFF_DEPARTMENT": "Departamento",
@@ -143,5 +148,41 @@
   "INSTRUCTION": "INSTRUCCIÓN",
   "OFFICE_INFORMATION": "INFORMACIÓN DE LA OFICINA",
   
-  "NET_ID": "NetID"
+  "COMMON_SUNDAY": "Domingo",
+  "COMMON_MONDAY": "Lunes", 
+  "COMMON_TUESDAY": "Martes", 
+  "COMMON_WEDNESDAY": "Miércoles", 
+  "COMMON_THURSDAY": "Jueves", 
+  "COMMON_FRIDAY": "Viernes", 
+  "COMMON_SATURDAY": "Sábado",
+
+  "COMMON_JAN": "Ene", 
+  "COMMON_FEB": "Feb", 
+  "COMMON_MAR": "Mar", 
+  "COMMON_APR": "Abr", 
+  "COMMON_MAY": "Mayo", 
+  "COMMON_JUNE": "Junio", 
+  "COMMON_JULY": "Julio", 
+  "COMMON_AUG": "Ago", 
+  "COMMON_SEPT": "Sept", 
+  "COMMON_OCT": "Oct", 
+  "COMMON_NOV": "Nov", 
+  "COMMON_DEC": "Dic",
+
+  "COMMON_SCHOOL": "Colegio",
+  "COMMON_WORK": "Trabajo",
+  "COMMON_PERSONAL": "Personal",
+  "WORK_ADDRESS": "Dirección de trabajo",
+
+  "NET_ID": "NetID",
+
+  "PREVIOUS": "Anterior",
+
+  "NO_RESPONSE": "Error del Servidor...!!",
+  "NO_CONTENT": "No hay contenido disponible",
+
+   "FOOTER_SITE": "Sitio",
+  "FOOTER_FEEDBACK": "Realimentación",
+  "FOOTER_UNIVERSITY_ADDRESS": "2500 California Plaza, Omaha, NE 68178",
+  "FOOTER_CREIGHTON_UNIVERSITY": "2017 Universidad de Creighton"
 }

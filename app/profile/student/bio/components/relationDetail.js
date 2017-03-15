@@ -23,12 +23,12 @@ class RelationDetail extends React.Component {
         <h3 className='dataHeading openSansRegular'>{translateText('common:IF_NOT_AGE_OF_MAJORITY')}</h3>
         <div className='control-group'>
           <label className='control control-checkbox labelField noclons'>
-            <input type='checkbox' name='dependent' value='parent' onChange={this.toggleParent.bind(this)} checked={this.state.flag === CommonConstants.STUDENT_PARENT} id='parent' /> <span className='openSansRegular'>{translateText('common:STUDENT_PARENT')}</span>
+            <input type='checkbox' name='dependent' value='parent' onChange={this.toggleParent.bind(this)} checked={this.state.flag === CommonConstants.STUDENT_PARENT} id='parent' /> <span className='openSansLight'>{translateText('common:STUDENT_PARENT')}</span>
             <span className='control__indicator'>&nbsp;</span>
           </label>
           <div className='clearfix'></div>
           <label className='control control-checkbox labelField noclons'>
-            <input type='checkbox' name='dependent' value='guardian' onChange={this.toggleParent.bind(this)} checked={this.state.flag === CommonConstants.STUDENT_GUARDIAN} id='guardian' /> <span className='openSansRegular'>{translateText('common:STUDENT_GUARDIAN')}</span>
+            <input type='checkbox' name='dependent' value='guardian' onChange={this.toggleParent.bind(this)} checked={this.state.flag === CommonConstants.STUDENT_GUARDIAN} id='guardian' /> <span className='openSansLight'>{translateText('common:STUDENT_GUARDIAN')}</span>
             <span className='control__indicator'>&nbsp;</span>
           </label>
         </div>

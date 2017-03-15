@@ -6,7 +6,8 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import { EventList } from '../index';
 
-describe('index component testing for Next Events ----->', () => {
+
+xdescribe('index component testing for Next Events ----->', () => {
       const defaultProps = {
             "eventsData": {
                   "type": {
@@ -82,27 +83,29 @@ describe('index component testing for Next Events ----->', () => {
       }
 
 
-      const EventListC = shallow(<EventList {...defaultProps} />);
-      console.log("EventListC: ", EventListC);
+  const EventListC = shallow(<EventList {...defaultProps} />);
 
-      it('EventList is defined', () => {
+
+
+      xit('EventList is defined', () => {
             expect(EventListC).toBeDefined();
       });
 
-      it('Check getEventsData function', () => {
+      xit('Check getEventsData function', () => {
             const value = EventListC.instance().componentWillMount();
             expect(value).toHaveBeenCalled
       });
 
-      it('Checking Classes component in Event List', () => {
+      xit('Checking Classes component in Event List', () => {
             expect(EventListC.find('classesdetails').length).toBe(0);
       });
 
-      it('Checking Assignments component in Event List ', () => {
+      xit('Checking Assignments component in Event List ', () => {
             expect(EventListC.find('Assignments').length).toBe(1);
       });
 
-      it('Checking OutlookCalendar component in Event List', () => {
+      xit('Checking OutlookCalendar component in Event List', () => {
             expect(EventListC.find('OutlookCalendar').length).toBe(1);
       });
+
 });
