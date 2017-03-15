@@ -2,41 +2,89 @@
     padding-bottom: 20px;
 }
 
-.eventDate {
-    font: #c8c7cc;
-    text-align: right;
-    line-height: 10px;
-}
-
-.eventTitle {
-    font-size: 1.7333333333333334em;
+.eventDetailTitle {
+    font-size: 1.7333333333333334em;    /* font size 26 in pixel */
     line-height: 32px;
     color: #313131;
     font-family: 'open_sanslight';
+    margin-bottom: 4px;
 }
 
-.eventSubject {
-    font-size: 1.1333333333333333em;
-    font: black;
-    font-family: 'open_sansregular', sans-serif;
+.eventDetailSubject {
+    font-size: 1.133333333333333em;
+    color: #313131;
+    font-family: 'open_sansregular', 'sans-serif';
+    margin-bottom: 8px;
 }
 
 .eventTiming {
-    line-height: 15px;
+    font-family: 'open_sansregular', 'sans-serif';
+    font-size: 1.1333333333333333em;
+    color: #313131;
     line-height: 1.42857143;
+
 }
 
 .eventDetail {
-    font: black;
+    font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+    color: #313131;
     text-transform: uppercase;
-    line-height: 1.42857143;
+    font-family: 'open_sansregular';
+    line-height: 38px;
 }
 
 .eventNotes {
-    font: black;
-    line-height: 1.42857143;
+    color: #313131;
+    font-size: 1.2em;   /* font size 18 in pixel */
+    font-family: 'open_sanslight';
 }
 
 .eventDetailsTitle {
-    border-bottom:4px solid #ccc;
+    border-bottom:4px solid #d7d7d7;
+}
+
+.nextEventBtn {
+    background-color:white;
+    border:1px solid #0054a6;
+    float: right;
+    height: 30px;
+    width: 161px;
+    color: #0054a6;
+    font-family: 'open_sansregular';
+    font-size: 1em; /* font size 15 in pixel */
+    padding-top: 3px;
+    padding-bottom: 3px;
+    cursor: pointer;
+}
+
+.btn-primary.nextEventBtn:hover, 
+.btn-primary.nextEventBtn:active,  
+.btn-primary.nextEventBtn:focus  {
+    background-color: #fff;
+    color: #0054a6;
+    box-shadow: none;
+    outline: none;
+} 
+
+.nextEventBtnTxt {
+    line-height: 21px;
+}
+
+.btn-primary.nextEventBtn:hover, .btn-primary.nextEventBtn:active,  .btn-primary.nextEventBtn:focus  {
+    background-color: #fff;
+    color: #0054a6;
+    box-shadow: none;
+    outline: none;
+}
+
+.nextevent-logo {
+    background-image: url(../../assets/images/nextevent-button.png);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 23px;
+    float: left;
+    overflow: hidden;
+    margin-top: -1px;
+    margin-bottom: 1px;
+    display: inline-block;
 }

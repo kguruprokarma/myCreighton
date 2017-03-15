@@ -54,5 +54,4 @@ export const modulesBlocksData = (roleType) => {
   return modulesData;
 };
 
-
 export default modulesBlocksData;

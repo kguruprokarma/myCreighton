@@ -1,9 +1,9 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const path = require('path')
-const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production';
 
 Object.assign(exports, {
   context: path.resolve(__dirname, './app'),
@@ -21,7 +21,7 @@ Object.assign(exports, {
     preLoaders: [
       {
         test: /\.js$/,
-        loader: 'eslint-loader',
+        loader: 'babel-loader',
         exclude: /node_modules/
       }
     ],
@@ -61,9 +61,9 @@ Object.assign(exports, {
       }
     }),
     new CopyWebpackPlugin([
-      { from: __dirname + '/app/assets', to: __dirname + '/build/assets' },
-      { from: __dirname + '/app/mock_data', to: __dirname + '/build/mock_data' },
-      { from: __dirname + '/app/locales', to: __dirname + '/build/app/locales' }
+      { from: `${__dirname  }/app/assets`, to: `${__dirname  }/build/assets` },
+      { from: `${__dirname  }/app/mock_data`, to: `${__dirname  }/build/mock_data` },
+      { from: `${__dirname  }/app/locales`, to: `${__dirname  }/build/app/locales` }
     ]),
     new HtmlWebpackPlugin({
       chunksSortMode: 'dependency',
@@ -82,7 +82,7 @@ Object.assign(exports, {
       filename: '[name].[hash].js'
     })
   ]
-})
+});
 
 if (isProduction) {
   // deployed environments
@@ -105,7 +105,7 @@ if (isProduction) {
       }),
       ...exports.plugins
     ]
-  })
+  });
 } else {
   Object.assign(exports, {
     debug: true,
@@ -122,5 +122,5 @@ if (isProduction) {
       port: 8000,
       inline: true
     }
-  })
+  });
 }

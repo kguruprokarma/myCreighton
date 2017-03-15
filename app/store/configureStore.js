@@ -17,7 +17,7 @@ import mealPlanReducer from '../dashboard/mealPlan/reducer';
 import eventsReducer from '../nextEvents/eventList/reducer';
 import auth from '../login/reducer';
 import eventDetailsReducer from '../nextEvents/eventDetails/reducer';
-import professionalReducer  from '../profile/staff/professional/reducer';
+import professionalReducer from '../profile/staff/professional/reducer';
 
 
 // enable Redux Dev Tools
@@ -34,16 +34,16 @@ const reducers = {
   profileReducer: profileReducer,
   academicReducer: academicReducer,
 
-  classesReducer:classesReducer,
-  classDetailsReducer:classDetailsReducer,
-  dashboardReducer:dashboardReducer,
-  mealPlanReducer:mealPlanReducer,
-  headerReducer:headerReducer,
-   eventsReducer:eventsReducer,
-   eventDetailsReducer: eventDetailsReducer,
-  professionalReducer:professionalReducer,
-  routing:routing
-}
+  classesReducer: classesReducer,
+  classDetailsReducer: classDetailsReducer,
+  dashboardReducer: dashboardReducer,
+  mealPlanReducer: mealPlanReducer,
+  headerReducer: headerReducer,
+  eventsReducer: eventsReducer,
+  eventDetailsReducer: eventDetailsReducer,
+  professionalReducer: professionalReducer,
+  routing: routing
+};
 
 
 const configureStore = preloadedState => {

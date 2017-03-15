@@ -5,33 +5,32 @@
 import * as types from './actionTypes';
 
 const initialState = {
-	eventsData: {},
-	isLoading: false,
-	error: false
+  eventsData: {},
+  isLoading: false,
+  error: false
 };
 
 const eventsReducer = (state = initialState, action = null) => {
-	switch (action && action.type) {
-		case types.RECEIVE_EVENTS_DATA_ERROR:
-			return Object.assign({}, state, {
-				isLoading: false,
-				error: true,
-				eventsData: []
-			})
-		case types.REQUEST_EVENTS_DATA:
-			return Object.assign({}, state, {
-				isLoading: true,
-				error: false
-			})
-		case types.RECEIVE_EVENTS_DATA:
-			return Object.assign({}, state, {
-				isLoading: true,
-				eventsData: action.data
-			})
-		default:
-			return state
-	}
-}
+  switch (action && action.type) {
+    case types.RECEIVE_EVENTS_DATA_ERROR:
+      return Object.assign({}, state, {
+        isLoading: false,
+        error: true,
+        eventsData: []
+      });
+    case types.REQUEST_EVENTS_DATA:
+      return Object.assign({}, state, {
+        isLoading: true,
+        error: false
+      });
+    case types.RECEIVE_EVENTS_DATA:
+      return Object.assign({}, state, {
+        isLoading: false,
+        eventsData: action.data
+      });
+    default:
+      return state;
+  }
+};
 
-
-export default eventsReducer
+export default eventsReducer;

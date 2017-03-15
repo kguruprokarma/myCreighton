@@ -5,7 +5,7 @@ import ClassAssignments from '../components/classAssignments';
 describe('ClassAssignments component testing ', () => {
     it('ClassAssignments is defined', () => {
     const defaultProps = {
-            assignmentsDue:[ {
+            data:[ {
                 data: "01/22/2017"
             }]
         }  

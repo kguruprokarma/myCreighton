@@ -30,7 +30,6 @@ const eventDetailsReducer = (state = initialState, action = null) => {
         error: true,
         eventClassDetails: {}
       });
-
     case types.REQUEST_EVENT_ASSIGNMENTS_DETAILS_DATA:
       return Object.assign({}, state, {
         isLoading: true,
@@ -46,9 +45,8 @@ const eventDetailsReducer = (state = initialState, action = null) => {
         isLoading: false,
         error: true,
         eventAssignmentDetails: {}
-      });  
-
-      case types.REQUEST_EVENT_QUIZ_DETAILS_DATA:
+      });
+    case types.REQUEST_EVENT_QUIZ_DETAILS_DATA:
       return Object.assign({}, state, {
         isLoading: true,
         error: false
@@ -63,8 +61,7 @@ const eventDetailsReducer = (state = initialState, action = null) => {
         isLoading: false,
         error: true,
         eventQuizDetails: {}
-      });  
-      
+      });
     default:
       return state;
   }

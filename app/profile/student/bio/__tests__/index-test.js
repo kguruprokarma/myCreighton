@@ -59,7 +59,6 @@ it('Check EmergencyContact component is present', () => {
 });
 it('Check Email component is present', () => {
   expect(profile.find('Email').length).toBe(1);
-  expect(profile.find('Email').prop('email')).toBe(minProps.profileData.data[0].email);
 });
 it('Check Other component is present', () => {
   expect(profile.find('Other').length).toBe(1);

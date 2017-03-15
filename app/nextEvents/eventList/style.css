@@ -53,14 +53,44 @@
         padding-left: 10px;
 }
 
+.assignIcon {
+    background: url(../../assets/images/assignment_icon.png) no-repeat 0 0;
+    width: 20px;
+    height: 26px;
+    overflow: hidden;
+    display: inline-block;
+    text-indent: -9999px;
+}
+
+.testIcon {
+    background: url(../../assets/images/test_icon.png) no-repeat 0 0;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    display: inline-block;
+    text-indent: -9999px;
+}
+
+a:hover, *:hover  {
+        text-decoration: none;
+}
+
+
+
+@media (min-width:768px) and (max-width: 992px) {
+   
+    .eventHeading {
+        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    } 
+}
+
 @media (max-width: 767px) {
 
     .eventOn {
         padding-left: 0px;
     }
+
+    .eventHeading {
+       font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    }
 }
-
-
-
-
-

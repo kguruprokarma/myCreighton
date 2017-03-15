@@ -132,6 +132,7 @@ h1, h2, h3, h4, h5 {
 
 #content {
     margin-top:20px;
+    position: relative;
 }
 
 .footer {
@@ -370,13 +371,50 @@ input {
     text-decoration: none;
 }
 
+.selectLang {
+    font-family: 'open_sansregular';
+    font-size: 1.3em;
+    color: #313131;
+}
+
+.popupBackBtn {
+     font-size: 1.4em;
+}
+
+.popupBackBtn:hover,
+.popupBackBtn:active {
+    text-decoration: none;
+}
+
 /* Media for small devices */
 
 .head-Icons .glyphicon-user {
     color: #fff;
 }
+
 .logo {
     color: #fff;
+}
+
+.loadingImg {
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    margin-left:-40px;
+    top: 50%;
+    margin-top:-40px;
+    width: 80px;
+    height: 80px;
+}
+
+.loaderPatch {
+    position: fixed;
+    top:0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.1);
+    z-index: 8000;
 }
 
 @media screen and (min-width: 768px) {
@@ -537,3 +575,9 @@ input {
   }
 }
 
+.disableButton{
+    pointer-events: none;
+     color: gray;
+      background: #ddd;
+       border: #ddd;
+}

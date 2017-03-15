@@ -8,7 +8,7 @@ describe('Assignments Next events test suit -- >', () => {
       "title": "English 112",
       "class": "English 112",
       "due_date": "feb 22",
-      "details": "Assignments",
+      "assign_desc": "\r\nAssignments",
       "eventNotes": "",
       "name": ""
     };

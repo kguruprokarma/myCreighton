@@ -14,6 +14,7 @@ import * as actionCreators from './actions';
 import * as profileActionCreators from '../../actions';
 import styles from '../style.css';
 import LeftNav from '../../../common/leftNav';
+import Spinner from '../../../common/spinner';
 import HeaderLabel from '../../../common/headerLabel';
 
 export class Academic extends React.PureComponent {
@@ -30,7 +31,8 @@ export class Academic extends React.PureComponent {
     const USER_DATA = this.props.academicData;
     return (
       <section id='academic'>
-        <HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} />
+        {this.props.loading && <Spinner />}
+        <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} /></div>
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
@@ -50,7 +52,8 @@ export class Academic extends React.PureComponent {
 const mapStateToProps = (academicState) => (
   {
     academicData: academicState.academicReducer.academicData.data,
-    profile: academicState.academicReducer.profile
+    profile: academicState.academicReducer.profile,
+    loading: academicState.academicReducer.isLoading
 
   });
 

@@ -7,7 +7,7 @@ import { Link, browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
-import { Nav, Navbar, NavItem, Col, Row, Image } from 'react-bootstrap';
+import { Col, Row} from 'react-bootstrap';
 import CustomPopUp from '../common/customPopUp';
 import Title from '../header/components/title';
 import Style from './style.css';
@@ -24,12 +24,13 @@ export class Header extends React.PureComponent {
     this.showPopUp = this.showPopUp.bind(this);
     this.goBack = this.goBack.bind(this);
     this.navClick = this.navClick.bind(this);
-    let self = this;
-    window.onhashchange = function() {
+    const self = this;
+    window.onhashchange = function () {
       self.props.popUpClose();
       self.props.navClose();
-    }
+    };
   }
+
   showPopUp() {
     if (!this.props.popUpData) {
       this.props.popUpOpen();
@@ -54,7 +55,7 @@ export class Header extends React.PureComponent {
         <div className='container'>
           <Row >
             <Col xs={2} sm={2} className='hidden-lg hamburgerMenu'>
-              <img src={this.props.navData ? './assets/images/menu-close.png' : './assets/images/menu.png'} onClick={this.navClick} />
+              <img alt='' src={this.props.navData ? './assets/images/menu-close.png' : './assets/images/menu.png'} onClick={this.navClick} />
             </Col>
             <Col lg={10} className='visible-lg'>
               <h2 className='bebasregular logo mt10 mb10 fs1pt4'>{translateText('common:MY_CREIGHTON')}</h2>
@@ -62,14 +63,14 @@ export class Header extends React.PureComponent {
             <Col xs={8} sm={8} className='hidden-lg text-center'>
               <Title path={this.props.currentState} />
             </Col>
-            <Col xs={2} sm={2} className="pull-right">
+            <Col xs={2} sm={2} className='pull-right'>
               <ul className='pull-right list-inline'>
                 <li className='head-Icons'>
                   <div className='popUp'>
-                    <span className='glyphicon glyphicon-user' onClick={this.showPopUp}></span>
+                    <span className='glyphicon glyphicon-user' onClick={this.showPopUp}> </span>
                     <div className='popUpContainer'>
                       {this.props.popUpData &&
-                      <CustomPopUp showPopValue={this.showPopUp} />}
+                        <CustomPopUp showPopValue={this.showPopUp} />}
                     </div>
                   </div>
                 </li>

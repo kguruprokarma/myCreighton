@@ -5,31 +5,38 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { Row, Col } from 'react-bootstrap';
 import * as actionCreators from '../actions';
-import styles from '../student/style.css';
 import HeaderLabel from '../../common/headerLabel';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import * as URL_CONSTANTS from '../../constants/urlConstants';
 import FacultyProfileView from './components/profile';
 import FacultyAcademicView from './components/academic';
+import { authUserDetails } from '../../common/utility';
+import Spinner from '../../common/spinner';
 
 export class FacultyProfile extends React.PureComponent {
-
   constructor(props) {
     super(props);
     this.headerText = '';
   }
+  
   componentWillMount() {
-    if (this.props.params.facultyprofileparam === URL_CONSTANTS.PROFILE) {    
-      this.props.getFacultyProfileData();
+    if (this.props.params.facultyprofileparam === URL_CONSTANTS.PROFILE) { 
+      let userReqObj = authUserDetails();
+      userReqObj = {};
+      userReqObj.primaryKey = 'netid';
+      userReqObj.primaryValue = 'ed8ad0b875';   
+      this.props.getFacultyProfileData(userReqObj);
       this.headerText = translateText('common:PROFILE_MY_PROFILE');
     }
     if (this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC) { 
+      let userReqObj = authUserDetails();
+      userReqObj = {};
+      userReqObj.primaryKey = 'netid';
+      userReqObj.primaryValue = 'a4509258ec';
       this.headerText = translateText('common:ACADEMIC');
-      this.props.getFacultyAcademicData();
+      this.props.getFacultyAcademicData(userReqObj);
     }
   }
 
@@ -37,28 +44,37 @@ export class FacultyProfile extends React.PureComponent {
     if (nextProps.params.facultyprofileparam && this.url !== nextProps.params.facultyprofileparam) {
       this.url = nextProps.params.facultyprofileparam;
       if (this.url === URL_CONSTANTS.PROFILE) {    
+        let userReqObj = authUserDetails();
+        userReqObj = {};
+        userReqObj.primaryKey = 'netid';
+        userReqObj.primaryValue = 'ed8ad0b875';   
+        this.props.getFacultyProfileData(userReqObj);
         this.headerText = translateText('common:PROFILE_MY_PROFILE');
-        this.props.getFacultyProfileData();
+        this.props.getFacultyProfileData(userReqObj);
       }
       if (this.url === URL_CONSTANTS.ACADEMIC) {  
+        let userReqObj = authUserDetails();
+        userReqObj = {};
+        userReqObj.primaryKey = 'netid';
+        userReqObj.primaryValue = 'a4509258ec';
         this.headerText = translateText('common:ACADEMIC');
-        this.props.getFacultyAcademicData();
+        this.props.getFacultyAcademicData(userReqObj);
       }
     } 
   }
 
   render() {
-    let PROFILE_DATA, ACADEMIC_DATA;
-    if(this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC){
-      
+    let PROFILE_DATA; 
+    let ACADEMIC_DATA;
+    if (this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC) {
       ACADEMIC_DATA = this.props.profile === CommonConstants.FACULTY_LABEL && this.props.profileData;
-    } else{
-     
+    } else {
       PROFILE_DATA = this.props.profile === CommonConstants.FACULTY_LABEL && this.props.profileData;
     }
     
     return (
       <section>
+        {this.props.isLoading && <Spinner />}
         <HeaderLabel headerLabel={this.headerText} />
         {this.props.params.facultyprofileparam === URL_CONSTANTS.PROFILE && PROFILE_DATA && <FacultyProfileView data={PROFILE_DATA} facultyProfile={this.props.profile} />}
         {this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC && ACADEMIC_DATA && <FacultyAcademicView data={ACADEMIC_DATA} facultyProfile={this.props.profile} />}
@@ -67,10 +83,22 @@ export class FacultyProfile extends React.PureComponent {
   }
 }
 
+FacultyProfile.propTypes = {
+  params: React.PropTypes.string,
+  facultyprofileparam: React.PropTypes.string,
+  isLoading: React.PropTypes.bool,
+  profile: React.PropTypes.string,
+  profileData: React.PropTypes.string,
+  getFacultyProfileData: React.PropTypes.func,
+  getFacultyAcademicData: React.PropTypes.func
+
+};
+
 const mapStateToProps = (bioState) => (
   {
     profileData: bioState.profileReducer.profileData.data,
-    profile: bioState.profileReducer.profile
+    profile: bioState.profileReducer.profile,
+    isLoading: bioState.profileReducer.isLoading
 
   });
 

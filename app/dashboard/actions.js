@@ -6,17 +6,17 @@ import UserDetailsApi from '../middleware/dashboard/api';
 import * as types from './actionTypes';
 
 
-let requestUserDetailsData = () => ({
+const requestUserDetailsData = () => ({
   type: types.REQUEST_USER_DETAILS_DATA
 });
 
-let receiveUserDetailsData = (userDetails) => (
+const receiveUserDetailsData = (userDetails) => (
   {
     type: types.RECEIVE_USER_DETAILS_DATA,
     data: userDetails
   });
 
-let receiveUserDetailsError = (error) => (
+const receiveUserDetailsError = (error) => (
   {
     type: types.RECEIVE_USER_DETAILS_DATA_ERROR,
     data: error

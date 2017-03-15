@@ -5,6 +5,7 @@
 import React from 'react';
 
 const HeaderLabel = (headerLabelProps) => (
-        <h1 className="bebasregular headerLabel mt5 mb20">{headerLabelProps.headerLabel}</h1>
-)
+  <h1 className='bebasregular headerLabel mt5 mb20'>{headerLabelProps.headerLabel}</h1>
+);
+
 export default HeaderLabel;

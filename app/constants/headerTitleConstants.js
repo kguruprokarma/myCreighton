@@ -16,5 +16,4 @@ export const EVENT_LIST = 'eventlist';
 export const PROFESSIONAL = 'professional';
 export const EVENT_DETAILS = 'eventdetails';
 export const EVENT_TEST_DETAILS = 'testorquiz';
-
 export const ASSIGNMENTS = 'assignments';

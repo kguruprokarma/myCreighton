@@ -3,8 +3,6 @@
  */
 
 import React from 'react';
-import BasicRow from '../../../common/basicRow';
-import { translateText } from '../../../common/translate';
 import { Row, Col } from 'react-bootstrap';
 import Appointment from '../components/appointment';
 import Instruction from '../components/instruction';
@@ -12,13 +10,13 @@ import OfficeInformation from '../components/officeInformation';
 import LeftNav from '../../../common/leftNav';
 
 const FacultyAcademic = (facultyAcademicData) => (
-  <article className='profileRow mt30'>
-    {facultyAcademicData.data && facultyAcademicData.data.academic && facultyAcademicData.data.academic.length > 0 &&
+  <article className='profileRow mt30'>{console.log(facultyAcademicData)}
+    {facultyAcademicData.data && facultyAcademicData.data.data && facultyAcademicData.data.data.length > 0 &&
     <Row>
       <Col sm={8} md={9} xs={12} className='userData pull-right'>
-        <Appointment data={facultyAcademicData.data.academic[0].appointment} />
-        <OfficeInformation data={facultyAcademicData.data.academic[0].officeInformation} />
-        <Instruction data={facultyAcademicData.data.academic[0].instruction} />
+        <Appointment data={facultyAcademicData.data.data[0]} />
+        {/*<OfficeInformation data={facultyAcademicData.data.data[0]} />*/}
+        <Instruction data={facultyAcademicData.data.data} />
       </Col>
       <Col md={3} sm={4} className='hidden-xs'>
         <LeftNav role={facultyAcademicData.facultyProfile} />

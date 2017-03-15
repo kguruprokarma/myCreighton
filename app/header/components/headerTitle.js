@@ -37,11 +37,11 @@ export default function (argument) {
     return title;
   }
   if (rootURL[2] === HEADER.EVENT_TEST_DETAILS && rootURL[1] === HEADER.EVENT_DETAILS) {
-    title = translateText('common:NEXT_EVENTS_TEST_DETAIL');
+    title = translateText('common:NEXT_EVENTS_TEST_DETAIL_HEADER');
     return title;
   }
   if (rootURL[2] === HEADER.ASSIGNMENTS && rootURL[1] === HEADER.EVENT_DETAILS) {
-    title = translateText('common:ASSIGNMENTS');
+    title = translateText('common:NEXT_EVENTS_ASSIGNMENTS_HEADER');
     return title;
   }
 }

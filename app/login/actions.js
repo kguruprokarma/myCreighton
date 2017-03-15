@@ -19,6 +19,7 @@ const receiveError=(error) => ({
   type: AUTH_ERROR,
   data: error
 });
+
 export function loginUser({ email, password }) {  
   return function ( dispatch ) {
     return loginApi.getLoginDetails(email, password)
@@ -60,57 +61,3 @@ function errorHandler(dispatch, error, type) {
     payload: errorMessage
   });
 }
-
-/*
-let requestData = () => ({
-  type: types.REQUEST_AUTHENTICATION_DATA
-})
-
-let receiveLoginData = (loginData) => (
-  {
-    type: types.RECEIVE_AUTHENTICATION_DATA,
-    data: loginData
-  })
-
-let receiveError = (error) => (
-  {
-    type: types.RECEIVE_AUTHENTICATION_DATA_ERROR,
-    data: error
-})
-
-export function changeForm(newState) {
-  return { type: types.CHANGE_FORM, newState };
-}
-
-
-export function loginUser({ email, password }) {  
-  return function(dispatch) {
-    axios.post(`${API_URL}/auth/login`, { email, password })
-    .then(response => {
-      cookie.save('token', response.data.token, { path: '/' });
-      dispatch({ type: AUTH_USER });
-      window.location.href = CLIENT_ROOT_URL + '/dashboard';
-    })
-    .catch((error) => {
-      errorHandler(dispatch, error.response, AUTH_ERROR)
-    });
-    }
-  }
-
-export function authenticateDetails(username, password) {
-  return function (dispatch) {
-    dispatch(requestData())
-    return LoginApi.getLoginDetails(username, password).then((response) => {
-        dispatch(receiveLoginData(response))
-      }
-      )
-      .catch((error) => {
-        dispatch(receiveError({
-          error: error
-        }))
-      }
-      )
-  }
-}
-
-*/

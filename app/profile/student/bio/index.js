@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import { translateText } from '../../../common/translate';
 import { authUserDetails } from '../../../common/utility';
+import AlertComponent from '../../../common/alertComponent';
 import LegalName from './components/legalName';
 import HomeAddress from './components/homeAddress';
 import Address from './components/address';
@@ -18,13 +19,11 @@ import Other from './components/other';
 import RelationDetail from './components/relationDetail';
 import * as actionCreators from '../../actions';
 import LeftNav from '../../../common/leftNav';
+import Spinner from '../../../common/spinner';
 import HeaderLabel from '../../../common/headerLabel';
 import * as CommonConstants from '../../../constants/commonConstants';
-import i18n from '../../../i18n';
-
 
 export class Profile extends React.PureComponent {
-
   componentWillMount() {
     let userReqObj = authUserDetails();
     userReqObj = {};
@@ -37,8 +36,9 @@ export class Profile extends React.PureComponent {
     const USER_DATA = this.props.profile === CommonConstants.STUDENT_LABEL && this.props.profileData;
     return (
       <section>
+        {this.props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
-        {USER_DATA &&
+        {USER_DATA.data &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
               <LegalName legalName={USER_DATA.data[0].legal_name} />
@@ -46,15 +46,19 @@ export class Profile extends React.PureComponent {
               <Address schoolAddress={USER_DATA.data[0].school_address} />
               <PrimaryContact primaryContact={USER_DATA.data[0].primary_phone_no} />
               <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} />
-              <Email email={USER_DATA.data[0].email} />
+              <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].email.school_email} isShowPersonalEmail={false} />
               <Other profile={this.props.profile} detail={USER_DATA.data[0]} />
               <RelationDetail parentDetail={USER_DATA.data[0].parent} gurdianDetail={USER_DATA.data[0].guardian} />
             </Col>
             <Col md={3} sm={4} className='hidden-xs'>
               <LeftNav role={this.props.profile} />
             </Col>
-          </Row>
+          </Row> 
         }
+        {((!USER_DATA && !this.props.loading) || (USER_DATA.error)) &&
+        <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+          }
+        
       </section>
     );
   }
@@ -63,7 +67,8 @@ export class Profile extends React.PureComponent {
 const mapStateToProps = (bioState) => (
   {
     profileData: bioState.profileReducer.profileData.data,
-    profile: bioState.profileReducer.profile
+    profile: bioState.profileReducer.profile,
+    loading: bioState.profileReducer.isLoading
 
   });
 

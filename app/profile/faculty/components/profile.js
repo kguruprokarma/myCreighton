@@ -3,11 +3,8 @@
  */
 
 import React from 'react';
-import BasicRow from '../../../common/basicRow';
-import { translateText } from '../../../common/translate';
 import { Row, Col } from 'react-bootstrap';
 import LegalName from '../../student/bio/components/legalName';
-import HomeAddress from '../../student/bio/components/homeAddress';
 import Address from '../../student/bio/components/address';
 import PrimaryContact from '../../student/bio/components/primaryContact';
 import EmergencyContact from '../../student/bio/components/emergencyContact';
@@ -15,21 +12,26 @@ import Email from '../../student/bio/components/email';
 import Other from '../../student/bio/components/other';
 import FamilyDetail from './family';
 import LeftNav from '../../../common/leftNav';
+import { translateText } from '../../../common/translate';
+import FacultyAddress from '../../staff/components/staffAddress';
+import MailAddress from '../../staff/components/mailAddress';
+import WorkAddress from '../../staff/components/workAddress';
 
 const FacultyProfile = (facultyProfileProps) => (
-  <article className='profileRow mt30'> 
+  <article className='profileRow mt30'>
     {facultyProfileProps.data && facultyProfileProps.data.data && facultyProfileProps.data.data.length > 0 &&      
-    <Row>      
+    
+    <Row>     
       <Col sm={8} md={9} xs={12} className='userData pull-right'>
-        <LegalName legalName={facultyProfileProps.data.data[0].legal_name} />
-        <HomeAddress homeAddress={facultyProfileProps.data.data[0].home_address} />
-        <Address schoolAddress={facultyProfileProps.data.data[0].school_address} profile={facultyProfileProps.facultyProfile} />
-        <Address schoolAddress={facultyProfileProps.data.data[0].school_address} shouldShowWhenFaculty profile={facultyProfileProps.facultyProfile} />
-        <PrimaryContact primaryContact={facultyProfileProps.data.data[0].primary_phone_no} />
-        <EmergencyContact emergencyContact={facultyProfileProps.data.data[0].emergency_contact} />
-        <Email email={facultyProfileProps.data.data[0].email} />
-        <Other profile={facultyProfileProps.facultyProfile} detail={facultyProfileProps.data.data[0]} />
-        <FamilyDetail familyDetail={facultyProfileProps.data.data[0].family_details} />
+        <LegalName legalName={facultyProfileProps.data.data[0].faculty_name} />
+        <FacultyAddress staffAddress={facultyProfileProps.data.data[0].faculty_address} />
+        <WorkAddress workAddress={facultyProfileProps.data.data[0].work_address} />
+        <MailAddress mailAddress={facultyProfileProps.data.data[0].mail_address} shouldShowWhenFaculty profile={''} />
+        <PrimaryContact primaryContact={facultyProfileProps.data.data[0].phone} />
+        <EmergencyContact emergencyContact={facultyProfileProps.data.data[0].emergency_contact} relation={facultyProfileProps.data.data[0].emrg_cont_type} phone={facultyProfileProps.data.data[0].emergency_contact_phone} />
+        <Email professionalLabel={translateText('common:COMMON_WORK')} professionalEmail={facultyProfileProps.data.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={facultyProfileProps.data.data[0].personal_email} isShowPersonalEmail />
+        <Other profile={facultyProfileProps.data.data[0]} />
+        <FamilyDetail familyDetail={facultyProfileProps.data.data[0]} />
       </Col>
       <Col md={3} sm={4} className='hidden-xs'>
         <LeftNav role={facultyProfileProps.facultyProfile} />

@@ -6,6 +6,7 @@ import * as types from './actionTypes';
 
 const initialState = {
   classesData: {},
+  assignmentsData: {},
   isLoading: false,
   error: false,
   catagoryName: 'week'
@@ -33,6 +34,25 @@ const classesReducer = (state = initialState, action = null) => {
       return Object.assign({}, state, {
         catagoryName: action.data
       });
+
+      
+    case types.RECEIVE_ASSIGNMENTS_DATA_ERROR:
+      return Object.assign({}, state, {
+        isLoading: false,
+        error: true,
+        assignmentsData: []
+      });
+    case types.REQUEST_ASSIGNMENTS_DATA:
+      return Object.assign({}, state, {
+        isLoading: true,
+        error: false
+      });
+    case types.RECEIVE_ASSIGNMENTS_DATA:
+      return Object.assign({}, state, {
+        isLoading: false,
+        assignmentsData: action.data
+      });
+      
     default:
       return state;
   }

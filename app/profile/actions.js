@@ -87,10 +87,10 @@ export function getStudentProfileData(reqObj) {
   };
 }
 
-export function getStaffProfileData() {
+export function getStaffProfileData(reqObj) {
   return function (dispatch) {
     dispatch(requestStaffProfileData());
-    return profileApi.getStaffProfileData()
+    return profileApi.getStaffProfileData(reqObj)
       .then((response) => {
         dispatch(receiveStaffProfileData(response));
       }
@@ -104,10 +104,10 @@ export function getStaffProfileData() {
   };
 }
 
-export function getFacultyProfileData() {
+export function getFacultyProfileData(reqObj) {
   return function (dispatch) {
     dispatch(requestFacultyProfileData());
-    return profileApi.getFacultyProfileData()
+    return profileApi.getFacultyProfileData(reqObj)
       .then((response) => {
         dispatch(receiveFacultyProfileData(response));
       }
@@ -122,10 +122,10 @@ export function getFacultyProfileData() {
 }
 
 // action method to get the faculty academic data
-export function getFacultyAcademicData() {
+export function getFacultyAcademicData(reqObj) {
   return function (dispatch) {
     dispatch(requestFacultyAcademicData());
-    return profileApi.getFacultyAcademicData().then((response) => {
+    return profileApi.getFacultyAcademicData(reqObj).then((response) => {
       dispatch(receiveFacultyAcademicData(response));
     }).catch((error) => {
       dispatch(receiveFacultyAcademicDataError({

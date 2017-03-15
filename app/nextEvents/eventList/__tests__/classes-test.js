@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Classes from '../components/classes';
 
-describe('Next Event Classes component testing ----->', () => {
+xdescribe('Next Event Classes component testing ----->', () => {
 
   const defaultProps = {
     "className": "English 112",
@@ -15,15 +15,15 @@ describe('Next Event Classes component testing ----->', () => {
 
   const ClassesC = shallow(<Classes data={defaultProps} />);
 
-  it('Classes component is defined', () => {
+  xit('Classes component is defined', () => {
     expect(ClassesC).toBeDefined();
   });
 
-  it('Classes component by property check', () => {
+  xit('Classes component by property check', () => {
     expect(ClassesC.unrendered.props.data.meetingLocation).toBe(defaultProps.meetingLocation);
   });
 
-  it('Classes recived props', () => {
+  xit('Classes recived props', () => {
     expect(JSON.stringify(ClassesC.unrendered.props.data)).toBe(JSON.stringify(defaultProps));
   });
 

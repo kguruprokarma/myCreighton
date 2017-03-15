@@ -15,9 +15,6 @@ import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
 
 export class MealPlan extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentWillReceiveProps(nextProps) {
     if (nextProps.role && this.role !== nextProps.role.userRole) {
       this.role = nextProps.role.userRole;
@@ -49,7 +46,7 @@ export class MealPlan extends Component {
             </Col>
           </Well>
         </div>
-        <a className='doller-icon pull-right hidden-xs openSansBold'><span onClick={this.props.toggleMeal}> {this.props.showMeal ? 'Hide' : <img src={'./assets/images/money.png'} alt='' />}</span></a>
+        <a className='doller-icon pull-right hidden-xs openSansBold'><span onClick={this.props.toggleMeal}> {this.props.showMeal ? translateText('common:MEAL_HIDE') : <img src={'./assets/images/money.png'} alt='' />}</span></a>
       </section>
 
     );

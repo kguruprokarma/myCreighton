@@ -6,30 +6,30 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Grid, Row } from 'react-bootstrap';
 import { translateText } from './translate';
-    import * as CommonConstants from '../constants/commonConstants';
-    import {AuthUserDetails} from './utility';
+import * as CommonConstants from '../constants/commonConstants';
+import { AuthUserDetails } from './utility';
 
 class MainNav extends React.Component {
-    render() {
+  render() {
     const role = AuthUserDetails().userRole;
-        return (
-            <nav role="Navigation" id="navigation" className={this.props.navDisplay ? 'openNav' : 'closeNav'}>
-                <h1 className="announced-only">{translateText('common:NAVIGATION_MENU')}</h1>
-                <Grid>
-                    <Row>
-                        <ul className="main-navigation fs0pt93">
-                            <li className="navigation-item"><a>{translateText('common:CREIGHTON_SERVICES_AND_RESOURCES')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li> 
-                            {
-    role === CommonConstants.ROLE_STUDENT || role === undefined ? <li className="navigation-item"><a>{translateText('common:CAMPUS_DIRECTORY')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li> : null
-                            }
-                            <li className="navigation-item"><a>{translateText('common:LIBRARY_SEARCH')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
-                            <li className="navigation-item"><a>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className="glyphicon glyphicon-chevron-right pull-right hidden-lg"></span></a></li>
-                        </ul>
-                    </Row>
-                </Grid>
-            </nav>
-        );
-    }
+    return (
+      <nav role='Navigation' id='navigation' className={this.props.navDisplay ? 'openNav' : 'closeNav'}>
+        <h1 className='announced-only'>{translateText('common:NAVIGATION_MENU')}</h1>
+        <Grid>
+          <Row>
+            <ul className='main-navigation fs0pt93'>
+              <li className='navigation-item'><a>{translateText('common:CREIGHTON_SERVICES_AND_RESOURCES')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
+              {
+                role === CommonConstants.ROLE_STUDENT || role === undefined ? <li className='navigation-item'><a>{translateText('common:CAMPUS_DIRECTORY')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li> : null
+              }
+              <li className='navigation-item'><a>{translateText('common:LIBRARY_SEARCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
+              <li className='navigation-item'><a>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
+            </ul>
+          </Row>
+        </Grid>
+      </nav>
+    );
+  }
 }
 
 export default MainNav;

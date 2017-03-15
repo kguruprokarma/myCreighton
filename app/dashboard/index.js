@@ -14,7 +14,8 @@ import DashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
 import style from './style.css';
-import {AuthUserDetails} from '../common/utility';
+import { AuthUserDetails } from '../common/utility';
+
 const dashboardModulesList = DashboardModulesList;
 
 export class Dashboard extends Component {
@@ -23,21 +24,19 @@ export class Dashboard extends Component {
     super(props);
     this.state = { shouldHide: true };
     this.onClick = this.onClick.bind(this);
-    this.role = this.props.userData?this.props.userData.userRole : AuthUserDetails().userRole;
-    if(this.role)
-      this.props.getUserDetailsData(`/${this.role}`);
+    this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
+    if (this.role) { this.props.getUserDetailsData(`/${this.role}`); }
   }
 
   componentWillMount() {
-    this.role = this.props.userData?this.props.userData.userRole : AuthUserDetails().userRole;
-    if(this.role)
-      this.props.getUserDetailsData(`/${this.role}`);
+    this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
+    if (this.role) { this.props.getUserDetailsData(`/${this.role}`); }
 
     if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
       this.setState({ shouldHide: false });
     } else {
-        this.setState({ shouldHide: true });
-      }
+      this.setState({ shouldHide: true });
+    }
   }
 
 
@@ -73,8 +72,8 @@ export class Dashboard extends Component {
             </Col>
             {
               this.role === CommonConstants.ROLE_STUDENT && <Col md={5} sm={6} >
-                  <ModuleBlock modulelist={dashboardModulesList[2]} />
-                </Col> 
+                <ModuleBlock modulelist={dashboardModulesList[2]} />
+              </Col>
             }
           </Row>
         </article>

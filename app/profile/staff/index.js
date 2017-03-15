@@ -8,41 +8,49 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import { translateText } from '../../common/translate';
 import LegalName from '../student/bio/components/legalName';
-import HomeAddress from '../student/bio/components/homeAddress';
-import Address from '../student/bio/components/address';
 import PrimaryContact from '../student/bio/components/primaryContact';
 import EmergencyContact from '../student/bio/components/emergencyContact';
 import Email from '../student/bio/components/email';
 import Other from '../student/bio/components/other';
-import FamilyDetail from './components/family';
+import StaffAddress from './components/staffAddress';
+import MailAddress from './components/mailAddress';
+import WorkAddress from './components/workAddress';
 import * as actionCreators from '../actions';
 import LeftNav from '../../common/leftNav';
 import HeaderLabel from '../../common/headerLabel';
 import * as CommonConstants from '../../constants/commonConstants';
+import { authUserDetails } from '../../common/utility';
+import Spinner from '../../common/spinner';
+import FamilyDetail from '../faculty/components/family';
 
 export class StaffProfile extends React.PureComponent {
 
   componentWillMount() {
-    this.props.getStaffProfileData();
+    let userReqObj = authUserDetails();
+    userReqObj = {};
+    userReqObj.primaryKey = 'netid';
+    userReqObj.primaryValue = 'ed8ad0b875';
+    this.props.getStaffProfileData(userReqObj);
   }
 
   render() {
     const USER_DATA = this.props.profile === CommonConstants.STAFF_LABEL && this.props.profileData;
     return (
       <section>
+        {this.props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
-              <LegalName legalName={USER_DATA.data[0].legal_name} />
-              <HomeAddress homeAddress={USER_DATA.data[0].home_address} />
-              <Address schoolAddress={USER_DATA.data[0].school_address} profile={this.props.profile} />
-              <Address schoolAddress={USER_DATA.data[0].school_address} shouldShowWhenStaff={true} profile={this.props.profile} />
-              <PrimaryContact primaryContact={USER_DATA.data[0].primary_phone_no} />
-              <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} />
-              <Email email={USER_DATA.data[0].email} />
+              <LegalName legalName={USER_DATA.data[0].staff_name} />
+              <StaffAddress staffAddress={USER_DATA.data[0].faculty_address} />
+              <WorkAddress workAddress={USER_DATA.data[0].work_address} />
+              <MailAddress mailAddress={USER_DATA.data[0].mail_address} />
+              <PrimaryContact primaryContact={USER_DATA.data[0].phone} />
+              <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} relation={USER_DATA.data[0].emrg_cont_type} phone={USER_DATA.data[0].emergency_contact_phone} />
+              <Email professionalLabel={translateText('common:COMMON_WORK')} professionalEmail={USER_DATA.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={USER_DATA.data[0].personal_email} isShowPersonalEmail />
               <Other profile={this.props.profile} detail={USER_DATA.data[0]} />
-              <FamilyDetail familyDetail={USER_DATA.data[0].family_details} />
+              <FamilyDetail familyDetail={USER_DATA.data[0]} />
             </Col>
             <Col md={3} sm={4} className='hidden-xs'>
               <LeftNav role={this.props.profile} />
@@ -57,7 +65,8 @@ export class StaffProfile extends React.PureComponent {
 const mapStateToProps = (bioState) => (
   {
     profileData: bioState.profileReducer.profileData.data,
-    profile: bioState.profileReducer.profile
+    profile: bioState.profileReducer.profile,
+    loading: bioState.profileReducer.isLoading
 
   });
 
