@@ -3,7 +3,6 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as _ from 'lodash';
-import moment from 'moment';
 import { Col, Row, Alert } from 'react-bootstrap';
 import HeaderLabel from './../../common/headerLabel';
 import Classes from '../eventList/components/classes';
@@ -14,11 +13,9 @@ import * as classesActionCreators from '../../classes/classList/actions';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import * as CommonConstants from '../../constants/commonConstants';
 import { translateText } from '../../common/translate';
-import { authUserDetails, DATAFILTERADDINGDATA } from '../../common/utility';
+import { authUserDetails, DATAFILTERADDINGDATA, CreateTimeStamp, filterSevenDaysTimeStampsFromNow } from '../../common/utility';
 import Styles from './style.css';
 import Spinner from '../../common/spinner';
-
-const Day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 export class EventList extends React.PureComponent {
   constructor() {
@@ -33,33 +30,18 @@ export class EventList extends React.PureComponent {
       this.props.getClassesDataByWeek(this.userReqObj);
     }
   }
-  render() {
+  getEventsData(props) {
     let EVENT_DATA = [];
-    const ASSIGNMENTS_DATA = this.props.assignmentsData;
-    const CLASSES_DATA = this.props.classesData;
+    const ASSIGNMENTS_DATA = props.assignmentsData;
+    const CLASSES_DATA = props.classesData;
     if (ASSIGNMENTS_DATA && CLASSES_DATA) {
-      const classObj = DATAFILTERADDINGDATA(CLASSES_DATA.data);
-      const assignmentObj = ASSIGNMENTS_DATA.data;
-      const today = moment()._d;
-      const seventhDay = moment().add(7, 'days')._d;
-
-      assignmentObj.map((assignmentObject) => {
-        assignmentObject.timeStamp = assignmentObject.assign_due === null ? null : new Date(assignmentObject.assign_due);
-        if (assignmentObject.timeStamp !== null && assignmentObject.timeStamp >= today && assignmentObject.timeStamp <= seventhDay) {
-          assignmentObject.submission_types === 'online_quiz' ? assignmentObject.type = 'testorquiz' : assignmentObject.type = 'assignments';
-          EVENT_DATA.push(assignmentObject);
-        }
+      const classObjs = CreateTimeStamp(DATAFILTERADDINGDATA(CLASSES_DATA.data));
+      const assignmentObjs = filterSevenDaysTimeStampsFromNow(ASSIGNMENTS_DATA.data);
+      assignmentObjs.map((assignmentObj) => {
+        EVENT_DATA.push(assignmentObj);
       });
-      classObj.map((classObject) => {
-        for (let i = 0; i < 8; i++) {
-          if (Day[(moment().add(i, 'days')._d).getDay()] === classObject.day) {
-            const hours = parseInt(classObject.class_begin_time.slice(0, 2));
-            const minutes = parseInt(classObject.class_begin_time.slice(-2));
-            classObject.timeStamp = new Date(new Date(new Date(new Date(moment().add(i, 'days')._d).toLocaleDateString()).setMinutes((hours * 60) + minutes)).toString());
-            break;
-          }
-        }
-        classObject.assignmentData = _.filter(assignmentObj, { 'sis_source_id': classObject.sis_source_id});
+      classObjs.map((classObject) => {
+        classObject.assignmentData = _.filter(assignmentObjs, { 'sis_source_id': classObject.sis_source_id});
         classObject.type = NextEventsConstants.CLASSES_DETAILS;
         EVENT_DATA.push(classObject);
       });
@@ -68,6 +50,10 @@ export class EventList extends React.PureComponent {
       EVENT_DATA = _.sortBy(EVENT_DATA, ['timeStamp']);
       localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
     }
+    return EVENT_DATA;
+  }
+  render() {
+    const EVENT_DATA = this.getEventsData(this.props);
     return (
       <section>
         {this.props.loading && <Spinner />}

@@ -27,7 +27,7 @@ const Classes = (classesProps) => (
             <span className='classBy'>{ConvertDateFromTimeStamp(classesProps.data.timeStamp)}</span>
           </Col>
           <Col md={2} sm={2} className='text-right'>
-            <div className='classTime'>{ConvertTo24Format(classesProps.data.class_begin_time)} - {ConvertTo24Format(classesProps.data.class_end_time)}</div>
+            <div className='classTime'>{classesProps.data.class_begin_time != null ? ConvertTo24Format(classesProps.data.class_begin_time) : 'N/A'} - {classesProps.data.class_end_time != null ?ConvertTo24Format(classesProps.data.class_end_time): 'N/A'}</div>
           </Col>
       </Link>
     </div>

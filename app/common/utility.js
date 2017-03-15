@@ -245,3 +245,38 @@ export const DATESORT = (dataArray, key, dueDate, startTime, dueTime) => {
   });
   return sortedData;
 };
+
+export const CreateTimeStamp = (dataArray) => {
+  const data = dataArray;
+  const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
+  const filterlist = data.map((classObject) => {
+    for (let day = 0; day < 8; day++) {
+      if (days[(Moment().add(day, 'days')._d).getDay()] === classObject.day) {
+        const hours = parseInt(classObject.class_begin_time != null ? classObject.class_begin_time.slice(0, 2) : 0);
+        const minutes = parseInt(classObject.class_begin_time != null ? classObject.class_begin_time.slice(-2) : 0);
+        const timeStampWithoutTime = new Date(Moment().add(day, 'days')._d).toLocaleDateString();
+        const timeStampWithTime = new Date(timeStampWithoutTime).setMinutes((hours * 60) + minutes);
+        const timeStampString = new Date(timeStampWithTime).toString();
+        classObject.timeStamp = new Date(timeStampString);
+        break;
+      }
+    }
+    return classObject;
+  });
+  return filterlist;
+};
+
+export const filterSevenDaysTimeStampsFromNow = (dataArray) => {
+  const data = dataArray;
+  const today = Moment()._d;
+  const seventhDay = Moment().add(7, 'days')._d;
+  const filterlist = [];
+  data.map((assignmentObject) => {
+    assignmentObject.timeStamp = assignmentObject.assign_due === null ? null : new Date(assignmentObject.assign_due);
+    if (assignmentObject.timeStamp !== null && assignmentObject.timeStamp >= today && assignmentObject.timeStamp <= seventhDay) {
+      assignmentObject.submission_types === 'online_quiz' ? assignmentObject.type = 'testorquiz' : assignmentObject.type = 'assignments';
+      filterlist.push(assignmentObject);
+    }
+  });
+  return filterlist;
+  };
