@@ -5,10 +5,12 @@
 import React from 'react';
 import BasicRow from '../../../common/basicRow';
 import { translateText } from '../../../common/translate';
+import * as CommonConstants from '../../../constants/commonConstants';
 
 const WorkAddress = (workAddressProps) => (
   <article className='profileRow mt30'>
-    <h3 className='dataHeading openSansRegular'>{translateText('common:WORK_ADDRESS')}</h3>
+    <h3 className='dataHeading openSansRegular'>{workAddressProps.profile === CommonConstants.STAFF_LABEL ? translateText('common:PROFILE_SCHOOL_ADDRESS') : translateText('common:PROFILE_SCHOOL_ADDRESS_FACULTY')}</h3>
+
     <BasicRow displayName={translateText('common:PROFILE_STREET_1')} displayValue={workAddressProps.workAddress ? workAddressProps.workAddress.work_Address_line1 : ''} />
     <BasicRow displayName={translateText('common:PROFILE_STREET_2')} displayValue={workAddressProps.workAddress ? workAddressProps.workAddress.work_Address_line2 : ''} />
     <BasicRow displayName={translateText('common:PROFILE_CITY')} displayValue={workAddressProps.workAddress ? workAddressProps.workAddress.work_town_or_city : ''} />

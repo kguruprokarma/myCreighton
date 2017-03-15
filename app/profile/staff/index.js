@@ -11,7 +11,7 @@ import LegalName from '../student/bio/components/legalName';
 import PrimaryContact from '../student/bio/components/primaryContact';
 import EmergencyContact from '../student/bio/components/emergencyContact';
 import Email from '../student/bio/components/email';
-import Other from '../student/bio/components/other';
+import Other from './components/other';
 import StaffAddress from './components/staffAddress';
 import MailAddress from './components/mailAddress';
 import WorkAddress from './components/workAddress';
@@ -44,11 +44,11 @@ export class StaffProfile extends React.PureComponent {
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
               <LegalName legalName={USER_DATA.data[0].staff_name} />
               <StaffAddress staffAddress={USER_DATA.data[0].faculty_address} />
-              <WorkAddress workAddress={USER_DATA.data[0].work_address} />
+              <WorkAddress workAddress={USER_DATA.data[0].work_address} profile={this.props.profile}/>
               <MailAddress mailAddress={USER_DATA.data[0].mail_address} />
               <PrimaryContact primaryContact={USER_DATA.data[0].phone} />
               <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} relation={USER_DATA.data[0].emrg_cont_type} phone={USER_DATA.data[0].emergency_contact_phone} />
-              <Email professionalLabel={translateText('common:COMMON_WORK')} professionalEmail={USER_DATA.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={USER_DATA.data[0].personal_email} isShowPersonalEmail />
+              <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={USER_DATA.data[0].personal_email} isShowPersonalEmail />
               <Other profile={this.props.profile} detail={USER_DATA.data[0]} />
               <FamilyDetail familyDetail={USER_DATA.data[0]} />
             </Col>

@@ -10,13 +10,11 @@ import { reducer as formReducer } from 'redux-form';
 import academicReducer from '../profile/student/academic/reducer';
 import profileReducer from '../profile/reducer';
 import classesReducer from '../classes/classList/reducer';
-import classDetailsReducer from '../classes/classDetails/reducer';
 import headerReducer from '../header/reducer';
 import dashboardReducer from '../dashboard/reducer';
 import mealPlanReducer from '../dashboard/mealPlan/reducer';
 import eventsReducer from '../nextEvents/eventList/reducer';
 import auth from '../login/reducer';
-import eventDetailsReducer from '../nextEvents/eventDetails/reducer';
 import professionalReducer from '../profile/staff/professional/reducer';
 
 
@@ -35,12 +33,10 @@ const reducers = {
   academicReducer: academicReducer,
 
   classesReducer: classesReducer,
-  classDetailsReducer: classDetailsReducer,
   dashboardReducer: dashboardReducer,
   mealPlanReducer: mealPlanReducer,
   headerReducer: headerReducer,
   eventsReducer: eventsReducer,
-  eventDetailsReducer: eventDetailsReducer,
   professionalReducer: professionalReducer,
   routing: routing
 };

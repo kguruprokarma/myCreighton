@@ -3,23 +3,21 @@
  */
 
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import HeaderLabel from './../../common/headerLabel';
 import ClassInfo from './../classDetails/components/classInfo';
 import ClassAssignments from './../classDetails/components/classAssignments';
 import TodaysClass from './../classDetails/components/todaysClass';
 import UpcomingAssignments from './../classDetails/components/upcomingAssignments';
 import TestsOrQuizzes from './../classDetails/components/testsOrQuizzes';
-import * as actionCreators from './actions';
 import style from '../classDetails/style.css';
 import * as _ from 'lodash';
 import PreviousNext from '../../common/previousNext';
 import { translateText } from '../../common/translate';
 import * as HEADER from '../../constants/headerTitleConstants';
 import { DATESCOMPARE } from '../../common/utility';
-import { CLASSES_DETAILS } from '../../constants/nextEventsConstants'; 
-export class ClassDetails extends React.PureComponent {
+import { CLASSES_DETAILS } from '../../constants/nextEventsConstants';
+
+class ClassDetails extends React.PureComponent {
   
   render() {
     let obj = null;
@@ -95,13 +93,5 @@ export class ClassDetails extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (classDetailsState) => (
-  {
-    classDetails: classDetailsState.classDetailsReducer.classDetails
-  }
-);
-
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(ClassDetails);
+export default ClassDetails
 

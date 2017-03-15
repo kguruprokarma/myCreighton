@@ -4,16 +4,12 @@
 
 import React from 'react';
 import { Col, Row, button } from 'react-bootstrap';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import * as _ from 'lodash';
-import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
 import Instructor from './components/instructor';
 import Assignments from './components/assignments';
 import TestOrQuiz from './components/testOrQuiz';
-import ClassDetails from './components/classDetails';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import Style from '../eventDetails/style.css';
 import HeaderLabel from './../../common/headerLabel';
@@ -21,7 +17,7 @@ import * as HEADER from '../../constants/headerTitleConstants';
 import * as ROUTE_URL from './../../constants/routeContants';
 import PreviousNext from '../../common/previousNext1';
 
-export class EventDetails extends React.PureComponent {
+class EventDetails extends React.PureComponent {
 
 
   render() {
@@ -94,12 +90,4 @@ export class EventDetails extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (eventDetailsState) => ({
-  eventClassDetailsData: eventDetailsState.eventDetailsReducer.eventClassDetails.data,
-  eventAssignmentDetailsData: eventDetailsState.eventDetailsReducer.eventAssignmentDetails.data,
-  eventQuizDetailsData: eventDetailsState.eventDetailsReducer.eventQuizDetails.data
-
-});
-
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(EventDetails);
+export default EventDetails;
