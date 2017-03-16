@@ -11,7 +11,6 @@ import { HtmlEncoding } from '../../../common/utility';
 const QuizzesDetails = (quizDetails) => (
   <section>
     <Row>
-      {/*{console.log(quizDetails)}*/}
       <Col xs={12}>
         <div className='graybtBorder mb10 pt5 pb5'>
           <div className='eventDetailTitle'>{quizDetails.data.assign_title}</div>
