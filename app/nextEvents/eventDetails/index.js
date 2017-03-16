@@ -7,7 +7,6 @@ import { Col, Row, button } from 'react-bootstrap';
 import { Link } from 'react-router';
 import * as _ from 'lodash';
 import { translateText } from '../../common/translate';
-import Instructor from './components/instructor';
 import Assignments from './components/assignments';
 import TestOrQuiz from './components/testOrQuiz';
 import ClassDetails from './components/classDetails';

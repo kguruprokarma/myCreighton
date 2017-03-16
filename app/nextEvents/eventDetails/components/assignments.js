@@ -28,7 +28,7 @@ const Assignments = (assignmentsDetails) => (
       </div>
     </article>
     <article className='assignmentDetail pt20 pb25'>
-      <h4 className='eventDetail graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>ASSIGNMENT DETAILS</h4>
+      <h4 className='eventDetail graybtBorder mb10'>{translateText('ASSIGNMENT_DETAILS')}</h4>
       <div className='eventNotes pt5'>{HtmlReactParser(HtmlEncoding(assignmentsDetails.data.assign_desc))}</div>
       {/*{assignmentsDetails.data.eventNotes === '' ?
         <Row className='eventNotes'>

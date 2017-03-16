@@ -38,7 +38,7 @@ const QuizzesDetails = (quizDetails) => (
       </Row>
     </div>
     <article className='questionsScoring mt20 mb25'>
-      <h4 className='eventDetail graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>QUESTIONS AND SCORING</h4>
+      <h4 className='eventDetail graybtBorder mb10'>{translateText('QUESTIONS_AND_SCORING')}</h4>
       <div className='eventNotes pt5'>
         <strong>{translateText('common:QUIZ_NUMBER_OF_QUESTIONS')}: </strong> {quizDetails.data.number_of_questions}
       </div>
@@ -47,7 +47,7 @@ const QuizzesDetails = (quizDetails) => (
       </div>
     </article>
     <article className='description mb25'>
-      <h4 className='eventDetail graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>{translateText('common:COMMON_DESCRIPTION')}</h4>
+      <h4 className='eventDetail graybtBorder mb10'>{translateText('common:COMMON_DESCRIPTION')}</h4>
       <div className='eventNotes pt5' >{HtmlReactParser(HtmlEncoding(quizDetails.data.assign_desc))}</div>
     </article>
   </section>
