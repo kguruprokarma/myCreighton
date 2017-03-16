@@ -44,7 +44,7 @@ export class CustomPopUp extends React.Component {
   render() {
     const { userDetailsData } = this.props;
     const ProfileMenus = ProfileMenu(this.role);
-    const languages = [{ 'langkey': 'en', 'language': 'English' }, { 'langkey': 'es', 'language': 'Spanish' }];
+    const languages = [{ 'langkey': 'en', 'language': translateText('common:COMMON_ENGLISH') }, { 'langkey': 'es', 'language': translateText('common:COMMON_SPANISH') }];
     return (<div className='customPopUp'>
       <span className='popupPointer'>&nbsp;</span>
       {this.state.languageState && <ListGroup>
@@ -72,7 +72,7 @@ export class CustomPopUp extends React.Component {
                 <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); }} />
               </Col>
               <Col sm={10}>
-                <p className='selectLang pt5'>Select Language</p>
+                <p className='selectLang pt5'>{translateText('common:COMMON_SELECT_LANGUAGE')}</p>
               </Col>
             </Row>
           </ListGroupItem>

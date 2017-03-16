@@ -74,7 +74,7 @@ class EventDetails extends React.PureComponent {
           <Col sm={6}>
             <Link to={ROUTE_URL.EVENT_LIST} className='btn btn-primary nextEventBtn'>
               <span className='nextevent-logo' />
-              <span className='float-right nextEventBtnTxt'>Next Events</span>
+              <span className='float-right nextEventBtnTxt'>{translateText('NEXT_EVENTS')}</span>
             </Link>
           </Col>
         </Row>

@@ -5,6 +5,7 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { ConvertTo24Format, ScheduleDays, GetScheduledNextDate } from '../../../common/utility';
+import { translateText } from '../../../common/translate';
 
 const ClassInfo = (classInfoProps) => (
     <article className='classInfo'>
@@ -26,7 +27,7 @@ const ClassInfo = (classInfoProps) => (
               </Col>
               <Col xs={6} className='text-right'>
                 <p>{classInfoProps.instructor_name.last_name}</p>
-                <p>Next: {GetScheduledNextDate(classInfoProps.class_schedule)}</p>
+                <p><span>{translateText('NEXT')}</span>: {GetScheduledNextDate(classInfoProps.class_schedule)}</p>
               </Col>
             </Row>
           </div>

@@ -184,6 +184,7 @@ h1, h2, h3, h4, h5 {
 .headerLabel {
     font-size: 1.4em;   /* font size 21 in pixel */
     color: #0054a6;
+    text-transform: uppercase;
 }
 
 .headerLinks{
