@@ -21,7 +21,7 @@ Object.assign(exports, {
     preLoaders: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: 'eslint-loader',
         exclude: /node_modules/
       }
     ],
