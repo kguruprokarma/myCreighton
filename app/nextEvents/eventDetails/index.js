@@ -10,6 +10,7 @@ import { translateText } from '../../common/translate';
 import Instructor from './components/instructor';
 import Assignments from './components/assignments';
 import TestOrQuiz from './components/testOrQuiz';
+import ClassDetails from './components/classDetails';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import Style from '../eventDetails/style.css';
 import HeaderLabel from './../../common/headerLabel';
