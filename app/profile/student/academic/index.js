@@ -16,6 +16,7 @@ import styles from '../style.css';
 import LeftNav from '../../../common/leftNav';
 import Spinner from '../../../common/spinner';
 import HeaderLabel from '../../../common/headerLabel';
+import AlertComponent from '../../../common/alertComponent';
 
 export class Academic extends React.PureComponent {
 
@@ -43,6 +44,9 @@ export class Academic extends React.PureComponent {
               <LeftNav role={this.props.profile} />
             </Col>
           </Row>
+        }
+        {(!USER_DATA && !this.props.loading) &&
+          <AlertComponent typename='warning' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
     );
