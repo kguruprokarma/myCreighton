@@ -7,12 +7,9 @@ import {shallow} from 'enzyme';
 import PrimaryContact from '../components/primaryContact';
 
 it('PrimaryContact is defined', () => {
-
   const defaultProps = {
-    primaryContact: {
-      primaryPhone: "7207585058"
-    }
-  }
+    primaryContact: '7207585058'
+  };
   const primaryContact = shallow(<PrimaryContact {...defaultProps} />);
 
   expect(primaryContact).toBeDefined();

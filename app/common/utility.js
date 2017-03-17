@@ -1,8 +1,9 @@
-import * as CommonConstants from '../constants/commonConstants';
-import * as urlConstants from '../constants/urlConstants';
+
 import * as _ from 'lodash';
 import Moment from 'moment';
 import { translateText } from './translate';
+import * as CommonConstants from '../constants/commonConstants';
+import * as urlConstants from '../constants/urlConstants';
 
 /*Data sort method is used to sort the array items in asending or decending order*/
 export const DATASORT = (dataArray, key, order) => {
@@ -23,8 +24,8 @@ export const ConvertTo24Format = (time) => {
   if (hours < 12) {
     hours = min <= '00' ? `${hours}` : `${hours}:${min}`;
     hours = hours < '10' ? `${hours.substring(1, 2)}` : `${hours}`;
-    return `${hours} am`;    
-  } 
+    return `${hours} am`;
+  }
   hours = hours - 12;
   hours = hours === 0 ? 12 : hours;
   min = min === '00' ? '' : `:${min}`;
@@ -53,7 +54,6 @@ export const GetScheduledNextDate = (schedules) => {
   const currentDay = today.getDay();
   const hasSunday = schedules.indexOf('U') !== -1;
   mySchedules = mySchedules.replace('U', '');
-  let sunday = [];
 
   const classSchedules = mySchedules.split('').map((schedule) => {
     const returnDate = new Date();
@@ -77,7 +77,7 @@ export const GetScheduledNextDate = (schedules) => {
   }
 
   return Moment(classSchedules.sort()[0]).format('DD MMM');
-}
+};
 
 // Convert DueDate from TimeStamp
 // timeStamp = 2015-09-01T01:30:00.000Z
@@ -99,7 +99,7 @@ export const ConvertDateFromTimeStamp = (timeStamp) => {
 
 /* remove the \n \r in assignment description */
 export const HtmlEncoding = (htmlText) => {
-  let htmlEncodedText = htmlText;  
+  let htmlEncodedText = htmlText;
   htmlEncodedText = htmlEncodedText.replace(/\\n/gi, '');
   htmlEncodedText = htmlEncodedText.replace(/\\r/gi, '');
 
@@ -147,7 +147,7 @@ export const DATETIME = (dataArray, startTime, endTime, order) => {
   return sortedData;
 };
 
-/*This method is for segregating  the items as per the week days and retuns an object*/ 
+/*This method is for segregating  the items as per the week days and retuns an object*/
 export const DATAFILTERADDINGDATA = (dataArray) => {
   const data = dataArray;
   const newObject = {};
@@ -164,7 +164,7 @@ export const DATAFILTERADDINGDATA = (dataArray) => {
   });
 
   count = filterlist.length;
-  for (let i = 0; i < count; i++ ) {
+  for (let i = 0; i < count; i++) {
     const item = filterlist[i];
     if (!newObject[item.day]) {
       newObject[item.day] = [];
@@ -172,15 +172,15 @@ export const DATAFILTERADDINGDATA = (dataArray) => {
     newObject[item.day].push(item);
   }
 
-  for (let i = 0; i < 7; i++ ) {
+  for (let i = 0; i < 7; i++) {
     const item = days[i];
     if (!newObject[item]) {
       newObject[item] = [];
     }
   }
-	
+
   days.map((day) => {
-		//removed 'index' from the 'map((data, index)' because it is throwing error: 'index' is defined but never used 
+    //removed 'index' from the 'map((data, index)' because it is throwing error: 'index' is defined but never used 
     DATETIME(newObject[day], 'class_begin_time', 'class_end_time', CommonConstants.SORT_CLASS).map((data) => {
       newArray.push(data);
     });
@@ -196,9 +196,9 @@ export const todayHeader = () => {
   return `${days[today.getDay()]} ${months[today.getMonth()]} ${today.getDate()}`;
 };
 
-export const AuthUserDetails = () => localStorage.roleInfo?JSON.parse(localStorage.roleInfo):{};
+export const AuthUserDetails = () => localStorage.roleInfo ? JSON.parse(localStorage.roleInfo) : {};
 
-export const authUserDetails = () => localStorage.roleInfo?JSON.parse(localStorage.roleInfo):{};
+export const authUserDetails = () => localStorage.roleInfo ? JSON.parse(localStorage.roleInfo) : {};
 
 export const SEGREGATEDATA = (list) => {
   const newArray = [];
@@ -256,7 +256,7 @@ export const DATESORT = (dataArray, key, dueDate, startTime, dueTime) => {
       date1 = new Date(`2017/01/01 ${time1}`);
       date2 = new Date(`2017/01/01 ${time2}`);
       return date1 - date2;
-    } 
+    }
     return date1 - date2;
   });
   return sortedData;
@@ -295,4 +295,14 @@ export const filterSevenDaysTimeStampsFromNow = (dataArray) => {
     }
   });
   return filterlist;
-  };
+};
+
+export const telephoneCheck = (phoneNumber, separator) => {
+  const regExpression = (/(\d{3})(\d{3})(\d{4})/);
+  if (phoneNumber) {
+    const concat = `$1${separator}$2${separator}$3`;
+    return phoneNumber.replace(/[^\d]/g, '')
+      .replace(regExpression, concat);
+  }
+  return '';
+};
