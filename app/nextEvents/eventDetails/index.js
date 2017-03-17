@@ -16,6 +16,7 @@ import HeaderLabel from './../../common/headerLabel';
 import * as HEADER from '../../constants/headerTitleConstants';
 import * as ROUTE_URL from './../../constants/routeContants';
 import PreviousNext from '../../common/previousNext1';
+import { StringEncodeURIComponent } from '../../common/utility'
 
 class EventDetails extends React.PureComponent {
 
@@ -28,7 +29,7 @@ class EventDetails extends React.PureComponent {
     let prevObject = {};
     this.assignDue = this.props.params.assigndue;
     this.eventType = this.props.params.eventdetailstype;
-    this.eventId = this.props.params.id;
+    this.eventId = StringEncodeURIComponent(this.props.params.id);
     if (localStorage !== undefined) {
       details = JSON.parse(localStorage.getItem('eventList'));
     }
@@ -41,16 +42,16 @@ class EventDetails extends React.PureComponent {
     }
 
     if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
-      this.classData = details && _.find(details, { sis_source_id: this.eventId });
-      index1 = _.findIndex(details, { sis_source_id: this.props.params.id });
+      this.classData = details && _.find(details, { sis_source_id: this.eventId});
+      index1 = _.findIndex(details, { sis_source_id: this.eventId });
     }
     if (this.eventType === NextEventsConstants.ASSIGNMENTS) {
       this.assignmentData = details && _.find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
-      index1 = _.findIndex(details, { sis_source_id: this.props.params.id, assignment_id: this.assignDue });
+      index1 = _.findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
     }
     if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
       this.quizData = details && _.find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
-      index1 = _.findIndex(details, { sis_source_id: this.props.params.id, assignment_id: this.assignDue });
+      index1 = _.findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
     }
     if (index1 < details.length - 1) {
       nextObject = details[Object.keys(details)[index1 + 1]];

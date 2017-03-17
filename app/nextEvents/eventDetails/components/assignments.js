@@ -6,7 +6,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import HtmlReactParser from 'html-react-parser';
 import { translateText } from '../../../common/translate';
-import { ConvertDueDateTimeStamp, HtmlEncoding } from '../../../common/utility';
+import { ConvertDueDateTimeStamp, ConvertDateFromTimeStamp, HtmlEncoding } from '../../../common/utility';
 
 const Assignments = (assignmentsDetails) => (
   <section>
@@ -22,7 +22,7 @@ const Assignments = (assignmentsDetails) => (
             <p className='text-left'><span>{translateText('DUE')} </span><span>{ConvertDueDateTimeStamp(assignmentsDetails.data.assign_due)}</span></p>
           </Col>
           <Col md={6} xs={6}>
-            <p className='eventDate text-right'>{assignmentsDetails.data.assigned_date}</p>
+            <p className='eventDate text-right'>{ConvertDateFromTimeStamp(assignmentsDetails.data.assigned_date)}</p>
           </Col>
         </Row>
       </div>

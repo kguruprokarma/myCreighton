@@ -37,7 +37,7 @@ export const ScheduleDays = (schedule) => {
     return '';
   }
   const scheduleDay = schedule.replace(/-/gi, '');
-  const days = {M: 'Mon', T: 'Tue', W: 'Wed', R: 'Thu', F: 'Fri', S: 'Sat', SR: 'Sun'};
+  const days = {M: 'Mon', T: 'Tue', W: 'Wed', R: 'Thu', F: 'Fri', S: 'Sat', U: 'Sun'};
   if (scheduleDay.length > 1) {
     return scheduleDay;
   }
@@ -48,11 +48,11 @@ export const ScheduleDays = (schedule) => {
 export const GetScheduledNextDate = (schedules) => {
   if (!schedules) return 'N/A';
   let mySchedules = schedules.replace(/\-/g, '');
-  const days = { 'Su': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
+  const days = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
   const today = new Date();
   const currentDay = today.getDay();
-  const hasSunday = schedules.indexOf('Su') !== -1;
-  mySchedules = mySchedules.replace('Su', '');
+  const hasSunday = schedules.indexOf('U') !== -1;
+  mySchedules = mySchedules.replace('U', '');
   let sunday = [];
 
   const classSchedules = mySchedules.split('').map((schedule) => {
@@ -83,7 +83,7 @@ export const GetScheduledNextDate = (schedules) => {
 // timeStamp = 2015-09-01T01:30:00.000Z
 export const ConvertDueDateTimeStamp = (timeStamp) => {
   if (timeStamp === null || timeStamp === '') {
-    return '';
+    return 'N/A';
   }
   const formattedDT = Moment(timeStamp).format('HHmm');
   return ConvertTo24Format(formattedDT);
@@ -92,7 +92,7 @@ export const ConvertDueDateTimeStamp = (timeStamp) => {
 // timeStamp = 2015-09-01T01:30:00.000Z
 export const ConvertDateFromTimeStamp = (timeStamp) => {
   if (timeStamp === null || timeStamp === '') {
-    return '';
+    return 'N/A';
   }
   return Moment(timeStamp).format('MMM DD, YYYY');
 };
@@ -106,6 +106,22 @@ export const HtmlEncoding = (htmlText) => {
   // update the url
   htmlEncodedText = htmlEncodedText.replace(/href="/gi, `href="${urlConstants.BLUE_LINE}`);
   return htmlEncodedText;
+};
+
+/* Encode the string  "sis_source_id" for url routing purpose */
+export const StringEncodeURIComponent = (data) => {
+  if(!data) return data;
+  return encodeURIComponent(data);
+};
+
+/* Encode the array of "sis_source_id" for url routing purpose */
+export const ConvertEncodeURIComponent = (data) => {
+  if(!data) return data;
+  let encodeArray =  data.data.map((item) => {    
+    item.sis_source_id = encodeURIComponent(item.sis_source_id);
+    return item;
+  });
+  return { 'data': encodeArray };
 };
 
 /*Data sort method is used to sort the array items in time sequence*/
