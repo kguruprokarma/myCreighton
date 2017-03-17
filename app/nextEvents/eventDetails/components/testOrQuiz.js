@@ -22,7 +22,7 @@ const QuizzesDetails = (quizDetails) => (
       <Row>
         <Col md={12} sm={12} xs={12}>
           <div className='eventTiming graybtBorder pb10'>
-            <div>Test in Class</div>
+            <div>{translateText('TEST_IN_CLASS')}</div>
             <div>{quizDetails.data.course_name}</div>
             <Row>
               <Col md={4} sm={6} xs={6}>

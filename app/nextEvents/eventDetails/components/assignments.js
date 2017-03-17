@@ -19,7 +19,7 @@ const Assignments = (assignmentsDetails) => (
         <p>{assignmentsDetails.data.course_name}</p>
         <Row>
           <Col md={6} xs={6}>
-            <p className='text-left'><span>Due </span><span>{ConvertDueDateTimeStamp(assignmentsDetails.data.assign_due)}</span></p>
+            <p className='text-left'><span>{translateText('DUE')} </span><span>{ConvertDueDateTimeStamp(assignmentsDetails.data.assign_due)}</span></p>
           </Col>
           <Col md={6} xs={6}>
             <p className='eventDate text-right'>{assignmentsDetails.data.assigned_date}</p>

@@ -48,7 +48,6 @@
     border:1px solid #0054a6;
     float: right;
     height: 30px;
-    width: 161px;
     color: #0054a6;
     font-family: 'open_sansregular';
     font-size: 1em; /* font size 15 in pixel */
@@ -68,6 +67,8 @@
 
 .nextEventBtnTxt {
     line-height: 21px;
+    text-transform: capitalize;
+    margin-left: 20px;
 }
 
 .btn-primary.nextEventBtn:hover, .btn-primary.nextEventBtn:active,  .btn-primary.nextEventBtn:focus  {
