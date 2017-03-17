@@ -7,7 +7,6 @@ import { Col, Row, button } from 'react-bootstrap';
 import { Link } from 'react-router';
 import * as _ from 'lodash';
 import { translateText } from '../../common/translate';
-import Instructor from './components/instructor';
 import Assignments from './components/assignments';
 import TestOrQuiz from './components/testOrQuiz';
 import ClassDetails from './components/classDetails';
@@ -42,7 +41,7 @@ class EventDetails extends React.PureComponent {
     }
 
     if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
-      this.classData = details && _.find(details, { sis_source_id: this.eventId});
+      this.classData = details && _.find(details, { sis_source_id: this.eventId });
       index1 = _.findIndex(details, { sis_source_id: this.props.params.id });
     }
     if (this.eventType === NextEventsConstants.ASSIGNMENTS) {
@@ -75,7 +74,7 @@ class EventDetails extends React.PureComponent {
           <Col sm={6}>
             <Link to={ROUTE_URL.EVENT_LIST} className='btn btn-primary nextEventBtn'>
               <span className='nextevent-logo' />
-              <span className='float-right nextEventBtnTxt'>Next Events</span>
+              <span className='float-right nextEventBtnTxt'>{translateText('NEXT_EVENTS')}</span>
             </Link>
           </Col>
         </Row>
@@ -86,7 +85,7 @@ class EventDetails extends React.PureComponent {
         {this.eventType === NextEventsConstants.CLASSES_DETAILS && this.classData && <ClassDetails data={this.classData} categoryname={NextEventsConstants.CLASSES_DETAILS} id={this.eventId} />}
       </div>
       }
-      <PreviousNext prevObj={prevObject} nextObj={nextObject} presentCategory={this.eventType} totalLength={details.length-1} currentIndex={index1} prevItem={prevObject.sis_source_id} nextItem={nextObject.sis_source_id} />
+      <PreviousNext prevObj={prevObject} nextObj={nextObject} presentCategory={this.eventType} totalLength={details.length - 1} currentIndex={index1} prevItem={prevObject.sis_source_id} nextItem={nextObject.sis_source_id} />
     </section>);
   }
 }

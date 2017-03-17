@@ -67,7 +67,6 @@ const mapStateToProps = (bioState) => (
     profileData: bioState.profileReducer.profileData.data,
     profile: bioState.profileReducer.profile,
     loading: bioState.profileReducer.isLoading
-
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
