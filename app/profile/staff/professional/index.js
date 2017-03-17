@@ -20,7 +20,7 @@ export class StaffProfessional extends React.PureComponent {
     let userReqObj = authUserDetails();
     userReqObj = {};
     userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = 'ed8ad0b875';
+    userReqObj.primaryValue = authUserDetails().netid;
     this.props.getProfessionalData(userReqObj);
   }
 
