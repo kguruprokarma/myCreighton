@@ -7,6 +7,7 @@
     "prod": "webpack -p",
     "build": "set NODE_ENV=production && webpack",
     "test": "jest",
+    "lint": "eslint -c .eslintrc -f checkstyle app/**/* > eslint.xml",
     "start": "webpack-dev-server"
   },
   "jest": {
