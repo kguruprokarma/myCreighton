@@ -23,8 +23,8 @@ export const ConvertTo24Format = (time) => {
   if (hours < 12) {
     hours = min <= '00' ? `${hours}` : `${hours}:${min}`;
     hours = hours < '10' ? `${hours.substring(1, 2)}` : `${hours}`;
-    return `${hours} am`;    
-  } 
+    return `${hours} am`;
+  }
   hours = hours - 12;
   hours = hours === 0 ? 12 : hours;
   min = min === '00' ? '' : `:${min}`;
@@ -37,7 +37,7 @@ export const ScheduleDays = (schedule) => {
     return '';
   }
   const scheduleDay = schedule.replace(/-/gi, '');
-  const days = {M: 'Mon', T: 'Tue', W: 'Wed', R: 'Thu', F: 'Fri', S: 'Sat', SR: 'Sun'};
+  const days = { M: 'Mon', T: 'Tue', W: 'Wed', R: 'Thu', F: 'Fri', S: 'Sat', U: 'Sun' };
   if (scheduleDay.length > 1) {
     return scheduleDay;
   }
@@ -48,11 +48,11 @@ export const ScheduleDays = (schedule) => {
 export const GetScheduledNextDate = (schedules) => {
   if (!schedules) return 'N/A';
   let mySchedules = schedules.replace(/\-/g, '');
-  const days = { 'Su': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
+  const days = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
   const today = new Date();
   const currentDay = today.getDay();
-  const hasSunday = schedules.indexOf('Su') !== -1;
-  mySchedules = mySchedules.replace('Su', '');
+  const hasSunday = schedules.indexOf('U') !== -1;
+  mySchedules = mySchedules.replace('U', '');
   let sunday = [];
 
   const classSchedules = mySchedules.split('').map((schedule) => {
@@ -77,13 +77,30 @@ export const GetScheduledNextDate = (schedules) => {
   }
 
   return Moment(classSchedules.sort()[0]).format('DD MMM');
-}
+};
+
+// Filter fot today's class schedule
+export const FilterTodaysClassSchedule = (schedule) => {
+  const days = { 0: 'U', 1: 'M', 2: 'T', 3: 'W', 4: 'R', 5: 'F', 6: 'S' };
+  const today = days[new Date().getDay()];
+
+  if (!schedule) return schedule;
+  let scheduleTodayArray = [];
+  let scheduleArray = schedule.map((item) => {
+    if(item.class_schedule !== null && item.class_schedule !== '') {
+       if(item.class_schedule.indexOf(today) !== -1) {
+        return scheduleTodayArray.push(item);
+       }
+    }
+  });
+  return scheduleTodayArray;
+};
 
 // Convert DueDate from TimeStamp
 // timeStamp = 2015-09-01T01:30:00.000Z
 export const ConvertDueDateTimeStamp = (timeStamp) => {
   if (timeStamp === null || timeStamp === '') {
-    return '';
+    return 'N/A';
   }
   const formattedDT = Moment(timeStamp).format('HHmm');
   return ConvertTo24Format(formattedDT);
@@ -92,20 +109,36 @@ export const ConvertDueDateTimeStamp = (timeStamp) => {
 // timeStamp = 2015-09-01T01:30:00.000Z
 export const ConvertDateFromTimeStamp = (timeStamp) => {
   if (timeStamp === null || timeStamp === '') {
-    return '';
+    return 'N/A';
   }
   return Moment(timeStamp).format('MMM DD, YYYY');
 };
 
 /* remove the \n \r in assignment description */
 export const HtmlEncoding = (htmlText) => {
-  let htmlEncodedText = htmlText;  
+  let htmlEncodedText = htmlText;
   htmlEncodedText = htmlEncodedText.replace(/\\n/gi, '');
   htmlEncodedText = htmlEncodedText.replace(/\\r/gi, '');
 
   // update the url
   htmlEncodedText = htmlEncodedText.replace(/href="/gi, `href="${urlConstants.BLUE_LINE}`);
   return htmlEncodedText;
+};
+
+/* Encode the string  "sis_source_id" for url routing purpose */
+export const StringEncodeURIComponent = (data) => {
+  if (!data) return data;
+  return encodeURIComponent(data);
+};
+
+/* Encode the array of "sis_source_id" for url routing purpose */
+export const ConvertEncodeURIComponent = (data) => {
+  if (!data) return data;
+  let encodeArray = data.data.map((item) => {
+    item.sis_source_id = encodeURIComponent(item.sis_source_id);
+    return item;
+  });
+  return { 'data': encodeArray };
 };
 
 /*Data sort method is used to sort the array items in time sequence*/
@@ -131,7 +164,7 @@ export const DATETIME = (dataArray, startTime, endTime, order) => {
   return sortedData;
 };
 
-/*This method is for segregating  the items as per the week days and retuns an object*/ 
+/*This method is for segregating  the items as per the week days and retuns an object*/
 export const DATAFILTERADDINGDATA = (dataArray) => {
   const data = dataArray;
   const newObject = {};
@@ -148,7 +181,7 @@ export const DATAFILTERADDINGDATA = (dataArray) => {
   });
 
   count = filterlist.length;
-  for (let i = 0; i < count; i++ ) {
+  for (let i = 0; i < count; i++) {
     const item = filterlist[i];
     if (!newObject[item.day]) {
       newObject[item.day] = [];
@@ -156,15 +189,15 @@ export const DATAFILTERADDINGDATA = (dataArray) => {
     newObject[item.day].push(item);
   }
 
-  for (let i = 0; i < 7; i++ ) {
+  for (let i = 0; i < 7; i++) {
     const item = days[i];
     if (!newObject[item]) {
       newObject[item] = [];
     }
   }
-	
+
   days.map((day) => {
-		//removed 'index' from the 'map((data, index)' because it is throwing error: 'index' is defined but never used 
+    //removed 'index' from the 'map((data, index)' because it is throwing error: 'index' is defined but never used 
     DATETIME(newObject[day], 'class_begin_time', 'class_end_time', CommonConstants.SORT_CLASS).map((data) => {
       newArray.push(data);
     });
@@ -180,9 +213,9 @@ export const todayHeader = () => {
   return `${days[today.getDay()]} ${months[today.getMonth()]} ${today.getDate()}`;
 };
 
-export const AuthUserDetails = () => localStorage.roleInfo?JSON.parse(localStorage.roleInfo):{};
+export const AuthUserDetails = () => localStorage.roleInfo ? JSON.parse(localStorage.roleInfo) : {};
 
-export const authUserDetails = () => localStorage.roleInfo?JSON.parse(localStorage.roleInfo):{};
+export const authUserDetails = () => localStorage.roleInfo ? JSON.parse(localStorage.roleInfo) : {};
 
 export const SEGREGATEDATA = (list) => {
   const newArray = [];
@@ -240,7 +273,7 @@ export const DATESORT = (dataArray, key, dueDate, startTime, dueTime) => {
       date1 = new Date(`2017/01/01 ${time1}`);
       date2 = new Date(`2017/01/01 ${time2}`);
       return date1 - date2;
-    } 
+    }
     return date1 - date2;
   });
   return sortedData;
@@ -279,4 +312,14 @@ export const filterSevenDaysTimeStampsFromNow = (dataArray) => {
     }
   });
   return filterlist;
-  };
+};
+
+export const telephoneCheck = (phoneNumber, separator) => {
+  const regExpression = (/(\d{3})(\d{3})(\d{4})/);
+  if (phoneNumber) {
+    const concat = `$1${separator}$2${separator}$3`;
+    return phoneNumber.replace(/[^\d]/g, '')
+      .replace(regExpression, concat);
+  }
+  return '';
+};

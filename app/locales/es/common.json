@@ -10,6 +10,9 @@
 
   "COMMON_SIGN_OUT": "Desconectar",
   "COMMON_CHANGE_LANGUAGE": "Cambiar idioma",
+  "COMMON_SELECT_LANGUAGE": "Seleccione el idioma",
+  "COMMON_ENGLISH": "Inglés",
+  "COMMON_SPANISH": "Español",
 
   "PROFILE_ACADEMIC": "Académico",
   "PROFILE_MY_PROFILE": "Mi perfil",
@@ -111,6 +114,10 @@
   "DATE": "Fecha",
   "CLASS": "Clase",
   "EVENTS_NOTES": "EVENTOS NOTAS",
+  "DUE": "Debido",
+  "TEST_IN_CLASS": "Prueba en clase",
+  "QUESTIONS_AND_SCORING": "PREGUNTAS Y PUNTUACIÓN",
+  "ASSIGNMENT_DETAILS": "DETALLES DE LA ASIGNACIÓN",
   "NEXT_EVENTS_CLASSES":"PRÓXIMOS EVENTOS - DETALLE DE LA CLASE",
   "NEXT_EVENTS_TEST_DETAIL":"PRÓXIMOS EVENTOS - DETALLE DE LA PRUEBA",
   "NEXT_EVENTS_ASSIGNMENTS": "PRÓXIMOS EVENTOS - DETALLES DE LA ASIGNACIÓN",  
@@ -180,6 +187,12 @@
 
   "NO_RESPONSE": "Error del Servidor...!!",
   "NO_CONTENT": "No hay contenido disponible",
+
+  "EXAMPLE_CAMPUS_DIRECTORY_SEARCH": "Ejemplos: smith or smith, c or smith, carl",
+  "SEARCH_CREIGHTON_STAFF": "Buscar Creighton Personal",
+  "SEARCH": "Buscar",
+  "ADVANCED_SEARCH": "Búsqueda Avanzada",
+  "SIMPLE_SEARCH": "Búsqueda sencilla",
 
    "FOOTER_SITE": "Sitio",
   "FOOTER_FEEDBACK": "Realimentación",

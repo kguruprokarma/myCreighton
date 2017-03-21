@@ -25,7 +25,7 @@ export class FacultyProfile extends React.PureComponent {
     let userReqObj = authUserDetails();
     userReqObj = {};
     userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = 'ed8ad0b875';
+    userReqObj.primaryValue = authUserDetails().netid;
     this.props.getFacultyProfileData(userReqObj);
     this.headerText = translateText('common:PROFILE_MY_PROFILE');
   }
@@ -41,7 +41,7 @@ export class FacultyProfile extends React.PureComponent {
     return (
       <section>
         {this.props.isLoading && <Spinner />}
-        <HeaderLabel headerLabel={this.headerText} />
+        <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
         <FacultyProfileView data={PROFILE_DATA} facultyProfile={this.props.profile} />
       </section>
     );

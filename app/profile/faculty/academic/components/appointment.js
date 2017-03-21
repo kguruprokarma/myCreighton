@@ -11,7 +11,7 @@ const FacultyAppointment = (facultyProps) => (
     <h3 className='dataHeading openSansRegular'>{translateText('common:FACULTY_APPOINTMENT')}</h3>
     <BasicRow displayName={translateText('common:STAFF_DEPARTMENT')} displayValue={facultyProps.data.department} />
     <BasicRow displayName={translateText('common:PROFILE_SCHOOL')} displayValue={facultyProps.data.school} />
-    {/*<BasicRow displayName={translateText('common:STATUS')} displayValue={facultyProps.data.status} />*/}
+    <BasicRow displayName={translateText('common:STATUS')} displayValue={facultyProps.data.status} />
   </article>
 );
 

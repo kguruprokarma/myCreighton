@@ -13,3 +13,10 @@ export const WEEK = 'week';
 export const LIST = 'list';
 export const TODAY = 'today';
 export const SORT_CLASS = 'ASC';
+export const STARTS = 'Starts';
+export const HOUR = 'hour';
+export const HOURS = 'hours';
+export const MINUTES = 'minutes';
+
+export const SIMPLE_SEARCH = 'simple';
+export const ADVANCED_SEARCH = 'advanced';

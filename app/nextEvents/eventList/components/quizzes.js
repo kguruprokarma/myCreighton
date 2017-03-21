@@ -23,9 +23,6 @@ const Quiz = (quizProps) => (
         <Col md={2} sm={2} className='text-center eventCol'>
           <span className='eventBy'>{ConvertDateFromTimeStamp(quizProps.data.assign_due)}</span>
         </Col>
-        <Col md={2} sm={2} className='text-right eventCol'>
-          <span className='eventTime'>{'N/A'}- {'N/A'}</span>
-        </Col>
       </div>
       <Row className='visible-xs mobileEventsList'>
         <Col xs={7}>
@@ -42,9 +39,6 @@ const Quiz = (quizProps) => (
         </Col>
         <Col xs={7}>
           <span className='eventBy'>{quizProps.data.course_name}</span>
-        </Col>
-        <Col xs={5} className='text-right'>
-          <span className='eventTime'>{'N/A'}- {'N/A'}</span>
         </Col>
       </Row>
     </Link>

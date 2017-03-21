@@ -14,7 +14,7 @@ import style from '../classList/style.css';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import Spinner from '../../common/spinner';
-import { authUserDetails } from '../../common/utility';
+import { authUserDetails, ConvertEncodeURIComponent } from '../../common/utility';
 
 export class Classes extends React.PureComponent {
 
@@ -23,7 +23,7 @@ export class Classes extends React.PureComponent {
 
     this.userReqObj = {};
     this.userReqObj.primaryKey = 'netid';
-    this.userReqObj.primaryValue = authUserDetails().netid;
+    this.userReqObj.primaryValue = '6cb4db8459';//authUserDetails().netid;
 
     this.onChangeOfTab = this.onChangeOfTab.bind(this);
     this.onChangeOfTab(this.props.params.classtab);
@@ -53,8 +53,8 @@ export class Classes extends React.PureComponent {
 
   render() {
     const classListData = this.props;
-    const USER_DATA = classListData.classesData;
-    const ASSIGNMENTS_DATA = classListData.assignmentsData;
+    const USER_DATA = ConvertEncodeURIComponent(classListData.classesData);
+    const ASSIGNMENTS_DATA = ConvertEncodeURIComponent(classListData.assignmentsData);
     let newArray = [];
     let defaultArray = [];
     if(USER_DATA && ASSIGNMENTS_DATA ){
