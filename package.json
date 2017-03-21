@@ -7,9 +7,9 @@
     "prod": "webpack -p",
     "build": "set NODE_ENV=production && webpack",
     "test": "jest",
-    "textlint": "eslint -c .eslintrc -f table app/**/*.js > eslintReport.txt ",
-    "linthtml": "eslint -c .eslintrc -f html app/**/*.js > eslintReport.html",
-    "lint":"npm run textlint & npm run linthtml",
+    "textlint": "eslint -c .eslintrc -f table app/**/*.js > eslintReport.txt || true",
+    "linthtml": "eslint -c .eslintrc -f html app/**/*.js > eslintReport.html || true",
+    "lint": "npm run textlint & npm run linthtml",
     "start": "webpack-dev-server"
   },
   "jest": {
@@ -36,8 +36,10 @@
     "babel-preset-stage-1": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
     "babel-register": "^6.18.0",
+    "cash-true": "0.0.2",
     "css-loader": "^0.26.1",
     "enzyme": "^2.7.0",
+    "exitzero": "^1.0.1",
     "html-react-parser": "^0.3.3",
     "html-webpack-plugin": "^2.24.1",
     "i18next": "5.0.0",
