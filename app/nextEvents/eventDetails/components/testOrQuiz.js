@@ -11,6 +11,7 @@ import { HtmlEncoding } from '../../../common/utility';
 const QuizzesDetails = (quizDetails) => (
   <section>
     <Row>
+      {/*{console.log(quizDetails)}*/}
       <Col xs={12}>
         <div className='graybtBorder mb10 pt5 pb5'>
           <div className='eventDetailTitle'>{quizDetails.data.assign_title}</div>
@@ -22,7 +23,7 @@ const QuizzesDetails = (quizDetails) => (
       <Row>
         <Col md={12} sm={12} xs={12}>
           <div className='eventTiming graybtBorder pb10'>
-            <div>{translateText('TEST_IN_CLASS')}</div>
+            <div>Test in Class</div>
             <div>{quizDetails.data.course_name}</div>
             <Row>
               <Col md={4} sm={6} xs={6}>
@@ -37,7 +38,7 @@ const QuizzesDetails = (quizDetails) => (
       </Row>
     </div>
     <article className='questionsScoring mt20 mb25'>
-      <h4 className='eventDetail graybtBorder mb10'>{translateText('QUESTIONS_AND_SCORING')}</h4>
+      <h4 className='eventDetail graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>QUESTIONS AND SCORING</h4>
       <div className='eventNotes pt5'>
         <strong>{translateText('common:QUIZ_NUMBER_OF_QUESTIONS')}: </strong> {quizDetails.data.number_of_questions}
       </div>
@@ -46,7 +47,7 @@ const QuizzesDetails = (quizDetails) => (
       </div>
     </article>
     <article className='description mb25'>
-      <h4 className='eventDetail graybtBorder mb10'>{translateText('common:COMMON_DESCRIPTION')}</h4>
+      <h4 className='eventDetail graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>{translateText('common:COMMON_DESCRIPTION')}</h4>
       <div className='eventNotes pt5' >{HtmlReactParser(HtmlEncoding(quizDetails.data.assign_desc))}</div>
     </article>
   </section>

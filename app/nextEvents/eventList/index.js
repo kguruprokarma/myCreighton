@@ -13,7 +13,7 @@ import * as classesActionCreators from '../../classes/classList/actions';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import * as CommonConstants from '../../constants/commonConstants';
 import { translateText } from '../../common/translate';
-import { authUserDetails, DATAFILTERADDINGDATA, CreateTimeStamp, filterSevenDaysTimeStampsFromNow, ConvertEncodeURIComponent } from '../../common/utility';
+import { authUserDetails, DATAFILTERADDINGDATA, CreateTimeStamp, filterSevenDaysTimeStampsFromNow } from '../../common/utility';
 import Styles from './style.css';
 import Spinner from '../../common/spinner';
 
@@ -22,7 +22,7 @@ export class EventList extends React.PureComponent {
     super();
     this.userReqObj = {};
     this.userReqObj.primaryKey = 'netid';
-    this.userReqObj.primaryValue = '6cb4db8459';//authUserDetails().netid;
+    this.userReqObj.primaryValue = authUserDetails().netid;
   }
   componentWillMount() {
     if (this.userReqObj !== undefined && authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {
@@ -32,8 +32,8 @@ export class EventList extends React.PureComponent {
   }
   getEventsData(props) {
     let EVENT_DATA = [];
-    const ASSIGNMENTS_DATA = ConvertEncodeURIComponent(props.assignmentsData);
-    const CLASSES_DATA = ConvertEncodeURIComponent(props.classesData);
+    const ASSIGNMENTS_DATA = props.assignmentsData;
+    const CLASSES_DATA = props.classesData;
     if (ASSIGNMENTS_DATA && CLASSES_DATA) {
       const classObjs = CreateTimeStamp(DATAFILTERADDINGDATA(CLASSES_DATA.data));
       const assignmentObjs = filterSevenDaysTimeStampsFromNow(ASSIGNMENTS_DATA.data);

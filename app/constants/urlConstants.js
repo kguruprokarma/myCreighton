@@ -29,7 +29,7 @@ export const PROFESSIONAL_DATA = '/professional_data.json';
 ///
 /// Add API related links below
 ///
-export const BLUE_LINE = 'https://blueline.instructure.com';
+export const BLUE_LINE = 'https://blueline.instructure.com' ;
 export const API_GATEWAY = 'http://api-gateway01.creighton.edu'; //'http://reduxblog.herokuapp.com';
 //export const API_DATA = '/studentProfile/'; //'/myProfile.json'; //http://reduxblog.herokuapp.com/api/posts
 export const API_SINGLE = '/single';

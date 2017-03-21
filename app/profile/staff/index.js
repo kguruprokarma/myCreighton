@@ -29,7 +29,7 @@ export class StaffProfile extends React.PureComponent {
     let userReqObj = authUserDetails();
     userReqObj = {};
     userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = authUserDetails().netid;
+    userReqObj.primaryValue = 'ed8ad0b875';
     this.props.getStaffProfileData(userReqObj);
   }
 
@@ -67,6 +67,7 @@ const mapStateToProps = (bioState) => (
     profileData: bioState.profileReducer.profileData.data,
     profile: bioState.profileReducer.profile,
     loading: bioState.profileReducer.isLoading
+
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);

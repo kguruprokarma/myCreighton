@@ -10,7 +10,7 @@ import OfficeInformation from '../components/officeInformation';
 import LeftNav from '../../../../common/leftNav';
 
 const FacultyAcademic = (facultyAcademicData) => (
-  <article className='profileRow mt30'>
+  <article className='profileRow mt30'>{console.log(facultyAcademicData)}
     {facultyAcademicData.data && facultyAcademicData.data.data && facultyAcademicData.data.data.length > 0 &&
     <Row>
       <Col sm={8} md={9} xs={12} className='userData pull-right'>

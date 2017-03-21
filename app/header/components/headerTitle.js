@@ -28,7 +28,7 @@ export default function (argument) {
     title = translateText('common:NEXT_EVENTS');
     return title;
   }
-  if (rootURL[2] === HEADER.EVENT_CLASS_DETAILS && rootURL[1] === HEADER.EVENT_DETAILS) {
+  if (rootURL[2] === HEADER.CLASS_DETAILS && rootURL[1] === HEADER.EVENT_DETAILS) {
     title = translateText('common:CLASS_DETAIL');
     return title;
   }

@@ -6,7 +6,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import HtmlReactParser from 'html-react-parser';
 import { translateText } from '../../../common/translate';
-import { ConvertDueDateTimeStamp, ConvertDateFromTimeStamp, HtmlEncoding } from '../../../common/utility';
+import { ConvertDueDateTimeStamp, HtmlEncoding } from '../../../common/utility';
 
 const Assignments = (assignmentsDetails) => (
   <section>
@@ -19,16 +19,16 @@ const Assignments = (assignmentsDetails) => (
         <p>{assignmentsDetails.data.course_name}</p>
         <Row>
           <Col md={6} xs={6}>
-            <p className='text-left'><span>{translateText('DUE')} </span><span>{ConvertDueDateTimeStamp(assignmentsDetails.data.assign_due)}</span></p>
+            <p className='text-left'><span>Due </span><span>{ConvertDueDateTimeStamp(assignmentsDetails.data.assign_due)}</span></p>
           </Col>
           <Col md={6} xs={6}>
-            <p className='eventDate text-right'>{ConvertDateFromTimeStamp(assignmentsDetails.data.assigned_date)}</p>
+            <p className='eventDate text-right'>{assignmentsDetails.data.assigned_date}</p>
           </Col>
         </Row>
       </div>
     </article>
     <article className='assignmentDetail pt20 pb25'>
-      <h4 className='eventDetail graybtBorder mb10'>{translateText('ASSIGNMENT_DETAILS')}</h4>
+      <h4 className='eventDetail graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>ASSIGNMENT DETAILS</h4>
       <div className='eventNotes pt5'>{HtmlReactParser(HtmlEncoding(assignmentsDetails.data.assign_desc))}</div>
       {/*{assignmentsDetails.data.eventNotes === '' ?
         <Row className='eventNotes'>

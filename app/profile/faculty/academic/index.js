@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions';
 import HeaderLabel from '../../../common/headerLabel';
 import { translateText } from '../../../common/translate';
+import * as CommonConstants from '../../../constants/commonConstants';
+import * as URL_CONSTANTS from '../../../constants/urlConstants';
 import FacultyAcademicView from './components/academic';
 import { authUserDetails } from '../../../common/utility';
 import Spinner from '../../../common/spinner';
@@ -23,7 +25,7 @@ export class FacultyAcademic extends React.PureComponent {
     let userReqObj = authUserDetails();
     userReqObj = {};
     userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = authUserDetails().netid;
+    userReqObj.primaryValue = 'a4509258ec';
     this.headerText = translateText('common:ACADEMIC');
     this.props.getFacultyAcademicData(userReqObj);
   }
