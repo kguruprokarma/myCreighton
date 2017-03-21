@@ -7,6 +7,9 @@
     "prod": "webpack -p",
     "build": "set NODE_ENV=production && webpack",
     "test": "jest",
+    "textlint": "eslint -c .eslintrc -f table app/**/*.js > eslintReport.txt ",
+    "linthtml": "eslint -c .eslintrc -f html app/**/*.js > eslintReport.html",
+    "lint":"npm run textlint & npm run linthtml",
     "start": "webpack-dev-server"
   },
   "jest": {
