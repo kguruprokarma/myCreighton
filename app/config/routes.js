@@ -22,6 +22,8 @@ import * as ROUTE_URL from '../constants/routeContants';
 import EventList from '../nextEvents/eventList';
 import EventDetails from '../nextEvents/eventDetails';
 import Professional from '../profile/staff/professional';
+import CampusDirectory from '../campusDirectory';
+import SearchResults from '../searchResults';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
@@ -45,6 +47,8 @@ const routes = (
           <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.EVENT_ASSIGN_DUE} title='Event Detail - ' component={EventDetails} />
           <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM} title='Event Detail - ' component={EventDetails} />
           <Route path={ROUTE_URL.STAFF + ROUTE_URL.PROFESSIONAL} title='Professional - ' component={Professional} />
+          <Route path={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SEARCH_TYPE} title='Campus Directory - ' component={CampusDirectory} />
+          <Route path={ROUTE_URL.SERCHRESULTS} title='Search - ' component={SearchResults} />
         </Route>
       </Router>
     </Provider>
