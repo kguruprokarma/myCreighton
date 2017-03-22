@@ -7,8 +7,8 @@
     "prod": "webpack -p",
     "build": "set NODE_ENV=production && webpack",
     "test": "jest",
-    "textlint": "eslint -c .eslintrc -f table app/**/*.js > eslintReport.txt || true",
-    "linthtml": "eslint -c .eslintrc -f html app/**/*.js > eslintReport.html || true",
+    "textlint": "eslint -c .eslintrc --ignore-path .eslintignore bluebird.min.js -f checkstyle app/**/*.js  > myCreightonEslintReport.xml || true",
+    "linthtml": "eslint -c .eslintrc --ignore-path .eslintignore bluebird.min.js -f html app/**/*.js > myCreightonEslintReport.html || true",
     "lint": "npm run textlint & npm run linthtml",
     "start": "webpack-dev-server"
   },
