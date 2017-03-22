@@ -4,7 +4,7 @@
 
 import React from 'react';
 import WeekClasses from './weekClasses';
-import { DATAFILTERADDINGDATA, DATASORT, DATETIME } from '../../../common/utility';
+import { DATAFILTERADDINGDATA, DATASORT, DATETIME, FilterTodaysClassSchedule } from '../../../common/utility';
 import AToZClasses from './aToZClasses';
 import TodayClasses from './todayClasses';
 import * as CommonConstants from '../../../constants/commonConstants';
@@ -15,7 +15,7 @@ const ClassBox = (classBoxProps) => (
   <div>
     {
       classBoxProps.catagoryName === CommonConstants.TODAY ? (
-        <TodayClasses catagory={classBoxProps.catagoryName} listOfData={DATETIME(classBoxProps.data.data, 'class_begin_time', 'class_end_time', 'ASC')} />
+        <TodayClasses catagory={classBoxProps.catagoryName} listOfData={DATETIME(FilterTodaysClassSchedule(classBoxProps.data.data), 'class_begin_time', 'class_end_time', 'ASC')} />
       ) : (
           (classBoxProps.catagoryName === CommonConstants.WEEK ? (
             <WeekClasses catagory={classBoxProps.catagoryName} listOfData={DATAFILTERADDINGDATA(classBoxProps.data.data)} />)

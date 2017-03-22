@@ -11,9 +11,9 @@ const ClassInfo = (classInfoProps) => (
   <article className='classInfo'>
     <Row>
       <Col xs={12}>
-        <div className='m-grayBorder'>
-          <h3 className='pull-left classDetailHeading'>{classInfoProps.course_title} {classInfoProps.course_number}</h3>
-          <p className='pull-left classDetialOn'>{classInfoProps.course_section}</p>
+        <div className='graybtBorder mb10 pb10'>
+          <h3 className='classDetailHeading mb0'>{classInfoProps.course_title} {classInfoProps.course_number}</h3>
+          <p className='classDetialOn'>{classInfoProps.course_section}</p>
         </div>
       </Col>
     </Row>

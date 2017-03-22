@@ -35,7 +35,7 @@ describe('async actions', () => {
     userReqObj.primaryKey = 'netid';
     userReqObj.primaryValue = '2775739283';
   it('testing action retrival case', () => {
-    moxios.stubRequest(urlConstants.API_GATEWAY + urlConstants.STUDENT_ACADEMIC + urlConstants.STUDENT_ACADEMIC_SINGLE + '?primaryKey=netid&primaryValue=2775739283', {
+    moxios.stubRequest(urlConstants.API_GATEWAY + urlConstants.STUDENT_ACADEMIC + urlConstants.API_SINGLE + '?primaryKey=netid&primaryValue=2775739283', {
       status: 200,
       response: data
     });
@@ -55,7 +55,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure case', () => {
-    moxios.stubRequest(urlConstants.API_GATEWAY + urlConstants.STUDENT_ACADEMIC + urlConstants.STUDENT_ACADEMIC_SINGLE + '?primaryKey=netid&primaryValue=2775739283', {
+    moxios.stubRequest(urlConstants.API_GATEWAY + urlConstants.STUDENT_ACADEMIC + urlConstants.API_SINGLE + '?primaryKey=netid&primaryValue=2775739283', {
       status: 404,
       responseText: "error"
     });

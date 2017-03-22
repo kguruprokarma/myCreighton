@@ -196,6 +196,9 @@
   "SEARCH": "Search",  
   "ADVANCED_SEARCH": "Advanced Search",
   "SIMPLE_SEARCH": "Simple Search",
+  "SEARCH_RESULT": "Results",
+  "SEARCH_ALL_RESULT": "Show All",
+  "SEARCH_MORE_RESULT": "Load More",
 
   "FOOTER_SITE": "Site",
   "FOOTER_FEEDBACK": "Feedback",

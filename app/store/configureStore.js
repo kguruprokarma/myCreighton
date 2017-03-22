@@ -16,6 +16,7 @@ import mealPlanReducer from '../dashboard/mealPlan/reducer';
 import eventsReducer from '../nextEvents/eventList/reducer';
 import auth from '../login/reducer';
 import professionalReducer from '../profile/staff/professional/reducer';
+import campusDirectoryReducer from '../campusDirectory/reducer';
 
 
 // enable Redux Dev Tools
@@ -38,6 +39,7 @@ const reducers = {
   headerReducer: headerReducer,
   eventsReducer: eventsReducer,
   professionalReducer: professionalReducer,
+  campusDirectoryReducer: campusDirectoryReducer,
   routing: routing
 };
 

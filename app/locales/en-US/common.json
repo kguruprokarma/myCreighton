@@ -171,5 +171,14 @@
   "PREVIOUS": "Previous",
 
   "NO_RESPONSE": "Server error...!!",
-  "NO_CONTENT": "No Content Available"
+  "NO_CONTENT": "No Content Available",
+
+  "EXAMPLE_CAMPUS_DIRECTORY_SEARCH": "Examples: smith or smith, c or smith, carl",
+  "SEARCH_CREIGHTON_STAFF": "Search Creighton Staff",
+  "SEARCH": "Search",  
+  "ADVANCED_SEARCH": "Advanced Search",
+  "SIMPLE_SEARCH": "Simple Search",
+  "SEARCH_RESULT": "Results",
+  "SEARCH_ALL_RESULT": "Show All",
+  "SEARCH_MORE_RESULT": "Load More"
 }

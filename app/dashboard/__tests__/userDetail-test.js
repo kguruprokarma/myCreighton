@@ -6,25 +6,22 @@ import { shallow } from 'enzyme';
 import UserDetail from '../components/userDetail';
 
 describe('ToggleMealPlan component testing ----->', () => {
-    const userDetailTestProps = {
-        "userDetail":{
-            "userName": {
-                "fullName": "Usman",
-                "firstName": "Mohammad",
-                "lastName": "Ali"
-            },
-            "userRole": "Student"
-        }
+  const userDetailTestProps = {
+    'userDetail': {
+      'userName': {
+        'fullName': 'Usman',
+        'firstName': 'Mohammad',
+        'lastName': 'Ali'
+      },
+      'userRole': 'Student'
     }
+  };
+  const userDetail = shallow(<UserDetail {...userDetailTestProps} />);
+  it('UserDetail component is defined', () => {
+    expect(userDetail).toBeDefined();
+  });
 
-    const userDetail = shallow(<UserDetail {...userDetailTestProps}/>);
-
-    it('UserDetail component is defined', () => {
-        expect(userDetail).toBeDefined();
-    });
-
-    it('UserDetail component Avatar is there or not', () => {
-        expect(userDetail.find('Avatar').length).toBe(1);
-    });
-
+  it('UserDetail component Avatar is there or not', () => {
+    expect(userDetail.find('Avatar').length).toBe(1);
+  });
 });

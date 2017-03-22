@@ -16,7 +16,7 @@ export const DATASORT = (dataArray, key, order) => {
 /* Conver 24 hrs format time to 12 hrs format time */
 export const ConvertTo24Format = (time) => {
   if (time === null || time === '') {
-    return '';
+    return 'N/A';
   }
   let hours = time.substring(0, 2);
   let min = time.substring(2, 4);

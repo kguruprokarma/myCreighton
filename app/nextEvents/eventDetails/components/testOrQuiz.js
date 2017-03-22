@@ -6,7 +6,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import HtmlReactParser from 'html-react-parser';
 import { translateText } from '../../../common/translate';
-import { HtmlEncoding } from '../../../common/utility';
+import { HtmlEncoding, ConvertDateFromTimeStamp } from '../../../common/utility';
 
 const QuizzesDetails = (quizDetails) => (
   <section>
@@ -26,10 +26,11 @@ const QuizzesDetails = (quizDetails) => (
             <div>{quizDetails.data.course_name}</div>
             <Row>
               <Col md={4} sm={6} xs={6}>
-                <div>{quizDetails.data.startTime}- {quizDetails.data.endTime}</div>
+                {/* <div>{quizDetails.data.startTime} - {quizDetails.data.endTime}</div> */}
+                <p><span>{translateText('DUE')} </span> {ConvertDateFromTimeStamp(quizDetails.data.date)}</p>
               </Col>
               <Col md={8} sm={6} xs={6}>
-                <div className='eventDate text-right'>{quizDetails.data.date}</div>
+               &nbsp;
               </Col>
             </Row>
           </div>

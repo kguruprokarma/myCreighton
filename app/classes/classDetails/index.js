@@ -14,7 +14,7 @@ import * as _ from 'lodash';
 import PreviousNext from '../../common/previousNext';
 import { translateText } from '../../common/translate';
 import * as HEADER from '../../constants/headerTitleConstants';
-import { DATESCOMPARE } from '../../common/utility';
+import { DATESCOMPARE, StringEncodeURIComponent } from '../../common/utility';
 import { CLASSES_DETAILS } from '../../constants/nextEventsConstants';
 
 class ClassDetails extends React.PureComponent {
@@ -29,7 +29,7 @@ class ClassDetails extends React.PureComponent {
       obj = JSON.parse(localStorage.getItem('classDetails'));
       showPrevNext = true;
     }
-    const classData = _.find(obj, { sis_source_id: this.props.params.id });
+    const classData = _.find(obj, { sis_source_id: StringEncodeURIComponent(this.props.params.id) });
     let assignments = {};
     if (classData.assignmentData && classData.assignmentData != null) {
       assignments =classData.assignmentData;
@@ -61,7 +61,7 @@ class ClassDetails extends React.PureComponent {
     }
     let nextObject = {}, 
       prevObject = {};
-    const index = _.findIndex(obj, { sis_source_id: this.props.params.id });
+    const index = _.findIndex(obj, { sis_source_id: StringEncodeURIComponent(this.props.params.id) });
     if (index < obj.length - 1) {
       nextObject = obj[Object.keys(obj)[index + 1]];
     } else {

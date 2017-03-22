@@ -10,7 +10,7 @@ import Style from './style.css';
 import { translateText } from '../common/translate';
 
 const Footer = () => (
-  <footer className='footer fs0pt93 ' role='Content info'>
+  <footer className='footer fs0pt93 ' >
     <h1 className='announced-only'>{translateText('common:PAGE_FOOTER')}</h1>
     <Grid>
       <div className='footer-section pt15 pb15'>

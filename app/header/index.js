@@ -14,6 +14,7 @@ import Style from './style.css';
 import * as actionCreators from './actions';
 import Navigation from '../common/mainNav';
 import { translateText } from '../common/translate';
+import NextEventFilter from '../nextEvents/eventList/components/nextEventFilter';
 
 export class Header extends React.PureComponent {
   constructor(props) {
@@ -22,6 +23,7 @@ export class Header extends React.PureComponent {
       showNav: false
     };
     this.showPopUp = this.showPopUp.bind(this);
+    this.showFilterPopUp = this.showFilterPopUp.bind(this);
     this.goBack = this.goBack.bind(this);
     this.navClick = this.navClick.bind(this);
     const self = this;
@@ -36,6 +38,13 @@ export class Header extends React.PureComponent {
       this.props.popUpOpen();
     } else {
       this.props.popUpClose();
+    }
+  }
+  showFilterPopUp() {
+    if (!this.props.filterPopUpData) {
+      this.props.filterPopUpOpen();
+    } else {
+      this.props.filterPopUpClose();
     }
   }
   navClick() {
@@ -67,6 +76,17 @@ export class Header extends React.PureComponent {
               <ul className='pull-right list-inline'>
                 <li className='head-Icons'>
                   <div className='popUp'>
+                    <span className='glyphicon glyphicon-user' onClick={this.showFilterPopUp}> </span>
+                    <div className='popUpContainer'>
+                      {this.props.filterPopUpData &&
+                        <NextEventFilter />}
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul className='pull-right list-inline'>
+                <li className='head-Icons'>
+                  <div className='popUp'>
                     <span className='glyphicon glyphicon-user' onClick={this.showPopUp}> </span>
                     <div className='popUpContainer'>
                       {this.props.popUpData &&
@@ -86,6 +106,7 @@ export class Header extends React.PureComponent {
 const mapStateToProps = (storeData) => (
   {
     popUpData: storeData.headerReducer.showPopUp,
+    filterPopUpData: storeData.headerReducer.showFilterPopUp,
     navData: storeData.headerReducer.showNav,
     userDetailsData: storeData.dashboardReducer.userDetailsData.data
   }

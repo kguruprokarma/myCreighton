@@ -32,9 +32,9 @@ export const PROFESSIONAL_DATA = '/professional_data.json';
 export const BLUE_LINE = 'https://blueline.instructure.com';
 export const API_GATEWAY = 'http://api-gateway01.creighton.edu'; //'http://reduxblog.herokuapp.com';
 //export const API_DATA = '/studentProfile/'; //'/myProfile.json'; //http://reduxblog.herokuapp.com/api/posts
+export const DEV_URL_CREIGHTON = 'http://dev-api-node01.creighton.edu';
 export const API_SINGLE = '/single';
 export const STUDENT_ACADEMIC = '/studentAcademic';
-export const STUDENT_ACADEMIC_SINGLE = '/single';
 export const STUDENT_PROFILE = '/studentProfile';
 export const STUDENT_CLASSES = '/studentclasses';
 export const STAFF_BIO = '/staff_bio';
@@ -45,4 +45,5 @@ export const ACADEMIC = 'academic'; ///single?primaryKey=netid&primaryValue=6cb4
 export const FACULTY_BIO = '/faculty_bio';
 export const FACULTY_LEARN = '/faculty_learn';
 export const ASSIGNMENT = '/assignments';
+export const CAMPUS_DIRECTORY_SIMPLE = '/searchFaculty';
 export const NEXTEVENT_ASSIGNMENTS = `${API_GATEWAY}${ASSIGNMENTS}${API_SINGLE}?primaryKey=netid&primaryValue=9dfa6baa7a`;

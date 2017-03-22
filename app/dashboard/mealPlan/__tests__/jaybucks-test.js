@@ -6,10 +6,10 @@ import {shallow} from 'enzyme';
 import Jaybucks from '../components/jaybucks';
 
 it('Jaybucks is defined', () => {
-	const jaybucksTestProps = {
-		"jaybucksTitle": "GUEST",
-		"jaybucksCount": "5"
-	};
+  const jaybucksTestProps = {
+    'jaybucksTitle': 'GUEST',
+    'jaybucksCount': '5'
+  };
   const jaybucks = shallow(<Jaybucks {...jaybucksTestProps} />);
   expect(jaybucks).toBeDefined();
 });

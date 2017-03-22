@@ -10,13 +10,11 @@ import UserDetail from './components/userDetail';
 import MealPlanView from './mealPlan';
 import ModuleBlock from './components/moduleBlock';
 import ToggleMealPlan from './components/toggleMealPlan';
-import DashboardModulesList from '../common/dashboardModulesDetail';
+import dashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
 import style from './style.css';
 import { AuthUserDetails } from '../common/utility';
-
-const dashboardModulesList = DashboardModulesList;
 
 export class Dashboard extends Component {
 
@@ -29,8 +27,9 @@ export class Dashboard extends Component {
   }
 
   componentWillMount() {
-    this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
-    if (this.role) { this.props.getUserDetailsData(`/${this.role}`); }
+    const props = this.props;
+    this.role = props.userData ? props.userData.userRole : AuthUserDetails().userRole;
+    if (this.role) { props.getUserDetailsData(`/${this.role}`); }
 
     if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
       this.setState({ shouldHide: false });
@@ -45,34 +44,35 @@ export class Dashboard extends Component {
   }
 
   render() {
-    const { userDetailsData } = this.props;
-    const dashboardModulesList = DashboardModulesList(this.role);
+    const props = this.props;
+    const userDetails = props.userDetailsData;
+    const dashboardList = dashboardModulesList(this.role);
     return (
       <section id='dashboard'>
         <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
         <Row className='mb20'>
           <Col sm={5} xs={10} md={5}>
-            {userDetailsData && <UserDetail userDetail={userDetailsData} />}
+            {userDetails && <UserDetail userDetail={userDetails} />}
           </Col>
           <Col xs={2} className='hidden-lg hidden-md hidden-sm'>
             <ToggleMealPlan toggle={this.onClick} />
           </Col>
           <Col xs={12} sm={7} md={7}>
-            <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetailsData} />
+            <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetails} />
           </Col>
         </Row>
         <article id='wells'>
           <Row>
             <h1 className='announced-only'>{translateText('common:DASH_BOARD_WELL_SECTION')}</h1>
             <Col md={5} sm={6}>
-              {this.role && <ModuleBlock modulelist={dashboardModulesList[0]} />}
+              {this.role && <ModuleBlock modulelist={dashboardList[0]} />}
             </Col>
             <Col md={5} sm={6} className='col-md-offset-2'>
-              {this.role && <ModuleBlock modulelist={dashboardModulesList[1]} />}
+              {this.role && <ModuleBlock modulelist={dashboardList[1]} />}
             </Col>
             {
               this.role === CommonConstants.ROLE_STUDENT && <Col md={5} sm={6} >
-                <ModuleBlock modulelist={dashboardModulesList[2]} />
+                <ModuleBlock modulelist={dashboardList[2]} />
               </Col>
             }
           </Row>

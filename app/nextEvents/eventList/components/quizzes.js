@@ -7,8 +7,6 @@ import { Link } from 'react-router';
 import * as ROUTE_URL from '../../../constants/routeContants';
 import { ConvertDateFromTimeStamp } from '../../../common/utility';
 
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-
 const Quiz = (quizProps) => (
   <section className='quizzEvent' id='quizzEventList'>
     <Link to={`${ROUTE_URL.EVENT_DETAILS}/${quizProps.data.type}/${quizProps.data.sis_source_id}/${quizProps.data.assignment_id}`}>

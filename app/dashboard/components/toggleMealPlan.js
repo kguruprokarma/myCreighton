@@ -4,10 +4,10 @@
 
 import React from 'react';
 
-const ToggleMealPlan = (toggleMealPlan) => (
+const toggleMealPlan = (toggleMealPlanProps) => (
   <a className='doller-icon pull-right' >
-    <img src={'./assets/images/money.png'} alt='toggle' onClick={toggleMealPlan.toggle} />
+    <img src={'./assets/images/money.png'} alt='toggle' onClick={toggleMealPlanProps.toggle} />
   </a>
 );
 
-export default ToggleMealPlan;
+export default toggleMealPlan;

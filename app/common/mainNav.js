@@ -8,6 +8,7 @@ import { Grid, Row } from 'react-bootstrap';
 import { translateText } from './translate';
 import * as CommonConstants from '../constants/commonConstants';
 import { AuthUserDetails } from './utility';
+import * as ROUTE_URL from '../constants/routeContants';
 
 class MainNav extends React.Component {
   render() {
@@ -20,7 +21,9 @@ class MainNav extends React.Component {
             <ul className='main-navigation fs0pt93'>
               <li className='navigation-item'><a>{translateText('common:CREIGHTON_SERVICES_AND_RESOURCES')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               {
-                role === CommonConstants.ROLE_STUDENT || role === undefined ? <li className='navigation-item'><a>{translateText('common:CAMPUS_DIRECTORY')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li> : null
+                role === CommonConstants.ROLE_STUDENT || role === undefined ? <li className='navigation-item'>
+                  <a href={`#${ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SIMPLE_SEARCH}`}>{translateText('common:CAMPUS_DIRECTORY')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a>
+                </li> : null
               }
               <li className='navigation-item'><a>{translateText('common:LIBRARY_SEARCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               <li className='navigation-item'><a>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>

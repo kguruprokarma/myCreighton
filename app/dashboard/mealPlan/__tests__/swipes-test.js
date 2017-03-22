@@ -6,11 +6,11 @@ import {shallow} from 'enzyme';
 import Swipes from '../components/swipes';
 
 it('Swipes is defined', () => {
-	const swipesTestProps = {
-		"swipesTitle": "SWIPES",
-		"swipesCount": "25",
-		"expire": "FRI"
-	};
+  const swipesTestProps = {
+    'swipesTitle': 'SWIPES',
+    'swipesCount': '25',
+    'expire': 'FRI'
+  };
   const swipes = shallow(<Swipes {...swipesTestProps} />);
   expect(swipes).toBeDefined();
 });

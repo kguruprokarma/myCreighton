@@ -71,7 +71,7 @@ describe('async actions', () => {
   userReqObj.primaryKey = 'netid';
   userReqObj.primaryValue = '5de48407ab';
   it('testing action for profile data for student retrival case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 200,
       response: studentData
     });
@@ -90,7 +90,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure for student profile case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.STUDENT_ACADEMIC_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 404,
       responseText: 'error'
     });
@@ -110,7 +110,7 @@ describe('async actions', () => {
 
 
   it('testing action for profile data for staff retrival case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STAFF_BIO + urlConstants.STUDENT_ACADEMIC_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STAFF_BIO + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 200,
       response: staffProfileData
     });
@@ -130,7 +130,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure for staff profile case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STAFF_BIO + urlConstants.STUDENT_ACADEMIC_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STAFF_BIO + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
       status: 404,
       responseText: 'error'
     });

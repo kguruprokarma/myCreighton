@@ -35,7 +35,7 @@ describe('Class list actions testing', () => {
   userReqObj.primaryValue = '6cb4db8459';
   
   it('testing action sequence for success case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.STUDENT_ACADEMIC_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
       status: 200,
       response: data
     });
@@ -55,7 +55,7 @@ describe('Class list actions testing', () => {
   });
 
   it('testing action  sequence for failure case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_CLASSES + urlConstants.STUDENT_ACADEMIC_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_CLASSES + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
       status: 404,
       responseText: 'error'
     });
