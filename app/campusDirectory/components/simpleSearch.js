@@ -24,6 +24,7 @@ export class SimpleSearchDirectory extends React.PureComponent {
 
   onSearchTypeChange (searchType) {
     //TODO:: for advanced search
+    // Place holder fro Advanced Search, Team need to be updated this method while implementing Advanced Search in futuer sprint.
   }
 
   onSearchText (text) {
