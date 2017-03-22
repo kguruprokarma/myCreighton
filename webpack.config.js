@@ -13,8 +13,8 @@ Object.assign(exports, {
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: '[name].[BUILD_NUMBER].js',
-    chunkFilename: '[name].[BUILD_NUMBER].js',
+    filename: '[name].[id].js',
+    chunkFilename: '[name].[id].js',
     publicPath: '/'
   },
   module: {
@@ -79,7 +79,7 @@ Object.assign(exports, {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: '[name].[BUILD_NUMBER].js'
+      filename: '[name].[id].js'
     })
   ]
 });
