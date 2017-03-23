@@ -1,9 +1,8 @@
 
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import moment from 'moment';
 import { connect } from 'react-redux';
-import * as _ from 'lodash';
+import {filter, map, sortBy } from 'lodash';
 import { Col, Row, Alert } from 'react-bootstrap';
 import HeaderLabel from './../../common/headerLabel';
 import Classes from '../eventList/components/classes';
@@ -14,9 +13,10 @@ import * as classesActionCreators from '../../classes/classList/actions';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import * as CommonConstants from '../../constants/commonConstants';
 import { translateText } from '../../common/translate';
-import { authUserDetails, dataFilterAddingData, CreateTimeStamp, convertEncodeURIComponent, addedTypeField } from '../../common/utility';
-import './style.css';
+import { authUserDetails, dataFilterAddingData, createTimeStamp, convertEncodeURIComponent, addedTypeField } from '../../common/utility';
+import Styles from './style.css';
 import Spinner from '../../common/spinner';
+import moment from 'moment';
 
 export class EventList extends React.PureComponent {
   constructor() {
@@ -31,95 +31,98 @@ export class EventList extends React.PureComponent {
       this.props.getClassesDataByWeek(this.userReqObj);
     }
   }
-  // componentDidUpdate(){
-  //     if(this.props.assignmentsData && this.props.classesData)
-  //     {
-  //       this.getEventsData(this.props);
-  //     }
-  // }
   getEventsData(props) {
-    let EVENT_DATA = [];
+    const EVENT_DATA = [];
     const ASSIGNMENTS_DATA = convertEncodeURIComponent(props.assignmentsData);
     const CLASSES_DATA = convertEncodeURIComponent(props.classesData);
     if (ASSIGNMENTS_DATA && CLASSES_DATA) {
-      const classObjs = CreateTimeStamp(dataFilterAddingData(CLASSES_DATA.data));
+      const classObjs = createTimeStamp(dataFilterAddingData(CLASSES_DATA.data));
       const assignmentObjs = addedTypeField(ASSIGNMENTS_DATA.data);
       assignmentObjs.map((assignmentObj) => {
         EVENT_DATA.push(assignmentObj);
       });
       classObjs.map((classObject) => {
-        classObject.assignmentData = _.filter(assignmentObjs, { 'sis_source_id': classObject.sis_source_id});
+        classObject.assignmentData = filter(assignmentObjs, { 'sis_source_id': classObject.sis_source_id });
         classObject.type = NextEventsConstants.CLASSES_DETAILS;
         EVENT_DATA.push(classObject);
       });
     }
     if (EVENT_DATA) {
-      EVENT_DATA = _.sortBy(EVENT_DATA, ['timeStamp']);
       localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
     }
-      let result = this.getSelectedFilterData(this.props.EventChangedValue);
-      return result;
-    }
-  
-  getSelectedFilterData(dayy){
+    const result = this.getSelectedFilterData(this.props.EventChangedValue);
+    return result;
+  }
+
+  getSelectedFilterData(selectedDay) {
     let eventDetails;
     let sortedEventData;
-    const day = dayy;
+    const day = selectedDay;
     const today = moment()._d;
     const seventhDay = moment().add(6, 'days')._d;
     const filterlist = [];
+    let eventFilterData ;
+
     if (localStorage !== undefined) {
       eventDetails = JSON.parse(localStorage.getItem('eventList'));
-    }    
-     eventDetails.map((eventObject,index) => {
-       let APIDate = moment(eventObject.timeStamp).format('MMM D, YYYY');
-       let todayDate = moment(today).format('MMM D, YYYY');
-       let seventhDate = moment(seventhDay).format('MMM D, YYYY');
-       let APITime = moment(eventObject.timeStamp).format('hh:mm');
-       let todayTime = moment(today).format('hh:mm');
-       if(day === CommonConstants.EVENT_FILTER_7_DAYS && APIDate >= todayDate && APIDate <= seventhDate){
-         if(!(APIDate === todayDate && APITime < todayTime)) {    
-           filterlist.push(eventObject);
-         }
-       }else if(day === CommonConstants.EVENT_FILTER_TODAY && (APIDate === todayDate) && (APITime > todayTime)) {
+    }
+    map(eventDetails, (eventObject) => {
+      const APIDate = new Date(moment(eventObject.timeStamp).format('MMM D, YYYY'));
+      const todayDate = new Date(moment(today).format('MMM D, YYYY'));
+      const seventhDate = new Date(moment(seventhDay).format('MMM D, YYYY'));
+      const APITime = moment(eventObject.timeStamp).format('HH:mm');
+      const todayTime = moment(today).format('HH:mm');
+      if (day === CommonConstants.EVENT_FILTER_7_DAYS && APIDate >= todayDate && APIDate <= seventhDate) {
+        if (!(APIDate.toString() === todayDate.toString() && APITime < todayTime)) {
           filterlist.push(eventObject);
         }
-        else if(day === CommonConstants.EVENT_FILTER_ALL && !(APIDate === todayDate && APITime < todayTime)) {         
+      } else if (day === CommonConstants.EVENT_FILTER_TODAY && (APIDate.toString() === todayDate.toString()) && (APITime > todayTime)) {
+        filterlist.push(eventObject);
+      } else if ((day === CommonConstants.EVENT_FILTER_ALL || day === CommonConstants.EVENT_FILTER_NEXT_EVENT) && APIDate >= todayDate) {
+        if (!(APIDate.toString() === todayDate.toString() && APITime < todayTime)) {
           filterlist.push(eventObject);
-        }      
+        }
+      }
     });
-     sortedEventData = _.sortBy(filterlist, ['timeStamp']);
-     
-    return sortedEventData;
 
+    if (filterlist && filterlist.length>0){
+      sortedEventData = sortBy(filterlist, ['timeStamp']);
+      if (sortedEventData && sortedEventData.length >0 && day === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
+        const nextEventDetail = [];
+        nextEventDetail.push(Object.values(sortedEventData)[0]);
+        eventFilterData = nextEventDetail;
+      } else {
+        eventFilterData = sortedEventData;   
+      }          
+    }
+    return eventFilterData;
   }
 
   render() {
     const EVENT_DATA = this.getEventsData(this.props);
-
     return (
       <section>
-        {this.props.loading && <Spinner />}
-        {EVENT_DATA && <div>
-          <Row><Col md={8} sm={6} xs={12}>
-            <div><HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} /></div>
-          </Col>
-          </Row>
-          {authUserDetails().userRole === CommonConstants.ROLE_STUDENT ? EVENT_DATA.map((eventType, index) => (
-            <div key={index}>
-              {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} />}
-              {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
-              {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} />}
-            </div>
-          )) :
-          <Alert bsStyle='warning'>
-            <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
-          </Alert>
-        }
-        
-        </div>
-        }
-      </section>
+          {this.props.loading && <Spinner />}
+          {EVENT_DATA && <div>
+            <Row><Col md={8} sm={6} xs={12}>
+              <div><HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} /></div>
+            </Col>
+            </Row>
+            {authUserDetails().userRole === CommonConstants.ROLE_STUDENT ? EVENT_DATA.map((eventType, index) => (
+                <div key={index}>
+                  {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} />}
+                  {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
+                  {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} />}
+                </div>
+            )) :
+                <Alert bsStyle='warning'>
+                  <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
+                </Alert>
+            }
+
+          </div>
+          }
+        </section>
     );
   }
 }

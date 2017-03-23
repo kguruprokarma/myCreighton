@@ -278,7 +278,7 @@ export const DATESORT = (dataArray, key, dueDate, startTime, dueTime) => {
   return sortedData;
 };
 
-export const CreateTimeStamp = (dataArray) => {
+export const createTimeStamp = (dataArray) => {
   const data = dataArray;
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
   const filterlist = data.map((singleclassObject) => {
@@ -328,8 +328,6 @@ export const telephoneCheck = (phoneNumber, separator) => {
 
 export const addedTypeField = (dataArray) => {
   const data = dataArray;
-  const today = moment()._d;
-  const seventhDay = moment().add(7, 'days')._d;
   const filterlist = [];
   data.map((assignmentObject) => {
     assignmentObject.timeStamp = assignmentObject.assign_due === null ? null : new Date(assignmentObject.assign_due);

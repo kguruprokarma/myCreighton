@@ -31,26 +31,27 @@ export class SearchResults extends React.PureComponent {
   }
 
   render() {
+    const props = this.props;
     return (
       <section>
-        <SimpleSearch {...this.props} currentPath={this.props.route.path} searchString={this.props.params.searchquery} />
+        <SimpleSearch {...this.props} currentPath={props.route.path} searchString={props.params.searchquery} />
         <div>
           <Row>            
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
               <Row>
                 <Col md={9} xs={9}>
-                  {this.props.SimpleSearchData && this.state.userList.length} {this.props.SimpleSearchData && translateText('common:SEARCH_RESULT')}
+                  {props.SimpleSearchData && this.state.userList.length} {props.SimpleSearchData && translateText('common:SEARCH_RESULT')}
                 </Col>
                 <Col md={3} xs={3} className='text-right'>
-                  {this.props.SimpleSearchData && this.props.SimpleSearchData.data.length > this.state.userList.length && 
-                    <a onClick={() => { this.setState({userList: this.props.SimpleSearchData.data}); }}>{translateText('common:SEARCH_ALL_RESULT')}</a>
+                  {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length && 
+                    <a onClick={() => { this.setState({userList: props.SimpleSearchData.data}); }}>{translateText('common:SEARCH_ALL_RESULT')}</a>
                   }
                 </Col>
               </Row>
               {this.state.userList && this.state.userList.map((user, userindex) => (
                 <Result {...user} key={userindex} />
               ))}
-              {this.props.SimpleSearchData && this.props.SimpleSearchData.data.length > this.state.userList.length && 
+              {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length && 
                 <div className='text-center'>
                   <button className='btn btn-default' onClick={this.loadMore}>{translateText('common:SEARCH_MORE_RESULT')}</button>
                 </div>

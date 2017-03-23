@@ -6,16 +6,15 @@ import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
-import { Col, Row} from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import CustomPopUp from '../common/customPopUp';
 import Title from '../header/components/title';
-import Style from './style.css';
+import './style.css';
 import * as actionCreators from './actions';
-import Navigation from '../common/mainNav';
 import { translateText } from '../common/translate';
 import NextEventFilter from '../nextEvents/eventFilter/index';
 import * as RouteContants from '../constants/routeContants';
+
 
 export class Header extends React.PureComponent {
   constructor(props) {
@@ -35,66 +34,73 @@ export class Header extends React.PureComponent {
   }
 
   showPopUp() {
-    if (!this.props.popUpData) {
-      this.props.popUpOpen();
-      this.props.filterPopUpClose();
+    const props = this.props;
+    if (!props.popUpData) {
+      props.popUpOpen();
+      props.filterPopUpClose();
     } else {
-      this.props.popUpClose();
+      props.popUpClose();
     }
   }
   showFilterPopUp() {
-    if (!this.props.filterPopUpData) {
-      this.props.filterPopUpOpen();
-      this.props.popUpClose();
+    const props = this.props;
+    if (!props.filterPopUpData) {
+      props.filterPopUpOpen();
+      props.popUpClose();
     } else {
-      this.props.filterPopUpClose();
+      props.filterPopUpClose();
     }
   }
   navClick() {
-    if (!this.props.navData) {
-      this.props.navOpen();
+    const props = this.props;
+    if (!props.navData) {
+      props.navOpen();
     } else {
-      this.props.navClose();
+      props.navClose();
     }
   }
   goBack() {
     browserHistory.goBack();
   }
   render() {
+    const props = this.props;
     return (
       <header>
         <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}</h1>
         <div className='container'>
           <Row >
             <Col xs={2} sm={2} className='hidden-lg hamburgerMenu'>
-              <img alt='' src={this.props.navData ? './assets/images/menu-close.png' : './assets/images/menu.png'} onClick={this.navClick} />
+              <img alt='' src={props.navData ? './assets/images/menu-close.png' : './assets/images/menu.png'} onClick={this.navClick} />
             </Col>
             <Col lg={10} className='visible-lg'>
-              <h2 className='bebasregular logo mt10 mb10 fs1pt4'>{translateText('common:MY_CREIGHTON')}</h2>
+              <Link to={`${RouteContants.DASHBOARD}`}>
+                <h2 className='bebasregular logo mt10 mb10 fs1pt4'>{translateText('common:MY_CREIGHTON')}</h2>
+              </Link>
             </Col>
             <Col xs={8} sm={8} className='hidden-lg text-center'>
-              <Title path={this.props.currentState} />
+              <Title path={props.currentState} />
             </Col>
             <Col xs={2} sm={2} className='pull-right'>
-              
+
               <ul className='pull-right list-inline'>
                 <li className='head-Icons'>
                   <div className='popUp'>
-                    <span className='glyphicon glyphicon-user' onClick={this.showPopUp}> </span>
+                    <span className='glyphicon glyphicon-user' onClick={this.showPopUp} />
                     <div className='popUpContainer'>
-                      {this.props.popUpData &&
+                      {props.popUpData &&
                         <CustomPopUp showPopValue={this.showPopUp} />}
                     </div>
                   </div>
                 </li>
               </ul>
-              { (this.props.currentState === RouteContants.EVENT_LIST || this.props.currentState === RouteContants.EVENT_DETAILS) &&
+              {(props.currentState === RouteContants.EVENT_LIST || props.currentState === RouteContants.EVENT_DETAILS) &&
                 <ul className='pull-right list-inline'>
                   <li className='head-Icons'>
                     <div className='popUp'>
-                      <span className='glyphicon glyphicon-user' onClick={this.showFilterPopUp}> </span>
+                      <span onClick={this.showFilterPopUp} className='filterIcon'>Event Filter</span>
+
                       <div className='popUpContainer'>
-                        {this.props.filterPopUpData &&
+                        {props.filterPopUpData &&
                           <NextEventFilter />}
                       </div>
                     </div>
@@ -121,5 +127,3 @@ const mapStateToProps = (storeData) => (
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
-
-
