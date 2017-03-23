@@ -3,9 +3,9 @@
 */
 
 import React from 'react';
+import moment from 'moment';
 import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
-import moment from 'moment';
 
 const BusinessInformation = (businessInfoProps) => (
   <article className='profileRow'>

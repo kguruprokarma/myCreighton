@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { bindActionCreators } from 'redux';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import * as _ from 'lodash';
 import { Col, Row, Alert } from 'react-bootstrap';
@@ -13,8 +14,8 @@ import * as classesActionCreators from '../../classes/classList/actions';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import * as CommonConstants from '../../constants/commonConstants';
 import { translateText } from '../../common/translate';
-import { authUserDetails, DATAFILTERADDINGDATA, CreateTimeStamp, filterSevenDaysTimeStampsFromNow, ConvertEncodeURIComponent } from '../../common/utility';
-import Styles from './style.css';
+import { authUserDetails, dataFilterAddingData, CreateTimeStamp, convertEncodeURIComponent, addedTypeField } from '../../common/utility';
+import './style.css';
 import Spinner from '../../common/spinner';
 
 export class EventList extends React.PureComponent {
@@ -30,13 +31,19 @@ export class EventList extends React.PureComponent {
       this.props.getClassesDataByWeek(this.userReqObj);
     }
   }
+  // componentDidUpdate(){
+  //     if(this.props.assignmentsData && this.props.classesData)
+  //     {
+  //       this.getEventsData(this.props);
+  //     }
+  // }
   getEventsData(props) {
     let EVENT_DATA = [];
-    const ASSIGNMENTS_DATA = ConvertEncodeURIComponent(props.assignmentsData);
-    const CLASSES_DATA = ConvertEncodeURIComponent(props.classesData);
+    const ASSIGNMENTS_DATA = convertEncodeURIComponent(props.assignmentsData);
+    const CLASSES_DATA = convertEncodeURIComponent(props.classesData);
     if (ASSIGNMENTS_DATA && CLASSES_DATA) {
-      const classObjs = CreateTimeStamp(DATAFILTERADDINGDATA(CLASSES_DATA.data));
-      const assignmentObjs = filterSevenDaysTimeStampsFromNow(ASSIGNMENTS_DATA.data);
+      const classObjs = CreateTimeStamp(dataFilterAddingData(CLASSES_DATA.data));
+      const assignmentObjs = addedTypeField(ASSIGNMENTS_DATA.data);
       assignmentObjs.map((assignmentObj) => {
         EVENT_DATA.push(assignmentObj);
       });
@@ -50,10 +57,46 @@ export class EventList extends React.PureComponent {
       EVENT_DATA = _.sortBy(EVENT_DATA, ['timeStamp']);
       localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
     }
-    return EVENT_DATA;
+      let result = this.getSelectedFilterData(this.props.EventChangedValue);
+      return result;
+    }
+  
+  getSelectedFilterData(dayy){
+    let eventDetails;
+    let sortedEventData;
+    const day = dayy;
+    const today = moment()._d;
+    const seventhDay = moment().add(6, 'days')._d;
+    const filterlist = [];
+    if (localStorage !== undefined) {
+      eventDetails = JSON.parse(localStorage.getItem('eventList'));
+    }    
+     eventDetails.map((eventObject,index) => {
+       let APIDate = moment(eventObject.timeStamp).format('MMM D, YYYY');
+       let todayDate = moment(today).format('MMM D, YYYY');
+       let seventhDate = moment(seventhDay).format('MMM D, YYYY');
+       let APITime = moment(eventObject.timeStamp).format('hh:mm');
+       let todayTime = moment(today).format('hh:mm');
+       if(day === CommonConstants.EVENT_FILTER_7_DAYS && APIDate >= todayDate && APIDate <= seventhDate){
+         if(!(APIDate === todayDate && APITime < todayTime)) {    
+           filterlist.push(eventObject);
+         }
+       }else if(day === CommonConstants.EVENT_FILTER_TODAY && (APIDate === todayDate) && (APITime > todayTime)) {
+          filterlist.push(eventObject);
+        }
+        else if(day === CommonConstants.EVENT_FILTER_ALL && !(APIDate === todayDate && APITime < todayTime)) {         
+          filterlist.push(eventObject);
+        }      
+    });
+     sortedEventData = _.sortBy(filterlist, ['timeStamp']);
+     
+    return sortedEventData;
+
   }
+
   render() {
     const EVENT_DATA = this.getEventsData(this.props);
+
     return (
       <section>
         {this.props.loading && <Spinner />}
@@ -72,7 +115,8 @@ export class EventList extends React.PureComponent {
           <Alert bsStyle='warning'>
             <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
           </Alert>
-          }
+        }
+        
         </div>
         }
       </section>
@@ -85,7 +129,8 @@ const mapStateToProps = (eventsState) => (
     assignmentsData: eventsState.eventsReducer.eventsData.data,
     classesData: eventsState.classesReducer.classesData.data,
     loading: eventsState.eventsReducer.isLoading,
-    classLoading: eventsState.classesReducer.isLoading
+    classLoading: eventsState.classesReducer.isLoading,
+    EventChangedValue: eventsState.eventsFilterReducer.changedValue
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, classesActionCreators), dispatch);

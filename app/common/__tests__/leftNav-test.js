@@ -7,8 +7,7 @@ import LeftNav from '../leftNav';
 
 
 describe('LeftNav testing ----->', () => {
- 
-  const leftNav = shallow(<LeftNav  />);
+  const leftNav = shallow(<LeftNav />);
   it('LeftNav is defined', () => {
     expect(leftNav).toBeDefined();
   });
@@ -16,5 +15,4 @@ describe('LeftNav testing ----->', () => {
   it('LeftNav should announced-only class', () => {
     expect(leftNav.find('.announced-only').length).toBe(1);
   });
-
 });

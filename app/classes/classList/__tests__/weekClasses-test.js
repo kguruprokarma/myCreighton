@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import WeekClasses from '../components/weekClasses';
-import { DataSort, DATAFILTERADDINGDATA } from '../../../common/utility';
+import { DataSort, dataFilterAddingData } from '../../../common/utility';
 
 const classes = {
   'data': [ 
@@ -34,7 +34,7 @@ const classes = {
   ]
 };
 
-const defaultProps = DATAFILTERADDINGDATA(classes.data);
+const defaultProps = dataFilterAddingData(classes.data);
 const renderingOrder = ['Monday', 'Wednesday', 'Friday'];
 
 describe('WeekClasses component testing ----->', () => {

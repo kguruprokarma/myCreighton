@@ -7,10 +7,10 @@ import FooterNav from './footerNav';
 import CopyRightText from './copyRightText';
 import { translateText } from '../../common/translate';
 
-const UniversityAddress = () => (
+const universityAddress = () => (
   <p className='footer-address mt15'><span className='space-mb'>{translateText('common:FOOTER_UNIVERSITY_ADDRESS')}<a href='tel:402.280.2700' className='footer-space'>402.280.2700</a></span>
     <CopyRightText />
     <FooterNav />
   </p>
 );
-export default UniversityAddress;
+export default universityAddress;

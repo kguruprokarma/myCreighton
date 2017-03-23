@@ -3,9 +3,10 @@
  * Used to seperate the search component
  */
 import React, {Component} from 'react';
-import { Row, Col, Form, FormGroup, FormControl, HelpBlock, Button } from 'react-bootstrap';
-import { Link } from 'react-router';
+import { Row, Col, Form, FormGroup, FormControl, HelpBlock } from 'react-bootstrap';
+import { Link, hashHistory } from 'react-router';
 import { translateText } from '../../common/translate';
+import * as CommonConstants from '../../constants/commonConstants';
 import * as ROUTE_URL from '../../constants/routeContants';
 
 
@@ -14,12 +15,23 @@ export class SearchBox extends Component {
     super(props);
     this.state = props.state;
     this.state.searchText = '';
+    this.state.searchURL = '';
+    this.onSearchText = this.onSearchText.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    if (props.currentPath === CommonConstants.SEARCH_RESULTS) {
+      this.props.onSearchText(props.searchString);
+    }
   }
-  onSearchText() {    
-    this.props.onSearchText(this.state.searchText);
+  onSearchText() {
+    if (this.props.currentPath === CommonConstants.SEARCH_RESULTS) {
+      this.props.onSearchText(this.state.searchText);
+    } else {
+      hashHistory.replace(this.state.searchURL);
+    }
   }
   handleChange (e) {
     this.state.searchText = e.target.value;
+    this.state.searchURL = `${ROUTE_URL.SERCHRESULTS}/${this.state.searchText}`;
   }
 
   render () {
@@ -32,13 +44,13 @@ export class SearchBox extends Component {
                 <Col sm={3} />
                 <Col xs={12} sm={6}>
                   <FormGroup>
-                    <FormControl type='search' onChange={this.handleChange.bind(this)} className='openSansLight cmpsDirSearch mt20' placeholder={translateText('common:SEARCH_CREIGHTON_STAFF')} />
+                    <FormControl type='search' onChange={this.handleChange} className='openSansLight cmpsDirSearch mt20' placeholder={translateText('common:SEARCH_CREIGHTON_STAFF')} />
                     <HelpBlock className='openSansRegular cmpsDirText mt10'>{translateText('common:EXAMPLE_CAMPUS_DIRECTORY_SEARCH')} </HelpBlock>
                   </FormGroup>
                 </Col>
                 <Col xs={12} sm={3}>
-                  <FormGroup>
-                    <Link to={ROUTE_URL.SERCHRESULTS} className='form-control openSansLight cmpsDirSearchBtn mt20 pl10'>{translateText('common:SEARCH')}</Link>
+                  <FormGroup>                   
+                    <Link onClick={this.onSearchText} className='form-control openSansLight cmpsDirSearchBtn mt20 pl10'>{translateText('common:SEARCH')}</Link> 
                   </FormGroup>
                 </Col>
               </Row>

@@ -6,7 +6,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import HtmlReactParser from 'html-react-parser';
 import { translateText } from '../../../common/translate';
-import { ConvertDueDateTimeStamp, ConvertDateFromTimeStamp, HtmlEncoding } from '../../../common/utility';
+import { ConvertDuedateTimeStamp, ConvertDateFromTimeStamp, HtmlEncoding } from '../../../common/utility';
 
 const Assignments = (assignmentsDetails) => (
   <section>
@@ -19,7 +19,7 @@ const Assignments = (assignmentsDetails) => (
         <p>{assignmentsDetails.data.course_name}</p>
         <Row>
           <Col md={6} xs={6}>
-            <p className='text-left'><span>{translateText('DUE')} </span><span>{ConvertDueDateTimeStamp(assignmentsDetails.data.assign_due)}</span></p>
+            <p className='text-left'><span>{translateText('DUE')} </span><span>{ConvertDuedateTimeStamp(assignmentsDetails.data.assign_due)}</span></p>
           </Col>
           <Col md={6} xs={6}>
             <p className='eventDate text-right'>{ConvertDateFromTimeStamp(assignmentsDetails.data.assigned_date)}</p>
@@ -29,17 +29,12 @@ const Assignments = (assignmentsDetails) => (
     </article>
     <article className='assignmentDetail pt20 pb25'>
       <h4 className='eventDetail graybtBorder mb10'>{translateText('ASSIGNMENT_DETAILS')}</h4>
-      <div className='eventNotes pt5'>{HtmlReactParser(HtmlEncoding(assignmentsDetails.data.assign_desc))}</div>
-      {/*{assignmentsDetails.data.eventNotes === '' ?
-        <Row className='eventNotes'>
-          <Col md={12} sm={12} xs={12}>
-            <div>{translateText('common:EVENTS_NOTES')}</div>
-          </Col>
-          <Col md={12} sm={12} xs={12}>
-            <div>{assignmentsDetails.data.eventNotes}</div>
-          </Col>
-        </Row> : ''
-      }*/}
+      <div className='eventNotes pt5'>
+        {
+            assignmentsDetails.data.assign_desc === null || assignmentsDetails.data.assign_desc === '' ? translateText('common:NO_EVENTS_NOTES') :
+            HtmlReactParser(HtmlEncoding(assignmentsDetails.data.assign_desc))
+        }
+      </div>
     </article>
   </section>
 );

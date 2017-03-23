@@ -21,16 +21,6 @@ const receiveError = (error) => (
     data: error
   });
 
-let clear = () => ({
-  type: types.CLEAR
-});
-
-export function clear() {
-  return function (dispatch) {
-    dispatch(clear());
-  };
-}
-
 export function getEventsData(reqObj) {
   return function (dispatch) {
     dispatch(requestData());

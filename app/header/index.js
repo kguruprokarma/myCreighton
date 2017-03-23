@@ -14,7 +14,8 @@ import Style from './style.css';
 import * as actionCreators from './actions';
 import Navigation from '../common/mainNav';
 import { translateText } from '../common/translate';
-import NextEventFilter from '../nextEvents/eventList/components/nextEventFilter';
+import NextEventFilter from '../nextEvents/eventFilter/index';
+import * as RouteContants from '../constants/routeContants';
 
 export class Header extends React.PureComponent {
   constructor(props) {
@@ -36,6 +37,7 @@ export class Header extends React.PureComponent {
   showPopUp() {
     if (!this.props.popUpData) {
       this.props.popUpOpen();
+      this.props.filterPopUpClose();
     } else {
       this.props.popUpClose();
     }
@@ -43,6 +45,7 @@ export class Header extends React.PureComponent {
   showFilterPopUp() {
     if (!this.props.filterPopUpData) {
       this.props.filterPopUpOpen();
+      this.props.popUpClose();
     } else {
       this.props.filterPopUpClose();
     }
@@ -73,17 +76,7 @@ export class Header extends React.PureComponent {
               <Title path={this.props.currentState} />
             </Col>
             <Col xs={2} sm={2} className='pull-right'>
-              <ul className='pull-right list-inline'>
-                <li className='head-Icons'>
-                  <div className='popUp'>
-                    <span className='glyphicon glyphicon-user' onClick={this.showFilterPopUp}> </span>
-                    <div className='popUpContainer'>
-                      {this.props.filterPopUpData &&
-                        <NextEventFilter />}
-                    </div>
-                  </div>
-                </li>
-              </ul>
+              
               <ul className='pull-right list-inline'>
                 <li className='head-Icons'>
                   <div className='popUp'>
@@ -95,6 +88,19 @@ export class Header extends React.PureComponent {
                   </div>
                 </li>
               </ul>
+              { (this.props.currentState === RouteContants.EVENT_LIST || this.props.currentState === RouteContants.EVENT_DETAILS) &&
+                <ul className='pull-right list-inline'>
+                  <li className='head-Icons'>
+                    <div className='popUp'>
+                      <span className='glyphicon glyphicon-user' onClick={this.showFilterPopUp}> </span>
+                      <div className='popUpContainer'>
+                        {this.props.filterPopUpData &&
+                          <NextEventFilter />}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              }
             </Col>
           </Row>
         </div>

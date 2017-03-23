@@ -10,6 +10,11 @@ import * as CommonConstants from '../../constants/commonConstants';
 
 class CampusDirectoryTabController extends Component {
 
+  constructor(props) {
+    super(props);
+    this.onSearchTypeChange = this.onSearchTypeChange.bind(this);
+  }
+
   onSearchTypeChange(searchType) {
     this.props.onSearchTypeChange(searchType);
   }

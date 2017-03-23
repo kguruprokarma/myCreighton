@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import TodayClasses from '../components/todayClasses';
-import { todayHeader, DATETIME } from '../../../common/utility';
+import { todayHeader, dateTime } from '../../../common/utility';
 
 describe('TodayClasses component testing ----->', () => {
   const defaultProps = {

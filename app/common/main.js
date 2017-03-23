@@ -46,31 +46,33 @@ class Main extends React.PureComponent {
     }
   }
   hidePopUp() {
-    if (!this.props.popUpData) {
-      this.props.popUpOpen();
-    } else {
+    if (this.props.popUpData) {
       this.props.popUpClose();
     }
+    if (this.props.filterPopUpData) {
+      this.props.filterPopUpClose();
+    } 
   }
   render() {
-    document.title = this.props.children.props.route.title + translateText('common:MY_CREIGHTON');
+    const props = this.props;
+    document.title = props.children.props.route.title + translateText('common:MY_CREIGHTON');
     return (
       <div className='view-container'>
         {/* this is header section */}
-        {this.state.isLogin && <Header currentState={this.props.location.pathname} param={this.props.params} />}
+        {this.state.isLogin && <Header currentState={props.location.pathname} param={props.params} />}
         {/* Main Navigation */}
-        {this.state.isLogin && <Navigation navDisplay={this.props.navData} />}
+        {this.state.isLogin && <Navigation navDisplay={props.navData} />}
         {/* ./Main Navigation */}
         {/* /this is header section */}
         {/* this is main section */}
         <main role='main' id='content' className='container'><a id='maincontent' />
-          {this.props.children}
+          {props.children}
         </main>
         {/* /this is main section */}
         {/* this is footer section */}
         {this.state.isLogin && <Footer />}
         {/* /this is footer section */}
-        {this.props.popUpData && <div className='popUpPatch' onClick={this.hidePopUp} />}
+        {(this.props.popUpData || this.props.filterPopUpData) && <div className='popUpPatch' onClick={this.hidePopUp} />}
       </div>
     );
   }
@@ -78,7 +80,8 @@ class Main extends React.PureComponent {
 const mapStateToProps = (storeData) => (
   {
     popUpData: storeData.headerReducer.showPopUp,
-    navData: storeData.headerReducer.showNav
+    navData: storeData.headerReducer.showNav,
+    filterPopUpData: storeData.headerReducer.showFilterPopUp
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);

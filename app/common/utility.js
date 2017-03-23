@@ -1,11 +1,10 @@
+import moment from 'moment';
 import * as CommonConstants from '../constants/commonConstants';
 import * as urlConstants from '../constants/urlConstants';
-import * as _ from 'lodash';
-import Moment from 'moment';
 import { translateText } from './translate';
 
 /*Data sort method is used to sort the array items in asending or decending order*/
-export const DATASORT = (dataArray, key, order) => {
+export const dataSort = (dataArray, key, order) => {
   const data = dataArray;
   const sortByKey = key;
   const sortOrder = order || CommonConstants.SORT_CLASS;
@@ -15,9 +14,8 @@ export const DATASORT = (dataArray, key, order) => {
 
 /* Conver 24 hrs format time to 12 hrs format time */
 export const ConvertTo24Format = (time) => {
-  if (time === null || time === '') {
-    return 'N/A';
-  }
+  if (!time) return 'N/A';
+
   let hours = time.substring(0, 2);
   let min = time.substring(2, 4);
   if (hours < 12) {
@@ -33,9 +31,8 @@ export const ConvertTo24Format = (time) => {
 
 /* Get schedule day for scheduler */
 export const ScheduleDays = (schedule) => {
-  if (schedule === null || schedule === '') {
-    return '';
-  }
+  if (!schedule) return '';
+
   const scheduleDay = schedule.replace(/-/gi, '');
   const days = { M: 'Mon', T: 'Tue', W: 'Wed', R: 'Thu', F: 'Fri', S: 'Sat', U: 'Sun' };
   if (scheduleDay.length > 1) {
@@ -53,13 +50,12 @@ export const GetScheduledNextDate = (schedules) => {
   const currentDay = today.getDay();
   const hasSunday = schedules.indexOf('U') !== -1;
   mySchedules = mySchedules.replace('U', '');
-  let sunday = [];
 
   const classSchedules = mySchedules.split('').map((schedule) => {
     const returnDate = new Date();
     let daysToAdd = 0;
     if (currentDay > days[schedule]) {
-      daysToAdd = 7 - currentDay + days[schedule];
+      daysToAdd = 7 - (currentDay + days[schedule]);
     } else {
       daysToAdd = days[schedule] - currentDay;
     }
@@ -76,46 +72,46 @@ export const GetScheduledNextDate = (schedules) => {
     classSchedules.push(returnDate.toLocaleString());
   }
 
-  return Moment(classSchedules.sort()[0]).format('DD MMM');
+  return moment(classSchedules.sort()[0]).format('DD MMM');
 };
 
 // Filter fot today's class schedule
-export const FilterTodaysClassSchedule = (schedule) => {
+export const filterTodaysClassSchedule = (schedule) => {
   const days = { 0: 'U', 1: 'M', 2: 'T', 3: 'W', 4: 'R', 5: 'F', 6: 'S' };
   const today = days[new Date().getDay()];
 
   if (!schedule) return schedule;
-  let scheduleTodayArray = [];
-  let scheduleArray = schedule.map((item) => {
-    if(item.class_schedule !== null && item.class_schedule !== '') {
-       if(item.class_schedule.indexOf(today) !== -1) {
+  const scheduleTodayArray = [];
+  schedule.map((item) => {
+    if (!item.class_schedule) {
+      if (item.class_schedule.indexOf(today) !== -1) {
         return scheduleTodayArray.push(item);
-       }
+      }
     }
+    return false;
   });
   return scheduleTodayArray;
 };
 
 // Convert DueDate from TimeStamp
 // timeStamp = 2015-09-01T01:30:00.000Z
-export const ConvertDueDateTimeStamp = (timeStamp) => {
-  if (timeStamp === null || timeStamp === '') {
-    return 'N/A';
-  }
-  const formattedDT = Moment(timeStamp).format('HHmm');
+export const ConvertDuedateTimeStamp = (timeStamp) => {
+  if (!timeStamp) return 'N/A';
+  
+  const formattedDT = moment(timeStamp).format('HHmm');
   return ConvertTo24Format(formattedDT);
 };
 // Convert date from TimeStamp
 // timeStamp = 2015-09-01T01:30:00.000Z
 export const ConvertDateFromTimeStamp = (timeStamp) => {
-  if (timeStamp === null || timeStamp === '') {
-    return 'N/A';
-  }
-  return Moment(timeStamp).format('MMM DD, YYYY');
+  if (!timeStamp) return 'N/A';
+  
+  return moment(timeStamp).format('MMM DD, YYYY');
 };
 
 /* remove the \n \r in assignment description */
 export const HtmlEncoding = (htmlText) => {
+  if (!htmlText) return '';
   let htmlEncodedText = htmlText;
   htmlEncodedText = htmlEncodedText.replace(/\\n/gi, '');
   htmlEncodedText = htmlEncodedText.replace(/\\r/gi, '');
@@ -126,15 +122,16 @@ export const HtmlEncoding = (htmlText) => {
 };
 
 /* Encode the string  "sis_source_id" for url routing purpose */
-export const StringEncodeURIComponent = (data) => {
+export const stringEncodeURIComponent = (data) => {
   if (!data) return data;
   return encodeURIComponent(data);
 };
 
 /* Encode the array of "sis_source_id" for url routing purpose */
-export const ConvertEncodeURIComponent = (data) => {
+export const convertEncodeURIComponent = (data) => {
   if (!data) return data;
-  let encodeArray = data.data.map((item) => {
+  const encodeArray = data.data.map((singleItem) => {
+    const item = singleItem;
     item.sis_source_id = encodeURIComponent(item.sis_source_id);
     return item;
   });
@@ -142,10 +139,10 @@ export const ConvertEncodeURIComponent = (data) => {
 };
 
 /*Data sort method is used to sort the array items in time sequence*/
-export const DATETIME = (dataArray, startTime, endTime, order) => {
+export const dateTime = (dataArray, startTime, endTime /* order*/) => {
   const data = dataArray;
   //const sortByKey = key;
-  const sortOrder = order || CommonConstants.SORT_CLASS;
+  //const sortOrder = order || CommonConstants.SORT_CLASS;
   const sortedData = [...data].sort((a, b) => {
     const timePart1 = ConvertTo24Format(a[startTime]);
     const timePart2 = ConvertTo24Format(b[endTime]);
@@ -165,14 +162,15 @@ export const DATETIME = (dataArray, startTime, endTime, order) => {
 };
 
 /*This method is for segregating  the items as per the week days and retuns an object*/
-export const DATAFILTERADDINGDATA = (dataArray) => {
+export const dataFilterAddingData = (dataArray) => {
   const data = dataArray;
   const newObject = {};
   const newArray = [];
-  let count;
+  let count = 0;
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
 
-  const filterlist = data.map((item) => {
+  const filterlist = data.map((singleitem) => {
+    const item = singleitem;
     const year = new Date().getFullYear();
     const date = new Date(`${GetScheduledNextDate(item.class_schedule)},${year}`);
     const day = days[date.getDay()];
@@ -198,9 +196,10 @@ export const DATAFILTERADDINGDATA = (dataArray) => {
 
   days.map((day) => {
     //removed 'index' from the 'map((data, index)' because it is throwing error: 'index' is defined but never used 
-    DATETIME(newObject[day], 'class_begin_time', 'class_end_time', CommonConstants.SORT_CLASS).map((data) => {
+    dateTime(newObject[day], 'class_begin_time', 'class_end_time', CommonConstants.SORT_CLASS).map((data) => {
       newArray.push(data);
     });
+    return newArray;
   });
 
   return newArray;
@@ -215,7 +214,7 @@ export const todayHeader = () => {
 
 export const AuthUserDetails = () => localStorage.roleInfo ? JSON.parse(localStorage.roleInfo) : {};
 
-export const authUserDetails = () => localStorage.roleInfo ? JSON.parse(localStorage.roleInfo) : {};
+export const authUserDetails = () => localStorage.getItem('roleInfo') ? JSON.parse(localStorage.getItem('roleInfo')) : {};
 
 export const SEGREGATEDATA = (list) => {
   const newArray = [];
@@ -239,10 +238,10 @@ export const SEGREGATEDATA = (list) => {
 };
 
 export const DATESCOMPARE = (currectDate, nextDate) => {
-  const currentDateTime = Moment(currectDate, 'DD/MM/YYYY').toDate();
-  const nextDateTime = Moment(new Date(nextDate), 'DD/MM/YYYY').toDate();
-  if (currentDateTime > nextDateTime) return 1;
-  else if (currentDateTime < nextDateTime) return -1;
+  const currentdateTime = moment(currectDate, 'DD/MM/YYYY').toDate();
+  const nextdateTime = moment(new Date(nextDate), 'DD/MM/YYYY').toDate();
+  if (currentdateTime > nextdateTime) return 1;
+  else if (currentdateTime < nextdateTime) return -1;
   return 0;
 };
 
@@ -282,12 +281,13 @@ export const DATESORT = (dataArray, key, dueDate, startTime, dueTime) => {
 export const CreateTimeStamp = (dataArray) => {
   const data = dataArray;
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
-  const filterlist = data.map((classObject) => {
+  const filterlist = data.map((singleclassObject) => {
+    const classObject = singleclassObject;
     for (let day = 0; day < 8; day++) {
-      if (days[(Moment().add(day, 'days')._d).getDay()] === classObject.day) {
-        const hours = parseInt(classObject.class_begin_time != null ? classObject.class_begin_time.slice(0, 2) : 0);
-        const minutes = parseInt(classObject.class_begin_time != null ? classObject.class_begin_time.slice(-2) : 0);
-        const timeStampWithoutTime = new Date(Moment().add(day, 'days')._d).toLocaleDateString();
+      if (days[(moment().add(day, 'days')._d).getDay()] === classObject.day) {
+        const hours = parseInt(classObject.class_begin_time !== null ? classObject.class_begin_time.slice(0, 2) : 0);
+        const minutes = parseInt(classObject.class_begin_time !== null ? classObject.class_begin_time.slice(-2) : 0);
+        const timeStampWithoutTime = new Date(moment().add(day, 'days')._d).toLocaleDateString();
         const timeStampWithTime = new Date(timeStampWithoutTime).setMinutes((hours * 60) + minutes);
         const timeStampString = new Date(timeStampWithTime).toString();
         classObject.timeStamp = new Date(timeStampString);
@@ -301,15 +301,17 @@ export const CreateTimeStamp = (dataArray) => {
 
 export const filterSevenDaysTimeStampsFromNow = (dataArray) => {
   const data = dataArray;
-  const today = Moment()._d;
-  const seventhDay = Moment().add(7, 'days')._d;
+  const today = moment()._d;
+  const seventhDay = moment().add(7, 'days')._d;
   const filterlist = [];
-  data.map((assignmentObject) => {
+  data.map((singleAssignmentObject) => {
+    const assignmentObject = singleAssignmentObject;
     assignmentObject.timeStamp = assignmentObject.assign_due === null ? null : new Date(assignmentObject.assign_due);
     if (assignmentObject.timeStamp !== null && assignmentObject.timeStamp >= today && assignmentObject.timeStamp <= seventhDay) {
       assignmentObject.submission_types === 'online_quiz' ? assignmentObject.type = 'testorquiz' : assignmentObject.type = 'assignments';
       filterlist.push(assignmentObject);
     }
+    return filterlist;
   });
   return filterlist;
 };
@@ -322,4 +324,19 @@ export const telephoneCheck = (phoneNumber, separator) => {
       .replace(regExpression, concat);
   }
   return '';
+};
+
+export const addedTypeField = (dataArray) => {
+  const data = dataArray;
+  const today = moment()._d;
+  const seventhDay = moment().add(7, 'days')._d;
+  const filterlist = [];
+  data.map((assignmentObject) => {
+    assignmentObject.timeStamp = assignmentObject.assign_due === null ? null : new Date(assignmentObject.assign_due);
+    if (assignmentObject.timeStamp !== null) {
+      assignmentObject.submission_types === 'online_quiz' ? assignmentObject.type = 'testorquiz' : assignmentObject.type = 'assignments';
+      filterlist.push(assignmentObject);
+    }
+  });
+  return filterlist;
 };

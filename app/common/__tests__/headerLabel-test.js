@@ -7,8 +7,7 @@ import HeaderLabel from '../headerLabel';
 
 
 describe('HeaderLabel testing ----->', () => {
- 
-  const headerLabel = shallow(<HeaderLabel  />);
+  const headerLabel = shallow(<HeaderLabel />);
   it('HeaderLabel is defined', () => {
     expect(headerLabel).toBeDefined();
   });
@@ -16,5 +15,4 @@ describe('HeaderLabel testing ----->', () => {
   it('HeaderLabel should bebasregular class', () => {
     expect(headerLabel.find('.bebasregular').length).toBe(1);
   });
-
 });

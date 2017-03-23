@@ -16,7 +16,7 @@ import HeaderLabel from './../../common/headerLabel';
 import * as HEADER from '../../constants/headerTitleConstants';
 import * as ROUTE_URL from './../../constants/routeContants';
 import PreviousNext from '../../common/previousNext1';
-import { StringEncodeURIComponent } from '../../common/utility'
+import { stringEncodeURIComponent } from '../../common/utility'
 
 class EventDetails extends React.PureComponent {
 
@@ -29,7 +29,7 @@ class EventDetails extends React.PureComponent {
     let prevObject = {};
     this.assignDue = this.props.params.assigndue;
     this.eventType = this.props.params.eventdetailstype;
-    this.eventId = StringEncodeURIComponent(this.props.params.id);
+    this.eventId = stringEncodeURIComponent(this.props.params.id);
     if (localStorage !== undefined) {
       details = JSON.parse(localStorage.getItem('eventList'));
     }

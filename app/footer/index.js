@@ -9,7 +9,7 @@ import UniversityLogo from './components/universityLogo';
 import Style from './style.css';
 import { translateText } from '../common/translate';
 
-const Footer = () => (
+const footer = () => (
   <footer className='footer fs0pt93 ' >
     <h1 className='announced-only'>{translateText('common:PAGE_FOOTER')}</h1>
     <Grid>
@@ -27,4 +27,4 @@ const Footer = () => (
   </footer>
 );
 
-export default Footer;
+export default footer;

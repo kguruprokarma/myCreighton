@@ -17,14 +17,12 @@ export class SimpleSearchDirectory extends React.PureComponent {
     super(props);
     this.onSearchTypeChange = this.onSearchTypeChange.bind(this);
     this.onSearchText = this.onSearchText.bind(this);
-
     this.onSearchTypeChange(this.props.params.searchtype);
     this.state = { presentState: '' };
   }
 
   onSearchTypeChange (searchType) {
     //TODO:: for advanced search
-    // Place holder fro Advanced Search, Team need to be updated this method while implementing Advanced Search in futuer sprint.
   }
 
   onSearchText (text) {
@@ -51,7 +49,7 @@ export class SimpleSearchDirectory extends React.PureComponent {
               <SearchTabController state={this.state.presentState} onSearchTypeChange={this.onSearchTypeChange} />
             </Col>
           </Row>
-          <SearchBox state={this.state} onSearchText={this.onSearchText} />
+          <SearchBox searchString={this.props.searchString}  state={this.state} onSearchText={this.onSearchText} currentPath={this.props.route.path.split('/')[1]} />
         </div>
           
       </section>

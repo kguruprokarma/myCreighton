@@ -17,6 +17,7 @@ import eventsReducer from '../nextEvents/eventList/reducer';
 import auth from '../login/reducer';
 import professionalReducer from '../profile/staff/professional/reducer';
 import campusDirectoryReducer from '../campusDirectory/reducer';
+import eventsFilterReducer from '../nextEvents/eventFilter/reducer';
 
 
 // enable Redux Dev Tools
@@ -40,6 +41,7 @@ const reducers = {
   eventsReducer: eventsReducer,
   professionalReducer: professionalReducer,
   campusDirectoryReducer: campusDirectoryReducer,
+  eventsFilterReducer: eventsFilterReducer,
   routing: routing
 };
 

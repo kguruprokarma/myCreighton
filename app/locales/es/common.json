@@ -113,7 +113,7 @@
   "DUE_TIME": "Tiempo debido",
   "DATE": "Fecha",
   "CLASS": "Clase",
-  "EVENTS_NOTES": "EVENTOS NOTAS",
+  "NO_EVENTS_NOTES": "No se han proporcionado detalles por el instructor",
   "DUE": "Debido",
   "TEST_IN_CLASS": "Prueba en clase",
   "QUESTIONS_AND_SCORING": "PREGUNTAS Y PUNTUACIÓN",

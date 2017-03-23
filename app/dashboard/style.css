@@ -151,6 +151,16 @@
     line-height: 9px;
 }
 
+.moneyIcon {
+    background:url(../assets/images/money.svg) no-repeat;
+    width: 40px;
+    height: 40px;
+}
+
+.school-img {
+  width: 52px;
+}
+
 /* Media for small devices */
 
 @media screen and (min-width: 768px) {
@@ -166,14 +176,8 @@
 
 @media screen and (min-width: 992px) {
 
-    .moduleImage img{
-        max-width: 52px;
-        max-height: 52px;
-    }
-
     .moduleImage {
         text-align:center;
-        height: 56px;
         vertical-align:middle;
     }
     
@@ -212,12 +216,7 @@
 
     .moduleImage {
         vertical-align:middle;
-        max-height: 58px;
     }
-    .moduleImage img{
-        max-height: 58px;
-    }
-    
 }
 
 @media screen and (min-width: 360px) and  (max-width: 492px) {
@@ -233,15 +232,7 @@
         top: 0;
     }
 
-    .moduleImage {
-        width: 15%;
-    }
-
-    .moduleImage img{
-        max-width: 72px;
-    }
-
-    .well-title {
+   .well-title {
         font-size: 2.4em;    /* font size 36 in pixel */
         text-align:left;
     }
@@ -254,9 +245,11 @@
 }
 
 @media screen and (min-width: 483px) and  (max-width: 520px) {
-    .moduleImage {
+   
+     .moduleImage {
         width: 20%;
     }
+    
 }
 
 @media screen and (min-width: 560px) and  (max-width: 660px) {
@@ -311,8 +304,7 @@
     } 
     
     .listflex li {
-        height: 18px;
-        
+        height: 18px;  
     }
 
     .angle-right {
@@ -401,12 +393,12 @@
     }
 
     .well-title {
-        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+        font-size: 1.6em;    /* font size 24 in pixel */
         text-align:left;
     }
 
     .well-caption {
-        font-size: 0.9333333333333333em; /* font size 14 in pixel */
+        font-size: 1.2em;   /* font size 18 in pixel */
         text-align:left;
     }
 }

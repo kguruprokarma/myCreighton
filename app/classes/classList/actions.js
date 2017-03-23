@@ -28,9 +28,9 @@ const catagoryChange = (str) => (
     data: str
   });
 
-  const requestAssignmentsData = () => ({
+const requestAssignmentsData = () => ({
   type: types.REQUEST_ASSIGNMENTS_DATA
-  });
+});
 
 const receiveAssignmentsData = (assignmentsData) => (
   {
@@ -116,4 +116,4 @@ export function getAssignmentDetails(reqObj) {
       }
       );
   };
-  }
+}

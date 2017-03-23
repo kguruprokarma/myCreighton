@@ -4,10 +4,10 @@
 
 import React from 'react';
 
-const UniversityLogo = () => (
+const universityLogo = () => (
   <figure className='university-logo'>
     <img src='../../assets/images/creighton_logo.png' alt='logo' />
   </figure>
 );
 
-export default UniversityLogo;
+export default universityLogo;

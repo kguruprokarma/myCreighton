@@ -5,6 +5,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Well, Row, Col } from 'react-bootstrap';
+import ImageComponent from '../../common/imageComponent';
 
 const moduleBlock = (modulesprops) => {
   const moduleBlocks = modulesprops.modulelist.map((moduleDetail, moduleIndex) => (
@@ -12,7 +13,7 @@ const moduleBlock = (modulesprops) => {
       <Well bsSize='large' className='white-well' >
         <Row>
           <Col xs={3} md={12} className='moduleImage'>
-            <img src={moduleDetail.imgURL} alt={moduleDetail.name} className={moduleDetail.class} />
+            <ImageComponent imagePath={moduleDetail.imgURL} alt={moduleDetail.name} className={moduleDetail.class} width='moduleDetail.width' />
           </Col>
           <Col xs={9} md={12}>
             <h3 className='well-title openSansLight'>{moduleDetail.name}</h3>

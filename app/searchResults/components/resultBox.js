@@ -18,7 +18,7 @@ const result = (resultProps) => (
           <span className='classPlace'>{resultProps.job_title}</span>
         </div>
         <div>
-          <span className='classPlace'>  </span>
+          <span className='classPlace' />
         </div>
       </Col>
     </div>
@@ -35,7 +35,7 @@ const result = (resultProps) => (
           <span className='classPlace'>{resultProps.job_title}</span>
         </div>
         <div>
-          <span className='classPlace'>  </span>
+          <span className='classPlace' />
         </div>
       </Col>
       <Col xs={3} className='text-right' />

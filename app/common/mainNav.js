@@ -3,7 +3,6 @@
 */
 
 import React from 'react';
-import { Link } from 'react-router';
 import { Grid, Row } from 'react-bootstrap';
 import { translateText } from './translate';
 import * as CommonConstants from '../constants/commonConstants';
@@ -12,9 +11,10 @@ import * as ROUTE_URL from '../constants/routeContants';
 
 class MainNav extends React.Component {
   render() {
+    const props = this.props;
     const role = AuthUserDetails().userRole;
     return (
-      <nav role='Navigation' id='navigation' className={this.props.navDisplay ? 'openNav' : 'closeNav'}>
+      <nav role='Navigation' id='navigation' className={props.navDisplay ? 'openNav' : 'closeNav'}>
         <h1 className='announced-only'>{translateText('common:NAVIGATION_MENU')}</h1>
         <Grid>
           <Row>

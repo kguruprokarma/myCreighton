@@ -20,3 +20,9 @@ export const MINUTES = 'minutes';
 
 export const SIMPLE_SEARCH = 'simple';
 export const ADVANCED_SEARCH = 'advanced';
+export const SEARCH_RESULTS = 'searchresults';
+
+export const EVENT_FILTER_7_DAYS = '7 Days';
+export const EVENT_FILTER_TODAY = 'Today';
+export const EVENT_FILTER_ALL = 'All';
+export const EVENT_FILTER_NEXT_EVENT = 'Next Detail';

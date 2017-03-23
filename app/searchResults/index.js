@@ -3,10 +3,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import Result from './components/resultBox';
-//import { USERS } from '../constants/resultsConstants';
-import SearchTabController from '../campusDirectory/components/tab';
 import { translateText } from '../common/translate';
+import SearchLeftNav from '../common/searchLeftNav';
 import * as actionCreators from '../campusDirectory/actions';
+import SimpleSearch from '../campusDirectory/components/simpleSearch';
  
 
 export class SearchResults extends React.PureComponent {
@@ -15,36 +15,31 @@ export class SearchResults extends React.PureComponent {
     this.state = {
       userList: []
     };
-    const reqObj = {
-      firstName: 'f',
-      lastName: 'f7'
-    };
-    this.props.getCampusDirectoryData(reqObj);
     this.loadMore = this.loadMore.bind(this);
-  }   
+  }
+  
   componentWillReceiveProps(nextProps) {
     if (nextProps.SimpleSearchData) {
       this.setState({userList: nextProps.SimpleSearchData.data.slice(0, 4)});
     }
   }
+
   loadMore () {
     const j = this.state.userList.length;  
     const sunarray = [...this.state.userList, ...this.props.SimpleSearchData.data.slice(j, j+4)];     
     this.setState({userList: sunarray});
   }
+
   render() {
     return (
       <section>
+        <SimpleSearch {...this.props} currentPath={this.props.route.path} searchString={this.props.params.searchquery} />
         <div>
-          <Row>
-            <Col md={4} sm={6} xs={12} className='hidden-md hidden-lg hidden-sm controller-buttons'>
-              <SearchTabController />
-            </Col>
-            
-            <Col sm={8} md={12} xs={12} className='userData pull-right'>
+          <Row>            
+            <Col sm={8} md={9} xs={12} className='userData pull-right'>
               <Row>
                 <Col md={9} xs={9}>
-                  {this.props.SimpleSearchData && this.state.userList.length} {translateText('common:SEARCH_RESULT')}
+                  {this.props.SimpleSearchData && this.state.userList.length} {this.props.SimpleSearchData && translateText('common:SEARCH_RESULT')}
                 </Col>
                 <Col md={3} xs={3} className='text-right'>
                   {this.props.SimpleSearchData && this.props.SimpleSearchData.data.length > this.state.userList.length && 
@@ -61,6 +56,9 @@ export class SearchResults extends React.PureComponent {
                 </div>
               }
               
+            </Col>
+            <Col md={3} sm={4} className='hidden-xs'>
+              <SearchLeftNav />
             </Col>
           </Row>
         </div>

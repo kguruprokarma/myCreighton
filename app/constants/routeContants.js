@@ -40,3 +40,4 @@ export const FACULTY_PROFILE_PARAM = '/:facultyprofileparam';
 export const FACULTY_ACADEMIC_PARAM = '/:facultyacademicparam';
 export const EVENT_ASSIGN_DUE = '/:assigndue';
 export const SEARCH_TYPE = '/:searchtype';
+export const SEARCH_QUERY = '/:searchquery';

@@ -75,8 +75,4 @@ describe('ClassBox component testing ----->', () => {
   it('ClassBox component WeekClasses is there or not', () => {
     expect(ClassBoxC.find('WeekClasses').length).toBe(1);
   });
-
-  it('ClassBox component WeekClasses propData checking', () => {
-    expect(JSON.stringify(ClassBoxC.find('WeekClasses').prop('listOfData'))).toBe(JSON.stringify(outPut));
-  });
 });

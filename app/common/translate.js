@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { translate } from 'react-i18next';
+import React from 'react';
 import i18n from '../i18n';
 
-export const translateText = (key) => {
-  return i18n.t(key);
-};
+export const translateText = (key) => i18n.t(key);
+
+
