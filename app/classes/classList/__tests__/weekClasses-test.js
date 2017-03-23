@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import WeekClasses from '../components/weekClasses';
-import { DataSort, dataFilterAddingData } from '../../../common/utility';
+import { dataFilterAddingData } from '../../../common/utility';
 
 const classes = {
   'data': [ 
@@ -35,7 +35,6 @@ const classes = {
 };
 
 const defaultProps = dataFilterAddingData(classes.data);
-const renderingOrder = ['Monday', 'Wednesday', 'Friday'];
 
 describe('WeekClasses component testing ----->', () => {
   const WeekClassesC = shallow(<WeekClasses listOfData={defaultProps} />);
@@ -46,11 +45,6 @@ describe('WeekClasses component testing ----->', () => {
 
   it('WeekClasses component contails WeekDayHeader component length', () => {
     expect(WeekClassesC.find('DayHeader').length).toBe(1);
-  });
-
-  it('WeekClasses component contails WeekDayHeader rendering order', () => {
-    let items = WeekClassesC.find('DayHeader');    
-    //expect(items.at(0).props().day).toBe('Monday');
   });
 
   it('WeekClasses component contails ClassInfo component length', () => {

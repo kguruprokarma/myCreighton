@@ -3,7 +3,6 @@
 */
 
 import React from 'react';
-import * as _ from 'lodash';
 import { shallow } from 'enzyme';
 import ClassDetails from '../index';
 import { CLASSES_DETAILS, CLASSES } from '../../../constants/nextEventsConstants';
@@ -165,7 +164,7 @@ describe('index files in Class Details testing ', () => {
     const changeProps = {
       params: { categorayname: CLASSES, id: '201610_HAP_200_A' }
     };
-    let test = Object.assign({}, minProps, { changeProps });
+    const test = Object.assign({}, minProps, { changeProps });
     const classDetails2 = shallow(<ClassDetails {...test} />);
     expect(classDetails2).toBeDefined();
   });

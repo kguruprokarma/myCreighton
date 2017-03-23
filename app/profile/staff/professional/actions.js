@@ -21,7 +21,7 @@ const receiveError = (professionalError) => (
     data: professionalError
   });
 
-export function getProfessionalData(reqObj) {
+export default function getProfessionalData(reqObj) {
   return function (dispatch) {
     dispatch(requestData());
     return ProfessionalApi.getProfessionalData(reqObj)

@@ -5,7 +5,7 @@
 import React from 'react';
 import { translateText } from '../../../common/translate';
 
-const ClassAssignments = (classAssignProps) => (
+const classAssignments = (classAssignProps) => (
   <article className='classAssignment mb25 mt20'>
     <h4 className='detailSubhead graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>{translateText('common:ASSIGNMENTS_DUE')}</h4>
     {classAssignProps.data.length !== 0 ? classAssignProps.data.map((assigmentData, classesDueIndex) => (
@@ -17,4 +17,4 @@ const ClassAssignments = (classAssignProps) => (
   </article>
 );
 
-export default ClassAssignments;
+export default classAssignments;

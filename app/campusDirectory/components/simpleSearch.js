@@ -5,7 +5,6 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Col, Row, Alert } from 'react-bootstrap';
-import HeaderLabel from '../../common/headerLabel';
 import { translateText } from '../../common/translate';
 import * as actionCreators from '../actions';
 import SearchBox from './searchBox';
@@ -21,11 +20,11 @@ export class SimpleSearchDirectory extends React.PureComponent {
     this.state = { presentState: '' };
   }
 
-  onSearchTypeChange (searchType) {
+  onSearchTypeChange(searchType) {
     //TODO:: for advanced search
   }
 
-  onSearchText (text) {
+  onSearchText(text) {
     if (!text) return;
     const searchText = text.split(' ');
     const reqObj = {
@@ -37,21 +36,16 @@ export class SimpleSearchDirectory extends React.PureComponent {
 
   render() {
     return (
-      <section>          
+      <section>
         <div>
           <Row>
-            <Col md={8} sm={6} xs={12} className='hidden-xs'>
-              <div className='hidden-xs'>
-                <HeaderLabel headerLabel={translateText('common:CAMPUS_DIRECTORY')} />
-              </div>
-            </Col>
             <Col md={4} sm={6} xs={12} className='hidden-md hidden-lg hidden-sm controller-buttons'>
               <SearchTabController state={this.state.presentState} onSearchTypeChange={this.onSearchTypeChange} />
             </Col>
           </Row>
-          <SearchBox searchString={this.props.searchString}  state={this.state} onSearchText={this.onSearchText} currentPath={this.props.route.path.split('/')[1]} />
+          <SearchBox searchString={this.props.searchString} state={this.state} onSearchText={this.onSearchText} currentPath={this.props.route.path.split('/')[1]} />
         </div>
-          
+
       </section>
     );
   }

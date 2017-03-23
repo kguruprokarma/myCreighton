@@ -13,7 +13,7 @@ export const dataSort = (dataArray, key, order) => {
 };
 
 /* Conver 24 hrs format time to 12 hrs format time */
-export const ConvertTo24Format = (time) => {
+export const convertTo24Format = (time) => {
   if (!time) return 'N/A';
 
   let hours = time.substring(0, 2);
@@ -30,7 +30,7 @@ export const ConvertTo24Format = (time) => {
 };
 
 /* Get schedule day for scheduler */
-export const ScheduleDays = (schedule) => {
+export const scheduleDays = (schedule) => {
   if (!schedule) return '';
 
   const scheduleDay = schedule.replace(/-/gi, '');
@@ -42,7 +42,7 @@ export const ScheduleDays = (schedule) => {
 };
 
 /* To get the next date for schedule: M-W-F */
-export const GetScheduledNextDate = (schedules) => {
+export const getScheduledNextDate = (schedules) => {
   if (!schedules) return 'N/A';
   let mySchedules = schedules.replace(/\-/g, '');
   const days = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
@@ -83,7 +83,7 @@ export const filterTodaysClassSchedule = (schedule) => {
   if (!schedule) return schedule;
   const scheduleTodayArray = [];
   schedule.map((item) => {
-    if (!item.class_schedule) {
+    if (item.class_schedule !== null && item.class_schedule !== '') {
       if (item.class_schedule.indexOf(today) !== -1) {
         return scheduleTodayArray.push(item);
       }
@@ -95,11 +95,11 @@ export const filterTodaysClassSchedule = (schedule) => {
 
 // Convert DueDate from TimeStamp
 // timeStamp = 2015-09-01T01:30:00.000Z
-export const ConvertDuedateTimeStamp = (timeStamp) => {
+export const convertDueDateTimeStamp = (timeStamp) => {
   if (!timeStamp) return 'N/A';
   
   const formattedDT = moment(timeStamp).format('HHmm');
-  return ConvertTo24Format(formattedDT);
+  return convertTo24Format(formattedDT);
 };
 // Convert date from TimeStamp
 // timeStamp = 2015-09-01T01:30:00.000Z
@@ -110,7 +110,7 @@ export const ConvertDateFromTimeStamp = (timeStamp) => {
 };
 
 /* remove the \n \r in assignment description */
-export const HtmlEncoding = (htmlText) => {
+export const htmlEncoding = (htmlText) => {
   if (!htmlText) return '';
   let htmlEncodedText = htmlText;
   htmlEncodedText = htmlEncodedText.replace(/\\n/gi, '');
@@ -144,8 +144,8 @@ export const dateTime = (dataArray, startTime, endTime /* order*/) => {
   //const sortByKey = key;
   //const sortOrder = order || CommonConstants.SORT_CLASS;
   const sortedData = [...data].sort((a, b) => {
-    const timePart1 = ConvertTo24Format(a[startTime]);
-    const timePart2 = ConvertTo24Format(b[endTime]);
+    const timePart1 = convertTo24Format(a[startTime]);
+    const timePart2 = convertTo24Format(b[endTime]);
     const amOrPmOfTime1 = timePart1.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
     const amOrPmOfTime2 = timePart2.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
     const time1Spliting = timePart1.split(amOrPmOfTime1)[0].split(':');
@@ -172,7 +172,7 @@ export const dataFilterAddingData = (dataArray) => {
   const filterlist = data.map((singleitem) => {
     const item = singleitem;
     const year = new Date().getFullYear();
-    const date = new Date(`${GetScheduledNextDate(item.class_schedule)},${year}`);
+    const date = new Date(`${getScheduledNextDate(item.class_schedule)},${year}`);
     const day = days[date.getDay()];
     item.day = day;
     return item;
@@ -237,7 +237,7 @@ export const SEGREGATEDATA = (list) => {
   return newArray;
 };
 
-export const DATESCOMPARE = (currectDate, nextDate) => {
+export const datesCompare = (currectDate, nextDate) => {
   const currentdateTime = moment(currectDate, 'DD/MM/YYYY').toDate();
   const nextdateTime = moment(new Date(nextDate), 'DD/MM/YYYY').toDate();
   if (currentdateTime > nextdateTime) return 1;
@@ -245,7 +245,7 @@ export const DATESCOMPARE = (currectDate, nextDate) => {
   return 0;
 };
 
-export const DATESORT = (dataArray, key, dueDate, startTime, dueTime) => {
+export const dateSort = (dataArray, key, dueDate, startTime, dueTime) => {
   const date = dataArray;
   const startDateSort = key;
   const dueDateSort = dueDate;

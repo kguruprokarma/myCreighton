@@ -24,7 +24,7 @@ export const modulesBlocksData = (roleType) => {
         'linkto': ROUTE_URL.CLASSES + ROUTE_URL.WEEK, //"/classes/week",
         'name': translateText('common:DASH_BOARD_CLASSES'),
         'description': translateText('common:DASH_BOARD_WHAT_I_NEED_CLASS'),
-        'class': 'classes-img',
+        'class': 'classes-img'
 
       }],
       [{

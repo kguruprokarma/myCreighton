@@ -6,7 +6,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
 import moment from 'moment';
-import { ConvertTo24Format, ConvertDateFromTimeStamp } from '../../../common/utility';
+import { convertTo24Format, ConvertDateFromTimeStamp } from '../../../common/utility';
 import * as ROUTE_URL from '../../../constants/routeContants';
 import * as commonConstants from '../../../constants/commonConstants';
 
@@ -28,7 +28,7 @@ const Classes = (classesProps) => (
           <span className='classBy'>{ConvertDateFromTimeStamp(classesProps.data.timeStamp)}</span>
         </Col>
         <Col md={2} sm={2} className='text-right'>
-          <div className='classTime'>{classesProps.data.class_begin_time !== null ? ConvertTo24Format(classesProps.data.class_begin_time) : 'N/A'} - {classesProps.data.class_end_time !== null ?ConvertTo24Format(classesProps.data.class_end_time): 'N/A'}</div>
+          <div className='classTime'>{classesProps.data.class_begin_time !== null ? convertTo24Format(classesProps.data.class_begin_time) : 'N/A'} - {classesProps.data.class_end_time !== null ?convertTo24Format(classesProps.data.class_end_time): 'N/A'}</div>
         </Col>
       </Link>
     </div>
@@ -48,7 +48,7 @@ const Classes = (classesProps) => (
           <span className='classPlace'> {classesProps.data.class_room_code}</span>
         </Col>
         <Col xs={5} className='text-right'>
-          <span className='classTime'>{ConvertTo24Format(classesProps.data.class_begin_time)} - {ConvertTo24Format(classesProps.data.class_end_time)}</span>
+          <span className='classTime'>{convertTo24Format(classesProps.data.class_begin_time)} - {convertTo24Format(classesProps.data.class_end_time)}</span>
         </Col>
       </Row>
     </Link>

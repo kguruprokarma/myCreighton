@@ -1,4 +1,4 @@
-/* Created Date: - 26th -01 -2017
+/* Created Date: - 22nd, Mar -2017
  * This file is used for unit testing index js file of campus directory search page
  */
 

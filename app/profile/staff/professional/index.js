@@ -25,7 +25,8 @@ export class StaffProfessional extends React.PureComponent {
   }
 
   render() {
-    const USER_DATA = this.props.professionalData.data;
+    const props = this.prosp;
+    const USER_DATA = props.professionalData.data;
     return (
       <section id='academic'>
         

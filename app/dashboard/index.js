@@ -13,7 +13,7 @@ import ToggleMealPlan from './components/toggleMealPlan';
 import dashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
-import style from './style.css';
+import './style.css';
 import { AuthUserDetails } from '../common/utility';
 
 export class Dashboard extends Component {

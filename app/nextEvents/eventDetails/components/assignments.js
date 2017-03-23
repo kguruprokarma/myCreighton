@@ -6,7 +6,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import HtmlReactParser from 'html-react-parser';
 import { translateText } from '../../../common/translate';
-import { ConvertDuedateTimeStamp, ConvertDateFromTimeStamp, HtmlEncoding } from '../../../common/utility';
+import { convertDueDateTimeStamp, ConvertDateFromTimeStamp, htmlEncoding } from '../../../common/utility';
 
 const Assignments = (assignmentsDetails) => (
   <section>
@@ -19,7 +19,7 @@ const Assignments = (assignmentsDetails) => (
         <p>{assignmentsDetails.data.course_name}</p>
         <Row>
           <Col md={6} xs={6}>
-            <p className='text-left'><span>{translateText('DUE')} </span><span>{ConvertDuedateTimeStamp(assignmentsDetails.data.assign_due)}</span></p>
+            <p className='text-left'><span>{translateText('DUE')} </span><span>{convertDueDateTimeStamp(assignmentsDetails.data.assign_due)}</span></p>
           </Col>
           <Col md={6} xs={6}>
             <p className='eventDate text-right'>{ConvertDateFromTimeStamp(assignmentsDetails.data.assigned_date)}</p>
@@ -32,7 +32,7 @@ const Assignments = (assignmentsDetails) => (
       <div className='eventNotes pt5'>
         {
             assignmentsDetails.data.assign_desc === null || assignmentsDetails.data.assign_desc === '' ? translateText('common:NO_EVENTS_NOTES') :
-            HtmlReactParser(HtmlEncoding(assignmentsDetails.data.assign_desc))
+            HtmlReactParser(htmlEncoding(assignmentsDetails.data.assign_desc))
         }
       </div>
     </article>

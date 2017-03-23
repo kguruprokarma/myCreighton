@@ -6,6 +6,7 @@ import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 import { Col, Row } from 'react-bootstrap';
 import CustomPopUp from '../common/customPopUp';
 import Title from '../header/components/title';
@@ -14,6 +15,8 @@ import * as actionCreators from './actions';
 import { translateText } from '../common/translate';
 import NextEventFilter from '../nextEvents/eventFilter/index';
 import * as RouteContants from '../constants/routeContants';
+import * as CommonContants from '../constants/commonConstants';
+import { HAMBURGER_ICON, MENUCLOSE_ICON } from '../constants/imageConstants';
 
 
 export class Header extends React.PureComponent {
@@ -30,6 +33,7 @@ export class Header extends React.PureComponent {
     window.onhashchange = function () {
       self.props.popUpClose();
       self.props.navClose();
+      self.props.filterPopUpClose();
     };
   }
 
@@ -70,7 +74,10 @@ export class Header extends React.PureComponent {
         <div className='container'>
           <Row >
             <Col xs={2} sm={2} className='hidden-lg hamburgerMenu'>
-              <img alt='' src={props.navData ? './assets/images/menu-close.png' : './assets/images/menu.png'} onClick={this.navClick} />
+              {this.props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ?
+                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { history.back(); }} /> 
+                : <img alt='' src={this.props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} onClick={this.navClick} />
+              }                          
             </Col>
             <Col lg={10} className='visible-lg'>
               <Link to={`${RouteContants.DASHBOARD}`}>
@@ -81,7 +88,6 @@ export class Header extends React.PureComponent {
               <Title path={props.currentState} />
             </Col>
             <Col xs={2} sm={2} className='pull-right'>
-
               <ul className='pull-right list-inline'>
                 <li className='head-Icons'>
                   <div className='popUp'>
@@ -93,12 +99,11 @@ export class Header extends React.PureComponent {
                   </div>
                 </li>
               </ul>
-              {(props.currentState === RouteContants.EVENT_LIST || props.currentState === RouteContants.EVENT_DETAILS) &&
+              {(this.props.currentState === RouteContants.EVENT_LIST || this.props.currentState === RouteContants.EVENT_DETAILS) &&
                 <ul className='pull-right list-inline'>
                   <li className='head-Icons'>
                     <div className='popUp'>
                       <span onClick={this.showFilterPopUp} className='filterIcon'>Event Filter</span>
-
                       <div className='popUpContainer'>
                         {props.filterPopUpData &&
                           <NextEventFilter />}

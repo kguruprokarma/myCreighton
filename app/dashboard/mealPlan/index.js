@@ -24,12 +24,12 @@ export class MealPlan extends Component {
     }
   }
   render() {
-    const MEALPLAN_DATA = this.props.mealPlanData;
-
+    const props = this.props;
+    const MEALPLAN_DATA = props.mealPlanData;
     return (
       <section id='mealPlan'>
         <h1 className='announced-only'>{translateText('common:MEAL_PLAN')}</h1>
-        <div className={this.props.showMeal ? 'show' : 'hide'}>
+        <div className={props.showMeal ? 'show' : 'hide'}>
           <Well bsSize='small' className='jaybucksWell'>
             <Col sm={11} xs={10}>
               <Row>{MEALPLAN_DATA &&
@@ -46,7 +46,7 @@ export class MealPlan extends Component {
             </Col>
           </Well>
         </div>
-        <a className='doller-icon pull-right hidden-xs openSansBold'><span onClick={this.props.toggleMeal}> {this.props.showMeal ? translateText('common:MEAL_HIDE') : <img src={'./assets/images/money.png'} alt='' />}</span></a>
+        <a className='doller-icon pull-right hidden-xs openSansBold'><span onClick={props.toggleMeal}> {props.showMeal ? translateText('common:MEAL_HIDE') : <img src={'./assets/images/money.png'} alt='' />}</span></a>
       </section>
 
     );

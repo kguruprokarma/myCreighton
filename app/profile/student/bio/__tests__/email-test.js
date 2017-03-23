@@ -7,10 +7,9 @@ import { shallow } from 'enzyme';
 import Email from '../components/email';
 
 it('Email is defined', () => {
-
   const defaultProps = {
-    email: { "school_email": "bab74e76ba@creighton.edu" },
-  }
+    email: { 'school_email': 'bab74e76ba@creighton.edu' }
+  };
   const email = shallow(<Email {...defaultProps} />);
 
   expect(email).toBeDefined();

@@ -10,7 +10,7 @@ import HeaderLabel from './../../common/headerLabel';
 import ClassTabController from './components/classTabController';
 import ClassBox from './components/classBox';
 import * as actionCreators from './actions';
-import style from '../classList/style.css';
+import '../classList/style.css';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import Spinner from '../../common/spinner';

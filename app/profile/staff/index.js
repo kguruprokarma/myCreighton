@@ -30,30 +30,32 @@ export class StaffProfile extends React.PureComponent {
     userReqObj = {};
     userReqObj.primaryKey = 'netid';
     userReqObj.primaryValue = authUserDetails().netid;
-    this.props.getStaffProfileData(userReqObj);
+    const props = this.props;
+    props.getStaffProfileData(userReqObj);
   }
 
   render() {
-    const USER_DATA = this.props.profile === CommonConstants.STAFF_LABEL && this.props.profileData;
+    const props = this.props;
+    const USER_DATA = props.profile === CommonConstants.STAFF_LABEL && props.profileData;
     return (
       <section>
-        {this.props.loading && <Spinner />}
+        {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
               <LegalName legalName={USER_DATA.data[0].staff_name} />
               <StaffAddress staffAddress={USER_DATA.data[0].faculty_address} />
-              <WorkAddress workAddress={USER_DATA.data[0].work_address} profile={this.props.profile}/>
+              <WorkAddress workAddress={USER_DATA.data[0].work_address} profile={props.profile} />
               <MailAddress mailAddress={USER_DATA.data[0].mail_address} />
               <PrimaryContact primaryContact={USER_DATA.data[0].phone} />
               <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} relation={USER_DATA.data[0].emrg_cont_type} phone={USER_DATA.data[0].emergency_contact_phone} />
               <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={USER_DATA.data[0].personal_email} isShowPersonalEmail />
-              <Other profile={this.props.profile} detail={USER_DATA.data[0]} />
+              <Other profile={props.profile} detail={USER_DATA.data[0]} />
               <FamilyDetail familyDetail={USER_DATA.data[0]} />
             </Col>
             <Col md={3} sm={4} className='hidden-xs'>
-              <LeftNav role={this.props.profile} />
+              <LeftNav role={props.profile} />
             </Col>
           </Row>
         }

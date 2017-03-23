@@ -1,4 +1,4 @@
-export const USERS = [
+const USERS = [
   {
     name: 'Carla',
     phone: '402.208.4206',
@@ -198,3 +198,5 @@ export const USERS = [
     availability: 'Away - Regular hours 8am to 5pm Mon-Thu'
   }
 ];
+
+export { USERS as default };

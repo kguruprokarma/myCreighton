@@ -20,14 +20,14 @@ export class SearchResults extends React.PureComponent {
   
   componentWillReceiveProps(nextProps) {
     if (nextProps.SimpleSearchData) {
-      this.setState({userList: nextProps.SimpleSearchData.data.slice(0, 4)});
+      this.setState({userList: nextProps.SimpleSearchData.data.slice(0, 10)});
     }
   }
 
   loadMore () {
     const j = this.state.userList.length;  
-    const sunarray = [...this.state.userList, ...this.props.SimpleSearchData.data.slice(j, j+4)];     
-    this.setState({userList: sunarray});
+    const moreResults = [...this.state.userList, ...this.props.SimpleSearchData.data.slice(j, j+10)];     
+    this.setState({userList: moreResults});
   }
 
   render() {

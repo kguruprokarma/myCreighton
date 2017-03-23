@@ -3,10 +3,10 @@
 */
 
 import React from 'react';
+import moment from 'moment';
 import BasicRow from '../../../common/basicRow';
 import { translateText } from '../../../common/translate';
 import * as CommonConstants from '../../../constants/commonConstants';
-import moment from 'moment';
 
 const Other = (otherProps) => (
   <article className='profileRow mt30'>

@@ -1,3 +1,4 @@
+export const KEYPRESS_ENTER = 'Enter';
 export const DEVICE_WIDTH = 767;
 export const ROLE_STUDENT = 'student';
 export const STUDENT_LABEL = 'STUDENT';

@@ -7,14 +7,13 @@ import {shallow} from 'enzyme';
 import LegalName from '../components/legalName';
 
 it('LegalName is defined', () => {
-
   const defaultProps = {
     legalName: {
-      first: "first name",
-      middle: "middle name",
-      last: "last name"
+      first: 'first name',
+      middle: 'middle name',
+      last: 'last name'
     }
-  }
+  };
   const legalName = shallow(<LegalName {...defaultProps} />);
 
   expect(legalName).toBeDefined();

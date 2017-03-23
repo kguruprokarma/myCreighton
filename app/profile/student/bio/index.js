@@ -29,14 +29,16 @@ export class Profile extends React.PureComponent {
     userReqObj = {};
     userReqObj.primaryKey = 'netid';
     userReqObj.primaryValue = authUserDetails().netid;
-    this.props.getStudentProfileData(userReqObj);
+    const props = this.props;
+    props.getStudentProfileData(userReqObj);
   }
 
   render() {
-    const USER_DATA = this.props.profile === CommonConstants.STUDENT_LABEL && this.props.profileData;
+    const props = this.props;
+    const USER_DATA = props.profile === CommonConstants.STUDENT_LABEL && props.profileData;
     return (
       <section>
-        {this.props.loading && <Spinner />}
+        {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
         {USER_DATA.data &&
           <Row>
@@ -47,15 +49,15 @@ export class Profile extends React.PureComponent {
               <PrimaryContact primaryContact={USER_DATA.data[0].primary_phone_no} />
               <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} />
               <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].email.school_email} isShowPersonalEmail={false} />
-              <Other profile={this.props.profile} detail={USER_DATA.data[0]} />
+              <Other profile={props.profile} detail={USER_DATA.data[0]} />
               <RelationDetail parentDetail={USER_DATA.data[0].parent} gurdianDetail={USER_DATA.data[0].guardian} />
             </Col>
             <Col md={3} sm={4} className='hidden-xs'>
-              <LeftNav role={this.props.profile} />
+              <LeftNav role={props.profile} />
             </Col>
           </Row> 
         }
-        {((!USER_DATA && !this.props.loading) || (USER_DATA.error)) &&
+        {((!USER_DATA && !props.loading) || (USER_DATA.error)) &&
         <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
           }
         

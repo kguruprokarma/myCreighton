@@ -5,16 +5,16 @@
 import React from 'react';
 import { translateText } from '../../../common/translate';
 
-const UpcomingAssignments = (upcomingAssignProps) => (
-    <article className='upcomingAssignments mb25'>
-        <h4 className='detailSubhead graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>{translateText('common:UPCOMING_ASSIGNMENTS')}</h4>
-        {upcomingAssignProps.data.length !== 0 ? upcomingAssignProps.data.map((assignment, assignmentIndex) => (
-            <div className='openSansLight fs1pt2 gbl_lh' key={assignmentIndex}>
-                {assignment.assign_title}
-            </div>
+const upcomingAssignments = (upcomingAssignProps) => (
+  <article className='upcomingAssignments mb25'>
+    <h4 className='detailSubhead graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>{translateText('common:UPCOMING_ASSIGNMENTS')}</h4>
+    {upcomingAssignProps.data.length !== 0 ? upcomingAssignProps.data.map((assignment, assignmentIndex) => (
+      <div className='openSansLight fs1pt2 gbl_lh' key={assignmentIndex}>
+        {assignment.assign_title}
+      </div>
         )):translateText('common:NO_CONTENT')
         }
-    </article>
+  </article>
 );
 
-export default UpcomingAssignments;
+export default upcomingAssignments;

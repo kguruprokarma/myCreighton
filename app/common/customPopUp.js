@@ -9,7 +9,7 @@ import { Link, hashHistory } from 'react-router';
 import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
 import * as actionCreators from '../dashboard/actions';
 import UserDetail from '../dashboard/components/userDetail';
-import ProfileMenu from '../header/components/profileMenu';
+import profileMenu from '../header/components/profileMenu';
 import { AuthUserDetails } from './utility';
 import i18n from '../i18n';
 import { translateText } from '../common/translate';
@@ -43,7 +43,7 @@ export class CustomPopUp extends React.Component {
   }
   render() {
     const { userDetailsData } = this.props;
-    const ProfileMenus = ProfileMenu(this.role);
+    const ProfileMenus = profileMenu(this.role);
     const languages = [{ 'langkey': 'en', 'language': translateText('common:COMMON_ENGLISH') }, { 'langkey': 'es', 'language': translateText('common:COMMON_SPANISH') }];
     return (<div className='customPopUp'>
       <span className='popupPointer'>&nbsp;</span>

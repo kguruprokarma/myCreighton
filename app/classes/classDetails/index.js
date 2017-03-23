@@ -3,17 +3,17 @@
  */
 
 import React from 'react';
-import * as _ from 'lodash';
+import { find, findIndex } from 'lodash';
 import HeaderLabel from './../../common/headerLabel';
 import ClassInfo from './../classDetails/components/classInfo';
 import ClassAssignments from './../classDetails/components/classAssignments';
 import TodaysClass from './../classDetails/components/todaysClass';
 import UpcomingAssignments from './../classDetails/components/upcomingAssignments';
 import TestsOrQuizzes from './../classDetails/components/testsOrQuizzes';
-import style from '../classDetails/style.css';
+import '../classDetails/style.css';
 import PreviousNext from '../../common/previousNext';
 import { translateText } from '../../common/translate';
-import { DATESCOMPARE, stringEncodeURIComponent } from '../../common/utility';
+import { datesCompare, stringEncodeURIComponent } from '../../common/utility';
 import { CLASSES_DETAILS } from '../../constants/nextEventsConstants';
 
 class ClassDetails extends React.PureComponent {
@@ -28,7 +28,7 @@ class ClassDetails extends React.PureComponent {
       obj = JSON.parse(localStorage.getItem('classDetails'));
       showPrevNext = true;
     }
-    const classData = _.find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
+    const classData = find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
     let assignments = {};
     if (classData.assignmentData && classData.assignmentData !== null) {
       assignments = classData.assignmentData;
@@ -44,7 +44,7 @@ class ClassDetails extends React.PureComponent {
         testOrQuizzesData.push(assignmentObj);
       } else {
         if (assignmentObj.assign_due) {
-          const dateValue = DATESCOMPARE(currentDate, assignmentObj.assign_due);
+          const dateValue = datesCompare(currentDate, assignmentObj.assign_due);
           if (dateValue === 1) {
             assignmentDue.push(assignmentObj);
           } else if (dateValue === -1) {
@@ -57,7 +57,7 @@ class ClassDetails extends React.PureComponent {
     });
     let nextObject = {},
       prevObject = {};
-    const index = _.findIndex(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
+    const index = findIndex(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
     if (index < obj.length - 1) {
       nextObject = obj[Object.keys(obj)[index + 1]];
     } else {

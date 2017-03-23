@@ -5,16 +5,16 @@
 import React from 'react';
 import { translateText } from '../../../common/translate';
 
-const TodaysClass = (todayClassProps) => (
-    <article className='todaysClass mb25'>
-        <h4 className='detailSubhead graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>{translateText('common:TODAYS_CLASS')}</h4>
-        {todayClassProps.data.length !== 0 ? todayClassProps.data.map((todayClass, todayClassIndex) => (
-            <div className='openSansLight fs1pt2 gbl_lh' key={todayClassIndex}>
-                {todayClass.assign_title}
-            </div>
-        )):translateText('common:NO_CONTENT')
+const todaysClass = (todayClassProps) => (
+  <article className='todaysClass mb25'>
+    <h4 className='detailSubhead graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>{translateText('common:TODAYS_CLASS')}</h4>
+    {todayClassProps.data.length !== 0 ? todayClassProps.data.map((todayClass, todayClassIndex) => (
+      <div className='openSansLight fs1pt2 gbl_lh' key={todayClassIndex}>
+        {todayClass.assign_title}
+      </div>
+        )) : translateText('common:NO_CONTENT')
         }
-    </article>
+  </article>
 );
 
-export default TodaysClass;
+export default todaysClass;

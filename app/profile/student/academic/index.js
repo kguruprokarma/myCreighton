@@ -12,7 +12,7 @@ import AcademicStatus from './components/academicStatus';
 import AdvisorInformation from './components/advisorInformation';
 import * as actionCreators from './actions';
 import * as profileActionCreators from '../../actions';
-import styles from '../style.css';
+import '../style.css';
 import LeftNav from '../../../common/leftNav';
 import Spinner from '../../../common/spinner';
 import HeaderLabel from '../../../common/headerLabel';
@@ -25,14 +25,16 @@ export class Academic extends React.PureComponent {
     userReqObj = {};
     userReqObj.primaryKey = 'netid';
     userReqObj.primaryValue = authUserDetails().netid;
-    this.props.getAcademicData(userReqObj);
+    const props = this.props;
+    props.getAcademicData(userReqObj);
   }
 
   render() {
-    const USER_DATA = this.props.academicData;
+    const props = this.props;
+    const USER_DATA = props.academicData;
     return (
       <section id='academic'>
-        {this.props.loading && <Spinner />}
+        {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} /></div>
         {USER_DATA &&
           <Row>
@@ -41,11 +43,11 @@ export class Academic extends React.PureComponent {
               <AdvisorInformation json={USER_DATA.data[0]} />
             </Col>
             <Col md={3} sm={4} className='hidden-xs'>
-              <LeftNav role={this.props.profile} />
+              <LeftNav role={props.profile} />
             </Col>
           </Row>
         }
-        {(!USER_DATA && !this.props.loading) &&
+        {(!USER_DATA && !props.loading) &&
           <AlertComponent typename='warning' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
