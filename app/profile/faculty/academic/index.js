@@ -24,9 +24,9 @@ export class FacultyAcademic extends React.PureComponent {
     userReqObj = {};
     userReqObj.primaryKey = 'netid';
     userReqObj.primaryValue = authUserDetails().netid;
-    this.headerText = translateText('common:ACADEMIC');
+    this.headerText = translateText('common:PROFILE_ACADEMIC');
     this.props.getFacultyAcademicData(userReqObj);
-    browserTitle(translateText('common:ACADEMIC'));
+    browserTitle(translateText('common:PROFILE_ACADEMIC'));
   }
 
   render() {

@@ -10,10 +10,10 @@ const defaultProps ={
   getUserDetailsData: () => {},
   userDetailsData: {
     'userName': {
-      'firstName': 'Mohammad',
-      'middleName': 'Usman',
-      'lastName': 'Ali',
-      'fullName': 'Usman Ali'
+      'firstName': 'Gary',
+      'middleName': 'G',
+      'lastName': 'Brady',
+      'fullName': 'Gary Brady'
     },
     'userImageURL': '',
     'userRole': 'Student'
@@ -24,7 +24,7 @@ const defaultProps ={
 };
 
 const dashboard = shallow(<Dashboard {...defaultProps} />);
-describe('I18nextProvidergg', () => {
+describe('Dashboard Test Suite', () => {
   it('should provide i18n context', () => {
     expect(dashboard).toBeDefined();
   });

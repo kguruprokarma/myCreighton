@@ -39,3 +39,5 @@ export function getAcademicData(reqObj) {
       );
   };
 }
+
+export default getAcademicData;

@@ -3,7 +3,6 @@ import reducer from '../reducer';
 
 describe('Header reducer testing ----->', () => {
   const defaultState = reducer(undefined, {});
-  const error = new Error('Error :: Something went wrong!!!');
   it('if reducers passed with no state and actiontype', () => {
     expect(reducer(undefined, {})).toBe(defaultState);
   });

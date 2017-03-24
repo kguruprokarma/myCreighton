@@ -14,8 +14,7 @@ const Assignments = (assignmentProps) => (
     <Link to={`${ROUTE_URL.EVENT_DETAILS}/${assignmentProps.data.type}/${assignmentProps.data.sis_source_id}/${assignmentProps.data.assignment_id}`}>
       <div className='hidden-xs desktopEventsList'>
         <Col md={6} sm={6}>
-          <h3 className='pull-left mb0 eventHeading'><span className='assignIcon mr10'>&nbsp;</span> {assignmentProps.data.assign_title}</h3>
-          <span className='pull-left eventOn'><span>{translateText('DUE')} </span>{convertDueDateTimeStamp(assignmentProps.data.assign_due)}</span>
+          <h3 className='mb0 eventHeading'><span className='assignIcon mr10'>&nbsp;</span> {assignmentProps.data.assign_title} <span className='eventOn'><span>{translateText('DUE')} </span>{convertDueDateTimeStamp(assignmentProps.data.assign_due)}</span></h3>
         </Col>
         <Col md={2} sm={2}>
           <span className='eventPlace'>{assignmentProps.data.course_name}</span>

@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import HtmlReactParser from 'html-react-parser';
+import htmlReactParser from 'html-react-parser';
 import { translateText } from '../../../common/translate';
 import { htmlEncoding, convertDateFromTimeStamp } from '../../../common/utility';
 
@@ -51,7 +51,7 @@ const QuizzesDetails = (quizDetails) => (
       <div className='eventNotes pt5' >
         {
             quizDetails.data.assign_desc === null || quizDetails.data.assign_desc === '' ? translateText('common:NO_EVENTS_NOTES') :
-            HtmlReactParser(htmlEncoding(quizDetails.data.assign_desc))
+            htmlReactParser(htmlEncoding(quizDetails.data.assign_desc))
         }
       </div>
     </article>

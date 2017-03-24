@@ -10,7 +10,7 @@ import SimpleSearch from '../campusDirectory/components/simpleSearch';
 import HeaderLabel from '../common/headerLabel';
 import Spinner from '../common/spinner';
 import AlertComponent from '../common/alertComponent';
-import style from '../searchResults/style.css';
+import '../searchResults/style.css';
 
 export class SearchResults extends React.PureComponent {
   constructor(props) {
@@ -64,7 +64,7 @@ export class SearchResults extends React.PureComponent {
                 <button className='btn btn-default openSansLight cmpsDirLoadMoreBtn' onClick={this.loadMore}>{translateText('common:SEARCH_MORE_RESULT')}</button>
               </div>
             }
-            {((!props.SimpleSearchData && !props.loading) || (props.SimpleSearchData.error)) &&
+            {((!props.SimpleSearchData && !props.loading)) &&
               <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
             }
           </Col>

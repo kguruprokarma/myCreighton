@@ -6,7 +6,7 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import UniversityAddress from './components/universityAddress';
 import UniversityLogo from './components/universityLogo';
-import Style from './style.css';
+import './style.css';
 import { translateText } from '../common/translate';
 
 const footer = () => (

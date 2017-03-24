@@ -14,27 +14,31 @@ import * as ROUTE_URL from '../../constants/routeContants';
 export class SearchBox extends Component {
   constructor(props) {
     super(props);
-    this.state = props.state;
+    const constructorProps = props;
+    const searchboxProps = this.props;
+    this.state = constructorProps.state;
     this.state.searchText = '';
     this.state.searchURL = '';
     this.onSearchText = this.onSearchText.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    if (props.currentPath === CommonConstants.SEARCH_RESULTS) {
-      this.props.onSearchText(props.searchString);
+    if (constructorProps.currentPath === CommonConstants.SEARCH_RESULTS) {
+      searchboxProps.onSearchText(constructorProps.searchString);
     }
   }
   onSearchText() {
+    const props = this.props;
     if (!this.state.searchText) return;
-    if (this.props.currentPath === CommonConstants.SEARCH_RESULTS) {
-      this.props.onSearchText(this.state.searchText);
+    if (props.currentPath === CommonConstants.SEARCH_RESULTS) {
+      props.onSearchText(this.state.searchText);
     } else {
       hashHistory.replace(this.state.searchURL);
     }
   }
 
   handleKeyPress(event) {
+    const props = this.props;
     if (event.key === CommonConstants.KEYPRESS_ENTER) {
-      this.props.onSearchText(this.state.searchText);
+      props.onSearchText(this.state.searchText);
     }
   }
 

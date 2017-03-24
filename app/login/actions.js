@@ -43,7 +43,7 @@ export function loginUser({ email, password }) {
   };
 }
 
-function errorHandler(dispatch, error, type) {
+export function errorHandler(dispatch, error, type) {
   const errorMessage = error.response ? error.response.data : error;
 
    // NOT AUTHENTICATED ERROR

@@ -231,7 +231,7 @@ export class NextEventFilter extends React.Component {
           {/*<div>Settings</div><span>Done</span>*/}
         </ListGroupItem >
         <ListGroupItem >
-          <Filter Items={this.state.Items} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => this.showChild.bind(this, item)} toggleCheckBoxParent={(item) => this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent) => this.toggleCheck.bind(this, item, parent)} showSelected={this.showSelected} />
+          <Filter Items={this.state.Items} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => { this.showChild(item); }} toggleCheckBoxParent={(item) => { this.toggleCheckBoxParent(item); }} toggleCheck={(item, parent) => { this.toggleCheck(item, parent); }} showSelected={this.showSelected} />
         </ListGroupItem >
       </ListGroup>
     </div>

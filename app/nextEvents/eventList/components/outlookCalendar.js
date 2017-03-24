@@ -9,8 +9,7 @@ const OutlookCalendar = (outlookCalendarProps) => (
   <section className='eventOutlook' id='eventOutlookList'>
     <div className='hidden-xs desktopEventsList'>
       <Col md={6} sm={6}>
-        <h3 className='pull-left mb0 eventHeading'>{outlookCalendarProps.data.title} </h3>
-        <span className='pull-left eventOn'>{outlookCalendarProps.data.startDate}to {outlookCalendarProps.data.endDate}</span>
+        <h3 className='mb0 eventHeading'>{outlookCalendarProps.data.title} <span className='eventOn'>{outlookCalendarProps.data.startDate}to {outlookCalendarProps.data.endDate}</span></h3>        
       </Col>
       <Col md={2} sm={2}>
         <span className='eventPlace'>{outlookCalendarProps.data.startTime}to {outlookCalendarProps.data.endTime}</span>

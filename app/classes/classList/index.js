@@ -14,19 +14,19 @@ import '../classList/style.css';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import Spinner from '../../common/spinner';
-import { convertEncodeURIComponent, browserTitle } from '../../common/utility';
+import { convertEncodeURIComponent, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
 
 export class Classes extends React.PureComponent {
 
   constructor(props) {
     super(props);   
-
+    const classesProps = this.props;
     this.userReqObj = {};
     this.userReqObj.primaryKey = 'netid';
     this.userReqObj.primaryValue = '6cb4db8459';
 
     this.onChangeOfTab = this.onChangeOfTab.bind(this);
-    this.onChangeOfTab(this.props.params.classtab);
+    this.onChangeOfTab(classesProps.params.classtab);
     this.state = { presentState: '' };
   }
   
@@ -35,17 +35,20 @@ export class Classes extends React.PureComponent {
   }  
 
   componentWillReceiveProps(nextProps) {
-    if (this.state.presentState !== nextProps.params.classtab) {
-      this.setState({ presentState: nextProps.params.classtab });
-      this.onChangeOfTab(nextProps.params.classtab);
+    const propsNext = nextProps;
+    if (this.state.presentState !== propsNext.params.classtab) {
+      this.setState({ presentState: propsNext.params.classtab });
+      this.onChangeOfTab(propsNext.params.classtab);
     }
   }
 
   onChangeOfTab(catagoryName) {
+    console.log('onChangeOfTab');
     const props = this.props;
     props.onCatagoryChange(catagoryName);
     if (this.userReqObj !== undefined) {
       if (catagoryName === CommonConstants.WEEK) {
+        getClassAndAssignmentAPIData(this.userReqObj);
         props.getClassesDataByWeek(this.userReqObj);
         props.getAssignmentDetails(this.userReqObj);
       } else if (catagoryName === CommonConstants.LIST) {

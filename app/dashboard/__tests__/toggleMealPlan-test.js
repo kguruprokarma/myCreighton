@@ -12,6 +12,6 @@ describe('ToggleMealPlan component testing ----->', () => {
   });
 
   it('ToggleMealPlan  anchor tags ', () => {
-    expect(toggleMealPlan.find('a').length).toBe(1);
+    expect(toggleMealPlan.find('button').length).toBe(1);
   });
 });

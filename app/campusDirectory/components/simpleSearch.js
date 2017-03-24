@@ -4,37 +4,39 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Col, Row, Alert } from 'react-bootstrap';
-import { translateText } from '../../common/translate';
+import { Col, Row } from 'react-bootstrap';
 import * as actionCreators from '../actions';
-import SearchBox from './searchBox';
+import SearchBoxComponent from './searchBox';
 import SearchTabController from './tab';
-import Style from '../style.css';
+import '../style.css';
 
 export class SimpleSearchDirectory extends React.PureComponent {
   constructor(props) {
     super(props);
+    const simpleSearchDirectoryPorps = this.props;
     this.onSearchTypeChange = this.onSearchTypeChange.bind(this);
     this.onSearchText = this.onSearchText.bind(this);
-    this.onSearchTypeChange(this.props.params.searchtype);
+    this.onSearchTypeChange(simpleSearchDirectoryPorps.params.searchtype);
     this.state = { presentState: '' };
   }
 
-  onSearchTypeChange(searchType) {
-    //TODO:: for advanced search
+  onSearchTypeChange() {
+  
   }
 
   onSearchText(text) {
+    const simpleSearchDirectoryPorps = this.props;
     if (!text) return;
     const searchText = text.split(' ');
     const reqObj = {
       firstName: searchText[0],
       lastName: searchText[1]
     };
-    this.props.getCampusDirectoryData(reqObj);
+    simpleSearchDirectoryPorps.getCampusDirectoryData(reqObj);
   }
 
   render() {
+    const simpleSearchDirectoryPorps = this.props;
     return (
       <section>
         <div>
@@ -43,7 +45,7 @@ export class SimpleSearchDirectory extends React.PureComponent {
               <SearchTabController state={this.state.presentState} onSearchTypeChange={this.onSearchTypeChange} />
             </Col>
           </Row>
-          <SearchBox searchString={this.props.searchString} state={this.state} onSearchText={this.onSearchText} currentPath={this.props.route.path.split('/')[1]} />
+          <SearchBoxComponent searchString={simpleSearchDirectoryPorps.searchString} state={this.state} onSearchText={this.onSearchText} currentPath={simpleSearchDirectoryPorps.route.path.split('/')[1]} />
         </div>
 
       </section>

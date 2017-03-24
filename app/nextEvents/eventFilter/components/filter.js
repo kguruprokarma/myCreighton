@@ -8,15 +8,15 @@ const labels = {
   DISPLAY_OPTIONS_HEADING: 'DISPLAY OPTIONS',
   DONE_TEXT: 'Done'
 };
-const EventFilter = (props) => (
+const EventFilter = (eventFilterProps) => (
   <article className='profileRow mt30'>
-    <button onClick={props.showSelected}>{labels.DONE_TEXT}</button>
+    <button onClick={eventFilterProps.showSelected}>{labels.DONE_TEXT}</button>
     <h3 className='dataHeading openSansRegular'>{labels.EVENT_PERIOD_HEADING}</h3>
     <div className='control-group'>
       {
-            props.Items.eventperiodItems.map((eventItem, eventIndex) => (
+            eventFilterProps.Items.eventperiodItems.map((eventItem, eventIndex) => (
               <div key={eventIndex}>
-                <input type='radio' name='eventPeriod' value={eventItem} onChange={props.toggleRadio} checked={props.eventPeriod === eventItem} /> <span className='openSansRegular'>{eventItem}</span>
+                <input type='radio' name='eventPeriod' value={eventItem} onChange={eventFilterProps.toggleRadio} checked={eventFilterProps.eventPeriod === eventItem} /> <span className='openSansRegular'>{eventItem}</span>
               </div>))
           }
     </div>

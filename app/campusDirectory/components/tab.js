@@ -16,13 +16,15 @@ class CampusDirectoryTabController extends Component {
   }
 
   onSearchTypeChange(searchType) {
-    this.props.onSearchTypeChange(searchType);
+    const props = this.props;
+    props.onSearchTypeChange(searchType);
   }
 
   render() {
+    const props = this.props;
     return (
       <div className='btn-group btn-group-justified form-group openSansRegular fs0pt86'>
-        <Link to={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SIMPLE_SEARCH} className={`btn active ${this.props.state === CommonConstants.SIMPLE_SEARCH ? 'btn-default active' : 'btn-default'}`} onClick={this.onSearchTypeChange.bind(this, CommonConstants.SIMPLE_SEARCH)}>{translateText('common:SIMPLE_SEARCH')}</Link>
+        <Link to={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SIMPLE_SEARCH} className={`btn active ${props.state === CommonConstants.SIMPLE_SEARCH ? 'btn-default active' : 'btn-default'}`} onClick={() => { this.onSearchTypeChange( CommonConstants.SIMPLE_SEARCH); }}>{translateText('common:SIMPLE_SEARCH')}</Link>
         <Link className='btn btn-default'>{translateText('common:ADVANCED_SEARCH')}</Link>
         {/*<Link to={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.ADVANCED_SEARCH} className={`btn ${this.props.state === CommonConstants.ADVANCED_SEARCH ? 'btn-default active' : 'btn-default'}`} onClick={this.onSearchTypeChange.bind(this, CommonConstants.ADVANCED_SEARCH)}>{translateText('common:ADVANCED_SEARCH')}</Link>*/}
       </div>

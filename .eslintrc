@@ -229,8 +229,8 @@
         "no-const-assign": 2,
         "prefer-reflect": 0,
         "prefer-arrow-callback": 2,
-        "prefer-template": 2
-
+        "prefer-template": 2,
+        "class-methods-use-this": [ 0, { "exceptMethods": [".js"] }]
     },
     "globals": {
         "React": true,

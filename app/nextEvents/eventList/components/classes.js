@@ -17,8 +17,7 @@ const Classes = (classesProps) => (
       {/*<Link to={`${ROUTE_URL.EVENT_DETAILS}/${quizProps.data.type}/${quizProps.data.sis_source_id}/${quizProps.data.assignment_id}`}>*/}
       <Link to={`${ROUTE_URL.EVENT_DETAILS}/${classesProps.data.type}/${classesProps.data.sis_source_id}/`}>
         <Col md={6} sm={6}>
-          <h3 className='pull-left mb0 classesHeading'>{classesProps.data.course_title} {classesProps.data.course_number} </h3>
-          <span className='pull-left classOn'>{[commonConstants.HOUR, commonConstants.HOURS, commonConstants.MINUTES].indexOf((moment(classesProps.data.timeStamp).fromNow().split(' ')[2])) !== -1 && commonConstants.STARTS} {moment(classesProps.data.timeStamp).fromNow()}</span>
+          <h3 className='mb0 classesHeading'>{classesProps.data.course_title} {classesProps.data.course_number} <span className='classOn'>{[commonConstants.HOUR, commonConstants.HOURS, commonConstants.MINUTES].indexOf((moment(classesProps.data.timeStamp).fromNow().split(' ')[2])) !== -1 && commonConstants.STARTS} {moment(classesProps.data.timeStamp).fromNow()}</span></h3>          
         </Col>
         <Col md={2} sm={2}>
           <span className='classPlace'>{classesProps.data.class_held_build_desc}</span>

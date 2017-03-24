@@ -20,7 +20,7 @@ const defaultProps ={
 };
 
 const mealPlanC = shallow(<MealPlan {...defaultProps} />);
-describe('I18nextProvidergg', () => {
+describe('Mealplan Test Suite', () => {
   it('should provide i18n context', () => {
     expect(mealPlanC).toBeDefined();
   });
@@ -43,7 +43,8 @@ describe('I18nextProvidergg', () => {
   });
 
   it('MealPlan component buttons', () => {
-    expect(mealPlanC.find('a').length).toBe(1);
+    expect(mealPlanC.find('button').length).toBe(1);
+    expect(mealPlanC.find('button img').length).toBe(1);
   });
 });
 

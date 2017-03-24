@@ -17,7 +17,7 @@ const result = (resultProps) => (
         <div>
           <p className='cmpsDirTitle'>{resultProps.job_title}</p>
         </div>
-        <p className='cpmsDirProfWrk'></p>
+        <p className='cpmsDirProfWrk' />
       </Col>
     </Row>
   </section>

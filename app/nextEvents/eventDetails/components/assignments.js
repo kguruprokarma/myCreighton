@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import HtmlReactParser from 'html-react-parser';
+import htmlReactParser from 'html-react-parser';
 import { translateText } from '../../../common/translate';
 import { convertDueDateTimeStamp, convertDateFromTimeStamp, htmlEncoding } from '../../../common/utility';
 
@@ -33,8 +33,8 @@ const Assignments = (assignmentsDetails) => (
       <h4 className='eventDetail graybtBorder mb10'>{translateText('ASSIGNMENT_DETAILS')}</h4>
       <div className='eventNotes pt5'>
         {
-            assignmentsDetails.data.assign_desc === null || assignmentsDetails.data.assign_desc === '' ? translateText('common:NO_EVENTS_NOTES') :
-            HtmlReactParser(htmlEncoding(assignmentsDetails.data.assign_desc))
+          assignmentsDetails.data.assign_desc === null || assignmentsDetails.data.assign_desc === '' ? translateText('common:NO_EVENTS_NOTES') :
+            htmlReactParser(htmlEncoding(assignmentsDetails.data.assign_desc))
         }
       </div>
     </article>

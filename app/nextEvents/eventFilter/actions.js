@@ -11,3 +11,5 @@ export function filterChange(data) {
     dispatch(onFilterChange(data));
   };
 }
+
+export default filterChange;

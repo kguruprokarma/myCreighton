@@ -2,6 +2,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import {filter, map, sortBy } from 'lodash';
 import { Col, Row, Alert } from 'react-bootstrap';
 import HeaderLabel from './../../common/headerLabel';
@@ -16,7 +17,6 @@ import { translateText } from '../../common/translate';
 import { authUserDetails, dataFilterAddingData, createTimeStamp, convertEncodeURIComponent, addedTypeField, browserTitle } from '../../common/utility';
 import './style.css';
 import Spinner from '../../common/spinner';
-import moment from 'moment';
 
 export class EventList extends React.PureComponent {
   constructor() {
@@ -42,6 +42,7 @@ export class EventList extends React.PureComponent {
       const assignmentObjs = addedTypeField(ASSIGNMENTS_DATA.data);
       assignmentObjs.map((assignmentObj) => {
         EVENT_DATA.push(assignmentObj);
+        return EVENT_DATA;
       });
       classObjs.map((classObj) => {
         const classObject = classObj;

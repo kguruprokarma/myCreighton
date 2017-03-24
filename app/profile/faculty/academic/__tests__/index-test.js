@@ -5,7 +5,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { FacultyAcademic } from '../index';
-import i18n from '../../../../__mock_i18n__/i18n_mockKeys';
+import '../../../../__mock_i18n__/i18n_mockKeys';
 
 describe('index files in faculty testing ----->', () => {
   const minProps = {

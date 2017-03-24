@@ -120,17 +120,27 @@
     text-align:center;
 }
 
-.doller-icon span {
+.doller-icon{
     font-size: 0.8em;   /* font size 12 in pixel */
     text-transform: uppercase;
+    color: #0054a6;
 }
 
 .doller-icon img {
     max-width:32px;
 }
 
+.doller-icon.btn-link:focus, .doller-icon.btn-link:hover
+{
+    color: #0054a6;
+    outline: 0;
+    box-shadow: none;
+    text-decoration: none;
+}
+
 .doller-icon {
         margin-top:4px;
+        text-shadow: none;
 }
 
 .mpDoller {

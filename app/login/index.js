@@ -3,12 +3,19 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
 import { loginUser } from './actions';
+import { translateText } from '../common/translate';
+import { browserTitle } from '../common/utility';
 
 const form = reduxForm({
   form: 'login'
 });
 
-class Login extends Component {
+class Login extends Component {  
+
+  componentWillMount() {   
+    browserTitle(translateText('common:SIGN_IN'));
+  }
+
   handleFormSubmit(formProps) {
     this.props.loginUser(formProps);
   }

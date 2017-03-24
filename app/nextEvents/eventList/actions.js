@@ -36,3 +36,5 @@ export function getEventsData(reqObj) {
       );
   };
 }
+
+export default getEventsData;

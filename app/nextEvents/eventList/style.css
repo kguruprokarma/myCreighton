@@ -50,7 +50,11 @@
 }
 
 .eventOn {
-        padding-left: 10px;
+    font-size: .6em;
+    line-height: .8em;
+    padding: 4px; 
+    position: relative;
+    top: -4px;  
 }
 
 .assignIcon {

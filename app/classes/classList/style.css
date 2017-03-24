@@ -89,6 +89,14 @@
     border-left: 0;
 }
 
+.classesHeading .classOn {
+    font-size: .6em;
+    line-height: .8em;
+    padding: 4px; 
+    position: relative;
+    top: -4px;  
+}
+
 /* Media for small devices */
 @media screen and (min-width:992px) {
     .classOn {

@@ -34,3 +34,5 @@ export function getCampusDirectoryData(reqObj) {
     });
   };
 }
+
+export default getCampusDirectoryData;

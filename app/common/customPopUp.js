@@ -10,19 +10,20 @@ import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
 import * as actionCreators from '../dashboard/actions';
 import UserDetail from '../dashboard/components/userDetail';
 import profileMenu from '../header/components/profileMenu';
-import { AuthUserDetails } from './utility';
+import { authUserDetails } from './utility';
 import i18n from '../i18n';
 import { translateText } from '../common/translate';
 
 export class CustomPopUp extends React.Component {
   constructor(props) {
     super(props);
+    const customPopUpProps = this.props;
     this.state = {
       languageState: true
     };
-    this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
+    this.role = this.props.userData ? this.props.userData.userRole : authUserDetails().userRole;
     if (this.role) {
-      this.props.getUserDetailsData(`/${this.role}`);
+      customPopUpProps.getUserDetailsData(`/${this.role}`);
     }
     this.languageChangeBind = this.changeLanguage.bind(this);
     this.signOutBind = this.signOut.bind(this);
@@ -38,7 +39,6 @@ export class CustomPopUp extends React.Component {
     localStorage.setItem('lang', langKey);
     localStorage.setItem('temp', localStorage.getItem('i18nextLng'));
     i18n.init({ lng: localStorage.getItem('lang') });
-
     location.reload();
   }
   render() {
@@ -55,11 +55,11 @@ export class CustomPopUp extends React.Component {
         {ProfileMenus.map((item) => (
           <ListGroupItem key={item.itemName} className='openSansLight'>
             {
-              item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ? <span onClick={() => { this.setState({ languageState: false }); }} >
-                <Link> {item.itemName}</Link>
-              </span> : <Link to={item.link} onClick={item.itemName === translateText('common:COMMON_SIGN_OUT') ? this.signOutBind : this.props.showPopValue} activeClassName='active'>
-                {item.itemName}
-              </Link>
+              item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ?
+                <Link onClick={() => { this.setState({ languageState: false }); }} > {item.itemName}</Link>
+                : <Link to={item.link} onClick={item.itemName === translateText('common:COMMON_SIGN_OUT') ? this.signOutBind : this.props.showPopValue} activeClassName='active'>
+                  {item.itemName}
+                </Link>
             }
           </ListGroupItem>
         ))}

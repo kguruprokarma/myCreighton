@@ -11,7 +11,7 @@ import TodaysClass from './../classDetails/components/todaysClass';
 import UpcomingAssignments from './../classDetails/components/upcomingAssignments';
 import TestsOrQuizzes from './../classDetails/components/testsOrQuizzes';
 import '../classDetails/style.css';
-import PreviousNext from '../../common/previousNext';
+import PreviousNextComponent from '../../common/previousNext';
 import { translateText } from '../../common/translate';
 import { datesCompare, stringEncodeURIComponent, browserTitle } from '../../common/utility';
 import { CLASSES_DETAILS } from '../../constants/nextEventsConstants';
@@ -62,8 +62,8 @@ class ClassDetails extends React.PureComponent {
         }
       }
     });
-    let nextObject = {},
-      prevObject = {};
+    let nextObject = {}; 
+    let prevObject = {};
     const index = findIndex(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
     if (index < obj.length - 1) {
       nextObject = obj[Object.keys(obj)[index + 1]];
@@ -90,7 +90,7 @@ class ClassDetails extends React.PureComponent {
           <UpcomingAssignments data={upcomingAssignmentsData} />
           <TestsOrQuizzes data={testOrQuizzesData} />
         </div>)}
-        {showPrevNext && <PreviousNext presentCategory={props.params.categoryname} totalLength={obj.length - 1} currentIndex={index} prevItem={prevObject.sis_source_id} nextItem={nextObject.sis_source_id} />}
+        {showPrevNext && <PreviousNextComponent presentCategory={props.params.categoryname} totalLength={obj.length - 1} currentIndex={index} prevItem={prevObject.sis_source_id} nextItem={nextObject.sis_source_id} />}
       </section>
     );
   }

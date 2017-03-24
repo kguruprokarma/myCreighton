@@ -2,6 +2,8 @@ import moment from 'moment';
 import * as CommonConstants from '../constants/commonConstants';
 import * as urlConstants from '../constants/urlConstants';
 import { translateText } from './translate';
+import classesApi from '../middleware/classes/api';
+import EventListApi from '../middleware/events/api';
 
 /*Data sort method is used to sort the array items in asending or decending order*/
 export const dataSort = (dataArray, key, order) => {
@@ -97,7 +99,6 @@ export const filterTodaysClassSchedule = (schedule) => {
 // timeStamp = 2015-09-01T01:30:00.000Z
 
 export const convertDueDateTimeStamp = (timeStamp) => {
-
   if (!timeStamp) return 'N/A';
   
   const formattedDT = moment(timeStamp).format('HHmm');
@@ -198,8 +199,9 @@ export const dataFilterAddingData = (dataArray) => {
 
   days.map((day) => {
     //removed 'index' from the 'map((data, index)' because it is throwing error: 'index' is defined but never used 
-    dateTime(newObject[day], 'class_begin_time', 'class_end_time', CommonConstants.SORT_CLASS).map((data) => {
-      newArray.push(data);
+    dateTime(newObject[day], 'class_begin_time', 'class_end_time', CommonConstants.SORT_CLASS).map((dateTimeSortedData) => {
+      newArray.push(dateTimeSortedData);
+      return newArray;
     });
     return newArray;
   });
@@ -213,8 +215,6 @@ export const todayHeader = () => {
   const today = new Date();
   return `${days[today.getDay()]} ${months[today.getMonth()]} ${today.getDate()}`;
 };
-
-export const AuthUserDetails = () => localStorage.roleInfo ? JSON.parse(localStorage.roleInfo) : {};
 
 export const authUserDetails = () => localStorage.getItem('roleInfo') ? JSON.parse(localStorage.getItem('roleInfo')) : {};
 
@@ -344,7 +344,32 @@ export const addedTypeField = (dataArray) => {
 };
 
 export const browserTitle =(titleKey) => {
-  console.log('titleKey: ', titleKey);
-
   document.title = `${titleKey} - ${CommonConstants.MY_CREIGHTON}`;
+};
+
+export const getClassAndAssignmentAPIData =(reqObj) => {
+  const masterObj = {};
+  if (localStorage.getItem('classMasterCopy') === null || localStorage.getItem('assignmentMasterCopy') === null ) {
+     
+    classesApi.getClassesDataByWeek(reqObj).then((response) => {
+      console.log('response: ', response.data.data);
+      localStorage.setItem('classMasterCopy', JSON.stringify(response.data.data));
+      masterObj.classMasterCopy = response.data.data;
+    })
+    .catch((error) => {
+      console.log('error: ', error);
+    });
+
+    EventListApi.getEventsData(reqObj).then((response) => {      
+      localStorage.setItem('assignmentMasterCopy', JSON.stringify(response.data.data));
+      masterObj.assignmentMasterCopy = response.data.data;
+    })
+      .catch((error) => {
+        console.log('error: ', error);
+      });
+  } else {
+    masterObj.classMasterCopy = JSON.parse(localStorage.getItem('classMasterCopy'));
+    masterObj.assignmentMasterCopy = JSON.parse(localStorage.getItem('assignmentMasterCopy'));
+  }
+  return masterObj;
 };

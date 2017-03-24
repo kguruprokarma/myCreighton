@@ -10,18 +10,17 @@ import { convertTo24Format, scheduleDays, getScheduledNextDate } from '../../../
 const ClassInfo = (classInfoProps) => (
   <section className='classesWeek' id='classesWeekList'>
     <div className='hidden-xs desktopClassesList'>
-      <Col md={6} sm={6}>
-        <h3 className='pull-left mb0 classesHeading'>{classInfoProps.data.course_title} {classInfoProps.data.course_number} </h3>
-        <span className='pull-left classOn'>{classInfoProps.data.course_section}</span>
+      <Col md={5} sm={5}>
+        <h3 className='pull-left mb0 classesHeading'>{classInfoProps.data.course_title} {classInfoProps.data.course_number} <span className='classOn'>{classInfoProps.data.course_section}</span></h3>
       </Col>
       <Col md={2} sm={2}>
         <span className='classPlace'>{classInfoProps.data.class_held_build_desc}</span>
         <span className='classPlace'> {classInfoProps.data.class_room_code}</span>
       </Col>
-      <Col md={2} sm={1} className='text-center'>
+      <Col md={2} sm={2} className='text-center'>
         <span className='classBy'>{classInfoProps.data.instructor_name.last_name}</span>
       </Col>
-      <Col md={2} sm={3} className='text-right'>
+      <Col md={3} sm={3} className='text-right'>
         <div className='classTime'>{scheduleDays(classInfoProps.data.class_schedule)} {convertTo24Format(classInfoProps.data.class_begin_time)} - {convertTo24Format(classInfoProps.data.class_end_time)}</div>
         <div className='classDate'><span className='openSansRegular'>{translateText('çommon:NEXT')}:</span> {getScheduledNextDate(classInfoProps.data.class_schedule)}</div>
       </Col>

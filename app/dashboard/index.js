@@ -14,21 +14,22 @@ import dashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
 import './style.css';
-import { AuthUserDetails, browserTitle } from '../common/utility';
+import { authUserDetails, browserTitle } from '../common/utility';
 
 export class Dashboard extends Component {
 
   constructor(props) {
     super(props);
+    const dashboardProps = this.props;
     this.state = { shouldHide: true };
     this.onClick = this.onClick.bind(this);
-    this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
-    if (this.role) { this.props.getUserDetailsData(`/${this.role}`); }
+    this.role = dashboardProps.userData ? dashboardProps.userData.userRole : authUserDetails().userRole;
+    if (this.role) { dashboardProps.getUserDetailsData(`/${this.role}`); }
   }
 
   componentWillMount() {
     const props = this.props;
-    this.role = props.userData ? props.userData.userRole : AuthUserDetails().userRole;
+    this.role = props.userData ? props.userData.userRole : authUserDetails().userRole;
     if (this.role) { props.getUserDetailsData(`/${this.role}`); }
 
     if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {

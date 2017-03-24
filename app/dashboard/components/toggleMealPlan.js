@@ -5,9 +5,9 @@
 import React from 'react';
 
 const toggleMealPlan = (toggleMealPlanProps) => (
-  <a className='doller-icon pull-right' >
-    <img src={'./assets/images/money.png'} alt='toggle' onClick={toggleMealPlanProps.toggle} />
-  </a>
+  <button className='doller-icon btn btn-link pull-right btnnoPadding' onClick={toggleMealPlanProps.toggle}>
+    <img src={'./assets/images/money.png'} alt='toggle' />
+  </button>
 );
 
 export default toggleMealPlan;

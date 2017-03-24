@@ -13,7 +13,6 @@ import * as URL_CONSTANTS from '../../../constants/urlConstants';
 import FacultyProfileView from './components/profile';
 import { authUserDetails, browserTitle } from '../../../common/utility';
 import Spinner from '../../../common/spinner';
-//import LeftNav from '../../../../common/leftNav';
 
 export class FacultyProfile extends React.PureComponent {
   constructor(props) {
@@ -34,7 +33,7 @@ export class FacultyProfile extends React.PureComponent {
   render() {
     let PROFILE_DATA;
     if (this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC) {
-      ACADEMIC_DATA = this.props.profile === CommonConstants.FACULTY_LABEL && this.props.profileData;
+
     } else {
       PROFILE_DATA = this.props.profile === CommonConstants.FACULTY_LABEL && this.props.profileData;
     }

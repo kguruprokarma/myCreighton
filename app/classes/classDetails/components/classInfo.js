@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { convertTo24Format, getScheduledNextDate } from '../../../common/utility';
+import { convertTo24Format, getScheduledNextDate, scheduleDays } from '../../../common/utility';
 import { translateText } from '../../../common/translate';
 
 const classInfo = (classInfoProps) => (
@@ -23,7 +23,7 @@ const classInfo = (classInfoProps) => (
           <Row>
             <Col xs={6}>
               <p>{classInfoProps.class_held_build_desc} {classInfoProps.class_room_code}</p>
-              <p>{classInfoProps.class_schedule} {convertTo24Format(classInfoProps.class_begin_time)} - {convertTo24Format(classInfoProps.class_end_time)}</p>
+              <p>{scheduleDays(classInfoProps.class_schedule)} {convertTo24Format(classInfoProps.class_begin_time)} - {convertTo24Format(classInfoProps.class_end_time)}</p>
             </Col>
             <Col xs={6} className='text-right'>
               <p>{classInfoProps.instructor_name.last_name}</p>

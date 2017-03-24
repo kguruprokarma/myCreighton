@@ -16,8 +16,9 @@ import { translateText } from '../../common/translate';
 
 export class MealPlan extends Component {
   componentWillReceiveProps(nextProps) {
-    if (nextProps.role && this.role !== nextProps.role.userRole) {
-      this.role = nextProps.role.userRole;
+    const propsNext = nextProps;
+    if (propsNext.role && this.role !== propsNext.role.userRole) {
+      this.role = propsNext.role.userRole;
       if (this.role !== undefined) {
         this.props.getMealPlanData(`${(this.role).toLowerCase()}`);
       }
@@ -46,7 +47,7 @@ export class MealPlan extends Component {
             </Col>
           </Well>
         </div>
-        <a className='doller-icon pull-right hidden-xs openSansBold'><span onClick={props.toggleMeal}> {props.showMeal ? translateText('common:MEAL_HIDE') : <img src={'./assets/images/money.png'} alt='' />}</span></a>
+        <button className='doller-icon pull-right hidden-xs btn btn-link openSansBold btnnoPadding' onClick={props.toggleMeal}> {props.showMeal ? translateText('common:MEAL_HIDE') : <img src={'./assets/images/money.png'} alt='' />}</button>
       </section>
 
     );

@@ -4,12 +4,8 @@ import { NextEventFilter } from '../index';
 
 describe('EventFilter component testing ----->', () => {
   const defaultProps = {
-    filterPopUpClose: () => {
-      return 1;
-    },
-    filterChange: () => {
-      return 1;
-    }
+    filterPopUpClose: () => 1,
+    filterChange: () => 1
   };
 
   const eventFilter = shallow(<NextEventFilter {...defaultProps} />);
@@ -18,13 +14,13 @@ describe('EventFilter component testing ----->', () => {
   });
 
   it(' toggleRadio ', () => {
-   // expect(eventFilterc.find('Title').length).toBe(1);
-    eventFilter.instance().toggleRadio({target: {value: 'today'}});
-    eventFilter.instance().showChild({showItem: true});
-  
-    eventFilter.instance().toggleCheckBoxParent({checked: true, children: [{checked: true}, {checked: false}]});
-    eventFilter.instance().toggleCheck({checked: true}, {checked: true, children: [{checked: true}, {checked: false}]});
-    eventFilter.instance().toggleCheck({checked: true}, {checked: true, children: [{checked: false}, {checked: false}]});
+    // expect(eventFilterc.find('Title').length).toBe(1);
+    eventFilter.instance().toggleRadio({ target: { value: 'today' } });
+    eventFilter.instance().showChild({ showItem: true });
+
+    eventFilter.instance().toggleCheckBoxParent({ checked: true, children: [{ checked: true }, { checked: false }] });
+    eventFilter.instance().toggleCheck({ checked: true }, { checked: true, children: [{ checked: true }, { checked: false }] });
+    eventFilter.instance().toggleCheck({ checked: true }, { checked: true, children: [{ checked: false }, { checked: false }] });
     eventFilter.instance().showSelected();
   });
 });

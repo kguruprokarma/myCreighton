@@ -37,5 +37,5 @@ it('HomeAddress is defined', () => {
 
 it('SchoolAddress is defined', () => {
   const schoolAddress = shallow(<SchoolAddress {...schoolAddressProps} />);
-  expect(schoolAddress).toBeDefin
+  expect(schoolAddress).toBeDefined();
 });

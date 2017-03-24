@@ -56,5 +56,10 @@ export default function (argument) {
   if (rootURL[1] === HEADER.CAMPUS_DIRECTORY) {
     title = translateText('common:CAMPUS_DIRECTORY');
     return title;
-  }  
+  }
+  if (rootURL[1] === HEADER.SEARCH_RESULT) {
+    title = translateText('common:SEARCH_RESULT');
+    return title;
+  }
+  return title; 
 }

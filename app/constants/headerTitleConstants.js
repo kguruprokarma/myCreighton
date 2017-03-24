@@ -20,3 +20,4 @@ export const EVENT_TEST_DETAILS = 'testorquiz';
 export const ASSIGNMENTS = 'assignments';
 export const EVENT_CLASS_DETAILS = 'eventsclassdetails';
 export const CAMPUS_DIRECTORY = 'campusdirectory';
+export const SEARCH_RESULT = 'searchresults';

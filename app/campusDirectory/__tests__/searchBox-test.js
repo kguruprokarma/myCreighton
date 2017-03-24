@@ -2,7 +2,7 @@
  * This file is used for unit testing index js file of campus directory search page
  */
 
-import {shallow, mount } from 'enzyme';
+import {shallow} from 'enzyme';
 import React from 'react';
 import {SearchBox} from '../components/searchBox';
 import * as CommonConstants from '../../constants/commonConstants';

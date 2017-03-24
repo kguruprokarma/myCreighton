@@ -3,9 +3,9 @@
  */
 
 import React from 'react';
-import { Col, Row, button } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
-import * as _ from 'lodash';
+import { find, findIndex } from 'lodash';
 import { translateText } from '../../common/translate';
 import Assignments from './components/assignments';
 import TestOrQuiz from './components/testOrQuiz';
@@ -44,16 +44,16 @@ class EventDetails extends React.PureComponent {
     }
 
     if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
-      this.classData = details && _.find(details, { sis_source_id: this.eventId, type: NextEventsConstants.CLASSES_DETAILS});
-      index1 = _.findIndex(details, { sis_source_id: this.eventId });
+      this.classData = details && find(details, { sis_source_id: this.eventId, type: NextEventsConstants.CLASSES_DETAILS});
+      index1 = findIndex(details, { sis_source_id: this.eventId });
     }
     if (this.eventType === NextEventsConstants.ASSIGNMENTS) {
-      this.assignmentData = details && _.find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
-      index1 = _.findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
+      this.assignmentData = details && find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
+      index1 = findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
     }
     if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
-      this.quizData = details && _.find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
-      index1 = _.findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
+      this.quizData = details && find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
+      index1 = findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
     }
     if (index1 < details.length - 1) {
       nextObject = details[Object.keys(details)[index1 + 1]];
