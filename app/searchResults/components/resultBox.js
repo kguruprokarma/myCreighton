@@ -5,43 +5,23 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 const result = (resultProps) => (
-  <section className='classesWeek' id='classesWeekList'>
-    <div className='hidden-xs desktopClassesList'>
+  <section className='openSansLight graybtBorder pt5 pb10 mb10 mt10' id='classesWeekList'>
+    <Row>
+      <Col md={9} sm={8}>
+        <p className='cpmsDirProfName'>{resultProps.full_name}</p>
+      </Col>
+      <Col md={3} sm={4}>
+        <p className='text-right cmpsDirTelNum'>{resultProps.phone}</p>
+      </Col>
       <Col md={9} sm={9}>
-        <h3 className='pull-left mb0 classesHeading'>{resultProps.full_name}</h3>
-      </Col>
-      <Col md={3} sm={3}>
-        <span className='classDate'>{resultProps.phone}</span>
-      </Col>
-      <Col md={9} sm={9}>
         <div>
-          <span className='classPlace'>{resultProps.job_title}</span>
+          <p className='cmpsDirTitle'>{resultProps.job_title}</p>
         </div>
-        <div>
-          <span className='classPlace' />
-        </div>
+        <p className='cpmsDirProfWrk'></p>
       </Col>
-    </div>
-    <Row className='visible-xs mobileClassesList row'>
-      
-      <Col xs={9}>
-        <h3 className='mb0 classesHeading'>{resultProps.full_name}</h3>
-      </Col>
-      <Col xs={3} className='text-right'>
-        <span className='classDate'><span>{resultProps.phone}</span> </span>
-      </Col>
-      <Col xs={9}>
-        <div>
-          <span className='classPlace'>{resultProps.job_title}</span>
-        </div>
-        <div>
-          <span className='classPlace' />
-        </div>
-      </Col>
-      <Col xs={3} className='text-right' />
     </Row>
   </section>
-  );
+);
 
 
 export default result;

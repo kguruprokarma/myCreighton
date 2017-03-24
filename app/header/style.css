@@ -76,6 +76,11 @@
  margin-top:3px;
 }
 
+.hamburgerMenu .popupBackBtn {
+    color: #fff;
+    font-size: 1.4666666666666666em;
+}
+
 .hamburgerMenu img {
     max-width: 34px;
 }
@@ -133,6 +138,7 @@
 .popUpContainer #avatar {
     overflow: hidden;
 }
+
 
 /* Media for small devices */
 @media screen and (max-width: 767px) {

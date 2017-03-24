@@ -9,7 +9,7 @@ import * as actionCreators from '../../actions';
 import HeaderLabel from '../../../common/headerLabel';
 import { translateText } from '../../../common/translate';
 import FacultyAcademicView from './components/academic';
-import { authUserDetails } from '../../../common/utility';
+import { authUserDetails, browserTitle } from '../../../common/utility';
 import Spinner from '../../../common/spinner';
 
 
@@ -26,6 +26,7 @@ export class FacultyAcademic extends React.PureComponent {
     userReqObj.primaryValue = authUserDetails().netid;
     this.headerText = translateText('common:ACADEMIC');
     this.props.getFacultyAcademicData(userReqObj);
+    browserTitle(translateText('common:ACADEMIC'));
   }
 
   render() {

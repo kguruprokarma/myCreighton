@@ -35,3 +35,4 @@ export function getUserDetailsData(roleType) {
       });
   };
 }
+export default getUserDetailsData;

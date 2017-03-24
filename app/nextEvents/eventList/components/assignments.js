@@ -6,7 +6,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
 import * as ROUTE_URL from '../../../constants/routeContants';
-import { convertDueDateTimeStamp, ConvertDateFromTimeStamp } from '../../../common/utility';
+import { convertDueDateTimeStamp, convertDateFromTimeStamp } from '../../../common/utility';
 import { translateText } from '../../../common/translate';
 
 const Assignments = (assignmentProps) => (
@@ -21,7 +21,7 @@ const Assignments = (assignmentProps) => (
           <span className='eventPlace'>{assignmentProps.data.course_name}</span>
         </Col>
         <Col md={2} sm={2} className='text-center'>
-          <span className='eventBy'>{ConvertDateFromTimeStamp(assignmentProps.data.assign_due)}</span>
+          <span className='eventBy'>{convertDateFromTimeStamp(assignmentProps.data.assign_due)}</span>
         </Col>
         <Col md={2} sm={2} className='text-center'>
           <span className='eventTime'>&nbsp;</span>
@@ -32,7 +32,7 @@ const Assignments = (assignmentProps) => (
           <span className='eventOn'>Due {convertDueDateTimeStamp(assignmentProps.data.assign_due)}</span>
         </Col>
         <Col xs={5} className='text-right'>
-          <span className='eventDate'>{ConvertDateFromTimeStamp(assignmentProps.data.assign_due)}</span>
+          <span className='eventDate'>{convertDateFromTimeStamp(assignmentProps.data.assign_due)}</span>
         </Col>
         <Col xs={7}>
           <h3 className='mb0 eventHeading'><span className='assignIcon mr5'>&nbsp;</span> {assignmentProps.data.assign_title}</h3>

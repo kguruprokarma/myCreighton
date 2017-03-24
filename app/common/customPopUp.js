@@ -42,14 +42,15 @@ export class CustomPopUp extends React.Component {
     location.reload();
   }
   render() {
-    const { userDetailsData } = this.props;
+    const props = this.props;
+    const userDetails = props.userDetailsData;
     const ProfileMenus = profileMenu(this.role);
     const languages = [{ 'langkey': 'en', 'language': translateText('common:COMMON_ENGLISH') }, { 'langkey': 'es', 'language': translateText('common:COMMON_SPANISH') }];
     return (<div className='customPopUp'>
       <span className='popupPointer'>&nbsp;</span>
       {this.state.languageState && <ListGroup>
         <ListGroupItem>
-          {userDetailsData && <div> <UserDetail userDetail={userDetailsData} /></div>}
+          {userDetails && <div> <UserDetail userDetail={userDetails} /></div>}
         </ListGroupItem>
         {ProfileMenus.map((item) => (
           <ListGroupItem key={item.itemName} className='openSansLight'>
@@ -57,8 +58,8 @@ export class CustomPopUp extends React.Component {
               item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ? <span onClick={() => { this.setState({ languageState: false }); }} >
                 <Link> {item.itemName}</Link>
               </span> : <Link to={item.link} onClick={item.itemName === translateText('common:COMMON_SIGN_OUT') ? this.signOutBind : this.props.showPopValue} activeClassName='active'>
-                  {item.itemName}
-                </Link>
+                {item.itemName}
+              </Link>
             }
           </ListGroupItem>
         ))}
@@ -68,10 +69,10 @@ export class CustomPopUp extends React.Component {
         <ListGroup>
           <ListGroupItem className='openSansLight'>
             <Row>
-              <Col sm={2}>
+              <Col sm={2} xs={2}>
                 <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); }} />
               </Col>
-              <Col sm={10}>
+              <Col sm={10} xs={10}>
                 <p className='selectLang pt5'>{translateText('common:COMMON_SELECT_LANGUAGE')}</p>
               </Col>
             </Row>

@@ -6,8 +6,8 @@
     padding-left: 36px;
 }
 
-.form-control.cmpsDirSearch:focus,
-.form-control.cmpsDirSearch:active {
+.cmpsDirSearch:focus,
+.cmpsDirSearch:active {
     box-shadow: none;
     outline: none;
     border: 1px solid #a2a2a2;
@@ -24,22 +24,30 @@
     color: #0054a6;
     text-align: center;
     font-size: 1.266666666666667em;
-    line-height: 20px;
     height: 46px;
+    line-height: 30px;
 }
 
-.form-control.cmpsDirSearchBtn:hover,.form-control.cmpsDirSearchBtn:active,.form-control.cmpsDirSearchBtn:focus  {
-    background-color: #0054a6;
-    color: #ffffff;
+.cmpsDirSearchBtn:hover,
+.cmpsDirSearchBtn:active,
+.cmpsDirSearchBtn:focus, 
+.cmpsDirSearchBtn[disabled]:hover, 
+.cmpsDirSearchBtn[disabled]:focus,
+.cmpsDirSearchBtn[disabled]:active,
+.btn-default.cmpsDirSearchBtn:active {
+    background-color: #fff;
+    color: #0054a6;
     box-shadow: none;
     outline: none;
+    border-color: #0054a6;
 }
 
-.icon-addon{
+.icon-addon {
     left: 24px;
     top: 32px;
     position: absolute;
 }
+
 .icon-addon img {
     width: 20px;
 }

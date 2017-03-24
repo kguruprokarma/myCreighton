@@ -14,7 +14,7 @@ import dashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
 import './style.css';
-import { AuthUserDetails } from '../common/utility';
+import { AuthUserDetails, browserTitle } from '../common/utility';
 
 export class Dashboard extends Component {
 
@@ -36,8 +36,8 @@ export class Dashboard extends Component {
     } else {
       this.setState({ shouldHide: true });
     }
+    browserTitle(translateText('common:DASH_BOARD'));
   }
-
 
   onClick() {
     this.setState({ shouldHide: !this.state.shouldHide });

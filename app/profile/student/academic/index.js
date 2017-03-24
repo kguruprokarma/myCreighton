@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import { translateText } from '../../../common/translate';
-import { authUserDetails } from '../../../common/utility';
+import { authUserDetails, browserTitle } from '../../../common/utility';
 import AcademicStatus from './components/academicStatus';
 import AdvisorInformation from './components/advisorInformation';
 import * as actionCreators from './actions';
@@ -27,6 +27,7 @@ export class Academic extends React.PureComponent {
     userReqObj.primaryValue = authUserDetails().netid;
     const props = this.props;
     props.getAcademicData(userReqObj);
+    browserTitle(translateText('common:PROFILE_ACADEMIC'));
   }
 
   render() {

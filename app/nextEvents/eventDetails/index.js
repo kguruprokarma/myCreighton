@@ -11,15 +11,13 @@ import Assignments from './components/assignments';
 import TestOrQuiz from './components/testOrQuiz';
 import ClassDetails from './components/classDetails';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
-import Style from '../eventDetails/style.css';
+import '../eventDetails/style.css';
 import HeaderLabel from './../../common/headerLabel';
-import * as HEADER from '../../constants/headerTitleConstants';
 import * as ROUTE_URL from './../../constants/routeContants';
 import PreviousNext from '../../common/previousNext1';
-import { stringEncodeURIComponent } from '../../common/utility'
+import { stringEncodeURIComponent, browserTitle } from '../../common/utility';
 
 class EventDetails extends React.PureComponent {
-
 
   render() {
     let details;
@@ -27,22 +25,26 @@ class EventDetails extends React.PureComponent {
     let index1;
     let nextObject = {};
     let prevObject = {};
-    this.assignDue = this.props.params.assigndue;
-    this.eventType = this.props.params.eventdetailstype;
-    this.eventId = stringEncodeURIComponent(this.props.params.id);
+    const props = this.props;
+    this.assignDue = props.params.assigndue;
+    this.eventType = props.params.eventdetailstype;
+    this.eventId = stringEncodeURIComponent(props.params.id);
     if (localStorage !== undefined) {
-      details = JSON.parse(localStorage.getItem('eventList'));
+      details = JSON.parse(localStorage.getItem('eventsFilterData'));
     }
     if (this.eventType === NextEventsConstants.ASSIGNMENTS) {
       headerText = translateText('common:NEXT_EVENTS_ASSIGNMENTS');
+      browserTitle(translateText('common:NEXT_EVENTS_ASSIGNMENTS'));
     } else if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
       headerText = translateText('common:NEXT_EVENTS_TEST_DETAIL');
+      browserTitle(translateText('common:NEXT_EVENTS_TEST_DETAIL'));
     } else if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
       headerText = translateText('common:NEXT_EVENTS_CLASSES');
+      browserTitle(translateText('common:NEXT_EVENTS_CLASSES'));
     }
 
     if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
-      this.classData = details && _.find(details, { sis_source_id: this.eventId});
+      this.classData = details && _.find(details, { sis_source_id: this.eventId, type: NextEventsConstants.CLASSES_DETAILS});
       index1 = _.findIndex(details, { sis_source_id: this.eventId });
     }
     if (this.eventType === NextEventsConstants.ASSIGNMENTS) {
@@ -90,5 +92,4 @@ class EventDetails extends React.PureComponent {
     </section>);
   }
 }
-
 export default EventDetails;

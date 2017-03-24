@@ -5,7 +5,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
 import * as ROUTE_URL from '../../../constants/routeContants';
-import { ConvertDateFromTimeStamp } from '../../../common/utility';
+import { convertDateFromTimeStamp } from '../../../common/utility';
 
 const Quiz = (quizProps) => (
   <section className='quizzEvent' id='quizzEventList'>
@@ -19,7 +19,7 @@ const Quiz = (quizProps) => (
           <span className='eventPlace'>{quizProps.data.course_name}</span>
         </Col>
         <Col md={2} sm={2} className='text-center eventCol'>
-          <span className='eventBy'>{ConvertDateFromTimeStamp(quizProps.data.assign_due)}</span>
+          <span className='eventBy'>{convertDateFromTimeStamp(quizProps.data.assign_due)}</span>
         </Col>
       </div>
       <Row className='visible-xs mobileEventsList'>
@@ -27,7 +27,7 @@ const Quiz = (quizProps) => (
           <span className='eventOn'>{quizProps.data.ssrmeet_bldg_code === null ? 'N/A' : quizProps.data.ssrmeet_bldg_code}</span>
         </Col>
         <Col xs={5} className='text-right'>
-          <span className='eventDate'>{ConvertDateFromTimeStamp(quizProps.data.assign_due)}</span>
+          <span className='eventDate'>{convertDateFromTimeStamp(quizProps.data.assign_due)}</span>
         </Col>
         <Col xs={7}>
           <h3 className='mb0 eventHeading'><span className='testIcon mr5'>&nbsp;</span> {quizProps.data.assign_title}</h3>

@@ -12,7 +12,7 @@ import * as actionCreators from './actions';
 import LeftNav from '../../../common/leftNav';
 import HeaderLabel from '../../../common/headerLabel';
 import { translateText } from '../../../common/translate';
-import { authUserDetails } from '../../../common/utility';
+import { authUserDetails, browserTitle } from '../../../common/utility';
 
 export class StaffProfessional extends React.PureComponent {
 
@@ -22,6 +22,7 @@ export class StaffProfessional extends React.PureComponent {
     userReqObj.primaryKey = 'netid';
     userReqObj.primaryValue = authUserDetails().netid;
     this.props.getProfessionalData(userReqObj);
+    browserTitle(translateText('common:STAFF_PROFESSIONAL'));
   }
 
   render() {

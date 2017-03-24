@@ -95,7 +95,9 @@ export const filterTodaysClassSchedule = (schedule) => {
 
 // Convert DueDate from TimeStamp
 // timeStamp = 2015-09-01T01:30:00.000Z
+
 export const convertDueDateTimeStamp = (timeStamp) => {
+
   if (!timeStamp) return 'N/A';
   
   const formattedDT = moment(timeStamp).format('HHmm');
@@ -103,7 +105,7 @@ export const convertDueDateTimeStamp = (timeStamp) => {
 };
 // Convert date from TimeStamp
 // timeStamp = 2015-09-01T01:30:00.000Z
-export const ConvertDateFromTimeStamp = (timeStamp) => {
+export const convertDateFromTimeStamp = (timeStamp) => {
   if (!timeStamp) return 'N/A';
   
   return moment(timeStamp).format('MMM DD, YYYY');
@@ -216,26 +218,26 @@ export const AuthUserDetails = () => localStorage.roleInfo ? JSON.parse(localSto
 
 export const authUserDetails = () => localStorage.getItem('roleInfo') ? JSON.parse(localStorage.getItem('roleInfo')) : {};
 
-export const SEGREGATEDATA = (list) => {
-  const newArray = [];
-  for (const key in list) {
-    const arr = list[key];
-    const keys = Object.keys(arr);
-    for (let j = 0; j < keys.length; j++) {
-      var obj;
-      const dataSize = arr[keys[j]].length;
-      if (dataSize > 0) {
-        const data = arr[keys[j]];
-        for (let i = 0; i < dataSize; i++) {
-          obj = data[i];
-          obj.type = keys[j];
-          newArray.push(obj);
-        }
-      }
-    }
-  }
-  return newArray;
-};
+// export const SEGREGATEDATA = (list) => {
+//   const newArray = [];
+//   for (const key in list) {
+//     const arr = list[key];
+//     const keys = Object.keys(arr);
+//     for (let j = 0; j < keys.length; j++) {
+//       var obj;
+//       const dataSize = arr[keys[j]].length;
+//       if (dataSize > 0) {
+//         const data = arr[keys[j]];
+//         for (let i = 0; i < dataSize; i++) {
+//           obj = data[i];
+//           obj.type = keys[j];
+//           newArray.push(obj);
+//         }
+//       }
+//     }
+//   }
+//   return newArray;
+// };
 
 export const datesCompare = (currectDate, nextDate) => {
   const currentdateTime = moment(currectDate, 'DD/MM/YYYY').toDate();
@@ -245,38 +247,38 @@ export const datesCompare = (currectDate, nextDate) => {
   return 0;
 };
 
-export const dateSort = (dataArray, key, dueDate, startTime, dueTime) => {
-  const date = dataArray;
-  const startDateSort = key;
-  const dueDateSort = dueDate;
-  const sortedData = date.sort((a, b) => {
-    let date1;
-    let date2;
-    if (a[startDateSort] === undefined ? date1 = new Date(a[dueDateSort]) : date1 = new Date(a[startDateSort]));
-    if (b[startDateSort] === undefined ? date2 = new Date(b[dueDateSort]) : date2 = new Date(b[startDateSort]));
-    if (date1.toDateString() === date2.toDateString()) {
-      let timePart1;
-      let timePart2;
-      if (a[startTime] === undefined ? timePart1 = a[dueTime] : timePart1 = a[startTime]);
-      if (b[startTime] === undefined ? timePart2 = b[dueTime] : timePart2 = b[startTime]);
-      const amOrPmOfTime1 = timePart1.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
-      const amOrPmOfTime2 = timePart2.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
-      const time1Spliting = timePart1.split(amOrPmOfTime1)[0].split(':');
-      const time2Spliting = timePart2.split(amOrPmOfTime2)[0].split(':');
-      const time1Hours = time1Spliting[0];
-      const time2Hours = time2Spliting[0];
-      const time1HasMinutes = time1Spliting[1] || '00';
-      const time2HasMinutes = time2Spliting[1] || '00';
-      const time1 = `${time1Hours}:${time1HasMinutes} ${amOrPmOfTime1}`;
-      const time2 = `${time2Hours}:${time2HasMinutes} ${amOrPmOfTime2}`;
-      date1 = new Date(`2017/01/01 ${time1}`);
-      date2 = new Date(`2017/01/01 ${time2}`);
-      return date1 - date2;
-    }
-    return date1 - date2;
-  });
-  return sortedData;
-};
+// export const dateSort = (dataArray, key, dueDate, startTime, dueTime) => {
+//   const date = dataArray;
+//   const startDateSort = key;
+//   const dueDateSort = dueDate;
+//   const sortedData = date.sort((a, b) => {
+//     let date1;
+//     let date2;
+//     if (a[startDateSort] === undefined ? date1 = new Date(a[dueDateSort]) : date1 = new Date(a[startDateSort]));
+//     if (b[startDateSort] === undefined ? date2 = new Date(b[dueDateSort]) : date2 = new Date(b[startDateSort]));
+//     if (date1.toDateString() === date2.toDateString()) {
+//       let timePart1;
+//       let timePart2;
+//       if (a[startTime] === undefined ? timePart1 = a[dueTime] : timePart1 = a[startTime]);
+//       if (b[startTime] === undefined ? timePart2 = b[dueTime] : timePart2 = b[startTime]);
+//       const amOrPmOfTime1 = timePart1.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
+//       const amOrPmOfTime2 = timePart2.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
+//       const time1Spliting = timePart1.split(amOrPmOfTime1)[0].split(':');
+//       const time2Spliting = timePart2.split(amOrPmOfTime2)[0].split(':');
+//       const time1Hours = time1Spliting[0];
+//       const time2Hours = time2Spliting[0];
+//       const time1HasMinutes = time1Spliting[1] || '00';
+//       const time2HasMinutes = time2Spliting[1] || '00';
+//       const time1 = `${time1Hours}:${time1HasMinutes} ${amOrPmOfTime1}`;
+//       const time2 = `${time2Hours}:${time2HasMinutes} ${amOrPmOfTime2}`;
+//       date1 = new Date(`2017/01/01 ${time1}`);
+//       date2 = new Date(`2017/01/01 ${time2}`);
+//       return date1 - date2;
+//     }
+//     return date1 - date2;
+//   });
+//   return sortedData;
+// };
 
 export const createTimeStamp = (dataArray) => {
   const data = dataArray;
@@ -308,7 +310,7 @@ export const filterSevenDaysTimeStampsFromNow = (dataArray) => {
     const assignmentObject = singleAssignmentObject;
     assignmentObject.timeStamp = assignmentObject.assign_due === null ? null : new Date(assignmentObject.assign_due);
     if (assignmentObject.timeStamp !== null && assignmentObject.timeStamp >= today && assignmentObject.timeStamp <= seventhDay) {
-      assignmentObject.submission_types === 'online_quiz' ? assignmentObject.type = 'testorquiz' : assignmentObject.type = 'assignments';
+      assignmentObject.submission_types === CommonConstants.QUIZ_SUBMISSION_TYPES ? assignmentObject.type = CommonConstants.EVENT_TYPE_QUIZ : assignmentObject.type = CommonConstants.EVENT_TYPE_ASSIGNMENTS;
       filterlist.push(assignmentObject);
     }
     return filterlist;
@@ -329,12 +331,20 @@ export const telephoneCheck = (phoneNumber, separator) => {
 export const addedTypeField = (dataArray) => {
   const data = dataArray;
   const filterlist = [];
-  data.map((assignmentObject) => {
+  data.map((singleAssignmentObject) => {
+    const assignmentObject = singleAssignmentObject;
     assignmentObject.timeStamp = assignmentObject.assign_due === null ? null : new Date(assignmentObject.assign_due);
     if (assignmentObject.timeStamp !== null) {
-      assignmentObject.submission_types === 'online_quiz' ? assignmentObject.type = 'testorquiz' : assignmentObject.type = 'assignments';
+      assignmentObject.submission_types === CommonConstants.QUIZ_SUBMISSION_TYPES ? assignmentObject.type = CommonConstants.EVENT_TYPE_QUIZ : assignmentObject.type = CommonConstants.EVENT_TYPE_ASSIGNMENTS;
       filterlist.push(assignmentObject);
     }
+    return filterlist;
   });
   return filterlist;
+};
+
+export const browserTitle =(titleKey) => {
+  console.log('titleKey: ', titleKey);
+
+  document.title = `${titleKey} - ${CommonConstants.MY_CREIGHTON}`;
 };

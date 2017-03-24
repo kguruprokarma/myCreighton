@@ -10,10 +10,10 @@ const LeftNav = () => (
   <nav role='navigation' id='localmenu' className='userLeftmenu'>
     <h1 className='announced-only'>{translateText('common:SIMPLE_SEARCH')}</h1>
     <div className='list-group openSansLight'>
-      <Link className='list-group-item'>
+      <Link className='list-group-item active' activeClassName='active'>
         {translateText('common:SIMPLE_SEARCH')}
       </Link>
-      <Link className='list-group-item'>
+      <Link className='list-group-item' activeClassName='active'>
         {translateText('common:ADVANCED_SEARCH')}
       </Link>
     </div>

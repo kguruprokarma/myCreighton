@@ -34,6 +34,7 @@ describe('index files in Class Details testing ', () => {
     'subject_code': 'HAP',
     'term_description': 'Spring 2016',
     'day': 'Monday',
+    'type': CLASSES_DETAILS,
     'assignmentData': [
       {
         'netid_pk': '4d646ad917',
@@ -101,7 +102,6 @@ describe('index files in Class Details testing ', () => {
       }
     ]
   }];
-
   eventList = JSON.stringify(eventList);
   const classDetails = JSON.stringify(eventList);
 

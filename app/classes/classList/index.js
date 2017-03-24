@@ -14,7 +14,7 @@ import '../classList/style.css';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import Spinner from '../../common/spinner';
-import { convertEncodeURIComponent } from '../../common/utility';
+import { convertEncodeURIComponent, browserTitle } from '../../common/utility';
 
 export class Classes extends React.PureComponent {
 
@@ -29,6 +29,10 @@ export class Classes extends React.PureComponent {
     this.onChangeOfTab(this.props.params.classtab);
     this.state = { presentState: '' };
   }
+  
+  componentDidMount() {
+    browserTitle(translateText('common:CLASS_SCHEDULE'));
+  }  
 
   componentWillReceiveProps(nextProps) {
     if (this.state.presentState !== nextProps.params.classtab) {

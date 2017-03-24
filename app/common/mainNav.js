@@ -10,6 +10,8 @@ import { AuthUserDetails } from './utility';
 import * as ROUTE_URL from '../constants/routeContants';
 
 class MainNav extends React.Component {
+  componentWillMount() {
+  }
   render() {
     const props = this.props;
     const role = AuthUserDetails().userRole;

@@ -5,13 +5,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link, hashHistory } from 'react-router';
-import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
+import { ListGroupItem, ListGroup } from 'react-bootstrap';
 import Filter from './components/filter';
 import * as EventConstants from '../../constants/commonConstants';
 
-// import i18n from '../i18n';
-// import { translateText } from '../common/translate';
 import * as actionCreators from './actions';
 import * as headerActionCreators from '../../header/actions';
 
@@ -56,106 +53,106 @@ export class NextEventFilter extends React.Component {
               'itemName': 'Philosophy 100',
               'checked': false
             }, {
-            'itemName': 'Political science 232',
-            'checked': false
-          }]
+              'itemName': 'Political science 232',
+              'checked': false
+            }]
           }, {
             'itemName': 'Tests and Quizzes',
             'checked': false,
             'children': [{
-            'itemName': 'Chemistry 105',
-            'checked': false
+              'itemName': 'Chemistry 105',
+              'checked': false
+            }, {
+              'itemName': 'English 112',
+              'checked': false
+            }, {
+              'itemName': 'Philosophy 100',
+              'checked': false
+            }, {
+              'itemName': 'Political science 232',
+              'checked': false
+            }]
           }, {
-        'itemName': 'English 112',
-        'checked': false
-      }, {
-        'itemName': 'Philosophy 100',
-        'checked': false
-      }, {
-        'itemName': 'Political science 232',
-        'checked': false
-      }]
+            'itemName': 'To-do list',
+            'checked': false,
+            'children': [{
+              'itemName': 'Chemistry 105',
+              'checked': false
+            }, {
+              'itemName': 'English 112',
+              'checked': false
+            }, {
+              'itemName': 'Philosophy 100',
+              'checked': false
+            }, {
+              'itemName': 'Political science 232',
+              'checked': false
+            }]
           }, {
-      'itemName': 'To-do list',
-      'checked': false,
-      'children': [{
-        'itemName': 'Chemistry 105',
-        'checked': false
-      }, {
-        'itemName': 'English 112',
-        'checked': false
-      }, {
-        'itemName': 'Philosophy 100',
-        'checked': false
-      }, {
-        'itemName': 'Political science 232',
-        'checked': false
-      }]
-    }, {
-      'itemName': 'Outlook calendar',
-      'checked': false,
-      'children': [{
-        'itemName': 'Chemistry 105',
-        'checked': false
-      }, {
-        'itemName': 'English 112',
-        'checked': false
-      }, {
-        'itemName': 'Philosophy 100',
-        'checked': false
-      }, {
-        'itemName': 'Political science 232',
-        'checked': false
-      }]
-    }, {
-      'itemName': 'Academic milestones',
-      'checked': false,
-      'children': [{
-        'itemName': 'Chemistry 105',
-        'checked': false
-      }, {
-        'itemName': 'English 112',
-        'checked': false
-      }, {
-        'itemName': 'Philosophy 100',
-        'checked': false
-      }, {
-        'itemName': 'Political science 232',
-        'checked': false
-      }]
-    }, {
-      'itemName': 'My affiliations',
-      'checked': false,
-      'children': [{
-        'itemName': 'Chemistry 105',
-        'checked': false
-      }, {
-        'itemName': 'English 112',
-        'checked': false
-      }, {
-        'itemName': 'Philosophy 100',
-        'checked': false
-      }, {
-        'itemName': 'Political science 232',
-        'checked': false
-      }]
-    }, {
-      'itemName': 'Athletic events',
-      'checked': false,
-      'children': [{
-        'itemName': 'Chemistry 105',
-        'checked': false
-      }, {
-        'itemName': 'English 112',
-        'checked': false
-      }, {
-        'itemName': 'Philosophy 100',
-        'checked': false
-      }, {
-        'itemName': 'Political science 232',
-        'checked': false
-      }]
-    }
+            'itemName': 'Outlook calendar',
+            'checked': false,
+            'children': [{
+              'itemName': 'Chemistry 105',
+              'checked': false
+            }, {
+              'itemName': 'English 112',
+              'checked': false
+            }, {
+              'itemName': 'Philosophy 100',
+              'checked': false
+            }, {
+              'itemName': 'Political science 232',
+              'checked': false
+            }]
+          }, {
+            'itemName': 'Academic milestones',
+            'checked': false,
+            'children': [{
+              'itemName': 'Chemistry 105',
+              'checked': false
+            }, {
+              'itemName': 'English 112',
+              'checked': false
+            }, {
+              'itemName': 'Philosophy 100',
+              'checked': false
+            }, {
+              'itemName': 'Political science 232',
+              'checked': false
+            }]
+          }, {
+            'itemName': 'My affiliations',
+            'checked': false,
+            'children': [{
+              'itemName': 'Chemistry 105',
+              'checked': false
+            }, {
+              'itemName': 'English 112',
+              'checked': false
+            }, {
+              'itemName': 'Philosophy 100',
+              'checked': false
+            }, {
+              'itemName': 'Political science 232',
+              'checked': false
+            }]
+          }, {
+            'itemName': 'Athletic events',
+            'checked': false,
+            'children': [{
+              'itemName': 'Chemistry 105',
+              'checked': false
+            }, {
+              'itemName': 'English 112',
+              'checked': false
+            }, {
+              'itemName': 'Philosophy 100',
+              'checked': false
+            }, {
+              'itemName': 'Political science 232',
+              'checked': false
+            }]
+          }
         ]
       }
     };
@@ -165,15 +162,18 @@ export class NextEventFilter extends React.Component {
     this.toggleCheck = this.toggleCheck.bind(this);
     this.showSelected = this.showSelected.bind(this);
   }
+
   toggleRadio(depen) {
     this.setState({ eventPeriod: depen.target.value });
   }
-  showChild(item) {    
+  showChild(itemVal) {
+    const item = itemVal;
     item.showItem = !item.showItem;
     this.forceUpdate();
   }
 
-  toggleCheckBoxParent(item) {
+  toggleCheckBoxParent(itemVal) {
+    const item = itemVal;
     item.checked = !item.checked;
     for (let i = 0; i < item.children.length; i++) {
       item.children[i].checked = item.checked;
@@ -181,7 +181,9 @@ export class NextEventFilter extends React.Component {
     this.forceUpdate();
   }
 
-  toggleCheck(item, parent) {
+  toggleCheck(itemVal, parentVal) {
+    const item = itemVal;
+    const parent = parentVal;
     item.checked = !item.checked;
     let uncheckedCount = 0;
     for (let i = 0; i < parent.children.length; i++) {
@@ -198,26 +200,27 @@ export class NextEventFilter extends React.Component {
   }
 
   showSelected() {
-    this.props.filterPopUpClose();
+    const props = this.props;
+    props.filterPopUpClose();
     const selectedObj = {};
     selectedObj.eventperiodItems = this.state.eventPeriod;
-    selectedObj.displayOptions = {};
-    const items = this.state.Items;
-    for (let i = 0; i < items.displayOptions.length; i++) {
-      const item = items.displayOptions[i];
-      if (item.checked) {
-        selectedObj.displayOptions[item.itemName] = [];
-        const selectedChildItems = [];
-        for (let j = 0; j < item.children.length; j++) {
-          const childItem = item.children[j];
-          if (childItem.checked) {
-            selectedChildItems.push(childItem.itemName);
+    /*    selectedObj.displayOptions = {};
+        const items = this.state.Items;
+        for (let i = 0; i < items.displayOptions.length; i++) {
+          const item = items.displayOptions[i];
+          if (item.checked) {
+            selectedObj.displayOptions[item.itemName] = [];
+            const selectedChildItems = [];
+            for (let j = 0; j < item.children.length; j++) {
+              const childItem = item.children[j];
+              if (childItem.checked) {
+                selectedChildItems.push(childItem.itemName);
+              }
+            }
+            selectedObj.displayOptions[item.itemName] = selectedChildItems;
           }
-        }
-        selectedObj.displayOptions[item.itemName] = selectedChildItems;
-      }
-    }
-    this.props.filterChange(selectedObj.eventperiodItems);
+        }*/
+    props.filterChange(selectedObj.eventperiodItems);
   }
 
   render() {
@@ -226,9 +229,9 @@ export class NextEventFilter extends React.Component {
       <ListGroup>
         <ListGroupItem >
           {/*<div>Settings</div><span>Done</span>*/}
-        </ListGroupItem >   
+        </ListGroupItem >
         <ListGroupItem >
-          <Filter Items={this.state.Items} eventPeriod={this.state.eventPeriod} toggleRadio={(depen)=>this.toggleRadio( depen)} showChild={(item)=>this.showChild.bind(this, item)} toggleCheckBoxParent={(item)=>this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent)=>this.toggleCheck.bind(this,item, parent)} showSelected={this.showSelected} />
+          <Filter Items={this.state.Items} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => this.showChild.bind(this, item)} toggleCheckBoxParent={(item) => this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent) => this.toggleCheck.bind(this, item, parent)} showSelected={this.showSelected} />
         </ListGroupItem >
       </ListGroup>
     </div>
@@ -236,13 +239,9 @@ export class NextEventFilter extends React.Component {
   }
 }
 
-NextEventFilter.propTypes = {
-  Items: React.PropTypes.array
-};
-
 const mapStateToProps = (nextEventFilterState) => (
   {
-    EventChangedValue : nextEventFilterState.eventsFilterReducer.changedValue
+    EventChangedValue: nextEventFilterState.eventsFilterReducer.changedValue
   }
 );
 

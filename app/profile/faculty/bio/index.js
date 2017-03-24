@@ -11,7 +11,7 @@ import { translateText } from '../../../common/translate';
 import * as CommonConstants from '../../../constants/commonConstants';
 import * as URL_CONSTANTS from '../../../constants/urlConstants';
 import FacultyProfileView from './components/profile';
-import { authUserDetails } from '../../../common/utility';
+import { authUserDetails, browserTitle } from '../../../common/utility';
 import Spinner from '../../../common/spinner';
 //import LeftNav from '../../../../common/leftNav';
 
@@ -28,6 +28,7 @@ export class FacultyProfile extends React.PureComponent {
     userReqObj.primaryValue = authUserDetails().netid;
     this.props.getFacultyProfileData(userReqObj);
     this.headerText = translateText('common:PROFILE_MY_PROFILE');
+    browserTitle(translateText('common:PROFILE_MY_PROFILE'));
   }
 
   render() {

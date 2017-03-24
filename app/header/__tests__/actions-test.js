@@ -2,11 +2,11 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as types from '../actionTypes';
 import * as actions from '../actions';
+
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('header actions', () => {
-
   it('testing action popup case', () => {
     const expectedActions = [{ type: types.OPEN_POPUP }];
     const store = mockStore();
@@ -27,10 +27,10 @@ describe('header actions', () => {
     store.dispatch(actions.navOpen());
     expect(store.getActions()).toEqual(expectedActions);
   });
-it('testing action retrival case', () => {
+  it('testing action retrival case', () => {
     const expectedActions = [{ type: types.CLOSE_NAV }];
     const store = mockStore();
     store.dispatch(actions.navClose());
     expect(store.getActions()).toEqual(expectedActions);
   });
-})
+});

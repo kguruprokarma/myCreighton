@@ -6,7 +6,6 @@ import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 import { Col, Row } from 'react-bootstrap';
 import CustomPopUp from '../common/customPopUp';
 import Title from '../header/components/title';
@@ -74,9 +73,9 @@ export class Header extends React.PureComponent {
         <div className='container'>
           <Row >
             <Col xs={2} sm={2} className='hidden-lg hamburgerMenu'>
-              {this.props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ?
+              {props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ?
                 <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { history.back(); }} /> 
-                : <img alt='' src={this.props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} onClick={this.navClick} />
+                : <img alt='' src={props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} onClick={this.navClick} />
               }                          
             </Col>
             <Col lg={10} className='visible-lg'>
@@ -99,7 +98,7 @@ export class Header extends React.PureComponent {
                   </div>
                 </li>
               </ul>
-              {(this.props.currentState === RouteContants.EVENT_LIST || this.props.currentState === RouteContants.EVENT_DETAILS) &&
+              {(props.currentState === RouteContants.EVENT_LIST || props.currentState === RouteContants.EVENT_DETAILS) &&
                 <ul className='pull-right list-inline'>
                   <li className='head-Icons'>
                     <div className='popUp'>

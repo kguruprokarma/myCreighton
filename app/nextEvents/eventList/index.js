@@ -13,8 +13,8 @@ import * as classesActionCreators from '../../classes/classList/actions';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import * as CommonConstants from '../../constants/commonConstants';
 import { translateText } from '../../common/translate';
-import { authUserDetails, dataFilterAddingData, createTimeStamp, convertEncodeURIComponent, addedTypeField } from '../../common/utility';
-import Styles from './style.css';
+import { authUserDetails, dataFilterAddingData, createTimeStamp, convertEncodeURIComponent, addedTypeField, browserTitle } from '../../common/utility';
+import './style.css';
 import Spinner from '../../common/spinner';
 import moment from 'moment';
 
@@ -26,10 +26,12 @@ export class EventList extends React.PureComponent {
     this.userReqObj.primaryValue = '6cb4db8459';//authUserDetails().netid;
   }
   componentWillMount() {
+    const props = this.props;
     if (this.userReqObj !== undefined && authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {
-      this.props.getEventsData(this.userReqObj);
-      this.props.getClassesDataByWeek(this.userReqObj);
+      props.getEventsData(this.userReqObj);
+      props.getClassesDataByWeek(this.userReqObj);
     }
+    browserTitle(translateText('common:NEXT_EVENTS'));
   }
   getEventsData(props) {
     const EVENT_DATA = [];
@@ -41,16 +43,18 @@ export class EventList extends React.PureComponent {
       assignmentObjs.map((assignmentObj) => {
         EVENT_DATA.push(assignmentObj);
       });
-      classObjs.map((classObject) => {
+      classObjs.map((classObj) => {
+        const classObject = classObj;
         classObject.assignmentData = filter(assignmentObjs, { 'sis_source_id': classObject.sis_source_id });
         classObject.type = NextEventsConstants.CLASSES_DETAILS;
         EVENT_DATA.push(classObject);
-      });
+        return EVENT_DATA;
+      });      
     }
     if (EVENT_DATA) {
       localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
     }
-    const result = this.getSelectedFilterData(this.props.EventChangedValue);
+    const result = this.getSelectedFilterData(props.EventChangedValue);
     return result;
   }
 
@@ -61,7 +65,7 @@ export class EventList extends React.PureComponent {
     const today = moment()._d;
     const seventhDay = moment().add(6, 'days')._d;
     const filterlist = [];
-    let eventFilterData ;
+    let eventFilterData;
 
     if (localStorage !== undefined) {
       eventDetails = JSON.parse(localStorage.getItem('eventList'));
@@ -85,7 +89,7 @@ export class EventList extends React.PureComponent {
       }
     });
 
-    if (filterlist && filterlist.length>0){
+    if (filterlist && filterlist.length>0) {
       sortedEventData = sortBy(filterlist, ['timeStamp']);
       if (sortedEventData && sortedEventData.length >0 && day === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
         const nextEventDetail = [];
@@ -95,34 +99,37 @@ export class EventList extends React.PureComponent {
         eventFilterData = sortedEventData;   
       }          
     }
+    if (eventFilterData) {
+      localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
+    }
     return eventFilterData;
   }
 
   render() {
+    const props = this.props;
     const EVENT_DATA = this.getEventsData(this.props);
     return (
       <section>
-          {this.props.loading && <Spinner />}
-          {EVENT_DATA && <div>
-            <Row><Col md={8} sm={6} xs={12}>
-              <div><HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} /></div>
-            </Col>
-            </Row>
+        {props.loading && <Spinner />}
+        {EVENT_DATA && <div>
+          <Row><Col md={8} sm={6} xs={12}>
+            <div><HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} /></div>
+          </Col>
+          </Row>
             {authUserDetails().userRole === CommonConstants.ROLE_STUDENT ? EVENT_DATA.map((eventType, index) => (
-                <div key={index}>
-                  {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} />}
-                  {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
-                  {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} />}
-                </div>
+              <div key={index}>
+                {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} />}
+                {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
+                {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} />}
+              </div>
             )) :
-                <Alert bsStyle='warning'>
-                  <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
-                </Alert>
+            <Alert bsStyle='warning'>
+              <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
+            </Alert>
             }
-
           </div>
           }
-        </section>
+      </section>
     );
   }
 }

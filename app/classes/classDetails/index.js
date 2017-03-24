@@ -13,27 +13,34 @@ import TestsOrQuizzes from './../classDetails/components/testsOrQuizzes';
 import '../classDetails/style.css';
 import PreviousNext from '../../common/previousNext';
 import { translateText } from '../../common/translate';
-import { datesCompare, stringEncodeURIComponent } from '../../common/utility';
+import { datesCompare, stringEncodeURIComponent, browserTitle } from '../../common/utility';
 import { CLASSES_DETAILS } from '../../constants/nextEventsConstants';
+//import * as locales from '../../locales/en/common';
 
 class ClassDetails extends React.PureComponent {
+
+  componentWillMount() {
+    browserTitle(translateText('common:CLASS_DETAIL'));
+  }
+
   render() {
     const props = this.props;
+    let classData;
     let obj = null;
     let showPrevNext = false;
     if (props.params.categoryname === CLASSES_DETAILS) {
       obj = JSON.parse(localStorage.getItem('eventList'));
       showPrevNext = false;
+      classData = find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id), type: props.params.categoryname });
     } else {
       obj = JSON.parse(localStorage.getItem('classDetails'));
       showPrevNext = true;
-    }
-    const classData = find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
+      classData = find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id)});
+    }    
     let assignments = {};
     if (classData.assignmentData && classData.assignmentData !== null) {
       assignments = classData.assignmentData;
     }
-
     const testOrQuizzesData = [];
     const assignmentDue = [];
     const todaysClass = [];

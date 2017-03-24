@@ -19,7 +19,7 @@ import * as actionCreators from '../actions';
 import LeftNav from '../../common/leftNav';
 import HeaderLabel from '../../common/headerLabel';
 import * as CommonConstants from '../../constants/commonConstants';
-import { authUserDetails } from '../../common/utility';
+import { authUserDetails, browserTitle } from '../../common/utility';
 import Spinner from '../../common/spinner';
 import FamilyDetail from '../faculty/bio/components/family';
 
@@ -32,6 +32,7 @@ export class StaffProfile extends React.PureComponent {
     userReqObj.primaryValue = authUserDetails().netid;
     const props = this.props;
     props.getStaffProfileData(userReqObj);
+    browserTitle(translateText('common:PROFILE_MY_PROFILE')); 
   }
 
   render() {

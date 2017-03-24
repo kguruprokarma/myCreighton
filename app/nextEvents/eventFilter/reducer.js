@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import {EVENT_FILTER_7_DAYS} from '../../constants/commonConstants';
+
 const initialState = {
   changedValue: EVENT_FILTER_7_DAYS,
   isLoading: false

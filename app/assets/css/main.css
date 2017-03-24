@@ -75,10 +75,11 @@ header {
 }
 header a {
     color: #fff;
+    text-decoration: none;
 
 }
 header a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: #fff;
 }
 header a:active {

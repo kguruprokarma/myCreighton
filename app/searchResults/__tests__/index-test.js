@@ -25,5 +25,7 @@ describe('index files in SearchResults----->', () => {
   const searchResults = shallow(<SearchResults {...minProps} />);
   it('SearchResults is defined', () => {
     expect(searchResults).toBeDefined();
+    searchResults.instance().loadMore();
+    searchResults.instance().componentWillReceiveProps(minProps);
   });
 });

@@ -46,16 +46,16 @@ class Main extends React.PureComponent {
     }
   }
   hidePopUp() {
-    if (this.props.popUpData) {
-      this.props.popUpClose();
+    const props = this.props;
+    if (props.popUpData) {
+      props.popUpClose();
     }
-    if (this.props.filterPopUpData) {
-      this.props.filterPopUpClose();
+    if (props.filterPopUpData) {
+      props.filterPopUpClose();
     } 
   }
   render() {
     const props = this.props;
-    document.title = props.children.props.route.title + translateText('common:MY_CREIGHTON');
     return (
       <div className='view-container'>
         {/* this is header section */}
@@ -72,7 +72,7 @@ class Main extends React.PureComponent {
         {/* this is footer section */}
         {this.state.isLogin && <Footer />}
         {/* /this is footer section */}
-        {(this.props.popUpData || this.props.filterPopUpData) && <div className='popUpPatch' onClick={this.hidePopUp} />}
+        {(props.popUpData || props.filterPopUpData) && <div className='popUpPatch' onClick={this.hidePopUp} />}
       </div>
     );
   }

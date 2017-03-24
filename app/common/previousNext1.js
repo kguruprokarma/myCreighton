@@ -8,7 +8,9 @@ import * as ROUTE_URL from '../constants/routeContants';
 import { translateText } from '../common/translate';
 import * as eventTypes from '../constants/nextEventsConstants'; 
 
-export class PreviousNext1 extends React.Component {
+class PreviousNext1 extends React.Component {
+  componentWillMount() {
+  }
   render() {
     let prevAssignmentId = ''; 
     let nextAssignmentId = ''; 
