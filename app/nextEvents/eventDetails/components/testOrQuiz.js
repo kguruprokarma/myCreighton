@@ -50,7 +50,7 @@ const QuizzesDetails = (quizDetails) => (
       <h4 className='eventDetail graybtBorder mb10'>{translateText('common:COMMON_DESCRIPTION')}</h4>
       <div className='eventNotes pt5' >
         {
-            quizDetails.data.assign_desc === null || quizDetails.data.assign_desc === '' ? translateText('common:NO_EVENTS_NOTES') :
+            quizDetails.data.assign_desc === null || quizDetails.data.assign_desc === '' ? <p className='openSansLight fs1pt2 gbl_lh mb30 text-italic'>{translateText('common:NO_DETAILS_PROVIDED')}</p> :
             htmlReactParser(htmlEncoding(quizDetails.data.assign_desc))
         }
       </div>

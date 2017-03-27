@@ -1,5 +1,5 @@
-/* Created Date: - 23rd -01 -2017
- * Usage of file: - This action is used to get class schedule of a user.*
+/* Created Date: - 23rd, Mar-2017
+ * Usage of file: - This action is used to get campus directory search search result
  */
 
 import campusDirectoryApi from '../middleware/campus/api';
@@ -10,10 +10,10 @@ const requestCampusSimpleSearch = () => ({
   type: types.REQUEST_SIMPLE_SEARCH_DATA
 });
 
-const receiveCampusSimpleSearchData = (classesData) => (
+const receiveCampusSimpleSearchData = (searchResult) => (
   {
     type: types.RECEIVE_SIMPLE_SEARCH_DATA,
-    data: classesData
+    data: searchResult
   });
 
 const receiveCampusSimpleSearchError = (error) => (

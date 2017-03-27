@@ -41,7 +41,7 @@ export class FacultyProfile extends React.PureComponent {
     return (
       <section>
         {this.props.isLoading && <Spinner />}
-        <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
+        <div className='visible-lg'><HeaderLabel headerLabel={this.headerText} /></div>
         <FacultyProfileView data={PROFILE_DATA} facultyProfile={this.props.profile} />
       </section>
     );

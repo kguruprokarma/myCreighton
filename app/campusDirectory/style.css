@@ -1,3 +1,10 @@
+.show {
+    display: block;
+    cursor: pointer;
+}
+.hide {
+    display: none;
+}
 .cmpsDirSearch {
     border: 1px solid #a2a2a2;
     color: #868686;
@@ -48,8 +55,17 @@
     position: absolute;
 }
 
-.icon-addon img {
+.icon-addon img, .icon-addon-right img {
     width: 20px;
+}
+
+.icon-addon-right {   
+    background: gray; 
+    border-radius: 50%;    
+    position: absolute;
+    padding: 5px;
+    right: 25px;
+    top: 28px;
 }
 
 @media screen and (max-width: 758px) {

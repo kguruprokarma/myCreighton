@@ -4,7 +4,7 @@
 
 import React from 'react';
 import {shallow} from 'enzyme';
-import TabController from '../components/tab';
+import TabController from '../components/campusTabController';
 
 describe('Campus Directory search type tabController component testing ----->', () => {
   const SearchController = shallow(<TabController />);

@@ -40,7 +40,7 @@ export class Profile extends React.PureComponent {
     return (
       <section>
         {props.loading && <Spinner />}
-        <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
+        <div className='visible-lg'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
         {USER_DATA.data &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>

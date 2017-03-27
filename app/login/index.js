@@ -11,20 +11,25 @@ const form = reduxForm({
 });
 
 class Login extends Component {  
-
+  constructor() {
+    super();
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  }
   componentWillMount() {   
     browserTitle(translateText('common:SIGN_IN'));
   }
 
   handleFormSubmit(formProps) {
-    this.props.loginUser(formProps);
+    const props = this.props;
+    props.loginUser(formProps);
   }
 
   renderAlert() {
-    if (this.props.errorMessage) {
+    const props = this.props;
+    if (props.errorMessage) {
       return (
         <div>
-          <span><strong>Error!</strong> {this.props.errorMessage}</span>
+          <span><strong>Error!</strong> {props.errorMessage}</span>
         </div>
       );
     }
@@ -35,7 +40,7 @@ class Login extends Component {
 
     return (
       <div className='col-sm-6 col-sm-offset-3'>
-        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+        <form onSubmit={handleSubmit(this.handleFormSubmit)}>
           {this.renderAlert()}
           <div className='form-group'>
             <label htmlFor='netid'>NetID</label>

@@ -44,7 +44,7 @@ class EventDetails extends React.PureComponent {
     }
 
     if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
-      this.classData = details && find(details, { sis_source_id: this.eventId, type: NextEventsConstants.CLASSES_DETAILS});
+      this.classData = details && find(details, { sis_source_id: this.eventId, type: NextEventsConstants.CLASSES_DETAILS });
       index1 = findIndex(details, { sis_source_id: this.eventId });
     }
     if (this.eventType === NextEventsConstants.ASSIGNMENTS) {
@@ -70,11 +70,11 @@ class EventDetails extends React.PureComponent {
       <div className='hidden-xs mb10 eventDetailsTitle'>
         <Row>
           <Col sm={6}>
-            <div>
+            <div className='visible-lg'>
               <HeaderLabel headerLabel={headerText} />
             </div>
           </Col>
-          <Col sm={6}>
+          <Col sm={6} className='mb20'>
             <Link to={ROUTE_URL.EVENT_LIST} className='btn btn-primary nextEventBtn'>
               <span className='nextevent-logo' />
               <span className='float-right nextEventBtnTxt'>{translateText('NEXT_EVENTS')}</span>
@@ -92,4 +92,5 @@ class EventDetails extends React.PureComponent {
     </section>);
   }
 }
+
 export default EventDetails;

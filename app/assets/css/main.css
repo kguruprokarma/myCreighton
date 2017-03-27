@@ -379,13 +379,17 @@ input {
     color: #313131;
 }
 
-.popupBackBtn {
+.popUpContainer .popupBackBtn {
      font-size: 1.4em;
+     padding: 0;
 }
 
-.popupBackBtn:hover,
-.popupBackBtn:active {
+.popUpContainer .popupBackBtn:hover,
+.popUpContainer .popupBackBtn:active,
+.popUpContainer .popupBackBtn:focus {
     text-decoration: none;
+    outline: none;
+    box-shadow: 0;
 }
 
 .head-Icons .glyphicon-user {
@@ -427,6 +431,15 @@ input {
     border:0;
     box-shadow:none;
     outline:0
+}
+
+.customPopUp .list-group button.list-group-item:focus,
+.customPopUp .list-group button.list-group-item:active {
+    outline:0 
+}
+
+.text-italic {
+    font-style: italic;
 }
 
 /* Media for small devices */

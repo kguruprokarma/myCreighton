@@ -30,8 +30,7 @@ export class StaffProfessional extends React.PureComponent {
     const USER_DATA = props.professionalData.data;
     return (
       <section id='academic'>
-        
-        <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:STAFF_PROFESSIONAL')} /></div>
+        <div className='visible-lg'><HeaderLabel headerLabel={translateText('common:STAFF_PROFESSIONAL')} /></div>
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>

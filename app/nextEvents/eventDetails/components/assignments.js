@@ -33,7 +33,7 @@ const Assignments = (assignmentsDetails) => (
       <h4 className='eventDetail graybtBorder mb10'>{translateText('ASSIGNMENT_DETAILS')}</h4>
       <div className='eventNotes pt5'>
         {
-          assignmentsDetails.data.assign_desc === null || assignmentsDetails.data.assign_desc === '' ? translateText('common:NO_EVENTS_NOTES') :
+          assignmentsDetails.data.assign_desc === null || assignmentsDetails.data.assign_desc === '' ? <p className='openSansLight fs1pt2 gbl_lh mb30 text-italic'>{translateText('common:NO_DETAILS_PROVIDED')}</p> :
             htmlReactParser(htmlEncoding(assignmentsDetails.data.assign_desc))
         }
       </div>

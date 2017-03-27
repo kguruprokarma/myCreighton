@@ -22,14 +22,16 @@ export class SearchResults extends React.PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.SimpleSearchData) {
-      this.setState({ userList: nextProps.SimpleSearchData.data.slice(0, 10) });
+    const propsNext = nextProps;
+    if (propsNext.SimpleSearchData) {
+      this.setState({ userList: propsNext.SimpleSearchData.data.slice(0, 10) });
     }
   }
 
   loadMore () {
     const j = this.state.userList.length;  
-    const moreResults = [...this.state.userList, ...this.props.SimpleSearchData.data.slice(j, j+10)];     
+    const props = this.props;
+    const moreResults = [...this.state.userList, ...props.SimpleSearchData.data.slice(j, j+10)];     
     this.setState({userList: moreResults});
   }
 
@@ -37,7 +39,7 @@ export class SearchResults extends React.PureComponent {
     const props = this.props;
     return (
       <section>
-        <div className='hidden-xs'>
+        <div className='visible-lg'>
           <HeaderLabel headerLabel={translateText('common:SEARCH_RESULT')} />
         </div>
         { props.loading && <Spinner />}
@@ -51,7 +53,7 @@ export class SearchResults extends React.PureComponent {
                 </Col>
                 <Col md={3} xs={6} className='text-right'>
                   {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length &&
-                    <a onClick={() => { this.setState({ userList: props.SimpleSearchData.data }); }}>{translateText('common:SEARCH_ALL_RESULT')}</a>
+                    <button className='btn btn-link btnnoPadding' onClick={() => { this.setState({ userList: props.SimpleSearchData.data }); }}>{translateText('common:SEARCH_ALL_RESULT')}</button>
                   }
                 </Col>
               </Row>

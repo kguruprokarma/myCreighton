@@ -73,7 +73,6 @@ export const getScheduledNextDate = (schedules) => {
     }
     classSchedules.push(returnDate.toLocaleString());
   }
-
   return moment(classSchedules.sort()[0]).format('DD MMM');
 };
 
@@ -133,7 +132,7 @@ export const stringEncodeURIComponent = (data) => {
 /* Encode the array of "sis_source_id" for url routing purpose */
 export const convertEncodeURIComponent = (data) => {
   if (!data) return data;
-  const encodeArray = data.data.map((singleItem) => {
+  const encodeArray = data.map((singleItem) => {
     const item = singleItem;
     item.sis_source_id = encodeURIComponent(item.sis_source_id);
     return item;
@@ -166,6 +165,7 @@ export const dateTime = (dataArray, startTime, endTime /* order*/) => {
 
 /*This method is for segregating  the items as per the week days and retuns an object*/
 export const dataFilterAddingData = (dataArray) => {
+  console.log('dataArray: ', dataArray);
   const data = dataArray;
   const newObject = {};
   const newArray = [];
@@ -310,7 +310,11 @@ export const filterSevenDaysTimeStampsFromNow = (dataArray) => {
     const assignmentObject = singleAssignmentObject;
     assignmentObject.timeStamp = assignmentObject.assign_due === null ? null : new Date(assignmentObject.assign_due);
     if (assignmentObject.timeStamp !== null && assignmentObject.timeStamp >= today && assignmentObject.timeStamp <= seventhDay) {
-      assignmentObject.submission_types === CommonConstants.QUIZ_SUBMISSION_TYPES ? assignmentObject.type = CommonConstants.EVENT_TYPE_QUIZ : assignmentObject.type = CommonConstants.EVENT_TYPE_ASSIGNMENTS;
+      if (assignmentObject.submission_types === CommonConstants.QUIZ_SUBMISSION_TYPES) {
+        assignmentObject.type = CommonConstants.EVENT_TYPE_QUIZ;
+      } else {
+        assignmentObject.type = CommonConstants.EVENT_TYPE_ASSIGNMENTS;
+      }
       filterlist.push(assignmentObject);
     }
     return filterlist;
@@ -335,7 +339,11 @@ export const addedTypeField = (dataArray) => {
     const assignmentObject = singleAssignmentObject;
     assignmentObject.timeStamp = assignmentObject.assign_due === null ? null : new Date(assignmentObject.assign_due);
     if (assignmentObject.timeStamp !== null) {
-      assignmentObject.submission_types === CommonConstants.QUIZ_SUBMISSION_TYPES ? assignmentObject.type = CommonConstants.EVENT_TYPE_QUIZ : assignmentObject.type = CommonConstants.EVENT_TYPE_ASSIGNMENTS;
+      if (assignmentObject.submission_types === CommonConstants.QUIZ_SUBMISSION_TYPES) {
+        assignmentObject.type = CommonConstants.EVENT_TYPE_QUIZ;
+      } else {
+        assignmentObject.type = CommonConstants.EVENT_TYPE_ASSIGNMENTS;
+      }
       filterlist.push(assignmentObject);
     }
     return filterlist;
@@ -350,9 +358,7 @@ export const browserTitle =(titleKey) => {
 export const getClassAndAssignmentAPIData =(reqObj) => {
   const masterObj = {};
   if (localStorage.getItem('classMasterCopy') === null || localStorage.getItem('assignmentMasterCopy') === null ) {
-     
     classesApi.getClassesDataByWeek(reqObj).then((response) => {
-      console.log('response: ', response.data.data);
       localStorage.setItem('classMasterCopy', JSON.stringify(response.data.data));
       masterObj.classMasterCopy = response.data.data;
     })

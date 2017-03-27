@@ -32,6 +32,9 @@ export class CustomPopUp extends React.Component {
   signOut() {
     localStorage.removeItem('roleInfo');
     localStorage.removeItem('lang');
+    localStorage.removeItem('setFilterValue');
+    localStorage.removeItem('classMasterCopy');
+    localStorage.removeItem('assignmentMasterCopy');
     hashHistory.replace('/');
     location.reload();
   }

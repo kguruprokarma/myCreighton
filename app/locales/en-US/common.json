@@ -105,7 +105,6 @@
   "DUE_TIME": "Due time",
   "DATE": "Date",
   "CLASS": "Class",
-  "NO_EVENTS_NOTES": "No details have been provided by the instructor",
   "NEXT_EVENTS_CLASSES":"NEXT EVENTS - CLASS DETAIL",
   "NEXT_EVENTS_TEST_DETAIL":"NEXT EVENTS - TEST DETAIL",
   "NEXT_EVENTS_ASSIGNMENTS": "NEXT EVENTS - ASSIGNMENT DETAIL",  
@@ -164,7 +163,6 @@
   "COMMON_SCHOOL": "School",
   "COMMON_WORK": "Work",
   "COMMON_PERSONAL": "Personal",
-  "WORK_ADDRESS": "Work Address",
 
   "NET_ID": "NetID",
   
@@ -172,6 +170,8 @@
 
   "NO_RESPONSE": "Server error...!!",
   "NO_CONTENT": "No Content Available",
+  "NO_CLASSES_SCHEDULED": "No classes scheduled",
+  "NO_DETAILS_PROVIDED": "No details have been provided by the instructor.",
 
   "EXAMPLE_CAMPUS_DIRECTORY_SEARCH": "Examples: smith or smith, c or smith, carl",
   "SEARCH_CREIGHTON_STAFF": "Search Creighton Staff",

@@ -35,8 +35,8 @@ class ClassDetails extends React.PureComponent {
     } else {
       obj = JSON.parse(localStorage.getItem('classDetails'));
       showPrevNext = true;
-      classData = find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id)});
-    }    
+      classData = find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
+    }
     let assignments = {};
     if (classData.assignmentData && classData.assignmentData !== null) {
       assignments = classData.assignmentData;
@@ -46,22 +46,25 @@ class ClassDetails extends React.PureComponent {
     const todaysClass = [];
     const upcomingAssignmentsData = [];
     const currentDate = new Date();
-    assignments && assignments.length > 0 && assignments.map((assignmentObj) => {
-      if (assignmentObj.submission_types === 'online_quiz') {
-        testOrQuizzesData.push(assignmentObj);
-      } else {
-        if (assignmentObj.assign_due) {
-          const dateValue = datesCompare(currentDate, assignmentObj.assign_due);
-          if (dateValue === 1) {
-            assignmentDue.push(assignmentObj);
-          } else if (dateValue === -1) {
-            upcomingAssignmentsData.push(assignmentObj);
-          } else if (dateValue === 0) {
-            todaysClass.push(assignmentObj);
+    if (assignments && assignments.length > 0 ) {
+      assignments.map((assignmentObj) => {
+        if (assignmentObj.submission_types === 'online_quiz') {
+          testOrQuizzesData.push(assignmentObj);
+        } else {
+          if (assignmentObj.assign_due) {
+            const dateValue = datesCompare(currentDate, assignmentObj.assign_due);
+            if (dateValue === 1) {
+              assignmentDue.push(assignmentObj);
+            } else if (dateValue === -1) {
+              upcomingAssignmentsData.push(assignmentObj);
+            } else if (dateValue === 0) {
+              todaysClass.push(assignmentObj);
+            }
           }
         }
-      }
-    });
+        return assignmentObj;
+      });
+    }
     let nextObject = {}; 
     let prevObject = {};
     const index = findIndex(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
@@ -79,17 +82,23 @@ class ClassDetails extends React.PureComponent {
     return (
       <section className='classesDeatils'>
         {showPrevNext &&
-          <div className='hidden-xs'>
+          <div className='visible-lg'>
             <HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />
           </div>
         }
         {(classData && Object.keys(classData).length > 0) && (<div>
           <ClassInfo {...classData} />
-          <ClassAssignments data={assignmentDue} />
-          <TodaysClass data={todaysClass} />
-          <UpcomingAssignments data={upcomingAssignmentsData} />
-          <TestsOrQuizzes data={testOrQuizzesData} />
-        </div>)}
+          {(assignmentDue.length !== 0 || todaysClass.length !== 0 || upcomingAssignmentsData.length !== 0 || testOrQuizzesData.length !== 0) ? (<div>
+            <ClassAssignments data={assignmentDue} />
+            <TodaysClass data={todaysClass} />
+            <UpcomingAssignments data={upcomingAssignmentsData} />
+            <TestsOrQuizzes data={testOrQuizzesData} />
+          </div>)
+            : <p className='openSansLight fs1pt2 gbl_lh mb30 mt20 text-italic'>{translateText('common:NO_DETAILS_PROVIDED')}</p>
+          }
+        </div>)
+        }
+
         {showPrevNext && <PreviousNextComponent presentCategory={props.params.categoryname} totalLength={obj.length - 1} currentIndex={index} prevItem={prevObject.sis_source_id} nextItem={nextObject.sis_source_id} />}
       </section>
     );
@@ -97,4 +106,3 @@ class ClassDetails extends React.PureComponent {
 }
 
 export default ClassDetails;
-

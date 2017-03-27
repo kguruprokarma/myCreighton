@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
 import * as actionCreators from '../actions';
 import SearchBoxComponent from './searchBox';
-import SearchTabController from './tab';
+import SearchTabController from './campusTabController';
 import '../style.css';
 
 export class SimpleSearchDirectory extends React.PureComponent {

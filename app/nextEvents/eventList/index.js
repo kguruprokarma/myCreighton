@@ -3,7 +3,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import {filter, map, sortBy } from 'lodash';
+import { filter, map, sortBy } from 'lodash';
 import { Col, Row, Alert } from 'react-bootstrap';
 import HeaderLabel from './../../common/headerLabel';
 import Classes from '../eventList/components/classes';
@@ -14,7 +14,7 @@ import * as classesActionCreators from '../../classes/classList/actions';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import * as CommonConstants from '../../constants/commonConstants';
 import { translateText } from '../../common/translate';
-import { authUserDetails, dataFilterAddingData, createTimeStamp, convertEncodeURIComponent, addedTypeField, browserTitle } from '../../common/utility';
+import { authUserDetails, dataFilterAddingData, createTimeStamp, convertEncodeURIComponent, addedTypeField, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
 import './style.css';
 import Spinner from '../../common/spinner';
 
@@ -24,19 +24,21 @@ export class EventList extends React.PureComponent {
     this.userReqObj = {};
     this.userReqObj.primaryKey = 'netid';
     this.userReqObj.primaryValue = '6cb4db8459';//authUserDetails().netid;
+    this.masterObj = {};
   }
   componentWillMount() {
     const props = this.props;
     if (this.userReqObj !== undefined && authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {
       props.getEventsData(this.userReqObj);
       props.getClassesDataByWeek(this.userReqObj);
+      this.masterObj = getClassAndAssignmentAPIData(this.userReqObj);
     }
     browserTitle(translateText('common:NEXT_EVENTS'));
   }
   getEventsData(props) {
     const EVENT_DATA = [];
-    const ASSIGNMENTS_DATA = convertEncodeURIComponent(props.assignmentsData);
-    const CLASSES_DATA = convertEncodeURIComponent(props.classesData);
+    const ASSIGNMENTS_DATA = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
+    const CLASSES_DATA = convertEncodeURIComponent(this.masterObj.classMasterCopy);
     if (ASSIGNMENTS_DATA && CLASSES_DATA) {
       const classObjs = createTimeStamp(dataFilterAddingData(CLASSES_DATA.data));
       const assignmentObjs = addedTypeField(ASSIGNMENTS_DATA.data);
@@ -50,7 +52,7 @@ export class EventList extends React.PureComponent {
         classObject.type = NextEventsConstants.CLASSES_DETAILS;
         EVENT_DATA.push(classObject);
         return EVENT_DATA;
-      });      
+      });
     }
     if (EVENT_DATA) {
       localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
@@ -90,15 +92,15 @@ export class EventList extends React.PureComponent {
       }
     });
 
-    if (filterlist && filterlist.length>0) {
+    if (filterlist && filterlist.length > 0) {
       sortedEventData = sortBy(filterlist, ['timeStamp']);
-      if (sortedEventData && sortedEventData.length >0 && day === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
+      if (sortedEventData && sortedEventData.length > 0 && day === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
         const nextEventDetail = [];
         nextEventDetail.push(Object.values(sortedEventData)[0]);
         eventFilterData = nextEventDetail;
       } else {
-        eventFilterData = sortedEventData;   
-      }          
+        eventFilterData = sortedEventData;
+      }
     }
     if (eventFilterData) {
       localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
@@ -114,22 +116,24 @@ export class EventList extends React.PureComponent {
         {props.loading && <Spinner />}
         {EVENT_DATA && <div>
           <Row><Col md={8} sm={6} xs={12}>
-            <div><HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} /></div>
+            <div className='visible-lg'>
+              <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} />
+            </div>
           </Col>
           </Row>
-            {authUserDetails().userRole === CommonConstants.ROLE_STUDENT ? EVENT_DATA.map((eventType, index) => (
-              <div key={index}>
-                {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} />}
-                {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
-                {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} />}
-              </div>
-            )) :
-            <Alert bsStyle='warning'>
-              <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
-            </Alert>
-            }
-          </div>
+          {authUserDetails().userRole === CommonConstants.ROLE_STUDENT ? EVENT_DATA.map((eventType, index) => (
+            <div key={index}>
+              {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} />}
+              {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
+              {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} />}
+            </div>
+          )) :
+          <Alert bsStyle='warning'>
+            <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
+          </Alert>
           }
+        </div>
+        }
       </section>
     );
   }

@@ -113,7 +113,6 @@
   "DUE_TIME": "Tiempo debido",
   "DATE": "Fecha",
   "CLASS": "Clase",
-  "NO_EVENTS_NOTES": "No se han proporcionado detalles por el instructor",
   "DUE": "Debido",
   "TEST_IN_CLASS": "Prueba en clase",
   "QUESTIONS_AND_SCORING": "PREGUNTAS Y PUNTUACIÓN",
@@ -187,6 +186,8 @@
 
   "NO_RESPONSE": "Error del Servidor...!!",
   "NO_CONTENT": "No hay contenido disponible",
+  "NO_CLASSES_SCHEDULED": "No hay clases programadas",
+  "NO_DETAILS_PROVIDED": "No se han proporcionado detalles por el instructor.",
 
   "EXAMPLE_CAMPUS_DIRECTORY_SEARCH": "Ejemplos: smith or smith, c or smith, carl",
   "SEARCH_CREIGHTON_STAFF": "Buscar Creighton Personal",

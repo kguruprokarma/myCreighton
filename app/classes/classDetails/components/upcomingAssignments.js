@@ -12,8 +12,8 @@ const upcomingAssignments = (upcomingAssignProps) => (
       <div className='openSansLight fs1pt2 gbl_lh' key={assignmentIndex}>
         {assignment.assign_title}
       </div>
-        )):translateText('common:NO_CONTENT')
-        }
+    )) : <p className='openSansLight fs1pt2 gbl_lh mb30 mt20 text-italic'>{translateText('common:NO_CONTENT')}</p>
+    }
   </article>
 );
 

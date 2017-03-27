@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import { ListGroupItem, ListGroup } from 'react-bootstrap';
 import Filter from './components/filter';
 import * as EventConstants from '../../constants/commonConstants';
-
+import './../eventFilter/style.css';
 import * as actionCreators from './actions';
 import * as headerActionCreators from '../../header/actions';
 
@@ -19,141 +19,7 @@ export class NextEventFilter extends React.Component {
       eventPeriod: EventConstants.EVENT_FILTER_7_DAYS,
       Items: {
         eventperiodItems: [EventConstants.EVENT_FILTER_NEXT_EVENT, EventConstants.EVENT_FILTER_ALL, EventConstants.EVENT_FILTER_7_DAYS, EventConstants.EVENT_FILTER_TODAY],
-        displayOptions: [
-          {
-            'itemName': 'All',
-            'children': []
-          },
-          {
-            'itemName': 'Classes',
-            'checked': false,
-            'children': [{
-              'itemName': 'Chemistry 105',
-              'checked': false
-            }, {
-              'itemName': 'English 112',
-              'checked': false
-            }, {
-              'itemName': 'Philosophy 100',
-              'checked': false
-            }, {
-              'itemName': 'Political science 232',
-              'checked': false
-            }]
-          }, {
-            'itemName': 'Class assignments',
-            'checked': false,
-            'children': [{
-              'itemName': 'Chemistry 105',
-              'checked': false
-            }, {
-              'itemName': 'English 112',
-              'checked': false
-            }, {
-              'itemName': 'Philosophy 100',
-              'checked': false
-            }, {
-              'itemName': 'Political science 232',
-              'checked': false
-            }]
-          }, {
-            'itemName': 'Tests and Quizzes',
-            'checked': false,
-            'children': [{
-              'itemName': 'Chemistry 105',
-              'checked': false
-            }, {
-              'itemName': 'English 112',
-              'checked': false
-            }, {
-              'itemName': 'Philosophy 100',
-              'checked': false
-            }, {
-              'itemName': 'Political science 232',
-              'checked': false
-            }]
-          }, {
-            'itemName': 'To-do list',
-            'checked': false,
-            'children': [{
-              'itemName': 'Chemistry 105',
-              'checked': false
-            }, {
-              'itemName': 'English 112',
-              'checked': false
-            }, {
-              'itemName': 'Philosophy 100',
-              'checked': false
-            }, {
-              'itemName': 'Political science 232',
-              'checked': false
-            }]
-          }, {
-            'itemName': 'Outlook calendar',
-            'checked': false,
-            'children': [{
-              'itemName': 'Chemistry 105',
-              'checked': false
-            }, {
-              'itemName': 'English 112',
-              'checked': false
-            }, {
-              'itemName': 'Philosophy 100',
-              'checked': false
-            }, {
-              'itemName': 'Political science 232',
-              'checked': false
-            }]
-          }, {
-            'itemName': 'Academic milestones',
-            'checked': false,
-            'children': [{
-              'itemName': 'Chemistry 105',
-              'checked': false
-            }, {
-              'itemName': 'English 112',
-              'checked': false
-            }, {
-              'itemName': 'Philosophy 100',
-              'checked': false
-            }, {
-              'itemName': 'Political science 232',
-              'checked': false
-            }]
-          }, {
-            'itemName': 'My affiliations',
-            'checked': false,
-            'children': [{
-              'itemName': 'Chemistry 105',
-              'checked': false
-            }, {
-              'itemName': 'English 112',
-              'checked': false
-            }, {
-              'itemName': 'Philosophy 100',
-              'checked': false
-            }, {
-              'itemName': 'Political science 232',
-              'checked': false
-            }]
-          }, {
-            'itemName': 'Athletic events',
-            'checked': false,
-            'children': [{
-              'itemName': 'Chemistry 105',
-              'checked': false
-            }, {
-              'itemName': 'English 112',
-              'checked': false
-            }, {
-              'itemName': 'Philosophy 100',
-              'checked': false
-            }, {
-              'itemName': 'Political science 232',
-              'checked': false
-            }]
-          }
-        ]
+        displayOptions: []
       }
     };
     this.toggleRadio = this.toggleRadio.bind(this);
@@ -162,9 +28,22 @@ export class NextEventFilter extends React.Component {
     this.toggleCheck = this.toggleCheck.bind(this);
     this.showSelected = this.showSelected.bind(this);
   }
+  componentWillMount() {
+    const localStorageValue = localStorage.getItem('setFilterValue');
+    if (localStorageValue !== null) {
+      this.setState({ eventPeriod: localStorageValue});
+    } else {
+      const props = this.props;
+      this.setState({ eventPeriod: props.EventChangedValue});
+    }
+  }
 
   toggleRadio(depen) {
     this.setState({ eventPeriod: depen.target.value });
+    const localStorageValue = localStorage.getItem('setFilterValue');
+    if (depen.target.value !== localStorageValue) {
+      localStorage.setItem('setFilterValue', depen.target.value);
+    }
   }
   showChild(itemVal) {
     const item = itemVal;
@@ -227,9 +106,6 @@ export class NextEventFilter extends React.Component {
     return (<div className='customPopUp test'>
       <span className='popupPointer'>&nbsp;</span>
       <ListGroup>
-        <ListGroupItem >
-          {/*<div>Settings</div><span>Done</span>*/}
-        </ListGroupItem >
         <ListGroupItem >
           <Filter Items={this.state.Items} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => { this.showChild(item); }} toggleCheckBoxParent={(item) => { this.toggleCheckBoxParent(item); }} toggleCheck={(item, parent) => { this.toggleCheck(item, parent); }} showSelected={this.showSelected} />
         </ListGroupItem >

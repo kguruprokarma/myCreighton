@@ -31,3 +31,5 @@ export const EVENT_FILTER_NEXT_EVENT = 'Next Detail';
 export const EVENT_TYPE_QUIZ = 'testorquiz';
 export const EVENT_TYPE_ASSIGNMENTS = 'assignments';
 export const QUIZ_SUBMISSION_TYPES = 'online_quiz';
+
+export const CAMPUS_SEARCH_TEXT_LENGTH = 32;

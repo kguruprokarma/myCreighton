@@ -43,12 +43,13 @@ export class Classes extends React.PureComponent {
   }
 
   onChangeOfTab(catagoryName) {
-    console.log('onChangeOfTab');
     const props = this.props;
+    let masterData;
     props.onCatagoryChange(catagoryName);
     if (this.userReqObj !== undefined) {
       if (catagoryName === CommonConstants.WEEK) {
-        getClassAndAssignmentAPIData(this.userReqObj);
+        masterData = getClassAndAssignmentAPIData(this.userReqObj);
+        console.log('masterData: ', masterData);
         props.getClassesDataByWeek(this.userReqObj);
         props.getAssignmentDetails(this.userReqObj);
       } else if (catagoryName === CommonConstants.LIST) {
@@ -94,7 +95,7 @@ export class Classes extends React.PureComponent {
         {USER_DATA && USER_DATA.data && USER_DATA.data.length > 0 &&<div>
           <Row>
             <Col md={8} sm={6} xs={12} className='hidden-xs'>
-              <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} /></div>
+              <div className='visible-lg'><HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} /></div>
             </Col>
             <Col md={4} sm={6} xs={12} className='controller-buttons'>
               <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />

@@ -18,7 +18,7 @@ export class CampusDirectory extends React.PureComponent {
   render() {
     return (
       <section>
-        <div className='hidden-xs'>
+        <div className='visible-lg'>
           <HeaderLabel headerLabel={translateText('common:CAMPUS_DIRECTORY')} />
         </div>
         <Row>

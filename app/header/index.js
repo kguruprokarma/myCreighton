@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link, browserHistory, hashHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
@@ -74,12 +74,12 @@ export class Header extends React.PureComponent {
           <Row >
             <Col xs={2} sm={2} className='hidden-lg hamburgerMenu'>
               {props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ?
-                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { history.back(); }} /> 
+                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => hashHistory.replace(`${RouteContants.CAMPUSDIRECTORY}${RouteContants.SIMPLE_SEARCH}`)} /> 
                 : <button className='btn btn-link btnnoPadding' onClick={this.navClick}><img alt='' src={props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} /></button>
               }                          
             </Col>
             <Col lg={10} className='visible-lg'>
-                <h2 className='bebasregular logo mt10 mb10 fs1pt4'><Link to={`${RouteContants.DASHBOARD}`}>{translateText('common:MY_CREIGHTON')}</Link></h2>
+              <h2 className='bebasregular logo mt10 mb10 fs1pt4'><Link to={`${RouteContants.DASHBOARD}`}>{translateText('common:MY_CREIGHTON')}</Link></h2>
             </Col>
             <Col xs={8} sm={8} className='hidden-lg text-center'>
               <Title path={props.currentState} />
@@ -100,7 +100,7 @@ export class Header extends React.PureComponent {
                 <ul className='pull-right list-inline'>
                   <li className='head-Icons'>
                     <div className='popUp'>
-                      <span onClick={this.showFilterPopUp} className='filterIcon'>Event Filter</span>
+                      <button clsssName='btn btn-link btnnoPadding filterIcon' onClick={this.showFilterPopUp}>Event Filter</button>
                       <div className='popUpContainer'>
                         {props.filterPopUpData &&
                           <NextEventFilterComponent />}

@@ -6,6 +6,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import DayHeader from './dayHeader';
 import ClassInfo from './classInfo';
+import { translateText } from '../../../common/translate';
 import * as ROUTE_URL from '../../../constants/routeContants';
 
 let lastHeader = null;
@@ -14,6 +15,7 @@ let presentHeader;
 const WeekClasses = (weekProps) => (
   <div>
     {
+      weekProps.listOfData.length > 0 ?
       weekProps.listOfData.map((weekClass, classIndex) => {
         presentHeader = weekClass.day;
         return (
@@ -24,7 +26,7 @@ const WeekClasses = (weekProps) => (
             </Link>
           </div>
         );
-      })
+      }) : translateText('common:NO_CLASSES_SCHEDULED')
     }
   </div>
 );
