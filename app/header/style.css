@@ -139,7 +139,10 @@
     overflow: hidden;
 }
 
-
+.icons-list .list-inline li {
+    padding-left:0;
+    padding-right: 0;
+}
 /* Media for small devices */
 @media screen and (max-width: 767px) {
    
@@ -151,7 +154,3 @@
 }
 
 
-.filterIcon{
-    color: #fff;
-    text-decoration:underline;
-}

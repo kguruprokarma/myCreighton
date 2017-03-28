@@ -424,3 +424,20 @@ export const getDueTime = (timeStampData) => {
   const daysOrTimeTitle = getDueTimeString(diffBetweenPresentTimeStampAndEventTimeStamp, differenceInDays);
   return daysOrTimeTitle;
 };
+
+
+export const showFeatureEvents = (apiDate, today) => {
+    const APIDate = new Date(moment(apiDate).format('MMM D, YYYY'));
+    const todayDate = new Date(moment(today).format('MMM D, YYYY'));
+    const APITime = moment(apiDate).format('HH:mm');
+    const todayTime = moment(today).format('HH:mm');
+    if (APIDate >= todayDate ) {
+        if (APIDate.toString() === todayDate.toString() && APITime < todayTime) {
+            return 0;
+        } else {
+            return 1;
+        }
+    } else {
+        return 0;
+    }
+};

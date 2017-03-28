@@ -29,7 +29,7 @@ export class EventList extends React.PureComponent {
     this.userReqObj.primaryKey = 'netid';
     this.userReqObj.primaryValue = '6cb4db8459';//authUserDetails().netid;
     this.masterObj = {};
-    
+
   }
   componentWillMount() {
     const props = this.props;
@@ -263,8 +263,7 @@ export class EventList extends React.PureComponent {
         </Col>
         </Row>
         {EVENT_DATA && <div>
-
-          {authUserDetails().userRole === CommonConstants.ROLE_STUDENT ? EVENT_DATA.map((eventType, index) => (
+          {authUserDetails().userRole === CommonConstants.ROLE_STUDENT && EVENT_DATA.length > 0 ? EVENT_DATA.map((eventType, index) => (
             <div key={index}>
               {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} />}
               {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}

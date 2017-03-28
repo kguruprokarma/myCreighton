@@ -12,10 +12,11 @@ import Title from '../header/components/title';
 import './style.css';
 import * as actionCreators from './actions';
 import { translateText } from '../common/translate';
+import ImageComponent from '../common/imageComponent';
 import NextEventFilterComponent from '../nextEvents/eventFilter/index';
 import * as RouteContants from '../constants/routeContants';
 import * as CommonContants from '../constants/commonConstants';
-import { HAMBURGER_ICON, MENUCLOSE_ICON } from '../constants/imageConstants';
+import { HAMBURGER_ICON, MENUCLOSE_ICON, EVENTFILTER_ICON } from '../constants/imageConstants';
 
 
 export class Header extends React.PureComponent {
@@ -81,10 +82,8 @@ export class Header extends React.PureComponent {
             <Col lg={10} className='visible-lg'>
               <h2 className='bebasregular logo mt10 mb10 fs1pt4'><Link to={`${RouteContants.DASHBOARD}`}>{translateText('common:MY_CREIGHTON')}</Link></h2>
             </Col>
-            <Col xs={8} sm={8} className='hidden-lg text-center'>
-              <Title path={props.currentState} />
-            </Col>
-            <Col xs={2} sm={2} className='pull-right'>
+            
+            <Col xs={2} sm={2} className='pull-right icons-list'>
               <ul className='pull-right list-inline'>
                 <li className='head-Icons'>
                   <div className='popUp'>
@@ -98,9 +97,9 @@ export class Header extends React.PureComponent {
               </ul>
               {(props.currentState === RouteContants.EVENT_LIST || props.currentState === RouteContants.EVENT_DETAILS) &&
                 <ul className='pull-right list-inline'>
-                  <li className='head-Icons'>
+                  <li className='head-Icons mr5'>
                     <div className='popUp'>
-                      <button clsssName='btn btn-link btnnoPadding filterIcon' onClick={this.showFilterPopUp}>Event Filter</button>
+                      <button className='btn btn-link btnnoPadding' onClick={this.showFilterPopUp}><ImageComponent imagePath={EVENTFILTER_ICON} className='' imageWidth='25' /></button>
                       <div className='popUpContainer'>
                         {props.filterPopUpData &&
                           <NextEventFilterComponent />}
@@ -109,6 +108,9 @@ export class Header extends React.PureComponent {
                   </li>
                 </ul>
               }
+            </Col>
+            <Col className='hidden-lg pull-left mobile-header text-center'>
+              <Title path={props.currentState} />
             </Col>
           </Row>
         </div>

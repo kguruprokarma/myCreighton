@@ -29,6 +29,7 @@ class MainNav extends React.Component {
               }
               <li className='navigation-item'><a>{translateText('common:LIBRARY_SEARCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               <li className='navigation-item'><a>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
+              <li className='navigation-item hidden-lg'><a href={`#${ROUTE_URL.DASHBOARD}`}>{translateText('common:DASH_BOARD')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
             </ul>
           </Row>
         </Grid>

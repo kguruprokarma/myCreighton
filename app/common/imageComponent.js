@@ -7,7 +7,7 @@ import { Image } from 'react-bootstrap';
 
 const ImageComponent = (imageProps) => (
   <figure>
-    <Image src={imageProps.imagePath} />
+    <Image src={imageProps.imagePath} width={imageProps.imageWidth} />
   </figure>
 );
 
