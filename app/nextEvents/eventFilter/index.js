@@ -1,6 +1,6 @@
 /*Created Date: - 7 -02 -2017
-*Usage of file: - Created to display popup*
-*/
+ *Usage of file: - Created to display popup*
+ */
 
 import React from 'react';
 import { connect } from 'react-redux';
@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import { ListGroupItem, ListGroup } from 'react-bootstrap';
 import Filter from './components/filter';
 import * as EventConstants from '../../constants/commonConstants';
-import './../eventFilter/style.css';
+
 import * as actionCreators from './actions';
 import * as headerActionCreators from '../../header/actions';
 
@@ -18,9 +18,9 @@ export class NextEventFilter extends React.Component {
     this.state = {
       eventPeriod: EventConstants.EVENT_FILTER_7_DAYS,
       Items: {
-        eventperiodItems: [EventConstants.EVENT_FILTER_NEXT_EVENT, EventConstants.EVENT_FILTER_ALL, EventConstants.EVENT_FILTER_7_DAYS, EventConstants.EVENT_FILTER_TODAY],
-        displayOptions: []
-      }
+        eventperiodItems: [EventConstants.EVENT_FILTER_NEXT_EVENT, EventConstants.EVENT_FILTER_ALL, EventConstants.EVENT_FILTER_7_DAYS, EventConstants.EVENT_FILTER_TODAY]
+      },
+      displayOptions: []
     };
     this.toggleRadio = this.toggleRadio.bind(this);
     this.showChild = this.showChild.bind(this);
@@ -29,6 +29,8 @@ export class NextEventFilter extends React.Component {
     this.showSelected = this.showSelected.bind(this);
   }
   componentWillMount() {
+    const displayOptions = JSON.parse(localStorage.getItem('displayOptions'));
+    this.setState({displayOptions: displayOptions});
     const localStorageValue = localStorage.getItem('setFilterValue');
     if (localStorageValue !== null) {
       this.setState({ eventPeriod: localStorageValue});
@@ -83,42 +85,42 @@ export class NextEventFilter extends React.Component {
     props.filterPopUpClose();
     const selectedObj = {};
     selectedObj.eventperiodItems = this.state.eventPeriod;
-    /*    selectedObj.displayOptions = {};
-        const items = this.state.Items;
-        for (let i = 0; i < items.displayOptions.length; i++) {
-          const item = items.displayOptions[i];
-          if (item.checked) {
-            selectedObj.displayOptions[item.itemName] = [];
-            const selectedChildItems = [];
-            for (let j = 0; j < item.children.length; j++) {
-              const childItem = item.children[j];
-              if (childItem.checked) {
-                selectedChildItems.push(childItem.itemName);
-              }
-            }
-            selectedObj.displayOptions[item.itemName] = selectedChildItems;
+    selectedObj.displayOptions = {};
+    const items = this.state.displayOptions;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item.checked) {
+        selectedObj.displayOptions[item.itemName] = [];
+        const selectedChildItems = [];
+        for (let j = 0; j < item.children.length; j++) {
+          const childItem = item.children[j];
+          if (childItem.checked) {
+            selectedChildItems.push(childItem.sid);
           }
-        }*/
-    props.filterChange(selectedObj.eventperiodItems);
+        }
+        selectedObj.displayOptions[item.itemName] = selectedChildItems;
+      }
+    }
+    props.filterChange(selectedObj);
   }
 
   render() {
     return (<div className='customPopUp test'>
-      <span className='popupPointer'>&nbsp;</span>
-      <ListGroup>
-        <ListGroupItem >
-          <Filter Items={this.state.Items} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => { this.showChild(item); }} toggleCheckBoxParent={(item) => { this.toggleCheckBoxParent(item); }} toggleCheck={(item, parent) => { this.toggleCheck(item, parent); }} showSelected={this.showSelected} />
-        </ListGroupItem >
-      </ListGroup>
-    </div>
+          <span className='popupPointer'>&nbsp;</span>
+          <ListGroup>
+            <ListGroupItem >
+              <Filter Items={this.state.Items} displayOptions={this.state.displayOptions} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => this.showChild.bind(this, item)} toggleCheckBoxParent={(item) => this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent) => this.toggleCheck.bind(this, item, parent)} showSelected={this.showSelected} />
+            </ListGroupItem >
+          </ListGroup>
+        </div>
     );
   }
 }
 
 const mapStateToProps = (nextEventFilterState) => (
-  {
-    EventChangedValue: nextEventFilterState.eventsFilterReducer.changedValue
-  }
+{
+  EventChangedValue: nextEventFilterState.eventsFilterReducer.changedValue
+}
 );
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(headerActionCreators, actionCreators), dispatch);

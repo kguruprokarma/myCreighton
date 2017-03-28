@@ -21,7 +21,7 @@ const data = {
     }
   ]
 };
-describe('Class list actions testing', () => {
+describe('Classes actions testing', () => {
   beforeEach(() => {
     moxios.install();
   });
@@ -34,43 +34,23 @@ describe('Class list actions testing', () => {
   userReqObj.primaryKey = 'netid';
   userReqObj.primaryValue = '6cb4db8459';
   
-  it('testing action sequence for success case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
-      status: 200,
-      response: data
-    });
+  it('testing get classes data', () => {
     const expectedActions = [
       { type: types.REQUEST_CLASSES_DATA },
       { type: types.RECEIVE_CLASSES_DATA, data: data}
     ];
     const store = mockStore();
-
-    return store.dispatch(actions.getClassesDataByWeek(userReqObj))
-      .then(() => { 
-        const result = store.getActions();
-        expect(result[0].type).toEqual( expectedActions[0].type);
-        expect(result[1].data.data).toEqual(expectedActions[1].data);
-        expect(result[1].type).toEqual(expectedActions[1].type);
-      });
+    store.dispatch(actions.getClassesData(data));
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it('testing action  sequence for failure case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_CLASSES + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
-      status: 404,
-      responseText: 'error'
-    });
+  it('testing get assignment data', () => {
     const expectedActions = [
-      { type: types.REQUEST_CLASSES_DATA },
-      { type: types.RECEIVE_CLASSES_DATA_ERROR, data: 'error'}
+      { type: types.REQUEST_ASSIGNMENTS_DATA },
+      { type: types.RECEIVE_ASSIGNMENTS_DATA, data: data}
     ];
     const store = mockStore();
-
-    return store.dispatch(actions.getClassesDataByWeek(userReqObj))
-      .then(() => { 
-        const result = store.getActions();
-        expect(result[0].type).toEqual( expectedActions[0].type);
-        expect(JSON.stringify(result[1].data.error.response.data)).toEqual(JSON.stringify(expectedActions[1].data));
-        expect(result[1].type).toEqual(expectedActions[1].type);
-      });
+    store.dispatch(actions.getAssignmentDetails(data));
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });

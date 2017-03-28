@@ -99,7 +99,7 @@ export const filterTodaysClassSchedule = (schedule) => {
 
 export const convertDueDateTimeStamp = (timeStamp) => {
   if (!timeStamp) return 'N/A';
-  
+
   const formattedDT = moment(timeStamp).format('HHmm');
   return convertTo24Format(formattedDT);
 };
@@ -107,7 +107,7 @@ export const convertDueDateTimeStamp = (timeStamp) => {
 // timeStamp = 2015-09-01T01:30:00.000Z
 export const convertDateFromTimeStamp = (timeStamp) => {
   if (!timeStamp) return 'N/A';
-  
+
   return moment(timeStamp).format('MMM DD, YYYY');
 };
 
@@ -165,7 +165,6 @@ export const dateTime = (dataArray, startTime, endTime /* order*/) => {
 
 /*This method is for segregating  the items as per the week days and retuns an object*/
 export const dataFilterAddingData = (dataArray) => {
-  console.log('dataArray: ', dataArray);
   const data = dataArray;
   const newObject = {};
   const newArray = [];
@@ -351,31 +350,77 @@ export const addedTypeField = (dataArray) => {
   return filterlist;
 };
 
-export const browserTitle =(titleKey) => {
+export const browserTitle = (titleKey) => {
   document.title = `${titleKey} - ${CommonConstants.MY_CREIGHTON}`;
 };
 
-export const getClassAndAssignmentAPIData =(reqObj) => {
+export const getClassAndAssignmentAPIData = (reqObj) => {
   const masterObj = {};
-  if (localStorage.getItem('classMasterCopy') === null || localStorage.getItem('assignmentMasterCopy') === null ) {
-    classesApi.getClassesDataByWeek(reqObj).then((response) => {
-      localStorage.setItem('classMasterCopy', JSON.stringify(response.data.data));
-      masterObj.classMasterCopy = response.data.data;
-    })
-    .catch((error) => {
-      console.log('error: ', error);
-    });
+  return new Promise( /* executor */ function (resolve, reject) {
+    if (localStorage.getItem('classMasterCopy') === null || localStorage.getItem('assignmentMasterCopy') === null) {
+      classesApi.getClassesDataByWeek(reqObj).then((classResponse) => {
+        localStorage.setItem('classMasterCopy', JSON.stringify(classResponse.data.data));
+        masterObj.classMasterCopy = classResponse.data.data;
 
-    EventListApi.getEventsData(reqObj).then((response) => {      
-      localStorage.setItem('assignmentMasterCopy', JSON.stringify(response.data.data));
-      masterObj.assignmentMasterCopy = response.data.data;
-    })
-      .catch((error) => {
-        console.log('error: ', error);
-      });
-  } else {
-    masterObj.classMasterCopy = JSON.parse(localStorage.getItem('classMasterCopy'));
-    masterObj.assignmentMasterCopy = JSON.parse(localStorage.getItem('assignmentMasterCopy'));
+        EventListApi.getEventsData(reqObj).then((assignmentResponse) => {
+          localStorage.setItem('assignmentMasterCopy', JSON.stringify(assignmentResponse.data.data));
+          masterObj.assignmentMasterCopy = assignmentResponse.data.data;
+          setTimeout( () => {
+            resolve(masterObj); //Yay! Everything went well!
+          }, 250);
+        })
+          .catch((error) => {
+            console.log('error: ', error);
+            reject(error);
+          });
+      })
+        .catch((error) => {
+          console.log('error: ', error);
+          reject(error);
+        });
+    } else {
+      masterObj.classMasterCopy = JSON.parse(localStorage.getItem('classMasterCopy'));
+      masterObj.assignmentMasterCopy = JSON.parse(localStorage.getItem('assignmentMasterCopy'));
+      setTimeout( () => {
+        resolve(masterObj);
+      }, 250);
+    }
+  });
+};
+
+export const getDueTimeString = (diffBetweenPresentTimeStampAndEventTimeStamp, differenceInDays) => {
+  const days = (differenceInDays/86400000)+1;
+  if (differenceInDays < 0 ) {
+    const hours = Math.floor(diffBetweenPresentTimeStampAndEventTimeStamp/3600000);
+    const minutes = Math.ceil(((diffBetweenPresentTimeStampAndEventTimeStamp/3600000)- hours)*60);
+    let timeTitle = CommonConstants.STARTS;
+    if (hours > 0 && hours === 1 ) {
+      timeTitle = `${timeTitle} ${hours} ${CommonConstants.HOUR}`;
+    } else if (hours > 0) {
+      timeTitle = `${timeTitle} ${hours} ${CommonConstants.HOURS}`;
+    }
+    if (minutes > 0 && minutes === 1 ) {
+      timeTitle = `${timeTitle} ${minutes} ${CommonConstants.MINUTE}`;
+    } else if (minutes > 0) {
+      timeTitle = `${timeTitle} ${minutes} ${CommonConstants.MINUTES}`;
+    }
+    return timeTitle;
+  } else if (days === 1) {
+    return CommonConstants.TOMORROW;
   }
-  return masterObj;
+  return `${days} ${CommonConstants.DAYS}`;
+};
+
+export const getDueTime = (timeStampData) => {
+  const timeStamp = timeStampData;
+  const timeStampDate = moment(timeStamp).date();
+  const timeStampMonth = moment(timeStamp).month();
+  const timeStampYear = moment(timeStamp).year();
+  const tomorrowDate = moment().add(1, CommonConstants.DAYS).date();
+  const tomorrowDateSMonth = moment().add(1, CommonConstants.DAYS).month();
+  const tomorrowDateSYear = moment().add(1, CommonConstants.DAYS).year();
+  const diffBetweenPresentTimeStampAndEventTimeStamp = (moment(timeStamp)._d)-(moment()._d);
+  const differenceInDays = (moment([timeStampYear, timeStampMonth, timeStampDate])._d)-(moment([tomorrowDateSYear, tomorrowDateSMonth, tomorrowDate])._d);
+  const daysOrTimeTitle = getDueTimeString(diffBetweenPresentTimeStampAndEventTimeStamp, differenceInDays);
+  return daysOrTimeTitle;
 };

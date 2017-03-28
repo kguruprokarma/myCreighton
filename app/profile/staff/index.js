@@ -17,6 +17,7 @@ import MailAddress from './components/mailAddress';
 import WorkAddress from './components/workAddress';
 import * as actionCreators from '../actions';
 import LeftNav from '../../common/leftNav';
+import AlertComponent from '../../common/alertComponent';
 import HeaderLabel from '../../common/headerLabel';
 import * as CommonConstants from '../../constants/commonConstants';
 import { authUserDetails, browserTitle } from '../../common/utility';
@@ -32,7 +33,7 @@ export class StaffProfile extends React.PureComponent {
     userReqObj.primaryValue = authUserDetails().netid;
     const props = this.props;
     props.getStaffProfileData(userReqObj);
-    browserTitle(translateText('common:PROFILE_MY_PROFILE')); 
+    browserTitle(translateText('common:PROFILE_MY_PROFILE'));
   }
 
   render() {
@@ -59,6 +60,9 @@ export class StaffProfile extends React.PureComponent {
               <LeftNav role={props.profile} />
             </Col>
           </Row>
+        }
+        {((!USER_DATA && !props.loading) || (USER_DATA.error)) &&
+          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
     );

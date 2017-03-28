@@ -56,12 +56,12 @@ export class Profile extends React.PureComponent {
             <Col md={3} sm={4} className='hidden-xs'>
               <LeftNav role={props.profile} />
             </Col>
-          </Row> 
+          </Row>
         }
         {((!USER_DATA && !props.loading) || (USER_DATA.error)) &&
-        <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
-          }
-        
+          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+        }
+
       </section>
     );
   }

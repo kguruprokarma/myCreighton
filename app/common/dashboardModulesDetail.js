@@ -38,7 +38,7 @@ export const modulesBlocksData = (roleType) => {
     modulesData.push([
       {
         'imgURL': CLASSES_ICON,
-        'linkto': '',
+        'linkto': ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SIMPLE_SEARCH,
         'name': translateText('common:DASH_BOARD_CAMPUS_DIRECTORY'),
         'description': translateText('common:DASH_BOARD_ONLINE_DIRECTORY'),
         'class': 'campus-img'

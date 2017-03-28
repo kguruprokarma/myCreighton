@@ -58,9 +58,12 @@ export class SearchResults extends React.PureComponent {
                 </Col>
               </Row>
             </div>
-            {this.state.userList && this.state.userList.map((user, userindex) => (
-              <Result {...user} key={userindex} />
-            ))}
+            { 
+              this.state.userList.length > 0 ?
+              this.state.userList && this.state.userList.map((user, userindex) => (
+                <Result {...user} key={userindex} />
+            )) : <div> {translateText('common:NO_SEARCH_RESULT')}: {props.params.searchquery}</div>
+            }
             {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length &&
               <div className='text-center mt20'>
                 <button className='btn btn-default openSansLight cmpsDirLoadMoreBtn' onClick={this.loadMore}>{translateText('common:SEARCH_MORE_RESULT')}</button>

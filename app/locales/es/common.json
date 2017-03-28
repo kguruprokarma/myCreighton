@@ -107,6 +107,7 @@
   "PAGE_HEADER": "Encabezado de página",
   
   "NEXT_EVENTS":"PRÓXIMOS EVENTOS",
+  "NEXT_EVENTS_CAPTALIZE":"Próximos Eventos",
   "ASSIGNMENT": "Asignaciones",
   "EVENT_NOTES": "NOTAS DEL EVENTO",
   "DUE_DATE": "Fecha de vencimiento",
@@ -188,13 +189,14 @@
   "NO_CONTENT": "No hay contenido disponible",
   "NO_CLASSES_SCHEDULED": "No hay clases programadas",
   "NO_DETAILS_PROVIDED": "No se han proporcionado detalles por el instructor.",
+  "NO_SEARCH_RESULT": "No se encontraron resultados para la búsqueda",
 
   "EXAMPLE_CAMPUS_DIRECTORY_SEARCH": "Ejemplos: smith or smith, c or smith, carl",
   "SEARCH_CREIGHTON_STAFF": "Buscar Creighton Personal",
   "SEARCH": "Buscar",
   "ADVANCED_SEARCH": "Búsqueda Avanzada",
   "SIMPLE_SEARCH": "Búsqueda sencilla",
-  "SEARCH_RESULT": "Resultados",
+  "SEARCH_RESULT": "RESULTADOS",
   "SEARCH_ALL_RESULT": "Mostrar todo",
   "SEARCH_MORE_RESULT": "Carga más",
 

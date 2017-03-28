@@ -44,12 +44,18 @@ export class Classes extends React.PureComponent {
 
   onChangeOfTab(catagoryName) {
     const props = this.props;
-    let masterData;
     props.onCatagoryChange(catagoryName);
-    if (this.userReqObj !== undefined) {
+    const result = getClassAndAssignmentAPIData(this.userReqObj);
+    result.then((masterObj) => {
+    //successMessage is whatever we passed in the resolve(...) function above.
+    //It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+      props.getClassesData({data: masterObj.classMasterCopy});
+      props.getAssignmentDetails({data: masterObj.assignmentMasterCopy});
+    });
+
+/*    if (this.userReqObj !== undefined) {
       if (catagoryName === CommonConstants.WEEK) {
-        masterData = getClassAndAssignmentAPIData(this.userReqObj);
-        console.log('masterData: ', masterData);
+        getClassAndAssignmentAPIData(this.userReqObj);
         props.getClassesDataByWeek(this.userReqObj);
         props.getAssignmentDetails(this.userReqObj);
       } else if (catagoryName === CommonConstants.LIST) {
@@ -57,7 +63,7 @@ export class Classes extends React.PureComponent {
       } else if (catagoryName === CommonConstants.TODAY) {
         props.getClassesDataByToday(this.userReqObj);
       }
-    }
+    }*/
   }
 
   render() {

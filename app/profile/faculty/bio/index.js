@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions';
 import HeaderLabel from '../../../common/headerLabel';
 import { translateText } from '../../../common/translate';
+import AlertComponent from '../../../common/alertComponent';
 import * as CommonConstants from '../../../constants/commonConstants';
 import * as URL_CONSTANTS from '../../../constants/urlConstants';
 import FacultyProfileView from './components/profile';
@@ -32,6 +33,7 @@ export class FacultyProfile extends React.PureComponent {
 
   render() {
     let PROFILE_DATA;
+    const props = this.props;
     if (this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC) {
 
     } else {
@@ -40,9 +42,12 @@ export class FacultyProfile extends React.PureComponent {
 
     return (
       <section>
-        {this.props.isLoading && <Spinner />}
+        {props.isLoading && <Spinner />}
         <div className='visible-lg'><HeaderLabel headerLabel={this.headerText} /></div>
-        <FacultyProfileView data={PROFILE_DATA} facultyProfile={this.props.profile} />
+        {PROFILE_DATA && <FacultyProfileView data={PROFILE_DATA} facultyProfile={this.props.profile} />}
+        {((!PROFILE_DATA && !props.loading) || (PROFILE_DATA.error)) &&
+          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+        }
       </section>
     );
   }

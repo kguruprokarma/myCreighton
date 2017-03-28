@@ -1,59 +1,46 @@
 /*Created Date: - 21 -03 -2017
-*Usage of file: - This component is use to display the options in next event filter .*
-*/
+ *Usage of file: - This component is use to display the options in next event filter .*
+ */
 import React from 'react';
-import { ListGroupItem, ListGroup, Col } from 'react-bootstrap';
 
 const labels = {
-  EVENT_PERIOD_HEADING: 'EVENT PERIOD',
-  DISPLAY_OPTIONS_HEADING: 'DISPLAY OPTIONS',
-  DONE_TEXT: 'Done'
+   EVENT_PERIOD_HEADING: 'EVENT PERIOD',
+    DISPLAY_OPTIONS_HEADING: 'DISPLAY OPTIONS',
+    DONE_TEXT: 'Done'
 };
-const EventFilter = (eventFilterProps) => (
-  <article className='row'>
-    <div className='graybtBorder pb10'>
-      <Col xs={9}>
-        <p className='filterSettings openSansRegular'>Settings</p>
-      </Col>
-      <Col xs={3}>
-        <button className='filterDoneBtn openSansRegular' onClick={eventFilterProps.showSelected}>{labels.DONE_TEXT}</button>
-      </Col>
-    </div>
-    <p className='filterHeading openSansRegular mt10 mb0 plr15'>{labels.EVENT_PERIOD_HEADING}</p>
-    <div className='control-group eventFilterGroup'>
-      {
-        eventFilterProps.Items.eventperiodItems.map((eventItem, eventIndex) => (
-          <ListGroup className='graybtBorder'>
-            <ListGroupItem className='radioLabel' key={eventIndex}>
-              <label className='control control-radio'><span className='openSansLight filterRadioText'>{eventItem}</span>
-                <input type='radio' value={eventItem} onChange={eventFilterProps.toggleRadio} name='eventPeriod' checked={eventFilterProps.eventPeriod === eventItem} />
-                {/*<input type='radio' className='FilterRadioBtn' name='eventPeriod' value={eventItem} onChange={props.toggleRadio} checked={props.eventPeriod === eventItem} /> <span className='openSansLight filterRadioText'>{eventItem}</span>*/}
-                <div className='FilterRadioBtn control__indicator' />
-              </label>
-            </ListGroupItem>
-          </ListGroup>))
-      }
-    </div>
-    <p className='filterHeading openSansRegular mt10 mb0 plr15'>{labels.DISPLAY_OPTIONS_HEADING}</p>
-    <div className='control-group'>
-      {
-        /*props.Items.displayOptions.map((eventItem, eventIndex) => (<div key={eventIndex}>
-          <input type='checkbox' name='eventPeriod' value={eventItem.itemName} onChange={props.toggleCheckBoxParent(eventItem)} checked={eventItem.checked} /> <span className='openSansRegular'>{eventItem.itemName}</span>
-          {eventItem.children.length > 0 && <span onClick={props.showChild(eventItem)}>></span>}
-          {eventItem.showItem && <div>
-              {
-                eventItem.children.map((eventItemChildren, childrenIndex) => (
-                  <div key={childrenIndex}>
-                    <input type='checkbox' name='eventPeriod' value={eventItemChildren.itemName} onChange={props.toggleCheck(eventItemChildren, eventItem)} checked={eventItemChildren.checked} /> <span className='openSansRegular'>{eventItemChildren.itemName}</span>
-                  </div>
-                  ))
-              }
-            </div>}
+const EventFilter = (props) => (
+    <article className='profileRow mt30'>
+        <button onClick={props.showSelected}>{labels.DONE_TEXT}</button>
+        <h3 className='dataHeading openSansRegular'>{labels.EVENT_PERIOD_HEADING}</h3>
+        <div className='control-group'>
+            {
+                props.Items.eventperiodItems.map((eventItem, eventIndex) => (
+                    <div key={eventIndex}>
+                        <input type='radio' name='eventPeriod' value={eventItem} onChange={props.toggleRadio} checked={props.eventPeriod === eventItem} /> <span className='openSansRegular'>{eventItem}</span>
+                    </div>))
+            }
         </div>
-          ))*/
-      }
-    </div>
-  </article>
+        <h3 className='dataHeading openSansRegular'>{labels.DISPLAY_OPTIONS_HEADING}</h3>
+        <div className='control-group'>
+            {
+                props.displayOptions.map((eventItem, eventIndex) => (<div key={eventIndex}>
+                        <input type='checkbox' name='eventPeriod' value={eventItem.itemName}
+                               onChange={props.toggleCheckBoxParent(eventItem)} checked={eventItem.checked} /> <span className='openSansRegular'>{eventItem.itemName}</span>
+                        {eventItem.children.length > 0 && <span onClick={props.showChild(eventItem)}>></span>}
+                        {eventItem.showItem && <div>
+                            {
+                                eventItem.children.map((eventItemChildren, childrenIndex) => (
+                                    <div key={childrenIndex}>
+                                        <input type='checkbox' name='eventPeriod' value={eventItemChildren.name} onChange={props.toggleCheck(eventItemChildren, eventItem)} checked={eventItemChildren.checked} /> <span className='openSansRegular'>{eventItemChildren.name}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>}
+                    </div>
+                ))
+            }
+        </div>
+    </article>
 );
 
 export default EventFilter;

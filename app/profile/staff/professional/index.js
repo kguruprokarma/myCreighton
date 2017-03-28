@@ -11,6 +11,7 @@ import ProfessionalDevelopment from './components/professionalDevelopment';
 import * as actionCreators from './actions';
 import LeftNav from '../../../common/leftNav';
 import HeaderLabel from '../../../common/headerLabel';
+import AlertComponent from '../../../common/alertComponent';
 import { translateText } from '../../../common/translate';
 import { authUserDetails, browserTitle } from '../../../common/utility';
 
@@ -41,6 +42,9 @@ export class StaffProfessional extends React.PureComponent {
               <LeftNav role={this.props.profile} />
             </Col>
           </Row>
+        }
+        {((!USER_DATA && !props.loading) || (USER_DATA.error)) &&
+          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
     );

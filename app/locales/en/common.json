@@ -110,6 +110,7 @@
   "PAGE_HEADER": "Page header",
 
   "NEXT_EVENTS":"NEXT EVENTS",
+  "NEXT_EVENTS_CAPTALIZE":"Next Events",
   "ASSIGNMENT": "Assignments",
   "EVENT_NOTES": "EVENT NOTES",
   "DUE_DATE": "Due date",
@@ -191,13 +192,14 @@
   "NO_CONTENT": "No Content Available",
   "NO_CLASSES_SCHEDULED": "No classes scheduled",
   "NO_DETAILS_PROVIDED": "No details have been provided by the instructor.",
+  "NO_SEARCH_RESULT": "No matches found for the search",
 
   "EXAMPLE_CAMPUS_DIRECTORY_SEARCH": "Examples: smith or smith, c or smith, carl",
   "SEARCH_CREIGHTON_STAFF": "Search Creighton Staff",
   "SEARCH": "Search",  
   "ADVANCED_SEARCH": "Advanced Search",
   "SIMPLE_SEARCH": "Simple Search",
-  "SEARCH_RESULT": "Results",
+  "SEARCH_RESULT": "RESULTS",
   "SEARCH_ALL_RESULT": "Show All",
   "SEARCH_MORE_RESULT": "Load More",
 
@@ -206,5 +208,6 @@
   "FOOTER_UNIVERSITY_ADDRESS": "2500 California Plaza, Omaha, NE 68178",
   "FOOTER_CREIGHTON_UNIVERSITY": "2017 Creighton University",
   "SIGN_IN": "Sign In"
+
 }
 
