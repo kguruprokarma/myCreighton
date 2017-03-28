@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Form, FormGroup, FormControl, HelpBlock } from 'react-bootstrap';
 import { Link, hashHistory } from 'react-router';
+import { Typeahead } from 'react-bootstrap-typeahead';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import ImageComponent from '../../common/imageComponent';
@@ -45,7 +46,7 @@ export class SearchBox extends Component {
   }
 
   handleChange(event) {
-    const txtRegx = /^[A-Za-z0-9, -]*$/;
+    const txtRegx = /^[A-Za-z, -]*$/;
     if (event.target.value.length <= CommonConstants.CAMPUS_SEARCH_TEXT_LENGTH) {
       if (txtRegx.test(event.target.value)) {
         this.setState({ searchText: event.target.value });
@@ -54,6 +55,12 @@ export class SearchBox extends Component {
   }
 
   render() {
+    const myData = [
+      'John',
+      'Miles',
+      'Charles',
+      'Herbie'
+    ];
     return (
       <Row>
         <Col xs={12}>
@@ -61,9 +68,10 @@ export class SearchBox extends Component {
             <Row>
               <Col xs={12} sm={9}>
                 <FormGroup>
+                  <Typeahead options={myData} className='hide' />                  
                   <FormControl type='search' autoFocus value={this.state.searchText} onChange={this.handleChange} className='openSansLight input-lg cmpsDirSearch mt20' placeholder={translateText('common:SEARCH_CREIGHTON_STAFF')} />
-                  <div className='icon-addon openSansLight'><ImageComponent imagePath={SEARCH_ICON} /></div>
-                  <div className={`icon-addon-right openSansLight ${this.state.searchText === '' ? 'hide' : 'show'}`} onClick={this.clearSearchText} ><ImageComponent imagePath={MENUCLOSE_ICON} /></div>
+                  <div className={`icon-addon openSansLight ${this.state.searchText === '' ? 'show' : 'hide'}`} onClick={this.clearSearchText} ><ImageComponent imagePath={SEARCH_ICON} /></div>
+                  <div className='icon-addon-right openSansLight show' onClick={this.clearSearchText} ><ImageComponent imagePath={MENUCLOSE_ICON} /></div>
                   <HelpBlock className='openSansRegular cmpsDirText mt10'>{translateText('common:EXAMPLE_CAMPUS_DIRECTORY_SEARCH')} </HelpBlock>
                 </FormGroup>
               </Col>

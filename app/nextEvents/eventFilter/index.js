@@ -30,13 +30,13 @@ export class NextEventFilter extends React.Component {
   }
   componentWillMount() {
     const displayOptions = JSON.parse(localStorage.getItem('displayOptions'));
-    this.setState({displayOptions: displayOptions});
+    this.setState({ displayOptions: displayOptions });
     const localStorageValue = localStorage.getItem('setFilterValue');
     if (localStorageValue !== null) {
-      this.setState({ eventPeriod: localStorageValue});
+      this.setState({ eventPeriod: localStorageValue });
     } else {
       const props = this.props;
-      this.setState({ eventPeriod: props.EventChangedValue});
+      this.setState({ eventPeriod: props.EventChangedValue });
     }
   }
 
@@ -106,21 +106,21 @@ export class NextEventFilter extends React.Component {
 
   render() {
     return (<div className='customPopUp test'>
-          <span className='popupPointer'>&nbsp;</span>
-          <ListGroup>
-            <ListGroupItem >
-              <Filter Items={this.state.Items} displayOptions={this.state.displayOptions} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => this.showChild.bind(this, item)} toggleCheckBoxParent={(item) => this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent) => this.toggleCheck.bind(this, item, parent)} showSelected={this.showSelected} />
-            </ListGroupItem >
-          </ListGroup>
-        </div>
+      <span className='popupPointer'>&nbsp;</span>
+      <ListGroup>
+        <ListGroupItem >
+          <Filter Items={this.state.Items} displayOptions={this.state.displayOptions} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => this.showChild.bind(this, item)} toggleCheckBoxParent={(item) => this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent) => this.toggleCheck.bind(this, item, parent)} showSelected={this.showSelected} />
+        </ListGroupItem >
+      </ListGroup>
+    </div>
     );
   }
 }
 
 const mapStateToProps = (nextEventFilterState) => (
-{
-  EventChangedValue: nextEventFilterState.eventsFilterReducer.changedValue
-}
+  {
+    EventChangedValue: nextEventFilterState.eventsFilterReducer.changedValue
+  }
 );
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(headerActionCreators, actionCreators), dispatch);

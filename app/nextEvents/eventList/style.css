@@ -92,6 +92,8 @@ a:hover, *:hover  {
 
     .eventOn {
         padding-left: 0px;
+        line-height: 20px;
+        font-size: 0.9333333333333333em;
     }
 
     .eventHeading {

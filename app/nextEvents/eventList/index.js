@@ -257,7 +257,7 @@ export class EventList extends React.PureComponent {
       <section>
         {props.loading && <Spinner />}
         <Row><Col md={8} sm={6} xs={12}>
-          <div className='visible-lg'>
+          <div className='hidden-xs'>
             <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} />
           </div>
         </Col>

@@ -2,15 +2,17 @@
     display: block;
     cursor: pointer;
 }
+
 .hide {
     display: none;
 }
+
 .cmpsDirSearch {
     border: 1px solid #a2a2a2;
     color: #868686;
     font-size: 1.266666666666667em;
     position: relative;
-    padding-left: 36px;
+    padding-left: 26px;
 }
 
 .cmpsDirSearch:focus,
@@ -50,22 +52,32 @@
 }
 
 .icon-addon {
-    left: 24px;
+    left: 20px;
     top: 32px;
     position: absolute;
 }
 
-.icon-addon img, .icon-addon-right img {
-    width: 20px;
+.icon-addon img{
+    width: 16px;
+}
+
+.icon-addon-right img {
+    width: 10px;
 }
 
 .icon-addon-right {   
-    background: gray; 
+    background: #a2a2a2; 
     border-radius: 50%;    
     position: absolute;
-    padding: 5px;
-    right: 25px;
-    top: 28px;
+    width: 22px;
+    height: 22px;
+    right: 20px;
+    top: 32px;
+    text-align: center;
+}
+
+.search-field {
+    position: relative;
 }
 
 @media screen and (max-width: 758px) {

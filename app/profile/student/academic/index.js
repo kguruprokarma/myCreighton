@@ -36,7 +36,7 @@ export class Academic extends React.PureComponent {
     return (
       <section id='academic'>
         {props.loading && <Spinner />}
-        <div className='visible-lg'><HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} /></div>
+        <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} /></div>
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>

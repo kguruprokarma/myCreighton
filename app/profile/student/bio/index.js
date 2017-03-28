@@ -40,7 +40,7 @@ export class Profile extends React.PureComponent {
     return (
       <section>
         {props.loading && <Spinner />}
-        <div className='visible-lg'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
+        <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
         {USER_DATA.data &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
@@ -51,7 +51,7 @@ export class Profile extends React.PureComponent {
               <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} />
               <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].email.school_email} isShowPersonalEmail={false} />
               <Other profile={props.profile} detail={USER_DATA.data[0]} />
-              <RelationDetail parentDetail={USER_DATA.data[0].parent} gurdianDetail={USER_DATA.data[0].guardian} />
+              <RelationDetail dateOfBirth={USER_DATA.data[0].birth_date} parentDetail={USER_DATA.data[0].parent} gurdianDetail={USER_DATA.data[0].guardian} />
             </Col>
             <Col md={3} sm={4} className='hidden-xs'>
               <LeftNav role={props.profile} />

@@ -33,7 +33,7 @@
 .popUp{
     position: relative;
     z-index: 1000;
-    top: 5px;
+    top: 3px;
 }
 
 .popUpContainer{
@@ -44,7 +44,7 @@
     line-height: 20px;
     font-size: 14px;
     z-index: 1000;
-    min-width: 300px;
+    min-width: 282px;
 }
 
 .popupPointer
@@ -74,6 +74,7 @@
 
 .hamburgerMenu {
  margin-top:3px;
+ margin-bottom:4px;
 }
 
 .hamburgerMenu .popupBackBtn {
@@ -114,6 +115,7 @@
     color: #313131;
     text-decoration:none;
 }
+
 .tileInfo {
     color: #313131;
     margin-left:8px;
@@ -143,14 +145,54 @@
     padding-left:0;
     padding-right: 0;
 }
+
 /* Media for small devices */
 @media screen and (max-width: 767px) {
    
     .tileInfo {
         font-size: 1.0666666666666667em;    /* font size 16 in pixel */
     }
-    
+     
 
 }
 
+@media screen and (min-width: 768px) {
+   
+    .event-icon {
+        margin-right: 20px;
+    }    
 
+}
+
+@media screen and (max-width: 480px) {
+   
+    .mobile-no-wrap {
+        white-space: nowrap;
+    }   
+
+    .event-icon {
+        position: relative;
+        left: -18px;    
+    }
+
+    .event-icon .filter-img img{
+        width:24px;
+        min-width: 24px;
+        position: relative;
+        top: -1px;
+    }
+
+    .event-icon ~ li {
+        margin-left: -16px;
+    }
+
+    .popUpContainer {
+        white-space: normal;
+    }
+      
+    .logo {
+        font-size: 1.2em;    /* font size 16 in pixel */
+        line-height: 22px;
+    }    
+
+}

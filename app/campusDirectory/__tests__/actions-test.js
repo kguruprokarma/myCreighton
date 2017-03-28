@@ -11,18 +11,25 @@ import * as urlConstants from '../../constants/urlConstants';
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
 const data = {
-  'classes': [
-    {
-      'id': '1',
-      'name': 'English 112',
-      'time': '11am - 12pm',
-      'by': 'Miller',
-      'place': 'Building Rm 119',
-      'on': 'poetry',
-      'date': 'jan 27',
-      'recurrence': 'Fri'
-    }
-  ]
+  netid: '9cd0a3991e',
+  banner_pidm: null,
+  emp_number: '8618',
+  fac_first_name: 'f089eaef57',
+  fac_last_name: 'f79979bf40',
+  fac_middle_name: 'C',
+  full_name: '8f10d58bf7',
+  job_title: 'Y.Lecturer',
+  organization: '201000 Dean\'s Office - Arts & Sciences',
+  phone: '',
+  work_address: {
+    work_Address_line1: null,
+    work_Address_line2: null,
+    work_Address_line3: null,
+    work_State_code: null,
+    work_postal_code: null,
+    work_town_or_city: null
+  },
+  work_email: null
 };
 describe('actions testing for campus directory search', () => {
   beforeEach(() => {

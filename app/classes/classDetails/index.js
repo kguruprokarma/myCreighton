@@ -82,7 +82,7 @@ class ClassDetails extends React.PureComponent {
     return (
       <section className='classesDeatils'>
         {showPrevNext &&
-          <div className='visible-lg'>
+          <div className='hidden-xs'>
             <HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />
           </div>
         }

@@ -46,33 +46,22 @@ export const scheduleDays = (schedule) => {
 /* To get the next date for schedule: M-W-F */
 export const getScheduledNextDate = (schedules) => {
   if (!schedules) return 'N/A';
-  let mySchedules = schedules.replace(/\-/g, '');
+  const mySchedules = schedules.replace(/\-/g, '');
   const days = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
   const today = new Date();
   const currentDay = today.getDay();
-  const hasSunday = schedules.indexOf('U') !== -1;
-  mySchedules = mySchedules.replace('U', '');
-
+ 
   const classSchedules = mySchedules.split('').map((schedule) => {
     const returnDate = new Date();
     let daysToAdd = 0;
     if (currentDay > days[schedule]) {
-      daysToAdd = 7 - (currentDay + days[schedule]);
+      daysToAdd = (((7 + days[schedule]) - returnDate.getDay()) % 7 );
     } else {
       daysToAdd = days[schedule] - currentDay;
     }
     returnDate.setDate(returnDate.getDate() + daysToAdd);
     return returnDate.toLocaleString();
   });
-
-  if (hasSunday) {
-    const returnDate = new Date();
-    if (currentDay > 0) {
-      const daysToAdd = 7 - currentDay;
-      returnDate.setDate(returnDate.getDate() + daysToAdd);
-    }
-    classSchedules.push(returnDate.toLocaleString());
-  }
   return moment(classSchedules.sort()[0]).format('DD MMM');
 };
 
@@ -356,7 +345,7 @@ export const browserTitle = (titleKey) => {
 
 export const getClassAndAssignmentAPIData = (reqObj) => {
   const masterObj = {};
-  return new Promise( /* executor */ function (resolve, reject) {
+  return new Promise( /* executor */ (resolve, reject) => {
     if (localStorage.getItem('classMasterCopy') === null || localStorage.getItem('assignmentMasterCopy') === null) {
       classesApi.getClassesDataByWeek(reqObj).then((classResponse) => {
         localStorage.setItem('classMasterCopy', JSON.stringify(classResponse.data.data));
@@ -427,17 +416,36 @@ export const getDueTime = (timeStampData) => {
 
 
 export const showFeatureEvents = (apiDate, today) => {
-    const APIDate = new Date(moment(apiDate).format('MMM D, YYYY'));
-    const todayDate = new Date(moment(today).format('MMM D, YYYY'));
-    const APITime = moment(apiDate).format('HH:mm');
-    const todayTime = moment(today).format('HH:mm');
-    if (APIDate >= todayDate ) {
-        if (APIDate.toString() === todayDate.toString() && APITime < todayTime) {
-            return 0;
-        } else {
-            return 1;
+  const APIDate = new Date(moment(apiDate).format('MMM D, YYYY'));
+  const todayDate = new Date(moment(today).format('MMM D, YYYY'));
+  const APITime = moment(apiDate).format('HH:mm');
+  const todayTime = moment(today).format('HH:mm');
+  if (APIDate >= todayDate ) {
+    if (APIDate.toString() === todayDate.toString() && APITime < todayTime) {
+      return 0;
+    } 
+    return 1;
+  } 
+  return 0;
+};
+
+export const getParentorGuardian = (dateOfBirth) => {
+  if (dateOfBirth !== null) {
+    const date = moment(dateOfBirth).date();
+    const year = moment(dateOfBirth).year();
+    const month = moment(dateOfBirth).month();
+    const todaySDate = moment().date();
+    const todaySYear = moment().year();
+    const todaySMonth = moment().month();
+    if (todaySYear - year > 19) {
+      return CommonConstants.STUDENT_GUARDIAN;
+    } else if (todaySYear - year === 19) {
+      if (todaySMonth >= month) {
+        if (todaySDate >= date) {
+          return CommonConstants.STUDENT_GUARDIAN;
         }
-    } else {
-        return 0;
+      }
     }
+  }
+  return CommonConstants.STUDENT_PARENT;
 };

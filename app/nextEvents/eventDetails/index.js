@@ -70,7 +70,7 @@ class EventDetails extends React.PureComponent {
       <div className='hidden-xs mb10 eventDetailsTitle'>
         <Row>
           <Col sm={6}>
-            <div className='visible-lg'>
+            <div className='hidden-xs'>
               <HeaderLabel headerLabel={headerText} />
             </div>
           </Col>

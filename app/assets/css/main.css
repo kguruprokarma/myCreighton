@@ -243,6 +243,7 @@ content:"";
     cursor: pointer;
     padding-left: 30px;
     position: relative;
+    margin-bottom: 0;
 }
 
 input {
@@ -425,12 +426,10 @@ input {
     padding: 0;
 }
  
-.hamburgerMenu .btnnoPadding:focus,
-.hamburgerMenu .btnnoPadding:active, 
-.hamburgerMenu img:focus {
-    border:0;
-    box-shadow:none;
-    outline:0
+.btn.btnnoPadding:focus,
+.btn.btnnoPadding:active, 
+.btn.btnnoPadding img:focus {
+    outline:0;
 }
 
 .customPopUp .list-group button.list-group-item:focus,
@@ -441,6 +440,12 @@ input {
 .text-italic {
     font-style: italic;
 }
+
+.downArrowImage {
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
 
 /* Media for small devices */
 

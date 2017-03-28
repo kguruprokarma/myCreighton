@@ -36,7 +36,7 @@ export class FacultyAcademic extends React.PureComponent {
     return (
       <section>
         {props.isLoading && <Spinner />}
-        <div className='visible-lg'><HeaderLabel headerLabel={this.headerText} /></div>
+        <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
         {ACADEMIC_DATA && <FacultyAcademicView data={ACADEMIC_DATA} facultyProfile={this.props.profile} />}
         {((!ACADEMIC_DATA && !props.loading) || (ACADEMIC_DATA.error)) &&
           <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />

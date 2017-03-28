@@ -39,7 +39,7 @@ export class SearchResults extends React.PureComponent {
     const props = this.props;
     return (
       <section>
-        <div className='visible-lg'>
+        <div className='hidden-xs'>
           <HeaderLabel headerLabel={translateText('common:SEARCH_RESULT')} />
         </div>
         { props.loading && <Spinner />}
