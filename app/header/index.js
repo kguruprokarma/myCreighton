@@ -107,6 +107,10 @@ export class Header extends React.PureComponent {
                     </div>
                   </li>
                 </ul>
+                <ul>
+                  Kishore Kumar Guru
+                </ul>
+
               }
             </Col>
             <Col className='hidden-lg pull-left mobile-header text-center'>
