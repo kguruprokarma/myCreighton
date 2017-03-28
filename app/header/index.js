@@ -101,16 +101,13 @@ export class Header extends React.PureComponent {
                     <div className='popUp'>
                       <button className='btn btn-link btnnoPadding' onClick={this.showFilterPopUp}><ImageComponent imagePath={EVENTFILTER_ICON} className='' imageWidth='25' /></button>
                       <div className='popUpContainer'>
-                        {props.filterPopUpData &&
+                        Kishore Kumar Guru {props.filterPopUpData &&
                           <NextEventFilterComponent />}
                       </div>
                     </div>
                   </li>
                 </ul>
-                <ul>
-                  Kishore Kumar Guru
-                </ul>
-
+                
               }
             </Col>
             <Col className='hidden-lg pull-left mobile-header text-center'>
