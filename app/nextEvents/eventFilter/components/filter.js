@@ -4,6 +4,7 @@
 import React from 'react';
 import { ListGroupItem, ListGroup, Col } from 'react-bootstrap';
 
+
 const labels = {
   EVENT_PERIOD_HEADING: 'EVENT PERIOD',
   DISPLAY_OPTIONS_HEADING: 'DISPLAY OPTIONS',
@@ -35,21 +36,30 @@ const EventFilter = (eventFilterProps) => (
       }
     </div>
     <p className='filterHeading openSansRegular mt10 mb0 plr15'>{labels.DISPLAY_OPTIONS_HEADING}</p>
-    <div className='control-group'>
+    <div className='control-group eventFilterCheckGroup'>
       {
         eventFilterProps.displayOptions.map((eventItem, eventIndex) => (<div key={eventIndex}>
-          <input type='checkbox' name='eventPeriod' value={eventItem.itemName}
-            onChange={eventFilterProps.toggleCheckBoxParent(eventItem)} checked={eventItem.checked} /> <span className='openSansRegular'>{eventItem.itemName}</span>
-          {eventItem.children.length > 0 && <span onClick={eventFilterProps.showChild(eventItem)}>></span>}
-          {eventItem.showItem && <div>
-            {
-              eventItem.children.map((eventItemChildren, childrenIndex) => (
-                <div key={childrenIndex}>
-                  <input type='checkbox' name='eventPeriod' value={eventItemChildren.name} onChange={eventFilterProps.toggleCheck(eventItemChildren, eventItem)} checked={eventItemChildren.checked} /> <span className='openSansRegular'>{eventItemChildren.name}</span>
-                </div>
-              ))
-            }
-          </div>}
+          <ListGroup className='graybtBorder'>
+            <ListGroupItem>
+              <label className='control control-checkbox'><span className='openSansLight filterRadioText'>{eventItem.itemName}</span>
+                <input type='checkbox' name='eventPeriod' value={eventItem.itemName} onChange={eventFilterProps.toggleCheckBoxParent(eventItem)} checked={eventItem.checked} />
+                <div className='control__indicator'></div>
+              </label>
+              {eventItem.children.length > 0 && <span onClick={eventFilterProps.showChild(eventItem)}>></span>}
+              {eventItem.showItem && <div>
+                {
+                  eventItem.children.map((eventItemChildren, childrenIndex) => (
+                    <div className='childCheckBox pl20' key={childrenIndex}>
+                      <label className='control control-checkbox'><span className='openSansLight filterRadioText'>{eventItemChildren.name}</span>
+                        <input type='checkbox' name='eventPeriod' value={eventItemChildren.name} onChange={eventFilterProps.toggleCheck(eventItemChildren, eventItem)} checked={eventItemChildren.checked} />
+                        <div className='control__indicator'></div>
+                      </label>
+                    </div>
+                  ))
+                }
+              </div>}
+            </ListGroupItem>
+          </ListGroup>
         </div>
         ))
       }

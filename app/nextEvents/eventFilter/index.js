@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import { ListGroupItem, ListGroup } from 'react-bootstrap';
 import Filter from './components/filter';
 import * as EventConstants from '../../constants/commonConstants';
-
+import styles from './../eventFilter/style.css';
 import * as actionCreators from './actions';
 import * as headerActionCreators from '../../header/actions';
 

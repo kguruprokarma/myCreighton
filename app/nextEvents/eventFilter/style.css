@@ -72,3 +72,17 @@
     height: 16px;
     width: 16px;
 }
+
+.eventFilterCheckGroup .control__indicator {
+    width: 16px;
+    height: 16px;
+}
+
+.eventFilterCheckGroup label:after {
+    content: '';
+}
+
+.eventFilterCheckGroup .control input:checked ~ .control__indicator:after {
+    left: 5px;
+    top: 1px;
+}

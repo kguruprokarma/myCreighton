@@ -276,9 +276,9 @@ export class EventList extends React.PureComponent {
           }
         </div>
         }
-        {((!EVENT_DATA && !props.loading) || (EVENT_DATA.error)) &&
+        {/*{((!EVENT_DATA && !props.loading) || (EVENT_DATA.error)) &&
           <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
-        }
+        }*/}
       </section>
     );
   }
