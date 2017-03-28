@@ -101,7 +101,7 @@ export class Header extends React.PureComponent {
                     <div className='popUp'>
                       <button className='btn btn-link btnnoPadding' onClick={this.showFilterPopUp}><ImageComponent imagePath={EVENTFILTER_ICON} className='' imageWidth='25' /></button>
                       <div className='popUpContainer'>
-                        Kishore Kumar Guru {props.filterPopUpData &&
+                        {props.filterPopUpData &&
                           <NextEventFilterComponent />}
                       </div>
                     </div>
