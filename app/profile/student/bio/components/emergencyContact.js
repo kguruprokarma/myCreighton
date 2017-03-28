@@ -17,7 +17,7 @@ const EmergencyContact = (emergencyProps) => (
       <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Phone'>{translateText('common:PROFILE_PHONE')}</label></Col>
       <Col xs={8} md={9} sm={8} className='dataField'><a href={emergencyProps.phone ? `tel:${telephoneCheck(emergencyProps.phone, '.')}` : ''} className='mobileNumber'>{emergencyProps.phone ? telephoneCheck(emergencyProps.phone, '.') : ''}</a></Col>
     </Row>
-    <BasicRow displayName={`tel:${translateText('common:PROFILE_RELATIONSHIP')}`} displayValue={emergencyProps.relation ? emergencyProps.relation : ''} />
+    <BasicRow displayName={translateText('common:PROFILE_RELATIONSHIP')} displayValue={emergencyProps.relation ? emergencyProps.relation : ''} />
   </article>
 );
 
