@@ -40,6 +40,7 @@ export const CLASSES = 'Classes';
 export const CHECKED = 'checked';
 export const FALSE = false;
 export const CHILDREN = 'children';
+export const CLASS_EVENTS = 'Class Events'; 
 export const CLASS_ASSIGNMENTS = 'Class assignments'; 
 export const TESTS_AND_QUIZZES = 'Tests and Quizzes';
 export const DISPLAY_OPTIONS = 'displayOptions';

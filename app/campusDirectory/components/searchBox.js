@@ -33,7 +33,9 @@ export class SearchBox extends Component {
     const props = this.props;
     if (!this.state.searchText) return false;    
     if (props.currentPath === CommonConstants.SEARCH_RESULTS) {
-      props.onSearchText(this.state.searchText);
+      //props.onSearchText(this.state.searchText);
+      this.state.searchURL = `${ROUTE_URL.SERCHRESULTS}/${this.state.searchText}`;
+      hashHistory.replace(this.state.searchURL);
     } else {
       this.state.searchURL = `${ROUTE_URL.SERCHRESULTS}/${this.state.searchText}`;
       hashHistory.replace(this.state.searchURL);
@@ -55,20 +57,13 @@ export class SearchBox extends Component {
   }
 
   render() {
-    const myData = [
-      'John',
-      'Miles',
-      'Charles',
-      'Herbie'
-    ];
     return (
       <Row>
         <Col xs={12}>
           <Form className='searchForm' onSubmit={this.onSearchText}>
             <Row>
               <Col xs={12} sm={9}>
-                <FormGroup>
-                  <Typeahead options={myData} className='hide' />                  
+                <FormGroup>                
                   <FormControl type='search' autoFocus value={this.state.searchText} onChange={this.handleChange} className='openSansLight input-lg cmpsDirSearch mt20' placeholder={translateText('common:SEARCH_CREIGHTON_STAFF')} />
                   <div className={`icon-addon openSansLight ${this.state.searchText === '' ? 'show' : 'hide'}`} onClick={this.clearSearchText} ><ImageComponent imagePath={SEARCH_ICON} /></div>
                   <div className='icon-addon-right openSansLight show' onClick={this.clearSearchText} ><ImageComponent imagePath={MENUCLOSE_ICON} /></div>

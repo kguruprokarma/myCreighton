@@ -7,7 +7,7 @@ import { find, findIndex } from 'lodash';
 import HeaderLabel from './../../common/headerLabel';
 import ClassInfo from './../classDetails/components/classInfo';
 import ClassAssignments from './../classDetails/components/classAssignments';
-import TodaysClass from './../classDetails/components/todaysClass';
+//import TodaysClass from './../classDetails/components/todaysClass';
 import UpcomingAssignments from './../classDetails/components/upcomingAssignments';
 import TestsOrQuizzes from './../classDetails/components/testsOrQuizzes';
 import '../classDetails/style.css';
@@ -43,7 +43,7 @@ class ClassDetails extends React.PureComponent {
     }
     const testOrQuizzesData = [];
     const assignmentDue = [];
-    const todaysClass = [];
+    //const todaysClass = [];
     const upcomingAssignmentsData = [];
     const currentDate = new Date();
     if (assignments && assignments.length > 0 ) {
@@ -57,9 +57,10 @@ class ClassDetails extends React.PureComponent {
               assignmentDue.push(assignmentObj);
             } else if (dateValue === -1) {
               upcomingAssignmentsData.push(assignmentObj);
-            } else if (dateValue === 0) {
-              todaysClass.push(assignmentObj);
-            }
+            } 
+            // else if (dateValue === 0) {
+            //   todaysClass.push(assignmentObj);
+            // }
           }
         }
         return assignmentObj;
@@ -88,9 +89,9 @@ class ClassDetails extends React.PureComponent {
         }
         {(classData && Object.keys(classData).length > 0) && (<div>
           <ClassInfo {...classData} />
-          {(assignmentDue.length !== 0 || todaysClass.length !== 0 || upcomingAssignmentsData.length !== 0 || testOrQuizzesData.length !== 0) ? (<div>
+          {(assignmentDue.length !== 0 || upcomingAssignmentsData.length !== 0 || testOrQuizzesData.length !== 0) ? (<div>
             <ClassAssignments data={assignmentDue} />
-            <TodaysClass data={todaysClass} />
+            {/*<TodaysClass data={todaysClass} />*/}
             <UpcomingAssignments data={upcomingAssignmentsData} />
             <TestsOrQuizzes data={testOrQuizzesData} />
           </div>)

@@ -7,6 +7,7 @@ import { translateText } from '../../../common/translate';
 
 const todaysClass = (todayClassProps) => (
   <article className='todaysClass mb25'>
+  {console.log('todayClassProps: ', todayClassProps)}
     <h4 className='detailSubhead graybtBorder mb10'><span className='documentIcon'>&nbsp;</span>{translateText('common:TODAYS_CLASS')}</h4>
     {todayClassProps.data.length !== 0 ? todayClassProps.data.map((todayClass, todayClassIndex) => (
       <div className='openSansLight fs1pt2 gbl_lh' key={todayClassIndex}>

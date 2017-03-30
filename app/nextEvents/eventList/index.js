@@ -164,24 +164,25 @@ export class EventList extends React.PureComponent {
         if (eventObject.assignmentData && eventObject.assignmentData.length > 0) {
           const assignmentDetails = eventObject.assignmentData;
           map(assignmentDetails, (assignmentData) => {
-            if (assignmentData.type === NextEventsConstants.ASSIGNMENTS) {
+            if (assignmentData.type === NextEventsConstants.ASSIGNMENTS || assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
               classAssignments.push(data);
-            } else if (assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
-              quizzes.push(data);
-            }
+            } 
+            // else if (assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
+            //   quizzes.push(data);
+            // }
           });
         }
       }
     });
     const matchedAssignments = map(uniqBy(classAssignments, CommonConstants.SIS_SOURCE_ID));
-    const matchedquizzes = map(uniqBy(quizzes, CommonConstants.SIS_SOURCE_ID));
+    //const matchedquizzes = map(uniqBy(quizzes, CommonConstants.SIS_SOURCE_ID));
     const classesObj = { 'itemName': CommonConstants.CLASSES, 'checked': CommonConstants.FALSE, 'children': classes };
-    const assignmentObj = { 'itemName': CommonConstants.CLASS_ASSIGNMENTS, 'checked': CommonConstants.FALSE, 'children': matchedAssignments };
-    const quizzesObj = { 'itemName': CommonConstants.TESTS_AND_QUIZZES, 'checked': CommonConstants.FALSE, 'children': matchedquizzes };
+    const assignmentObj = { 'itemName': CommonConstants.CLASS_EVENTS, 'checked': CommonConstants.FALSE, 'children': matchedAssignments };
+    //const quizzesObj = { 'itemName': CommonConstants.TESTS_AND_QUIZZES, 'checked': CommonConstants.FALSE, 'children': matchedquizzes };
 
     displayOptions.push(classesObj);
     displayOptions.push(assignmentObj);
-    displayOptions.push(quizzesObj);
+    //displayOptions.push(quizzesObj);
     localStorage.setItem(CommonConstants.DISPLAY_OPTIONS, JSON.stringify(displayOptions));
   }
 
@@ -195,11 +196,13 @@ export class EventList extends React.PureComponent {
     const today = moment()._d;
 
     keys.map((key) => {
+      console.log('key', key);
       if (key === CommonConstants.CLASSES) {
         classesIds = options.displayOptions[key];
-      } else if (key === CommonConstants.CLASS_ASSIGNMENTS) {
+      } else if (key === CommonConstants.CLASS_EVENTS) {
         assignmentsIds = options.displayOptions[key];
-      } else if (key === CommonConstants.TESTS_AND_QUIZZES) {
+      } 
+      else if (key === CommonConstants.TESTS_AND_QUIZZES) {
         quizzesIds = options.displayOptions[key];
       }
     });

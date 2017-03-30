@@ -45,18 +45,18 @@ const EventFilter = (eventFilterProps) => (
               <div className='control__indicator' />
             </label>
             {eventItem.children.length > 0 && <button className='btn btn-link btnnoPadding downArrowImage' onClick={eventFilterProps.showChild(eventItem)}><img src={DOWN_ARROW} alt='' /></button>}
-            {eventItem.showItem && <div>
+            {eventItem.showItem && <ListGroup>
               {
                 eventItem.children.map((eventItemChildren, childrenIndex) => (
-                  <div className='childCheckBox pl20' key={childrenIndex}>
+                  <ListGroupItem className='childCheckBox' key={childrenIndex}>
                     <label className='control control-checkbox'><span className='openSansLight filterRadioText'>{eventItemChildren.name}</span>
                       <input type='checkbox' name='eventPeriod' value={eventItemChildren.name} onChange={eventFilterProps.toggleCheck(eventItemChildren, eventItem)} checked={eventItemChildren.checked} />
                       <div className='control__indicator' />
                     </label>
-                  </div>
+                  </ListGroupItem>
                 ))
               }
-            </div>}
+            </ListGroup>}
           </ListGroupItem>
         ))
         }
