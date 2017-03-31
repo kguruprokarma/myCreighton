@@ -157,21 +157,32 @@ export const dataFilterAddingData = (dataArray) => {
   const data = dataArray;
   const newObject = {};
   const newArray = [];
+  const newScheduleItems = [];
   let count = 0;
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
-
+  const daysIndex = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
   const filterlist = data.map((singleitem) => {
     const item = singleitem;
     const year = new Date().getFullYear();
     const date = new Date(`${getScheduledNextDate(item.class_schedule)},${year}`);
     const day = days[date.getDay()];
     item.day = day;
+
+    // adding duplicate schedule, if the schedule occur more than once in a week
+    const scheduleList = item.class_schedule.split('-');
+    scheduleList.map((weekDay) => {
+      item.day = days[daysIndex[weekDay]];
+      const schedule = JSON.stringify(item);
+      newScheduleItems.push(JSON.parse(schedule));
+      return item;
+    });
+
     return item;
   });
 
-  count = filterlist.length;
+  count = newScheduleItems.length;
   for (let i = 0; i < count; i++) {
-    const item = filterlist[i];
+    const item = newScheduleItems[i];
     if (!newObject[item.day]) {
       newObject[item.day] = [];
     }

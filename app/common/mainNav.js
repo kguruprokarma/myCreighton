@@ -21,6 +21,7 @@ class MainNav extends React.Component {
         <Grid>
           <Row>
             <ul className='main-navigation fs0pt93'>
+              <li className='navigation-item hidden-lg'><a href={`#${ROUTE_URL.DASHBOARD}`}>{translateText('common:DASH_BOARD')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               <li className='navigation-item'><a>{translateText('common:CREIGHTON_SERVICES_AND_RESOURCES')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               {
                 role === CommonConstants.ROLE_STUDENT || role === undefined ? <li className='navigation-item'>
@@ -29,7 +30,6 @@ class MainNav extends React.Component {
               }
               <li className='navigation-item'><a>{translateText('common:LIBRARY_SEARCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               <li className='navigation-item'><a>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
-              <li className='navigation-item hidden-lg'><a href={`#${ROUTE_URL.DASHBOARD}`}>{translateText('common:DASH_BOARD')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
             </ul>
           </Row>
         </Grid>

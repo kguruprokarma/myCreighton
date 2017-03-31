@@ -3,76 +3,75 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { filter, map, sortBy, uniqBy } from 'lodash';
+import moment from 'moment';
 import { Col, Row, Alert } from 'react-bootstrap';
-import HeaderLabel from './../../common/headerLabel';
-import Classes from '../eventList/components/classes';
-import Assignments from '../eventList/components/assignments';
-import Quizzes from '../eventList/components/quizzes';
 import * as actionCreators from './actions';
 import * as classesActionCreators from '../../classes/classList/actions';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import * as CommonConstants from '../../constants/commonConstants';
+import HeaderLabel from './../../common/headerLabel';
+import Classes from '../eventList/components/classes';
+import Assignments from '../eventList/components/assignments';
+import Quizzes from '../eventList/components/quizzes';
 import { translateText } from '../../common/translate';
 import { authUserDetails, dataFilterAddingData, createTimeStamp, convertEncodeURIComponent, addedTypeField, browserTitle, getClassAndAssignmentAPIData, showFeatureEvents } from '../../common/utility';
-import AlertComponent from '../../common/alertComponent';
+//import AlertComponent from '../../common/alertComponent';
 import './style.css';
 import Spinner from '../../common/spinner';
-import moment from 'moment';
 
 export class EventList extends React.PureComponent {
   constructor() {
     super();
-    this.state = {
-      masterStateChange : false
-    }
     this.userReqObj = {};
     this.userReqObj.primaryKey = 'netid';
     this.userReqObj.primaryValue = '6cb4db8459';//authUserDetails().netid;
     this.masterObj = {};
-
   }
   componentWillMount() {
     const props = this.props;
+    props.onLoading();
     if (this.userReqObj !== undefined && authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {
-      //props.getEventsData(this.userReqObj);
-      //props.getClassesDataByWeek(this.userReqObj);
-      //this.masterObj = getClassAndAssignmentAPIData(this.userReqObj);
       const result = getClassAndAssignmentAPIData(this.userReqObj);
-    result.then((masterObj1) => {
-      //successMessage is whatever we passed in the resolve(...) function above.
-      //It doesn't have to be a string, but if it is only a succeed message, it probably will be.
-      //props.getClassesData({data: masterObj.classMasterCopy});
-      //props.getAssignmentDetails({data: masterObj.assignmentMasterCopy});
-      this.masterObj = masterObj1;
-      this.setState({masterStateChange: true});
-    });
+      result.then((masterObj1) => {
+        this.masterObj = masterObj1;
+        props.onMasterDataChange(true);
+      });
+    } else {
+      //The below code has to be changed once we receive seperate API for faculty and staff
+      this.masterObj = {};
+      props.onMasterDataChange(true);
     }
     browserTitle(translateText('common:NEXT_EVENTS'));
   }
+
   getEventsData(props) {
     const EVENT_DATA = [];
-    const ASSIGNMENTS_DATA = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
-    const CLASSES_DATA = convertEncodeURIComponent(this.masterObj.classMasterCopy);
-    if (ASSIGNMENTS_DATA && CLASSES_DATA) {
-      const classObjs = createTimeStamp(dataFilterAddingData(CLASSES_DATA.data));
-      const assignmentObjs = addedTypeField(ASSIGNMENTS_DATA.data);
-      assignmentObjs.map((assignmentObj) => {
-        EVENT_DATA.push(assignmentObj);
-        return EVENT_DATA;
-      });
-      classObjs.map((classObj) => {
-        const classObject = classObj;
-        classObject.assignmentData = filter(assignmentObjs, { 'sis_source_id': classObject.sis_source_id });
-        classObject.type = NextEventsConstants.CLASSES_DETAILS;
-        EVENT_DATA.push(classObject);
-        return EVENT_DATA;
-      });
+    if (this.masterObj) {
+      const ASSIGNMENTS_DATA = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
+      const CLASSES_DATA = convertEncodeURIComponent(this.masterObj.classMasterCopy);
+      if (ASSIGNMENTS_DATA && CLASSES_DATA) {
+        const classObjs = createTimeStamp(dataFilterAddingData(CLASSES_DATA.data));
+        const assignmentObjs = addedTypeField(ASSIGNMENTS_DATA.data);
+        assignmentObjs.map((assignmentObj) => {
+          EVENT_DATA.push(assignmentObj);
+          return EVENT_DATA;
+        });
+        classObjs.map((classObj) => {
+          const classObject = classObj;
+          classObject.assignmentData = filter(assignmentObjs, { 'sis_source_id': classObject.sis_source_id });
+          classObject.type = NextEventsConstants.CLASSES_DETAILS;
+          EVENT_DATA.push(classObject);
+          return EVENT_DATA;
+        });
+      }
+      if (EVENT_DATA) {
+        localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
+      }
+      const result = this.getSelectedFilterData(props.EventChangedValue);
+      return result;
     }
-    if (EVENT_DATA) {
-      localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
-    }
-    const result = this.getSelectedFilterData(props.EventChangedValue);
-    return result;
+
+    return EVENT_DATA;
   }
 
   getSelectedFilterData(filterSelection) {
@@ -164,25 +163,24 @@ export class EventList extends React.PureComponent {
         if (eventObject.assignmentData && eventObject.assignmentData.length > 0) {
           const assignmentDetails = eventObject.assignmentData;
           map(assignmentDetails, (assignmentData) => {
-            if (assignmentData.type === NextEventsConstants.ASSIGNMENTS || assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
+            if (assignmentData.type === NextEventsConstants.ASSIGNMENTS) {
               classAssignments.push(data);
-            } 
-            // else if (assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
-            //   quizzes.push(data);
-            // }
+            } else if (assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
+              quizzes.push(data);
+            }
           });
         }
       }
     });
     const matchedAssignments = map(uniqBy(classAssignments, CommonConstants.SIS_SOURCE_ID));
-    //const matchedquizzes = map(uniqBy(quizzes, CommonConstants.SIS_SOURCE_ID));
+    const matchedquizzes = map(uniqBy(quizzes, CommonConstants.SIS_SOURCE_ID));
     const classesObj = { 'itemName': CommonConstants.CLASSES, 'checked': CommonConstants.FALSE, 'children': classes };
-    const assignmentObj = { 'itemName': CommonConstants.CLASS_EVENTS, 'checked': CommonConstants.FALSE, 'children': matchedAssignments };
-    //const quizzesObj = { 'itemName': CommonConstants.TESTS_AND_QUIZZES, 'checked': CommonConstants.FALSE, 'children': matchedquizzes };
+    const assignmentObj = { 'itemName': CommonConstants.CLASS_ASSIGNMENTS, 'checked': CommonConstants.FALSE, 'children': matchedAssignments };
+    const quizzesObj = { 'itemName': CommonConstants.TESTS_AND_QUIZZES, 'checked': CommonConstants.FALSE, 'children': matchedquizzes };
 
     displayOptions.push(classesObj);
     displayOptions.push(assignmentObj);
-    //displayOptions.push(quizzesObj);
+    displayOptions.push(quizzesObj);
     localStorage.setItem(CommonConstants.DISPLAY_OPTIONS, JSON.stringify(displayOptions));
   }
 
@@ -194,21 +192,18 @@ export class EventList extends React.PureComponent {
     let classData = {};
     const keys = Object.keys(options.displayOptions);
     const today = moment()._d;
-
-    keys.map((key) => {
-      console.log('key', key);
+    map(keys, (key) => {
       if (key === CommonConstants.CLASSES) {
         classesIds = options.displayOptions[key];
-      } else if (key === CommonConstants.CLASS_EVENTS) {
+      } else if (key === CommonConstants.CLASS_ASSIGNMENTS) {
         assignmentsIds = options.displayOptions[key];
-      } 
-      else if (key === CommonConstants.TESTS_AND_QUIZZES) {
+      } else if (key === CommonConstants.TESTS_AND_QUIZZES) {
         quizzesIds = options.displayOptions[key];
       }
     });
 
     if (classesIds && classesIds.length > 0) {
-      for (const classId of classesIds) {
+      each(classesIds, (classId) => {
         classData = (filter(eventFilterData, { 'sis_source_id': classId }))[0];
         if (classData) {
           const value = showFeatureEvents(classData.timeStamp, today);
@@ -216,9 +211,9 @@ export class EventList extends React.PureComponent {
             displayOptionData.push(classData);
           }
         }
-      }
+      });
     } else if (assignmentsIds && assignmentsIds.length > 0) {
-      for (const assignmentsId of assignmentsIds) {
+      each(assignmentsIds, (assignmentsId) => {
         classData = filter(eventFilterData, { 'sis_source_id': assignmentsId });
         if (classData && classData.length > 0) {
           const listOfAssignments = classData[0].assignmentData;
@@ -231,13 +226,13 @@ export class EventList extends React.PureComponent {
             }
           });
         }
-      }
+      });
     } else if (quizzesIds && quizzesIds.length > 0) {
-      for (const quizzesId of quizzesIds) {
+      each(quizzesIds, (quizzesId) => {
         classData = filter(eventFilterData, { 'sis_source_id': quizzesId });
         if (classData && classData.length > 0) {
           const listOfQuizzes = classData[0].assignmentData;
-          listOfQuizzes.map((quizzes) => {
+          map(listOfQuizzes, (quizzes) => {
             if (quizzes.type === CommonConstants.EVENT_TYPE_QUIZ) {
               const value = showFeatureEvents(quizzes.timeStamp, today);
               if (value > 0) {
@@ -246,27 +241,43 @@ export class EventList extends React.PureComponent {
             }
           });
         }
-      }
+      });
     }
     const sortedDiplayOptionData = sortBy(displayOptionData, ['timeStamp']);
     return sortedDiplayOptionData;
   }
 
-  render() {
+  renderLoader() {
     const props = this.props;
-    const EVENT_DATA = this.getEventsData(this.props);
     return (
-
-      <section>
+      <span>
         {props.loading && <Spinner />}
+      </span>
+    );
+  }
+
+  renderNoDataFound() {
+    return (
+      <Alert bsStyle='warning'>
+        <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
+      </Alert>
+    );
+  }
+
+
+  renderData(EVENT_DATA) {
+    const props = this.props;
+    props.offLoading();
+    return (
+      <span>
         <Row><Col md={8} sm={6} xs={12}>
           <div className='hidden-xs'>
             <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} />
           </div>
         </Col>
         </Row>
-        {EVENT_DATA && <div>
-          {authUserDetails().userRole === CommonConstants.ROLE_STUDENT && EVENT_DATA.length > 0 ? EVENT_DATA.map((eventType, index) => (
+        <div>
+          {EVENT_DATA && authUserDetails().userRole === CommonConstants.ROLE_STUDENT && EVENT_DATA.length > 0 ? EVENT_DATA.map((eventType, index) => (
             <div key={index}>
               {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} />}
               {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
@@ -276,12 +287,27 @@ export class EventList extends React.PureComponent {
           <Alert bsStyle='warning'>
             <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
           </Alert>
+
           }
         </div>
-        }
         {/*{((!EVENT_DATA && !props.loading) || (EVENT_DATA.error)) &&
           <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
         }*/}
+      </span>
+    );
+  }
+
+  renderDataCheck(EVENT_DATA) {
+    return (EVENT_DATA !== undefined && EVENT_DATA.length > 0) ? this.renderData(EVENT_DATA) : this.renderNoDataFound();
+  }
+
+
+  render() {
+    const EVENT_DATA = this.getEventsData(this.props);
+    const props = this.props;
+    return (
+      <section>
+        {props.isMasterDataChange ? this.renderDataCheck(EVENT_DATA) : this.renderLoader()}
       </section>
     );
   }
@@ -292,6 +318,7 @@ const mapStateToProps = (eventsState) => (
     assignmentsData: eventsState.eventsReducer.eventsData.data,
     classesData: eventsState.classesReducer.classesData.data,
     loading: eventsState.eventsReducer.isLoading,
+    isMasterDataChange: eventsState.eventsReducer.isMasterDataChange,
     classLoading: eventsState.classesReducer.isLoading,
     EventChangedValue: eventsState.eventsFilterReducer.changedValue
   });

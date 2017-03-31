@@ -21,6 +21,44 @@ const receiveError = (error) => (
     data: error
   });
 
+const masterDataChange = (bool) => (
+  {
+    type: types.ON_MASTER_DATA_CHANGE,
+    data: bool
+  } 
+ );
+
+const loadingChange = () => (
+  {
+    type: types.ON_LOADING_CHANGE
+  } 
+ );
+
+const offLoadingChange = () => (
+  {
+    type: types.OFF_LOADING_CHANGE
+  } 
+ );
+
+export function onMasterDataChange(bool) {
+  return function (dispatch) {
+    dispatch(masterDataChange(bool));
+  };
+}
+
+export function onLoading() {
+   return function (dispatch) {
+    dispatch(loadingChange());
+  };
+}
+
+export function offLoading() {
+   return function (dispatch) {
+    dispatch(offLoadingChange());
+  };
+}
+
+
 export function getEventsData(reqObj) {
   return function (dispatch) {
     dispatch(requestData());

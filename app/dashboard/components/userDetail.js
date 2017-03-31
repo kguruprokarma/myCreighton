@@ -11,7 +11,7 @@ const userDetail = ( userDetailProps ) => {
   return (
     <section id='avatar'>
       <h1 className='announced-only'>{translateText('common:USER_DETAIL_AVATAR')}</h1>
-      <Avatar name={userAvatar} size={50} round />
+      <Avatar name={userAvatar} size={48} round />
       <span className='openSansRegular avatar-name'> {userDetailProps.userDetail.userName.fullName}</span>
       <span className='openSansBold user-type'> - {userDetailProps.userDetail.userRole}</span>
     </section>

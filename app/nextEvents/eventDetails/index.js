@@ -6,6 +6,8 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { find, findIndex } from 'lodash';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { translateText } from '../../common/translate';
 import Assignments from './components/assignments';
 import TestOrQuiz from './components/testOrQuiz';
@@ -16,6 +18,7 @@ import HeaderLabel from './../../common/headerLabel';
 import * as ROUTE_URL from './../../constants/routeContants';
 import PreviousNext from '../../common/previousNext1';
 import { stringEncodeURIComponent, browserTitle } from '../../common/utility';
+import * as actionCreators from '../eventList/actions';
 
 class EventDetails extends React.PureComponent {
 
@@ -75,7 +78,7 @@ class EventDetails extends React.PureComponent {
             </div>
           </Col>
           <Col sm={6} className='mb20'>
-            <Link to={ROUTE_URL.EVENT_LIST} className='btn btn-primary nextEventBtn'>
+            <Link to={ROUTE_URL.EVENT_LIST} onClick={() => this.props.onMasterDataChange(false)} className='btn btn-primary nextEventBtn'>
               <span className='nextevent-logo' />
               <span className='float-right nextEventBtnTxt'>{translateText('NEXT_EVENTS_CAPTALIZE')}</span>
             </Link>
@@ -93,4 +96,13 @@ class EventDetails extends React.PureComponent {
   }
 }
 
-export default EventDetails;
+//export default EventDetails;
+
+const mapStateToProps = (eventsState) => (
+  {
+//    isMasterDataChange: eventsState.eventsReducer.isMasterDataChange
+  });
+
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventDetails);

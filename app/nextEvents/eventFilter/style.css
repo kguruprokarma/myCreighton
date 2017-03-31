@@ -27,7 +27,7 @@
     text-transform: uppercase;
 }
 
-.filterRadioText {
+.filterRadioText, .filterCheckText {
     color: #0079b3;
     font-size: 1.0666666666666667em;    /* font size 16 in pixel */
 }
@@ -61,6 +61,15 @@
     margin-bottom:0;
 }
 
+.eventFilterGroup .control {
+    line-height: 1.2em;
+}
+
+.eventFilterCheckGroup .control {
+    line-height: 1.8em
+}
+
+
 .eventFilterGroup .control-radio .control__indicator:after {
     background-color: #0079b3;
 }
@@ -90,10 +99,13 @@
 
 .customPopUp .eventFilterGroup .list-group .list-group-item, 
 .customPopUp .eventFilterCheckGroup .list-group .list-group-item {
-    padding: 10px 15px;
+    padding: 6px 15px;
 }
 
-.event-icon .customPopUp {
-    max-height: 500px;
-    overflow: auto;
+.customPopUp .eventFilterCheckGroup .list-group .list-group-item .list-group .list-group-item {
+    border: 0;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 2.4em
 }

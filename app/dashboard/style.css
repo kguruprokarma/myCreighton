@@ -10,13 +10,13 @@
 }
 
 .jbvalue {
-    color: #73b865;
+    color: #619c55; /*Changed as per given Hardening comments. Previously it was #73b865 */
     float: right;
     font-size: 1.7333333333333334em;    /* font size 26 in pixel */
 }
 .jbText {
     font-size: 0.8em;    /* font size 12 in pixel */
-    color: #878787;
+    color: #707070; /*Changed as per given Hardening comments. Previously it was #878787 */
     text-transform: uppercase;
     line-height: 3.2em;
     margin-right:8px;
@@ -59,7 +59,7 @@
 
 .user-type {
     font-size: 1.2em;   /* font size 18 in pixel */
-    color: #828282;
+    color: #737373; /*Changed as per given Hardening comments. Previously it was #828282*/
     text-transform: capitalize;
 }
 
@@ -275,10 +275,6 @@
   .jaybucksWell {
        padding-top: 8px;
    }
-
-   .jbvalue {
-        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
-    }
     
     .listflex li {
        margin-right: .0em;
@@ -289,19 +285,13 @@
         margin-left:.2em;
     }
 
-    .jbText {
-        margin-right: 10;
-        line-height: normal;
-    
-    }
-
-    .listflex {
+   .listflex {
         display: inline-block;
         white-space: nowrap;
         min-width:21%;
         margin-left: 1px;
         padding-left: 0px;
-        margin-bottom:6px;
+        margin-bottom:10px;
    }
 
     .listflex li {
@@ -335,35 +325,39 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 590px) {
 
-    .jbvalue {
+ .jbvalue {
         float:none;
         width: 100%;
         display: block;
+        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
     } 
     
     .jbText {
         margin-right: 0px;
         text-align:center;
     }
+}
+
+@media screen and (max-width: 480px) {
 
     .jbText {
       font-size: 0.7333333333333333em;    /* font size 11 in pixel */
     }
     
     .avatar-name {
-        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
-        line-height: 2.66em;
+        font-size: 1.625em;    /* font size 20 in pixel */
+        line-height:1.4em;
 
     }
 
     .user-type {
-        font-size: 1em; /* font size 15 in pixel */
+        font-size: 1.125em; /* font size 16 in pixel */
     }
     
      .well-title {
-        font-size: 1.7333333333333334em;    /* font size 26 in pixel */
+        font-size: 2.063em;
         text-align:left;
     }
 
@@ -376,18 +370,12 @@
 
 @media screen and (max-width: 360px) {
 
-   .jbvalue {
-       float:none;
-       width: 100%;
-       display: block;
-       line-height: 14px;
-   } 
-
    .jaybucksWell {
        padding-left:0;
        padding-right:0;   
    }
-     .listflex li {
+   
+   .listflex li {
         margin-right:auto;
         min-width:auto;
         min-height: 20px;

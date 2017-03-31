@@ -82,7 +82,8 @@ describe('index component testing for Next Events ----->', () => {
       data: mockAssignmentData
     },
     getEventsData: () => {},
-    getClassesDataByWeek: () => {}
+    getClassesDataByWeek: () => {},
+    onLoading: () => {}
   };
   const userDate = {
     'email': 'nt123',

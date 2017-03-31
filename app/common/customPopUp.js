@@ -56,7 +56,7 @@ export class CustomPopUp extends React.Component {
           {userDetails && <div> <UserDetail userDetail={userDetails} /></div>}
         </ListGroupItem>
         {ProfileMenus.map((item) => (
-          <ListGroupItem key={item.itemName} className='openSansLight'>
+          <ListGroupItem key={item.itemName} className='openSansLight profile-icon'>
             {
               item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ?
                 <Link onClick={() => { this.setState({ languageState: false }); }} > {item.itemName}</Link>

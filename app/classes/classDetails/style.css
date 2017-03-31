@@ -20,7 +20,7 @@ p{
 
 .classDetialOn
 {
-    color: #9a9a9a;
+    color: #757575; /*Changed as per given Hardening comments. Previously it was #9a9a9a*/
     font-family: 'open_sansregular';
     font-size: 1.0666666666666667em;    /* font size 16 in pixel */
      
@@ -43,6 +43,10 @@ clsDetailContent{
 
 #cls a:hover {
     text-decoration:none;
+}
+
+#cls:last-child {
+    border-bottom: 1px solid #c8c7cc;
 }
 
 .classInfo p{

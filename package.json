@@ -54,6 +54,7 @@
     "react-avatar": "^2.3.0",
     "react-bootstrap": "^0.30.7",
     "react-bootstrap-typeahead": "^1.2.0",
+    "react-custom-scrollbars": "^4.0.2",
     "react-dom": "^15.4.1",
     "react-i18next": "^2.0.1",
     "react-mailto": "^0.4.0",

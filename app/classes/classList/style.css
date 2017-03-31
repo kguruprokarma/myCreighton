@@ -6,7 +6,7 @@
     background-color: #f2f2f2;
     padding-top: 5px;
     padding-bottom: 5px;
-    color: #7d7d7d;
+    color: #6e6e6e; /*Changed as per given Hardening comments. Previously it was #7d7d7d*/
     font-size: 0.8em;   /* font size 12 in pixel */
     border-top:1px solid #c8c7cc;    
 }
@@ -26,7 +26,7 @@
 
 .classOn, .classDate
 {
-     color: #9a9a9a;
+     color: #757575; /*Changed as per given Hardening comments. Previously it was #9a9a9a*/
      
 }
 
@@ -56,7 +56,7 @@
 
 .controller-buttons .btn-group a {
     border-color: #019cdb;
-    color: #019cdb;
+    color: #017db0; /*Changed as per given Hardening comments. Previously it was #019cdb*/
 }
 
 .controller-buttons .btn-group a.active, 

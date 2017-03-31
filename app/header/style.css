@@ -40,9 +40,6 @@
     position: absolute;
     top:40px;
     right: -10px;
-    z-index: 100;
-    line-height: 20px;
-    font-size: 14px;
     z-index: 1000;
     min-width: 282px;
 }
@@ -128,11 +125,16 @@
     float: left;
 }
 
-.customPopUp .user-type {
+.list-group-item .user-type {
     font-size: 1.0666666666666667em;    /* font size 16 in pixel */
 }
 
-.popUpContainer .avatar-name {
+.popUpContainer .profile-icon .list-group-item {
+    font-size: 1.375em;
+    line-height: 1.5em;
+}
+
+.popUpContainer .list-group-item .avatar-name {
     font-size: 1.3333333333333333em;    /* font size 20 in pixel */
     line-height: 2.6em;
 }

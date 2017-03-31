@@ -26,7 +26,7 @@
 
 .eventOn, .eventDate
 {
-     color: #9a9a9a;   
+     color: #757575; /*Changed as per given Hardening comments. Previously it was #9a9a9a*/   
 }
 
 .eventPlace, .eventBy, .eventTime {
@@ -79,7 +79,9 @@ a:hover, *:hover  {
         text-decoration: none;
 }
 
-
+.event-list-items:last-child {
+    border-bottom: 1px solid #c8c7cc;
+}
 
 @media (min-width:768px) and (max-width: 992px) {
    
