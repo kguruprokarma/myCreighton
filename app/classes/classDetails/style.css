@@ -3,7 +3,7 @@
 */
 
 .classDetailHeading{
-    font-size: 1.7333333333333334em;    /* font size 26 in pixel */
+    font-size: 1.8em;
     line-height: 32px;
     color: #313131;
     font-family: 'open_sanslight';
@@ -59,7 +59,7 @@ clsDetailContent{
     .classDetailHeading{
         width: 100%;
         float:none !important;
-        font-size: 1.6em;   /* font size 24 in pixel */
+        font-size: 1.8em;   /* font size 24 in pixel */
         line-height: 28px;
         margin-bottom: 4px;
     }

@@ -12,7 +12,7 @@ const classAssignments = (classAssignProps) => (
       <div className='openSansLight fs1pt2 gbl_lh' key={classesDueIndex}>
         {assigmentData.assign_title}
       </div>
-    )) : <p className='openSansLight fs1pt2 gbl_lh mb30 mt20 text-italic'>{translateText('common:NO_CONTENT')}</p>
+    )) : <p className='openSansLight noContent mb30 mt20 text-italic'>{translateText('common:NO_CONTENT')}</p>
     }
   </article>
 );

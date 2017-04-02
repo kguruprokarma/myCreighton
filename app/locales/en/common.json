@@ -1,5 +1,5 @@
 {
- "MY_CREIGHTON": "MYCREIGHTON",
+ "MY_CREIGHTON": "myCreighton",
 
   "MEAL_PLAN_SWIPES": "SWIPES",
   "MEAL_PLAN_DINING": "DINING",
@@ -94,8 +94,11 @@
   
   "DASH_BOARD": "Main Dashboard",
   "DASH_BOARD_WELL_SECTION": "Well Section",
+  "DASH_BOARD_CONTENT":"Dashboard Content",
   "USER_DETAIL_AVATAR": "Avatar",
   "NAVIGATION_MENU": "Navigation",
+  "MAIN_MENU": "Main Menu",
+  "Creighton_Currency": "Creighton Currency",
   "DASH_BOARD_SCHOOL_AND_SEMESTER": "School & Semester",
   "DASH_BOARD_CLASSES": "Classes",
   "DASH_BOARD_NEXT_EVENTS": "Next Events",
@@ -207,7 +210,8 @@
   "FOOTER_FEEDBACK": "Feedback",
   "FOOTER_UNIVERSITY_ADDRESS": "2500 California Plaza, Omaha, NE 68178",
   "FOOTER_CREIGHTON_UNIVERSITY": "2017 Creighton University",
-  "SIGN_IN": "Sign In"
+  "SIGN_IN": "Sign In",
+  "HAMBURGER_MENU": "Menu"
 
 }
 

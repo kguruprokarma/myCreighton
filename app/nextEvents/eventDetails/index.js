@@ -78,10 +78,12 @@ class EventDetails extends React.PureComponent {
             </div>
           </Col>
           <Col sm={6} className='mb20'>
+            <nav role='navigation' id='navigation04'>
             <Link to={ROUTE_URL.EVENT_LIST} onClick={() => this.props.onMasterDataChange(false)} className='btn btn-primary nextEventBtn'>
               <span className='nextevent-logo' />
               <span className='float-right nextEventBtnTxt'>{translateText('NEXT_EVENTS_CAPTALIZE')}</span>
             </Link>
+            </nav>
           </Col>
         </Row>
       </div>

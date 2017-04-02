@@ -8,7 +8,7 @@ import CopyRightText from './copyRightText';
 import { translateText } from '../../common/translate';
 
 const universityAddress = () => (
-  <p className='footer-address mt15'><span className='space-mb'>{translateText('common:FOOTER_UNIVERSITY_ADDRESS')}<a href='tel:402.280.2700' className='footer-space'>402.280.2700</a></span>
+  <p className='footer-address mt15'><span className='space-mb'>{translateText('common:FOOTER_UNIVERSITY_ADDRESS')}<span className='footer-space'>402.280.2700</span></span>
     <CopyRightText />
     <FooterNav />
   </p>

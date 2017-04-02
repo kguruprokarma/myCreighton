@@ -132,7 +132,7 @@ h1, h2, h3, h4, h5 {
 }
 
 #content {
-    margin-top:20px;
+    margin-top:50px;
     position: relative;
 }
 
@@ -160,6 +160,7 @@ h1, h2, h3, h4, h5 {
     border:0;
     border-top:1px solid #efefef;
     color: #0079b3;
+    font-size: 1em;
 }
 
 .userLeftmenu .list-group-item:last-child{
@@ -185,7 +186,7 @@ h1, h2, h3, h4, h5 {
 .headerLabel {
     font-size: 1.4em;   /* font size 21 in pixel */
     color: #0054a6;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .headerLinks{
@@ -378,6 +379,7 @@ input {
     font-family: 'open_sansregular';
     font-size: 1.3em;
     color: #313131;
+    line-height: 1.7em;
 }
 
 .popUpContainer .popupBackBtn {
@@ -399,6 +401,7 @@ input {
 
 .logo {
     color: #fff;
+    text-transform: capitalize;
 }
 
 .loadingImg {
@@ -445,6 +448,20 @@ input {
     margin-bottom: 5px;
     margin-left: 10px;
 }
+
+.noContent {
+    font-size: 1.05em;
+}
+
+.menuHeading {
+    font-size: 1.4em;
+    color: #313131;
+}
+
+.main-navigation li a
+    {
+        font-size: 0.98em;
+    }
 
 
 /* Media for small devices */
@@ -494,6 +511,7 @@ input {
     }
     .logo {
         text-align: left;
+        text-transform: capitalize;
     }
 
     .glyphicon.glyphicon-chevron-right {
@@ -554,6 +572,11 @@ input {
     .main-navigation .glyphicon.glyphicon-chevron-right {
         padding-top: 12px;
     }
+    
+    .main-navigation li a
+    {
+        font-size: 1.4em;   /* font size 21 in pixel */
+    }
 
 }
 
@@ -576,6 +599,7 @@ input {
 
     .logo {
 		text-align:center;
+        text-transform: capitalize;
 	}
 
 	.headerLinks {
@@ -617,4 +641,8 @@ input {
      color: gray;
       background: #ddd;
        border: #ddd;
+}
+
+.back_checkbox{
+    background:yellow !important;
 }

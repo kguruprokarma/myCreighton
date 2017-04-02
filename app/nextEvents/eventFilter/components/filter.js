@@ -10,7 +10,7 @@ const labels = {
   EVENT_PERIOD_HEADING: 'EVENT PERIOD',
   DISPLAY_OPTIONS_HEADING: 'DISPLAY OPTIONS',
   DONE_TEXT: 'Done',
-  height: { 'height': 400 }
+  height: { 'height': 520 }
 };
 const EventFilter = (eventFilterProps) => (
   <article className='row'>
@@ -31,12 +31,11 @@ const EventFilter = (eventFilterProps) => (
               <ListGroupItem className='radioLabel' key={eventIndex}>
                 <label className='control control-radio'><span className='openSansLight filterRadioText'>{eventItem}</span>
                   <input type='radio' value={eventItem} onChange={eventFilterProps.toggleRadio} name='eventPeriod' checked={eventFilterProps.eventPeriod === eventItem} />
-                  {/*<input type='radio' className='FilterRadioBtn' name='eventPeriod' value={eventItem} onChange={props.toggleRadio} checked={props.eventPeriod === eventItem} /> <span className='openSansLight filterRadioText'>{eventItem}</span>*/}
                   <div className='FilterRadioBtn control__indicator' />
                 </label>
               </ListGroupItem>
-            ))
-            }
+              ))
+              }
           </ListGroup>
         </div>
         <p className='filterHeading openSansRegular mt10 mb0 plr15'>{labels.DISPLAY_OPTIONS_HEADING}</p>
@@ -44,11 +43,14 @@ const EventFilter = (eventFilterProps) => (
           <ListGroup>
             {eventFilterProps.displayOptions.map((eventItem, eventIndex) => (
               <ListGroupItem key={eventIndex}>
-                <label className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItem.itemName}</span>
-                  <input type='checkbox' name='eventPeriod' value={eventItem.itemName} onChange={eventFilterProps.toggleCheckBoxParent(eventItem)} checked={eventItem.checked} />
+                {eventItem.itemName === 'All' ? <label className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItem.itemName}</span>
+                  <input type='checkbox' name='eventPeriod' value={eventItem.itemName} onChange={eventFilterProps.toggleCheckAll()} checked={eventFilterProps.checkedAll} />
                   <div className='control__indicator' />
-                </label>
-                {eventItem.children.length > 0 && <button className='btn btn-link btnnoPadding downArrowImage' onClick={eventFilterProps.showChild(eventItem)}><img src={DOWN_ARROW} alt='' /></button>}
+                </label> : <label className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItem.itemName}</span>
+                  <input type='checkbox' name='eventPeriod' value={eventItem.itemName} onChange={eventFilterProps.toggleCheckBoxParent(eventItem)} checked={eventItem.checked} />
+                  <div className={eventItem.childrenUnselect?'control__indicator back_checkbox':'control__indicator'} />
+                </label>}
+                {eventItem.children.length > 0 && <button className='btn btn-link btnnoPadding downArrowImage' onClick={eventFilterProps.showChild(eventItem)}><img src={DOWN_ARROW} alt='' className={eventItem.showItem ? 'revImage' : ''} /></button>}
                 {eventItem.showItem && <ListGroup>
                   {
                     eventItem.children.map((eventItemChildren, childrenIndex) => (

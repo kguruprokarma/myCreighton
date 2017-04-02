@@ -51,7 +51,7 @@ export class CustomPopUp extends React.Component {
     const languages = [{ 'langkey': 'en', 'language': translateText('common:COMMON_ENGLISH') }, { 'langkey': 'es', 'language': translateText('common:COMMON_SPANISH') }];
     return (<div className='customPopUp'>
       <span className='popupPointer'>&nbsp;</span>
-      {this.state.languageState && <ListGroup>
+      {this.state.languageState && <ListGroup className='popup-box-shaow'>
         <ListGroupItem>
           {userDetails && <div> <UserDetail userDetail={userDetails} /></div>}
         </ListGroupItem>
@@ -69,7 +69,7 @@ export class CustomPopUp extends React.Component {
       </ListGroup>
       }
       {!(this.state.languageState) &&
-        <ListGroup>
+        <ListGroup className='popup-box-shaow'>
           <ListGroupItem className='openSansLight'>
             <Row>
               <Col sm={2} xs={2}>

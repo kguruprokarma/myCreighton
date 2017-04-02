@@ -8,8 +8,8 @@ import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
 
 const FacultyAppointment = (facultyProps) => (
-  <article className='profileRow mt30'>
-    <h3 className='dataHeading openSansRegular'>{translateText('common:INSTRUCTION')}</h3>
+  <article role='article' className='profileRow mt30'>
+    <h2 className='dataHeading openSansRegular'>{translateText('common:INSTRUCTION')}</h2>
     <BasicRow displayName={translateText('common:STATUS')} displayValue='' />
     <BasicRow displayName={translateText('common:CREDIT_HOURS')} displayValue='' />
     <Row className='show-grid pt5 pb5'>

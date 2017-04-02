@@ -2,19 +2,20 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { filter, map, sortBy, uniqBy } from 'lodash';
-import moment from 'moment';
+import { filter, map, sortBy, uniqBy, each } from 'lodash';
 import { Col, Row, Alert } from 'react-bootstrap';
-import * as actionCreators from './actions';
-import * as classesActionCreators from '../../classes/classList/actions';
-import * as NextEventsConstants from '../../constants/nextEventsConstants';
-import * as CommonConstants from '../../constants/commonConstants';
+import moment from 'moment';
 import HeaderLabel from './../../common/headerLabel';
 import Classes from '../eventList/components/classes';
 import Assignments from '../eventList/components/assignments';
 import Quizzes from '../eventList/components/quizzes';
+import * as actionCreators from './actions';
+import * as classesActionCreators from '../../classes/classList/actions';
+import * as NextEventsConstants from '../../constants/nextEventsConstants';
+import * as CommonConstants from '../../constants/commonConstants';
 import { translateText } from '../../common/translate';
-import { authUserDetails, dataFilterAddingData, createTimeStamp, convertEncodeURIComponent, addedTypeField, browserTitle, getClassAndAssignmentAPIData, showFeatureEvents } from '../../common/utility';
+import { authUserDetails, dataFilterAddingData, createTimeStamp, convertEncodeURIComponent, addedTypeField, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
+import { getClassesData, getAssigmentsAndQuizzesData, prepareAssignmentOrQuizze, prepareDisplayObject, getAssigmentOrQuizzes } from '../eventList/components/nextEventUtility';
 //import AlertComponent from '../../common/alertComponent';
 import './style.css';
 import Spinner from '../../common/spinner';
@@ -148,6 +149,8 @@ export class EventList extends React.PureComponent {
     const classes = [];
     const classAssignments = [];
     const quizzes = [];
+    let classEvent = [];
+    const allEvents = [];
 
     if (localStorage !== undefined) {
       eventDetails = JSON.parse(localStorage.getItem('eventList'));
@@ -158,7 +161,7 @@ export class EventList extends React.PureComponent {
         const data = {};
         data.name = eventObject.course_title;
         data.sid = eventObject.sis_source_id;
-        data.checked = false;
+        data.checked = true;
         classes.push(data);
         if (eventObject.assignmentData && eventObject.assignmentData.length > 0) {
           const assignmentDetails = eventObject.assignmentData;
@@ -172,15 +175,24 @@ export class EventList extends React.PureComponent {
         }
       }
     });
+    const ASSIGNMENTS_DATA = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
+    classEvent = prepareAssignmentOrQuizze(ASSIGNMENTS_DATA);
+
+    const matchedclassesObj = map(uniqBy(classes, CommonConstants.SIS_SOURCE_ID));
     const matchedAssignments = map(uniqBy(classAssignments, CommonConstants.SIS_SOURCE_ID));
     const matchedquizzes = map(uniqBy(quizzes, CommonConstants.SIS_SOURCE_ID));
-    const classesObj = { 'itemName': CommonConstants.CLASSES, 'checked': CommonConstants.FALSE, 'children': classes };
-    const assignmentObj = { 'itemName': CommonConstants.CLASS_ASSIGNMENTS, 'checked': CommonConstants.FALSE, 'children': matchedAssignments };
-    const quizzesObj = { 'itemName': CommonConstants.TESTS_AND_QUIZZES, 'checked': CommonConstants.FALSE, 'children': matchedquizzes };
+    const classesObj = prepareDisplayObject(CommonConstants.CLASSES, matchedclassesObj);
+    const assignmentObj = prepareDisplayObject(CommonConstants.CLASS_ASSIGNMENTS, matchedAssignments);
+    const quizzesObj = prepareDisplayObject(CommonConstants.TESTS_AND_QUIZZES, matchedquizzes);
+    const classEvents = prepareDisplayObject(CommonConstants.CLASS_EVENTS, classEvent);
+    const allEventsObj = prepareDisplayObject(CommonConstants.EVENT_FILTER_ALL, '');
 
+
+    displayOptions.push(allEventsObj);
     displayOptions.push(classesObj);
     displayOptions.push(assignmentObj);
     displayOptions.push(quizzesObj);
+    displayOptions.push(classEvents);
     localStorage.setItem(CommonConstants.DISPLAY_OPTIONS, JSON.stringify(displayOptions));
   }
 
@@ -188,8 +200,9 @@ export class EventList extends React.PureComponent {
     let classesIds = [];
     let assignmentsIds = [];
     let quizzesIds = [];
-    const displayOptionData = [];
-    let classData = {};
+    let classEventsIds = [];
+    let displayOptionData = [];
+    const finalResult = [];
     const keys = Object.keys(options.displayOptions);
     const today = moment()._d;
     map(keys, (key) => {
@@ -199,51 +212,34 @@ export class EventList extends React.PureComponent {
         assignmentsIds = options.displayOptions[key];
       } else if (key === CommonConstants.TESTS_AND_QUIZZES) {
         quizzesIds = options.displayOptions[key];
+      } else if (key === CommonConstants.CLASS_EVENTS) {
+        classEventsIds = options.displayOptions[key];
       }
     });
-
     if (classesIds && classesIds.length > 0) {
-      each(classesIds, (classId) => {
-        classData = (filter(eventFilterData, { 'sis_source_id': classId }))[0];
-        if (classData) {
-          const value = showFeatureEvents(classData.timeStamp, today);
-          if (value > 0) {
-            displayOptionData.push(classData);
-          }
-        }
-      });
-    } else if (assignmentsIds && assignmentsIds.length > 0) {
-      each(assignmentsIds, (assignmentsId) => {
-        classData = filter(eventFilterData, { 'sis_source_id': assignmentsId });
-        if (classData && classData.length > 0) {
-          const listOfAssignments = classData[0].assignmentData;
-          listOfAssignments.map((assignments) => {
-            if (assignments.type === CommonConstants.EVENT_TYPE_ASSIGNMENTS) {
-              const value = showFeatureEvents(assignments.timeStamp, today);
-              if (value > 0) {
-                displayOptionData.push(assignments);
-              }
-            }
-          });
-        }
-      });
-    } else if (quizzesIds && quizzesIds.length > 0) {
-      each(quizzesIds, (quizzesId) => {
-        classData = filter(eventFilterData, { 'sis_source_id': quizzesId });
-        if (classData && classData.length > 0) {
-          const listOfQuizzes = classData[0].assignmentData;
-          map(listOfQuizzes, (quizzes) => {
-            if (quizzes.type === CommonConstants.EVENT_TYPE_QUIZ) {
-              const value = showFeatureEvents(quizzes.timeStamp, today);
-              if (value > 0) {
-                displayOptionData.push(quizzes);
-              }
-            }
-          });
-        }
-      });
+      const result = getClassesData(classesIds, eventFilterData, today);
+      finalResult.push(result);
     }
-    const sortedDiplayOptionData = sortBy(displayOptionData, ['timeStamp']);
+    if (assignmentsIds && assignmentsIds.length > 0) {
+      displayOptionData = getAssigmentsAndQuizzesData(assignmentsIds, eventFilterData, today);
+      finalResult.push(displayOptionData);
+    }
+    if (quizzesIds && quizzesIds.length > 0) {
+      const result = getAssigmentsAndQuizzesData(assignmentsIds, eventFilterData, today);
+      finalResult.push(result);
+    }
+    if (classEventsIds && classEventsIds.length > 0) {
+      const result = getAssigmentOrQuizzes(classEventsIds, eventFilterData, today);
+      finalResult.push(result);
+    }
+
+    const displayFinal = [];
+    each(finalResult, (nexteventchildObj) => {
+      each(nexteventchildObj, (childObj) => {
+        displayFinal.push(childObj);
+      });
+    });
+    const sortedDiplayOptionData = sortBy(displayFinal, ['timeStamp']);
     return sortedDiplayOptionData;
   }
 
@@ -269,7 +265,7 @@ export class EventList extends React.PureComponent {
     const props = this.props;
     props.offLoading();
     return (
-      <span>
+      <article className='event-listSection'>
         <Row><Col md={8} sm={6} xs={12}>
           <div className='hidden-xs'>
             <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} />
@@ -293,7 +289,7 @@ export class EventList extends React.PureComponent {
         {/*{((!EVENT_DATA && !props.loading) || (EVENT_DATA.error)) &&
           <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
         }*/}
-      </span>
+      </article>
     );
   }
 

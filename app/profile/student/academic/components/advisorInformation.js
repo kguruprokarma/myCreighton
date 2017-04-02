@@ -9,8 +9,8 @@ import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
 
 const AcademicStatus = (academicProps) => (
-  <article className='profileRow mt30'>
-    <h3 className='dataHeading openSansRegular'>{translateText('common:PROFILE_ADVISOR_INFO')}</h3>
+  <article role='article' className='profileRow mt30'>
+    <h2 className='dataHeading openSansRegular'>{translateText('common:PROFILE_ADVISOR_INFO')}</h2>
     <BasicRow displayName={translateText('common:PROFILE_NAME')} displayValue={academicProps.json.advisor ? `${academicProps.json.advisor.first_name} ${academicProps.json.advisor.last_name}` : ''} />
     <BasicRow displayName={translateText('common:PROFILE_AREA')} displayValue={academicProps.json.advisorDetail ? academicProps.json.advisorDetail.area : ''} />
     <Row className='show-grid pt5 pb5'>

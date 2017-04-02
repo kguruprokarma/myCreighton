@@ -16,11 +16,12 @@ class MainNav extends React.Component {
     const props = this.props;
     const role = authUserDetails().userRole;
     return (
-      <nav role='Navigation' id='navigation' className={props.navDisplay ? 'openNav' : 'closeNav'}>
-        <h1 className='announced-only'>{translateText('common:NAVIGATION_MENU')}</h1>
+      <nav role='navigation' id='navigation' className={props.navDisplay ? 'openNav' : 'closeNav'}>
+        <h1 className='announced-only'>{translateText('common:MAIN_MENU')}</h1>
         <Grid>
           <Row>
-            <ul className='main-navigation fs0pt93'>
+            <ul className='main-navigation'>
+              <li className='navigation-item hidden-lg'><h2 className=' pl15 pt10 pb10 pr15 menuHeading m0'>{translateText('common:HAMBURGER_MENU')}</h2></li>
               <li className='navigation-item hidden-lg'><a href={`#${ROUTE_URL.DASHBOARD}`}>{translateText('common:DASH_BOARD')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               <li className='navigation-item'><a>{translateText('common:CREIGHTON_SERVICES_AND_RESOURCES')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               {

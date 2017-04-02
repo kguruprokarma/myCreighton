@@ -9,12 +9,12 @@ import { translateText } from '../../common/translate';
 const userDetail = ( userDetailProps ) => {
   const userAvatar = `${userDetailProps.userDetail.userName.firstName.replace(/ /g, '')} ${userDetailProps.userDetail.userName.lastName.replace(/ /g, '')}`;
   return (
-    <section id='avatar'>
+    <article role='article' id='avatar'>
       <h1 className='announced-only'>{translateText('common:USER_DETAIL_AVATAR')}</h1>
       <Avatar name={userAvatar} size={48} round />
       <span className='openSansRegular avatar-name'> {userDetailProps.userDetail.userName.fullName}</span>
       <span className='openSansBold user-type'> - {userDetailProps.userDetail.userRole}</span>
-    </section>
+    </article>
   );
 };
 

@@ -62,9 +62,9 @@ export class Dashboard extends Component {
             <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetails} />
           </Col>
         </Row>
-        <article id='wells'>
+        <article role='article' id='wells'>
           <Row>
-            <h1 className='announced-only'>{translateText('common:DASH_BOARD_WELL_SECTION')}</h1>
+            <h1 className='announced-only'>{translateText('common:DASH_BOARD_CONTENT')}</h1>
             <Col md={5} sm={6}>
               {this.role && <ModuleBlock modulelist={dashboardList[0]} />}
             </Col>

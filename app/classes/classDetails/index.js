@@ -95,7 +95,7 @@ class ClassDetails extends React.PureComponent {
             <UpcomingAssignments data={upcomingAssignmentsData} />
             <TestsOrQuizzes data={testOrQuizzesData} />
           </div>)
-            : <p className='openSansLight fs1pt2 gbl_lh mb30 mt20 text-italic'>{translateText('common:NO_DETAILS_PROVIDED')}</p>
+            : <p className='openSansLight noContent gbl_lh mb30 mt20 text-italic'>{translateText('common:NO_DETAILS_PROVIDED')}</p>
           }
         </div>)
         }

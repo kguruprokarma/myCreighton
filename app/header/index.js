@@ -71,7 +71,7 @@ export class Header extends React.PureComponent {
     return (
       <header>
         <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}</h1>
-        <div className='container'>
+        <nav role='navigation' id='navigation01' className='container'>
           <Row >
             <Col xs={2} sm={2} className='hidden-lg hamburgerMenu'>
               {props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ?
@@ -111,7 +111,7 @@ export class Header extends React.PureComponent {
               </ul>
             </Col>
           </Row>
-        </div>
+        </nav>
       </header>
     );
   }

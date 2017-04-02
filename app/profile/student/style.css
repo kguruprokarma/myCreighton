@@ -37,15 +37,15 @@
     }
 
     .dataField {
-        font-size: 1.2em;   /* font size 18 in pixel */ 
+        font-size: 1.4em;   /* font size 18 in pixel */ 
     } 
 
     .labelField {
-        font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+        font-size: 1.4em;
     }
 
     .dataHeading{
-        font-size: 0.9333333333333333em; /* font size 14 in pixel */
+        font-size: 1.063em;
     }
 
 }
@@ -53,14 +53,6 @@
 @media screen and (max-width: 400px) {
     .userData {
         width: 100%;
-    }
-
-    .dataField {
-        font-size: 1em; /* font size 15 in pixel */
-    } 
-
-    .labelField {
-        font-size: 0.9333333333333333em; /* font size 14 in pixel */  
     }
 
     .dataHeading{
@@ -80,11 +72,11 @@
     }
     
     .dataField {
-        font-size: 0.9333333333333333em; /* font size 14 in pixel */  
+        font-size: 1.2em; /* font size 14 in pixel */  
     } 
 
     .labelField {
-        font-size: 0.8em;   /* font size 12 in pixel */
+        font-size: 1.2em;   /* font size 12 in pixel */
     }
 
     .dataHeading{

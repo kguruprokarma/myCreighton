@@ -27,6 +27,18 @@ export const TESTORQUIZ = `${ROOT_URL}/testorquiz.json`;
 export const PROFESSIONAL_DATA = '/professional_data.json';
 
 ///
+/// API retrieved data json files for offline use links
+///
+
+export const ASSIGNMENTS_API = `${ROOT_URL}/assignmentsAPI.json`;
+export const FACULTY_BIO_API = `${ROOT_URL}/faculty_bioAPI.json`;
+export const FACULTY_LEARN_API = `${ROOT_URL}/faculty_learnAPI.json`;
+export const SEARCHFACULTY_API = `${ROOT_URL}/searchFacultyAPI.json`;
+export const STAFF_BIO_API = `${ROOT_URL}/staff_bioAPI.json`;
+export const STAFF_PROFESSIONAL_API = `${ROOT_URL}/staff_professionalAPI.json`;
+export const STUDENTCLASSES_API = `${ROOT_URL}/studentclassesAPI.json`;
+export const STUDENTPROFILE_API = `${ROOT_URL}/studentProfileAPI.json`;
+///
 /// Add API related links below
 ///
 export const BLUE_LINE = 'https://blueline.instructure.com';
@@ -47,3 +59,6 @@ export const FACULTY_LEARN = '/faculty_learn';
 export const ASSIGNMENT = '/assignments';
 export const CAMPUS_DIRECTORY_SIMPLE = '/searchFaculty';
 export const NEXTEVENT_ASSIGNMENTS = `${API_GATEWAY}${ASSIGNMENTS}${API_SINGLE}?primaryKey=netid&primaryValue=9dfa6baa7a`;
+
+
+

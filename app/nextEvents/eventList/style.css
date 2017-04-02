@@ -12,16 +12,16 @@
 }
 
 .eventHeading{
-    font-size: 1.7333333333333334em;    /* font size 26 in pixel */
-    line-height: 32px;
+    font-size: 1.7333333333333334em;
+    line-height: 1.1;
     color: #019cdb;
     font-family: 'open_sanslight';
 }
 
 .eventOn, .eventPlace, .eventBy, .eventTime, .eventDate {
-    font-size: 1em; /* font size 15 in pixel */
+    font-size: 1em; 
     font-family: 'open_sansregular';
-    line-height: 22px;
+    line-height: 1;
 }
 
 .eventOn, .eventDate
@@ -95,10 +95,19 @@ a:hover, *:hover  {
     .eventOn {
         padding-left: 0px;
         line-height: 20px;
-        font-size: 0.9333333333333333em;
+    }
+
+    .eventOn, .eventPlace, .eventBy, .eventTime, .eventDate {
+    font-size: 1.1em; /* font size 15 in pixel */
+    font-family: 'open_sansregular';
+    line-height: 1;
     }
 
     .eventHeading {
-       font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+       font-size:1.75em;
+       line-height: 1.1;
+    }
+    .event-listSection {
+        margin-top: -51px;
     }
 }

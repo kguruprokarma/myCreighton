@@ -16,6 +16,7 @@ export class NextEventFilter extends React.Component {
   constructor() {
     super();
     this.state = {
+      selectAll: true,
       eventPeriod: EventConstants.EVENT_FILTER_7_DAYS,
       Items: {
         eventperiodItems: [EventConstants.EVENT_FILTER_NEXT_EVENT, EventConstants.EVENT_FILTER_ALL, EventConstants.EVENT_FILTER_7_DAYS, EventConstants.EVENT_FILTER_TODAY]
@@ -27,6 +28,8 @@ export class NextEventFilter extends React.Component {
     this.toggleCheckBoxParent = this.toggleCheckBoxParent.bind(this);
     this.toggleCheck = this.toggleCheck.bind(this);
     this.showSelected = this.showSelected.bind(this);
+    this.checkAll = this.checkAll.bind(this);
+    this.toggleCheckAll = this.toggleCheckAll.bind(this);
   }
   componentWillMount() {
     const displayOptions = JSON.parse(localStorage.getItem('displayOptions'));
@@ -39,7 +42,24 @@ export class NextEventFilter extends React.Component {
       this.setState({ eventPeriod: props.EventChangedValue });
     }
   }
-
+  toggleCheckAll() {
+    this.setState({selectAll: !this.state.selectAll}, () => {
+      this.checkAll();
+    });
+  }
+  checkAll() {
+    const displayOptions = JSON.parse(localStorage.getItem('displayOptions'));
+    const val = this.state.selectAll;
+    for (let i = 1; i < displayOptions.length; i++) {
+      const item = displayOptions[i];
+      item.checked = val;
+      for (let j = 0; j < item.children.length; j++) {
+        const childItem = item.children[j];
+        childItem.checked = val;
+      }
+    }
+    this.setState({ displayOptions: displayOptions });
+  }
   toggleRadio(depen) {
     this.setState({ eventPeriod: depen.target.value });
     const localStorageValue = localStorage.getItem('setFilterValue');
@@ -56,6 +76,10 @@ export class NextEventFilter extends React.Component {
   toggleCheckBoxParent(itemVal) {
     const item = itemVal;
     item.checked = !item.checked;
+    item.childrenUnselect = false;
+    if (!item.checked) {
+      this.setState({selectAll: false});
+    }
     for (let i = 0; i < item.children.length; i++) {
       item.children[i].checked = item.checked;
     }
@@ -66,6 +90,9 @@ export class NextEventFilter extends React.Component {
     const item = itemVal;
     const parent = parentVal;
     item.checked = !item.checked;
+    if(!item.checked) {
+      this.setState({selectAll: false});
+    }
     let uncheckedCount = 0;
     for (let i = 0; i < parent.children.length; i++) {
       if (!parent.children[i].checked) {
@@ -74,7 +101,11 @@ export class NextEventFilter extends React.Component {
     }
     if (uncheckedCount === parent.children.length) {
       parent.checked = false;
+      parent.childrenUnselect = false;
+    } else if (uncheckedCount > 0 && uncheckedCount !== parent.children.length) {
+      parent.childrenUnselect = true;
     } else {
+      parent.childrenUnselect = false;
       parent.checked = true;
     }
     this.forceUpdate();
@@ -89,7 +120,7 @@ export class NextEventFilter extends React.Component {
     const items = this.state.displayOptions;
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
-      if (item.checked) {
+      if (item.checked || item.childrenUnselect) {
         selectedObj.displayOptions[item.itemName] = [];
         const selectedChildItems = [];
         for (let j = 0; j < item.children.length; j++) {
@@ -107,9 +138,9 @@ export class NextEventFilter extends React.Component {
   render() {
     return (<div className='customPopUp test'>
       <span className='popupPointer'>&nbsp;</span>
-      <ListGroup>
+      <ListGroup className='popup-box-shaow'>
         <ListGroupItem >
-          <Filter Items={this.state.Items} displayOptions={this.state.displayOptions} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => this.showChild.bind(this, item)} toggleCheckBoxParent={(item) => this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent) => this.toggleCheck.bind(this, item, parent)} showSelected={this.showSelected} />
+          <Filter Items={this.state.Items} displayOptions={this.state.displayOptions} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => this.showChild.bind(this, item)} toggleCheckBoxParent={(item) => this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent) => this.toggleCheck.bind(this, item, parent)} showSelected={this.showSelected} toggleCheckAll={() => this.toggleCheckAll.bind(this)} checkedAll={this.state.selectAll} />
         </ListGroupItem >
       </ListGroup>
     </div>

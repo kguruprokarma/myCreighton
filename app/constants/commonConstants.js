@@ -39,6 +39,7 @@ export const ITEM_NAME = 'itemName';
 export const CLASSES = 'Classes';
 export const CHECKED = 'checked';
 export const FALSE = false;
+export const TRUE = true;
 export const CHILDREN = 'children';
 export const CLASS_EVENTS = 'Class Events'; 
 export const CLASS_ASSIGNMENTS = 'Class assignments'; 

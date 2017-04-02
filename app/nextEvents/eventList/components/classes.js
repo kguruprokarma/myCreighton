@@ -29,7 +29,7 @@ const Classes = (classesProps) => (
       </Link>
     </div>
     <Link to={`${ROUTE_URL.EVENT_DETAILS}/${classesProps.data.type}/${classesProps.data.sis_source_id}`}>
-      <Row className='visible-xs mobileClassesList row'>
+      <Row className='visible-xs mobileClassesList'>
         <Col xs={7}>
           <span className='classOn'>{getDueTime(classesProps.data.timeStamp)}</span>
         </Col>
