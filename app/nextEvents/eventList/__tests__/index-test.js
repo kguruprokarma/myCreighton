@@ -83,7 +83,8 @@ describe('index component testing for Next Events ----->', () => {
     },
     getEventsData: () => {},
     getClassesDataByWeek: () => {},
-    onLoading: () => {}
+    onLoading: () => {},
+    onMasterDataChange: () => {}
   };
   const userDate = {
     'email': 'nt123',

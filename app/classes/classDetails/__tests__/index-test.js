@@ -105,7 +105,7 @@ describe('index files in Class Details testing ', () => {
   eventList = JSON.stringify(eventList);
   const classDetails = JSON.stringify(eventList);
 
-  localStorage.setItem('eventList', eventList);
+  localStorage.setItem('eventsFilterData', eventList);
   localStorage.setItem('classDetails', classDetails);
   const minProps = {
     getClassDetails: () => 1,

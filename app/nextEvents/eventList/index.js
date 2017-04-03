@@ -19,6 +19,7 @@ import { getClassesData, getAssigmentsAndQuizzesData, prepareAssignmentOrQuizze,
 //import AlertComponent from '../../common/alertComponent';
 import './style.css';
 import Spinner from '../../common/spinner';
+import EventDetails from '../eventDetails/index';
 
 export class EventList extends React.PureComponent {
   constructor() {
@@ -30,6 +31,7 @@ export class EventList extends React.PureComponent {
   }
   componentWillMount() {
     const props = this.props;
+    props.onMasterDataChange(false);
     props.onLoading();
     if (this.userReqObj !== undefined && authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {
       const result = getClassAndAssignmentAPIData(this.userReqObj);
@@ -66,9 +68,13 @@ export class EventList extends React.PureComponent {
         });
       }
       if (EVENT_DATA) {
-        localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
+        localStorage.setItem('eventsFilterData', JSON.stringify(EVENT_DATA));
       }
-      const result = this.getSelectedFilterData(props.EventChangedValue);
+      let val = props.EventChangedValue;
+      if (localStorage.getItem('setFilterValue') !== null)      {
+        val = localStorage.getItem('setFilterValue');
+      }
+      const result = this.getSelectedFilterData(val);
       return result;
     }
 
@@ -93,7 +99,7 @@ export class EventList extends React.PureComponent {
     }
 
     if (localStorage !== undefined) {
-      eventDetails = JSON.parse(localStorage.getItem('eventList'));
+      eventDetails = JSON.parse(localStorage.getItem('eventsFilterData'));
     }
     map(eventDetails, (eventObject) => {
       const APIDate = new Date(moment(eventObject.timeStamp).format('MMM D, YYYY'));
@@ -153,7 +159,7 @@ export class EventList extends React.PureComponent {
     const allEvents = [];
 
     if (localStorage !== undefined) {
-      eventDetails = JSON.parse(localStorage.getItem('eventList'));
+      eventDetails = JSON.parse(localStorage.getItem('eventsFilterData'));
     }
     classes.Classes = null;
     map(eventDetails, (eventObject) => {
@@ -294,9 +300,38 @@ export class EventList extends React.PureComponent {
   }
 
   renderDataCheck(EVENT_DATA) {
-    return (EVENT_DATA !== undefined && EVENT_DATA.length > 0) ? this.renderData(EVENT_DATA) : this.renderNoDataFound();
+    console.log('renderDataCheck: ', EVENT_DATA);
+    return (EVENT_DATA !== undefined && EVENT_DATA.length > 0) ? this.checkEventPeriod(EVENT_DATA) : this.renderNoDataFound();
   }
 
+  checkEventPeriod(EVENT_DATA) {
+    //this.renderData(EVENT_DATA)
+    console.log('checkEventPeriod: ', EVENT_DATA);
+    const localStorageValue = localStorage.getItem('setFilterValue');
+    
+    return (localStorageValue === CommonConstants.EVENT_FILTER_NEXT_EVENT? this.renderNextEventDetail(EVENT_DATA) : this.renderData(EVENT_DATA));
+  }
+
+  renderNextEventDetail(EVENT_DATA) {
+    console.log('renderNextEventDetail Before: ', EVENT_DATA);
+    //if (EVENT_DATA.length > 1)        {
+    EVENT_DATA = EVENT_DATA[0];
+    //}
+    if (EVENT_DATA)    {
+      EVENT_DATA.eventdetailstype = EVENT_DATA.type;
+      EVENT_DATA.id = EVENT_DATA.sis_source_id;
+      if (EVENT_DATA.assignment_id) {
+      EVENT_DATA.assigndue = EVENT_DATA.assignment_id;
+    }
+    }
+    console.log('renderNextEventDetail: ', EVENT_DATA);
+    return (
+      <span>
+        <EventDetails params={EVENT_DATA} />
+      </span>
+    );
+  }
+  
 
   render() {
     const EVENT_DATA = this.getEventsData(this.props);

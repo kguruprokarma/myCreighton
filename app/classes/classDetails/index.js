@@ -29,7 +29,7 @@ class ClassDetails extends React.PureComponent {
     let obj = null;
     let showPrevNext = false;
     if (props.params.categoryname === CLASSES_DETAILS) {
-      obj = JSON.parse(localStorage.getItem('eventList'));
+      obj = JSON.parse(localStorage.getItem('eventsFilterData'));
       showPrevNext = false;
       classData = find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id), type: props.params.categoryname });
     } else {

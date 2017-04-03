@@ -29,6 +29,7 @@ class EventDetails extends React.PureComponent {
     let nextObject = {};
     let prevObject = {};
     const props = this.props;
+    console.log('props.params.assigndue, ', props.params.assigndue);
     this.assignDue = props.params.assigndue;
     this.eventType = props.params.eventdetailstype;
     this.eventId = stringEncodeURIComponent(props.params.id);

@@ -15,6 +15,7 @@ import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import Spinner from '../../common/spinner';
 import { convertEncodeURIComponent, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
+import AlertComponent from '../../common/alertComponent';
 
 export class Classes extends React.PureComponent {
 
@@ -110,7 +111,10 @@ export class Classes extends React.PureComponent {
           <ClassBox data={USER_DATA} catagoryName={classListData.params.classtab} />
           </div>
           }
-      </section>
+        {(!USER_DATA || USER_DATA.error) &&
+          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+          }
+      </section>  
     );
   }
 }

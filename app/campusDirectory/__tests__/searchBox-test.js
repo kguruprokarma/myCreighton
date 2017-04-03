@@ -27,10 +27,6 @@ describe(' SearchBox component testing for campus directory search ----->', () =
     expect(searchBox.find('Link').length).toBe(1);
   });
 
-  it('Campus Directory search Box component FormControl', () => {
-    expect(searchBox.find('FormControl').length).toBe(1);
-  });
-
   it('Campus Directory search Box component HelpBlock', () => {
     expect(searchBox.find('HelpBlock').length).toBe(1);
   });

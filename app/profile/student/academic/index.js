@@ -49,7 +49,7 @@ export class Academic extends React.PureComponent {
           </Row>
         }
         {(!USER_DATA && !props.loading) &&
-          <AlertComponent typename='warning' msg={translateText('common:NO_RESPONSE')} />
+          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
     );

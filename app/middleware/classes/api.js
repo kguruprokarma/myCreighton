@@ -7,7 +7,8 @@ import * as urlConstants from '../../constants/urlConstants';
 
 const ClassesApi = {
   //getClassesDataByWeek: () => axios.get(urlConstants.ROOT_URL + urlConstants.CLASSES_DATA),
-  getClassesDataByWeek: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.API_SINGLE}`, { params: reqObj }),
+  //getClassesDataByWeek: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.API_SINGLE}`, { params: reqObj }),
+  getClassesDataByWeek: (reqObj) => axios.get(urlConstants.STUDENTCLASSES_API),
   getClassesDataByToday: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.API_SINGLE}`, { params: reqObj }),
   getClassesAtoZData: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.API_SINGLE}`, { params: reqObj }),
   //later i need to add dynamic id for get class details '/id'

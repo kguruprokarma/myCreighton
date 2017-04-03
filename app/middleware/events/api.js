@@ -9,7 +9,8 @@ const EventListApi = {
   //getEventDetails: (eventType) => axios.get(`${urlConstants.ROOT_URL}${urlConstants[eventType]}`)
   getEventDetails: (eventType) => axios.get(`${urlConstants[eventType]}`),
   // getClassesDataByWeek: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.API_SINGLE}`, {params: reqObj}),
-  getEventsData: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENT}${urlConstants.API_SINGLE}`, {params: reqObj})
+  //getEventsData: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENT}${urlConstants.API_SINGLE}`, {params: reqObj})
+  getEventsData: (reqObj) => axios.get(urlConstants.ASSIGNMENTS_API)
 };
 
 export default EventListApi;
