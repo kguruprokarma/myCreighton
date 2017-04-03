@@ -26,7 +26,7 @@ export class EventList extends React.PureComponent {
     super();
     this.userReqObj = {};
     this.userReqObj.primaryKey = 'netid';
-    this.userReqObj.primaryValue = '6cb4db8459';//authUserDetails().netid;
+    this.userReqObj.primaryValue = authUserDetails().netid; //'6cb4db8459';
     this.masterObj = {};
   }
   componentWillMount() {
@@ -71,17 +71,22 @@ export class EventList extends React.PureComponent {
         localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
       }
       let val = props.EventChangedValue;
+      let val1;
       if (localStorage.getItem('setFilterValue') !== null) {
         val = localStorage.getItem('setFilterValue');
+      }      
+      if (localStorage.getItem('setDisplayOptionValue') !== null) {
+        val1 = localStorage.getItem('setDisplayOptionValue');
       }
-      const result = this.getSelectedFilterData(val);
+      console.log('val1: ', val1);
+      const result = this.getSelectedFilterData(val, val1);
       return result;
     }
 
     return EVENT_DATA;
   }
 
-  getSelectedFilterData(filterSelection) {
+  getSelectedFilterData(filterSelection, displayOptionFilter) {
     let day;
     let eventDetails;
     let sortedEventData;
@@ -91,12 +96,15 @@ export class EventList extends React.PureComponent {
     let eventFilterData;
     let options;
 
-    if (filterSelection && filterSelection.eventperiodItems) {
-      day = filterSelection.eventperiodItems;
-      options = filterSelection;
+
+    if (displayOptionFilter && filterSelection) {
+      day = filterSelection;
+      options = JSON.parse(displayOptionFilter);
     } else {
       day = filterSelection;
     }
+
+    
 
     if (localStorage !== undefined) {
       eventDetails = JSON.parse(localStorage.getItem('eventList'));
@@ -132,10 +140,16 @@ export class EventList extends React.PureComponent {
     }
 
     let keys;
-    if (options && options.displayOptions) {
-      keys = Object.keys(options.displayOptions);
+    if (options) {
+      keys = Object.keys(options);
     }
 
+    console.log('options: ', options);
+    console.log('keys: ', keys);
+    console.log('eventFilterData: ', eventFilterData);
+
+    if(eventFilterData)
+    {
     if (options && keys && keys.length > 0) {
       eventFilterData = this.sortingDisplayOptionSelection(options, eventFilterData);
       localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
@@ -144,10 +158,12 @@ export class EventList extends React.PureComponent {
         localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
       }
     }
+    }
 
     this.getEventDisplayOptions();
     return eventFilterData;
   }
+
 
   getEventDisplayOptions() {
     let eventDetails;
@@ -210,11 +226,11 @@ export class EventList extends React.PureComponent {
     let classEventsIds = [];
     let displayOptionData = [];
     const finalResult = [];
-    const keys = Object.keys(options.displayOptions);
+    const keys = Object.keys(options);
     const today = moment()._d;
     map(keys, (key) => {
       if (key === CommonConstants.CLASSES) {
-        classesIds = options.displayOptions[key];
+        classesIds = options[key];
       }
       // else if (key === CommonConstants.CLASS_ASSIGNMENTS) {
       //   assignmentsIds = options.displayOptions[key];
@@ -222,7 +238,7 @@ export class EventList extends React.PureComponent {
       //   quizzesIds = options.displayOptions[key];
       // } else
       if (key === CommonConstants.CLASS_EVENTS) {
-        classEventsIds = options.displayOptions[key];
+        classEventsIds = options[key];
       }
     });
     if (classesIds && classesIds.length > 0) {

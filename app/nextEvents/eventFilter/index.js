@@ -35,6 +35,7 @@ export class NextEventFilter extends React.Component {
     const displayOptions = JSON.parse(localStorage.getItem('displayOptions'));
     this.setState({ displayOptions: displayOptions });
     const localStorageValue = localStorage.getItem('setFilterValue');
+    const displayOptionValue = localStorage.getItem('setDisplayOptionValue');
     if (localStorageValue !== null) {
       this.setState({ eventPeriod: localStorageValue });
     } else {
@@ -132,6 +133,8 @@ export class NextEventFilter extends React.Component {
         selectedObj.displayOptions[item.itemName] = selectedChildItems;
       }
     }
+    
+    localStorage.setItem('setDisplayOptionValue', JSON.stringify(selectedObj.displayOptions));
     props.filterChange(selectedObj);
   }
 

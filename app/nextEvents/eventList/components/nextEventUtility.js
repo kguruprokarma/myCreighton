@@ -46,7 +46,7 @@ export const getAssigmentsAndQuizzesData = (arrayData, eventFilterData, today) =
           const value = showFeatureEvents(assignmentOrQuizze.timeStamp, today);
           if (value > 0) {
             displayOptionData.push(assignmentOrQuizze);
-          }
+         }
         }
       });
     }

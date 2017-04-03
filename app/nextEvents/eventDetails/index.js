@@ -71,15 +71,22 @@ class EventDetails extends React.PureComponent {
     } else {
       prevObject.sis_source_id = {};
     }
+  //   {
+  //   console.log('props.currentState: ', props.location.pathname)
+  //   this.currentPath = props.location.pathname.split('/');
+     
+  // }
 
     return (<section  role='region'>
       <div className='hidden-xs mb10 eventDetailsTitle'>
+          
         <Row>
           <Col sm={6}>
             <div className='hidden-xs'>
               <HeaderLabel headerLabel={headerText} />
             </div>
           </Col>
+          {/*{(this.currentPath[0] === '/eventdetails') &&*/}
           <Col sm={6} className='mb20'>
             <nav role='navigation' id='navigation04'>
               <button onClick={() => this.props.onMasterDataChange(false)} className='btn btn-primary nextEventBtn'>
@@ -89,6 +96,7 @@ class EventDetails extends React.PureComponent {
               </button>
             </nav>
           </Col>
+          {/*}*/}
         </Row>
       </div>
       {details && <div>
