@@ -9,7 +9,7 @@ import { translateText } from '../../../common/translate';
 import { htmlEncoding, convertDateFromTimeStamp } from '../../../common/utility';
 
 const QuizzesDetails = (quizDetails) => (
-  <section>
+  <section role='region'>
     <Row>
       <Col xs={12}>
         <div className='graybtBorder mb10 pt5 pb5'>
@@ -37,7 +37,7 @@ const QuizzesDetails = (quizDetails) => (
         </Col>
       </Row>
     </div>
-    <article className='questionsScoring mt20 mb25'>
+    <div className='questionsScoring mt20 mb25'>
       <h4 className='eventDetail graybtBorder mb10'>{translateText('QUESTIONS_AND_SCORING')}</h4>
       <div className='eventNotes pt5'>
         <strong>{translateText('common:QUIZ_NUMBER_OF_QUESTIONS')}: </strong> {quizDetails.data.number_of_questions}
@@ -45,8 +45,8 @@ const QuizzesDetails = (quizDetails) => (
       <div className='eventNotes pt5'>
         <strong>{translateText('common:QUIZ_POINTS')}: </strong>{quizDetails.data.points_possible}
       </div>
-    </article>
-    <article className='description mb25'>
+    </div>
+    <div className='description mb25'>
       <h4 className='eventDetail graybtBorder mb10'>{translateText('common:COMMON_DESCRIPTION')}</h4>
       <div className='eventNotes pt5' >
         {
@@ -54,7 +54,7 @@ const QuizzesDetails = (quizDetails) => (
             htmlReactParser(htmlEncoding(quizDetails.data.assign_desc))
         }
       </div>
-    </article>
+    </div>
   </section>
 );
 

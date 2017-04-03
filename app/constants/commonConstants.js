@@ -1,6 +1,6 @@
 export const KEYPRESS_ENTER = 'Enter';
 export const DEVICE_WIDTH = 767;
-export const MY_CREIGHTON = 'MYCREIGHTON';
+export const MY_CREIGHTON = 'myCreighton';
 export const ROLE_STUDENT = 'student';
 export const STUDENT_LABEL = 'STUDENT';
 export const ROLE_STAFF = 'staff';
@@ -26,6 +26,7 @@ export const TOMORROW = 'Tomorrow';
 export const SIMPLE_SEARCH = 'simple';
 export const ADVANCED_SEARCH = 'advanced';
 export const SEARCH_RESULTS = 'searchresults';
+export const DASHBOARD = 'dashboard';
 
 export const EVENT_FILTER_7_DAYS = '7 Days';
 export const EVENT_FILTER_TODAY = 'Today';

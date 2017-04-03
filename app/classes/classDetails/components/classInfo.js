@@ -8,7 +8,7 @@ import { convertTo24Format, getScheduledNextDate, scheduleDays } from '../../../
 import { translateText } from '../../../common/translate';
 
 const classInfo = (classInfoProps) => (
-  <article className='classInfo'>
+  <article role='article' className='classInfo'>
     <Row>
       <Col xs={12}>
         <div className='graybtBorder mb10 pb10'>

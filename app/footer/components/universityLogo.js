@@ -5,9 +5,9 @@
 import React from 'react';
 
 const universityLogo = () => (
-  <figure className='university-logo'>
+  <div className='university-logo'>
     <img src='../../assets/images/creighton_logo.png' alt='logo' />
-  </figure>
+  </div>
 );
 
 export default universityLogo;

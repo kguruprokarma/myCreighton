@@ -385,7 +385,6 @@ export const getClassAndAssignmentAPIData = (reqObj) => {
         resolve(masterObj);
       }, 250);
     }
-    console.log('masterObj', masterObj);
   });
 };
 

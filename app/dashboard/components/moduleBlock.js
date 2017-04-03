@@ -13,7 +13,7 @@ const moduleBlock = (modulesprops) => {
       <Well bsSize='large' className='white-well' >
         <Row>
           <Col xs={3} md={12} className='moduleImage'>
-            <ImageComponent imagePath={moduleDetail.imgURL} alt={moduleDetail.name} className={moduleDetail.class} width='moduleDetail.width' />
+            <ImageComponent imagePath={moduleDetail.imgURL} imagealtText='' className={moduleDetail.class} width='moduleDetail.width' />
           </Col>
           <Col xs={9} md={12}>
             <h3 className='well-title openSansLight'>{moduleDetail.name}</h3>

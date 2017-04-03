@@ -40,21 +40,23 @@ export class StaffProfile extends React.PureComponent {
     const props = this.props;
     const USER_DATA = props.profile === CommonConstants.STAFF_LABEL && props.profileData;
     return (
-      <section>
+      <section role='region'>
         {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
-              <LegalName legalName={USER_DATA.data[0].staff_name} />
-              <StaffAddress staffAddress={USER_DATA.data[0].faculty_address} />
-              <WorkAddress workAddress={USER_DATA.data[0].work_address} profile={props.profile} />
-              <MailAddress mailAddress={USER_DATA.data[0].mail_address} />
-              <PrimaryContact primaryContact={USER_DATA.data[0].phone} />
-              <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} relation={USER_DATA.data[0].emrg_cont_type} phone={USER_DATA.data[0].emergency_contact_phone} />
-              <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={USER_DATA.data[0].personal_email} isShowPersonalEmail />
-              <Other profile={props.profile} detail={USER_DATA.data[0]} />
-              <FamilyDetail familyDetail={USER_DATA.data[0]} />
+              <form>
+                <LegalName legalName={USER_DATA.data[0].staff_name} />
+                <StaffAddress staffAddress={USER_DATA.data[0].faculty_address} />
+                <WorkAddress workAddress={USER_DATA.data[0].work_address} profile={props.profile} />
+                <MailAddress mailAddress={USER_DATA.data[0].mail_address} />
+                <PrimaryContact primaryContact={USER_DATA.data[0].phone} />
+                <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} relation={USER_DATA.data[0].emrg_cont_type} phone={USER_DATA.data[0].emergency_contact_phone} />
+                <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={USER_DATA.data[0].personal_email} isShowPersonalEmail />
+                <Other profile={props.profile} detail={USER_DATA.data[0]} />
+                <FamilyDetail familyDetail={USER_DATA.data[0]} />
+              </form>
             </Col>
             <Col md={3} sm={4} className='hidden-xs'>
               <LeftNav role={props.profile} />

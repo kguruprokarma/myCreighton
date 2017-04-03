@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { find, findIndex } from 'lodash';
+import { find, findIndex, sortBy } from 'lodash';
 import HeaderLabel from './../../common/headerLabel';
 import ClassInfo from './../classDetails/components/classInfo';
 import ClassAssignments from './../classDetails/components/classAssignments';
@@ -45,28 +45,39 @@ class ClassDetails extends React.PureComponent {
     const assignmentDue = [];
     //const todaysClass = [];
     const upcomingAssignmentsData = [];
+    let sortedUpcomingAssignments = [];
+    let sortedassignmentDue = [];
     const currentDate = new Date();
     if (assignments && assignments.length > 0 ) {
       assignments.map((assignmentObj) => {
-        if (assignmentObj.submission_types === 'online_quiz') {
-          testOrQuizzesData.push(assignmentObj);
-        } else {
-          if (assignmentObj.assign_due) {
-            const dateValue = datesCompare(currentDate, assignmentObj.assign_due);
-            if (dateValue === 1) {
-              assignmentDue.push(assignmentObj);
-            } else if (dateValue === -1) {
-              upcomingAssignmentsData.push(assignmentObj);
-            } 
-            // else if (dateValue === 0) {
-            //   todaysClass.push(assignmentObj);
-            // }
+        // if (assignmentObj.submission_types === 'online_quiz') {
+        //   testOrQuizzesData.push(assignmentObj);
+        // } else {
+        if (assignmentObj.assign_due) {
+          const dateValue = datesCompare(currentDate, assignmentObj.assign_due);
+          if (dateValue === 1) {
+            assignmentDue.push(assignmentObj);
+          } else if (dateValue === -1) {
+            upcomingAssignmentsData.push(assignmentObj);
           }
+          // else if (dateValue === 0) {
+          //   todaysClass.push(assignmentObj);
+          // }
         }
+        //}
         return assignmentObj;
       });
     }
-    let nextObject = {}; 
+
+    if (assignmentDue && assignmentDue.length > 0) {
+      sortedassignmentDue = sortBy(assignmentDue, ['assign_due']);
+    }
+    if (upcomingAssignmentsData && upcomingAssignmentsData.length > 0) {
+      sortedUpcomingAssignments = sortBy(upcomingAssignmentsData, ['assign_due']);
+    }
+
+
+    let nextObject = {};
     let prevObject = {};
     const index = findIndex(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
     if (index < obj.length - 1) {
@@ -81,7 +92,7 @@ class ClassDetails extends React.PureComponent {
     }
 
     return (
-      <section className='classesDeatils'>
+      <section role='region' className='classesDeatils'>
         {showPrevNext &&
           <div className='hidden-xs'>
             <HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />
@@ -90,10 +101,10 @@ class ClassDetails extends React.PureComponent {
         {(classData && Object.keys(classData).length > 0) && (<div>
           <ClassInfo {...classData} />
           {(assignmentDue.length !== 0 || upcomingAssignmentsData.length !== 0 || testOrQuizzesData.length !== 0) ? (<div>
-            <ClassAssignments data={assignmentDue} />
+            <ClassAssignments data={sortedassignmentDue} />
             {/*<TodaysClass data={todaysClass} />*/}
-            <UpcomingAssignments data={upcomingAssignmentsData} />
-            <TestsOrQuizzes data={testOrQuizzesData} />
+            <UpcomingAssignments data={sortedUpcomingAssignments} />
+            {/*<TestsOrQuizzes data={testOrQuizzesData} />*/}
           </div>)
             : <p className='openSansLight noContent gbl_lh mb30 mt20 text-italic'>{translateText('common:NO_DETAILS_PROVIDED')}</p>
           }

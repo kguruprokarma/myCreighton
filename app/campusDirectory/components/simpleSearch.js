@@ -21,7 +21,7 @@ export class SimpleSearchDirectory extends React.PureComponent {
   }
 
   onSearchTypeChange() {
-  
+
   }
 
   onSearchText(text) {
@@ -38,17 +38,14 @@ export class SimpleSearchDirectory extends React.PureComponent {
   render() {
     const simpleSearchDirectoryPorps = this.props;
     return (
-      <section>
-        <div>
-          <Row>
-            <Col md={4} sm={6} xs={12} className='hidden-md hidden-lg hidden-sm controller-buttons'>
-              <SearchTabController state={this.state.presentState} onSearchTypeChange={this.onSearchTypeChange} />
-            </Col>
-          </Row>
-          <SearchBoxComponent searchString={simpleSearchDirectoryPorps.searchString} state={this.state} onSearchText={this.onSearchText} currentPath={simpleSearchDirectoryPorps.route.path.split('/')[1]} />
-        </div>
-
-      </section>
+      <article role='article'>
+        <Row>
+          <Col md={4} sm={6} xs={12} className='hidden-md hidden-lg hidden-sm controller-buttons'>
+            <SearchTabController state={this.state.presentState} onSearchTypeChange={this.onSearchTypeChange} />
+          </Col>
+        </Row>
+        <SearchBoxComponent searchString={simpleSearchDirectoryPorps.searchString} state={this.state} onSearchText={this.onSearchText} currentPath={simpleSearchDirectoryPorps.route.path.split('/')[1]} />
+      </article>
     );
   }
 }

@@ -27,21 +27,24 @@ export class Academic extends React.PureComponent {
     userReqObj.primaryValue = authUserDetails().netid;
     const props = this.props;
     props.getAcademicData(userReqObj);
-    browserTitle(translateText('common:PROFILE_ACADEMIC'));
+    const titleValue = `${translateText('common:PROFILE_ACADEMIC')} ${translateText('common:USER_PROFILE')}`;
+    browserTitle(titleValue);
   }
 
   render() {
     const props = this.props;
     const USER_DATA = props.academicData;
     return (
-      <section id='academic'>
+      <section role='region' id='academic'>
         {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} /></div>
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
-              <AcademicStatus json={USER_DATA.data[0]} />
-              <AdvisorInformation json={USER_DATA.data[0]} />
+              <form>
+                <AcademicStatus json={USER_DATA.data[0]} />
+                <AdvisorInformation json={USER_DATA.data[0]} />
+              </form>
             </Col>
             <Col md={3} sm={4} className='hidden-xs'>
               <LeftNav role={props.profile} />

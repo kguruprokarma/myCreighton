@@ -78,14 +78,14 @@ describe('Next Event actions testing', () => {
     * Do not delete below lines, as the below lines are used to mock real API service call. 
     */
     
-    // moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENT}${urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
-    //   status: 200,
-    //   response: data
-    // });
-    moxios.stubRequest(urlConstants.ASSIGNMENTS_API, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENT}${urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
       status: 200,
       response: data
     });
+    // moxios.stubRequest(urlConstants.ASSIGNMENTS_API, {
+    //   status: 200,
+    //   response: data
+    // });
     const expectedActions = [
       { type: types.REQUEST_EVENTS_DATA },
       { type: types.RECEIVE_EVENTS_DATA, data: data }
@@ -106,14 +106,14 @@ describe('Next Event actions testing', () => {
     * Do not delete below lines, as the below lines are used to mock real API service call. 
     */
 
-    // moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENT}${urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
-    //   status: 404,
-    //   responseText: 'error'
-    // });
-    moxios.stubRequest(urlConstants.ASSIGNMENTS_API, {
+    moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENT}${urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
       status: 404,
       responseText: 'error'
     });
+    // moxios.stubRequest(urlConstants.ASSIGNMENTS_API, {
+    //   status: 404,
+    //   responseText: 'error'
+    // });
     const expectedActions = [
       { type: types.REQUEST_EVENTS_DATA },
       { type: types.RECEIVE_EVENTS_DATA_ERROR, data: 'error' }

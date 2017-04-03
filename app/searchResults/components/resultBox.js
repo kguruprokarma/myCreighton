@@ -5,7 +5,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 const result = (resultProps) => (
-  <section className='openSansLight graybtBorder pt5 pb10 mb10 mt10' id='classesWeekList'>
+  <section role='region' className='openSansLight graybtBorder pt5 pb10 mb10 mt10'>
     <Row>
       <Col md={9} sm={8}>
         <p className='cpmsDirProfName'>{resultProps.full_name}</p>

@@ -43,11 +43,11 @@ export class MealPlan extends Component {
               </Row>
             </Col>
             <Col sm={1} xs={2}>
-              <div className='angle-right text-right'><Link><img src={'./assets/images/more.png'} alt='' /></Link></div>
+              <div className='angle-right text-right'><Link><img src={'./assets/images/more.png'} alt={translateText('common:MORE_ALT_TEXT')} /></Link></div>
             </Col>
           </Well>
         </div>
-        <button className='doller-icon pull-right hidden-xs btn btn-link openSansBold btnnoPadding' onClick={props.toggleMeal}> {props.showMeal ? translateText('common:MEAL_HIDE') : <img src={'./assets/images/money.png'} alt='' />}</button>
+        <button className='doller-icon pull-right btn btn-link openSansBold btnnoPadding' onClick={props.toggleMeal}> {props.showMeal ? translateText('common:MEAL_HIDE') : ''}</button>
       </article>
 
     );

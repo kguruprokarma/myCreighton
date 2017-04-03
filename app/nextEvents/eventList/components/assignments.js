@@ -10,7 +10,7 @@ import { convertDueDateTimeStamp, convertDateFromTimeStamp } from '../../../comm
 import { translateText } from '../../../common/translate';
 
 const Assignments = (assignmentProps) => (
-  <section className='eventAssignments' id='eventAssignmentsList'>
+  <section role='region' className='eventAssignments'>
     <Link to={`${ROUTE_URL.EVENT_DETAILS}/${assignmentProps.data.type}/${assignmentProps.data.sis_source_id}/${assignmentProps.data.assignment_id}`}>
       <div className='hidden-xs desktopEventsList'>
         <Col md={6} sm={6}>

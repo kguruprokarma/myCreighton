@@ -13,11 +13,11 @@
 
 .labelField {
     font-size: 1.3333333333333333em;    /* font size 20 in pixel */
-    font-family: 'open_sanslight';
+    font-family: 'open_sanslight', sans-serif;
 }
 .dataField {
     font-size: 1.4em;   /* font size 21 in pixel */  
-    font-family: 'open_sanslight';   
+    font-family: 'open_sanslight', sans-serif;   
 }
 
 .mobileNumber{

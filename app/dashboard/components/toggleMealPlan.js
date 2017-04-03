@@ -3,10 +3,11 @@
 */
 
 import React from 'react';
+import { translateText } from '../../common/translate';
 
 const toggleMealPlan = (toggleMealPlanProps) => (
   <button className='doller-icon btn btn-link pull-right btnnoPadding' onClick={toggleMealPlanProps.toggle}>
-    <img src={'./assets/images/money.png'} alt='toggle' />
+    <img src={'./assets/images/money.png'} alt={translateText('common:MONEY_ALT_TEXT')} />
   </button>
 );
 

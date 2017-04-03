@@ -99,9 +99,27 @@ describe('index component testing for Next Events ----->', () => {
     'userImageURL': '',
     'userRole': 'student'
   };
+  const mockDisplayOptionsVal = {
+    'All': [
+    ],
+    'Classes': [
+      '201670_HAP_515_N',
+      '201610_MTH_363_1',
+      '201670_HAP_331_B',
+      '201610_THL_235_B',
+      '201610_CHM_323_B',
+      '201670_CHM_371_A',
+      '201670_ACC_201_E',
+      '201610_BIO_449_B',
+      '201670_MGT_301_E',
+      '201610_HAP_315_NA'
+    ]
+  };
+
   localStorage.setItem('roleInfo', JSON.stringify(userDate));
   localStorage.setItem('classMasterCopy', mockData);  
   localStorage.setItem('assignmentMasterCopy', mockAssignmentData);
+  localStorage.setItem('setDisplayOptionValue', JSON.stringify(mockDisplayOptionsVal));
   const EventListC = shallow(<EventList {...defaultProps} />);
 
   it('EventList is defined', () => {

@@ -8,7 +8,7 @@ import * as ROUTE_URL from '../../../constants/routeContants';
 import { convertDateFromTimeStamp } from '../../../common/utility';
 
 const Quiz = (quizProps) => (
-  <section className='quizzEvent' id='quizzEventList'>
+  <section role='region' className='quizzEvent'>
     <Link to={`${ROUTE_URL.EVENT_DETAILS}/${quizProps.data.type}/${quizProps.data.sis_source_id}/${quizProps.data.assignment_id}`}>
       <div className='hidden-xs desktopEventsList'>
         <Col md={6} sm={6}>

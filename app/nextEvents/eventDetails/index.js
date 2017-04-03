@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { translateText } from '../../common/translate';
 import Assignments from './components/assignments';
 import TestOrQuiz from './components/testOrQuiz';
+import NextEventDetails from './components/eventDetails';
 import ClassDetails from './components/classDetails';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import '../eventDetails/style.css';
@@ -29,36 +30,37 @@ class EventDetails extends React.PureComponent {
     let nextObject = {};
     let prevObject = {};
     const props = this.props;
-    console.log('props.params.assigndue, ', props.params.assigndue);
     this.assignDue = props.params.assigndue;
     this.eventType = props.params.eventdetailstype;
     this.eventId = stringEncodeURIComponent(props.params.id);
     if (localStorage !== undefined) {
       details = JSON.parse(localStorage.getItem('eventsFilterData'));
     }
-    if (this.eventType === NextEventsConstants.ASSIGNMENTS) {
-      headerText = translateText('common:NEXT_EVENTS_ASSIGNMENTS');
-      browserTitle(translateText('common:NEXT_EVENTS_ASSIGNMENTS'));
-    } else if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
-      headerText = translateText('common:NEXT_EVENTS_TEST_DETAIL');
-      browserTitle(translateText('common:NEXT_EVENTS_TEST_DETAIL'));
+    if (this.eventType === NextEventsConstants.ASSIGNMENTS || this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
+      headerText = translateText('common:NEXT_EVENTS_EVENT_DETAIL');
+      browserTitle(translateText('common:NEXT_EVENTS_EVENT_DETAIL'));
     } else if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
       headerText = translateText('common:NEXT_EVENTS_CLASSES');
       browserTitle(translateText('common:NEXT_EVENTS_CLASSES'));
     }
+    // else if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
+    //   headerText = translateText('common:NEXT_EVENTS_TEST_DETAIL');
+    //   browserTitle(translateText('common:NEXT_EVENTS_TEST_DETAIL'));
+    // }
+
 
     if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
       this.classData = details && find(details, { sis_source_id: this.eventId, type: NextEventsConstants.CLASSES_DETAILS });
       index1 = findIndex(details, { sis_source_id: this.eventId });
     }
-    if (this.eventType === NextEventsConstants.ASSIGNMENTS) {
+    if (this.eventType === NextEventsConstants.ASSIGNMENTS || this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
       this.assignmentData = details && find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
       index1 = findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
     }
-    if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
-      this.quizData = details && find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
-      index1 = findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
-    }
+    // if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
+    //   this.quizData = details && find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
+    //   index1 = findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
+    // }
     if (index1 < details.length - 1) {
       nextObject = details[Object.keys(details)[index1 + 1]];
     } else {
@@ -70,7 +72,7 @@ class EventDetails extends React.PureComponent {
       prevObject.sis_source_id = {};
     }
 
-    return (<section>
+    return (<section  role='region'>
       <div className='hidden-xs mb10 eventDetailsTitle'>
         <Row>
           <Col sm={6}>
@@ -80,17 +82,19 @@ class EventDetails extends React.PureComponent {
           </Col>
           <Col sm={6} className='mb20'>
             <nav role='navigation' id='navigation04'>
-            <Link to={ROUTE_URL.EVENT_LIST} onClick={() => this.props.onMasterDataChange(false)} className='btn btn-primary nextEventBtn'>
-              <span className='nextevent-logo' />
-              <span className='float-right nextEventBtnTxt'>{translateText('NEXT_EVENTS_CAPTALIZE')}</span>
-            </Link>
+              <button onClick={() => this.props.onMasterDataChange(false)} className='btn btn-primary nextEventBtn'>
+                <Link to={ROUTE_URL.EVENT_LIST}><span className='nextevent-logo' />
+                  <span className='float-right nextEventBtnTxt'>{translateText('NEXT_EVENTS')}</span>
+                </Link>
+              </button>
             </nav>
           </Col>
         </Row>
       </div>
       {details && <div>
-        {this.eventType === NextEventsConstants.ASSIGNMENTS && details && <Assignments data={this.assignmentData} />}
-        {this.eventType === NextEventsConstants.TEST_OR_QUIZ && details && <TestOrQuiz data={this.quizData} />}
+        {/*this.eventType === NextEventsConstants.ASSIGNMENTS && details && <Assignments data={this.assignmentData} />*/}
+        {/*this.eventType === NextEventsConstants.TEST_OR_QUIZ && details && <TestOrQuiz data={this.quizData} />*/}
+        { (this.eventType === NextEventsConstants.ASSIGNMENTS || this.eventType === NextEventsConstants.TEST_OR_QUIZ) && details && <NextEventDetails data={this.assignmentData} />}
         {this.eventType === NextEventsConstants.CLASSES_DETAILS && this.classData && <ClassDetails data={this.classData} categoryname={NextEventsConstants.CLASSES_DETAILS} id={this.eventId} />}
       </div>
       }
@@ -103,7 +107,7 @@ class EventDetails extends React.PureComponent {
 
 const mapStateToProps = (eventsState) => (
   {
-//    isMasterDataChange: eventsState.eventsReducer.isMasterDataChange
+    //    isMasterDataChange: eventsState.eventsReducer.isMasterDataChange
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);

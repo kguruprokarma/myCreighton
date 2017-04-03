@@ -15,12 +15,12 @@
     font-size: 1.7333333333333334em;
     line-height: 1.1;
     color: #019cdb;
-    font-family: 'open_sanslight';
+    font-family: 'open_sanslight', sans-serif;
 }
 
 .eventOn, .eventPlace, .eventBy, .eventTime, .eventDate {
     font-size: 1em; 
-    font-family: 'open_sansregular';
+    font-family: 'open_sansregular', sans-serif;
     line-height: 1;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .eventTime {
-    font-family: 'open_sanssemibold';
+    font-family: 'open_sanssemibold', sans-serif;
 }
 
 .mobileEventsList, .desktopEventsList {
@@ -99,7 +99,7 @@ a:hover, *:hover  {
 
     .eventOn, .eventPlace, .eventBy, .eventTime, .eventDate {
     font-size: 1.1em; /* font size 15 in pixel */
-    font-family: 'open_sansregular';
+    font-family: 'open_sansregular', sans-serif;
     line-height: 1;
     }
 

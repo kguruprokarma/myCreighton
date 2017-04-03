@@ -6,9 +6,7 @@ import React from 'react';
 import { Image } from 'react-bootstrap';
 
 const ImageComponent = (imageProps) => (
-  <figure>
-    <Image src={imageProps.imagePath} width={imageProps.imageWidth} />
-  </figure>
+  <Image src={imageProps.imagePath} width={imageProps.imageWidth} alt={imageProps.imagealtText} className={imageProps.imgClassName} />
 );
 
 export default ImageComponent;

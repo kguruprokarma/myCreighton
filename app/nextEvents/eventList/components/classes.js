@@ -9,12 +9,12 @@ import { convertTo24Format, convertDateFromTimeStamp, getDueTime } from '../../.
 import * as ROUTE_URL from '../../../constants/routeContants';
 
 const Classes = (classesProps) => (
-  <section className='classesWeek' id='classesWeekList'>
+  <article role='article' className='classesWeek'>
     <div className='hidden-xs desktopClassesList'>
       {/*<Link to={`${ROUTE_URL.EVENT_DETAILS}/${quizProps.data.type}/${quizProps.data.sis_source_id}/${quizProps.data.assignment_id}`}>*/}
       <Link to={`${ROUTE_URL.EVENT_DETAILS}/${classesProps.data.type}/${classesProps.data.sis_source_id}/`}>
         <Col md={6} sm={6}>
-          <h3 className='mb0 classesHeading'>{classesProps.data.course_title} {classesProps.data.course_number} <span className='classOn'>{getDueTime(classesProps.data.timeStamp)}</span></h3>          
+          <h2 className='mb0 classesHeading'>{classesProps.data.course_title} {classesProps.data.course_number} <span className='classOn'>{getDueTime(classesProps.data.timeStamp)}</span></h2>          
         </Col>
         <Col md={2} sm={2}>
           <span className='classPlace'>{classesProps.data.class_held_build_desc}</span>
@@ -37,7 +37,7 @@ const Classes = (classesProps) => (
           <span className='classBy'>{convertDateFromTimeStamp(classesProps.data.timeStamp)}</span>
         </Col>
         <Col xs={7}>
-          <h3 className='mb0 classesHeading'>{classesProps.data.course_title} {classesProps.data.course_number} </h3>
+          <h2 className='mb0 classesHeading'>{classesProps.data.course_title} {classesProps.data.course_number} </h2>
         </Col>
         <Col xs={7}>
           <span className='classPlace'>{classesProps.data.class_held_build_desc}</span>
@@ -48,7 +48,7 @@ const Classes = (classesProps) => (
         </Col>
       </Row>
     </Link>
-  </section>
+  </article>
 );
 
 export default Classes;

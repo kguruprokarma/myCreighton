@@ -14,7 +14,7 @@ describe('WeekDayHeader component testing ----->', () => {
   });
 
   it('WeekDayHeader header text', () => {
-    expect(DayHeaderC.find('h5').text()).toBe('Tuesday');
+    expect(DayHeaderC.find('h2').text()).toBe('Tuesday');
   });
 
   it('WeekDayHeader recived props', () => {

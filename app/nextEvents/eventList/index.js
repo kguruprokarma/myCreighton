@@ -68,10 +68,10 @@ export class EventList extends React.PureComponent {
         });
       }
       if (EVENT_DATA) {
-        localStorage.setItem('eventsFilterData', JSON.stringify(EVENT_DATA));
+        localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
       }
       let val = props.EventChangedValue;
-      if (localStorage.getItem('setFilterValue') !== null)      {
+      if (localStorage.getItem('setFilterValue') !== null) {
         val = localStorage.getItem('setFilterValue');
       }
       const result = this.getSelectedFilterData(val);
@@ -99,7 +99,7 @@ export class EventList extends React.PureComponent {
     }
 
     if (localStorage !== undefined) {
-      eventDetails = JSON.parse(localStorage.getItem('eventsFilterData'));
+      eventDetails = JSON.parse(localStorage.getItem('eventList'));
     }
     map(eventDetails, (eventObject) => {
       const APIDate = new Date(moment(eventObject.timeStamp).format('MMM D, YYYY'));
@@ -156,10 +156,9 @@ export class EventList extends React.PureComponent {
     const classAssignments = [];
     const quizzes = [];
     let classEvent = [];
-    const allEvents = [];
 
     if (localStorage !== undefined) {
-      eventDetails = JSON.parse(localStorage.getItem('eventsFilterData'));
+      eventDetails = JSON.parse(localStorage.getItem('eventList'));
     }
     classes.Classes = null;
     map(eventDetails, (eventObject) => {
@@ -172,11 +171,13 @@ export class EventList extends React.PureComponent {
         if (eventObject.assignmentData && eventObject.assignmentData.length > 0) {
           const assignmentDetails = eventObject.assignmentData;
           map(assignmentDetails, (assignmentData) => {
-            if (assignmentData.type === NextEventsConstants.ASSIGNMENTS) {
+            //classAssignments.push(assignmentData);
+            if (assignmentData.type === NextEventsConstants.ASSIGNMENTS || assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
               classAssignments.push(data);
-            } else if (assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
-              quizzes.push(data);
             }
+            // else if (assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
+            //   quizzes.push(data);
+            // }
           });
         }
       }
@@ -186,19 +187,19 @@ export class EventList extends React.PureComponent {
 
     const matchedclassesObj = map(uniqBy(classes, CommonConstants.SIS_SOURCE_ID));
     const matchedAssignments = map(uniqBy(classAssignments, CommonConstants.SIS_SOURCE_ID));
-    const matchedquizzes = map(uniqBy(quizzes, CommonConstants.SIS_SOURCE_ID));
+    //const matchedquizzes = map(uniqBy(quizzes, CommonConstants.SIS_SOURCE_ID));
     const classesObj = prepareDisplayObject(CommonConstants.CLASSES, matchedclassesObj);
-    const assignmentObj = prepareDisplayObject(CommonConstants.CLASS_ASSIGNMENTS, matchedAssignments);
-    const quizzesObj = prepareDisplayObject(CommonConstants.TESTS_AND_QUIZZES, matchedquizzes);
-    const classEvents = prepareDisplayObject(CommonConstants.CLASS_EVENTS, classEvent);
+    const assignmentObj = prepareDisplayObject(CommonConstants.CLASS_EVENTS, matchedAssignments);
+    //const quizzesObj = prepareDisplayObject(CommonConstants.TESTS_AND_QUIZZES, matchedquizzes);
+    //const classEvents = prepareDisplayObject(CommonConstants.CLASS_EVENTS, classEvent);
     const allEventsObj = prepareDisplayObject(CommonConstants.EVENT_FILTER_ALL, '');
 
 
     displayOptions.push(allEventsObj);
     displayOptions.push(classesObj);
     displayOptions.push(assignmentObj);
-    displayOptions.push(quizzesObj);
-    displayOptions.push(classEvents);
+    //displayOptions.push(quizzesObj);
+    //displayOptions.push(classEvents);
     localStorage.setItem(CommonConstants.DISPLAY_OPTIONS, JSON.stringify(displayOptions));
   }
 
@@ -214,11 +215,13 @@ export class EventList extends React.PureComponent {
     map(keys, (key) => {
       if (key === CommonConstants.CLASSES) {
         classesIds = options.displayOptions[key];
-      } else if (key === CommonConstants.CLASS_ASSIGNMENTS) {
-        assignmentsIds = options.displayOptions[key];
-      } else if (key === CommonConstants.TESTS_AND_QUIZZES) {
-        quizzesIds = options.displayOptions[key];
-      } else if (key === CommonConstants.CLASS_EVENTS) {
+      }
+      // else if (key === CommonConstants.CLASS_ASSIGNMENTS) {
+      //   assignmentsIds = options.displayOptions[key];
+      // } else if (key === CommonConstants.TESTS_AND_QUIZZES) {
+      //   quizzesIds = options.displayOptions[key];
+      // } else
+      if (key === CommonConstants.CLASS_EVENTS) {
         classEventsIds = options.displayOptions[key];
       }
     });
@@ -226,16 +229,16 @@ export class EventList extends React.PureComponent {
       const result = getClassesData(classesIds, eventFilterData, today);
       finalResult.push(result);
     }
-    if (assignmentsIds && assignmentsIds.length > 0) {
-      displayOptionData = getAssigmentsAndQuizzesData(assignmentsIds, eventFilterData, today);
-      finalResult.push(displayOptionData);
-    }
-    if (quizzesIds && quizzesIds.length > 0) {
-      const result = getAssigmentsAndQuizzesData(assignmentsIds, eventFilterData, today);
-      finalResult.push(result);
-    }
+    // if (assignmentsIds && assignmentsIds.length > 0) {
+    //   displayOptionData = getAssigmentsAndQuizzesData(assignmentsIds, eventFilterData, today);
+    //   finalResult.push(displayOptionData);
+    // }
+    // if (quizzesIds && quizzesIds.length > 0) {
+    //   const result = getAssigmentsAndQuizzesData(assignmentsIds, eventFilterData, today);
+    //   finalResult.push(result);
+    // }
     if (classEventsIds && classEventsIds.length > 0) {
-      const result = getAssigmentOrQuizzes(classEventsIds, eventFilterData, today);
+      const result = getAssigmentsAndQuizzesData(classEventsIds, eventFilterData, today);
       finalResult.push(result);
     }
 
@@ -249,23 +252,19 @@ export class EventList extends React.PureComponent {
     return sortedDiplayOptionData;
   }
 
-  renderLoader() {
-    const props = this.props;
-    return (
-      <span>
-        {props.loading && <Spinner />}
-      </span>
-    );
+  checkEventPeriod(EVENT_DATA) {
+    const localStorageValue = localStorage.getItem('setFilterValue');
+
+    return (localStorageValue === CommonConstants.EVENT_FILTER_NEXT_EVENT? this.renderNextEventDetail(EVENT_DATA) : this.renderData(EVENT_DATA));
   }
 
   renderNoDataFound() {
     return (
       <Alert bsStyle='warning'>
-        <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
+        <h4 className='mb0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
       </Alert>
     );
   }
-
 
   renderData(EVENT_DATA) {
     const props = this.props;
@@ -300,44 +299,40 @@ export class EventList extends React.PureComponent {
   }
 
   renderDataCheck(EVENT_DATA) {
-    console.log('renderDataCheck: ', EVENT_DATA);
     return (EVENT_DATA !== undefined && EVENT_DATA.length > 0) ? this.checkEventPeriod(EVENT_DATA) : this.renderNoDataFound();
   }
 
-  checkEventPeriod(EVENT_DATA) {
-    //this.renderData(EVENT_DATA)
-    console.log('checkEventPeriod: ', EVENT_DATA);
-    const localStorageValue = localStorage.getItem('setFilterValue');
-    
-    return (localStorageValue === CommonConstants.EVENT_FILTER_NEXT_EVENT? this.renderNextEventDetail(EVENT_DATA) : this.renderData(EVENT_DATA));
-  }
-
   renderNextEventDetail(EVENT_DATA) {
-    console.log('renderNextEventDetail Before: ', EVENT_DATA);
-    //if (EVENT_DATA.length > 1)        {
-    EVENT_DATA = EVENT_DATA[0];
-    //}
-    if (EVENT_DATA)    {
-      EVENT_DATA.eventdetailstype = EVENT_DATA.type;
-      EVENT_DATA.id = EVENT_DATA.sis_source_id;
-      if (EVENT_DATA.assignment_id) {
-      EVENT_DATA.assigndue = EVENT_DATA.assignment_id;
+    const eventData = EVENT_DATA[0];
+    if (eventData) {
+      eventData.eventdetailstype = eventData.type;
+      eventData.id = eventData.sis_source_id;
+      if (eventData.assignment_id) {
+        eventData.assigndue = eventData.assignment_id;
+      }
     }
-    }
-    console.log('renderNextEventDetail: ', EVENT_DATA);
     return (
       <span>
-        <EventDetails params={EVENT_DATA} />
+        <EventDetails params={eventData} />
       </span>
     );
   }
-  
 
-  render() {
-    const EVENT_DATA = this.getEventsData(this.props);
+  renderLoader() {
     const props = this.props;
     return (
-      <section>
+      <span>
+        {props.loading && <Spinner />}
+      </span>
+    );
+  }
+
+
+  render() {
+    const props = this.props;
+    const EVENT_DATA = this.getEventsData(this.props);
+    return (
+      <section role='region'>
         {props.isMasterDataChange ? this.renderDataCheck(EVENT_DATA) : this.renderLoader()}
       </section>
     );

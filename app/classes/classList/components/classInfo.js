@@ -8,10 +8,10 @@ import { translateText } from '../../../common/translate';
 import { convertTo24Format, scheduleDays, getScheduledNextDate } from '../../../common/utility';
 
 const ClassInfo = (classInfoProps) => (
-  <section className='classesWeek' id='classesWeekList'>
+  <article role='article' className='classesWeek'>
     <div className='hidden-xs desktopClassesList'>
       <Col md={5} sm={5}>
-        <h3 className='pull-left mb0 classesHeading'>{classInfoProps.data.course_title} {classInfoProps.data.course_number} <span className='classOn'>{classInfoProps.data.course_section}</span></h3>
+        <h2 className='pull-left mb0 classesHeading'>{classInfoProps.data.course_title} {classInfoProps.data.course_number} <span className='classOn'>{classInfoProps.data.course_section}</span></h2>
       </Col>
       <Col md={2} sm={2}>
         <span className='classPlace'>{classInfoProps.data.class_held_build_desc}</span>
@@ -25,7 +25,7 @@ const ClassInfo = (classInfoProps) => (
         <div className='classDate'><span className='openSansRegular'>{translateText('çommon:NEXT')}:</span> {getScheduledNextDate(classInfoProps.data.class_schedule)}</div>
       </Col>
     </div>
-    <Row className='visible-xs mobileClassesList row'>
+    <Row className='visible-xs mobileClassesList'>
       <Col xs={7}>
         <span className='classOn'>{classInfoProps.data.course_section}</span>
       </Col>
@@ -33,7 +33,7 @@ const ClassInfo = (classInfoProps) => (
         <span className='classBy'>{classInfoProps.data.instructor_name.last_name}</span>
       </Col>
       <Col xs={7}>
-        <h3 className='mb0 classesHeading'>{classInfoProps.data.course_title} {classInfoProps.data.course_number} </h3>
+        <h2 className='mb0 classesHeading'>{classInfoProps.data.course_title} {classInfoProps.data.course_number} </h2>
       </Col>
       <Col xs={5} className='text-right'>
         <span className='classDate'><span>{translateText('çommon:NEXT')}:</span> {getScheduledNextDate(classInfoProps.data.class_schedule)} </span>
@@ -46,7 +46,7 @@ const ClassInfo = (classInfoProps) => (
         <span className='classTime'>{scheduleDays(classInfoProps.data.class_schedule)} {convertTo24Format(classInfoProps.data.class_begin_time)} - {convertTo24Format(classInfoProps.data.class_end_time)}</span>
       </Col>
     </Row>
-  </section>
+  </article>
 );
 
 export default ClassInfo;

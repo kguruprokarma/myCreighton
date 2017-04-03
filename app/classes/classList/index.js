@@ -14,26 +14,28 @@ import '../classList/style.css';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import Spinner from '../../common/spinner';
-import { convertEncodeURIComponent, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
+import { authUserDetails, convertEncodeURIComponent, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
 import AlertComponent from '../../common/alertComponent';
 
 export class Classes extends React.PureComponent {
 
   constructor(props) {
-    super(props);   
+    super(props);
     const classesProps = this.props;
     this.userReqObj = {};
+    // this.userReqObj.primaryKey = 'netid';
+    // this.userReqObj.primaryValue = '6cb4db8459';
     this.userReqObj.primaryKey = 'netid';
-    this.userReqObj.primaryValue = '6cb4db8459';
+    this.userReqObj.primaryValue = authUserDetails().netid;
 
     this.onChangeOfTab = this.onChangeOfTab.bind(this);
     this.onChangeOfTab(classesProps.params.classtab);
     this.state = { presentState: '' };
   }
-  
+
   componentDidMount() {
     browserTitle(translateText('common:CLASS_SCHEDULE'));
-  }  
+  }
 
   componentWillReceiveProps(nextProps) {
     const propsNext = nextProps;
@@ -48,23 +50,23 @@ export class Classes extends React.PureComponent {
     props.onCatagoryChange(catagoryName);
     const result = getClassAndAssignmentAPIData(this.userReqObj);
     result.then((masterObj) => {
-    //successMessage is whatever we passed in the resolve(...) function above.
-    //It doesn't have to be a string, but if it is only a succeed message, it probably will be.
-      props.getClassesData({data: masterObj.classMasterCopy});
-      props.getAssignmentDetails({data: masterObj.assignmentMasterCopy});
+      //successMessage is whatever we passed in the resolve(...) function above.
+      //It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+      props.getClassesData({ data: masterObj.classMasterCopy });
+      props.getAssignmentDetails({ data: masterObj.assignmentMasterCopy });
     });
 
-/*    if (this.userReqObj !== undefined) {
-      if (catagoryName === CommonConstants.WEEK) {
-        getClassAndAssignmentAPIData(this.userReqObj);
-        props.getClassesDataByWeek(this.userReqObj);
-        props.getAssignmentDetails(this.userReqObj);
-      } else if (catagoryName === CommonConstants.LIST) {
-        props.getClassesDataForAtoZ(this.userReqObj);
-      } else if (catagoryName === CommonConstants.TODAY) {
-        props.getClassesDataByToday(this.userReqObj);
-      }
-    }*/
+    /*    if (this.userReqObj !== undefined) {
+          if (catagoryName === CommonConstants.WEEK) {
+            getClassAndAssignmentAPIData(this.userReqObj);
+            props.getClassesDataByWeek(this.userReqObj);
+            props.getAssignmentDetails(this.userReqObj);
+          } else if (catagoryName === CommonConstants.LIST) {
+            props.getClassesDataForAtoZ(this.userReqObj);
+          } else if (catagoryName === CommonConstants.TODAY) {
+            props.getClassesDataByToday(this.userReqObj);
+          }
+        }*/
   }
 
   render() {
@@ -72,7 +74,7 @@ export class Classes extends React.PureComponent {
     const USER_DATA = convertEncodeURIComponent(classListData.classesData);
     const ASSIGNMENTS_DATA = convertEncodeURIComponent(classListData.assignmentsData);
     const defaultArray = [];
-    if (USER_DATA && ASSIGNMENTS_DATA ) {
+    if (USER_DATA && ASSIGNMENTS_DATA) {
       const classObj = USER_DATA.data;
       const assignmentObj = ASSIGNMENTS_DATA.data;
       classObj.map((singleClassObject) => {
@@ -97,24 +99,25 @@ export class Classes extends React.PureComponent {
     }
 
     return (
-      <section id='classSchedule'>
+      <section role='region' id='classSchedule'>
+        <Row>
+          <Col md={8} sm={6} xs={12} className='hidden-xs'>
+            <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} /></div>
+          </Col>
+          <Col md={4} sm={6} xs={12} className='controller-buttons'>
+            <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />
+          </Col>
+        </Row>
         {classListData.loading && <Spinner />}
-        {USER_DATA && USER_DATA.data && USER_DATA.data.length > 0 &&<div>
-          <Row>
-            <Col md={8} sm={6} xs={12} className='hidden-xs'>
-              <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} /></div>
-            </Col>
-            <Col md={4} sm={6} xs={12} className='controller-buttons'>
-              <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />
-            </Col>
-          </Row>
+        {USER_DATA && USER_DATA.data && USER_DATA.data.length > 0 && <div>
+
           <ClassBox data={USER_DATA} catagoryName={classListData.params.classtab} />
-          </div>
-          }
+        </div>
+        }
         {(!USER_DATA || USER_DATA.error) &&
           <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
-          }
-      </section>  
+        }
+      </section>
     );
   }
 }

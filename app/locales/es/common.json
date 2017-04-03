@@ -1,5 +1,5 @@
 {
- "MY_CREIGHTON": "myCreighton",
+ "MY_CREIGHTON": "miCreighton",
 
   "MEAL_PLAN_SWIPES": "MALA CERVEZA",
   "MEAL_PLAN_DINING": "COMIDA",
@@ -19,8 +19,10 @@
   "IF_NOT_AGE_OF_MAJORITY": "SI NO TIENE EDAD DE MAYORÍA",
   "STUDENT_PARENT": "Padre",
   "STUDENT_GUARDIAN": "Guardián",
-  "ASSIGNMENTS_DUE": "ASIGNACIONES DEBIDAS",
-  "UPCOMING_ASSIGNMENTS": "TAREAS PRÓXIMAS",
+  "EVENTS_DUE": "EVENTOS DEBIDOS", 
+  "UPCOMING_EVENTS": "PRÓXIMOS EVENTOS",
+  "ASSIGNMENTS_DUE": "Asignaciones debidas",
+  "UPCOMING_ASSIGNMENTS": "tareas próximas",
   "CREIGHTON_SERVICES_AND_RESOURCES": "Creighton Servicios y Recursos",
   "ACADEMIC_STATUS": "Estado Académico",
   "PROFILE_MAJOR": "Mayor",
@@ -73,10 +75,10 @@
   "FACULTY_DEPENDENTS_NAME": "Dependientes",
   "FACULTY_APPOINTMENT": "CITA",
 
-  "CLASS_SCHEDULE": "HORARIO DE CLASE",
-  "CLASS_DETAIL": "DETALLE DE LA CLASE",
-  "TEST_QUIZZES": "PRUEBA/QUIZZES",
-  "TODAYS_CLASS": "Hoy CLASE",
+  "CLASS_SCHEDULE": "Horario de clase",
+  "CLASS_DETAIL": "Detalle de clase",
+  "TEST_QUIZZES": "Prueba/Quizzes",
+  "TODAYS_CLASS": "Clase de hoy",
   "NEXT": "Siguiente",
   "CLASSES_WEEK": "Semana",
   "CLASSES_A-Z": "UN-Z",
@@ -109,8 +111,7 @@
   "PAGE_FOOTER": "Pie de página",
   "PAGE_HEADER": "Encabezado de página",
   
-  "NEXT_EVENTS":"PRÓXIMOS EVENTOS",
-  "NEXT_EVENTS_CAPTALIZE":"Próximos Eventos",
+  "NEXT_EVENTS":"Próximos Eventos",
   "ASSIGNMENT": "Asignaciones",
   "EVENT_NOTES": "NOTAS DEL EVENTO",
   "DUE_DATE": "Fecha de vencimiento",
@@ -126,6 +127,8 @@
   "NEXT_EVENTS_ASSIGNMENTS": "PRÓXIMOS EVENTOS - DETALLES DE LA ASIGNACIÓN",  
   "NEXT_EVENTS_TEST_DETAIL_HEADER": "DETALLE DE LA PRUEBA",
   "NEXT_EVENTS_ASSIGNMENTS_HEADER": "DETALLES DE LA ASIGNACIÓN",
+  "NEXT_EVENTS_EVENT_DETAIL": "PRÓXIMOS EVENTOS - DETALLE DEL EVENTO",  
+  "NEXT_EVENTS_EVENT_DETAIL_HEADER": "DESCRIPCIÓN", 
 
   "COMMON_TITLE": "Título",
   "COMMON_CLASS": "Clase",
@@ -190,6 +193,7 @@
 
   "NO_RESPONSE": "Error del Servidor...!!",
   "NO_CONTENT": "No hay contenido disponible",
+  "NO_EVENTS_TO_DISPLAY": "No hay eventos para mostrar",
   "NO_CLASSES_SCHEDULED": "No hay clases programadas",
   "NO_DETAILS_PROVIDED": "No se han proporcionado detalles por el instructor.",
   "NO_SEARCH_RESULT": "No se encontraron resultados para la búsqueda",
@@ -208,7 +212,11 @@
   "FOOTER_UNIVERSITY_ADDRESS": "2500 California Plaza, Omaha, NE 68178",
   "FOOTER_CREIGHTON_UNIVERSITY": "2017 Universidad de Creighton",
   "SIGN_IN": "Registrarse",
-  "HAMBURGER_MENU": "Menú"
-   
+  "HAMBURGER_MENU": "Menú",
+  "MENU_ALT_TAG": "Menú principal emergente",
+  "MENU_ALT_CLOSE_TAG": "Cerrar menú emergente",
+  "MONEY_ALT_TEXT" : "Mostrar los importes de la moneda de Creighton",
+  "MORE_ALT_TEXT": "Detalles de la divisa de Creighton",
+  "USER_PROFILE": "Perfil del usuario"
 
 }

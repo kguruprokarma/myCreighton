@@ -9,7 +9,7 @@ import { translateText } from '../../common/translate';
 const userDetail = ( userDetailProps ) => {
   const userAvatar = `${userDetailProps.userDetail.userName.firstName.replace(/ /g, '')} ${userDetailProps.userDetail.userName.lastName.replace(/ /g, '')}`;
   return (
-    <article role='article' id='avatar'>
+    <article role='article'>
       <h1 className='announced-only'>{translateText('common:USER_DETAIL_AVATAR')}</h1>
       <Avatar name={userAvatar} size={48} round />
       <span className='openSansRegular avatar-name'> {userDetailProps.userDetail.userName.fullName}</span>

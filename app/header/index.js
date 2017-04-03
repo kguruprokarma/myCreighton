@@ -18,7 +18,6 @@ import * as RouteContants from '../constants/routeContants';
 import * as CommonContants from '../constants/commonConstants';
 import { HAMBURGER_ICON, MENUCLOSE_ICON, EVENTFILTER_ICON } from '../constants/imageConstants';
 
-
 export class Header extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -69,16 +68,16 @@ export class Header extends React.PureComponent {
   render() {
     const props = this.props;
     return (
-      <header>
+      <header role='banner' id='header'>
         <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}</h1>
         <nav role='navigation' id='navigation01' className='container'>
           <Row >
-            <Col xs={2} sm={2} className='hidden-lg hamburgerMenu'>
-              {props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ?
-                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => hashHistory.replace(`${RouteContants.CAMPUSDIRECTORY}${RouteContants.SIMPLE_SEARCH}`)} />
-                : <button className='btn btn-link btnnoPadding' onClick={this.navClick}><img alt='' src={props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} /></button>
+            <nav role="navigation" id="navigation01" className='col-xs-2 col-sm-2 hidden-lg hamburgerMenu'>
+              {props.currentState.split('/')[1] === CommonContants.DASHBOARD ?
+                <button className='btn btn-link btnnoPadding' onClick={this.navClick}><ImageComponent imagePath={props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} imagealtText={props.navData ? translateText('common:MENU_ALT_CLOSE_TAG') : translateText('common:MENU_ALT_TAG')} /></button>
+                : <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ? () => hashHistory.replace(`${RouteContants.CAMPUSDIRECTORY}${RouteContants.SIMPLE_SEARCH}`): this.goBack} />
               }
-            </Col>
+            </nav>
             <Col lg={10} className='visible-lg'>
               <h2 className='bebasregular logo mt10 mb10 fs1pt4'><Link to={`${RouteContants.DASHBOARD}`}>{translateText('common:MY_CREIGHTON')}</Link></h2>
             </Col>
@@ -101,7 +100,7 @@ export class Header extends React.PureComponent {
                 }
                 <li className='head-Icons'>
                   <div className='popUp'>
-                    <icon className='glyphicon glyphicon-user' onClick={this.showPopUp} />
+                    <icon className='glyphicon glyphicon-user btnnoPadding' role='link' tabIndex='0' aria-label='Link to User Profile popup' onClick={this.showPopUp} />
                     <div className='popUpContainer'>
                       {props.popUpData &&
                         <CustomPopUpComponent showPopValue={this.showPopUp} />}

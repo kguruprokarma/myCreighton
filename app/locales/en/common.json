@@ -20,8 +20,10 @@
   "IF_NOT_AGE_OF_MAJORITY": "IF NOT AGE OF MAJORITY",
   "STUDENT_PARENT": "Parent",
   "STUDENT_GUARDIAN": "Guardian",
-  "ASSIGNMENTS_DUE": "ASSIGNMENTS DUE",
-  "UPCOMING_ASSIGNMENTS": "UPCOMING ASSIGNMENTS",
+  "EVENTS_DUE": "EVENTS DUE", 
+  "UPCOMING_EVENTS": "UPCOMING EVENTS",
+  "ASSIGNMENTS_DUE": "Assignments due",
+  "UPCOMING_ASSIGNMENTS": "Upcoming Assignments",
   "CREIGHTON_SERVICES_AND_RESOURCES": "Creighton Services & Resources",
   "ACADEMIC_STATUS": "Academic Status",
   "PROFILE_MAJOR": "Major",
@@ -76,10 +78,10 @@
   "FACULTY_APPOINTMENT": "APPOINTMENT",
 
 
-  "CLASS_SCHEDULE": "CLASS SCHEDULE",
-  "CLASS_DETAIL": "CLASS DETAIL",
-  "TEST_QUIZZES": "TEST/QUIZZES",
-  "TODAYS_CLASS": "TODAY’S CLASS",
+  "CLASS_SCHEDULE": "Class Schedule",
+  "CLASS_DETAIL": "Class Detail",
+  "TEST_QUIZZES": "Test/Quizzes",
+  "TODAYS_CLASS": "Today's Class",
   "NEXT": "Next",
   "CLASSES_WEEK": "Week",
   "CLASSES_A-Z": "A-Z",
@@ -112,7 +114,7 @@
   "PAGE_FOOTER": "Page footer",
   "PAGE_HEADER": "Page header",
 
-  "NEXT_EVENTS":"NEXT EVENTS",
+  "NEXT_EVENTS":"Next Events",
   "NEXT_EVENTS_CAPTALIZE":"Next Events",
   "ASSIGNMENT": "Assignments",
   "EVENT_NOTES": "EVENT NOTES",
@@ -125,11 +127,13 @@
   "QUESTIONS_AND_SCORING": "QUESTIONS AND SCORING",
   "ASSIGNMENT_DETAILS": "ASSIGNMENT DETAILS",
 
-  "NEXT_EVENTS_CLASSES":"NEXT EVENTS - CLASS DETAIL",
-  "NEXT_EVENTS_TEST_DETAIL":"NEXT EVENTS - TEST DETAIL",
-  "NEXT_EVENTS_ASSIGNMENTS": "NEXT EVENTS - ASSIGNMENT DETAIL",
-  "NEXT_EVENTS_TEST_DETAIL_HEADER": "TEST DETAIL",
-  "NEXT_EVENTS_ASSIGNMENTS_HEADER": "ASSIGNMENT DETAIL",
+  "NEXT_EVENTS_CLASSES":"Next Events - Class Detail",
+  "NEXT_EVENTS_TEST_DETAIL":"Next Events - Test Detail",
+  "NEXT_EVENTS_ASSIGNMENTS": "Next Events - Assignment Detail",
+  "NEXT_EVENTS_TEST_DETAIL_HEADER": "Test Detail",
+  "NEXT_EVENTS_ASSIGNMENTS_HEADER": "Assignment Detail",
+  "NEXT_EVENTS_EVENT_DETAIL": "NEXT EVENTS - EVENT DETAIL",  
+  "NEXT_EVENTS_EVENT_DETAIL_HEADER": "DESCRIPTION",  
 
   "COMMON_TITLE": "Title",
   "COMMON_CLASS": "Class",
@@ -193,6 +197,7 @@
   
   "NO_RESPONSE": "Server error...!!",
   "NO_CONTENT": "No Content Available",
+  "NO_EVENTS_TO_DISPLAY": "No events to display",
   "NO_CLASSES_SCHEDULED": "No classes scheduled",
   "NO_DETAILS_PROVIDED": "No details have been provided by the instructor.",
   "NO_SEARCH_RESULT": "No matches found for the search",
@@ -211,7 +216,11 @@
   "FOOTER_UNIVERSITY_ADDRESS": "2500 California Plaza, Omaha, NE 68178",
   "FOOTER_CREIGHTON_UNIVERSITY": "2017 Creighton University",
   "SIGN_IN": "Sign In",
-  "HAMBURGER_MENU": "Menu"
+  "HAMBURGER_MENU": "Menu",
+  "MENU_ALT_TAG": "Main menu popup",
+  "MENU_ALT_CLOSE_TAG": "Close main menu popup",
+  "MONEY_ALT_TEXT" : "Show Creighton currency amounts",
+  "MORE_ALT_TEXT": "Creighton currency details",
+  "USER_PROFILE": "User Profile"
 
 }
-

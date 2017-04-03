@@ -394,18 +394,6 @@
 .gbl_lh-1 {
   line-height: 1;
 }
-/*restore line height to default value*/
-.gbl_lh-default {
-  line-height: 1.42857;
-}
-/*line height at 1.2*/
-.gbl_lh-1-2 {
-	line-height: 1.2;
-}
-/*line height at 1.25*/
-.gbl_lh-1-25 {
-	line-height: 1.25;
-}
 
 /*line height with pixel value*/
 .gbl_lh-10 {

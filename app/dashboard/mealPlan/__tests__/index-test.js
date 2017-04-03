@@ -44,7 +44,6 @@ describe('Mealplan Test Suite', () => {
 
   it('MealPlan component buttons', () => {
     expect(mealPlanC.find('button').length).toBe(1);
-    expect(mealPlanC.find('button img').length).toBe(1);
   });
 });
 

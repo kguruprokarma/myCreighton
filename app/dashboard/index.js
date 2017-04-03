@@ -49,14 +49,14 @@ export class Dashboard extends Component {
     const userDetails = props.userDetailsData;
     const dashboardList = dashboardModulesList(this.role);
     return (
-      <section id='dashboard'>
+      <section role='region' id='dashboard'>
         <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
         <Row className='mb20'>
           <Col sm={5} xs={10} md={5}>
             {userDetails && <UserDetail userDetail={userDetails} />}
           </Col>
-          <Col xs={2} className='hidden-lg hidden-md hidden-sm'>
-            <ToggleMealPlan toggle={this.onClick} />
+          <Col xs={2} className='pull-right text-right'>
+            <div className={this.state.shouldHide ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>
           </Col>
           <Col xs={12} sm={7} md={7}>
             <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetails} />

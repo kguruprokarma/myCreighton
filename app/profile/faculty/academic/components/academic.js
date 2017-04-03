@@ -10,18 +10,20 @@ import OfficeInformation from '../components/officeInformation';
 import LeftNav from '../../../../common/leftNav';
 
 const FacultyAcademic = (facultyAcademicData) => (
-  <article className='profileRow mt30'>
+  <article role='article' className='profileRow mt30'>
     {facultyAcademicData.data && facultyAcademicData.data.data && facultyAcademicData.data.data.length > 0 &&
-    <Row>
-      <Col sm={8} md={9} xs={12} className='userData pull-right'>
-        <Appointment data={facultyAcademicData.data.data[0]} />
-        <OfficeInformation data={facultyAcademicData.data.data[0]} />
-        <Instruction data={facultyAcademicData.data.data} />
-      </Col>
-      <Col md={3} sm={4} className='hidden-xs'>
-        <LeftNav role={facultyAcademicData.facultyProfile} />
-      </Col>
-    </Row>
+      <Row>
+        <Col sm={8} md={9} xs={12} className='userData pull-right'>
+          <form>
+            <Appointment data={facultyAcademicData.data.data[0]} />
+            <OfficeInformation data={facultyAcademicData.data.data[0]} />
+            <Instruction data={facultyAcademicData.data.data} />
+          </form>
+        </Col>
+        <Col md={3} sm={4} className='hidden-xs'>
+          <LeftNav role={facultyAcademicData.facultyProfile} />
+        </Col>
+      </Row>
     }
   </article>
 );

@@ -22,7 +22,7 @@ export class SearchBox extends Component {
     const constructorProps = props;
     const searchboxProps = this.props;
     this.state = constructorProps.state;
-    this.state.searchText = '';
+    this.state.searchText = searchboxProps.searchString ? searchboxProps.searchString : '';
     this.state.searchURL = '';
     this.onSearchText = this.onSearchText.bind(this);
    // this.handleChange = this.handleChange.bind(this);
@@ -114,7 +114,7 @@ export class SearchBox extends Component {
                       //onChange={this._handleKeydown}
                       ref={ref => this._typeahead = ref}
                       className='openSansLight mt20'
-                      placeholder={translateText('common:SEARCH_CREIGHTON_STAFF')}
+                      placeholder={this.state.searchText ? this.state.searchText : translateText('common:SEARCH_CREIGHTON_STAFF')}
                       renderMenuItemChildren={(option) => (
                         <div>
                           <span>{option.fac_first_name}</span>

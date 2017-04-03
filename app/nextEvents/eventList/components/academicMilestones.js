@@ -6,7 +6,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 const AcademicMilestones = (academicMilestonesProps) => (
-  <section className='academicMilestone' id='academicMilestoneList'>
+  <section role='region' className='academicMilestone' id='academicMilestoneList'>
     <div className='hidden-xs desktopEventsList'>
       <Col md={5} sm={5}>
         <h3 className='mb0 eventHeading'>{academicMilestonesProps.data.title} <span className=' eventOn'>{academicMilestonesProps.data.startDate}to {academicMilestonesProps.data.endDate}</span></h3>

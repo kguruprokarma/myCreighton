@@ -27,14 +27,15 @@ export class FacultyAcademic extends React.PureComponent {
     userReqObj.primaryValue = authUserDetails().netid;
     this.headerText = translateText('common:PROFILE_ACADEMIC');
     this.props.getFacultyAcademicData(userReqObj);
-    browserTitle(translateText('common:PROFILE_ACADEMIC'));
+    const facultyTitleValue = `${translateText('common:PROFILE_ACADEMIC')} ${translateText('common:USER_PROFILE')}`;
+    browserTitle(facultyTitleValue);
   }
 
   render() {
     const ACADEMIC_DATA = this.props.profileData;
     const props = this.props;
     return (
-      <section>
+      <section role='region'>
         {props.isLoading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
         {ACADEMIC_DATA && <FacultyAcademicView data={ACADEMIC_DATA} facultyProfile={this.props.profile} />}

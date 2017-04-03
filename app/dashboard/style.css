@@ -25,11 +25,12 @@
 .classes{
     background: #e3e3e3;
     border-left: 4px solid red;
-    background-color: floralwhite;
     border-bottom: 1px dotted grey;
 }
+
 .listflex {
     justify-content: space-between;
+    -ms-justify-content: space-between;
     min-height: 20px;
     overflow: visible;
     text-align: center;
@@ -169,6 +170,10 @@
 
 .school-img {
   width: 52px;
+}
+
+.imageHide {
+    display: none;
 }
 
 /* Media for small devices */
@@ -316,7 +321,7 @@
     }
 
     .doller-icon {
-        margin-top:10px;
+        margin-top:8px;
     }
 
    .well-badge {
@@ -399,8 +404,4 @@
         font-size: 1.2em;   /* font size 18 in pixel */
         text-align:left;
     }
-}
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-
 }
