@@ -19,7 +19,7 @@ export class NextEventFilter extends React.Component {
       selectAll: true,
       eventPeriod: EventConstants.EVENT_FILTER_7_DAYS,
       Items: {
-        eventperiodItems: [EventConstants.EVENT_FILTER_NEXT_EVENT, EventConstants.EVENT_FILTER_ALL, EventConstants.EVENT_FILTER_7_DAYS, EventConstants.EVENT_FILTER_TODAY]
+        eventperiodItems: [EventConstants.EVENT_FILTER_NEXT_EVENT, EventConstants.EVENT_FILTER_TODAY, EventConstants.EVENT_FILTER_7_DAYS, EventConstants.EVENT_FILTER_ALL ]
       },
       displayOptions: []
     };
@@ -33,7 +33,10 @@ export class NextEventFilter extends React.Component {
   }
   componentWillMount() {
     const displayOptions = JSON.parse(localStorage.getItem('displayOptions'));
-    this.setState({ displayOptions: displayOptions });
+    if (displayOptions && displayOptions[0]) {
+      this.setState({selectAll: displayOptions[0].checked});
+    }
+    this.setState({ displayOptions: displayOptions });    
     const localStorageValue = localStorage.getItem('setFilterValue');
     const displayOptionValue = localStorage.getItem('setDisplayOptionValue');
     if (localStorageValue !== null) {
@@ -91,7 +94,7 @@ export class NextEventFilter extends React.Component {
     const item = itemVal;
     const parent = parentVal;
     item.checked = !item.checked;
-    if(!item.checked) {
+    if (!item.checked) {
       this.setState({selectAll: false});
     }
     let uncheckedCount = 0;
@@ -105,6 +108,7 @@ export class NextEventFilter extends React.Component {
       parent.childrenUnselect = false;
     } else if (uncheckedCount > 0 && uncheckedCount !== parent.children.length) {
       parent.childrenUnselect = true;
+      parent.checked = false;
     } else {
       parent.childrenUnselect = false;
       parent.checked = true;
@@ -133,7 +137,9 @@ export class NextEventFilter extends React.Component {
         selectedObj.displayOptions[item.itemName] = selectedChildItems;
       }
     }
-    
+    const allValue = this.state.displayOptions;
+    allValue[0].checked = this.state.selectAll;
+    localStorage.setItem(EventConstants.DISPLAY_OPTIONS, JSON.stringify(this.state.displayOptions));
     localStorage.setItem('setDisplayOptionValue', JSON.stringify(selectedObj.displayOptions));
     props.filterChange(selectedObj);
   }

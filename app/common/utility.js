@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { sortBy } from 'lodash';
 import * as CommonConstants from '../constants/commonConstants';
 import * as urlConstants from '../constants/urlConstants';
 import { translateText } from './translate';
@@ -10,7 +11,7 @@ export const dataSort = (dataArray, key, order) => {
   const data = dataArray;
   const sortByKey = key;
   const sortOrder = order || CommonConstants.SORT_CLASS;
-  const sortedData = (sortOrder === CommonConstants.SORT_CLASS) ? ([...data].sort((a, b) => a[sortByKey] > b[sortByKey])) : ([...data].sort((a, b) => a[sortByKey] < b[sortByKey]));
+  const sortedData = (sortOrder === CommonConstants.SORT_CLASS) ? sortBy( data, [sortByKey]) : sortBy( data, [sortByKey]).reverse();
   return sortedData;
 };
 
@@ -288,8 +289,8 @@ export const createTimeStamp = (dataArray) => {
       if (days[(moment().add(day, 'days')._d).getDay()] === classObject.day) {
         const hours = parseInt(classObject.class_begin_time !== null ? classObject.class_begin_time.slice(0, 2) : 0);
         const minutes = parseInt(classObject.class_begin_time !== null ? classObject.class_begin_time.slice(-2) : 0);
-        const timeStampWithoutTime = new Date(moment().add(day, 'days')._d).toLocaleDateString();
-        const timeStampWithTime = new Date(timeStampWithoutTime).setMinutes((hours * 60) + minutes);
+        const newDateTimeStampWithoutTime = moment(moment().add(day, 'days')._d).format('LL');
+        const timeStampWithTime = new Date(newDateTimeStampWithoutTime).setMinutes((hours * 60) + minutes);
         const timeStampString = new Date(timeStampWithTime).toString();
         classObject.timeStamp = new Date(timeStampString);
         break;
@@ -451,10 +452,10 @@ export const getParentorGuardian = (dateOfBirth) => {
     if (todaySYear - year > 19) {
       return CommonConstants.STUDENT_GUARDIAN;
     } else if (todaySYear - year === 19) {
-      if (todaySMonth >= month) {
-        if (todaySDate >= date) {
-          return CommonConstants.STUDENT_GUARDIAN;
-        }
+      if (todaySMonth > month) {
+        return CommonConstants.STUDENT_GUARDIAN;
+      } else if (todaySMonth === month && todaySDate >= date) {
+        return CommonConstants.STUDENT_GUARDIAN;
       }
     }
   }

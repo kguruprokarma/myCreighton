@@ -35,7 +35,7 @@ class ClassDetails extends React.PureComponent {
     } else {
       obj = JSON.parse(localStorage.getItem('classDetails'));
       showPrevNext = true;
-      classData = find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
+      classData = obj[props.params.index];
     }
     let assignments = {};
     if (classData.assignmentData && classData.assignmentData !== null) {
@@ -79,18 +79,17 @@ class ClassDetails extends React.PureComponent {
 
     let nextObject = {};
     let prevObject = {};
-    const index = findIndex(obj, { sis_source_id: stringEncodeURIComponent(props.params.id) });
+    const index = parseInt(props.params.index);
     if (index < obj.length - 1) {
-      nextObject = obj[Object.keys(obj)[index + 1]];
+      nextObject = obj[index + 1];
     } else {
       nextObject.sis_source_id = {};
     }
     if (index > 0) {
-      prevObject = obj[Object.keys(obj)[index - 1]];
+      prevObject = obj[index - 1];
     } else {
       prevObject.sis_source_id = {};
     }
-
     return (
       <section role='region' className='classesDeatils'>
         {showPrevNext &&

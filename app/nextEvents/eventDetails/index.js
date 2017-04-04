@@ -5,12 +5,12 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
-import { find, findIndex } from 'lodash';
+//import { find, findIndex } from 'lodash';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { translateText } from '../../common/translate';
-import Assignments from './components/assignments';
-import TestOrQuiz from './components/testOrQuiz';
+//import Assignments from './components/assignments';
+//import TestOrQuiz from './components/testOrQuiz';
 import NextEventDetails from './components/eventDetails';
 import ClassDetails from './components/classDetails';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
@@ -33,6 +33,10 @@ class EventDetails extends React.PureComponent {
     this.assignDue = props.params.assigndue;
     this.eventType = props.params.eventdetailstype;
     this.eventId = stringEncodeURIComponent(props.params.id);
+    this.currentPath = '';
+    if (location && location.hash) {
+      this.currentPath = location.hash.split('/');
+    }
     if (localStorage !== undefined) {
       details = JSON.parse(localStorage.getItem('eventsFilterData'));
     }
@@ -50,62 +54,63 @@ class EventDetails extends React.PureComponent {
 
 
     if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
-      this.classData = details && find(details, { sis_source_id: this.eventId, type: NextEventsConstants.CLASSES_DETAILS });
-      index1 = findIndex(details, { sis_source_id: this.eventId });
+      this.classData = details && details[props.params.index];
+      index1 = parseInt(props.params.index);
     }
     if (this.eventType === NextEventsConstants.ASSIGNMENTS || this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
-      this.assignmentData = details && find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
-      index1 = findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
+      this.assignmentData = details && details[props.params.index];
+      index1 = parseInt(props.params.index);
     }
     // if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
     //   this.quizData = details && find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
     //   index1 = findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
     // }
     if (index1 < details.length - 1) {
-      nextObject = details[Object.keys(details)[index1 + 1]];
+      nextObject = details[index1 + 1];
     } else {
       nextObject.sis_source_id = {};
     }
     if (index1 > 0) {
-      prevObject = details[Object.keys(details)[index1 - 1]];
+      prevObject = details[index1 - 1];
     } else {
       prevObject.sis_source_id = {};
     }
-  //   {
-  //   console.log('props.currentState: ', props.location.pathname)
-  //   this.currentPath = props.location.pathname.split('/');
-     
-  // }
+    //   {
+    //   console.log('props.currentState: ', props.location.pathname)
+    //   this.currentPath = props.location.pathname.split('/');
 
-    return (<section  role='region'>
+    // }
+
+    return (<section role='region'>
       <div className='hidden-xs mb10 eventDetailsTitle'>
-          
+
         <Row>
           <Col sm={6}>
             <div className='hidden-xs'>
               <HeaderLabel headerLabel={headerText} />
             </div>
           </Col>
-          {/*{(this.currentPath[0] === '/eventdetails') &&*/}
+          {(this.currentPath[1] === NextEventsConstants.PATH_EVENT_DETAIL) &&
           <Col sm={6} className='mb20'>
             <nav role='navigation' id='navigation04'>
-              <button onClick={() => this.props.onMasterDataChange(false)} className='btn btn-primary nextEventBtn'>
-                <Link to={ROUTE_URL.EVENT_LIST}><span className='nextevent-logo' />
+              <Link to={ROUTE_URL.EVENT_LIST}>
+                <button onClick={() => props.onMasterDataChange(false)} className='btn btn-primary nextEventBtn'>
+                  <span className='nextevent-logo' />
                   <span className='float-right nextEventBtnTxt'>{translateText('NEXT_EVENTS')}</span>
-                </Link>
-              </button>
+                </button>
+              </Link>
             </nav>
           </Col>
-          {/*}*/}
+          }
         </Row>
       </div>
       {details && <div>
-        {/*this.eventType === NextEventsConstants.ASSIGNMENTS && details && <Assignments data={this.assignmentData} />*/}
-        {/*this.eventType === NextEventsConstants.TEST_OR_QUIZ && details && <TestOrQuiz data={this.quizData} />*/}
-        { (this.eventType === NextEventsConstants.ASSIGNMENTS || this.eventType === NextEventsConstants.TEST_OR_QUIZ) && details && <NextEventDetails data={this.assignmentData} />}
-        {this.eventType === NextEventsConstants.CLASSES_DETAILS && this.classData && <ClassDetails data={this.classData} categoryname={NextEventsConstants.CLASSES_DETAILS} id={this.eventId} />}
-      </div>
-      }
+          {/*this.eventType === NextEventsConstants.ASSIGNMENTS && details && <Assignments data={this.assignmentData} />*/}
+          {/*this.eventType === NextEventsConstants.TEST_OR_QUIZ && details && <TestOrQuiz data={this.quizData} />*/}
+          {(this.eventType === NextEventsConstants.ASSIGNMENTS || this.eventType === NextEventsConstants.TEST_OR_QUIZ) && details && <NextEventDetails data={this.assignmentData} />}
+          {this.eventType === NextEventsConstants.CLASSES_DETAILS && this.classData && <ClassDetails data={this.classData} categoryname={NextEventsConstants.CLASSES_DETAILS} id={this.eventId} />}
+        </div>
+        }
       <PreviousNext prevObj={prevObject} nextObj={nextObject} presentCategory={this.eventType} totalLength={details.length - 1} currentIndex={index1} prevItem={prevObject.sis_source_id} nextItem={nextObject.sis_source_id} />
     </section>);
   }
@@ -113,9 +118,9 @@ class EventDetails extends React.PureComponent {
 
 //export default EventDetails;
 
-const mapStateToProps = (eventsState) => (
+const mapStateToProps = () => (
   {
-    //    isMasterDataChange: eventsState.eventsReducer.isMasterDataChange
+        //    isMasterDataChange: eventsState.eventsReducer.isMasterDataChange
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);

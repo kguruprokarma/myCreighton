@@ -14,6 +14,7 @@ import HeaderLabel from '../../../common/headerLabel';
 import AlertComponent from '../../../common/alertComponent';
 import { translateText } from '../../../common/translate';
 import { authUserDetails, browserTitle } from '../../../common/utility';
+import Spinner from '../../../common/spinner';
 
 export class StaffProfessional extends React.PureComponent {
 
@@ -31,6 +32,7 @@ export class StaffProfessional extends React.PureComponent {
     const USER_DATA = props.professionalData.data;
     return (
       <section role='region' id='academic'>
+        {props.isLoading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:STAFF_PROFESSIONAL')} /></div>
         {USER_DATA &&
           <Row>
@@ -45,7 +47,7 @@ export class StaffProfessional extends React.PureComponent {
             </Col>
           </Row>
         }
-        {((!USER_DATA && !props.loading) || (USER_DATA.error)) &&
+        {((!USER_DATA && !props.loading && props.isError)) &&
           <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
@@ -61,7 +63,9 @@ StaffProfessional.propTypes = {
 const mapStateToProps = (professionalState) => (
   {
     professionalData: professionalState.professionalReducer.professionalData,
-    profile: professionalState.professionalReducer.profile
+    profile: professionalState.professionalReducer.profile,
+    isError: professionalState.professionalReducer.error,
+    isLoading: professionalState.professionalReducer.isLoading
 
   });
 

@@ -47,13 +47,19 @@ export function onMasterDataChange(bool) {
 }
 
 export function onLoading() {
-   return function (dispatch) {
+  return function (dispatch) {
     dispatch(loadingChange());
   };
 }
 
+export function onReceiveError(error) {
+  return function (dispatch) {
+    dispatch(receiveError(error));
+  };
+}
+
 export function offLoading() {
-   return function (dispatch) {
+  return function (dispatch) {
     dispatch(offLoadingChange());
   };
 }

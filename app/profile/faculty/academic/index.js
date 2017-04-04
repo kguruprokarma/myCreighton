@@ -39,7 +39,7 @@ export class FacultyAcademic extends React.PureComponent {
         {props.isLoading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
         {ACADEMIC_DATA && <FacultyAcademicView data={ACADEMIC_DATA} facultyProfile={this.props.profile} />}
-        {((!ACADEMIC_DATA && !props.loading) || (ACADEMIC_DATA.error)) &&
+        {((!ACADEMIC_DATA && !props.loading && props.isError)) &&
           <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
@@ -59,7 +59,8 @@ const mapStateToProps = (bioState) => (
   {
     profileData: bioState.profileReducer.profileData.data,
     profile: bioState.profileReducer.profile,
-    isLoading: bioState.profileReducer.isLoading
+    isLoading: bioState.profileReducer.isLoading,
+    isError: bioState.profileReducer.error
 
   });
 

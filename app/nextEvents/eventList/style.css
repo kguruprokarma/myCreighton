@@ -6,7 +6,7 @@
     background-color: #f2f2f2;
     padding-top: 5px;
     padding-bottom: 5px;
-    color: #7d7d7d;
+    color: #6e6e6e;
     font-size: 0.8em;   /* font size 12 in pixel */
     border-top:1px solid #c8c7cc;    
 }
@@ -79,9 +79,10 @@ a:hover, *:hover  {
         text-decoration: none;
 }
 
-.event-list-items:last-child {
+.event-listSection li:last-child {
     border-bottom: 1px solid #c8c7cc;
 }
+
 
 @media (min-width:768px) and (max-width: 992px) {
    
@@ -107,7 +108,23 @@ a:hover, *:hover  {
        font-size:1.75em;
        line-height: 1.1;
     }
-    .event-listSection {
+
+    .event-topsection {
         margin-top: -51px;
     }
+
+     .event-listSection li:last-child
+     {
+         border-bottom:0;
+     }
+
+    .event-listSection li:last-child article {
+        border-bottom: 1px solid #c8c7cc;
+    }
+    
+    .event-topsection .alert-warning, .event-topsection .alert-error {
+        margin-top: 50px;
+    }
+
+
 }

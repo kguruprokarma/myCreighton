@@ -137,6 +137,7 @@
   "COMMON_DESCRIPTION": "Descripción",
   "QUIZ_POINTS": "Puntos",
   "QUIZ_NUMBER_OF_QUESTIONS": "numero de preguntas",
+  "SETTINGS": "Ajustes",
 
   "STAFF_BUSINESS_INFORMATION": "INFORMACIÓN DE NEGOCIOS",
   "STAFF_PROFESSIONAL_DEVELOPMENT" : "DESARROLLO PROFESIONAL",
@@ -203,7 +204,7 @@
   "SEARCH": "Buscar",
   "ADVANCED_SEARCH": "Búsqueda Avanzada",
   "SIMPLE_SEARCH": "Búsqueda sencilla",
-  "SEARCH_RESULT": "RESULTADOS",
+  "SEARCH_RESULT": "Resultados",
   "SEARCH_ALL_RESULT": "Mostrar todo",
   "SEARCH_MORE_RESULT": "Carga más",
 
@@ -217,6 +218,7 @@
   "MENU_ALT_CLOSE_TAG": "Cerrar menú emergente",
   "MONEY_ALT_TEXT" : "Mostrar los importes de la moneda de Creighton",
   "MORE_ALT_TEXT": "Detalles de la divisa de Creighton",
-  "USER_PROFILE": "Perfil del usuario"
+  "USER_PROFILE": "Perfil del usuario",
+  "SETTING_DISPLAY_CONTENT": "En el icono Configuración, asegúrese de que al menos una opción de visualización esté marcada."
 
 }

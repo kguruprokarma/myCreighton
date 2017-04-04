@@ -22,11 +22,16 @@ export const getClassesData = (arrayData, eventFilterData, today) => {
   let data = null;
   const displayOptionData = [];
   each(arrayData, (arrayId) => {
-    data = (filter(eventFilterData, { 'sis_source_id': arrayId }))[0];
-    if (data) {
-      const value = showFeatureEvents(data.timeStamp, today);
-      if (value > 0) {
-        displayOptionData.push(data);
+    const array = filter(eventFilterData, { 'sis_source_id': arrayId });
+    if (array && array.length > 0) {
+      for (let i = 0; i<array.length; i++) {
+        data = (filter(eventFilterData, { 'sis_source_id': arrayId }))[i];
+        if (data) {
+          const value = showFeatureEvents(data.timeStamp, today);
+          if (value > 0) {
+            displayOptionData.push(data);
+          }
+        }
       }
     }
   });
@@ -39,16 +44,18 @@ export const getAssigmentsAndQuizzesData = (arrayData, eventFilterData, today) =
   each(arrayData, (arrayId) => {
     data = filter(eventFilterData, { 'sis_source_id': arrayId });
     if (data && data.length > 0) {
-      const listOfAssignmentsOrQuizze = data[0].assignmentData;
-      listOfAssignmentsOrQuizze.map((assignmentOrQuizze) => {
-        if (assignmentOrQuizze.type === CommonConstants.EVENT_TYPE_ASSIGNMENTS ||
+      for (let i = 0; i<data.length; i++) {
+        const listOfAssignmentsOrQuizze = data[0].assignmentData;
+        listOfAssignmentsOrQuizze.map((assignmentOrQuizze) => {
+          if (assignmentOrQuizze.type === CommonConstants.EVENT_TYPE_ASSIGNMENTS ||
                 assignmentOrQuizze.type === CommonConstants.EVENT_TYPE_QUIZ) {
-          const value = showFeatureEvents(assignmentOrQuizze.timeStamp, today);
-          if (value > 0) {
-            displayOptionData.push(assignmentOrQuizze);
-         }
-        }
-      });
+            const value = showFeatureEvents(assignmentOrQuizze.timeStamp, today);
+            if (value > 0) {
+              displayOptionData.push(assignmentOrQuizze);
+            }
+          }
+        });
+      }
     }
   });
   return displayOptionData;

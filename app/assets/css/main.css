@@ -347,12 +347,7 @@ input {
     width: 5px;
 }
 
-.control-checkbox .control__indicator.back_checkbox:after {
-    border-width: 0 2px 0px 0;
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-}
+
 
 .control-checkbox input[disabled]+.control__indicator:after {
     left: 8px;
@@ -475,6 +470,14 @@ title {
     text-transform: capitalize;
 }
 
+.disableButton{
+    pointer-events: none;
+    color: gray;
+    background: #ddd;
+    border-color: #ddd;
+}
+
+
 /* Media for small devices */
 @media screen and (min-width: 1170px) {
 
@@ -590,7 +593,6 @@ title {
         font-size: 1.4em;   /* font size 21 in pixel */
     }
     
-    
 }
 
 @media screen and (min-width: 768px) and (max-width: 1010px) {
@@ -633,7 +635,6 @@ title {
     .view-container {
         padding-bottom:230px;   
     }
-
 }
 
 @media screen and (max-width: 767px) {
@@ -646,9 +647,3 @@ title {
     }
 }
 
-.disableButton{
-    pointer-events: none;
-    color: gray;
-    background: #ddd;
-    border: #ddd;
-}

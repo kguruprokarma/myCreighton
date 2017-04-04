@@ -12,7 +12,7 @@ const Classes = (classesProps) => (
   <article role='article' className='classesWeek'>
     <div className='hidden-xs desktopClassesList'>
       {/*<Link to={`${ROUTE_URL.EVENT_DETAILS}/${quizProps.data.type}/${quizProps.data.sis_source_id}/${quizProps.data.assignment_id}`}>*/}
-      <Link to={`${ROUTE_URL.EVENT_DETAILS}/${classesProps.data.type}/${classesProps.data.sis_source_id}/`}>
+      <Link to={`${ROUTE_URL.EVENT_DETAILS}/${classesProps.data.type}/${classesProps.data.sis_source_id}/${classesProps.currentIndex}`}>
         <Col md={6} sm={6}>
           <h2 className='mb0 classesHeading'>{classesProps.data.course_title} {classesProps.data.course_number} <span className='classOn'>{getDueTime(classesProps.data.timeStamp)}</span></h2>          
         </Col>
@@ -28,7 +28,7 @@ const Classes = (classesProps) => (
         </Col>
       </Link>
     </div>
-    <Link to={`${ROUTE_URL.EVENT_DETAILS}/${classesProps.data.type}/${classesProps.data.sis_source_id}`}>
+    <Link to={`${ROUTE_URL.EVENT_DETAILS}/${classesProps.data.type}/${classesProps.data.sis_source_id}/${classesProps.currentIndex}`}>
       <Row className='visible-xs mobileClassesList'>
         <Col xs={7}>
           <span className='classOn'>{getDueTime(classesProps.data.timeStamp)}</span>

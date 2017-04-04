@@ -37,15 +37,15 @@ const routes = (
           <Route path={ROUTE_URL.PROFILE} title='My Profile - ' component={Bio} />
           <Route path={ROUTE_URL.ACADEMIC} title='Academic - ' component={AcademicComponent} />
           <Route path={ROUTE_URL.CLASSES + ROUTE_URL.CLASS_TAB_PARAM} title='Class Schedule - ' component={ClassesComponent} />
-          <Route path={ROUTE_URL.CLASS_DETAILS + ROUTE_URL.CATEGORY_NAME_PARAM + ROUTE_URL.ID_PARAM} title='Class Detail - ' component={ClassDetails} />
+          <Route path={ROUTE_URL.CLASS_DETAILS + ROUTE_URL.CATEGORY_NAME_PARAM + ROUTE_URL.ID_PARAM + ROUTE_URL.INDEX_PARAM} title='Class Detail - ' component={ClassDetails} />
           <Route path={ROUTE_URL.DASHBOARD} title='' component={DashboardComponent} />
           <Route path={ROUTE_URL.DASHBOARD + ROUTE_URL.USER_ROLE_TYPE} title='' component={DashboardComponent} />
           <Route path={ROUTE_URL.STAFF + ROUTE_URL.PROFILE} title='Staff Profile -' component={StaffProfileComponent} />
           <Route path={ROUTE_URL.FACULTY + ROUTE_URL.PROFILE} title='Faculty Profile -' component={FacultyProfileComponent} />
           <Route path={ROUTE_URL.FACULTY + ROUTE_URL.ACADEMIC} title='Faculty Academic -' component={FacultyAcademicComponent} />
           <Route path={ROUTE_URL.EVENT_LIST} title='' component={EventListComponent} />
-          <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.EVENT_ASSIGN_DUE} title='Event Detail - ' component={EventDetails} />
-          <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM} title='Event Detail - ' component={EventDetails} />
+          <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.EVENT_ASSIGN_DUE + ROUTE_URL.INDEX_PARAM} title='Event Detail - ' component={EventDetails} />
+          <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.INDEX_PARAM} title='Event Detail - ' component={EventDetails} />
           <Route path={ROUTE_URL.STAFF + ROUTE_URL.PROFESSIONAL} title='Professional - ' component={Professional} />
           <Route path={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SEARCH_TYPE} title='Campus Directory - ' component={CampusDirectoryComponent} />
           <Route path={ROUTE_URL.SERCHRESULTS + ROUTE_URL.SEARCH_QUERY} title='Search - ' component={SearchResultsComponent} />

@@ -16,11 +16,11 @@ const receiveClassesData = (classesData) => (
     data: classesData
   });
 
-/*const receiveError = (error) => (
+const receiveError = (error) => (
   {
     type: types.RECEIVE_CLASSES_DATA_ERROR,
     data: error
-  });*/
+  });
 
 const catagoryChange = (str) => (
   {
@@ -47,6 +47,12 @@ const receiveAssignmentsData = (assignmentsData) => (
 export function onCatagoryChange(str) {
   return function (dispatch) {
     dispatch(catagoryChange(str));
+  };
+}
+
+export function onReceiveError(error) {
+  return function (dispatch) {
+    dispatch(receiveError(error));
   };
 }
 

@@ -18,10 +18,11 @@
     padding-right: 4px;
 }
 
-.foot-nav{
+.foot-nav {
     text-align: center;
     padding-left: 20px;
     font-size: 1em; /* font size 15 in pixel */
+    display: inline;
 }
 
  .copy-right {

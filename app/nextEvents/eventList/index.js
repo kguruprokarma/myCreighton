@@ -15,8 +15,8 @@ import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import * as CommonConstants from '../../constants/commonConstants';
 import { translateText } from '../../common/translate';
 import { authUserDetails, dataFilterAddingData, createTimeStamp, convertEncodeURIComponent, addedTypeField, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
-import { getClassesData, getAssigmentsAndQuizzesData, prepareAssignmentOrQuizze, prepareDisplayObject, getAssigmentOrQuizzes } from '../eventList/components/nextEventUtility';
-//import AlertComponent from '../../common/alertComponent';
+import { getClassesData, getAssigmentsAndQuizzesData, prepareDisplayObject } from '../eventList/components/nextEventUtility';
+import AlertComponent from '../../common/alertComponent';
 import './style.css';
 import Spinner from '../../common/spinner';
 import EventDetails from '../eventDetails/index';
@@ -34,7 +34,10 @@ export class EventList extends React.PureComponent {
     props.onMasterDataChange(false);
     props.onLoading();
     if (this.userReqObj !== undefined && authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {
-      const result = getClassAndAssignmentAPIData(this.userReqObj);
+      const result = getClassAndAssignmentAPIData(this.userReqObj).catch((error) => {
+        //for catching API error
+        props.onReceiveError(error);
+      });
       result.then((masterObj1) => {
         this.masterObj = masterObj1;
         props.onMasterDataChange(true);
@@ -74,11 +77,10 @@ export class EventList extends React.PureComponent {
       let val1;
       if (localStorage.getItem('setFilterValue') !== null) {
         val = localStorage.getItem('setFilterValue');
-      }      
+      }
       if (localStorage.getItem('setDisplayOptionValue') !== null) {
         val1 = localStorage.getItem('setDisplayOptionValue');
       }
-      console.log('val1: ', val1);
       const result = this.getSelectedFilterData(val, val1);
       return result;
     }
@@ -104,7 +106,6 @@ export class EventList extends React.PureComponent {
       day = filterSelection;
     }
 
-    
 
     if (localStorage !== undefined) {
       eventDetails = JSON.parse(localStorage.getItem('eventList'));
@@ -132,7 +133,7 @@ export class EventList extends React.PureComponent {
       sortedEventData = sortBy(filterlist, ['timeStamp']);
       if (sortedEventData && sortedEventData.length > 0 && day === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
         const nextEventDetail = [];
-        nextEventDetail.push(Object.values(sortedEventData)[0]);
+        nextEventDetail.push(sortedEventData[0]);
         eventFilterData = nextEventDetail;
       } else {
         eventFilterData = sortedEventData;
@@ -144,23 +145,18 @@ export class EventList extends React.PureComponent {
       keys = Object.keys(options);
     }
 
-    console.log('options: ', options);
-    console.log('keys: ', keys);
-    console.log('eventFilterData: ', eventFilterData);
-
-    if(eventFilterData)
-    {
-    if (options && keys && keys.length > 0) {
-      eventFilterData = this.sortingDisplayOptionSelection(options, eventFilterData);
-      localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
-    } else {
-      if (eventFilterData) {
+    if (eventFilterData) {
+      if (options && keys && keys.length > 0) {
+        eventFilterData = this.sortingDisplayOptionSelection(options, eventFilterData);
         localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
+      } else {
+        if (eventFilterData) {
+          localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
+          this.getEventDisplayOptions();
+        }
       }
     }
-    }
-
-    this.getEventDisplayOptions();
+    
     return eventFilterData;
   }
 
@@ -170,8 +166,8 @@ export class EventList extends React.PureComponent {
     const displayOptions = [];
     const classes = [];
     const classAssignments = [];
-    const quizzes = [];
-    let classEvent = [];
+    // const quizzes = [];
+    // let classEvent = [];
 
     if (localStorage !== undefined) {
       eventDetails = JSON.parse(localStorage.getItem('eventList'));
@@ -198,8 +194,8 @@ export class EventList extends React.PureComponent {
         }
       }
     });
-    const ASSIGNMENTS_DATA = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
-    classEvent = prepareAssignmentOrQuizze(ASSIGNMENTS_DATA);
+    //const ASSIGNMENTS_DATA = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
+    //const classEvent = prepareAssignmentOrQuizze(ASSIGNMENTS_DATA);
 
     const matchedclassesObj = map(uniqBy(classes, CommonConstants.SIS_SOURCE_ID));
     const matchedAssignments = map(uniqBy(classAssignments, CommonConstants.SIS_SOURCE_ID));
@@ -221,10 +217,10 @@ export class EventList extends React.PureComponent {
 
   sortingDisplayOptionSelection(options, eventFilterData) {
     let classesIds = [];
-    let assignmentsIds = [];
-    let quizzesIds = [];
+    //const assignmentsIds = [];
+    //const quizzesIds = [];
     let classEventsIds = [];
-    let displayOptionData = [];
+    //const displayOptionData = [];
     const finalResult = [];
     const keys = Object.keys(options);
     const today = moment()._d;
@@ -271,14 +267,34 @@ export class EventList extends React.PureComponent {
   checkEventPeriod(EVENT_DATA) {
     const localStorageValue = localStorage.getItem('setFilterValue');
 
-    return (localStorageValue === CommonConstants.EVENT_FILTER_NEXT_EVENT? this.renderNextEventDetail(EVENT_DATA) : this.renderData(EVENT_DATA));
+    return (localStorageValue === CommonConstants.EVENT_FILTER_NEXT_EVENT ? this.renderNextEventDetail(EVENT_DATA) : this.renderData(EVENT_DATA));
   }
 
   renderNoDataFound() {
     return (
       <Alert bsStyle='warning'>
-        <h4 className='mb0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
+        <div className='mb0'>
+          <div>
+            <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
+            <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
+          </div>
+        </div>
       </Alert>
+    );
+  }
+
+  renderSeverError() {
+    return (
+      <Row>
+        <Col md={8} sm={6} xs={12}>
+          <div className='hidden-xs'>
+            <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} />
+          </div>
+        </Col>
+        <Col xs={12}>
+          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+        </Col>
+      </Row>
     );
   }
 
@@ -286,27 +302,29 @@ export class EventList extends React.PureComponent {
     const props = this.props;
     props.offLoading();
     return (
-      <article className='event-listSection'>
+      <article className='event-topsection'>
         <Row><Col md={8} sm={6} xs={12}>
           <div className='hidden-xs'>
             <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} />
           </div>
         </Col>
         </Row>
-        <div>
+        <ul className='list-unstyled event-listSection'>
           {EVENT_DATA && authUserDetails().userRole === CommonConstants.ROLE_STUDENT && EVENT_DATA.length > 0 ? EVENT_DATA.map((eventType, index) => (
-            <div key={index}>
-              {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} />}
-              {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} />}
-              {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} />}
-            </div>
+            <li key={index}>
+              {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} currentIndex={index} />}
+              {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} currentIndex={index} />}
+              {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} currentIndex={index} />}
+            </li>
           )) :
           <Alert bsStyle='warning'>
-            <h4 className='mb0'>{translateText('common:NO_CONTENT')}</h4>
+            <div>
+              <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
+              <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
+            </div>
           </Alert>
-
           }
-        </div>
+        </ul>
         {/*{((!EVENT_DATA && !props.loading) || (EVENT_DATA.error)) &&
           <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
         }*/}
@@ -315,7 +333,8 @@ export class EventList extends React.PureComponent {
   }
 
   renderDataCheck(EVENT_DATA) {
-    return (EVENT_DATA !== undefined && EVENT_DATA.length > 0) ? this.checkEventPeriod(EVENT_DATA) : this.renderNoDataFound();
+    const props = this.props;
+    return (EVENT_DATA !== undefined && EVENT_DATA.length > 0) ? this.checkEventPeriod(EVENT_DATA) : (props.isError ? this.renderSeverError() : this.renderNoDataFound());
   }
 
   renderNextEventDetail(EVENT_DATA) {
@@ -323,6 +342,7 @@ export class EventList extends React.PureComponent {
     if (eventData) {
       eventData.eventdetailstype = eventData.type;
       eventData.id = eventData.sis_source_id;
+      eventData.index = CommonConstants.ZERO;
       if (eventData.assignment_id) {
         eventData.assigndue = eventData.assignment_id;
       }
@@ -360,6 +380,7 @@ const mapStateToProps = (eventsState) => (
     assignmentsData: eventsState.eventsReducer.eventsData.data,
     classesData: eventsState.classesReducer.classesData.data,
     loading: eventsState.eventsReducer.isLoading,
+    isError: eventsState.eventsReducer.error,
     isMasterDataChange: eventsState.eventsReducer.isMasterDataChange,
     classLoading: eventsState.classesReducer.isLoading,
     EventChangedValue: eventsState.eventsFilterReducer.changedValue

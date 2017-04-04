@@ -32,6 +32,7 @@ const classesReducer = (state = initialState, action = null) => {
       });
     case types.ON_CATAGORY_CHANGE:
       return Object.assign({}, state, {
+        isLoading: true,
         catagoryName: action.data
       });
 

@@ -16,12 +16,12 @@ export class PreviousNext extends React.Component {
     return (
       <div className='row' >
         <div className='form-group col-xs-6'>
-          <Link to={`${ROUTE_URL.CLASS_DETAILS}/${previousNextData.presentCategory}/${previousNextData.prevItem}`} className={`btn btn-primary ${previousNextData.currentIndex===0?'disableButton':''}`}>
+          <Link to={`${ROUTE_URL.CLASS_DETAILS}/${previousNextData.presentCategory}/${previousNextData.prevItem}/${previousNextData.currentIndex - 1}`} className={`btn btn-primary ${previousNextData.currentIndex===0?'disableButton':''}`}>
             <span className='glyphicon glyphicon-chevron-left' /> {translateText('common:PREVIOUS')}
           </Link>
         </div>
         <div className='form-group col-xs-6 text-right'>
-          <Link to={`${ROUTE_URL.CLASS_DETAILS}/${previousNextData.presentCategory}/${previousNextData.nextItem}`} className={`btn btn-primary ${previousNextData.currentIndex===previousNextData.totalLength?'disableButton':''}`}> {translateText('common:NEXT')}
+          <Link to={`${ROUTE_URL.CLASS_DETAILS}/${previousNextData.presentCategory}/${previousNextData.nextItem}/${previousNextData.currentIndex + 1}`} className={`btn btn-primary ${previousNextData.currentIndex===previousNextData.totalLength?'disableButton':''}`}> {translateText('common:NEXT')}
             <span className='glyphicon glyphicon-chevron-right' />
           </Link>
         </div>

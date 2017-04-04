@@ -11,7 +11,7 @@ import { translateText } from '../../../common/translate';
 
 const Assignments = (assignmentProps) => (
   <section role='region' className='eventAssignments'>
-    <Link to={`${ROUTE_URL.EVENT_DETAILS}/${assignmentProps.data.type}/${assignmentProps.data.sis_source_id}/${assignmentProps.data.assignment_id}`}>
+    <Link to={`${ROUTE_URL.EVENT_DETAILS}/${assignmentProps.data.type}/${assignmentProps.data.sis_source_id}/${assignmentProps.data.assignment_id}/${assignmentProps.currentIndex}`}>
       <div className='hidden-xs desktopEventsList'>
         <Col md={6} sm={6}>
           <h3 className='mb0 eventHeading'><span className='assignIcon mr10'>&nbsp;</span> {assignmentProps.data.assign_title} <span className='eventOn'><span>{translateText('DUE')} </span>{convertDueDateTimeStamp(assignmentProps.data.assign_due)}</span></h3>

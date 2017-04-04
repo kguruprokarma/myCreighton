@@ -97,6 +97,10 @@
     top: -4px;  
 }
 
+.cls:last-child .mobileClassesList, .cls:last-child .desktopClassesList {
+    border-bottom:1px solid #c8c7cc;
+}
+
 /* Media for small devices */
 @media screen and (min-width:992px) {
     .classOn {

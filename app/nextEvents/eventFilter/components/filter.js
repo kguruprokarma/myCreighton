@@ -5,25 +5,25 @@ import React from 'react';
 import { ListGroupItem, ListGroup, Col } from 'react-bootstrap';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { DOWN_ARROW } from '../../../constants/imageConstants';
+import { translateText } from '../../../common/translate';
 
 const labels = {
   EVENT_PERIOD_HEADING: 'EVENT PERIOD',
   DISPLAY_OPTIONS_HEADING: 'DISPLAY OPTIONS',
   DONE_TEXT: 'Done',
-  height: { 'height': 520 }
+  height: { 'height': 390 }
 };
 const EventFilter = (eventFilterProps) => (
   <article className='row'>
     <div className='graybtBorder pb10'>
-      <Col xs={9}>
-        <p className='filterSettings openSansRegular'>Settings</p>
-      </Col>
-      <Col xs={3}>
-        <button className='filterDoneBtn openSansRegular' onClick={eventFilterProps.showSelected}>{labels.DONE_TEXT}</button>
+      <Col xs={12}>
+        <p className='filterSettings openSansRegular pl30'>{translateText('SETTINGS')}
+          <span><button className='filterDoneBtn openSansRegular pull-right' onClick={eventFilterProps.showSelected}>{labels.DONE_TEXT}</button></span>
+        </p>
       </Col>
     </div>
     <div>
-      <Scrollbars horizontal={false} style={labels.height}>
+      <Scrollbars style={labels.height}>
         <p className='filterHeading openSansRegular mt10 mb0 plr15'>{labels.EVENT_PERIOD_HEADING}</p>
         <div className='control-group eventFilterGroup'>
           <ListGroup>
@@ -34,8 +34,8 @@ const EventFilter = (eventFilterProps) => (
                   <div className='FilterRadioBtn control__indicator' />
                 </label>
               </ListGroupItem>
-              ))
-              }
+            ))
+            }
           </ListGroup>
         </div>
         <p className='filterHeading openSansRegular mt10 mb0 plr15'>{labels.DISPLAY_OPTIONS_HEADING}</p>
@@ -48,7 +48,7 @@ const EventFilter = (eventFilterProps) => (
                   <div className='control__indicator' />
                 </label> : <label className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItem.itemName}</span>
                   <input type='checkbox' name='eventPeriod' value={eventItem.itemName} onChange={eventFilterProps.toggleCheckBoxParent(eventItem)} checked={eventItem.checked} />
-                  <div className={eventItem.childrenUnselect?'control__indicator back_checkbox':'control__indicator'} />
+                  <div className={eventItem.childrenUnselect?'control__indicator back_checkbox':'control__indicator'}><span className='box-minus' /></div>
                 </label>}
                 {eventItem.children.length > 0 && <button className='btn btn-link btnnoPadding downArrowImage' onClick={eventFilterProps.showChild(eventItem)}><img src={DOWN_ARROW} alt='' className={eventItem.showItem ? 'revImage' : ''} /></button>}
                 {eventItem.showItem && <ListGroup>

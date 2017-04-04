@@ -14,7 +14,7 @@ import '../classList/style.css';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import Spinner from '../../common/spinner';
-import { authUserDetails, convertEncodeURIComponent, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
+import { filterTodaysClassSchedule, dataSort, dataFilterAddingData, authUserDetails, convertEncodeURIComponent, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
 import AlertComponent from '../../common/alertComponent';
 
 export class Classes extends React.PureComponent {
@@ -23,8 +23,6 @@ export class Classes extends React.PureComponent {
     super(props);
     const classesProps = this.props;
     this.userReqObj = {};
-    // this.userReqObj.primaryKey = 'netid';
-    // this.userReqObj.primaryValue = '6cb4db8459';
     this.userReqObj.primaryKey = 'netid';
     this.userReqObj.primaryValue = authUserDetails().netid;
 
@@ -48,7 +46,10 @@ export class Classes extends React.PureComponent {
   onChangeOfTab(catagoryName) {
     const props = this.props;
     props.onCatagoryChange(catagoryName);
-    const result = getClassAndAssignmentAPIData(this.userReqObj);
+    const result = getClassAndAssignmentAPIData(this.userReqObj).catch((error) => {
+        //for catching API error
+      props.onReceiveError(error);
+    });
     result.then((masterObj) => {
       //successMessage is whatever we passed in the resolve(...) function above.
       //It doesn't have to be a string, but if it is only a succeed message, it probably will be.
@@ -71,6 +72,7 @@ export class Classes extends React.PureComponent {
 
   render() {
     const classListData = this.props;
+    const props = this.props;
     const USER_DATA = convertEncodeURIComponent(classListData.classesData);
     const ASSIGNMENTS_DATA = convertEncodeURIComponent(classListData.assignmentsData);
     const defaultArray = [];
@@ -95,7 +97,13 @@ export class Classes extends React.PureComponent {
         });
         return objClass;
       });
-      localStorage.setItem('classDetails', JSON.stringify(defaultArray));
+      if (classListData.params.classtab === CommonConstants.WEEK) {
+        localStorage.setItem('classDetails', JSON.stringify((dataFilterAddingData(dataSort(defaultArray, CommonConstants.CLASS_BEGIN_TIME, CommonConstants.ASC)))));
+      } else if (classListData.params.classtab === CommonConstants.TODAY) {
+        localStorage.setItem('classDetails', JSON.stringify(dataSort(filterTodaysClassSchedule(defaultArray), CommonConstants.CLASS_BEGIN_TIME, CommonConstants.ASC)));
+      } else if (classListData.params.classtab === CommonConstants.LIST) {
+        localStorage.setItem('classDetails', JSON.stringify(dataSort(defaultArray, CommonConstants.COURSE_TITLE, CommonConstants.ASC)));
+      }
     }
 
     return (
@@ -108,13 +116,13 @@ export class Classes extends React.PureComponent {
             <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />
           </Col>
         </Row>
-        {classListData.loading && <Spinner />}
+        { props.loading && <Spinner />}
         {USER_DATA && USER_DATA.data && USER_DATA.data.length > 0 && <div>
 
           <ClassBox data={USER_DATA} catagoryName={classListData.params.classtab} />
         </div>
         }
-        {(!USER_DATA || USER_DATA.error) &&
+        {(!USER_DATA && classListData.isError) &&
           <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
@@ -127,7 +135,8 @@ const mapStateToProps = (classesState) => (
     classesData: classesState.classesReducer.classesData.data,
     assignmentsData: classesState.classesReducer.assignmentsData.data,
     catagoryName: classesState.classesReducer.catagoryName,
-    loading: classesState.classesReducer.isLoading
+    loading: classesState.classesReducer.isLoading,
+    isError: classesState.classesReducer.error
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);

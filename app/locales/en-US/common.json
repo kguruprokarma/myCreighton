@@ -202,12 +202,12 @@
   "NO_DETAILS_PROVIDED": "No details have been provided by the instructor.",
   "NO_SEARCH_RESULT": "No matches found for the search",
 
-  "EXAMPLE_CAMPUS_DIRECTORY_SEARCH": "Examples: smith or smith, c or smith, carl",
+  "EXAMPLE_CAMPUS_DIRECTORY_SEARCH": "Examples: smith o smith, c o smith, carl",
   "SEARCH_CREIGHTON_STAFF": "Search Creighton Staff",
   "SEARCH": "Search",  
   "ADVANCED_SEARCH": "Advanced Search",
   "SIMPLE_SEARCH": "Simple Search",
-  "SEARCH_RESULT": "RESULTS",
+  "SEARCH_RESULT": "Results",
   "SEARCH_ALL_RESULT": "Show All",
   "SEARCH_MORE_RESULT": "Load More",
 
@@ -221,6 +221,7 @@
   "MENU_ALT_CLOSE_TAG": "Close main menu popup",
   "MONEY_ALT_TEXT" : "Show Creighton currency amounts",
   "MORE_ALT_TEXT": "Creighton currency details",
-  "USER_PROFILE": "User Profile"
+  "USER_PROFILE": "User Profile",
+  "SETTING_DISPLAY_CONTENT": "In the Settings icon make sure at least one display option is checked."
 
 }

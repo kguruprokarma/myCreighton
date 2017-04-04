@@ -16,12 +16,12 @@ const WeekClasses = (weekProps) => (
   <div>
     {
       weekProps.listOfData.length > 0 ?
-      weekProps.listOfData.map((weekClass, classIndex) => {
+      weekProps.listOfData.map((weekClass, weekIndex) => {
         presentHeader = weekClass.day;
         return (
-          <div key={classIndex} className='cls'>
+          <div key={weekIndex} className='cls'>
             {lastHeader !== presentHeader && <DayHeader day={lastHeader = weekClass.day} />}
-            <Link to={`${ROUTE_URL.CLASS_DETAILS}/${weekProps.catagory}/${weekClass.sis_source_id}`}>
+            <Link to={`${ROUTE_URL.CLASS_DETAILS}/${weekProps.catagory}/${weekClass.sis_source_id}/${weekIndex}`}>
               <ClassInfo data={weekClass} />
             </Link>
           </div>

@@ -53,7 +53,7 @@ export class SearchResults extends React.PureComponent {
                 </Col>
                 <Col md={3} xs={6} className='text-right'>
                   {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length &&
-                    <button className='btn btn-link btnnoPadding' onClick={() => { this.setState({ userList: props.SimpleSearchData.data }); }}>{translateText('common:SEARCH_ALL_RESULT')}</button>
+                    <button className='btn btn-link btnnoPadding show-all-btn' onClick={() => { this.setState({ userList: props.SimpleSearchData.data }); }}>{translateText('common:SEARCH_ALL_RESULT')}</button>
                   }
                 </Col>
               </Row>
@@ -62,7 +62,7 @@ export class SearchResults extends React.PureComponent {
               this.state.userList.length > 0 ?
               this.state.userList && this.state.userList.map((user, userindex) => (
                 <Result {...user} key={userindex} />
-            )) : <div> {translateText('common:NO_SEARCH_RESULT')}: {props.params.searchquery}</div>
+            )) :(props.SimpleSearchData ? <div> {translateText('common:NO_SEARCH_RESULT')}: <span className='cmpNoResult'> {`"${props.params.searchquery}"`} </span></div> : '')
             }
             {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length &&
               <div className='text-center mt20'>

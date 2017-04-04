@@ -11,6 +11,7 @@ import * as actionCreators from '../header/actions';
 import Footer from '../footer/index';
 import Navigation from '../common/mainNav';
 import HeaderComponent from '../header/index';
+import * as urlConstants from '../constants/urlConstants';
 
 @translate([], { wait: true })
 
@@ -22,6 +23,11 @@ class Main extends React.PureComponent {
     this.state = {
       isLogin: false
     };
+    if (!localStorage.getItem('adfs-session')) {
+      localStorage.setItem('adfs-session', 'true');
+      const currentUrl = encodeURIComponent(document.URL);
+      window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
+    }
   }
 
   componentWillMount() {
@@ -74,7 +80,7 @@ class Main extends React.PureComponent {
         {/* this is footer section */}
         {this.state.isLogin && <Footer />}
         {/* /this is footer section */}
-        {(props.popUpData || props.filterPopUpData) && <button className='btn btn-link btnnoPadding' onClick={this.hidePopUp}><div className='popUpPatch'>&nbsp;</div></button>}
+        {(props.popUpData || props.filterPopUpData) && <input type='button' className='btn btn-link btnnoPadding popUpPatch' onClick={this.hidePopUp} />}
       </div>
     );
   }

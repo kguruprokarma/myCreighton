@@ -1,3 +1,7 @@
+.cmpNoResult {
+    font-weight: bold;
+    font-style: italic;
+}
 .cmpsDirRsltsFound {
     color: #313131;
     font-size: 1.0666666666666667em;    /* font size 16 in pixel */
@@ -42,4 +46,10 @@
 }
 .cmpsDirLoadMoreBtn.focus.active {
     outline: none ;
+}
+
+.show-all-btn {
+    font-family: 'open_sanslight', sans-serif;
+    font-size: 1em; /* font size 15 in pixel */
+    color: #0054a6;
 }
