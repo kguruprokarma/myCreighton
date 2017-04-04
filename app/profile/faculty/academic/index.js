@@ -40,7 +40,7 @@ export class FacultyAcademic extends React.PureComponent {
         <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
         {ACADEMIC_DATA && <FacultyAcademicView data={ACADEMIC_DATA} facultyProfile={this.props.profile} />}
         {((!ACADEMIC_DATA && !props.loading && props.isError)) &&
-          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+          <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
     );

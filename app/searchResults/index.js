@@ -70,7 +70,7 @@ export class SearchResults extends React.PureComponent {
               </div>
             }
             {((!props.SimpleSearchData && !props.loading)) &&
-              <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+              <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
             }
           </Col>
           <Col md={3} sm={4} className='hidden-xs'>

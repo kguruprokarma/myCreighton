@@ -75,12 +75,7 @@ class EventDetails extends React.PureComponent {
     } else {
       prevObject.sis_source_id = {};
     }
-    //   {
-    //   console.log('props.currentState: ', props.location.pathname)
-    //   this.currentPath = props.location.pathname.split('/');
-
-    // }
-
+    
     return (<section role='region'>
       <div className='hidden-xs mb10 eventDetailsTitle'>
 

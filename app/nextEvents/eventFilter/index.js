@@ -11,6 +11,7 @@ import * as EventConstants from '../../constants/commonConstants';
 import styles from './../eventFilter/style.css';
 import * as actionCreators from './actions';
 import * as headerActionCreators from '../../header/actions';
+import { translateText } from '../../common/translate';
 
 export class NextEventFilter extends React.Component {
   constructor() {
@@ -123,25 +124,39 @@ export class NextEventFilter extends React.Component {
     selectedObj.eventperiodItems = this.state.eventPeriod;
     selectedObj.displayOptions = {};
     const items = this.state.displayOptions;
-    for (let i = 0; i < items.length; i++) {
-      const item = items[i];
-      if (item.checked || item.childrenUnselect) {
-        selectedObj.displayOptions[item.itemName] = [];
-        const selectedChildItems = [];
-        for (let j = 0; j < item.children.length; j++) {
-          const childItem = item.children[j];
-          if (childItem.checked) {
-            selectedChildItems.push(childItem.sid);
+    if (items) {
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        if (item.checked || item.childrenUnselect) {
+          selectedObj.displayOptions[item.itemName] = [];
+          const selectedChildItems = [];
+          for (let j = 0; j < item.children.length; j++) {
+            const childItem = item.children[j];
+            if (childItem.checked) {
+              selectedChildItems.push(childItem.sid);
+            }
           }
+          selectedObj.displayOptions[item.itemName] = selectedChildItems;
         }
-        selectedObj.displayOptions[item.itemName] = selectedChildItems;
+      }    
+      const allValue = this.state.displayOptions;
+      allValue[0].checked = this.state.selectAll;
+      localStorage.setItem(EventConstants.DISPLAY_OPTIONS, JSON.stringify(this.state.displayOptions));
+      localStorage.setItem('setDisplayOptionValue', JSON.stringify(selectedObj.displayOptions));
+      props.filterChange(selectedObj);
+    }
+  }
+
+  displayLabel(inputKey) {
+    let returnLabel='';
+    const eventperiodItems = [EventConstants.EVENT_FILTER_NEXT_EVENT, EventConstants.EVENT_FILTER_TODAY, EventConstants.EVENT_FILTER_7_DAYS, EventConstants.EVENT_FILTER_ALL ];
+    const tempArray = ['common:EVENT_FILTER_NEXT_EVENT', 'common:EVENT_FILTER_TODAY', 'common:EVENT_FILTER_7_DAYS', 'common:EVENT_FILTER_ALL' ];
+    for (let tempI = 0; tempI <eventperiodItems.length; tempI++) {
+      if (eventperiodItems[tempI] === inputKey) {
+        returnLabel = translateText(tempArray[tempI]);
       }
     }
-    const allValue = this.state.displayOptions;
-    allValue[0].checked = this.state.selectAll;
-    localStorage.setItem(EventConstants.DISPLAY_OPTIONS, JSON.stringify(this.state.displayOptions));
-    localStorage.setItem('setDisplayOptionValue', JSON.stringify(selectedObj.displayOptions));
-    props.filterChange(selectedObj);
+    return returnLabel;
   }
 
   render() {
@@ -149,7 +164,7 @@ export class NextEventFilter extends React.Component {
       <span className='popupPointer'>&nbsp;</span>
       <ListGroup className='popup-box-shaow'>
         <ListGroupItem >
-          <Filter Items={this.state.Items} displayOptions={this.state.displayOptions} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => this.showChild.bind(this, item)} toggleCheckBoxParent={(item) => this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent) => this.toggleCheck.bind(this, item, parent)} showSelected={this.showSelected} toggleCheckAll={() => this.toggleCheckAll.bind(this)} checkedAll={this.state.selectAll} />
+          <Filter Items={this.state.Items} displayOptions={this.state.displayOptions} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => this.showChild.bind(this, item)} toggleCheckBoxParent={(item) => this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent) => this.toggleCheck.bind(this, item, parent)} showSelected={this.showSelected} toggleCheckAll={() => this.toggleCheckAll.bind(this)} displayLabel={(inputKey) => this.displayLabel(inputKey)} checkedAll={this.state.selectAll} />
         </ListGroupItem >
       </ListGroup>
     </div>

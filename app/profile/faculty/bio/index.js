@@ -46,7 +46,7 @@ export class FacultyProfile extends React.PureComponent {
         <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
         {PROFILE_DATA && <FacultyProfileView data={PROFILE_DATA} facultyProfile={this.props.profile} />}
         {((!PROFILE_DATA && !props.loading && props.isError ) || (PROFILE_DATA.error)) &&
-          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+          <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
     );

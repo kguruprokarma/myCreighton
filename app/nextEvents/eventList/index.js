@@ -292,7 +292,7 @@ export class EventList extends React.PureComponent {
           </div>
         </Col>
         <Col xs={12}>
-          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+          <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
         </Col>
       </Row>
     );

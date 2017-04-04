@@ -5,7 +5,7 @@ import axios from 'axios';
 import * as urlConstants from '../../constants/urlConstants';
 
 const ProfessionalApi = {
-  getProfessionalData: (reqObj) => axios.get(urlConstants.API_GATEWAY + urlConstants.STAFF_PROFESSIONAL + urlConstants.API_SINGLE, {params: reqObj} )
+  getProfessionalData: () => axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.STAFF_PROFESSIONAL, {withCredentials: true} )
 };
 
 export default ProfessionalApi;

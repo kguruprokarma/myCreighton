@@ -61,7 +61,7 @@ export class Profile extends React.PureComponent {
           </Row>
         }
         {((!USER_DATA && !props.loading) || (USER_DATA.error) || (USER_DATA && USER_DATA.data.length<=0)) &&
-          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+          <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
     );

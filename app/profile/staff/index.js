@@ -64,7 +64,7 @@ export class StaffProfile extends React.PureComponent {
           </Row>
         }
         {((!USER_DATA && !props.loading) || (USER_DATA.error)) &&
-          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+          <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
     );

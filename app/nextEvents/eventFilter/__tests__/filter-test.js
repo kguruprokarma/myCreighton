@@ -27,7 +27,8 @@ describe('EventFilter component testing ----->', () => {
       }
     ],
     toggleCheckBoxParent: () => {},
-    showChild: () => {}
+    showChild: () => {},
+    displayLabel: () => {}
   };
   const eventFilterc = shallow(<EventFilter {...defaultProps} />);
   it('eventFilter is defined', () => {

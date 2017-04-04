@@ -123,7 +123,7 @@ export class Classes extends React.PureComponent {
         </div>
         }
         {(!USER_DATA && classListData.isError) &&
-          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
+          <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
     );

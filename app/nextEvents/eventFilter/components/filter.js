@@ -27,9 +27,9 @@ const EventFilter = (eventFilterProps) => (
         <p className='filterHeading openSansRegular mt10 mb0 plr15'>{labels.EVENT_PERIOD_HEADING}</p>
         <div className='control-group eventFilterGroup'>
           <ListGroup>
-            {eventFilterProps.Items.eventperiodItems.map((eventItem, eventIndex) => (
+            {eventFilterProps && eventFilterProps.Items && eventFilterProps.Items.eventperiodItems && eventFilterProps.Items.eventperiodItems.map((eventItem, eventIndex) => (
               <ListGroupItem className='radioLabel' key={eventIndex}>
-                <label className='control control-radio'><span className='openSansLight filterRadioText'>{eventItem}</span>
+                <label className='control control-radio'><span className='openSansLight filterRadioText'>{eventFilterProps.displayLabel(eventItem)}</span>
                   <input type='radio' value={eventItem} onChange={eventFilterProps.toggleRadio} name='eventPeriod' checked={eventFilterProps.eventPeriod === eventItem} />
                   <div className='FilterRadioBtn control__indicator' />
                 </label>
@@ -41,7 +41,7 @@ const EventFilter = (eventFilterProps) => (
         <p className='filterHeading openSansRegular mt10 mb0 plr15'>{labels.DISPLAY_OPTIONS_HEADING}</p>
         <div className='control-group eventFilterCheckGroup'>
           <ListGroup>
-            {eventFilterProps.displayOptions.map((eventItem, eventIndex) => (
+            {eventFilterProps && eventFilterProps.displayOptions && eventFilterProps.displayOptions.map((eventItem, eventIndex) => (
               <ListGroupItem key={eventIndex}>
                 {eventItem.itemName === 'All' ? <label className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItem.itemName}</span>
                   <input type='checkbox' name='eventPeriod' value={eventItem.itemName} onChange={eventFilterProps.toggleCheckAll()} checked={eventFilterProps.checkedAll} />

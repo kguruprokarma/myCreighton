@@ -192,7 +192,7 @@
 
   "PREVIOUS": "Anterior",
 
-  "NO_RESPONSE": "Error del Servidor...!!",
+  "NO_RESPONSE": "No hay contenido disponible",
   "NO_CONTENT": "No hay contenido disponible",
   "NO_EVENTS_TO_DISPLAY": "No hay eventos para mostrar",
   "NO_CLASSES_SCHEDULED": "No hay clases programadas",
@@ -219,6 +219,11 @@
   "MONEY_ALT_TEXT" : "Mostrar los importes de la moneda de Creighton",
   "MORE_ALT_TEXT": "Detalles de la divisa de Creighton",
   "USER_PROFILE": "Perfil del usuario",
-  "SETTING_DISPLAY_CONTENT": "En el icono Configuración, asegúrese de que al menos una opción de visualización esté marcada."
+  "SETTING_DISPLAY_CONTENT": "En el icono Configuración, asegúrese de que al menos una opción de visualización esté marcada.",
+
+    "EVENT_FILTER_7_DAYS" : "7 días",
+    "EVENT_FILTER_TODAY" : "Hoy",
+    "EVENT_FILTER_ALL" : "Todas",
+    "EVENT_FILTER_NEXT_EVENT" : "Detalle del siguiente evento"
 
 }

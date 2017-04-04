@@ -196,7 +196,7 @@
 
   "PREVIOUS": "Previous",
   
-  "NO_RESPONSE": "Server error...!!",
+  "NO_RESPONSE": "No Content Available",
   "NO_CONTENT": "No Content Available",
   "NO_EVENTS_TO_DISPLAY": "No events to display",
   "NO_CLASSES_SCHEDULED": "No classes scheduled",
@@ -223,6 +223,12 @@
   "MONEY_ALT_TEXT" : "Show Creighton currency amounts",
   "MORE_ALT_TEXT": "Creighton currency details",
   "USER_PROFILE": "User Profile",
-  "SETTING_DISPLAY_CONTENT": "In the Settings icon make sure at least one display option is checked."
+  "SETTING_DISPLAY_CONTENT": "In the Settings icon make sure at least one display option is checked.",
+
+  "EVENT_FILTER_7_DAYS" : "7 Days",
+  "EVENT_FILTER_TODAY" : "Today",
+  "EVENT_FILTER_ALL" : "All",
+  "EVENT_FILTER_NEXT_EVENT" : "Next event detail"
+
 
 }
