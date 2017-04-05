@@ -118,9 +118,11 @@
     -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
     transform: rotate(180deg);
 }
+
 .eventFilterCheckGroup .control__indicator.back_checkbox {
     background-color:#0054a6;
 }
+
  .eventFilterCheckGroup .control__indicator.back_checkbox .box-minus {
     position: absolute;
     top:6px;
@@ -129,4 +131,10 @@
     height: 2px;
     background-color: #fff;
     z-index: 9999;
+ }
+
+ .slim-scroll-bar {
+    min-height:390px !important;
+    max-height:500px !important;
+    overflow: auto;
  }

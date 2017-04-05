@@ -23,10 +23,19 @@ class Main extends React.PureComponent {
     this.state = {
       isLogin: false
     };
-    if (!localStorage.getItem('adfs-session')) {
-      localStorage.setItem('adfs-session', 'true');
-      const currentUrl = encodeURIComponent(document.URL);
-      window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
+
+    if (navigator.cookieEnabled) {
+    // Cookies are enabled
+      if (document && document.cookie) {
+        const cookies = document.cookie.replace(/ /g, '');
+        if (cookies.indexOf(';s=') === -1) {
+          const currentUrl = encodeURIComponent(document.URL);
+          window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
+        }
+      }
+    } else {
+        // Cookies are disabled
+      console.log('Your browser cookies were disabled.');
     }
   }
 
