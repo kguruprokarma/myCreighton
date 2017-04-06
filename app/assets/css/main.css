@@ -64,6 +64,7 @@ body {
 .openSansBold{
     font-family: 'open_sanssemibold', sans-serif;
 }
+
 /* End font family */
 
 /* Header */
@@ -348,7 +349,6 @@ input {
 }
 
 
-
 .control-checkbox input[disabled]+.control__indicator:after {
     left: 8px;
     top: 4px;
@@ -470,13 +470,23 @@ title {
     text-transform: capitalize;
 }
 
-.disableButton{
+.disableButton,
+.disableButton:focus,
+.disableButton:hover,
+.disableButton:active {
     pointer-events: none;
     color: gray;
     background: #ddd;
     border-color: #ddd;
 }
 
+.accord-description {
+    display: none;
+}
+
+.accord-active {
+    display: block;
+}
 
 /* Media for small devices */
 @media screen and (min-width: 1170px) {
@@ -515,9 +525,8 @@ title {
     .container {
         width: 1021px;
     }
-    
+  
 }
-
 
 @media screen and (min-width: 1025px) and (max-width: 1170px) {
    

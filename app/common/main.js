@@ -3,6 +3,7 @@
 */
 
 import React from 'react';
+import axios from 'axios';
 import { hashHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -23,17 +24,7 @@ class Main extends React.PureComponent {
     this.state = {
       isLogin: false
     };
-
-    if (navigator.cookieEnabled) {
-      const cookies = document.cookie.replace(/ /g, '');
-      if (cookies.indexOf(';s=') === -1) {
-        const currentUrl = encodeURIComponent(document.URL);
-        window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
-      }
-    } else {
-        // Cookies are disabled
-      console.log('Your browser cookies were disabled.');
-    }
+    axios.get( urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.STUDENT_PROFILE);    
   }
 
   componentWillMount() {

@@ -53,6 +53,10 @@ p{
     font-size: 1.1333333333333333em;    /* font size 17 in pixel */
 }
 
+.NextDate {
+    color: #757575;
+}
+
 /* Media for small devices */
 @media (max-width:767px) {
 
