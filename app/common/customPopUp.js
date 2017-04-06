@@ -79,7 +79,7 @@ export class CustomPopUp extends React.Component {
                 <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); }} />
               </Col>
               <Col sm={10} xs={10}>
-                <p className='selectLang pt5'>{translateText('common:COMMON_SELECT_LANGUAGE')}</p>
+              <p className='selectLang pt5'>{translateText('common:COMMON_SELECT_LANGUAGE')}</p>
               </Col>
             </Row>
           </ListGroupItem>
