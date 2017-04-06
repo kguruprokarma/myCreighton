@@ -28,8 +28,13 @@ describe('CustomPopUp testing ----->', () => {
       'userImageURL': '',
       'userRole': 'student'
     },
+    userDetail: {
+      'first_name': 'John',
+      'last_name': 'Edward'
+    },
     userRole: 'student',
-    getUserDetailsData: () => '/student'
+    getUserDetailsData: () => '/student',
+    getStudentProfileData: () => {}
   };
   const customPopUpC = shallow(<CustomPopUp {...defaultProps} />);
   it('CustomPopUp is defined', () => {

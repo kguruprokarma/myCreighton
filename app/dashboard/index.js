@@ -13,6 +13,7 @@ import ToggleMealPlan from './components/toggleMealPlan';
 import dashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
+import * as profileData from '../profile/actions';
 import './style.css';
 import { authUserDetails, browserTitle } from '../common/utility';
 
@@ -37,6 +38,7 @@ export class Dashboard extends Component {
     } else {
       this.setState({ shouldHide: true });
     }
+    props.getStudentProfileData();
     browserTitle(translateText('common:DASH_BOARD'));
   }
 
@@ -48,12 +50,14 @@ export class Dashboard extends Component {
     const props = this.props;
     const userDetails = props.userDetailsData;
     const dashboardList = dashboardModulesList(this.role);
+    //const profileData = props.profileData;
+    const profileData = props.profileData;
     return (
       <section role='region' id='dashboard'>
         <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
         <Row className='mb20'>
-          <Col sm={5} xs={10} md={5}>
-            {userDetails && <UserDetail userDetail={userDetails} />}
+          <Col sm={5} xs={10} md={5}>           
+            {(profileData && profileData.data) && <UserDetail userDetail={profileData.data[0]} />}
           </Col>
           <Col xs={2} className='pull-right text-right'>
             <div className={this.state.shouldHide ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>
@@ -85,10 +89,11 @@ export class Dashboard extends Component {
 const mapStateToProps = (dashboardState) => (
   {
     userDetailsData: dashboardState.dashboardReducer.userDetailsData.data,
-    userData: dashboardState.auth.data
+    userData: dashboardState.auth.data,
+    profileData: dashboardState.profileReducer.profileData.data
   }
 );
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators,profileData), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

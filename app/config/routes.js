@@ -24,6 +24,7 @@ import EventDetails from '../nextEvents/eventDetails';
 import Professional from '../profile/staff/professional';
 import CampusDirectoryComponent from '../campusDirectory';
 import SearchResultsComponent from '../searchResults';
+import axiosInterceptor from './axiosInterceptor';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);

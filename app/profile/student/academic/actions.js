@@ -23,10 +23,10 @@ const receiveError = (academicErrorJson) => (
     data: academicErrorJson
   });
 
-export function getAcademicData(reqObj) {
+export function getAcademicData() {
   return function (dispatch) {
     dispatch(requestData());
-    return academicApi.getAcademicData(reqObj)
+    return academicApi.getAcademicData()
       .then((response) => {
         dispatch(receiveAcademicData(response));
       }

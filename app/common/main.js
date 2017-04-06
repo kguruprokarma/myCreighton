@@ -25,13 +25,10 @@ class Main extends React.PureComponent {
     };
 
     if (navigator.cookieEnabled) {
-    // Cookies are enabled
-      if (document && document.cookie) {
-        const cookies = document.cookie.replace(/ /g, '');
-        if (cookies.indexOf(';s=') === -1) {
-          const currentUrl = encodeURIComponent(document.URL);
-          window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
-        }
+      const cookies = document.cookie.replace(/ /g, '');
+      if (cookies.indexOf(';s=') === -1) {
+        const currentUrl = encodeURIComponent(document.URL);
+        window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
       }
     } else {
         // Cookies are disabled

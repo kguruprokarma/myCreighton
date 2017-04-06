@@ -7,23 +7,17 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import { DOWN_ARROW } from '../../../constants/imageConstants';
 import { translateText } from '../../../common/translate';
 
-const labels = {
-  EVENT_PERIOD_HEADING: 'EVENT PERIOD',
-  DISPLAY_OPTIONS_HEADING: 'DISPLAY OPTIONS',
-  DONE_TEXT: 'Done',
-  height: { 'height': 374 }
-};
 const EventFilter = (eventFilterProps) => (
   <article className='row'>
     <div className='graybtBorder pb10'>
       <Col xs={12}>
-        <p className='filterSettings openSansRegular pl30'>{translateText('SETTINGS')}
-          <span><button className='filterDoneBtn openSansRegular pull-right' onClick={eventFilterProps.showSelected}>{labels.DONE_TEXT}</button></span>
+        <p className='filterSettings openSansRegular pl30'>{translateText('common:SETTINGS')}
+          <span><button className='filterDoneBtn openSansRegular pull-right' onClick={eventFilterProps.showSelected}>{translateText('common:EVENT_DONE_TEXT')}</button></span>
         </p>
       </Col>
     </div>
     <Scrollbars className='slim-scroll-bar'>
-      <p className='filterHeading openSansRegular mt10 mb0 plr15'>{labels.EVENT_PERIOD_HEADING}</p>
+      <p className='filterHeading openSansRegular mt10 mb0 plr15'>{translateText('common:EVENT_PERIOD_HEADING')}</p>
       <div className='control-group eventFilterGroup'>
         <ListGroup>
           {eventFilterProps && eventFilterProps.Items && eventFilterProps.Items.eventperiodItems && eventFilterProps.Items.eventperiodItems.map((eventItem, eventIndex) => (
@@ -37,7 +31,7 @@ const EventFilter = (eventFilterProps) => (
           }
         </ListGroup>
       </div>
-      <p className='filterHeading openSansRegular mt10 mb0 plr15'>{labels.DISPLAY_OPTIONS_HEADING}</p>
+      <p className='filterHeading openSansRegular mt10 mb0 plr15'>{translateText('common:EVENT_DISPLAY_OPTIONS_HEADING')}</p>
       <div className='control-group eventFilterCheckGroup'>
         <ListGroup>
           {eventFilterProps && eventFilterProps.displayOptions && eventFilterProps.displayOptions.map((eventItem, eventIndex) => (

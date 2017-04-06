@@ -13,17 +13,13 @@ import LeftNav from '../../../common/leftNav';
 import HeaderLabel from '../../../common/headerLabel';
 import AlertComponent from '../../../common/alertComponent';
 import { translateText } from '../../../common/translate';
-import { authUserDetails, browserTitle } from '../../../common/utility';
+import { browserTitle } from '../../../common/utility';
 import Spinner from '../../../common/spinner';
 
 export class StaffProfessional extends React.PureComponent {
 
   componentWillMount() {
-    let userReqObj = authUserDetails();
-    userReqObj = {};
-    userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = authUserDetails().netid;
-    this.props.getProfessionalData(userReqObj);
+    this.props.getProfessionalData();
     browserTitle(translateText('common:STAFF_PROFESSIONAL'));
   }
 

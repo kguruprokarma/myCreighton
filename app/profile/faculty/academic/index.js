@@ -10,7 +10,7 @@ import HeaderLabel from '../../../common/headerLabel';
 import AlertComponent from '../../../common/alertComponent';
 import { translateText } from '../../../common/translate';
 import FacultyAcademicView from './components/academic';
-import { authUserDetails, browserTitle } from '../../../common/utility';
+import { browserTitle } from '../../../common/utility';
 import Spinner from '../../../common/spinner';
 
 
@@ -21,12 +21,8 @@ export class FacultyAcademic extends React.PureComponent {
   }
 
   componentWillMount() {
-    let userReqObj = authUserDetails();
-    userReqObj = {};
-    userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = authUserDetails().netid;
     this.headerText = translateText('common:PROFILE_ACADEMIC');
-    this.props.getFacultyAcademicData(userReqObj);
+    this.props.getFacultyAcademicData();
     const facultyTitleValue = `${translateText('common:PROFILE_ACADEMIC')} ${translateText('common:USER_PROFILE')}`;
     browserTitle(facultyTitleValue);
   }

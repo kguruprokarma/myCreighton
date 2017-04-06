@@ -20,19 +20,15 @@ import LeftNav from '../../common/leftNav';
 import AlertComponent from '../../common/alertComponent';
 import HeaderLabel from '../../common/headerLabel';
 import * as CommonConstants from '../../constants/commonConstants';
-import { authUserDetails, browserTitle } from '../../common/utility';
+import { browserTitle } from '../../common/utility';
 import Spinner from '../../common/spinner';
 import FamilyDetail from '../faculty/bio/components/family';
 
 export class StaffProfile extends React.PureComponent {
 
   componentWillMount() {
-    let userReqObj = authUserDetails();
-    userReqObj = {};
-    userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = authUserDetails().netid;
     const props = this.props;
-    props.getStaffProfileData(userReqObj);
+    props.getStaffProfileData();
     browserTitle(translateText('common:PROFILE_MY_PROFILE'));
   }
 

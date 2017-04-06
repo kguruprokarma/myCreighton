@@ -8,6 +8,7 @@ import '../../__mock_i18n__/i18n_mockKeys';
 
 const defaultProps ={
   getUserDetailsData: () => {},
+  getStudentProfileData: () => {},
   userDetailsData: {
     'userName': {
       'firstName': 'Gary',
@@ -17,6 +18,13 @@ const defaultProps ={
     },
     'userImageURL': '',
     'userRole': 'Student'
+  },
+  profileData: {
+    data: {
+      'first_name': 'John',
+      'last_name': 'Edward',
+      'userRole': 'Student'
+    }
   },
   'params': {
     'roletype': 'Student'

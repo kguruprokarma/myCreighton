@@ -12,7 +12,7 @@ import AlertComponent from '../../../common/alertComponent';
 import * as CommonConstants from '../../../constants/commonConstants';
 import * as URL_CONSTANTS from '../../../constants/urlConstants';
 import FacultyProfileView from './components/profile';
-import { authUserDetails, browserTitle } from '../../../common/utility';
+import { browserTitle } from '../../../common/utility';
 import Spinner from '../../../common/spinner';
 
 export class FacultyProfile extends React.PureComponent {
@@ -21,12 +21,8 @@ export class FacultyProfile extends React.PureComponent {
     this.headerText = '';
   }
 
-  componentWillMount() {
-    let userReqObj = authUserDetails();
-    userReqObj = {};
-    userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = authUserDetails().netid;
-    this.props.getFacultyProfileData(userReqObj);
+  componentWillMount() {   
+    this.props.getFacultyProfileData();
     this.headerText = translateText('common:PROFILE_MY_PROFILE');
     browserTitle(translateText('common:PROFILE_MY_PROFILE'));
   }
@@ -34,9 +30,7 @@ export class FacultyProfile extends React.PureComponent {
   render() {
     let PROFILE_DATA;
     const props = this.props;
-    if (this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC) {
-
-    } else {
+    if (this.props.params.facultyprofileparam !== URL_CONSTANTS.ACADEMIC) {
       PROFILE_DATA = this.props.profile === CommonConstants.FACULTY_LABEL && this.props.profileData;
     }
 

@@ -1,6 +1,6 @@
 /*Created Date: - 7 -02 -2017
-*Usage of file: - Created to display popup*
-*/
+ *Usage of file: - Created to display popup*
+ */
 
 import React from 'react';
 import { connect } from 'react-redux';
@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux';
 import { Link, hashHistory } from 'react-router';
 import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
 import * as actionCreators from '../dashboard/actions';
+import * as profileData from '../profile/actions';
 import UserDetail from '../dashboard/components/userDetail';
 import profileMenu from '../header/components/profileMenu';
 import { authUserDetails } from './utility';
@@ -24,6 +25,7 @@ export class CustomPopUp extends React.Component {
     this.role = this.props.userData ? this.props.userData.userRole : authUserDetails().userRole;
     if (this.role) {
       customPopUpProps.getUserDetailsData(`/${this.role}`);
+      props.getStudentProfileData();
     }
     this.languageChangeBind = this.changeLanguage.bind(this);
     this.signOutBind = this.signOut.bind(this);
@@ -46,14 +48,15 @@ export class CustomPopUp extends React.Component {
   }
   render() {
     const props = this.props;
-    const userDetails = props.userDetailsData;
+    //const userDetails = props.userDetailsData;
+    const profileDetails = props.profileData;
     const ProfileMenus = profileMenu(this.role);
     const languages = [{ 'langkey': 'en', 'language': translateText('common:COMMON_ENGLISH') }, { 'langkey': 'es', 'language': translateText('common:COMMON_SPANISH') }];
     return (<div className='customPopUp'>
       <span className='popupPointer'>&nbsp;</span>
       {this.state.languageState && <ListGroup className='popup-box-shaow'>
         <ListGroupItem>
-          {userDetails && <div> <UserDetail userDetail={userDetails} /></div>}
+          {(profileDetails && profileDetails.data) && <div> <UserDetail userDetail={profileDetails.data[0]} /></div>}
         </ListGroupItem>
         {ProfileMenus.map((item) => (
           <ListGroupItem key={item.itemName} className='openSansLight profile-icon'>
@@ -93,17 +96,18 @@ export class CustomPopUp extends React.Component {
 }
 
 CustomPopUp.propTypes = {
-  showPopValue: React.PropTypes.string,
+  showPopValue: React.PropTypes.func,
   userData: React.PropTypes.string
 };
 
 const mapStateToProps = (dashboardState) => (
   {
     userDetailsData: dashboardState.dashboardReducer.userDetailsData.data,
+    profileData: dashboardState.profileReducer.profileData.data,
     userData: dashboardState.auth.data
   }
 );
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileData), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomPopUp);

@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import { translateText } from '../../../common/translate';
-import { authUserDetails, browserTitle } from '../../../common/utility';
+import { browserTitle } from '../../../common/utility';
 import AlertComponent from '../../../common/alertComponent';
 import LegalName from './components/legalName';
 import HomeAddress from './components/homeAddress';
@@ -25,12 +25,8 @@ import * as CommonConstants from '../../../constants/commonConstants';
 
 export class Profile extends React.PureComponent {
   componentWillMount() {
-    let userReqObj = authUserDetails();
-    userReqObj = {};
-    userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = authUserDetails().netid;
     const props = this.props;
-    props.getStudentProfileData(userReqObj);
+    props.getStudentProfileData();
     browserTitle(translateText('common:PROFILE_MY_PROFILE'));
   }
 
