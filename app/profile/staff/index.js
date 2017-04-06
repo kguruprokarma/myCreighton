@@ -17,45 +17,50 @@ import MailAddress from './components/mailAddress';
 import WorkAddress from './components/workAddress';
 import * as actionCreators from '../actions';
 import LeftNav from '../../common/leftNav';
+import AlertComponent from '../../common/alertComponent';
 import HeaderLabel from '../../common/headerLabel';
 import * as CommonConstants from '../../constants/commonConstants';
-import { authUserDetails } from '../../common/utility';
+import { browserTitle } from '../../common/utility';
 import Spinner from '../../common/spinner';
 import FamilyDetail from '../faculty/bio/components/family';
 
 export class StaffProfile extends React.PureComponent {
 
   componentWillMount() {
-    let userReqObj = authUserDetails();
-    userReqObj = {};
-    userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = 'ed8ad0b875';
-    this.props.getStaffProfileData(userReqObj);
+    const props = this.props;
+    props.getStaffProfileData();
+    browserTitle(translateText('common:PROFILE_MY_PROFILE'));
   }
 
   render() {
-    const USER_DATA = this.props.profile === CommonConstants.STAFF_LABEL && this.props.profileData;
+    const props = this.props;
+    const USER_DATA = props.profile === CommonConstants.STAFF_LABEL && props.profileData;
     return (
-      <section>
-        {this.props.loading && <Spinner />}
+      <section role='region'>
+        {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
         {USER_DATA &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
-              <LegalName legalName={USER_DATA.data[0].staff_name} />
-              <StaffAddress staffAddress={USER_DATA.data[0].faculty_address} />
-              <WorkAddress workAddress={USER_DATA.data[0].work_address} profile={this.props.profile}/>
-              <MailAddress mailAddress={USER_DATA.data[0].mail_address} />
-              <PrimaryContact primaryContact={USER_DATA.data[0].phone} />
-              <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} relation={USER_DATA.data[0].emrg_cont_type} phone={USER_DATA.data[0].emergency_contact_phone} />
-              <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={USER_DATA.data[0].personal_email} isShowPersonalEmail />
-              <Other profile={this.props.profile} detail={USER_DATA.data[0]} />
-              <FamilyDetail familyDetail={USER_DATA.data[0]} />
+              <form>
+                <LegalName legalName={USER_DATA.data[0].staff_name} />
+                <StaffAddress staffAddress={USER_DATA.data[0].faculty_address} />
+                <WorkAddress workAddress={USER_DATA.data[0].work_address} profile={props.profile} />
+                <MailAddress mailAddress={USER_DATA.data[0].mail_address} />
+                <PrimaryContact primaryContact={USER_DATA.data[0].phone} />
+                <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} relation={USER_DATA.data[0].emrg_cont_type} phone={USER_DATA.data[0].emergency_contact_phone} />
+                <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={USER_DATA.data[0].personal_email} isShowPersonalEmail />
+                <Other profile={props.profile} detail={USER_DATA.data[0]} />
+                <FamilyDetail familyDetail={USER_DATA.data[0]} />
+              </form>
             </Col>
             <Col md={3} sm={4} className='hidden-xs'>
-              <LeftNav role={this.props.profile} />
+              <LeftNav role={props.profile} />
             </Col>
           </Row>
+        }
+        {((!USER_DATA && !props.loading) || (USER_DATA.error)) &&
+          <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>
     );
@@ -67,7 +72,6 @@ const mapStateToProps = (bioState) => (
     profileData: bioState.profileReducer.profileData.data,
     profile: bioState.profileReducer.profile,
     loading: bioState.profileReducer.isLoading
-
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);

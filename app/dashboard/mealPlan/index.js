@@ -16,20 +16,21 @@ import { translateText } from '../../common/translate';
 
 export class MealPlan extends Component {
   componentWillReceiveProps(nextProps) {
-    if (nextProps.role && this.role !== nextProps.role.userRole) {
-      this.role = nextProps.role.userRole;
+    const propsNext = nextProps;
+    if (propsNext.role && this.role !== propsNext.role.userRole) {
+      this.role = propsNext.role.userRole;
       if (this.role !== undefined) {
         this.props.getMealPlanData(`${(this.role).toLowerCase()}`);
       }
     }
   }
   render() {
-    const MEALPLAN_DATA = this.props.mealPlanData;
-
+    const props = this.props;
+    const MEALPLAN_DATA = props.mealPlanData;
     return (
-      <section id='mealPlan'>
-        <h1 className='announced-only'>{translateText('common:MEAL_PLAN')}</h1>
-        <div className={this.props.showMeal ? 'show' : 'hide'}>
+      <article role='article' id='mealPlan'>
+        <h1 className='announced-only'>{translateText('common:Creighton_Currency')}</h1>
+        <div className={props.showMeal ? 'show' : 'hide'}>
           <Well bsSize='small' className='jaybucksWell'>
             <Col sm={11} xs={10}>
               <Row>{MEALPLAN_DATA &&
@@ -42,12 +43,12 @@ export class MealPlan extends Component {
               </Row>
             </Col>
             <Col sm={1} xs={2}>
-              <div className='angle-right text-right'><Link><img src={'./assets/images/more.png'} alt='' /></Link></div>
+              <div className='angle-right text-right'><Link><img src={'./assets/images/more.png'} alt={translateText('common:MORE_ALT_TEXT')} /></Link></div>
             </Col>
           </Well>
         </div>
-        <a className='doller-icon pull-right hidden-xs openSansBold'><span onClick={this.props.toggleMeal}> {this.props.showMeal ? translateText('common:MEAL_HIDE') : <img src={'./assets/images/money.png'} alt='' />}</span></a>
-      </section>
+        <button className='doller-icon pull-right btn btn-link openSansBold btnnoPadding' onClick={props.toggleMeal}> {props.showMeal ? translateText('common:MEAL_HIDE') : ''}</button>
+      </article>
 
     );
   }

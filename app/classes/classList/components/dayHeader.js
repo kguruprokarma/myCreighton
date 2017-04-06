@@ -7,7 +7,7 @@ import { Col, Row } from 'react-bootstrap';
 
 const DayHeader = (dayHeadingProps) => (
   <Row>
-    <Col xs={12}><h5 className='dayHeading bebasregular mb0'>{dayHeadingProps.day}</h5></Col>
+    <Col xs={12}><h2 className='dayHeading bebasregular mb0'>{dayHeadingProps.day}</h2></Col>
   </Row>
 );
 

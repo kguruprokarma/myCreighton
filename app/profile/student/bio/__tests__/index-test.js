@@ -11,62 +11,62 @@ describe('index files in bio testing ----->', () => {
     getStudentProfileData: () => { },
     profile: 'STUDENT',
     profileData: {
-      "timing": "-18.934",
-      "data": [
+      'timing': '-18.934',
+      'data': [
         {
-          "netid": "bab74e76ba",
-          "birth_date": "1988-06-06",
-          "email": { "school_email": "bab74e76ba@creighton.edu" },
-          "emergency_contact": { "first_name": null, "last_name": null, "middle_name": null },
-          "guardian": { "first_name": null, "last_name": null, "middle_name": null },
-          "home_address": null,
-          "legal_name": { "first_name": "3f0c9b03e8", "last_name": "e5eb1d7455", "middle_name": "R" },
-          "parent": { "first_name": null, "last_name": null, "middle_name": null },
-          "pidm": "3268947",
-          "primary_phone_no": null,
-          "school_address": null
+          'netid': 'bab74e76ba',
+          'birth_date': '1988-06-06',
+          'email': { 'school_email': 'bab74e76ba@creighton.edu' },
+          'emergency_contact': { 'first_name': null, 'last_name': null, 'middle_name': null },
+          'guardian': { 'first_name': null, 'last_name': null, 'middle_name': null },
+          'home_address': null,
+          'legal_name': { 'first_name': '3f0c9b03e8', 'last_name': 'e5eb1d7455', 'middle_name': 'R' },
+          'parent': { 'first_name': null, 'last_name': null, 'middle_name': null },
+          'pidm': '3268947',
+          'primary_phone_no': null,
+          'school_address': null
         }
       ]
     }
   };
-     const profile = shallow(<Profile {...minProps} />);
-    it('Profile is defined', () => {
+  const profile = shallow(<Profile {...minProps} />);
+  it('Profile is defined', () => {
     expect(profile).toBeDefined();
   });
 
-it('Check HeaderLabel is "My Profile"', () => {
-  expect(profile.find('HeaderLabel').length).toBe(1);
-  expect(profile.find('HeaderLabel').prop('headerLabel')).toBe("PROFILE_MY_PROFILE");
-});
-it('Check LegalName component is present', () => {
-  expect(profile.find('LegalName').length).toBe(1);
-  expect(profile.find('LegalName').prop('legalName')).toBe(minProps.profileData.data[0].legal_name);
-});
-it('Check HomeAddress component is present', () => {
-  expect(profile.find('HomeAddress').length).toBe(1);
-  expect(profile.find('HomeAddress').prop('homeAddress')).toBe(minProps.profileData.data[0].home_address);
-});
-it('Check SchoolAddress component is present', () => {
-  expect(profile.find('Address').length).toBe(1);
-});
-it('Check PrimaryContact component is present', () => {
-  expect(profile.find('PrimaryContact').length).toBe(1);
-  expect(profile.find('PrimaryContact').prop('primaryContact')).toBe(minProps.profileData.data[0].primary_phone_no);
-});
-it('Check EmergencyContact component is present', () => {
-  expect(profile.find('EmergencyContact').length).toBe(1);
-  expect(profile.find('EmergencyContact').prop('emergencyContact')).toBe(minProps.profileData.data[0].emergency_contact);
-});
-it('Check Email component is present', () => {
-  expect(profile.find('Email').length).toBe(1);
-});
-it('Check Other component is present', () => {
-  expect(profile.find('Other').length).toBe(1);
-  expect(profile.find('Other').prop('detail')).toBe(minProps.profileData.data[0]);
-});
-it('Check RelationDetail component is present', () => {
-  expect(profile.find('RelationDetail').length).toBe(1);
-  expect(profile.find('RelationDetail').prop('parentDetail')).toBe(minProps.profileData.data[0].parent);
-  expect(profile.find('RelationDetail').prop('gurdianDetail')).toBe(minProps.profileData.data[0].guardian);
-});
+  it('Check HeaderLabel is "My Profile"', () => {
+    expect(profile.find('HeaderLabel').length).toBe(1);
+    expect(profile.find('HeaderLabel').prop('headerLabel')).toBe('PROFILE_MY_PROFILE');
+  });
+  it('Check LegalName component is present', () => {
+    expect(profile.find('LegalName').length).toBe(1);
+    expect(profile.find('LegalName').prop('legalName')).toBe(minProps.profileData.data[0].legal_name);
+  });
+  it('Check HomeAddress component is present', () => {
+    expect(profile.find('HomeAddress').length).toBe(1);
+    expect(profile.find('HomeAddress').prop('homeAddress')).toBe(minProps.profileData.data[0].home_address);
+  });
+  it('Check SchoolAddress component is present', () => {
+    expect(profile.find('Address').length).toBe(1);
+  });
+  it('Check PrimaryContact component is present', () => {
+    expect(profile.find('PrimaryContact').length).toBe(1);
+    expect(profile.find('PrimaryContact').prop('primaryContact')).toBe(minProps.profileData.data[0].primary_phone_no);
+  });
+  it('Check EmergencyContact component is present', () => {
+    expect(profile.find('EmergencyContact').length).toBe(1);
+    expect(profile.find('EmergencyContact').prop('emergencyContact')).toBe(minProps.profileData.data[0].emergency_contact);
+  });
+  it('Check Email component is present', () => {
+    expect(profile.find('Email').length).toBe(1);
+  });
+  it('Check Other component is present', () => {
+    expect(profile.find('Other').length).toBe(1);
+    expect(profile.find('Other').prop('detail')).toBe(minProps.profileData.data[0]);
+  });
+  it('Check RelationDetail component is present', () => {
+    expect(profile.find('RelationDetail').length).toBe(1);
+    expect(profile.find('RelationDetail').prop('parentDetail')).toBe(minProps.profileData.data[0].parent);
+    expect(profile.find('RelationDetail').prop('gurdianDetail')).toBe(minProps.profileData.data[0].guardian);
+  });
 });

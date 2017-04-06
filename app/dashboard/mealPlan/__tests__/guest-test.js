@@ -6,10 +6,10 @@ import {shallow} from 'enzyme';
 import Guest from '../components/guest';
 
 it('Guest is defined', () => {
-	const guestTestProps = {
-		"guestTitle": "GUEST",
-		"guestCount": "5"
-	};
+  const guestTestProps = {
+    'guestTitle': 'GUEST',
+    'guestCount': '5'
+  };
   const guest = shallow(<Guest {...guestTestProps} />);
   expect(guest).toBeDefined();
 });

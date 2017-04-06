@@ -2,7 +2,7 @@
     "userDetails1": [
         {
             "email": "nt123",
-            "netid": "4d646ad917",
+            "netid": "6150a8b1f5",
             "password":"mycreighton",
             "userName": {
                 "firstName": "John",
@@ -15,7 +15,7 @@
         },
         {
             "email": "nt234",
-            "netid": "",
+            "netid": "ba8bb72a1a",
             "password":"mycreighton",
             "userName": {
                 "firstName": "Jane",
@@ -28,7 +28,7 @@
         },
         {
             "email": "nt456",
-            "netid": "",
+            "netid": "1a1d2c4ba1",
             "password":"mycreighton",
             "userName": {
                 "firstName": "Adam",
@@ -41,7 +41,7 @@
         },
         {
             "email": "nt789",
-            "netid": "7166dde5de",
+            "netid": "73fc365230",
             "password":"mycreighton",
             "userName": {
                 "firstName": "Clark",

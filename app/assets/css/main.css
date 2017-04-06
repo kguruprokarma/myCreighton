@@ -54,15 +54,15 @@ body {
 }
 
 .openSansLight {
-     font-family: 'open_sanslight';
+     font-family: 'open_sanslight', sans-serif;
 }
 
 .openSansRegular{
-    font-family: 'open_sansregular';
+    font-family: 'open_sansregular', sans-serif;
 }
 
 .openSansBold{
-    font-family: 'open_sanssemibold';
+    font-family: 'open_sanssemibold', sans-serif;
 }
 /* End font family */
 
@@ -70,15 +70,16 @@ body {
 header {
     background-color:#0054a6;
 	min-height: 40px;
-	line-height: 36px;
+	line-height: 2.25;
 	overflow: visible;
 }
 header a {
     color: #fff;
+    text-decoration: none;
 
 }
 header a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: #fff;
 }
 header a:active {
@@ -156,9 +157,12 @@ h1, h2, h3, h4, h5 {
 }
 
 .userLeftmenu .list-group-item{
-    border:0;
     border-top:1px solid #efefef;
+    border-right: 0;
+    border-bottom: 0;
+    border-left:0; 
     color: #0079b3;
+    font-size: 1em;
 }
 
 .userLeftmenu .list-group-item:last-child{
@@ -184,7 +188,7 @@ h1, h2, h3, h4, h5 {
 .headerLabel {
     font-size: 1.4em;   /* font size 21 in pixel */
     color: #0054a6;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .headerLinks{
@@ -242,6 +246,7 @@ content:"";
     cursor: pointer;
     padding-left: 30px;
     position: relative;
+    margin-bottom: 0;
 }
 
 input {
@@ -338,8 +343,11 @@ input {
     top: 3px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
     width: 5px;
 }
+
+
 
 .control-checkbox input[disabled]+.control__indicator:after {
     left: 8px;
@@ -373,21 +381,23 @@ input {
 }
 
 .selectLang {
-    font-family: 'open_sansregular';
+    font-family: 'open_sansregular', sans-serif;
     font-size: 1.3em;
     color: #313131;
+    line-height: 1.7em;
 }
 
-.popupBackBtn {
+.popUpContainer .popupBackBtn {
      font-size: 1.4em;
+     padding: 0;
 }
 
-.popupBackBtn:hover,
-.popupBackBtn:active {
+.popUpContainer .popupBackBtn:hover,
+.popUpContainer .popupBackBtn:active,
+.popUpContainer .popupBackBtn:focus {
     text-decoration: none;
+    outline: none;
 }
-
-/* Media for small devices */
 
 .head-Icons .glyphicon-user {
     color: #fff;
@@ -395,6 +405,7 @@ input {
 
 .logo {
     color: #fff;
+    text-transform: capitalize;
 }
 
 .loadingImg {
@@ -416,6 +427,63 @@ input {
     width: 100%;
     background: rgba(0,0,0,0.1);
     z-index: 8000;
+}
+
+.btnnoPadding {
+    padding: 0;
+}
+ 
+.view-container .btnnoPadding:focus,
+.view-container .btnnoPadding:active, 
+.view-container .btnnoPadding img:focus {
+    outline:0;
+}
+
+.customPopUp .list-group button.list-group-item:focus,
+.customPopUp .list-group button.list-group-item:active {
+    outline:0 
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.downArrowImage {
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.noContent {
+    font-size: 1.05em;
+}
+
+.menuHeading {
+    font-size: 1.4em;
+    color: #313131;
+}
+
+.main-navigation li a {
+    font-size: 0.98em;
+}
+
+title {
+    text-transform: capitalize;
+}
+
+.disableButton{
+    pointer-events: none;
+    color: gray;
+    background: #ddd;
+    border-color: #ddd;
+}
+
+
+/* Media for small devices */
+@media screen and (min-width: 1170px) {
+
+    .main-navigation .glyphicon-chevron-right {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -458,6 +526,7 @@ input {
     }
     .logo {
         text-align: left;
+        text-transform: capitalize;
     }
 
     .glyphicon.glyphicon-chevron-right {
@@ -511,14 +580,19 @@ input {
     }
 
     .main-navigation li {
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #cccccc;
         display: block;
     }
 
     .main-navigation .glyphicon.glyphicon-chevron-right {
         padding-top: 12px;
     }
-
+    
+    .main-navigation li a
+    {
+        font-size: 1.4em;   /* font size 21 in pixel */
+    }
+    
 }
 
 @media screen and (min-width: 768px) and (max-width: 1010px) {
@@ -540,6 +614,7 @@ input {
 
     .logo {
 		text-align:center;
+        text-transform: capitalize;
 	}
 
 	.headerLinks {
@@ -560,7 +635,6 @@ input {
     .view-container {
         padding-bottom:230px;   
     }
-
 }
 
 @media screen and (max-width: 767px) {
@@ -568,17 +642,8 @@ input {
     .main-navigation .glyphicon.glyphicon-chevron-right {
         padding-top: 2px;
     }
+    #content {
+        margin-top:50px;
+    }
 }
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  img[src*=".svg"] {
-    width: 100%; 
-  }
-}
-
-.disableButton{
-    pointer-events: none;
-     color: gray;
-      background: #ddd;
-       border: #ddd;
-}

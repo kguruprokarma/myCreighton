@@ -2,7 +2,7 @@
 *Usage of file: - This action is used to get class schedule of a user.*
 */
 
-import classesApi from '../../middleware/classes/api';
+//import classesApi from '../../middleware/classes/api';
 import * as types from './actionTypes';
 
 
@@ -28,9 +28,9 @@ const catagoryChange = (str) => (
     data: str
   });
 
-  const requestAssignmentsData = () => ({
+const requestAssignmentsData = () => ({
   type: types.REQUEST_ASSIGNMENTS_DATA
-  });
+});
 
 const receiveAssignmentsData = (assignmentsData) => (
   {
@@ -38,82 +38,34 @@ const receiveAssignmentsData = (assignmentsData) => (
     data: assignmentsData
   });
 
-const receiveAssignmentsError = (error) => (
+/*const receiveAssignmentsError = (error) => (
   {
     type: types.RECEIVE_ASSIGNMENTS_DATA_ERROR,
     data: error
   });
-
+*/
 export function onCatagoryChange(str) {
   return function (dispatch) {
     dispatch(catagoryChange(str));
   };
 }
 
-export function getClassesDataByWeek(reqObj) {
+export function onReceiveError(error) {
   return function (dispatch) {
-    dispatch(requestData());
-    return classesApi.getClassesDataByWeek(reqObj).then((response) => {
-      dispatch(receiveClassesData(response));
-    }
-    )
-      .catch((error) => {
-        dispatch(receiveError({
-          error: error
-        }));
-      }
-      );
+    dispatch(receiveError(error));
   };
 }
 
-export function getClassesDataByToday(reqObj) {
+export function getClassesData(result) {
   return function (dispatch) {
     dispatch(requestData());
-    return classesApi.getClassesDataByToday(reqObj)
-      .then((response) => {
-        dispatch(receiveClassesData(response));
-      }
-      )
-      .catch((error) => {
-        dispatch(receiveError({
-          error: error
-        }));
-      }
-      );
+    dispatch(receiveClassesData(result));
   };
 }
 
-
-export function getClassesDataForAtoZ(reqObj) {
-  return function (dispatch) {
-    dispatch(requestData());
-    return classesApi.getClassesAtoZData(reqObj)
-      .then((response) => {
-        dispatch(receiveClassesData(response));
-      }
-      )
-      .catch((error) => {
-        dispatch(receiveError({
-          error: error
-        }));
-      }
-      );
-  };
-}
-
-export function getAssignmentDetails(reqObj) {
+export function getAssignmentDetails(result) {
   return function (dispatch) {
     dispatch(requestAssignmentsData());
-    return classesApi.getAssignmentDetails(reqObj)
-      .then((response) => {
-        dispatch(receiveAssignmentsData(response));
-      }
-      )
-      .catch((error) => {
-        dispatch(receiveAssignmentsError({
-          error: error
-        }));
-      }
-      );
+    dispatch(receiveAssignmentsData(result));
   };
-  }
+}

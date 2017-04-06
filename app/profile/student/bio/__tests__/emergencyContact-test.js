@@ -7,17 +7,16 @@ import {shallow} from 'enzyme';
 import EmergencyContact from '../components/emergencyContact';
 
 it('EmergencyContact is defined', () => {
-
   const defaultProps = {
     emergencyContact: {
       name: {
-        first: "First Name",
-        last: "Last Name"
+        first: 'First Name',
+        last: 'Last Name'
       },
-      phone: "9876543210",
-      relation: "relation"
+      phone: '9876543210',
+      relation: 'relation'
     }
-  }
+  };
   const emergencyContact = shallow(<EmergencyContact {...defaultProps} />);
 
   expect(emergencyContact).toBeDefined();

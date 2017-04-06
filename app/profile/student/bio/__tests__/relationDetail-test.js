@@ -7,22 +7,21 @@ import {shallow} from 'enzyme';
 import RelationDetail from '../components/relationDetail';
 
 it('RelationDetail is defined', () => {
-
   const defaultProps = {
     relationDetail: {
       parent: {
-        firstName: "first Name",
-        middleName: "middle Name",
-        lastName: "last Name"
+        firstName: 'first Name',
+        middleName: 'middle Name',
+        lastName: 'last Name'
       },
       guardian: {
-        firstName: "first address",
-        middleName: "middle Name",
-        lastName: "last Name"
+        firstName: 'first address',
+        middleName: 'middle Name',
+        lastName: 'last Name'
       }
     }
-  }
-  const relationDetail = shallow(<RelationDetail {...defaultProps}/>);
+  };
+  const relationDetail = shallow(<RelationDetail {...defaultProps} />);
 
   expect(relationDetail).toBeDefined();
 });

@@ -7,15 +7,14 @@ import {shallow} from 'enzyme';
 import Dependent from '../components/dependent';
 
 it('Dependent is defined', () => {
-
   const defaultProps = {
     dependent: {
-      firstName: "John",
-      middleName: "J",
-      lastName: "Edward"
+      firstName: 'John',
+      middleName: 'J',
+      lastName: 'Edward'
     }
-  }
-  const dependent = shallow(<Dependent {...defaultProps}/>);
+  };
+  const dependent = shallow(<Dependent {...defaultProps} />);
 
   expect(dependent).toBeDefined();
 });  

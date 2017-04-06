@@ -3,7 +3,6 @@ import {shallow} from 'enzyme';
 import ClassInfo from '../components/classInfo';
 
 it('ClassInfo is defined', () => {
-
   const defaultProps = {
     'student_pidm': '3423821',
     'term_code': '201670',

@@ -6,27 +6,27 @@
     background-color: #f2f2f2;
     padding-top: 5px;
     padding-bottom: 5px;
-    color: #7d7d7d;
+    color: #6e6e6e;
     font-size: 0.8em;   /* font size 12 in pixel */
     border-top:1px solid #c8c7cc;    
 }
 
 .eventHeading{
-    font-size: 1.7333333333333334em;    /* font size 26 in pixel */
-    line-height: 32px;
+    font-size: 1.7333333333333334em;
+    line-height: 1.1;
     color: #019cdb;
-    font-family: 'open_sanslight';
+    font-family: 'open_sanslight', sans-serif;
 }
 
 .eventOn, .eventPlace, .eventBy, .eventTime, .eventDate {
-    font-size: 1em; /* font size 15 in pixel */
-    font-family: 'open_sansregular';
-    line-height: 22px;
+    font-size: 1em; 
+    font-family: 'open_sansregular', sans-serif;
+    line-height: 1;
 }
 
 .eventOn, .eventDate
 {
-     color: #9a9a9a;   
+     color: #757575; /*Changed as per given Hardening comments. Previously it was #9a9a9a*/   
 }
 
 .eventPlace, .eventBy, .eventTime {
@@ -34,7 +34,7 @@
 }
 
 .eventTime {
-    font-family: 'open_sanssemibold';
+    font-family: 'open_sanssemibold', sans-serif;
 }
 
 .mobileEventsList, .desktopEventsList {
@@ -50,7 +50,11 @@
 }
 
 .eventOn {
-        padding-left: 10px;
+    font-size: .6em;
+    line-height: .8em;
+    padding: 4px; 
+    position: relative;
+    top: -4px;  
 }
 
 .assignIcon {
@@ -75,6 +79,9 @@ a:hover, *:hover  {
         text-decoration: none;
 }
 
+.event-listSection li:last-child {
+    border-bottom: 1px solid #c8c7cc;
+}
 
 
 @media (min-width:768px) and (max-width: 992px) {
@@ -88,9 +95,36 @@ a:hover, *:hover  {
 
     .eventOn {
         padding-left: 0px;
+        line-height: 20px;
+    }
+
+    .eventOn, .eventPlace, .eventBy, .eventTime, .eventDate {
+    font-size: 1.1em; /* font size 15 in pixel */
+    font-family: 'open_sansregular', sans-serif;
+    line-height: 1;
     }
 
     .eventHeading {
-       font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+       font-size:1.75em;
+       line-height: 1.1;
     }
+
+    .event-topsection {
+        margin-top: -51px;
+    }
+
+     .event-listSection li:last-child
+     {
+         border-bottom:0;
+     }
+
+    .event-listSection li:last-child article {
+        border-bottom: 1px solid #c8c7cc;
+    }
+    
+    .event-topsection .alert-warning, .event-topsection .alert-error {
+        margin-top: 50px;
+    }
+
+
 }

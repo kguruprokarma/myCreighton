@@ -8,7 +8,9 @@ import * as ROUTE_URL from '../constants/routeContants';
 import { translateText } from '../common/translate';
 import * as eventTypes from '../constants/nextEventsConstants'; 
 
-export class PreviousNext1 extends React.Component {
+class PreviousNext1 extends React.Component {
+  componentWillMount() {
+  }
   render() {
     let prevAssignmentId = ''; 
     let nextAssignmentId = ''; 
@@ -29,8 +31,8 @@ export class PreviousNext1 extends React.Component {
       }
     }
 
-    const prevLink = `${ROUTE_URL.EVENT_DETAILS}/${prevEventType}/${previousNextData.prevItem}${prevAssignmentId}`;
-    const nextLink = `${ROUTE_URL.EVENT_DETAILS}/${nextEventType}/${previousNextData.nextItem}${nextAssignmentId}`;
+    const prevLink = `${ROUTE_URL.EVENT_DETAILS}/${prevEventType}/${previousNextData.prevItem}${prevAssignmentId}/${previousNextData.currentIndex - 1}`;
+    const nextLink = `${ROUTE_URL.EVENT_DETAILS}/${nextEventType}/${previousNextData.nextItem}${nextAssignmentId}/${previousNextData.currentIndex + 1}`;
     return (
       <div className='row' >
         <div className='form-group col-xs-6'>

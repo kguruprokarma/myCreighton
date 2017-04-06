@@ -6,27 +6,27 @@
     background-color: #f2f2f2;
     padding-top: 5px;
     padding-bottom: 5px;
-    color: #7d7d7d;
+    color: #6e6e6e; /*Changed as per given Hardening comments. Previously it was #7d7d7d*/
     font-size: 0.8em;   /* font size 12 in pixel */
     border-top:1px solid #c8c7cc;    
 }
 
 .classesHeading{
     font-size: 1.7333333333333334em;    /* font size 26 in pixel */
-    line-height: 32px;
+    line-height: 1.1;
     color: #019cdb;
-    font-family: 'open_sanslight';
+    font-family: 'open_sanslight', sans-serif;
 }
 
 .classOn, .classPlace, .classBy, .classTime, .classDate {
     font-size: 1em; /* font size 15 in pixel */
-    font-family: 'open_sansregular';
-    line-height: 22px;
+    font-family: 'open_sansregular', sans-serif;
+    line-height: 1.3;
 }
 
 .classOn, .classDate
 {
-     color: #9a9a9a;
+     color: #757575; /*Changed as per given Hardening comments. Previously it was #9a9a9a*/
      
 }
 
@@ -35,7 +35,7 @@
 }
 
 .classTime {
-    font-family: 'open_sanssemibold';
+    font-family: 'open_sanssemibold', sans-serif;
 }
 
 .mobileClassesList, .desktopClassesList {
@@ -56,7 +56,7 @@
 
 .controller-buttons .btn-group a {
     border-color: #019cdb;
-    color: #019cdb;
+    color: #017db0; /*Changed as per given Hardening comments. Previously it was #019cdb*/
 }
 
 .controller-buttons .btn-group a.active, 
@@ -79,14 +79,26 @@
     color: #019cdb;
 }
 
-.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
     border-right:0;
 }
 
-.btn-group>.btn:last-child:not(:first-child), 
-.btn-group>.dropdown-toggle:not(:first-child)
+.btn-group > .btn:last-child:not(:first-child), 
+.btn-group > .dropdown-toggle:not(:first-child)
 {
     border-left: 0;
+}
+
+.classesHeading .classOn {
+    font-size: .6em;
+    line-height: .8em;
+    padding: 4px; 
+    position: relative;
+    top: -4px;  
+}
+
+.cls:last-child .mobileClassesList, .cls:last-child .desktopClassesList {
+    border-bottom:1px solid #c8c7cc;
 }
 
 /* Media for small devices */
@@ -95,7 +107,7 @@
         padding-left: 10px;
     }
     .classDate {
-        line-height: 16px;
+        line-height: 2.8em;
     }
     .dayHeading {
         padding-left:25px;
@@ -128,8 +140,8 @@
         padding-left:23px;
     }
     .classesHeading{
-        font-size: 1.4666666666666666em; /* font size 22 in pixel */
-        line-height: 24px;
+        font-size: 1.75em; 
+        line-height: 1.1;
 
     }
     .classesHeading, .classDate {
@@ -149,8 +161,8 @@
         
     }
     .classOn, .classPlace, .classBy, .classTime, .classDate {
-        line-height: 20px;
-        font-size: 0.9333333333333333em; /* font size 14 in pixel */
+        line-height: 1;
+        font-size: 1.1em;
     }
     .classesWeek {
         margin-left:-15px;

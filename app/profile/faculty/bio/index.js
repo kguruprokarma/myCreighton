@@ -8,12 +8,12 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions';
 import HeaderLabel from '../../../common/headerLabel';
 import { translateText } from '../../../common/translate';
+import AlertComponent from '../../../common/alertComponent';
 import * as CommonConstants from '../../../constants/commonConstants';
 import * as URL_CONSTANTS from '../../../constants/urlConstants';
 import FacultyProfileView from './components/profile';
-import { authUserDetails } from '../../../common/utility';
+import { browserTitle } from '../../../common/utility';
 import Spinner from '../../../common/spinner';
-//import LeftNav from '../../../../common/leftNav';
 
 export class FacultyProfile extends React.PureComponent {
   constructor(props) {
@@ -21,28 +21,27 @@ export class FacultyProfile extends React.PureComponent {
     this.headerText = '';
   }
 
-  componentWillMount() {
-    let userReqObj = authUserDetails();
-    userReqObj = {};
-    userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = 'ed8ad0b875';
-    this.props.getFacultyProfileData(userReqObj);
+  componentWillMount() {   
+    this.props.getFacultyProfileData();
     this.headerText = translateText('common:PROFILE_MY_PROFILE');
+    browserTitle(translateText('common:PROFILE_MY_PROFILE'));
   }
 
   render() {
     let PROFILE_DATA;
-    if (this.props.params.facultyprofileparam === URL_CONSTANTS.ACADEMIC) {
-      ACADEMIC_DATA = this.props.profile === CommonConstants.FACULTY_LABEL && this.props.profileData;
-    } else {
+    const props = this.props;
+    if (this.props.params.facultyprofileparam !== URL_CONSTANTS.ACADEMIC) {
       PROFILE_DATA = this.props.profile === CommonConstants.FACULTY_LABEL && this.props.profileData;
     }
 
     return (
-      <section>
-        {this.props.isLoading && <Spinner />}
-        <HeaderLabel headerLabel={this.headerText} />
-        <FacultyProfileView data={PROFILE_DATA} facultyProfile={this.props.profile} />
+      <section role='region'>
+        {props.isLoading && <Spinner />}
+        <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
+        {PROFILE_DATA && <FacultyProfileView data={PROFILE_DATA} facultyProfile={this.props.profile} />}
+        {((!PROFILE_DATA && !props.loading && props.isError ) || (PROFILE_DATA.error)) &&
+          <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
+        }
       </section>
     );
   }
@@ -55,13 +54,16 @@ FacultyProfile.propTypes = {
   profile: React.PropTypes.string,
   profileData: React.PropTypes.string,
   getFacultyProfileData: React.PropTypes.func
+  
 };
 
 const mapStateToProps = (bioState) => (
   {
     profileData: bioState.profileReducer.profileData.data,
     profile: bioState.profileReducer.profile,
-    isLoading: bioState.profileReducer.isLoading
+    isLoading: bioState.profileReducer.isLoading,
+    isError: bioState.profileReducer.error
+
 
   });
 

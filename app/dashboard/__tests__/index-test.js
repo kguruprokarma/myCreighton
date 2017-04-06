@@ -2,47 +2,51 @@
 *Usage of file: - This is used to test Meal Plan component.*
 */
 import React from 'react';
-import { shallow, mount, render  } from 'enzyme';
+import { shallow } from 'enzyme';
 import {Dashboard} from '../index';
-import i18n from '../../__mock_i18n__/i18n_mockKeys';
+import '../../__mock_i18n__/i18n_mockKeys';
 
 const defaultProps ={
-    getUserDetailsData:()=>{},
-    userDetailsData:{
-        "userName": {
-            "firstName": "Mohammad",
-            "middleName": "Usman",
-            "lastName": "Ali",
-            "fullName": "Usman Ali"
-        },
-        "userImageURL": "",
-        "userRole": "Student"
-    },"params":{
-        "roletype":"Student"
+  getUserDetailsData: () => {},
+  getStudentProfileData: () => {},
+  userDetailsData: {
+    'userName': {
+      'firstName': 'Gary',
+      'middleName': 'G',
+      'lastName': 'Brady',
+      'fullName': 'Gary Brady'
+    },
+    'userImageURL': '',
+    'userRole': 'Student'
+  },
+  profileData: {
+    data: {
+      'first_name': 'John',
+      'last_name': 'Edward',
+      'userRole': 'Student'
     }
-}
+  },
+  'params': {
+    'roletype': 'Student'
+  }
+};
 
-const dashboard = shallow(<Dashboard {...defaultProps}/>);
-describe('I18nextProvidergg', () => {
+const dashboard = shallow(<Dashboard {...defaultProps} />);
+describe('Dashboard Test Suite', () => {
+  it('should provide i18n context', () => {
+    expect(dashboard).toBeDefined();
+  });
 
-    it('should provide i18n context', () => {
-        expect(dashboard).toBeDefined();
-    });
+  it('Dashboard component UserDetail is there or not', () => {
+    expect(dashboard.find('userDetail').length).toBe(1);
+  });
 
-    it('Dashboard component UserDetail is there or not', () => {
-        expect(dashboard.find('UserDetail').length).toBe(1);
-       
-    });
+  it('Dashboard component ToggleMealPlan is there or not', () => {
+    expect(dashboard.find('toggleMealPlan').length).toBe(1);
+  });
 
-    it('Dashboard component ToggleMealPlan is there or not', () => {
-        expect(dashboard.find('ToggleMealPlan').length).toBe(1);
-    });
-
-    it('Dashboard component MealPlanView is there or not', () => {
-        expect(dashboard.find('MealPlanView').length).toBe(0);
-    });
-
-    
-
+  it('Dashboard component MealPlanView is there or not', () => {
+    expect(dashboard.find('mealPlanView').length).toBe(0);
+  });
 });
 

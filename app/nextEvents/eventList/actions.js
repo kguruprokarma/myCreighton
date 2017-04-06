@@ -21,15 +21,49 @@ const receiveError = (error) => (
     data: error
   });
 
-let clear = () => ({
-  type: types.CLEAR
-});
+const masterDataChange = (bool) => (
+  {
+    type: types.ON_MASTER_DATA_CHANGE,
+    data: bool
+  } 
+ );
 
-export function clear() {
+const loadingChange = () => (
+  {
+    type: types.ON_LOADING_CHANGE
+  } 
+ );
+
+const offLoadingChange = () => (
+  {
+    type: types.OFF_LOADING_CHANGE
+  } 
+ );
+
+export function onMasterDataChange(bool) {
   return function (dispatch) {
-    dispatch(clear());
+    dispatch(masterDataChange(bool));
   };
 }
+
+export function onLoading() {
+  return function (dispatch) {
+    dispatch(loadingChange());
+  };
+}
+
+export function onReceiveError(error) {
+  return function (dispatch) {
+    dispatch(receiveError(error));
+  };
+}
+
+export function offLoading() {
+  return function (dispatch) {
+    dispatch(offLoadingChange());
+  };
+}
+
 
 export function getEventsData(reqObj) {
   return function (dispatch) {
@@ -46,3 +80,5 @@ export function getEventsData(reqObj) {
       );
   };
 }
+
+export default getEventsData;

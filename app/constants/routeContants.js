@@ -20,6 +20,11 @@ export const FACULTY = '/faculty';
 export const EVENT_LIST = '/eventlist';
 export const EVENT_DETAILS = '/eventdetails';
 export const PROFESSIONAL = '/professional';
+export const CAMPUSDIRECTORY = '/campusdirectory';
+export const SIMPLE_SEARCH = '/simple';
+export const ADVANCED_SEARCH = '/advanced';
+export const SERCHRESULTS = '/searchresults'; 
+
 
 /*
 * Relative path url's parameters for components
@@ -34,3 +39,5 @@ export const EVENT_DETAILS_TYPE = '/:eventdetailstype';
 export const FACULTY_PROFILE_PARAM = '/:facultyprofileparam';
 export const FACULTY_ACADEMIC_PARAM = '/:facultyacademicparam';
 export const EVENT_ASSIGN_DUE = '/:assigndue';
+export const SEARCH_TYPE = '/:searchtype';
+export const SEARCH_QUERY = '/:searchquery';

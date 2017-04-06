@@ -8,8 +8,8 @@ import { translateText } from '../../../../common/translate';
 
 //const ProfessionalDevelopment = (professionalDevelopmentProps) => (
 const ProfessionalDevelopment = () => (
-  <article className='profileRow mt30'>
-    <h3 className='dataHeading openSansRegular'>{translateText('common:STAFF_PROFESSIONAL_DEVELOPMENT')}</h3>
+  <article role='article' className='profileRow mt30'>
+    <h2 className='dataHeading openSansRegular'>{translateText('common:STAFF_PROFESSIONAL_DEVELOPMENT')}</h2>
     <BasicRow displayName={translateText('common:STAFF_EXPERTISE/SKILLS')} displayValue='' />
     <BasicRow displayName={translateText('common:STAFF_APPLICATIONS/TOOLS')} displayValue='' />
     <BasicRow displayName={translateText('common:STAFF_GROUP')} displayValue='' />

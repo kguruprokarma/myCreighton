@@ -27,14 +27,28 @@ export const TESTORQUIZ = `${ROOT_URL}/testorquiz.json`;
 export const PROFESSIONAL_DATA = '/professional_data.json';
 
 ///
+/// API retrieved data json files for offline use links
+///
+
+export const ASSIGNMENTS_API = `${ROOT_URL}/assignmentsAPI.json`;
+export const FACULTY_BIO_API = `${ROOT_URL}/faculty_bioAPI.json`;
+export const FACULTY_LEARN_API = `${ROOT_URL}/faculty_learnAPI.json`;
+export const SEARCHFACULTY_API = `${ROOT_URL}/searchFacultyAPI.json`;
+export const STAFF_BIO_API = `${ROOT_URL}/staff_bioAPI.json`;
+export const STAFF_PROFESSIONAL_API = `${ROOT_URL}/staff_professionalAPI.json`;
+export const STUDENTCLASSES_API = `${ROOT_URL}/studentclassesAPI.json`;
+export const STUDENTPROFILE_API = `${ROOT_URL}/studentProfileAPI.json`;
+///
 /// Add API related links below
 ///
-export const BLUE_LINE = 'https://blueline.instructure.com' ;
+export const BLUE_LINE = 'https://blueline.instructure.com';
 export const API_GATEWAY = 'http://api-gateway01.creighton.edu'; //'http://reduxblog.herokuapp.com';
 //export const API_DATA = '/studentProfile/'; //'/myProfile.json'; //http://reduxblog.herokuapp.com/api/posts
+export const DEV_URL_CREIGHTON = 'http://dev-api-node01.creighton.edu';
+export const DEV_URL_CREIGHTON_ADFS = 'https://dev-dl-api.creighton.edu/adfs';
+export const ADFS_LOGIN_URL = 'https://dev-dl-api.creighton.edu/loginadfs?redirect=';
 export const API_SINGLE = '/single';
 export const STUDENT_ACADEMIC = '/studentAcademic';
-export const STUDENT_ACADEMIC_SINGLE = '/single';
 export const STUDENT_PROFILE = '/studentProfile';
 export const STUDENT_CLASSES = '/studentclasses';
 export const STAFF_BIO = '/staff_bio';
@@ -45,4 +59,8 @@ export const ACADEMIC = 'academic'; ///single?primaryKey=netid&primaryValue=6cb4
 export const FACULTY_BIO = '/faculty_bio';
 export const FACULTY_LEARN = '/faculty_learn';
 export const ASSIGNMENT = '/assignments';
+export const CAMPUS_DIRECTORY_SIMPLE = '/searchFaculty';
 export const NEXTEVENT_ASSIGNMENTS = `${API_GATEWAY}${ASSIGNMENTS}${API_SINGLE}?primaryKey=netid&primaryValue=9dfa6baa7a`;
+
+
+

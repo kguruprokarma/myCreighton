@@ -6,20 +6,19 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Academic } from '../index';
 
-
 describe('index files in academic testing ', () => {
   const minProps = {
     getAcademicData: () => { },
     academicData: {
-      "timing": "-25.747",
-      "data": [
+      'timing': '-25.747',
+      'data': [
         {
-          "netid": "5de48407ab",
-          "advisor": { "first_name": "6410ef0d3a", "last_name": "64e6167034", "middle_name": "M" },
-          "major_code": "HCE",
-          "major_desc": "",
-          "minor": "",
-          "student_pidm": "3453277"
+          'netid': '5de48407ab',
+          'advisor': { 'first_name': '6410ef0d3a', 'last_name': '64e6167034', 'middle_name': 'M' },
+          'major_code': 'HCE',
+          'major_desc': '',
+          'minor': '',
+          'student_pidm': '3453277'
         }
       ]
     }
@@ -38,5 +37,4 @@ describe('index files in academic testing ', () => {
   it('Academic component contails WeekDayData component length', () => {
     expect(academic.find('AcademicStatus').length).toBe(2);
   });
-
 });

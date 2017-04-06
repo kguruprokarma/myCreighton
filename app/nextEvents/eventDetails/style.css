@@ -6,7 +6,7 @@
     font-size: 1.7333333333333334em;    /* font size 26 in pixel */
     line-height: 32px;
     color: #313131;
-    font-family: 'open_sanslight';
+    font-family: 'open_sanslight', sans-serif;
     margin-bottom: 4px;
 }
 
@@ -29,14 +29,14 @@
     font-size: 1.0666666666666667em;    /* font size 16 in pixel */
     color: #313131;
     text-transform: uppercase;
-    font-family: 'open_sansregular';
+    font-family: 'open_sansregular', sans-serif;
     line-height: 38px;
 }
 
 .eventNotes {
     color: #313131;
     font-size: 1.2em;   /* font size 18 in pixel */
-    font-family: 'open_sanslight';
+    font-family: 'open_sanslight', sans-serif;
 }
 
 .eventDetailsTitle {
@@ -49,7 +49,7 @@
     float: right;
     height: 30px;
     color: #0054a6;
-    font-family: 'open_sansregular';
+    font-family: 'open_sansregular', sans-serif;
     font-size: 1em; /* font size 15 in pixel */
     padding-top: 3px;
     padding-bottom: 3px;

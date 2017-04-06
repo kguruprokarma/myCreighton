@@ -1,0 +1,94 @@
+.show {
+    display: block;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.cmpsDirSearch, .bootstrap-typeahead-input-main {
+    border: 1px solid #a2a2a2;
+    color: #868686;
+    font-size: 1.266666666666667em;
+    position: relative;
+    padding-left: 26px;
+}
+.bootstrap-typeahead-input-main { 
+    height: 45px;
+}
+.bootstrap-typeahead .bootstrap-typeahead-input input:nth-child(2){
+    display: none !important;
+}
+.cmpsDirSearch:focus,
+.cmpsDirSearch:active {
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #a2a2a2;
+}
+
+.cmpsDirText {
+    color: #868686;
+    font-size: 0.9333333333333333em;
+}
+
+.cmpsDirSearchBtn {
+    background-color:#ffffff;
+    border:1px solid #0054a6;
+    color: #0054a6;
+    text-align: center;
+    font-size: 1.266666666666667em;
+    height: 46px;
+    line-height: 30px;
+}
+
+.cmpsDirSearchBtn:hover,
+.cmpsDirSearchBtn:active,
+.cmpsDirSearchBtn:focus, 
+.cmpsDirSearchBtn[disabled]:hover, 
+.cmpsDirSearchBtn[disabled]:focus,
+.cmpsDirSearchBtn[disabled]:active,
+.btn-default.cmpsDirSearchBtn:active {
+    background-color: #fff;
+    color: #0054a6;
+    box-shadow: none;
+    outline: none;
+    border-color: #0054a6;
+}
+
+.icon-addon {
+    left: 20px;
+    top: 32px;
+    position: absolute;
+}
+
+.icon-addon img{
+    width: 16px;
+}
+
+.icon-addon-right img {
+    width: 10px;
+}
+
+.icon-addon-right {   
+    background: #a2a2a2; 
+    border-radius: 50%;    
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    right: 20px;
+    top: 32px;
+    text-align: center;
+    z-index: 2;
+}
+
+.search-field {
+    position: relative;
+}
+
+@media screen and (max-width: 758px) {
+
+    .cmpsDirSearch,.cmpsDirSearchBtn {
+        font-size: 1.2em;
+    }
+}

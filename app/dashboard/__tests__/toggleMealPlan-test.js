@@ -6,15 +6,12 @@ import { shallow } from 'enzyme';
 import ToggleMealPlan from '../components/toggleMealPlan';
 
 describe('ToggleMealPlan component testing ----->', () => {
+  const toggleMealPlan = shallow(<ToggleMealPlan />);
+  it('ToggleMealPlan component is defined', () => {
+    expect(toggleMealPlan).toBeDefined();
+  });
 
-    const toggleMealPlan = shallow(<ToggleMealPlan />);
-
-    it('ToggleMealPlan component is defined', () => {
-        expect(toggleMealPlan).toBeDefined();
-    });
-
-    it('ToggleMealPlan  anchor tags ', () => {
-        expect(toggleMealPlan.find('a').length).toBe(1);
-    });
-
+  it('ToggleMealPlan  anchor tags ', () => {
+    expect(toggleMealPlan.find('button').length).toBe(1);
+  });
 });

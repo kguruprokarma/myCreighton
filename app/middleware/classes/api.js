@@ -7,15 +7,13 @@ import * as urlConstants from '../../constants/urlConstants';
 
 const ClassesApi = {
   //getClassesDataByWeek: () => axios.get(urlConstants.ROOT_URL + urlConstants.CLASSES_DATA),
-  getClassesDataByWeek: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.STUDENT_ACADEMIC_SINGLE}`, { params: reqObj }),
-  getClassesDataByToday: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.STUDENT_ACADEMIC_SINGLE}`, { params: reqObj }),
-  getClassesAtoZData: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.STUDENT_ACADEMIC_SINGLE}`, { params: reqObj }),
+  /*getClassesDataByToday: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.API_SINGLE}`, { params: reqObj }),
+  getClassesAtoZData: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.API_SINGLE}`, { params: reqObj }),*/
   //later i need to add dynamic id for get class details '/id'
   //Removed 'id' because it is giveing eslint error: 'id' is defined but never used.
-  getClassDetails: () => axios.get(urlConstants.ROOT_URL + urlConstants.CLASS_DETAILS_DATA),
-
-  getAssignmentDetails: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENTS}${urlConstants.STUDENT_ACADEMIC_SINGLE}`, { params: reqObj })
-
+  getClassesDataByWeek: () => axios.get(`${urlConstants.DEV_URL_CREIGHTON_ADFS}${urlConstants.STUDENT_CLASSES}`),
+  getClassDetails: () => axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.CLASS_DETAILS_DATA),
+  getAssignmentDetails: () => axios.get(`${urlConstants.DEV_URL_CREIGHTON_ADFS}${urlConstants.ASSIGNMENTS}`)
   // getAssignmentDetails:(reqObj) => axios.get(urlConstants.ROOT_URL + urlConstants.ASSIGNMENTSAPI)
 };
 

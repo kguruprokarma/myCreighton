@@ -3,11 +3,12 @@
 */
 
 import React from 'react';
+import { translateText } from '../../common/translate';
 
-const ToggleMealPlan = (toggleMealPlan) => (
-  <a className='doller-icon pull-right' >
-    <img src={'./assets/images/money.png'} alt='toggle' onClick={toggleMealPlan.toggle} />
-  </a>
+const toggleMealPlan = (toggleMealPlanProps) => (
+  <button className='doller-icon btn btn-link pull-right btnnoPadding' onClick={toggleMealPlanProps.toggle}>
+    <img src={'./assets/images/money.png'} alt={translateText('common:MONEY_ALT_TEXT')} />
+  </button>
 );
 
-export default ToggleMealPlan;
+export default toggleMealPlan;

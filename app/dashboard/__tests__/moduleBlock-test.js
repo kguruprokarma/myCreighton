@@ -7,23 +7,19 @@ import { shallow } from 'enzyme';
 import ModuleBlock from '../components/moduleBlock';
 
 const defaultProps = [{
-    "description": "School stuff I am responsible for.",
-    "imgURL": "./app/assets/images/school-icon.jpg",
-    "linkto": "/schoolSemester",
-    "name": "School & Semester"
+  'description': 'School stuff I am responsible for.',
+  'imgURL': './app/assets/images/school-icon.jpg',
+  'linkto': '/schoolSemester',
+  'name': 'School & Semester'
 }];
-
-
 describe('ModuleBlock component testing ----->', () => {
+  const moduleBlock = shallow(<ModuleBlock modulelist={defaultProps} />);
 
-    const moduleBlock = shallow(<ModuleBlock modulelist={defaultProps} />);
+  it('ModuleBlock component is defined', () => {
+    expect(moduleBlock).toBeDefined();
+  });
 
-    it('ModuleBlock component is defined', () => {
-        expect(moduleBlock).toBeDefined();
-    });
-
-    it('ModuleBlock component Links', () => {
-        expect(moduleBlock.find('Link').length).toBe(1);
-    });
-
+  it('ModuleBlock component Links', () => {
+    expect(moduleBlock.find('Link').length).toBe(1);
+  });
 });

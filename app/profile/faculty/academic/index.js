@@ -7,11 +7,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions';
 import HeaderLabel from '../../../common/headerLabel';
+import AlertComponent from '../../../common/alertComponent';
 import { translateText } from '../../../common/translate';
-import * as CommonConstants from '../../../constants/commonConstants';
-import * as URL_CONSTANTS from '../../../constants/urlConstants';
 import FacultyAcademicView from './components/academic';
-import { authUserDetails } from '../../../common/utility';
+import { browserTitle } from '../../../common/utility';
 import Spinner from '../../../common/spinner';
 
 
@@ -22,22 +21,23 @@ export class FacultyAcademic extends React.PureComponent {
   }
 
   componentWillMount() {
-    let userReqObj = authUserDetails();
-    userReqObj = {};
-    userReqObj.primaryKey = 'netid';
-    userReqObj.primaryValue = 'a4509258ec';
-    this.headerText = translateText('PROFILE_ACADEMIC');
-    this.props.getFacultyAcademicData(userReqObj);
+    this.headerText = translateText('common:PROFILE_ACADEMIC');
+    this.props.getFacultyAcademicData();
+    const facultyTitleValue = `${translateText('common:PROFILE_ACADEMIC')} ${translateText('common:USER_PROFILE')}`;
+    browserTitle(facultyTitleValue);
   }
 
   render() {
     const ACADEMIC_DATA = this.props.profileData;
-
+    const props = this.props;
     return (
-      <section>
-        {this.props.isLoading && <Spinner />}
-        <HeaderLabel headerLabel={this.headerText} />
+      <section role='region'>
+        {props.isLoading && <Spinner />}
+        <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
         {ACADEMIC_DATA && <FacultyAcademicView data={ACADEMIC_DATA} facultyProfile={this.props.profile} />}
+        {((!ACADEMIC_DATA && !props.loading && props.isError)) &&
+          <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
+        }
       </section>
     );
   }
@@ -55,7 +55,8 @@ const mapStateToProps = (bioState) => (
   {
     profileData: bioState.profileReducer.profileData.data,
     profile: bioState.profileReducer.profile,
-    isLoading: bioState.profileReducer.isLoading
+    isLoading: bioState.profileReducer.isLoading,
+    isError: bioState.profileReducer.error
 
   });
 

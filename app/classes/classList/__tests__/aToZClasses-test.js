@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import AToZClasses from '../components/aToZClasses';
-import { DATASORT } from '../../../common/utility';
+import { dataSort } from '../../../common/utility';
 
 describe('TodayClasses component testing ----->', () => {
   const defaultProps = {
@@ -34,7 +34,7 @@ describe('TodayClasses component testing ----->', () => {
       }
     ]
   };
-  const AToZClassesC = shallow(<AToZClasses listOfData={DATASORT(defaultProps.data, 'course_title')} />);
+  const AToZClassesC = shallow(<AToZClasses listOfData={dataSort(defaultProps.data, 'course_title')} />);
 
   it('AToZClasses is defined', () => {
     expect(AToZClasses).toBeDefined();

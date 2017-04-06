@@ -6,36 +6,33 @@ import React from 'react';
 import * as CommonConstants from '../../../../constants/commonConstants';
 import Dependent from './dependent';
 import { translateText } from '../../../../common/translate';
+import { getParentorGuardian } from '../../../../common/utility';
 
 class RelationDetail extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      flag: CommonConstants.STUDENT_PARENT
-    };
-  }
-  toggleParent(depen) {
-    this.setState({ flag: depen.target.value });
+  componentWillMount() {
+
   }
   render() {
+    const props =this.props;
+    const parentOrGuardian = getParentorGuardian(props.dateOfBirth);
     return (
-      <article className='profileRow mt30'>
-        <h3 className='dataHeading openSansRegular'>{translateText('common:IF_NOT_AGE_OF_MAJORITY')}</h3>
+      <article role='article' className='profileRow mt30 mt30'>
+        <h2 className='dataHeading openSansRegular'>{translateText('common:IF_NOT_AGE_OF_MAJORITY')}</h2>
         <div className='control-group'>
-          <label className='control control-checkbox labelField noclons'>
-            <input type='checkbox' name='dependent' value='parent' onChange={this.toggleParent.bind(this)} checked={this.state.flag === CommonConstants.STUDENT_PARENT} id='parent' /> <span className='openSansLight'>{translateText('common:STUDENT_PARENT')}</span>
+          <label htmlFor='parent' className='control control-checkbox labelField noclons'>
+            <input type='checkbox' name='dependent' value='parent' checked={parentOrGuardian === CommonConstants.STUDENT_PARENT} id='parent' /> <span className='openSansLight'>{translateText('common:STUDENT_PARENT')}</span>
             <span className='control__indicator'>&nbsp;</span>
           </label>
-          <div className='clearfix'></div>
-          <label className='control control-checkbox labelField noclons'>
-            <input type='checkbox' name='dependent' value='guardian' onChange={this.toggleParent.bind(this)} checked={this.state.flag === CommonConstants.STUDENT_GUARDIAN} id='guardian' /> <span className='openSansLight'>{translateText('common:STUDENT_GUARDIAN')}</span>
+          <div className='clearfix' />
+          <label htmlFor='guardian' className='control control-checkbox labelField noclons'>
+            <input type='checkbox' name='dependent' value='guardian' checked={parentOrGuardian === CommonConstants.STUDENT_GUARDIAN} id='guardian' /> <span className='openSansLight'>{translateText('common:STUDENT_GUARDIAN')}</span>
             <span className='control__indicator'>&nbsp;</span>
           </label>
         </div>
-        {(this.state.flag === CommonConstants.STUDENT_PARENT) ?
-          (<Dependent dependent={this.props.parentDetail} />)
+        {(parentOrGuardian === CommonConstants.STUDENT_PARENT) ?
+          (<Dependent dependent={props.parentDetail} />)
           :
-          (<Dependent dependent={this.props.gurdianDetail} />)
+          (<Dependent dependent={props.gurdianDetail} />)
         }
       </article>
     );

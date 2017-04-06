@@ -8,8 +8,8 @@ const EventListApi = {
   //getEventData: () => axios.get(urlConstants.ROOT_URL + urlConstants.EVENTS_DATA),
   //getEventDetails: (eventType) => axios.get(`${urlConstants.ROOT_URL}${urlConstants[eventType]}`)
   getEventDetails: (eventType) => axios.get(`${urlConstants[eventType]}`),
-  // getClassesDataByWeek: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.STUDENT_ACADEMIC_SINGLE}`, {params: reqObj}),
-  getEventsData: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENT}${urlConstants.STUDENT_ACADEMIC_SINGLE}`, {params: reqObj})
+  // getClassesDataByWeek: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.API_SINGLE}`, {params: reqObj}),
+  getEventsData: () => axios.get(`${urlConstants.DEV_URL_CREIGHTON_ADFS}${urlConstants.ASSIGNMENT}`)
 };
 
 export default EventListApi;

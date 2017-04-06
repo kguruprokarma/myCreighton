@@ -4,37 +4,39 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import {CustomPopUp} from '../customPopUp';
-import * as ROUTE_URL from '../../constants/routeContants';
 
 
 describe('CustomPopUp testing ----->', () => {
   const defaultProps = {
-      userDetailsData: {
-      "userName": {
-        "firstName": "John",
-        "middleName": "J",
-        "lastName": "Edward",
-        "fullName": "John J. Edward"
+    userDetailsData: {
+      'userName': {
+        'firstName': 'John',
+        'middleName': 'J',
+        'lastName': 'Edward',
+        'fullName': 'John J. Edward'
       },
-      "userImageURL": "",
-      "userRole": "student"
+      'userImageURL': '',
+      'userRole': 'student'
     },
     userData: {
-      "userName": {
-        "firstName": "John",
-        "middleName": "J",
-        "lastName": "Edward",
-        "fullName": "John J. Edward"
+      'userName': {
+        'firstName': 'John',
+        'middleName': 'J',
+        'lastName': 'Edward',
+        'fullName': 'John J. Edward'
       },
-      "userImageURL": "",
-      "userRole": "student"
+      'userImageURL': '',
+      'userRole': 'student'
     },
-    userRole:'student',
-    getUserDetailsData:()=>{
-      return '/student';
-    }
+    userDetail: {
+      'first_name': 'John',
+      'last_name': 'Edward'
+    },
+    userRole: 'student',
+    getUserDetailsData: () => '/student',
+    getStudentProfileData: () => {}
   };
-  const customPopUpC = shallow(<CustomPopUp {...defaultProps}  />);
+  const customPopUpC = shallow(<CustomPopUp {...defaultProps} />);
   it('CustomPopUp is defined', () => {
     expect(customPopUpC).toBeDefined();
   });

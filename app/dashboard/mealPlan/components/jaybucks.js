@@ -5,11 +5,11 @@
 import React from 'react';
 import { translateText } from '../../../common/translate';
 
-const Jaybucks = (jaybucksProps) => (
+const jaybucks = (jaybucksProps) => (
   <div>
     <span className='jbvalue openSansLight'><span className='meal-doller'>$</span>{jaybucksProps.jaybucksCount}</span>
     <span className='jbText openSansBold'>{translateText('common:MEAL_PLAN_JAY_BUCKS')}<span className='mpDoller'>$</span></span>
   </div>
 );
 
-export default Jaybucks;
+export default jaybucks;

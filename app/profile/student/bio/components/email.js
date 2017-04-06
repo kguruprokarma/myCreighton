@@ -8,8 +8,8 @@ import { Row, Col } from 'react-bootstrap';
 import { translateText } from '../../../../common/translate';
 
 const Email = (emailProps) => (
-  <article className='profileRow mt30'>
-    <h3 className='dataHeading openSansRegular'>{ translateText('common:PROFILE_EMAIL')}</h3>
+  <article role='article' className='profileRow mt30'>
+    <h2 className='dataHeading openSansRegular'>{ translateText('common:PROFILE_EMAIL')}</h2>
     {/* School email address */}
     <Row className='show-grid pt5 pb5'>
       <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Profile School'>{emailProps.professionalLabel ? emailProps.professionalLabel :'' /*translateText('common:PROFILE_SCHOOL') */ }</label> </Col>

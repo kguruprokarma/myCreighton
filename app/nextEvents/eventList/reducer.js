@@ -7,7 +7,8 @@ import * as types from './actionTypes';
 const initialState = {
   eventsData: {},
   isLoading: false,
-  error: false
+  error: false,
+  isMasterDataChange: false
 };
 
 const eventsReducer = (state = initialState, action = null) => {
@@ -27,7 +28,22 @@ const eventsReducer = (state = initialState, action = null) => {
       return Object.assign({}, state, {
         isLoading: false,
         eventsData: action.data
+      });      
+    case types.ON_MASTER_DATA_CHANGE:
+      return Object.assign({}, state, {
+        isMasterDataChange: action.data
       });
+      
+    case types.ON_LOADING_CHANGE:
+      return Object.assign({}, state, {
+        isLoading: true
+      });
+      
+    case types.OFF_LOADING_CHANGE:
+      return Object.assign({}, state, {
+        isLoading: false
+      });
+      
     default:
       return state;
   }

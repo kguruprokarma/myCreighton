@@ -1,0 +1,140 @@
+
+.filterDoneBtn {
+    border: none;
+    background-color: #fff;
+    color: #0079b3;
+    font-size: 1em; /* font size 15 in pixel */
+}
+
+.filterDoneBtn:hover,
+.filterDoneBtn:active,
+.filterDoneBtn:focus {
+    border-color: #0079b3;
+    background-color: #fff;
+    outline: none;
+    box-shadow: none;
+}
+.filterSettings {
+    font-size: 1em; /* font size 15 in pixel */
+    color: #313131;
+    text-align: center;
+}
+
+.filterHeading {
+    color: #313131;
+    font-size: 0.8em;   /* font size 12 in pixel */
+    text-transform: uppercase;
+}
+
+.filterRadioText, .filterCheckText {
+    color: #0079b3;
+    font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+}
+
+.eventFilterGroup {
+    border-bottom:1px solid #ddd;
+}
+
+.eventFilterGroup .FilterRadioBtn {
+    height: 16px;
+    width: 16px;
+}
+
+.eventFilterGroup label:after {
+    content: '';
+}
+
+.eventFilterGroup .control__indicator, 
+.eventFilterGroup  .control input:checked ~ .control__indicator {
+    top:1px;
+}
+
+.eventFilterGroup .control-radio .control__indicator:after {
+    height: 6px;
+    left: 4px;
+    top: 4px;
+    width: 6px;
+}
+
+.eventFilterGroup .control, 
+.eventFilterCheckGroup .control {
+    cursor: pointer;
+    padding-left: 24px;
+    position: relative;
+    margin-bottom:0;
+}
+
+.eventFilterGroup .control {
+    line-height: 1.2em;
+}
+
+.eventFilterCheckGroup .control {
+    line-height: 1.8em
+}
+
+
+.eventFilterGroup .control-radio .control__indicator:after {
+    background-color: #0079b3;
+}
+
+.eventFilterGroup .control__indicator, .eventFilterGroup .control input:checked ~ .control__indicator {
+    background-color: #fff;
+}
+
+.eventFilterGroup .control__indicator {
+    height: 16px;
+    width: 16px;
+}
+
+.eventFilterCheckGroup .control__indicator {
+    width: 16px;
+    height: 16px;
+}
+
+.eventFilterCheckGroup label:after {
+    content: '';
+}
+
+.eventFilterCheckGroup .control input:checked ~ .control__indicator:after {
+    left: 5px;
+    top: 1px;
+}
+
+.customPopUp .eventFilterGroup .list-group .list-group-item, 
+.customPopUp .eventFilterCheckGroup .list-group .list-group-item {
+    padding: 6px 15px;
+}
+
+.customPopUp .eventFilterCheckGroup .list-group .list-group-item .list-group .list-group-item {
+    border: 0;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 2.4em
+}
+
+.revImage {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+.eventFilterCheckGroup .control__indicator.back_checkbox {
+    background-color:#0054a6;
+}
+
+ .eventFilterCheckGroup .control__indicator.back_checkbox .box-minus {
+    position: absolute;
+    top:6px;
+    left: 3px;
+    width: 8px;
+    height: 2px;
+    background-color: #fff;
+    z-index: 9999;
+ }
+
+ .slim-scroll-bar {
+    min-height:390px !important;
+    max-height:500px !important;
+    overflow: auto;
+ }

@@ -1,6 +1,6 @@
 /*Created Date: - 7 -02 -2017
-*Usage of file: - Created to display popup*
-*/
+ *Usage of file: - Created to display popup*
+ */
 
 import React from 'react';
 import { connect } from 'react-redux';
@@ -8,21 +8,24 @@ import { bindActionCreators } from 'redux';
 import { Link, hashHistory } from 'react-router';
 import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
 import * as actionCreators from '../dashboard/actions';
+import * as profileData from '../profile/actions';
 import UserDetail from '../dashboard/components/userDetail';
-import ProfileMenu from '../header/components/profileMenu';
-import { AuthUserDetails } from './utility';
+import profileMenu from '../header/components/profileMenu';
+import { authUserDetails } from './utility';
 import i18n from '../i18n';
 import { translateText } from '../common/translate';
 
 export class CustomPopUp extends React.Component {
   constructor(props) {
     super(props);
+    const customPopUpProps = this.props;
     this.state = {
       languageState: true
     };
-    this.role = this.props.userData ? this.props.userData.userRole : AuthUserDetails().userRole;
+    this.role = this.props.userData ? this.props.userData.userRole : authUserDetails().userRole;
     if (this.role) {
-      this.props.getUserDetailsData(`/${this.role}`);
+      customPopUpProps.getUserDetailsData(`/${this.role}`);
+      props.getStudentProfileData();
     }
     this.languageChangeBind = this.changeLanguage.bind(this);
     this.signOutBind = this.signOut.bind(this);
@@ -31,6 +34,9 @@ export class CustomPopUp extends React.Component {
   signOut() {
     localStorage.removeItem('roleInfo');
     localStorage.removeItem('lang');
+    //localStorage.removeItem('setFilterValue');
+    localStorage.removeItem('classMasterCopy');
+    localStorage.removeItem('assignmentMasterCopy');
     hashHistory.replace('/');
     location.reload();
   }
@@ -38,41 +44,42 @@ export class CustomPopUp extends React.Component {
     localStorage.setItem('lang', langKey);
     localStorage.setItem('temp', localStorage.getItem('i18nextLng'));
     i18n.init({ lng: localStorage.getItem('lang') });
-
     location.reload();
   }
   render() {
-    const { userDetailsData } = this.props;
-    const ProfileMenus = ProfileMenu(this.role);
+    const props = this.props;
+    //const userDetails = props.userDetailsData;
+    const profileDetails = props.profileData;
+    const ProfileMenus = profileMenu(this.role);
     const languages = [{ 'langkey': 'en', 'language': translateText('common:COMMON_ENGLISH') }, { 'langkey': 'es', 'language': translateText('common:COMMON_SPANISH') }];
     return (<div className='customPopUp'>
       <span className='popupPointer'>&nbsp;</span>
-      {this.state.languageState && <ListGroup>
+      {this.state.languageState && <ListGroup className='popup-box-shaow'>
         <ListGroupItem>
-          {userDetailsData && <div> <UserDetail userDetail={userDetailsData} /></div>}
+          {(profileDetails && profileDetails.data) && <div> <UserDetail userDetail={profileDetails.data[0]} /></div>}
         </ListGroupItem>
         {ProfileMenus.map((item) => (
-          <ListGroupItem key={item.itemName} className='openSansLight'>
+          <ListGroupItem key={item.itemName} className='openSansLight profile-icon'>
             {
-              item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ? <span onClick={() => { this.setState({ languageState: false }); }} >
-                <Link> {item.itemName}</Link>
-              </span> : <Link to={item.link} onClick={item.itemName === translateText('common:COMMON_SIGN_OUT') ? this.signOutBind : this.props.showPopValue} activeClassName='active'>
-                {item.itemName}
-              </Link>
+              item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ?
+                <Link onClick={() => { this.setState({ languageState: false }); }} > {item.itemName}</Link>
+                : <Link to={item.link} onClick={item.itemName === translateText('common:COMMON_SIGN_OUT') ? this.signOutBind : this.props.showPopValue} activeClassName='active'>
+                  {item.itemName}
+                </Link>
             }
           </ListGroupItem>
         ))}
       </ListGroup>
       }
       {!(this.state.languageState) &&
-        <ListGroup>
+        <ListGroup className='popup-box-shaow'>
           <ListGroupItem className='openSansLight'>
             <Row>
-              <Col sm={2}>
+              <Col sm={2} xs={2}>
                 <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); }} />
               </Col>
-              <Col sm={10}>
-                <p className='selectLang pt5'>{translateText('common:COMMON_SELECT_LANGUAGE')}</p>
+              <Col sm={10} xs={10}>
+              <p className='selectLang pt5'>{translateText('common:COMMON_SELECT_LANGUAGE')}</p>
               </Col>
             </Row>
           </ListGroupItem>
@@ -89,17 +96,18 @@ export class CustomPopUp extends React.Component {
 }
 
 CustomPopUp.propTypes = {
-  showPopValue: React.PropTypes.string,
+  showPopValue: React.PropTypes.func,
   userData: React.PropTypes.string
 };
 
 const mapStateToProps = (dashboardState) => (
   {
     userDetailsData: dashboardState.dashboardReducer.userDetailsData.data,
+    profileData: dashboardState.profileReducer.profileData.data,
     userData: dashboardState.auth.data
   }
 );
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileData), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomPopUp);

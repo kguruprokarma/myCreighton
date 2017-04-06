@@ -70,10 +70,10 @@ const receiveFacultyAcademicDataError = (facultyAcamedicError) => (
     data: facultyAcamedicError
   });
 
-export function getStudentProfileData(reqObj) {
+export function getStudentProfileData() {
   return function (dispatch) {
     dispatch(requestStudentProfileData());
-    return profileApi.getProfileData(reqObj)
+    return profileApi.getProfileData()
       .then((response) => {
         dispatch(receiveStudentProfileData(response));
       }
@@ -87,10 +87,10 @@ export function getStudentProfileData(reqObj) {
   };
 }
 
-export function getStaffProfileData(reqObj) {
+export function getStaffProfileData() {
   return function (dispatch) {
     dispatch(requestStaffProfileData());
-    return profileApi.getStaffProfileData(reqObj)
+    return profileApi.getStaffProfileData()
       .then((response) => {
         dispatch(receiveStaffProfileData(response));
       }
@@ -104,10 +104,10 @@ export function getStaffProfileData(reqObj) {
   };
 }
 
-export function getFacultyProfileData(reqObj) {
+export function getFacultyProfileData() {
   return function (dispatch) {
     dispatch(requestFacultyProfileData());
-    return profileApi.getFacultyProfileData(reqObj)
+    return profileApi.getFacultyProfileData()
       .then((response) => {
         dispatch(receiveFacultyProfileData(response));
       }
@@ -122,10 +122,10 @@ export function getFacultyProfileData(reqObj) {
 }
 
 // action method to get the faculty academic data
-export function getFacultyAcademicData(reqObj) {
+export function getFacultyAcademicData() {
   return function (dispatch) {
     dispatch(requestFacultyAcademicData());
-    return profileApi.getFacultyAcademicData(reqObj).then((response) => {
+    return profileApi.getFacultyAcademicData().then((response) => {
       dispatch(receiveFacultyAcademicData(response));
     }).catch((error) => {
       dispatch(receiveFacultyAcademicDataError({

@@ -7,8 +7,7 @@ import BasicRow from '../basicRow';
 
 
 describe('BasicRow testing ----->', () => {
- 
-  const basicRow = shallow(<BasicRow  />);
+  const basicRow = shallow(<BasicRow />);
   it('BasicRow is defined', () => {
     expect(basicRow).toBeDefined();
   });
@@ -16,5 +15,4 @@ describe('BasicRow testing ----->', () => {
   it('BasicRow should dataField class', () => {
     expect(basicRow.find('.dataField').length).toBe(1);
   });
-
 });

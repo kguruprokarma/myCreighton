@@ -11,6 +11,15 @@ const closePopUp = () => (
     type: types.CLOSE_POPUP
   });
 
+const openFilterPopUp = () => ({
+  type: types.OPEN_FILTER_POPUP
+});
+
+const closeFilterPopUp = () => (
+  {
+    type: types.CLOSE_FILTER_POPUP
+  });
+
 const openNav = () => ({
   type: types.OPEN_NAV
 });
@@ -29,6 +38,18 @@ export function popUpOpen() {
 export function popUpClose() {
   return function (dispatch) {
     dispatch(closePopUp());
+  };
+}
+
+export function filterPopUpOpen() {
+  return function (dispatch) {
+    dispatch(openFilterPopUp());
+  };
+}
+
+export function filterPopUpClose() {
+  return function (dispatch) {
+    dispatch(closeFilterPopUp());
   };
 }
 
