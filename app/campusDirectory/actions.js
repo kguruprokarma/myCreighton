@@ -22,6 +22,20 @@ const receiveCampusSimpleSearchError = (error) => (
     data: error
   });
 
+const resetCampusData = () => (
+  {
+    type: types.RESET_SIMPLE_SEARCH_DATA
+  });
+
+const searchClick = () => (
+  {
+    type: types.CLICKED_SEARCH
+  });
+const resetSearchClick = () => (
+  {
+    type: types.RESET_SEARCH
+  });
+
 export function getCampusDirectoryData(reqObj) {
   return function (dispatch) {
     dispatch(requestCampusSimpleSearch());
@@ -35,4 +49,21 @@ export function getCampusDirectoryData(reqObj) {
   };
 }
 
-export default getCampusDirectoryData;
+export function resetCampusDirectoryData() {
+  return function (dispatch) {
+    dispatch(resetCampusData());
+  };
+}
+
+export function searchItemClicked() {
+  return function (dispatch) {
+    dispatch(searchClick());
+  };
+}
+export function resetSearchItemClicked() {
+  return function (dispatch) {
+    dispatch(resetSearchClick());
+  };
+}
+
+export default {getCampusDirectoryData, resetCampusDirectoryData};

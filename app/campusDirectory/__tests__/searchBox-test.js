@@ -14,7 +14,12 @@ describe(' SearchBox component testing for campus directory search ----->', () =
 
   const defaultProps = {
     currentPath: CommonConstants.SEARCH_RESULTS,
-    onSearchText: () => {}
+    searchString: '',
+    onSearchText: () => {},
+    resetCampusDirectoryData: () => {},
+    resetSearchItemClicked: () => {},
+    searchItemClicked: () => {},
+    getCampusDirectoryData: () => {}
   };
 
   const searchBox = shallow(<SearchBox state={defaultState} {...defaultProps} />);
@@ -27,7 +32,35 @@ describe(' SearchBox component testing for campus directory search ----->', () =
     expect(searchBox.find('Link').length).toBe(1);
   });
 
+  it('Campus Directory input box values', () => {
+    searchBox.find('FormControl').simulate('change', {target: {value: 'f f'}});
+    expect(searchBox.instance().state.searchText).toBe('f f');
+    searchBox.find('FormControl').simulate('change', {target: {value: 'f,f'}});
+    expect(searchBox.instance().state.searchText).toBe('f,f');
+    searchBox.find('FormControl').simulate('change', {target: {value: ''}});
+    expect(searchBox.instance().state.searchText).toBe('');
+  });
+
   it('Campus Directory search Box component HelpBlock', () => {
     expect(searchBox.find('HelpBlock').length).toBe(1);
   });
+
+  it('Campus Directory search Box clearing', () => {
+    searchBox.find('.icon-addon-right').simulate('click');
+    expect(searchBox.instance().state.searchText).toBe('');
+  });
+
+  it('Campus Directory search selected user name', () => {
+    searchBox.instance().selectedUser('f', 'f');
+    expect(searchBox.instance().state.searchText).toBe('f f');
+  });
+
+  it('Campus Directory search button functionlaity', () => {
+    searchBox.find('FormControl').simulate('change', {target: {value: 'f f'}});
+    searchBox.find('Link').simulate('click', { preventDefault() {} });
+    searchBox.find('FormControl').simulate('change', {target: {value: 'f,f'}});
+    searchBox.find('Link').simulate('click', { preventDefault() {} });
+    expect(searchBox.find('Link').prop('disabled')).toBe(false);
+  });
+
 });

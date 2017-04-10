@@ -656,3 +656,9 @@ title {
     }
 }
 
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.form-group input::-ms-clear {
+        display: none;
+    }
+}

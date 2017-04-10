@@ -45,7 +45,7 @@ export class Profile extends React.PureComponent {
                 <HomeAddress homeAddress={USER_DATA.data[0].home_address} />
                 <Address schoolAddress={USER_DATA.data[0].school_address} />
                 <PrimaryContact primaryContact={USER_DATA.data[0].primary_phone_no} />
-                <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} />
+                <EmergencyContact data={USER_DATA.data[0]} />
                 <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].email.school_email} isShowPersonalEmail={false} />
                 <Other profile={props.profile} detail={USER_DATA.data[0]} />
                 <RelationDetail dateOfBirth={USER_DATA.data[0].birth_date} parentDetail={USER_DATA.data[0].parent} gurdianDetail={USER_DATA.data[0].guardian} />

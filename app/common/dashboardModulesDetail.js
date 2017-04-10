@@ -13,7 +13,7 @@ export const modulesBlocksData = (roleType) => {
   if (roleType === CommonConstants.ROLE_STUDENT) {
     modulesData.push([{
       'imgURL': '../assets/images/school.png',
-      'linkto': '',
+      'linkto': ROUTE_URL.SCHOOLS_AND_SEMESTER,
       'name': translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER'),
       'description': translateText('common:DASH_BOARD_SCHOOL_STUFF'),
       'class': 'school-img',

@@ -61,5 +61,12 @@ export default function (argument) {
     title = translateText('common:SEARCH_RESULT');
     return title;
   }
+  if (rootURL[1] === HEADER.STAFF_DETAIL) {
+    title = translateText('common:STAFF_DETAIL');
+  }
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER) {
+    title = translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER');
+    return title;
+  }
   return title; 
 }

@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import Result from './components/resultBox';
+import { Link } from 'react-router';
 import { translateText } from '../common/translate';
 import SearchLeftNav from '../common/searchLeftNav';
 import * as actionCreators from '../campusDirectory/actions';
@@ -11,6 +12,8 @@ import HeaderLabel from '../common/headerLabel';
 import Spinner from '../common/spinner';
 import AlertComponent from '../common/alertComponent';
 import '../searchResults/style.css';
+import * as actionCreatorss from './actions';
+import * as ROUTE_URL from '../constants/routeContants';
 
 export class SearchResults extends React.PureComponent {
   constructor(props) {
@@ -19,6 +22,7 @@ export class SearchResults extends React.PureComponent {
       userList: []
     };
     this.loadMore = this.loadMore.bind(this);
+    this.storeData = this.storeData.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -35,6 +39,12 @@ export class SearchResults extends React.PureComponent {
     this.setState({userList: moreResults});
   }
 
+  storeData(data) {
+    console.log('search result data', data );
+    const props = this.props;
+    props.onReceiveData(data);
+  }
+
   render() {
     const props = this.props;
     return (
@@ -46,7 +56,7 @@ export class SearchResults extends React.PureComponent {
         <Row>
           <Col sm={8} md={9} xs={12} className='userData pull-right'>
             <SimpleSearch {...this.props} currentPath={props.route.path} searchString={props.params.searchquery} />
-            <div className='openSansLight graybtBorder pb5'>
+            {props.searchClicked && <div className='openSansLight graybtBorder pb5'>
               <Row>
                 <Col md={9} xs={6}>
                   {props.SimpleSearchData && this.state.userList.length} {props.SimpleSearchData && translateText('common:SEARCH_RESULT')}
@@ -57,14 +67,14 @@ export class SearchResults extends React.PureComponent {
                   }
                 </Col>
               </Row>
-            </div>
+            </div>}
             { 
-              this.state.userList.length > 0 ?
+              this.state.userList.length > 0 && props.searchClicked ?
               this.state.userList && this.state.userList.map((user, userindex) => (
-                <Result {...user} key={userindex} />
-            )) :(props.SimpleSearchData ? <div> {translateText('common:NO_SEARCH_RESULT')}: <span className='cmpNoResult'> {`"${props.params.searchquery}"`} </span></div> : '')
+                <Link to={ROUTE_URL.STAFF_DETAILS} onClick={() => this.storeData(user)} ><Result {...user} key={userindex} /></Link>
+            )) : ''
             }
-            {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length &&
+            {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length && props.searchClicked &&
               <div className='text-center mt20'>
                 <button className='btn btn-default openSansLight cmpsDirLoadMoreBtn' onClick={this.loadMore}>{translateText('common:SEARCH_MORE_RESULT')}</button>
               </div>
@@ -86,9 +96,10 @@ export class SearchResults extends React.PureComponent {
 const mapStateToProps = (simpleSearchState) => (
   {
     SimpleSearchData: simpleSearchState.campusDirectoryReducer.campusSimpleSearch.data,
-    loading: simpleSearchState.campusDirectoryReducer.isLoading
+    loading: simpleSearchState.campusDirectoryReducer.isLoading,
+    searchClicked: simpleSearchState.campusDirectoryReducer.searchClick
   });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, actionCreatorss), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);

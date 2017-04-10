@@ -12,6 +12,7 @@ import Login from '../login/index';
 import Bio from '../profile/student/bio';
 import AcademicComponent from '../profile/student/academic';
 import ClassesComponent from '../classes/classList';
+import SchoolAndSemester from '../schoolandsemester';
 import ClassDetails from '../classes/classDetails';
 import DashboardComponent from '../dashboard/index';
 import StaffProfileComponent from '../profile/staff';
@@ -24,7 +25,9 @@ import EventDetails from '../nextEvents/eventDetails';
 import Professional from '../profile/staff/professional';
 import CampusDirectoryComponent from '../campusDirectory';
 import SearchResultsComponent from '../searchResults';
+import semesterAcademics from '../schoolandsemester/components/academics';
 import axiosInterceptor from './axiosInterceptor';
+import StaffDetails from '../staffDetail/index';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
@@ -37,6 +40,7 @@ const routes = (
           <Route path='/' title='' component={Login} />
           <Route path={ROUTE_URL.PROFILE} title='My Profile - ' component={Bio} />
           <Route path={ROUTE_URL.ACADEMIC} title='Academic - ' component={AcademicComponent} />
+          <Route path={ROUTE_URL.SCHOOLS_AND_SEMESTER} title='School and Semester - ' component={SchoolAndSemester} />
           <Route path={ROUTE_URL.CLASSES + ROUTE_URL.CLASS_TAB_PARAM} title='Class Schedule - ' component={ClassesComponent} />
           <Route path={ROUTE_URL.CLASS_DETAILS + ROUTE_URL.CATEGORY_NAME_PARAM + ROUTE_URL.ID_PARAM + ROUTE_URL.INDEX_PARAM} title='Class Detail - ' component={ClassDetails} />
           <Route path={ROUTE_URL.DASHBOARD} title='' component={DashboardComponent} />
@@ -50,7 +54,9 @@ const routes = (
           <Route path={ROUTE_URL.STAFF + ROUTE_URL.PROFESSIONAL} title='Professional - ' component={Professional} />
           <Route path={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SEARCH_TYPE} title='Campus Directory - ' component={CampusDirectoryComponent} />
           <Route path={ROUTE_URL.SERCHRESULTS + ROUTE_URL.SEARCH_QUERY} title='Search - ' component={SearchResultsComponent} />
-
+          <Route path={ROUTE_URL.STAFF_DETAILS} title='StaffDetails - ' component={StaffDetails} /> 
+          <Route path={ROUTE_URL.SEMESTERACADEMICS} title='Semester Academics - ' component={semesterAcademics} />
+          
           {/*<Route path='/' component={Login} />
           <Route path={ROUTE_URL.PROFILE} component={Bio} />
           <Route path={ROUTE_URL.ACADEMIC} component={Academic} />

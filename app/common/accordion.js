@@ -24,10 +24,10 @@ class Accordion extends React.Component {
     return (
       <section role='region'>
         <div className='accord-title' onClick={this.accordToggle}>
-          {this.props.accordionTitle}
+          {this.props.title}
         </div>
         <div className={`${accordStateClass} accord-description`}>
-          {this.props.accordionData}
+          {this.props.description}
         </div>
       </section>
     );
@@ -35,8 +35,8 @@ class Accordion extends React.Component {
 }
 
 Accordion.propTypes = {
-  accordionTitle: React.PropTypes.string.isRequired,
-  accordionData: React.PropTypes.string.isRequired
+  title: React.PropTypes.string.isRequired,
+  description: React.PropTypes.string
 };
 
 export default Accordion;
