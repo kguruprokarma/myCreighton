@@ -6,7 +6,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import ProfessionalInfo from '../components/professionalInfo';
 
-it('ProfileInfo is defined', () => {
+it('ProfessionalInfo is defined', () => {
   const defaultProps = {
     professionalInfo: {
       job_title: 'Faculty',

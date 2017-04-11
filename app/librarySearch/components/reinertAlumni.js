@@ -10,7 +10,7 @@ import * as CommonConstants from '../../constants/commonConstants';
 const ReinertAlumni = (aluminProps) => (  
   <div>  
     <Libraryinformation title={CommonConstants.REINERT_ALUMNI_LIBRARY} libData={aluminProps.aluminiData} />
-    <More /> 
+    <More title={CommonConstants.REINERT_ALUMNI_LIBRARY} scrollTopClick={aluminProps.scrollTopClick} /> 
   </div>   
 );
 

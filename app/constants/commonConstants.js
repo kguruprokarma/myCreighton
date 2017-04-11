@@ -2,6 +2,7 @@ export const KEYPRESS_ENTER = 'Enter';
 export const DEVICE_WIDTH = 767;
 export const MY_CREIGHTON = 'myCreighton';
 export const ENROLLED_STUDENT = 'Enrolled Student';
+export const STUDENT_TITLE = 'Student';
 export const ROLE_STUDENT = 'student';
 export const STUDENT_LABEL = 'STUDENT';
 export const ROLE_STAFF_TITLE = 'Staff';

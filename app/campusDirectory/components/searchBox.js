@@ -23,8 +23,11 @@ export class SearchBox extends Component {
     const constructorProps = props;
     const searchboxProps = this.props;
     this.state = constructorProps.state;
-    this.state.searchText = searchboxProps.searchString ? searchboxProps.searchString : '';
-    this.state.searchURL = '';
+    this.state = { 
+      searchText: searchboxProps.searchString ? searchboxProps.searchString : '',
+      selectUser: true
+    };
+   // this.state.searchURL = '';
     this.onSearchText = this.onSearchText.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.clearSearchText = this.clearSearchText.bind(this);
@@ -72,7 +75,7 @@ export class SearchBox extends Component {
   }
 
   selectedUser(firstName, lastName) {
-    this.setState({ searchText: (`${firstName} ${lastName}`) });
+    this.setState({ searchText: (`${firstName} ${lastName}`), selectUser: false });
   }
 
   clearSearchText() {
@@ -80,8 +83,11 @@ export class SearchBox extends Component {
   }
 
   handleChange(event) {
-    const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
-    const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
+    if (!this.state.selectUser) {
+      this.setState({ selectUser: true });
+    }
+   // const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
+   // const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
     if (event.target.value.length <= CommonConstants.CAMPUS_SEARCH_TEXT_LENGTH) {
       /* if (txtShouldnotStartWithSpace.test(event.target.value)) {
          if (txtRestrictNumeric.test(event.target.value)) {*/
@@ -115,21 +121,22 @@ export class SearchBox extends Component {
   }
 
   render() {
+    const props =this.props;
     return (
       <Row>
-        { this.props.loading && <Spinner />}
+        { props.loading && <Spinner />}
         <Col xs={12}>
           <Form className='searchForm' onSubmit={this.onSearchText}>
             <Row>
               <Col xs={12} sm={9}>
                 <FormGroup>
                   <FormControl type='search' autoFocus value={this.state.searchText} onChange={this.handleChange} className='openSansLight input-lg cmpsDirSearch mt20' placeholder={translateText('common:SEARCH_CREIGHTON_STAFF')} />
-                  <div className={`icon-addon openSansLight ${this.state.searchText === '' ? 'show' : 'hide'}`} onClick={this.clearSearchText} ><ImageComponent imagePath={SEARCH_ICON} /></div>
-                  <div className='icon-addon-right openSansLight show' onClick={this.clearSearchText} ><ImageComponent imagePath={MENUCLOSE_ICON} /></div>
+                  <button className={`icon-addon btn btn-link btnnoPadding openSansLight ${this.state.searchText === '' ? 'show' : 'hide'}`} onClick={this.clearSearchText} ><ImageComponent imagePath={SEARCH_ICON} /></button>
+                  <button className='icon-addon-right btn btn-link btnnoPadding openSansLight show' onClick={this.clearSearchText} ><ImageComponent imagePath={MENUCLOSE_ICON} /></button>
                   <HelpBlock className='openSansRegular cmpsDirText mt10'>{translateText('common:EXAMPLE_CAMPUS_DIRECTORY_SEARCH')} </HelpBlock>
                 </FormGroup>
-                {(this.props.campusSimpleSearchData && this.props.campusSimpleSearchData.data && this.props.campusSimpleSearchData.data.length > 0 && this.state.searchText.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH && !this.props.searchClick) &&
-                  <AutoPopulateList selectedUser={this.selectedUser} populatedList={this.props.campusSimpleSearchData.data} />}
+                {(props.campusSimpleSearchData && props.campusSimpleSearchData.data && props.campusSimpleSearchData.data.length > 0 && this.state.searchText.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH && !props.searchClick && this.state.selectUser) &&
+                  <AutoPopulateList selectedUser={this.selectedUser} populatedList={props.campusSimpleSearchData.data} />}
 
               </Col>
               <Col xs={12} sm={3}>
@@ -142,7 +149,7 @@ export class SearchBox extends Component {
         </Col>
         <Col xs={12}>
           {
-            (this.props.campusSimpleSearchData && this.props.campusSimpleSearchData.data && this.props.campusSimpleSearchData.data.length === 0 && this.state.searchText) && <div> {translateText('common:NO_SEARCH_RESULT')}: <span className='cmpNoResult'>{this.state.searchText} </span></div>
+            (props.campusSimpleSearchData && props.campusSimpleSearchData.data && props.campusSimpleSearchData.data.length === 0 && this.state.searchText) && <div> {translateText('common:NO_SEARCH_RESULT')}: <span className='cmpNoResult'>{this.state.searchText} </span></div>
           }
         </Col>
 
@@ -154,7 +161,6 @@ export class SearchBox extends Component {
 SearchBox.propTypes = {
   resetCampusDirectoryData: React.PropTypes.func,
   getCampusDirectoryData: React.PropTypes.func,
-  searchClick: React.PropTypes.boolean,
   resetSearchItemClicked: React.PropTypes.func,
   searchItemClicked: React.PropTypes.func
 };

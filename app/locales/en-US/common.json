@@ -253,12 +253,14 @@
   "TEXT": "Text",
   "AUTOMATED_ATTENDANT": "Automated attendant",
   "CHAT": "Chat",
+  "ADMIN":"Admin",
 
   "MORE" : "More",
   "DIRECTORY" : "Directory",
   "LIAISONS" : "Liaisons",
   "LIBRARY_SERVICES" : "Library services",
   "WEBSITE" : "Website",
-  "SEMESTER_ACADEMICS": "Academics"
+  "SEMESTER_ACADEMICS": "Academics",
+  "JAY_SEARCH": "How to Find Print Journals Using JaySearch "
 
 }

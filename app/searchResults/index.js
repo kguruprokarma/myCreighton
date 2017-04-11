@@ -79,7 +79,7 @@ export class SearchResults extends React.PureComponent {
                 <button className='btn btn-default openSansLight cmpsDirLoadMoreBtn' onClick={this.loadMore}>{translateText('common:SEARCH_MORE_RESULT')}</button>
               </div>
             }
-            {((!props.SimpleSearchData && !props.loading)) &&
+            {((!props.SimpleSearchData && !props.loading && props.searchClicked)) &&
               <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
             }
           </Col>

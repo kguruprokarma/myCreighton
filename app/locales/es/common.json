@@ -237,6 +237,10 @@
   "APPLICATIONS_TOOLS" :"APLICACIONES / HERRAMIENTAS",
   "STAFF_GROUPS" :"GRUPO(S)",
   "RESULTS_LIST": "Lista de resultados",
-  "SEMESTER_ACADEMICS": "Académica"
+  "SEMESTER_ACADEMICS": "Académica",
+  "JAY_SEARCH": "Cómo buscar revistas de impresión con JaySearch ",
+  "ADMIN":"Administración",
+   "PAGE_TOP": "Parte superior"
+
 
 }

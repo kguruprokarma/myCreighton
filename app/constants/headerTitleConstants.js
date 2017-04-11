@@ -23,4 +23,4 @@ export const CAMPUS_DIRECTORY = 'campusdirectory';
 export const SEARCH_RESULT = 'searchresults';
 export const STAFF_DETAIL = 'staffDetails';
 export const SCHOOL_AND_SEMESTER= 'schoolsandsemester';
-export const SEMESTER_ACADEMICS = 'semesteracademics'
+export const SEMESTER_ACADEMICS = 'semesteracademics';

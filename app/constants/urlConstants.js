@@ -49,6 +49,7 @@ export const DEV_URL_CREIGHTON = 'http://dev-api-node01.creighton.edu';
 export const DEV_URL_CREIGHTON_ADFS = 'https://dev-dl-api.creighton.edu';
 export const ADFS = '/adfs';
 export const ADFS_LOGIN_URL = 'https://dev-dl-api.creighton.edu/loginadfs?redirect=';
+export const ADFS_LOGOUT_URL = 'https://dev-dl-api.creighton.edu/logoutadfs';
 export const API_SINGLE = '/single';
 export const STUDENT_ACADEMIC = '/studentAcademic';
 export const STUDENT_PROFILE = '/studentProfile';
@@ -67,5 +68,6 @@ export const ROLE = '/role';
 
 export const LOCAL_URL = 'http://localhost:8000/#/';
 export const SERVER_URL = 'mycu-rundev1.creighton.edu';
+export const STATUS_CODE = 200;
 
 

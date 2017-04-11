@@ -461,3 +461,5 @@ export const getParentorGuardian = (dateOfBirth) => {
   }
   return CommonConstants.STUDENT_PARENT;
 };
+
+export const scrollToPosition = (positionId) => document.getElementById(positionId).scrollIntoView();

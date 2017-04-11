@@ -10,7 +10,7 @@ import * as CommonConstants from '../../constants/commonConstants';
 const LawLibrary = (lawProps) => (  
   <div>  
     <Libraryinformation title={CommonConstants.LAW_LIBRARY} libData={lawProps.lawData} />
-    <More /> 
+    <More title={CommonConstants.LAW_LIBRARY} scrollTopClick={lawProps.scrollTopClick}  /> 
   </div>   
 );
 

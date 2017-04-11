@@ -8,7 +8,10 @@ import * as CommonConstants from '../constants/commonConstants';
 // Add a request interceptor
 axios.interceptors.request.use((config) => {
   // Do something before request is sent
-  config.withCredentials = true;
+  const URL = config.url.split('/');
+  if (indexOf(URL, 'logoutadfs') < 0) {
+    config.withCredentials = true;
+  }
   return config;
 }, (error) => Promise.reject(error));
 
@@ -19,22 +22,29 @@ axios.interceptors.response.use((response) => {
   if (response && response.config && response.config.url) {
     const URL = response.config.url.split('/');
     let roleObj = {};
-    if (indexOf(URL, 'role') > 0) {
-      if (response.data.role === CommonConstants.ENROLLED_STUDENT) {
-        //let userRole = 'student';
+    if (indexOf(URL, 'role') > 0 && response.data && response.data.role) {
+      if (response.data.role.indexOf(CommonConstants.STUDENT_TITLE)>0) {
         roleObj = {'userRole': CommonConstants.ROLE_STUDENT};
       }
-      if (response.data.role === CommonConstants.ROLE_FACULTY_TITLE) {
+      if (response.data.role.indexOf(CommonConstants.ROLE_FACULTY_TITLE) >= 0) {
         roleObj = {'userRole': CommonConstants.ROLE_FACULTY};
       }
-      if (response.data.role === CommonConstants.ROLE_STAFF_TITLE) {
+      if (response.data.role.indexOf(CommonConstants.ROLE_STAFF_TITLE) >= 0) {
         roleObj = {'userRole': CommonConstants.ROLE_STAFF};
       }
+      // For Guest user
+      // if (response.data.role.indexOf(CommonConstants.ROLE_STAFF_TITLE) >= 0 || response.data.role.indexOf('Guest') >= 0) {
+      //   roleObj = {'userRole': CommonConstants.ROLE_STAFF};
+      // }
       localStorage.setItem('roleInfo', JSON.stringify(roleObj));
-      hashHistory.replace('/dashboard');
+      if (window.location.hash === '#/') {
+        hashHistory.replace('/dashboard');
+      }
+    } else if (indexOf(URL, 'logoutadfs') > 0) {
+      const currentUrl = encodeURIComponent(document.URL);
+      window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
     }
   }
-  
   return response;
 }, (error) => {
   // Do something with response error

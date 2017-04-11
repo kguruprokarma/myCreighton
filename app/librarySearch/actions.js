@@ -22,19 +22,6 @@ const receiveError = (error) => (
     data: error
   });
 
-export function onReceiveError(error) {
-  return function (dispatch) {
-    dispatch(receiveError(error));
-  };
-}
-
-// export function getLibraryData() {
-//   return function (dispatch) {
-//     dispatch(requestData());
-//     dispatch(receiveLibraryData());
-//   };
-// }
-
 export function getLibraryData() {
   return function (dispatch) {
     dispatch(requestData());
@@ -51,3 +38,4 @@ export function getLibraryData() {
       );
   };
 }
+export default getLibraryData;

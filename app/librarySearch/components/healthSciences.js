@@ -10,7 +10,7 @@ import * as CommonConstants from '../../constants/commonConstants';
 const HealthSciences = (healthProps) => (  
   <div>  
     <Libraryinformation title={CommonConstants.HEALTH_SCIENCES_LIBRARY} libData={healthProps.healthData} />
-    <More /> 
+    <More title={CommonConstants.HEALTH_SCIENCES_LIBRARY} scrollTopClick={healthProps.scrollTopClick} /> 
   </div>   
 );
 

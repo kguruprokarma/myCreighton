@@ -6,7 +6,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import Groups from '../components/groups';
 
-it('ProfileInfo is defined', () => {
+it('Groups is defined', () => {
   const defaultProps = {
     groups: {
       

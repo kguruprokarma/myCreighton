@@ -6,7 +6,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import ApplicationTool from '../components/applicationTools';
 
-it('ProfileInfo is defined', () => {
+it('ApplicationTools is defined', () => {
   const defaultProps = {
     application: {
       

@@ -4,15 +4,15 @@
 
 import React from 'react';
 import {shallow} from 'enzyme';
-import expertiseSkills from '../components/expertiseSkills';
+import ExpertiseSkills from '../components/expertiseSkills';
 
-it('ProfileInfo is defined', () => {
+it('ExpertiseSkills is defined', () => {
   const defaultProps = {
-    groups: {
+    expertise: {
       
     }
   };
-  const groups = shallow(<expertiseSkills {...defaultProps} />);
+  const groups = shallow(<ExpertiseSkills {...defaultProps} />);
 
   expect(groups).toBeDefined();
 });  

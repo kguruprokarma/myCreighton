@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link, hashHistory } from 'react-router';
 import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 import * as actionCreators from '../dashboard/actions';
 import * as profileData from '../profile/actions';
 import UserDetail from '../dashboard/components/userDetail';
@@ -35,20 +36,27 @@ export class CustomPopUp extends React.Component {
   }
 
   signOut() {
-    localStorage.removeItem('roleInfo');
-    localStorage.removeItem('infos');
-    localStorage.removeItem('lang');
-    localStorage.removeItem('classMasterCopy');
-    localStorage.removeItem('assignmentMasterCopy');
-    localStorage.removeItem('temp');
-    localStorage.removeItem('classDetails');
-    localStorage.removeItem('setFilterValue');
-    localStorage.removeItem('setDisplayOptionValue');
-    localStorage.removeItem('displayOptions');
-    localStorage.removeItem('eventList');
-    localStorage.removeItem('eventsFilterData');
-    const currentUrl = encodeURIComponent(urlConstants.LOCAL_URL);
-    window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
+   // const currentUrl = encodeURIComponent(urlConstants.LOCAL_URL);
+    //window.location = urlConstants.ADFS_LOGOUT_URL + currentUrl;
+    axios.get(urlConstants.ADFS_LOGOUT_URL).then((response) => {
+      if (response.status === urlConstants.STATUS_CODE) {
+        localStorage.removeItem('roleInfo');
+        localStorage.removeItem('infos');
+        localStorage.removeItem('lang');
+        localStorage.removeItem('classMasterCopy');
+        localStorage.removeItem('assignmentMasterCopy');
+        localStorage.removeItem('temp');
+        localStorage.removeItem('classDetails');
+        localStorage.removeItem('setFilterValue');
+        localStorage.removeItem('setDisplayOptionValue');
+        localStorage.removeItem('displayOptions');
+        localStorage.removeItem('eventList');
+        localStorage.removeItem('eventsFilterData');
+        //location.reload();
+      }
+    }, (error) => {
+      console.log(error);
+    });
   }
   changeLanguage(langKey) {
     localStorage.setItem('lang', langKey);
