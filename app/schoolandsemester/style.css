@@ -9,3 +9,74 @@
     border-left: 0;
     border-right: 0;
 }
+
+.school-and-semester .semester-internal-nav {
+    display: none;
+}
+.school-and-semester .semester-internal-data {
+    width: 100%;
+}
+
+.school-and-semester  .semester-title {
+    display: none;
+}
+
+.main-list-group .list-group-item a, 
+.main-list-group .list-group-item btn-link{
+    font-size:1em;
+    color: #0054a6;
+}
+
+.main-list-group .list-group-item.active a, 
+.main-list-group .list-group-item.active btn-link {
+    color: #313131
+}
+
+.semester-sub-title {
+    font-size: 1.8em;;
+    line-height: 2;
+    border-bottom: 1px solid #c8c7cc;
+}
+
+.semester-badge-text {
+    color: #757575
+}
+
+.main-list-group {
+    margin-top: 17px;
+}
+
+.accord-title {
+    background-color: #d7d7d7;
+    color: #0054a6;
+    cursor: pointer;
+    width: 100%;
+    padding-left: 15px;
+    border-top: 1px solid #c8c7cc;
+    text-align: left;
+    padding-top:4px;
+    padding-bottom: 4px;
+}
+.accord-title:hover,
+.accord-title:focus,
+.accord-title:active{
+    background-color: #d7d7d7;
+}
+
+.main-list-group.accordian-list-data {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.main-list-group.accordian-list-data .list-group-item {
+    border-color: #c8c7cc; 
+}
+
+.main-list-group.accordian-list-data .list-group-item:hover,
+{
+    cursor: pointer;
+}
+
+.main-list-group.accordian-list-data .list-group-item:last-child {
+    border-bottom: 0;
+}

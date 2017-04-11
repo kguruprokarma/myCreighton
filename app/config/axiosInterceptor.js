@@ -1,20 +1,43 @@
 import axios from 'axios';
+import { hashHistory } from 'react-router';  
+import { indexOf } from 'lodash';
 import * as urlConstants from '../constants/urlConstants';
+import * as CommonConstants from '../constants/commonConstants';
+
 
 // Add a request interceptor
 axios.interceptors.request.use((config) => {
-    // Do something before request is sent
+  // Do something before request is sent
   config.withCredentials = true;
   return config;
 }, (error) => Promise.reject(error));
 
 // Add a response interceptor
 axios.interceptors.response.use((response) => {
-    // Do something with response data
+  // Do something with response data
   console.log(response);
+  if (response && response.config && response.config.url) {
+    const URL = response.config.url.split('/');
+    let roleObj = {};
+    if (indexOf(URL, 'role') > 0) {
+      if (response.data.role === CommonConstants.ENROLLED_STUDENT) {
+        //let userRole = 'student';
+        roleObj = {'userRole': CommonConstants.ROLE_STUDENT};
+      }
+      if (response.data.role === CommonConstants.ROLE_FACULTY_TITLE) {
+        roleObj = {'userRole': CommonConstants.ROLE_FACULTY};
+      }
+      if (response.data.role === CommonConstants.ROLE_STAFF_TITLE) {
+        roleObj = {'userRole': CommonConstants.ROLE_STAFF};
+      }
+      localStorage.setItem('roleInfo', JSON.stringify(roleObj));
+      hashHistory.replace('/dashboard');
+    }
+  }
+  
   return response;
 }, (error) => {
-    // Do something with response error
+  // Do something with response error
   console.log(error);
   if (error.response.status === 401) {
     const currentUrl = encodeURIComponent(document.URL);

@@ -142,6 +142,7 @@
   "COMMON_DESCRIPTION": "Description",
   "QUIZ_POINTS": "Points",
   "QUIZ_NUMBER_OF_QUESTIONS": "Number of Questions",
+  "SETTINGS": "Settings",
 
   "STAFF_BUSINESS_INFORMATION": "BUSINESS INFORMATION",
   "STAFF_PROFESSIONAL_DEVELOPMENT" : "PROFESSIONAL DEVELOPMENT",
@@ -195,14 +196,14 @@
 
   "PREVIOUS": "Previous",
   
-  "NO_RESPONSE": "Server error...!!",
+  "NO_RESPONSE": "No Content Available",
   "NO_CONTENT": "No Content Available",
   "NO_EVENTS_TO_DISPLAY": "No events to display",
   "NO_CLASSES_SCHEDULED": "No classes scheduled",
   "NO_DETAILS_PROVIDED": "No details have been provided by the instructor.",
   "NO_SEARCH_RESULT": "No matches found for the search",
 
-  "EXAMPLE_CAMPUS_DIRECTORY_SEARCH": "Examples: smith o smith, c o smith, carl",
+  "EXAMPLE_CAMPUS_DIRECTORY_SEARCH": "Examples: smith or smith, c or smith, carl",
   "SEARCH_CREIGHTON_STAFF": "Search Creighton Staff",
   "SEARCH": "Search",  
   "ADVANCED_SEARCH": "Advanced Search",
@@ -239,5 +240,25 @@
   "EXPERTISE_SKILLS" : "EXPERTISE/SKILLS",
   "APPLICATION_TOOLS" :"APPLICATION/TOOLS",
   "STAFF_GROUPS" :"GROUP(S)",
-  "RESULTS_LIST": "Results  List"
+  "RESULTS_LIST": "Results  List",
+
+  "REINERT_ALUMNI_LIBRARY": "Reinert-Alumni Library",
+  "HEALTH_SCIENCES_LIBRARY": "Health Sciences Library",
+  "LAW_LIBRARY": "Law Library",
+
+  "LIBRARY_HOURS": "Library hours",
+  "REFERENCE": "Reference",
+  "CIRCULATION": "Circulation",
+  "MAIN": "Main",
+  "TEXT": "Text",
+  "AUTOMATED_ATTENDANT": "Automated attendant",
+  "CHAT": "Chat",
+
+  "MORE" : "More",
+  "DIRECTORY" : "Directory",
+  "LIAISONS" : "Liaisons",
+  "LIBRARY_SERVICES" : "Library services",
+  "WEBSITE" : "Website",
+  "SEMESTER_ACADEMICS": "Academics"
+
 }

@@ -1,0 +1,23 @@
+.reinertAlumni,.healthScience,.law {
+    line-height: 30px;
+    display: block;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.libraryHours {
+    display: block;
+    line-height: 35px;
+}
+
+.library {
+    line-height: 25px;
+}
+
+.libraryArrow {
+    font-size: 0.85em;
+}
+
+.libraryData,.libraryMore {
+    font-size: 1.2em;
+}

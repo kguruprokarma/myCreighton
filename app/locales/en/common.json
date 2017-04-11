@@ -238,11 +238,27 @@
   "DEPARTMENT" : "Department",
   "REPORT_TO" : "Reports to:",
   "EXPERTISE_SKILLS" : "EXPERTISE/SKILLS",
-  "APPLICATION_TOOLS" :"APPLICATION/TOOLS",
+  "APPLICATIONS_TOOLS" :"APPLICATIONS/TOOLS",
   "STAFF_GROUPS" :"GROUP(S)",
-  "RESULTS_LIST": "Results  List"
+  "RESULTS_LIST": "Results  List",
 
+  "REINERT_ALUMNI_LIBRARY": "Reinert-Alumni Library",
+  "HEALTH_SCIENCES_LIBRARY": "Health Sciences Library",
+  "LAW_LIBRARY": "Law Library",
 
+  "LIBRARY_HOURS": "Library hours",
+  "REFERENCE": "Reference",
+  "CIRCULATION": "Circulation",
+  "MAIN": "Main",
+  "TEXT": "Text",
+  "AUTOMATED_ATTENDANT": "Automated attendant",
+  "CHAT": "Chat",
 
+  "MORE" : "More",
+  "DIRECTORY" : "Directory",
+  "LIAISONS" : "Liaisons",
+  "LIBRARY_SERVICES" : "Library services",
+  "WEBSITE" : "Website",
+  "SEMESTER_ACADEMICS": "Academics"
 
 }

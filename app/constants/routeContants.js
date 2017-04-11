@@ -26,7 +26,8 @@ export const SIMPLE_SEARCH = '/simple';
 export const ADVANCED_SEARCH = '/advanced';
 export const SERCHRESULTS = '/searchresults';
 export const STAFF_DETAILS = '/staffDetails';
-export const SEMESTERACADEMICS = '/semesteracademics'; 
+export const SEMESTERACADEMICS = '/semesteracademics';
+export const LIBRARY_SEARCH = '/librarysearch';
 
 /*
 * Relative path url's parameters for components

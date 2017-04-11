@@ -14,6 +14,7 @@ import profileMenu from '../header/components/profileMenu';
 import { authUserDetails } from './utility';
 import i18n from '../i18n';
 import { translateText } from '../common/translate';
+import * as urlConstants from '../constants/urlConstants';
 
 export class CustomPopUp extends React.Component {
   constructor(props) {
@@ -22,10 +23,12 @@ export class CustomPopUp extends React.Component {
     this.state = {
       languageState: true
     };
-    this.role = this.props.userData ? this.props.userData.userRole : authUserDetails().userRole;
+    this.role = authUserDetails().userRole;
     if (this.role) {
-      customPopUpProps.getUserDetailsData(`/${this.role}`);
-      props.getStudentProfileData();
+     // customPopUpProps.getUserDetailsData(`/${this.role}`);
+      if (!localStorage.getItem('infos')) {
+        props.getStudentProfileData();
+      }
     }
     this.languageChangeBind = this.changeLanguage.bind(this);
     this.signOutBind = this.signOut.bind(this);
@@ -33,12 +36,19 @@ export class CustomPopUp extends React.Component {
 
   signOut() {
     localStorage.removeItem('roleInfo');
+    localStorage.removeItem('infos');
     localStorage.removeItem('lang');
-    //localStorage.removeItem('setFilterValue');
     localStorage.removeItem('classMasterCopy');
     localStorage.removeItem('assignmentMasterCopy');
-    hashHistory.replace('/');
-    location.reload();
+    localStorage.removeItem('temp');
+    localStorage.removeItem('classDetails');
+    localStorage.removeItem('setFilterValue');
+    localStorage.removeItem('setDisplayOptionValue');
+    localStorage.removeItem('displayOptions');
+    localStorage.removeItem('eventList');
+    localStorage.removeItem('eventsFilterData');
+    const currentUrl = encodeURIComponent(urlConstants.LOCAL_URL);
+    window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
   }
   changeLanguage(langKey) {
     localStorage.setItem('lang', langKey);
@@ -49,16 +59,19 @@ export class CustomPopUp extends React.Component {
   render() {
     const props = this.props;
     //const userDetails = props.userDetailsData;
-    const profileDetails = props.profileData;
+    const profileDetails = JSON.parse(localStorage.getItem('infos')) || props.profileData;
     const ProfileMenus = profileMenu(this.role);
+    if (profileDetails && profileDetails.data) {
+      localStorage.setItem('infos', JSON.stringify(profileDetails));
+    }
     const languages = [{ 'langkey': 'en', 'language': translateText('common:COMMON_ENGLISH') }, { 'langkey': 'es', 'language': translateText('common:COMMON_SPANISH') }];
     return (<div className='customPopUp'>
       <span className='popupPointer'>&nbsp;</span>
       {this.state.languageState && <ListGroup className='popup-box-shaow'>
         <ListGroupItem>
-          {(profileDetails && profileDetails.data) && <div> <UserDetail userDetail={profileDetails.data[0]} /></div>}
+          {(profileDetails && profileDetails.data) && <div> <UserDetail userDetail={profileDetails.data[0]} role={this.role} /></div>}
         </ListGroupItem>
-        {ProfileMenus.map((item) => (
+        {ProfileMenus && ProfileMenus.map((item) => (
           <ListGroupItem key={item.itemName} className='openSansLight profile-icon'>
             {
               item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ?
@@ -102,7 +115,7 @@ CustomPopUp.propTypes = {
 
 const mapStateToProps = (dashboardState) => (
   {
-    userDetailsData: dashboardState.dashboardReducer.userDetailsData.data,
+    //userDetailsData: dashboardState.dashboardReducer.userDetailsData.data,
     profileData: dashboardState.profileReducer.profileData.data,
     userData: dashboardState.auth.data
   }

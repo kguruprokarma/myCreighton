@@ -40,7 +40,7 @@ export class SearchResults extends React.PureComponent {
   }
 
   storeData(data) {
-    console.log('search result data', data );
+    //console.log('search result data', data );
     const props = this.props;
     props.onReceiveData(data);
   }
@@ -56,7 +56,7 @@ export class SearchResults extends React.PureComponent {
         <Row>
           <Col sm={8} md={9} xs={12} className='userData pull-right'>
             <SimpleSearch {...this.props} currentPath={props.route.path} searchString={props.params.searchquery} />
-            {props.searchClicked && <div className='openSansLight graybtBorder pb5'>
+            {(props.searchClicked && !props.loading) && <div className='openSansLight graybtBorder pb5'>
               <Row>
                 <Col md={9} xs={6}>
                   {props.SimpleSearchData && this.state.userList.length} {props.SimpleSearchData && translateText('common:SEARCH_RESULT')}
@@ -69,12 +69,12 @@ export class SearchResults extends React.PureComponent {
               </Row>
             </div>}
             { 
-              this.state.userList.length > 0 && props.searchClicked ?
-              this.state.userList && this.state.userList.map((user, userindex) => (
-                <Link to={ROUTE_URL.STAFF_DETAILS} onClick={() => this.storeData(user)} ><Result {...user} key={userindex} /></Link>
+              (this.state.userList && this.state.userList.length > 0 && props.searchClicked && !props.loading) ?
+                this.state.userList.map((user, userindex) => (
+                  <Link key={userindex} to={ROUTE_URL.STAFF_DETAILS} onClick={() => this.storeData(user)} ><Result {...user} key={userindex} /></Link>
             )) : ''
             }
-            {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length && props.searchClicked &&
+            {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length && props.searchClicked && !props.loading &&
               <div className='text-center mt20'>
                 <button className='btn btn-default openSansLight cmpsDirLoadMoreBtn' onClick={this.loadMore}>{translateText('common:SEARCH_MORE_RESULT')}</button>
               </div>

@@ -29,7 +29,7 @@ const FacultyProfile = (facultyProfileProps) => (
             <WorkAddress workAddress={facultyProfileProps.data.data[0].work_address} profile={CommonConstants.FACULTY_LABEL} />
             <MailAddress mailAddress={facultyProfileProps.data.data[0].mail_address} shouldShowWhenFaculty profile={''} />
             <PrimaryContact primaryContact={facultyProfileProps.data.data[0].phone} />
-            <EmergencyContact emergencyContact={facultyProfileProps.data.data[0].emergency_contact} relation={facultyProfileProps.data.data[0].emrg_cont_type} phone={facultyProfileProps.data.data[0].emergency_contact_phone} />
+            <EmergencyContact data={facultyProfileProps.data.data[0]} />
             <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={facultyProfileProps.data.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={facultyProfileProps.data.data[0].personal_email} isShowPersonalEmail />
             <Other detail={facultyProfileProps.data.data[0]} />
             <FamilyDetail familyDetail={facultyProfileProps.data.data[0]} />

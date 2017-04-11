@@ -8,7 +8,8 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { I18nextProvider } from 'react-i18next'; // as we build ourself via webpack
 import configureStore from '../store/configureStore';
 import Main from '../common/main';
-import Login from '../login/index';
+//import Login from '../login/index';
+import Home from '../home/index';
 import Bio from '../profile/student/bio';
 import AcademicComponent from '../profile/student/academic';
 import ClassesComponent from '../classes/classList';
@@ -28,6 +29,7 @@ import SearchResultsComponent from '../searchResults';
 import semesterAcademics from '../schoolandsemester/components/academics';
 import axiosInterceptor from './axiosInterceptor';
 import StaffDetails from '../staffDetail/index';
+import LibrarySearch from '../librarySearch';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
@@ -37,7 +39,7 @@ const routes = (
     <Provider store={store}>
       <Router history={history}>
         <Route component={Main}>
-          <Route path='/' title='' component={Login} />
+          <Route path='/' title='' component={Home} />
           <Route path={ROUTE_URL.PROFILE} title='My Profile - ' component={Bio} />
           <Route path={ROUTE_URL.ACADEMIC} title='Academic - ' component={AcademicComponent} />
           <Route path={ROUTE_URL.SCHOOLS_AND_SEMESTER} title='School and Semester - ' component={SchoolAndSemester} />
@@ -56,6 +58,7 @@ const routes = (
           <Route path={ROUTE_URL.SERCHRESULTS + ROUTE_URL.SEARCH_QUERY} title='Search - ' component={SearchResultsComponent} />
           <Route path={ROUTE_URL.STAFF_DETAILS} title='StaffDetails - ' component={StaffDetails} /> 
           <Route path={ROUTE_URL.SEMESTERACADEMICS} title='Semester Academics - ' component={semesterAcademics} />
+          <Route path={ROUTE_URL.LIBRARY_SEARCH} title='Library Search - ' component={LibrarySearch} />
           
           {/*<Route path='/' component={Login} />
           <Route path={ROUTE_URL.PROFILE} component={Bio} />

@@ -24,13 +24,13 @@ export class Dashboard extends Component {
     const dashboardProps = this.props;
     this.state = { shouldHide: true };
     this.onClick = this.onClick.bind(this);
-    this.role = dashboardProps.userData ? dashboardProps.userData.userRole : authUserDetails().userRole;
+    this.role = authUserDetails().userRole;
     if (this.role) { dashboardProps.getUserDetailsData(`/${this.role}`); }
   }
 
   componentWillMount() {
     const props = this.props;
-    this.role = props.userData ? props.userData.userRole : authUserDetails().userRole;
+    this.role = authUserDetails().userRole;
     if (this.role) { props.getUserDetailsData(`/${this.role}`); }
 
     if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
@@ -57,12 +57,12 @@ export class Dashboard extends Component {
         <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
         <Row className='mb20'>
           <Col sm={5} xs={10} md={5}>           
-            {(profileData && profileData.data) && <UserDetail userDetail={profileData.data[0]} />}
+            {(profileData && profileData.data) && <UserDetail userDetail={profileData.data[0]} role={this.role} />}
           </Col>
           <Col xs={2} className='pull-right text-right'>
             <div className={this.state.shouldHide ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>
           </Col>
-          <Col xs={12} sm={7} md={7}>
+          <Col xs={12} sm={7} md={7} className='pull-right'>
             <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetails} />
           </Col>
         </Row>

@@ -78,7 +78,7 @@ describe('Next Event actions testing', () => {
     * Do not delete below lines, as the below lines are used to mock real API service call. 
     */
     
-    moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENT}${urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS}${urlConstants.ASSIGNMENT}`, {
       status: 200,
       response: data
     });
@@ -106,7 +106,7 @@ describe('Next Event actions testing', () => {
     * Do not delete below lines, as the below lines are used to mock real API service call. 
     */
 
-    moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENT}${urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=6cb4db8459`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS}${urlConstants.ASSIGNMENT}`, {
       status: 404,
       responseText: 'error'
     });

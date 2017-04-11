@@ -58,13 +58,21 @@ export class EventList extends React.PureComponent {
       if (ASSIGNMENTS_DATA && CLASSES_DATA) {
         const classObjs = createTimeStamp(dataFilterAddingData(CLASSES_DATA.data));
         const assignmentObjs = addedTypeField(ASSIGNMENTS_DATA.data);
-        assignmentObjs.map((assignmentObj) => {
-          EVENT_DATA.push(assignmentObj);
-          return EVENT_DATA;
-        });
+        // assignmentObjs.map((assignmentObj) => {
+        //   EVENT_DATA.push(assignmentObj);
+        //   return EVENT_DATA;
+        // });
         classObjs.map((classObj) => {
           const classObject = classObj;
-          classObject.assignmentData = filter(assignmentObjs, { 'sis_source_id': classObject.sis_source_id });
+          const assignmentObjects = filter(assignmentObjs, { 'sis_source_id': classObject.sis_source_id });
+          if (assignmentObjects ) {
+            assignmentObjects.map((assignmentObj) => {
+              EVENT_DATA.push(assignmentObj);
+              return EVENT_DATA;
+            });
+          }
+  
+          classObject.assignmentData = assignmentObjects;
           classObject.type = NextEventsConstants.CLASSES_DETAILS;
           EVENT_DATA.push(classObject);
           return EVENT_DATA;
@@ -73,14 +81,17 @@ export class EventList extends React.PureComponent {
       if (EVENT_DATA) {
         localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
       }
-      let val = props.EventChangedValue;
-      let val1;
-      if (localStorage.getItem('setFilterValue') !== null) {
-        val = localStorage.getItem('setFilterValue');
+      let val = props.EventChangedValue;    
+      if (localStorage.getItem('setFilterValue') === null) {
+      //   val = localStorage.getItem('setFilterValue');
+      // }
+        localStorage.setItem('setFilterValue', CommonConstants.EVENT_FILTER_7_DAYS);
+      }      
+      if (localStorage.getItem(CommonConstants.DISPLAY_OPTIONS) === null) {
+        this.getEventDisplayOptions();
       }
-      if (localStorage.getItem('setDisplayOptionValue') !== null) {
-        val1 = localStorage.getItem('setDisplayOptionValue');
-      }
+      val = localStorage.getItem('setFilterValue');
+      const val1 = localStorage.getItem('setDisplayOptionValue');
       const result = this.getSelectedFilterData(val, val1);
       return result;
     }
@@ -144,7 +155,6 @@ export class EventList extends React.PureComponent {
     if (options) {
       keys = Object.keys(options);
     }
-
     if (eventFilterData) {
       if (options && keys && keys.length > 0) {
         eventFilterData = this.sortingDisplayOptionSelection(options, eventFilterData);

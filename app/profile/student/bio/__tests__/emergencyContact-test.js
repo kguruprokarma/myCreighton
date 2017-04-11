@@ -8,14 +8,16 @@ import EmergencyContact from '../components/emergencyContact';
 
 it('EmergencyContact is defined', () => {
   const defaultProps = {
-    emergencyContact: {
-      name: {
+    data: {
+      emergency_contact: {      
         first: 'First Name',
         last: 'Last Name'
       },
-      phone: '9876543210',
-      relation: 'relation'
+      emergency_contact_phone: '9876543210',
+      emrg_cont_type: 'relation'
+
     }
+    
   };
   const emergencyContact = shallow(<EmergencyContact {...defaultProps} />);
 

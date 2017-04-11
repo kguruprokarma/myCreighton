@@ -24,7 +24,7 @@ class Main extends React.PureComponent {
     this.state = {
       isLogin: false
     };
-    axios.get( urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.STUDENT_PROFILE);    
+    axios.get( urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE);    
   }
 
   componentWillMount() {

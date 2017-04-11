@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Grid, Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import SemesterContainer from './semesterContainer';
+import SemesterNav from './semesterNav';
+import * as actionCreators from '../actions';
+import { SemesterLinks } from './semesterLinks';
+import { translateText } from '../../common/translate';
+import HeaderLabel from '../../common/headerLabel';
 
 const semesterDataObj = [
   {
@@ -11,52 +17,9 @@ const semesterDataObj = [
     accordionObj: [{
       accordionTitle: 'Changes',
       links: [
-        'Change Undergraduate College',
-        'Leave of Absence',
-        'Withdrawal - Apply for Approval',
-        'Withdrawal - Return Title 4 Funds',
-        'Apply for a Major',
-        'My Incompletes'          
+        'Change Undergraduate College'
       ]
-    },
-    {
-      accordionTitle: 'Problems',
-      links: [
-        'Request a Tutor',
-        'Request Academic Support'
-      ]
-    },
-    {
-      accordionTitle: 'Grades',
-      links: [
-        'My Current Semester Scores',
-        'My Current Semester GPA'
-      ]
-    },
-    {
-      accordionTitle: 'Records',
-      links: [
-        'View Progress Towards Graduation',
-        'View Dismissal/Expulsion Record',
-        'Request Academic Standing Rec…',
-        'Request Enrollment Verification',
-        'Request Degree Verification',
-        'Request Transcript'
-      ]
-    },
-    {
-      accordionTitle: 'Calendar Dates',
-      links: [
-        'Current Semester Milestones'
-      ]
-    },
-    {
-      accordionTitle: 'My Program',
-      links: [
-        'School of Pharmacy'
-      ]
-    }
-    ]
+    }]
   }
 ];
 class Academics extends Component {
@@ -66,23 +29,34 @@ class Academics extends Component {
     this.state = {};
   }
 
+  toggleClick() {
+    const props = this.props;
+    if (props.isToggle) {
+      props.toggleHideNavView();
+    } else {
+      props.toggleShowNavView();
+    }
+  }
 
   render() {
     return (
-      <div>
-        Academics {console.log('semesterDataObj: ', semesterDataObj[0])}
-        <SemesterContainer data={semesterDataObj[0]} />
-      </div>
+      <Row>
+        <Grid className='hidden-xs semester-internal-nav'>
+          <HeaderLabel headerLabel={translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER')} />
+        </Grid>
+        <Col md={3} sm={4} className='hidden-xs semester-internal-nav'><SemesterNav semesterLinks={SemesterLinks} toggleClick={this.toggleClick} /></Col>
+        <Col sm={8} md={9} xs={12} className='semester-internal-data'><SemesterContainer data={semesterDataObj[0]} /></Col>
+      </Row>
     );
   }
 }
 
-function mapStateToProps({ }) {
-  return {};
-}
+const mapStateToProps = (state) => (
+  {
+    isToggle: state.schoolAndSemesterReducer.isToggle
+  });
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({}, dispatch);
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Academics);
+

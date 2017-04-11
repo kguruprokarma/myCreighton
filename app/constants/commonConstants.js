@@ -1,10 +1,13 @@
 export const KEYPRESS_ENTER = 'Enter';
 export const DEVICE_WIDTH = 767;
 export const MY_CREIGHTON = 'myCreighton';
+export const ENROLLED_STUDENT = 'Enrolled Student';
 export const ROLE_STUDENT = 'student';
 export const STUDENT_LABEL = 'STUDENT';
+export const ROLE_STAFF_TITLE = 'Staff';
 export const ROLE_STAFF = 'staff';
 export const STAFF_LABEL = 'STAFF';
+export const ROLE_FACULTY_TITLE = 'Faculty';
 export const FACULTY_LABEL = 'FACULTY';
 export const ROLE_FACULTY = 'faculty';
 export const STUDENT_PARENT = 'parent';
@@ -61,3 +64,7 @@ export const REPORT_TO = 'Reports to';
 export const EXPERTISE_SKILLS = 'EXPERTISE/SKILLS';
 export const APPLICATION_TOOLS ='APPLICATION/TOOLS';
 export const GROYUPS ='GROUP(S)';
+
+export const REINERT_ALUMNI_LIBRARY = 'REINERT-ALUMNI LIBRARY';
+export const HEALTH_SCIENCES_LIBRARY = 'HEALTH SCIENCES LIBRARY';
+export const LAW_LIBRARY = 'LAW LIBRARY';

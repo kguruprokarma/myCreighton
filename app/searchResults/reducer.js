@@ -5,7 +5,7 @@
 import * as types from './actionType';
 
 const initialState = {
-  staffProfileData: {}
+  profileData: {}
 };
 
 const staffProfileReducer = (state = initialState, action = null) => {

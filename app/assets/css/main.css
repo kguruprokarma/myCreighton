@@ -348,7 +348,6 @@ input {
     width: 5px;
 }
 
-
 .control-checkbox input[disabled]+.control__indicator:after {
     left: 8px;
     top: 4px;
@@ -486,6 +485,12 @@ title {
 
 .accord-active {
     display: block;
+}
+
+.btn-link:hover, 
+.btn-link:focus,
+.btn-link:active {
+    text-decoration: none;
 }
 
 /* Media for small devices */

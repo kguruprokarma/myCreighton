@@ -25,6 +25,7 @@ export const EVENTS_DATA = '/eventList.json';
 //export const ASSIGNMENTS = '/assignments.json';
 export const TESTORQUIZ = `${ROOT_URL}/testorquiz.json`;
 export const PROFESSIONAL_DATA = '/professional_data.json';
+export const LIBRARY_DATA = '/libraryInformation.json';
 
 ///
 /// API retrieved data json files for offline use links
@@ -45,7 +46,8 @@ export const BLUE_LINE = 'https://blueline.instructure.com';
 export const API_GATEWAY = 'http://api-gateway01.creighton.edu'; //'http://reduxblog.herokuapp.com';
 //export const API_DATA = '/studentProfile/'; //'/myProfile.json'; //http://reduxblog.herokuapp.com/api/posts
 export const DEV_URL_CREIGHTON = 'http://dev-api-node01.creighton.edu';
-export const DEV_URL_CREIGHTON_ADFS = 'https://dev-dl-api.creighton.edu/adfs';
+export const DEV_URL_CREIGHTON_ADFS = 'https://dev-dl-api.creighton.edu';
+export const ADFS = '/adfs';
 export const ADFS_LOGIN_URL = 'https://dev-dl-api.creighton.edu/loginadfs?redirect=';
 export const API_SINGLE = '/single';
 export const STUDENT_ACADEMIC = '/studentAcademic';
@@ -61,6 +63,9 @@ export const FACULTY_LEARN = '/faculty_learn';
 export const ASSIGNMENT = '/assignments';
 export const CAMPUS_DIRECTORY_SIMPLE = '/searchFaculty';
 export const NEXTEVENT_ASSIGNMENTS = `${API_GATEWAY}${ASSIGNMENTS}${API_SINGLE}?primaryKey=netid&primaryValue=9dfa6baa7a`;
+export const ROLE = '/role';
 
+export const LOCAL_URL = 'http://localhost:8000/#/';
+export const SERVER_URL = 'mycu-rundev1.creighton.edu';
 
 

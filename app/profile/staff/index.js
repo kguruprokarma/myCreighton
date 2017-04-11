@@ -48,7 +48,7 @@ export class StaffProfile extends React.PureComponent {
                 <WorkAddress workAddress={USER_DATA.data[0].work_address} profile={props.profile} />
                 <MailAddress mailAddress={USER_DATA.data[0].mail_address} />
                 <PrimaryContact primaryContact={USER_DATA.data[0].phone} />
-                <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} relation={USER_DATA.data[0].emrg_cont_type} phone={USER_DATA.data[0].emergency_contact_phone} />
+                <EmergencyContact data={USER_DATA.data[0]} />
                 <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={USER_DATA.data[0].personal_email} isShowPersonalEmail />
                 <Other profile={props.profile} detail={USER_DATA.data[0]} />
                 <FamilyDetail familyDetail={USER_DATA.data[0]} />

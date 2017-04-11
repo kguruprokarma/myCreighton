@@ -15,6 +15,7 @@ import { SEARCH_ICON, MENUCLOSE_ICON } from '../../constants/imageConstants';
 import * as ROUTE_URL from '../../constants/routeContants';
 import * as actionCreators from '../actions';
 import AutoPopulateList from './resultsList';
+import Spinner from '../../common/spinner';
 
 export class SearchBox extends Component {
   constructor(props) {
@@ -28,9 +29,9 @@ export class SearchBox extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.clearSearchText = this.clearSearchText.bind(this);
     this.selectedUser = this.selectedUser.bind(this);
-    /* if (constructorProps.currentPath === CommonConstants.SEARCH_RESULTS) {
-       searchboxProps.onSearchText(constructorProps.searchString);
-     }*/
+    if (constructorProps.currentPath === CommonConstants.SEARCH_RESULTS ) {
+      searchboxProps.onSearchText(constructorProps.searchString);
+    }
   }
 
   onSearchText(event) {
@@ -49,25 +50,25 @@ export class SearchBox extends Component {
      return true;
    }*/
     const query = this.state.searchText;
-    if (query.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH) {
-      let searchText = query.toLowerCase();
-      if (searchText.indexOf(',') >= 0) {
-        searchText = searchText.split(',');
-      } else {
-        searchText = searchText.split(' ');
-      }
-      const reqObj = {};
-      if (searchText[0]) {
-        reqObj.firstName = searchText[0];
-      }
-      if (searchText[1]) {
-        reqObj.lastName = searchText[1];
-      }
-      this.props.getCampusDirectoryData(reqObj);
-      this.props.searchItemClicked();
-      const searchURL = `${ROUTE_URL.SERCHRESULTS}/${this.state.searchText}`;
-      hashHistory.replace(searchURL);
+   // if (query.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH) {
+    let searchText = query.toLowerCase();
+    if (searchText.indexOf(',') >= 0) {
+      searchText = searchText.split(',');
+    } else {
+      searchText = searchText.split(' ');
     }
+    const reqObj = {};
+    if (searchText[0]) {
+      reqObj.firstName = searchText[0];
+    }
+    if (searchText[1]) {
+      reqObj.lastName = searchText[1];
+    }
+    this.props.getCampusDirectoryData(reqObj);
+    this.props.searchItemClicked();
+    const searchURL = `${ROUTE_URL.SERCHRESULTS}/${this.state.searchText}`;
+    hashHistory.replace(searchURL);
+   // }
   }
 
   selectedUser(firstName, lastName) {
@@ -116,6 +117,7 @@ export class SearchBox extends Component {
   render() {
     return (
       <Row>
+        { this.props.loading && <Spinner />}
         <Col xs={12}>
           <Form className='searchForm' onSubmit={this.onSearchText}>
             <Row>
