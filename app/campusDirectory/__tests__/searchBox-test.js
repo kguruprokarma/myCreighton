@@ -31,7 +31,7 @@ describe(' SearchBox component testing for campus directory search ----->', () =
   });
 
   it('Campus Directory search Box component buttons', () => {
-    expect(searchBox.find('Link').length).toBe(1);
+    expect(searchBox.find('Link').length).toBe(2);
   });
 
   it('Campus Directory input box values', () => {
@@ -59,10 +59,10 @@ describe(' SearchBox component testing for campus directory search ----->', () =
 
   it('Campus Directory search button functionlaity', () => {
     searchBox.find('FormControl').simulate('change', {target: {value: 'f f'}});
-    searchBox.find('Link').simulate('click', { preventDefault() {} });
+    searchBox.find('.searchButton').simulate('click', { preventDefault() {} });
     searchBox.find('FormControl').simulate('change', {target: {value: 'f,f'}});
-    searchBox.find('Link').simulate('click', { preventDefault() {} });
-    expect(searchBox.find('Link').prop('disabled')).toBe(false);
+    searchBox.find('.searchButton').simulate('click', { preventDefault() {} });
+    expect(searchBox.find('.searchButton').prop('disabled')).toBe(false);
   });
 
   /*it('Campus Directory testing no data case', () => {

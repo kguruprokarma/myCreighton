@@ -15,4 +15,5 @@ it('StaffDetails is defined', () => {
   const staffDetail = shallow(<StaffDetails {...defaultProps} />);
 
   expect(staffDetail).toBeDefined();
+  staffDetail.instance().goback();
 });  

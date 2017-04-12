@@ -7,10 +7,16 @@ describe('Header component testing ----->', () => {
     showPopUp: () => { },
     showPatch: () => { },
     navClick: () => { },
-    popUpData: true,
+    popUpData: false,
     popUpOpen: () => { },
+    goBack: () => { },
     showNav: false,
+    navData: true,
+    filterPopUpClose: () => { },
+    filterPopUpOpen: () => { },
     popUpClose: () => { },
+    navClose: () => { },
+    //window.onhashchange: () => { },
     currentState: ''
   };
 
@@ -21,5 +27,9 @@ describe('Header component testing ----->', () => {
 
   it('Header should contain Title component', () => {
     expect(HeaderC.find('Title').length).toBe(1);
+    HeaderC.instance().goBack();
+    HeaderC.instance().showPopUp();
+    HeaderC.instance().showFilterPopUp();
+    HeaderC.instance().navClick();    
   });
 });

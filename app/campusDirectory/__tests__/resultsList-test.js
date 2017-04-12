@@ -27,6 +27,6 @@ describe(' result list component testing for campus directory search ----->', ()
   });
 
   it('AutoPopulateList list click', () => {
-    AutoPopulateListC.find('div').simulate('click');
+    AutoPopulateListC.find('Link').simulate('click');
   });
 });

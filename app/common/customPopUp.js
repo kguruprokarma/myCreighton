@@ -16,6 +16,7 @@ import { authUserDetails } from './utility';
 import i18n from '../i18n';
 import { translateText } from '../common/translate';
 import * as urlConstants from '../constants/urlConstants';
+import * as roleConstants from '../constants/commonConstants';
 
 export class CustomPopUp extends React.Component {
   constructor(props) {
@@ -28,7 +29,13 @@ export class CustomPopUp extends React.Component {
     if (this.role) {
      // customPopUpProps.getUserDetailsData(`/${this.role}`);
       if (!localStorage.getItem('infos')) {
-        props.getStudentProfileData();
+        if (this.role === roleConstants.ROLE_FACULTY) {
+          props.getFacultyProfileData();
+        } else if (this.role === roleConstants.ROLE_STAFF) {
+          props.getStaffProfileData();
+        } else if (this.role === roleConstants.ROLE_STUDENT) {
+          props.getStudentProfileData();
+        }        
       }
     }
     this.languageChangeBind = this.changeLanguage.bind(this);
@@ -72,12 +79,24 @@ export class CustomPopUp extends React.Component {
     if (profileDetails && profileDetails.data) {
       localStorage.setItem('infos', JSON.stringify(profileDetails));
     }
+    let profileInformation;
+    if (profileDetails && profileDetails.data && profileDetails.data.length > 0) {
+      const data = profileDetails.data[0];
+      if (this.role === roleConstants.ROLE_FACULTY) {        
+        profileInformation = data.faculty_name;
+      } else if (this.role === roleConstants.ROLE_STAFF) {
+        profileInformation = data.staff_name;
+      } else if (this.role === roleConstants.ROLE_STUDENT) {
+        profileInformation = data.legal_name;
+      }    
+    }
+
     const languages = [{ 'langkey': 'en', 'language': translateText('common:COMMON_ENGLISH') }, { 'langkey': 'es', 'language': translateText('common:COMMON_SPANISH') }];
     return (<div className='customPopUp'>
       <span className='popupPointer'>&nbsp;</span>
       {this.state.languageState && <ListGroup className='popup-box-shaow'>
         <ListGroupItem>
-          {(profileDetails && profileDetails.data) && <div> <UserDetail userDetail={profileDetails.data[0]} role={this.role} /></div>}
+          {profileInformation && <div> <UserDetail userDetail={profileInformation} role={this.role} /></div>}
         </ListGroupItem>
         {ProfileMenus && ProfileMenus.map((item) => (
           <ListGroupItem key={item.itemName} className='openSansLight profile-icon'>

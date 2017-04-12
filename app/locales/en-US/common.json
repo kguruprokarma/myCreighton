@@ -261,6 +261,10 @@
   "LIBRARY_SERVICES" : "Library services",
   "WEBSITE" : "Website",
   "SEMESTER_ACADEMICS": "Academics",
-  "JAY_SEARCH": "How to Find Print Journals Using JaySearch "
+  "JAY_SEARCH": "How to Find Print Journals Using JaySearch ",
+  "SCHOOL_TASKS_AND_ACTIVITIES": "School Tasks and Activities",
+  "FREQUENT_FUNCTIONS_AND_INFORMATION": "Frequent functions and information needed during the semester",
+  "SEMESTER_CHANGES": "Changes",
+  "CHANGE_UNDERGRADUATE_COLLEGE": "Change Undergraduate College"
 
 }

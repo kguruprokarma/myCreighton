@@ -27,7 +27,7 @@ export class EventList extends React.PureComponent {
     this.userReqObj = {};
     this.userReqObj.primaryKey = 'netid';
     this.userReqObj.primaryValue = authUserDetails().netid; //'6cb4db8459';
-    this.masterObj = {};
+    this.masterObj = null;
   }
   componentWillMount() {
     const props = this.props;
@@ -113,6 +113,12 @@ export class EventList extends React.PureComponent {
     if (displayOptionFilter && filterSelection) {
       day = filterSelection;
       options = JSON.parse(displayOptionFilter);
+      if (options) {
+        const keys = Object.keys(options);
+        if (keys.length === 0) {
+          return false;
+        }
+      }
     } else {
       day = filterSelection;
     }
@@ -159,12 +165,12 @@ export class EventList extends React.PureComponent {
       if (options && keys && keys.length > 0) {
         eventFilterData = this.sortingDisplayOptionSelection(options, eventFilterData);
         localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
-      } else {
+      } /*else {
         if (eventFilterData) {
           localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
           this.getEventDisplayOptions();
         }
-      }
+      }*/
     }
     
     return eventFilterData;

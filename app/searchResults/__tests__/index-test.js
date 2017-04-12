@@ -10,7 +10,10 @@ describe('index files in SearchResults----->', () => {
   const minProps = {
     route: 'route',
     params: 'params',
+    loading: false,
+    searchClicked: true,
     loadMore: () => { },
+    onReceiveData: () => { },
     state: {
       userList: ['obj1', 'obj1']
     },
@@ -26,6 +29,7 @@ describe('index files in SearchResults----->', () => {
   it('SearchResults is defined', () => {
     expect(searchResults).toBeDefined();
     searchResults.instance().loadMore();
+    searchResults.instance().storeData();
     searchResults.instance().componentWillReceiveProps(minProps);
   });
 });

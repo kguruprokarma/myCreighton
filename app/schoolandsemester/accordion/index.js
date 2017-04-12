@@ -8,6 +8,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import * as actionCreators from './actions';
+import { translateText } from '../../common/translate';
 
 export class Accordion extends React.Component {
 
@@ -33,13 +34,13 @@ export class Accordion extends React.Component {
         {props.accordionObj && props.accordionObj.map((accordionDetails, accordionIndex) => (
           <article key={accordionIndex}>
             <button className='btn btn-link btnnoPadding accord-title' onClick={this.accordToggle}>
-              {accordionDetails.accordionTitle}
+              {translateText(accordionDetails.accordionTitle)}
             </button>
 
             {/*<div className={`${accordStateClass} accord-description`}>*/}
             <ListGroup className='main-list-group accordian-list-data openSansLight'>
               {accordionDetails.links.map((linkDetails, linkIndex) => (
-                <ListGroupItem key={linkIndex}><Link>{linkDetails} <span className='glyphicon glyphicon-chevron-right pull-right' /></Link></ListGroupItem>
+                <ListGroupItem key={linkIndex}><Link>{translateText(linkDetails)} <span className='glyphicon glyphicon-chevron-right pull-right' /></Link></ListGroupItem>
               ))}
             </ListGroup>
 

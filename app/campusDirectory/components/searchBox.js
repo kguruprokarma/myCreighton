@@ -89,8 +89,8 @@ export class SearchBox extends Component {
    /* if (!event.target.value.trim()) {
       return false;
     }*/
-    const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
-    const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
+ //   const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
+//    const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
     if (event.target.value.length <= CommonConstants.CAMPUS_SEARCH_TEXT_LENGTH) {
       /* if (txtShouldnotStartWithSpace.test(event.target.value)) {
          if (txtRestrictNumeric.test(event.target.value)) {*/
@@ -134,7 +134,7 @@ export class SearchBox extends Component {
                 <FormGroup>
                   <FormControl type='search' autoFocus value={this.state.searchText} onChange={this.handleChange} className='openSansLight input-lg cmpsDirSearch mt20' placeholder={translateText('common:SEARCH_CREIGHTON_STAFF')} />
                   <button className={`icon-addon btn btn-link btnnoPadding openSansLight ${this.state.searchText === '' ? 'show' : 'hide'}`} onClick={this.clearSearchText} ><ImageComponent imagePath={SEARCH_ICON} /></button>
-                  <button className='icon-addon-right btn btn-link btnnoPadding openSansLight show' onClick={this.clearSearchText} ><ImageComponent imagePath={MENUCLOSE_ICON} /></button>
+                  <Link className='icon-addon-right btnnoPadding openSansLight show' onClick={this.clearSearchText} ><ImageComponent imagePath={MENUCLOSE_ICON} /></Link>
                   <HelpBlock className='openSansRegular cmpsDirText mt10'>{translateText('common:EXAMPLE_CAMPUS_DIRECTORY_SEARCH')} </HelpBlock>
                 </FormGroup>
                 {(props.campusSimpleSearchData && props.campusSimpleSearchData.data && props.campusSimpleSearchData.data.length > 0 && this.state.searchText.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH && !props.searchClick && this.state.selectUser) &&
@@ -143,7 +143,7 @@ export class SearchBox extends Component {
               </Col>
               <Col xs={12} sm={3}>
                 <FormGroup>
-                  <Link onClick={this.onSearchText} disabled={this.state.searchText.trim() === '' ? true : false} className='openSansLight btn btn-default btn-large btn-block cmpsDirSearchBtn mt20 pl10'>{translateText('common:SEARCH')}</Link>
+                  <Link onClick={this.onSearchText} disabled={this.state.searchText.trim() === '' ? true : false} className='openSansLight btn btn-default btn-large btn-block cmpsDirSearchBtn mt20 pl10 searchButton'>{translateText('common:SEARCH')}</Link>
                 </FormGroup>
               </Col>
             </Row>

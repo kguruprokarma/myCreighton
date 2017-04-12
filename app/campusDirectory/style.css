@@ -82,6 +82,12 @@
     z-index: 2;
 }
 
+.icon-addon-right:focus,
+.icon-addon-right:hover,
+.icon-addon-right:active,  {
+    background: #a2a2a2; 
+}
+
 .search-field {
     position: relative;
 }
@@ -101,6 +107,13 @@
     border-radius: 6px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
+ }
+
+.result-list-item {
+    border-bottom: 1px solid #c8c7cc;
+    width: 100%;
+    overflow: hidden;
+    display: block;
  }
 
 @media screen and (max-width: 758px) {

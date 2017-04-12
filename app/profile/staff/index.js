@@ -34,7 +34,7 @@ export class StaffProfile extends React.PureComponent {
 
   render() {
     const props = this.props;
-    const USER_DATA = props.profile === CommonConstants.STAFF_LABEL && props.profileData;
+    const USER_DATA = props.profile === CommonConstants.STAFF_LABEL && props.profileData;    
     return (
       <section role='region'>
         {props.loading && <Spinner />}

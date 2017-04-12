@@ -240,7 +240,11 @@
   "SEMESTER_ACADEMICS": "Académica",
   "JAY_SEARCH": "Cómo buscar revistas de impresión con JaySearch ",
   "ADMIN":"Administración",
-   "PAGE_TOP": "Parte superior"
+   "PAGE_TOP": "Parte superior",
+  "SCHOOL_TASKS_AND_ACTIVITIES": "Tareas y actividades escolares",
+  "FREQUENT_FUNCTIONS_AND_INFORMATION": "Frecuente Funciones e información necesario durante el semestre",
+  "SEMESTER_CHANGES": "Cambios",
+  "CHANGE_UNDERGRADUATE_COLLEGE": "Cambio De licenciatura Universidad"
 
 
 }

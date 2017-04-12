@@ -1,3 +1,23 @@
+import { translateText } from '../../common/translate';
+
+export const semesterDataObj = [
+  {
+    title: translateText('common:SEMESTER_ACADEMICS'),
+    headlines: translateText('common:SCHOOL_TASKS_AND_ACTIVITIES'),
+    description: translateText('common:FREQUENT_FUNCTIONS_AND_INFORMATION'),
+    accordionObj: [{
+      accordionTitle: translateText('common:SEMESTER_CHANGES'),
+      links: [
+        translateText('common:CHANGE_UNDERGRADUATE_COLLEGE')
+      ]
+    }]
+  }
+];
+
+export default semesterDataObj;
+
+/*
+
 export const semesterDataObj = [
   {
     title: 'Academics',
@@ -55,4 +75,4 @@ export const semesterDataObj = [
   }
 ];
 
-export default semesterDataObj;
+*/

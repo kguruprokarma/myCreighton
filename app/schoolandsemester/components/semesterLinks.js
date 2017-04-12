@@ -1,4 +1,5 @@
 import * as ROUTE_URL from '../../constants/routeContants';
+import { translateText } from '../../common/translate';
 
 export const SemesterLinks = [
   // {
@@ -14,7 +15,7 @@ export const SemesterLinks = [
   //   'linkto': ROUTE_URL.SCHOOLS_AND_SEMESTER
   // },
   {
-    'title': 'Academics',
+    'title': translateText('common:SEMESTER_ACADEMICS'),
     'linkto': ROUTE_URL.SEMESTERACADEMICS
   }
   // {

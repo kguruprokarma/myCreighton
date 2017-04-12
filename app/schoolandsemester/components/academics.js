@@ -6,22 +6,10 @@ import SemesterContainer from './semesterContainer';
 import SemesterNav from './semesterNav';
 import * as actionCreators from '../actions';
 import { SemesterLinks } from './semesterLinks';
+import { semesterDataObj } from '../constants/semesterData';
 import { translateText } from '../../common/translate';
 import HeaderLabel from '../../common/headerLabel';
 
-const semesterDataObj = [
-  {
-    title: 'Academics',
-    headlines: 'School Tasks and Activities',
-    description: 'Frequent functions and information needed during the semester.',
-    accordionObj: [{
-      accordionTitle: 'Changes',
-      links: [
-        'Change Undergraduate College'
-      ]
-    }]
-  }
-];
 export class Academics extends Component {
 
   constructor(props) {
