@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import * as actionCreators from './actions';
 
-class Accordion extends React.Component {
+export class Accordion extends React.Component {
 
   constructor(props) {
     super(props);
@@ -18,13 +18,11 @@ class Accordion extends React.Component {
 
   accordToggle() {
     const props=this.props;
-    //console.log('accordToggle');
     if (props.isAccordToggle) {
       props.hideAccordionTab();
     } else {
       props.showAccordionTab();
     }
-    //console.log('accordToggle this.props.isAccordToggle: ', this.props.isAccordToggle);
   }
   render() {
     const props=this.props;
@@ -51,7 +49,6 @@ class Accordion extends React.Component {
     );
   }
 }
-
 
 const mapStateToProps = (state) => (
   {

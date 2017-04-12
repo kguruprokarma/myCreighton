@@ -22,7 +22,7 @@ const semesterDataObj = [
     }]
   }
 ];
-class Academics extends Component {
+export class Academics extends Component {
 
   constructor(props) {
     super(props);

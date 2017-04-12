@@ -72,5 +72,9 @@ export default function (argument) {
     title = translateText('common:SEMESTER_ACADEMICS');
     return title;
   }
+  if (rootURL[1] === HEADER.LIBRARY_SEARCH) {
+    title = translateText('common:LIBRARY_SEARCH');
+    return title;
+  }
   return title;
 }

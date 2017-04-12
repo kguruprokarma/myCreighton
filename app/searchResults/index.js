@@ -72,7 +72,7 @@ export class SearchResults extends React.PureComponent {
               (this.state.userList && this.state.userList.length > 0 && props.searchClicked && !props.loading) ?
                 this.state.userList.map((user, userindex) => (
                   <Link key={userindex} to={ROUTE_URL.STAFF_DETAILS} onClick={() => this.storeData(user)} ><Result {...user} key={userindex} /></Link>
-            )) : ''
+            )) : (props.SimpleSearchData && props.SimpleSearchData.data && props.SimpleSearchData.data.length === 0 && props.searchClicked && !props.loading) && <div> {translateText('common:NO_SEARCH_RESULT')}: <span className='cmpNoResult'>&quot;{document.getElementsByClassName('cmpsDirSearch')[0].value}&quot;</span></div>
             }
             {props.SimpleSearchData && props.SimpleSearchData.data.length > this.state.userList.length && props.searchClicked && !props.loading &&
               <div className='text-center mt20'>

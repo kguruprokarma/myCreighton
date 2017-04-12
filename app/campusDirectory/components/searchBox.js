@@ -52,30 +52,30 @@ export class SearchBox extends Component {
      }
      return true;
    }*/
-    const query = this.state.searchText;
-   // if (query.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH) {
-    let searchText = query.toLowerCase();
-    if (searchText.indexOf(',') >= 0) {
-      searchText = searchText.split(',');
-    } else {
-      searchText = searchText.split(' ');
+    const query = this.state.searchText.trim();
+    if (!query) {
+      return false;
     }
+    let searchText = query.toLowerCase();
+    searchText = searchText.split(',');
     const reqObj = {};
     if (searchText[0]) {
-      reqObj.firstName = searchText[0];
+      reqObj.lastName = searchText[0];
     }
     if (searchText[1]) {
-      reqObj.lastName = searchText[1];
+      const firstName = searchText[1].trim() || '';
+      if (firstName) {
+        reqObj.firstName = firstName;
+      }
     }
     this.props.getCampusDirectoryData(reqObj);
     this.props.searchItemClicked();
     const searchURL = `${ROUTE_URL.SERCHRESULTS}/${this.state.searchText}`;
     hashHistory.replace(searchURL);
-   // }
   }
 
   selectedUser(firstName, lastName) {
-    this.setState({ searchText: (`${firstName} ${lastName}`), selectUser: false });
+    this.setState({ searchText: (`${firstName}, ${lastName}`), selectUser: false });
   }
 
   clearSearchText() {
@@ -86,8 +86,11 @@ export class SearchBox extends Component {
     if (!this.state.selectUser) {
       this.setState({ selectUser: true });
     }
-   // const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
-   // const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
+   /* if (!event.target.value.trim()) {
+      return false;
+    }*/
+    const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
+    const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
     if (event.target.value.length <= CommonConstants.CAMPUS_SEARCH_TEXT_LENGTH) {
       /* if (txtShouldnotStartWithSpace.test(event.target.value)) {
          if (txtRestrictNumeric.test(event.target.value)) {*/
@@ -97,17 +100,16 @@ export class SearchBox extends Component {
       this.props.resetSearchItemClicked();
       if (query.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH) {
         let searchText = query.toLowerCase();
-        if (searchText.indexOf(',') >= 0) {
-          searchText = searchText.split(',');
-        } else {
-          searchText = searchText.split(' ');
-        }
+        searchText = searchText.split(',');
         const reqObj = {};
         if (searchText[0]) {
-          reqObj.firstName = searchText[0];
+          reqObj.lastName = searchText[0];
         }
         if (searchText[1]) {
-          reqObj.lastName = searchText[1];
+          const firstName = searchText[1].trim() || '';
+          if (firstName) {
+            reqObj.firstName = firstName;
+          }
         }
 
         this.props.getCampusDirectoryData(reqObj);
@@ -147,11 +149,15 @@ export class SearchBox extends Component {
             </Row>
           </Form>
         </Col>
-        <Col xs={12}>
+        {/*<Col xs={12}>
           {
+<<<<<<< Updated upstream
             (props.campusSimpleSearchData && props.campusSimpleSearchData.data && props.campusSimpleSearchData.data.length === 0 && this.state.searchText) && <div> {translateText('common:NO_SEARCH_RESULT')}: <span className='cmpNoResult'>{this.state.searchText} </span></div>
+=======
+            (this.props.campusSimpleSearchData && this.props.campusSimpleSearchData.data && this.props.campusSimpleSearchData.data.length === 0 && this.state.searchText) && <div> {translateText('common:NO_SEARCH_RESULT')}: <span className='cmpNoResult'>{this.state.searchText}</span></div>
+>>>>>>> Stashed changes
           }
-        </Col>
+        </Col>*/}
 
       </Row>
     );

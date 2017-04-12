@@ -27,11 +27,18 @@ export class SimpleSearchDirectory extends React.PureComponent {
   onSearchText(text) {
     const simpleSearchDirectoryPorps = this.props;
     if (!text) return;
-    const searchText = text.split(' ');
-    const reqObj = {
-      firstName: searchText[0],
-      lastName: searchText[1]
-    };
+    const searchText = text.split(',');
+    const reqObj = {};
+    if (searchText[0]) {
+      reqObj.lastName = searchText[0];
+    }
+    if (searchText[1]) {
+      const firstName = searchText[1].trim() || '';
+      if (firstName) {
+        reqObj.firstName = firstName;
+      }
+    }
+    simpleSearchDirectoryPorps.searchItemClicked();
     simpleSearchDirectoryPorps.getCampusDirectoryData(reqObj);
   }
 

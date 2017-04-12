@@ -6,15 +6,12 @@ const initialState = {
 };
 
 const accordionReducer = (state = initialState, action = null) => {
-  //console.log(action);
   switch (action && action.type) {
     case types.SHOW_ACCORDION_TAB:
-    //console.log('.type: ', action.type);
       return Object.assign({}, state, {
         accordionToggle: true
       });
     case types.HIDE_ACCORDION_TAB:
-    //console.log('.type: ', action.type);
       return Object.assign({}, state, {
         accordionToggle: false
       });

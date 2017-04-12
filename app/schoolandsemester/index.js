@@ -16,7 +16,7 @@ import SemesterNav from './components/semesterNav';
 import { SemesterLinks } from './components/semesterLinks';
 import * as actionCreators from './actions';
 
-class SchoolAndSemester extends React.PureComponent {
+export class SchoolAndSemester extends React.PureComponent {
   constructor() {
     super();
 

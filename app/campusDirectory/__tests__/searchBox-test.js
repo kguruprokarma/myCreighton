@@ -14,12 +14,14 @@ describe(' SearchBox component testing for campus directory search ----->', () =
 
   const defaultProps = {
     currentPath: CommonConstants.SEARCH_RESULTS,
-    searchString: '',
+    searchString: 'sd',
+    loading: true,
     onSearchText: () => {},
     resetCampusDirectoryData: () => {},
     resetSearchItemClicked: () => {},
     searchItemClicked: () => {},
-    getCampusDirectoryData: () => {}
+    getCampusDirectoryData: () => {},
+    campusSimpleSearchData: {'timing': '34.275', 'data': [{'netid': '69ac5c7fd2', 'banner_pidm': '3397100', 'emp_number': null, 'fac_first_name': 'ff7a4da45c', 'fac_last_name': '1046c4355e', 'fac_middle_name': 'W', 'full_name': 'de6c7a1f5f', 'job_title': null, 'organization': null, 'phone': '', 'work_address': {'work_Address_line1': null, 'work_Address_line2': null, 'work_Address_line3': null, 'work_State_code': null, 'work_postal_code': null, 'work_town_or_city': null}, 'work_email': null}]}
   };
 
   const searchBox = shallow(<SearchBox state={defaultState} {...defaultProps} />);
@@ -52,7 +54,7 @@ describe(' SearchBox component testing for campus directory search ----->', () =
 
   it('Campus Directory search selected user name', () => {
     searchBox.instance().selectedUser('f', 'f');
-    expect(searchBox.instance().state.searchText).toBe('f f');
+    expect(searchBox.instance().state.searchText).toBe('f, f');
   });
 
   it('Campus Directory search button functionlaity', () => {
@@ -62,5 +64,21 @@ describe(' SearchBox component testing for campus directory search ----->', () =
     searchBox.find('Link').simulate('click', { preventDefault() {} });
     expect(searchBox.find('Link').prop('disabled')).toBe(false);
   });
+
+  /*it('Campus Directory testing no data case', () => {
+    const defaultProps1 = {
+      currentPath: CommonConstants.SEARCH_RESULTS,
+      searchString: 'ffd',
+      loading: true,
+      onSearchText: () => { },
+      resetCampusDirectoryData: () => { },
+      resetSearchItemClicked: () => { },
+      searchItemClicked: () => { },
+      getCampusDirectoryData: () => { },
+      campusSimpleSearchData: { 'timing': '34.275', 'data': [] }
+    };
+    const searchBox1 = shallow(<SearchBox state={defaultState} {...defaultProps1} />);
+    expect(searchBox1.find('.cmpNoResult').text()).toBe('ffd');
+  });*/
 
 });
