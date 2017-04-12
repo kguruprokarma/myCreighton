@@ -14,6 +14,7 @@ import { translateText } from '../../common/translate';
 import NextEventDetails from './components/eventDetails';
 import ClassDetails from './components/classDetails';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
+import * as CommonConstants from '../../constants/commonConstants';
 import '../eventDetails/style.css';
 import HeaderLabel from './../../common/headerLabel';
 import * as ROUTE_URL from './../../constants/routeContants';
@@ -40,12 +41,18 @@ class EventDetails extends React.PureComponent {
     if (localStorage !== undefined) {
       details = JSON.parse(localStorage.getItem('eventsFilterData'));
     }
+    console.log('EventChangedValue: ', localStorage.getItem('setFilterValue'));
+    const selectedFilterPeriod = localStorage.getItem('setFilterValue');
     if (this.eventType === NextEventsConstants.ASSIGNMENTS || this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
       headerText = translateText('common:NEXT_EVENTS_EVENT_DETAIL');
       browserTitle(translateText('common:NEXT_EVENTS_EVENT_DETAIL'));
     } else if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
       headerText = translateText('common:NEXT_EVENTS_CLASSES');
       browserTitle(translateText('common:NEXT_EVENTS_CLASSES'));
+    }
+    if (selectedFilterPeriod === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
+      headerText = translateText('common:NEXT_EVENTS_DETAIL');
+      browserTitle(translateText('common:NEXT_EVENTS_DETAIL'));
     }
     // else if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
     //   headerText = translateText('common:NEXT_EVENTS_TEST_DETAIL');
@@ -113,9 +120,10 @@ class EventDetails extends React.PureComponent {
 
 //export default EventDetails;
 
-const mapStateToProps = () => (
+const mapStateToProps = (eventsState) => (
   {
         //    isMasterDataChange: eventsState.eventsReducer.isMasterDataChange
+    EventChangedValue: eventsState.eventsFilterReducer.changedValue
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);

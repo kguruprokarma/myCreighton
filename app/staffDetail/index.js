@@ -18,6 +18,10 @@ import ApplicationTool from './components/applicationTools';
 import '../staffDetail/style.css';
 
 export class StaffDetails extends React.PureComponent {
+  constructor() {
+    super();
+    this.goback = this.goback.bind(this);
+  }
   goback() {
     history.back();
   }
@@ -31,7 +35,7 @@ export class StaffDetails extends React.PureComponent {
         <Row>
           <Col md={9} sm={8} xs={12} className='pull-right'>
             <div className='text-right hidden-xs hidden-sm'>
-              <button className='btn btn-primary resultsList' onClick={this.goback.bind(this)} >{translateText('common:RESULTS_LIST')}</button>
+              <button className='btn btn-primary resultsList' onClick={this.goback} >{translateText('common:RESULTS_LIST')}</button>
             </div>
             <ProfileInfo profileInfo={props.userData} />
             <ProfessionalInfo professionalInfo={props.userData} />

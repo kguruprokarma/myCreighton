@@ -24,8 +24,9 @@ export class SimpleSearchDirectory extends React.PureComponent {
 
   }
 
-  onSearchText(text) {
+  onSearchText(textValue) {
     const simpleSearchDirectoryPorps = this.props;
+    const text = textValue.replace(/ /g, '');
     if (!text) return;
     const searchText = text.split(',');
     const reqObj = {};
@@ -33,7 +34,7 @@ export class SimpleSearchDirectory extends React.PureComponent {
       reqObj.lastName = searchText[0];
     }
     if (searchText[1]) {
-      const firstName = searchText[1].trim() || '';
+      const firstName = searchText[1];
       if (firstName) {
         reqObj.firstName = firstName;
       }

@@ -229,6 +229,28 @@ export class EventList extends React.PureComponent {
     //displayOptions.push(quizzesObj);
     //displayOptions.push(classEvents);
     localStorage.setItem(CommonConstants.DISPLAY_OPTIONS, JSON.stringify(displayOptions));
+
+    const selectedObj = {};
+    selectedObj.displayOptions = {};
+    const items = displayOptions.slice();
+    items[0].checked = true;
+    if (items) {
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        if (item.checked || item.childrenUnselect) {
+          selectedObj.displayOptions[item.itemName] = [];
+          const selectedChildItems = [];
+          for (let j = 0; j < item.children.length; j++) {
+            const childItem = item.children[j];
+            if (childItem.checked) {
+              selectedChildItems.push(childItem.sid);
+            }
+          }
+          selectedObj.displayOptions[item.itemName] = selectedChildItems;
+        }
+      } 
+      localStorage.setItem('setDisplayOptionValue', JSON.stringify(selectedObj.displayOptions));
+    }   
   }
 
   sortingDisplayOptionSelection(options, eventFilterData) {

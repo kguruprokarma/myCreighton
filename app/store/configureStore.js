@@ -60,7 +60,8 @@ const configureStore = preloadedState => {
     ),
     preloadedState,
     compose(
-      applyMiddleware(thunkMiddleware, createLogger()),
+//      applyMiddleware(thunkMiddleware, createLogger()),
+      applyMiddleware(thunkMiddleware),
       enhancers
     )
   );

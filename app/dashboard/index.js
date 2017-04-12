@@ -13,7 +13,7 @@ import ToggleMealPlan from './components/toggleMealPlan';
 import dashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
-import * as profileData from '../profile/actions';
+import * as profileDataAction from '../profile/actions';
 import './style.css';
 import { authUserDetails, browserTitle } from '../common/utility';
 
@@ -114,6 +114,6 @@ const mapStateToProps = (dashboardState) => (
   }
 );
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileData), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileDataAction), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

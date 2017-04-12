@@ -52,7 +52,7 @@ export class SearchBox extends Component {
      }
      return true;
    }*/
-    const query = this.state.searchText.trim();
+    const query = this.state.searchText.replace(/ /g, '');
     if (!query) {
       return false;
     }
@@ -63,7 +63,7 @@ export class SearchBox extends Component {
       reqObj.lastName = searchText[0];
     }
     if (searchText[1]) {
-      const firstName = searchText[1].trim() || '';
+      const firstName = searchText[1];
       if (firstName) {
         reqObj.firstName = firstName;
       }
@@ -95,8 +95,9 @@ export class SearchBox extends Component {
       /* if (txtShouldnotStartWithSpace.test(event.target.value)) {
          if (txtRestrictNumeric.test(event.target.value)) {*/
       this.props.resetCampusDirectoryData();
-      const query = event.target.value;
+      let query = event.target.value;
       this.setState({ searchText: query });
+      query = event.target.value.replace(/ /g, '');
       this.props.resetSearchItemClicked();
       if (query.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH) {
         let searchText = query.toLowerCase();
@@ -106,7 +107,7 @@ export class SearchBox extends Component {
           reqObj.lastName = searchText[0];
         }
         if (searchText[1]) {
-          const firstName = searchText[1].trim() || '';
+          const firstName = searchText[1];
           if (firstName) {
             reqObj.firstName = firstName;
           }
