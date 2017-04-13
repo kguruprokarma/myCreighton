@@ -54,8 +54,7 @@
 
 .avatar-name {
     font-size: 1.7333333333333334em;
-    line-height: 2.0em;
-    margin-left: 8px;
+    line-height: 1.8;
 }
 
 .user-type {
@@ -169,11 +168,27 @@
 }
 
 .school-img {
-  width: 52px;
+  width: 60px;
 }
 
 .imageHide {
     display: none;
+}
+
+.avatar-left {
+    width: 14%;
+    margin-right: 6px;
+    float: left;
+}
+
+.avatar-right {
+    width: 82%;
+    float: left;
+}
+
+.avatar-container {
+    overflow: hidden;
+    height: 100%;
 }
 
 /* Media for small devices */
@@ -232,6 +247,14 @@
     .moduleImage {
         vertical-align:middle;
     }
+ 
+    .avatar-left {
+        width: 20%;
+    }
+
+    .avatar-right {
+        width: 76%;
+    }
 }
 
 @media screen and (min-width: 360px) and  (max-width: 492px) {
@@ -267,13 +290,6 @@
     
 }
 
-@media screen and (min-width: 560px) and  (max-width: 660px) {
-
-    .moduleImage {
-        width: 20%;
-    }
-
-}
 
 @media screen and (max-width: 767px) {
       
@@ -330,6 +346,27 @@
     }
 }
 
+
+@media screen and (min-width: 560px) and  (max-width: 660px) {
+
+    .moduleImage {
+        width: 20%;
+    }
+
+}
+
+@media screen and (min-width: 500px) and  (max-width: 767px) {
+    
+    .avatar-left {
+        width: 10%;
+    }
+
+    .avatar-right {
+        width: 86%;
+    }
+
+}
+
 @media screen and (max-width: 590px) {
 
  .jbvalue {
@@ -370,6 +407,14 @@
         font-size: 1em; /* font size 15 in pixel */
         text-align:left;
     }
+
+    .avatar-left {
+        width: 18%;
+    }
+
+    .avatar-right {
+        width: 76%;
+    }
     
 }
 
@@ -403,5 +448,13 @@
     .well-caption {
         font-size: 1.2em;   /* font size 18 in pixel */
         text-align:left;
+    }
+
+    .avatar-left {
+        width: 24%;
+    }
+
+    .avatar-right {
+        width: 70%;
     }
 }

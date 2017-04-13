@@ -15,7 +15,7 @@ const EmergencyContact = (emergencyProps) => (
     <BasicRow displayName={translateText('common:PROFILE_LAST_NAME')} displayValue={emergencyProps.data.emergency_contact ? emergencyProps.data.emergency_contact.last_name : ''} />
     <Row className='show-grid pt5 pb5'>
       <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Phone'>{translateText('common:PROFILE_PHONE')}</label></Col>
-      <Col xs={8} md={9} sm={8} className='dataField'><a href={emergencyProps.data.emergency_contact_phone ? `tel:${telephoneCheck(emergencyProps.data.emergency_contact_phone, '.')}` : ''} className='mobileNumber'>{emergencyProps.data.emergency_contact_phone ? telephoneCheck(emergencyProps.data.emergency_contact_phone, '.') : ''}</a></Col>
+      <Col xs={8} md={9} sm={8} className='dataField'><p className='phoneNumber'>{emergencyProps.data.emergency_contact_phone ? telephoneCheck(emergencyProps.data.emergency_contact_phone, '.') : ''}</p></Col>
     </Row>
     <BasicRow displayName={translateText('common:PROFILE_RELATIONSHIP')} displayValue={emergencyProps.data.emrg_cont_type ? emergencyProps.data.emrg_cont_type : ''} />
   </article>

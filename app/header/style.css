@@ -43,6 +43,7 @@
     z-index: 1000;
     min-width: 282px;
 }
+
 .customPopUp .popup-box-shaow
 {
     -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
@@ -154,7 +155,7 @@
 
 .popUpContainer .list-group-item .avatar-name {
     font-size: 1.3333333333333333em;    /* font size 20 in pixel */
-    line-height: 2.6em;
+    line-height: 1.6;
 }
 
 .popUpContainer #avatar {
@@ -164,6 +165,25 @@
 .icons-list .list-inline li {
     padding-left:0;
     padding-right: 0;
+}
+
+.popUpContainer .sb-avatar div {
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    margin-top: 10px;
+}
+
+
+.popUpContainer .avatar-left {
+    width: 18%;
+    margin-right: 6px;
+    float: left;
+}
+
+.popUpContainer .avatar-right {
+    width: 78%;
+    float: left;
 }
 
 /* Media for small devices */

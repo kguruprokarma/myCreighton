@@ -41,7 +41,6 @@ class EventDetails extends React.PureComponent {
     if (localStorage !== undefined) {
       details = JSON.parse(localStorage.getItem('eventsFilterData'));
     }
-    console.log('EventChangedValue: ', localStorage.getItem('setFilterValue'));
     const selectedFilterPeriod = localStorage.getItem('setFilterValue');
     if (this.eventType === NextEventsConstants.ASSIGNMENTS || this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
       headerText = translateText('common:NEXT_EVENTS_EVENT_DETAIL');

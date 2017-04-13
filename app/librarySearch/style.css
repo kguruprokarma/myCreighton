@@ -21,3 +21,9 @@
 .libraryData,.libraryMore {
     font-size: 1.2em;
 }
+
+.onlineClass:hover,
+.onlineClass:active,
+.onlineClass:focus {
+    text-decoration: none;
+}

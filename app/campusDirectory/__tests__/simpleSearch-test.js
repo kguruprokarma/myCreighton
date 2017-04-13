@@ -30,6 +30,6 @@ describe('Campus Directory simple search ----->', () => {
   });
   it('Campus Directory SearchTabController is defined', () => {
     SearchController.instance().onSearchText('');
-    SearchController.instance().onSearchText('ff ff');
+    SearchController.instance().onSearchText('ff,ff');
   });
 });

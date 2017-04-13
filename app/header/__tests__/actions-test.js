@@ -33,4 +33,29 @@ describe('header actions', () => {
     store.dispatch(actions.navClose());
     expect(store.getActions()).toEqual(expectedActions);
   });
+
+  it('testing action sign out pop up open', () => {
+    const expectedActions = [{ type: types.SIGN_OUT_OPEN }];
+    const store = mockStore();
+    store.dispatch(actions.openSignOutPopUp());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+  it('testing action signout pop up close', () => {
+    const expectedActions = [{ type: types.SIGN_OUT_CLOSE }];
+    const store = mockStore();
+    store.dispatch(actions.closeSignOutPopUp());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+  it('testing action filter pop up open', () => {
+    const expectedActions = [{ type: types.OPEN_FILTER_POPUP }];
+    const store = mockStore();
+    store.dispatch(actions.filterPopUpOpen());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+  it('testing action filterpopup up close', () => {
+    const expectedActions = [{ type: types.CLOSE_FILTER_POPUP }];
+    const store = mockStore();
+    store.dispatch(actions.filterPopUpClose());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

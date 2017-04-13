@@ -68,11 +68,7 @@ export class NextEventFilter extends React.Component {
     this.setState({ displayOptions: displayOptions });
   }
   toggleRadio(depen) {
-    this.setState({ eventPeriod: depen.target.value });
-    const localStorageValue = localStorage.getItem('setFilterValue');
-    if (depen.target.value !== localStorageValue) {
-      localStorage.setItem('setFilterValue', depen.target.value);
-    }
+    this.setState({ eventPeriod: depen.target.value });   
   }
   showChild(itemVal) {
     const item = itemVal;
@@ -143,6 +139,10 @@ export class NextEventFilter extends React.Component {
         }
       }    
       localStorage.setItem(EventConstants.DISPLAY_OPTIONS, JSON.stringify(this.state.displayOptions));
+      const localStorageValue = localStorage.getItem('setFilterValue');
+      if (this.state.eventPeriod !== localStorageValue) {
+        localStorage.setItem('setFilterValue', this.state.eventPeriod);
+      }
       localStorage.setItem('setDisplayOptionValue', JSON.stringify(selectedObj.displayOptions));
       props.filterChange(selectedObj);
     }

@@ -56,7 +56,8 @@ export class Dashboard extends Component {
 
   render() {
     const props = this.props;
-    const userDetails = props.userDetailsData;
+    //Commented code of MealPlan Data
+    //const userDetails = props.userDetailsData;
     const dashboardList = dashboardModulesList(this.role);
     //const profileData = props.profileData;
     const profileInfo = props.profileData;
@@ -82,9 +83,9 @@ export class Dashboard extends Component {
           <Col xs={2} className='pull-right text-right'>
             <div className={this.state.shouldHide ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>
           </Col>
-          <Col xs={12} sm={7} md={7} className='pull-right'>
+          {/*<Col xs={12} sm={7} md={7} className='pull-right'>
             <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetails} />
-          </Col>
+          </Col> */}
         </Row>
         <article role='article' id='wells'>
           <Row>

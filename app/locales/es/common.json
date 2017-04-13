@@ -245,7 +245,19 @@
   "SCHOOL_TASKS_AND_ACTIVITIES": "Tareas y actividades escolares",
   "FREQUENT_FUNCTIONS_AND_INFORMATION": "Frecuente Funciones e información necesario durante el semestre",
   "SEMESTER_CHANGES": "Cambios",
-  "CHANGE_UNDERGRADUATE_COLLEGE": "Cambio De licenciatura Universidad"
+  "CHANGE_UNDERGRADUATE_COLLEGE": "Cambio De licenciatura Universidad",
 
+  "LIBRARY_HOURS": "Horario de la biblioteca",
+  "REFERENCE": "Referencia",
+  "CIRCULATION": "Circulación",
+  "MAIN": "Principal",
+  "TEXT": "Texto",
+  "AUTOMATED_ATTENDANT": "Asistente automatizado",
+  "CHAT": "Charla",
 
+  "MORE" : "Más",
+  "DIRECTORY" : "Directorio",
+  "LIAISONS" : "Enlaces",
+  "LIBRARY_SERVICES" : "Servicios de biblioteca",
+  "WEBSITE" : "Sitio web"
 }

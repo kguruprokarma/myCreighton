@@ -452,6 +452,12 @@ input {
     margin-left: 10px;
 }
 
+.confirmationPopup {
+    z-index: 901;
+    background: red;
+    position: relative;
+}
+
 .noContent {
     font-size: 1.05em;
 }
@@ -492,6 +498,18 @@ title {
 .btn-link:active {
     text-decoration: none;
 }
+
+.phoneNumber {
+    color: #0054a6;
+    text-decoration: none;
+}
+
+.phoneNumber:hover,
+.phoneNumber:active,
+.phoneNumber:focus {
+    text-decoration: none;
+}
+
 
 /* Media for small devices */
 @media screen and (min-width: 1170px) {

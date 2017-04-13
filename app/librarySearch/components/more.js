@@ -15,15 +15,15 @@ const More = (moreProps) => (
         <h4 className='libraryDataHeading'>{translateText('common:MORE')}</h4>
       </Col>
       <Col sm={10} xs={12}>
-        <Link to='' >{translateText('common:DIRECTORY')}</Link>
+        <Link href={moreProps.redirectTo.directory} target='_blank' >{translateText('common:DIRECTORY')}</Link>
         {moreProps.title !== CommonConstants.HEALTH_SCIENCES_LIBRARY && moreProps.title !== CommonConstants.LAW_LIBRARY && <span><span className='text-divider'>|</span>
-          <Link to='' >{translateText('common:LIAISONS')}</Link></span> }
+          <Link href={moreProps.redirectTo.liasions} target='_blank' >{translateText('common:LIAISONS')}</Link></span> }
         <span className='text-divider'>|</span>
-        <Link to='' >{translateText('common:LIBRARY_SERVICES')}</Link>
+        <Link href={moreProps.redirectTo.libServices} target='_blank' >{translateText('common:LIBRARY_SERVICES')}</Link>
         <span className='text-divider'>|</span>
-        <Link to='' >{translateText('common:WEBSITE')}</Link>
+        <Link href={moreProps.redirectTo.website} target='_blank' >{translateText('common:WEBSITE')}</Link>
         { moreProps.title ===CommonConstants.HEALTH_SCIENCES_LIBRARY && <span><span className='text-divider'>|</span>
-          <Link to='' >{translateText('common:JAY_SEARCH')}</Link></span>}
+          <Link href={moreProps.redirectTo.jaySearch} target='_blank' >{translateText('common:JAY_SEARCH')}</Link></span>}
       </Col>
     </Row>
     <div>
@@ -31,6 +31,5 @@ const More = (moreProps) => (
         <Link onClick={moreProps.scrollTopClick}><span className='glyphicon glyphicon-arrow-up pr5' /> {translateText('common:PAGE_TOP')}</Link>
       </Col>
     </div>
- 
   </section>);
 export default More;

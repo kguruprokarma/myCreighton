@@ -30,4 +30,28 @@ describe('Header reducer testing ----->', () => {
     const afterState = reducer({}, {type: types.CLOSE_NAV});
     expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
   });
+
+  it('sign out pop up open state', () => {
+    const expectedState = { signOut: true};
+    const afterState = reducer({}, {type: types.SIGN_OUT_OPEN});
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
+
+  it(' sign out pop up close state', () => {
+    const expectedState = { signOut: false};
+    const afterState = reducer({}, {type: types.SIGN_OUT_CLOSE});
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
+
+  it('filter pop up open state', () => {
+    const expectedState = { showFilterPopUp: true};
+    const afterState = reducer({}, {type: types.OPEN_FILTER_POPUP});
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
+
+  it('filter pop up close state', () => {
+    const expectedState = { showFilterPopUp: false};
+    const afterState = reducer({}, {type: types.CLOSE_FILTER_POPUP});
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
 });

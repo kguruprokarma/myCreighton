@@ -22,13 +22,13 @@ export const convertTo24Format = (time) => {
   let hours = time.substring(0, 2);
   let min = time.substring(2, 4);
   if (hours < 12) {
-    hours = min <= '00' ? `${hours}` : `${hours}:${min}`;
-    hours = hours < '10' ? `${hours.substring(1, 2)}` : `${hours}`;
+    hours = min <= '00' ? `${hours}` : `${hours}`;
+    hours = hours < '10' ? `${hours.substring(1, 2)}:${min}` : `${hours}:${min}`;
     return `${hours} am`;
   }
   hours = hours - 12;
   hours = hours === 0 ? 12 : hours;
-  min = min === '00' ? '' : `:${min}`;
+  min = `:${min}`;
   return `${hours}${min} pm`;
 };
 
@@ -63,7 +63,7 @@ export const getScheduledNextDate = (schedules) => {
     returnDate.setDate(returnDate.getDate() + daysToAdd);
     return returnDate.toLocaleString();
   });
-  return moment(classSchedules.sort()[0]).format('DD MMM');
+  return (classSchedules && classSchedules.length > 0) ? moment(classSchedules.sort()[0], ['MM-DD-YYYY', 'DD-MM', 'DD-MM-YYYY']).format('MMM DD'):'';
 };
 
 // Filter fot today's class schedule

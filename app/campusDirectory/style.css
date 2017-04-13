@@ -62,6 +62,12 @@
     position: absolute;
 }
 
+.icon-addon:hover,
+.icon-addon:focus,
+.icon-addon:active {
+    cursor: default;
+}
+
 .icon-addon img{
     width: 16px;
 }
@@ -86,6 +92,7 @@
 .icon-addon-right:hover,
 .icon-addon-right:active,  {
     background: #a2a2a2; 
+    
 }
 
 .search-field {

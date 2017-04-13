@@ -83,4 +83,25 @@ describe('actions testing for campus directory search', () => {
         expect(result[1].type).toEqual(expectedActions[1].type);
       });
   });
+
+  it('reset CampusDirectory Data', () => {
+    const expectedActions = [{ type: types.RESET_SIMPLE_SEARCH_DATA }];
+    const store = mockStore();
+    store.dispatch(actions.resetCampusDirectoryData());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('testing action close popup case', () => {
+    const expectedActions = [{ type: types.CLICKED_SEARCH }];
+    const store = mockStore();
+    store.dispatch(actions.searchItemClicked());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('testing action open nav case', () => {
+    const expectedActions = [{ type: types.RESET_SEARCH }];
+    const store = mockStore();
+    store.dispatch(actions.resetSearchItemClicked());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

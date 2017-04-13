@@ -10,6 +10,7 @@ import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import * as actionCreators from '../dashboard/actions';
 import * as profileData from '../profile/actions';
+import * as headerActions from '../header/actions';
 import UserDetail from '../dashboard/components/userDetail';
 import profileMenu from '../header/components/profileMenu';
 import { authUserDetails } from './utility';
@@ -39,31 +40,13 @@ export class CustomPopUp extends React.Component {
       }
     }
     this.languageChangeBind = this.changeLanguage.bind(this);
-    this.signOutBind = this.signOut.bind(this);
+    //this.signOutBind = this.signOut.bind(this);
+    this.signOutPopUp = this.signOutPopUp.bind(this);
   }
 
-  signOut() {
-   // const currentUrl = encodeURIComponent(urlConstants.LOCAL_URL);
-    //window.location = urlConstants.ADFS_LOGOUT_URL + currentUrl;
-    axios.get(urlConstants.ADFS_LOGOUT_URL).then((response) => {
-      if (response.status === urlConstants.STATUS_CODE) {
-        localStorage.removeItem('roleInfo');
-        localStorage.removeItem('infos');
-        localStorage.removeItem('lang');
-        localStorage.removeItem('classMasterCopy');
-        localStorage.removeItem('assignmentMasterCopy');
-        localStorage.removeItem('temp');
-        localStorage.removeItem('classDetails');
-        //localStorage.removeItem('setFilterValue');
-        localStorage.removeItem('setDisplayOptionValue');
-        //localStorage.removeItem('displayOptions');
-        localStorage.removeItem('eventList');
-        localStorage.removeItem('eventsFilterData');
-        //location.reload();
-      }
-    }, (error) => {
-      console.log(error);
-    });
+  signOutPopUp() {
+    this.props.popUpClose();
+    this.props.openSignOutPopUp();
   }
   changeLanguage(langKey) {
     localStorage.setItem('lang', langKey);
@@ -103,7 +86,7 @@ export class CustomPopUp extends React.Component {
             {
               item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ?
                 <Link onClick={() => { this.setState({ languageState: false }); }} > {item.itemName}</Link>
-                : <Link to={item.link} onClick={item.itemName === translateText('common:COMMON_SIGN_OUT') ? this.signOutBind : this.props.showPopValue} activeClassName='active'>
+                : <Link to={item.link} onClick={item.itemName === translateText('common:COMMON_SIGN_OUT') ? this.signOutPopUp : this.props.showPopValue} activeClassName='active'>
                   {item.itemName}
                 </Link>
             }
@@ -130,6 +113,7 @@ export class CustomPopUp extends React.Component {
           ))}
         </ListGroup>
       }
+      
     </div>
     );
   }
@@ -148,6 +132,6 @@ const mapStateToProps = (dashboardState) => (
   }
 );
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileData), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileData, headerActions), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomPopUp);

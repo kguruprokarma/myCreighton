@@ -267,6 +267,10 @@
   "SCHOOL_TASKS_AND_ACTIVITIES": "School Tasks and Activities",
   "FREQUENT_FUNCTIONS_AND_INFORMATION": "Frequent functions and information needed during the semester",
   "SEMESTER_CHANGES": "Changes",
-  "CHANGE_UNDERGRADUATE_COLLEGE": "Change Undergraduate College"
+  "CHANGE_UNDERGRADUATE_COLLEGE": "Change Undergraduate College",
+
+  "SIGNOUT_TEXT": "Do you really want to signout?",
+  "SIGNOUT_CANCEL_TEXT": "Cancel",
+  "SIGNOUT_OK_TEXT": "Ok"
 
 }

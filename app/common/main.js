@@ -13,6 +13,7 @@ import Footer from '../footer/index';
 import Navigation from '../common/mainNav';
 import HeaderComponent from '../header/index';
 import * as urlConstants from '../constants/urlConstants';
+import ConfirmationPopUp from './confirmationPopUp';
 
 @translate([], { wait: true })
 
@@ -24,7 +25,8 @@ class Main extends React.PureComponent {
     this.state = {
       isLogin: false
     };
-    axios.get( urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE);    
+    this.signOutBind = this.signOut.bind(this);
+    axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE);
   }
 
   componentWillMount() {
@@ -56,7 +58,33 @@ class Main extends React.PureComponent {
     }
     if (props.filterPopUpData) {
       props.filterPopUpClose();
-    } 
+    }
+    if (props.signOut) {
+      props.closeSignOutPopUp();
+    }
+  }
+  signOut() {
+    // const currentUrl = encodeURIComponent(urlConstants.LOCAL_URL);
+    //window.location = urlConstants.ADFS_LOGOUT_URL + currentUrl;
+    axios.get(urlConstants.ADFS_LOGOUT_URL).then((response) => {
+      if (response.status === urlConstants.STATUS_CODE) {
+        localStorage.removeItem('roleInfo');
+        localStorage.removeItem('infos');
+        localStorage.removeItem('lang');
+        localStorage.removeItem('classMasterCopy');
+        localStorage.removeItem('assignmentMasterCopy');
+        localStorage.removeItem('temp');
+        localStorage.removeItem('classDetails');
+        //localStorage.removeItem('setFilterValue');
+        //localStorage.removeItem('setDisplayOptionValue');
+        //localStorage.removeItem('displayOptions');
+        localStorage.removeItem('eventList');
+        localStorage.removeItem('eventsFilterData');
+        //location.reload();
+      }
+    }, (error) => {
+      console.log(error);
+    });
   }
   render() {
     const props = this.props;
@@ -77,7 +105,8 @@ class Main extends React.PureComponent {
         {/* this is footer section */}
         {this.state.isLogin && <Footer />}
         {/* /this is footer section */}
-        {(props.popUpData || props.filterPopUpData) && <input type='button' className='btn btn-link btnnoPadding popUpPatch' onClick={this.hidePopUp} />}
+        {(props.popUpData || props.filterPopUpData || props.signOut) && <input type='button' className='btn btn-link btnnoPadding popUpPatch' onClick={this.hidePopUp} />}
+        {props.signOut && <ConfirmationPopUp onConfirm={this.signOutBind} onCancel={props.closeSignOutPopUp} />}
       </div>
     );
   }
@@ -86,6 +115,7 @@ const mapStateToProps = (storeData) => (
   {
     popUpData: storeData.headerReducer.showPopUp,
     navData: storeData.headerReducer.showNav,
+    signOut: storeData.headerReducer.signOut,
     filterPopUpData: storeData.headerReducer.showFilterPopUp
   });
 

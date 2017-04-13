@@ -22,9 +22,16 @@ const defaultProps = {
   'text': '402.507.4272',
   'automatedAttendant': '402.280.2705',
   'chat': 'Online chat'
+  
+};
+
+const propsD = {
+  'libraryHours':'http://culibraries.creighton.edu/GeneralInfo/hours' ,
+  'onlineChat': 'http://culibraries.creighton.edu/GeneralInfo/hours'
+
 };
 describe('HealthSciences component testing ----->', () => {
-  const libraryinformation = shallow(<Libraryinformation libData={defaultProps} />);
+  const libraryinformation = shallow(<Libraryinformation libData={defaultProps} redirectTo={propsD} />);
   
   it('Libraryinformation component is defined', () => {
     expect(libraryinformation).toBeDefined();
