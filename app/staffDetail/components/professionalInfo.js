@@ -15,7 +15,7 @@ const ProfessionalInfo = (professionalInfo) => (
     </div>
     <div className='pb20'>
       <p className='openSansRegular bold'>{translateText('common:REPORT_TO')}</p>
-      <p />
+      <p>{professionalInfo.professionalInfo.reports_to}</p>
     </div>
   </article>
 );

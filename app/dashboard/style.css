@@ -64,10 +64,10 @@
 }
 
 .white-well {
-    margin-bottom:30px;
-    padding: 19px 15px 20px;
     background-color: #fff;
     border:1px solid #0054a6;
+    margin-bottom:30px;
+    padding: 1.3em 1.1em 1.4em; 
     overflow: hidden;
     border-radius:5px;
     -moz-border-radius: 5px;
@@ -76,10 +76,11 @@
 }
 
 .well-title {
-    font-size: 2.1333333333333333em;    /* font size 32 in pixel */
     color: #0054a6;
-    line-height:normal;
-    margin-bottom:0;  
+    font-size: 1.93333em;
+	  letter-spacing: -0.03em;
+	  line-height: 1;
+	  margin-bottom: 0.1em; 
     text-align: center;
 }
 
@@ -112,8 +113,8 @@
 }
 
 .well-caption {
-    font-size: 1.2em;   /* font size 18 in pixel */  
     color: #757575;  
+    font-size: 1.2em;   /* font size 18 in pixel */  
 }
 
 .wel-title, .well-caption {
@@ -168,7 +169,23 @@
 }
 
 .school-img {
-  width: 60px;
+  max-width: 62px;
+  height: 44px;
+}
+
+.classes-img {
+  max-width: 36px;
+  height: 52px
+}
+
+.nextevent-img {
+  max-width: 44px;
+  height: 52px
+}
+
+.campus-img {
+  max-width: 44px;
+  height: 52px
 }
 
 .imageHide {
@@ -209,6 +226,7 @@
     .moduleImage {
         text-align:center;
         vertical-align:middle;
+        height: 63px;
     }
     
     .angle-right {
@@ -246,6 +264,9 @@
 
     .moduleImage {
         vertical-align:middle;
+        width: 21%;
+        padding-right: 0;
+        text-align: center;
     }
  
     .avatar-left {
@@ -254,6 +275,11 @@
 
     .avatar-right {
         width: 76%;
+    }
+
+    .school-img {
+      max-width: 58px;
+      height: 42px;
     }
 }
 
@@ -344,13 +370,26 @@
         top:-2px;
         margin-left: 6px;
     }
+    .moduleImage {
+      text-align: center;
+      padding-right: 0;
+    }
 }
 
+@media screen and (min-width: 590px) and  (max-width: 767px) {
+
+    .moduleImage {
+        width: 16%;
+        margin-top: 10px;
+    }
+
+}
 
 @media screen and (min-width: 560px) and  (max-width: 660px) {
 
     .moduleImage {
-        width: 20%;
+        width: 18%;
+        margin-top: 10px;
     }
 
 }
@@ -399,12 +438,12 @@
     }
     
      .well-title {
-        font-size: 2.063em;
+        font-size: 1.9em;
         text-align:left;
     }
 
     .well-caption {
-        font-size: 1em; /* font size 15 in pixel */
+        font-size: 1.2em; /* font size 15 in pixel */
         text-align:left;
     }
 
@@ -414,6 +453,10 @@
 
     .avatar-right {
         width: 76%;
+    }
+    
+    .moduleImage {
+      width: 22%;
     }
     
 }
@@ -441,12 +484,12 @@
     }
 
     .well-title {
-        font-size: 1.6em;    /* font size 24 in pixel */
+        font-size: 1.5em;    /* font size 24 in pixel */
         text-align:left;
     }
 
     .well-caption {
-        font-size: 1.2em;   /* font size 18 in pixel */
+        font-size: 1.0em;   /* font size 18 in pixel */
         text-align:left;
     }
 
@@ -457,4 +500,8 @@
     .avatar-right {
         width: 70%;
     }
+
+    #dashboard .white-well {
+      padding: 13px;
+    } 
 }

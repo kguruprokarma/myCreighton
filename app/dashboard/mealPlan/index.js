@@ -13,14 +13,17 @@ import Dining from './components/dining';
 import Jaybucks from './components/jaybucks';
 import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
+import ImageComponent from '../../common/imageComponent';
+import { MEALPLANMORE_ICON } from '../../constants/imageConstants';
 
 export class MealPlan extends Component {
   componentWillReceiveProps(nextProps) {
+    const props = this.props;
     const propsNext = nextProps;
     if (propsNext.role && this.role !== propsNext.role.userRole) {
       this.role = propsNext.role.userRole;
       if (this.role !== undefined) {
-        this.props.getMealPlanData(`${(this.role).toLowerCase()}`);
+        props.getMealPlanData(`${(this.role).toLowerCase()}`);
       }
     }
   }
@@ -44,7 +47,7 @@ export class MealPlan extends Component {
               </Row>
             </Col>
             <Col sm={1} xs={2}>
-              <div className='angle-right text-right'><Link><img src={'./assets/images/more.png'} alt={translateText('common:MORE_ALT_TEXT')} /></Link></div>
+              <div className='angle-right text-right'><Link><ImageComponent imagePath={MEALPLANMORE_ICON} imagealtText={translateText('common:MORE_ALT_TEXT')} /></Link></div>
             </Col>
           </Well>
         </div>

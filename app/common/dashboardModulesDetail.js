@@ -16,8 +16,7 @@ export const modulesBlocksData = (roleType) => {
       'linkto': ROUTE_URL.SCHOOLS_AND_SEMESTER,
       'name': translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER'),
       'description': translateText('common:DASH_BOARD_SCHOOL_STUFF'),
-      'class': 'school-img',
-      'width': '52px'
+      'class': 'school-img'
     }],
       [{
         'imgURL': CLASSES_ICON,

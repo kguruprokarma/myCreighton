@@ -27,9 +27,10 @@ const ProfileInfo = (staffDetailsProps) => (
         </Col>
       </Row>
     </div>
+    {staffDetailsProps.profileInfo.work_Address_line1 &&
     <div className='graybtBorder'>
       <p className='pt10 pb10' />  
-    </div>
+    </div>}
   </article>
 );
 

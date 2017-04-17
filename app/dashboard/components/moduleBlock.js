@@ -12,10 +12,10 @@ const moduleBlock = (modulesprops) => {
     <Link to={moduleDetail.linkto} key={moduleIndex}>
       <Well bsSize='large' className='white-well' >
         <Row>
-          <Col xs={3} md={12} className='moduleImage'>
+          <Col xs={3} sm={3} md={12} className='moduleImage'>
             <ImageComponent imagePath={moduleDetail.imgURL} imagealtText={moduleDetail.imgalt} imgClassName={moduleDetail.class} />
           </Col>
-          <Col xs={9} md={12}>
+          <Col xs={9} sm={9} md={12}>
             <h3 className='well-title openSansLight'>{moduleDetail.name}</h3>
             <div className='well-caption'>{moduleDetail.description}</div>
           </Col>

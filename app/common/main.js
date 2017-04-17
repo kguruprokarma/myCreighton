@@ -6,6 +6,7 @@ import React from 'react';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
+/*import IdleTimer from 'react-idle-timer';*/
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import * as actionCreators from '../header/actions';
@@ -13,6 +14,7 @@ import Footer from '../footer/index';
 import Navigation from '../common/mainNav';
 import HeaderComponent from '../header/index';
 import * as urlConstants from '../constants/urlConstants';
+import * as commonConstants from '../constants/commonConstants';
 import ConfirmationPopUp from './confirmationPopUp';
 
 @translate([], { wait: true })
@@ -25,7 +27,9 @@ class Main extends React.PureComponent {
     this.state = {
       isLogin: false
     };
+    this.reference='idleTimer';
     this.signOutBind = this.signOut.bind(this);
+    this._onIdle = this._onIdle.bind(this);
     axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE);
   }
 
@@ -86,6 +90,11 @@ class Main extends React.PureComponent {
       console.log(error);
     });
   }
+  _onIdle() {
+    const props = this.props;
+    props.popUpClose();
+    props.openSignOutPopUp();
+  }
   render() {
     const props = this.props;
     return (
@@ -107,6 +116,14 @@ class Main extends React.PureComponent {
         {/* /this is footer section */}
         {(props.popUpData || props.filterPopUpData || props.signOut) && <input type='button' className='btn btn-link btnnoPadding popUpPatch' onClick={this.hidePopUp} />}
         {props.signOut && <ConfirmationPopUp onConfirm={this.signOutBind} onCancel={props.closeSignOutPopUp} />}
+        {/*<IdleTimer
+          ref={() => this.reference}
+          element={document}
+          activeAction={this._onActive}
+          idleAction={this._onIdle}
+          timeout={commonConstants.IDLE_TIME_OUT}
+          format='MM-DD-YYYY HH:MM:ss.SSS'
+        />*/}
       </div>
     );
   }

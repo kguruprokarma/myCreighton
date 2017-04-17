@@ -10,7 +10,8 @@ it('ProfessionalInfo is defined', () => {
   const defaultProps = {
     professionalInfo: {
       job_title: 'Faculty',
-      organization: 'Creighton.edu'
+      organization: 'Creighton.edu',
+      reports_to: 'Dany'
     }
   };
   const professional = shallow(<ProfessionalInfo {...defaultProps} />);
