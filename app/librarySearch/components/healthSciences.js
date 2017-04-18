@@ -7,7 +7,6 @@ import Libraryinformation from './libraryinformation';
 import More from './more';
 import * as CommonConstants from '../../constants/commonConstants';
 import * as UrlConstants from '../../constants/urlConstants';
-import { translateText } from '../../common/translate';
 
 const urlDirctionsLibrary = {
   libraryHours: UrlConstants.HEALTH_HOURS_URL 
@@ -23,7 +22,7 @@ const urlDirctionsMore = {
 
 const HealthSciences = (healthProps) => (  
   <div>  
-    <Libraryinformation title={translateText('COMMON:HEALTH_SCIENCES_LIBRARY')} libData={healthProps.healthData} redirectTo={urlDirctionsLibrary} />
+    <Libraryinformation title={CommonConstants.HEALTH_SCIENCES_LIBRARY} libData={healthProps.healthData} redirectTo={urlDirctionsLibrary} />
     <More title={CommonConstants.HEALTH_SCIENCES_LIBRARY} scrollTopClick={healthProps.scrollTopClick} redirectTo={urlDirctionsMore} /> 
   </div>   
 );

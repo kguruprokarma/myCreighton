@@ -271,6 +271,6 @@
 
   "SIGNOUT_TEXT": "Do you really want to Logout?",
   "SIGNOUT_CANCEL_TEXT": "Cancel",
-  "SIGNOUT_OK_TEXT": "Ok",
-  "SIGNOUT_CONFIRM_TEXT": "Logout Confirmation"
+  "SIGNOUT_OK_TEXT": "Ok"
+
 }

@@ -12,7 +12,7 @@ const PrimaryContact = (primaryContactProps) => (
     <h2 className='dataHeading openSansRegular'>{translateText('common:PROFILE_PRIMARY_CONTACT')}</h2>
     <Row className='show-grid pt5 pb5'>
       <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Phone'>{translateText('common:PROFILE_PHONE')}</label></Col>
-      <Col xs={8} md={9} sm={8} className='dataField'><p><a href={primaryContactProps.primaryContact ? `tel:${telephoneCheck(primaryContactProps.primaryContact)}` : ''}>{primaryContactProps.primaryContact ? telephoneCheck(primaryContactProps.primaryContact) : ''}</a></p></Col>
+      <Col xs={8} md={9} sm={8} className='dataField'><p className='phoneNumber'>{primaryContactProps.primaryContact ? telephoneCheck(primaryContactProps.primaryContact) : ''}</p></Col>
     </Row>
   </article>
   );

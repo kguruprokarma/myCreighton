@@ -51,19 +51,21 @@ export class EventList extends React.PureComponent {
   }
 
   getEventsData(props) {
-    //console.log('getEventsData: ');
     const EVENT_DATA = [];
     if (this.masterObj) {
-      const assignmentsData = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
-      const classesData = convertEncodeURIComponent(this.masterObj.classMasterCopy);
-      if (assignmentsData && classesData) {
-        //const classObjs = createTimeStamp(dataFilterAddingData(classesData.data));
-        const classObjs = dataFilterAddingData(classesData.data);        
-        const assignmentObjs = addedTypeField(assignmentsData.data);       
+      const ASSIGNMENTS_DATA = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
+      const CLASSES_DATA = convertEncodeURIComponent(this.masterObj.classMasterCopy);
+      if (ASSIGNMENTS_DATA && CLASSES_DATA) {
+        const classObjs = createTimeStamp(dataFilterAddingData(CLASSES_DATA.data));
+        const assignmentObjs = addedTypeField(ASSIGNMENTS_DATA.data);
+        // assignmentObjs.map((assignmentObj) => {
+        //   EVENT_DATA.push(assignmentObj);
+        //   return EVENT_DATA;
+        // });
         classObjs.map((classObj) => {
           const classObject = classObj;
           const assignmentObjects = filter(assignmentObjs, { 'sis_source_id': classObject.sis_source_id });
-          if (assignmentObjects) {
+          if (assignmentObjects ) {
             assignmentObjects.map((assignmentObj) => {
               EVENT_DATA.push(assignmentObj);
               return EVENT_DATA;
@@ -81,6 +83,8 @@ export class EventList extends React.PureComponent {
       }
       let val = props.EventChangedValue;    
       if (localStorage.getItem('setFilterValue') === null) {
+      //   val = localStorage.getItem('setFilterValue');
+      // }
         localStorage.setItem('setFilterValue', CommonConstants.EVENT_FILTER_7_DAYS);
       }      
       if (localStorage.getItem(CommonConstants.DISPLAY_OPTIONS) === null) {

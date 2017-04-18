@@ -7,6 +7,7 @@ import { Row, Col } from 'react-bootstrap';
 import Mailto from 'react-mailto';
 import { Link } from 'react-router';
 import { translateText } from '../../common/translate'; 
+import * as CommonConstants from '../../constants/commonConstants';
 import { telephoneCheck } from '../../common/utility';
 
 const Libraryinformation = (libProps) => (
@@ -17,27 +18,27 @@ const Libraryinformation = (libProps) => (
       <div>
         <p className='libraryAddress'>{libProps.libData.titile}</p>
       </div>
-      <div className='libraryHours'>
-        <Link href={libProps.redirectTo.libraryHours} target='_blank' >{translateText('COMMON:LIBRARY_HOURS')}</Link>
+      <div>
+        <Link className='libraryHours' href={libProps.redirectTo.libraryHours} target='_blank' >{translateText('COMMON:LIBRARY_HOURS')}</Link>
       </div>
-      {libProps.title !==translateText('COMMON:HEALTH_SCIENCES_LIBRARY') && <Row className='library pb5 pt5'>
+      {libProps.title !==CommonConstants.HEALTH_SCIENCES_LIBRARY && <Row className='library pb5 pt5'>
         <Col xs={12} sm={2}>
           <p>{translateText('COMMON:REFERENCE')}:</p>
         </Col>
         <Col xs={12} sm={10}>
-          <a href={libProps.libData.reference.number ? `tel:${telephoneCheck(libProps.libData.reference.number, '.')}` : ''} className='phoneNumber'>{libProps.libData.reference.number ? telephoneCheck(libProps.libData.reference.number, '.') : ''}</a>
+          <span className='phoneNumber'>{libProps.libData.reference.number ? telephoneCheck(libProps.libData.reference.number, '.') : ''}</span>
           <span> | </span>
           <Mailto email={libProps.libData.reference.email ? libProps.libData.reference.email : ''}>{libProps.libData.reference.email ? libProps.libData.reference.email : ''}</Mailto>
           { libProps.libData.reference.hours && <span> | </span> }
           <Link href={libProps.redirectTo.libraryHours} target='_blank'>{libProps.libData.reference.hours ? libProps.libData.reference.hours : ''}</Link>
         </Col>
       </Row>}
-      {libProps.title !==translateText('COMMON:HEALTH_SCIENCES_LIBRARY') && <Row className='library pb5 pt5'>
+      {libProps.title !==CommonConstants.HEALTH_SCIENCES_LIBRARY && <Row className='library pb5 pt5'>
         <Col xs={12} sm={2}>
           <p>{translateText('COMMON:CIRCULATION')}:</p>
         </Col>
         <Col xs={12} sm={10}>
-          <a href={libProps.libData.circulation.number ? `tel:${telephoneCheck(libProps.libData.circulation.number, '.')}` : ''} className='phoneNumber'>{libProps.libData.circulation.number ? telephoneCheck(libProps.libData.circulation.number, '.') : ''}</a>
+          <span className='phoneNumber'>{libProps.libData.circulation.number ? telephoneCheck(libProps.libData.circulation.number, '.') : ''}</span>
           { libProps.libData.circulation.email && <span> | </span> }
           <Mailto email={libProps.libData.circulation.email ? libProps.libData.circulation.email : ''}>{libProps.libData.circulation.email ? libProps.libData.circulation.email : ''}</Mailto>
         </Col>
@@ -47,12 +48,12 @@ const Libraryinformation = (libProps) => (
           <p>{translateText('COMMON:MAIN')}:</p>
         </Col>
         <Col xs={12} sm={10}>
-          <a href={libProps.libData.main.number1 ? `tel:${telephoneCheck(libProps.libData.main.number1, '.')}` : ''} className='phoneNumber'>{libProps.libData.main.number1 ? telephoneCheck(libProps.libData.main.number1, '.') : ''}</a>
+          <span className='phoneNumber'>{libProps.libData.main.number1 ? telephoneCheck(libProps.libData.main.number1, '.') : ''}</span>
           { libProps.libData.main.number2 && <span> | </span> }  
-          <a href={libProps.libData.main.number2 ? `tel:${telephoneCheck(libProps.libData.main.number2, '.')}` : ''} className='phoneNumber'>{libProps.libData.main.number2 ? telephoneCheck(libProps.libData.main.number2, '.') : ''}</a>
+          <span className='phoneNumber'>{libProps.libData.main.number2 ? telephoneCheck(libProps.libData.main.number2, '.') : ''}</span>
         </Col>
       </Row>
-      {libProps.title ===translateText('COMMON:HEALTH_SCIENCES_LIBRARY') && <Row className='library pb5 pt5'>
+      {libProps.title ===CommonConstants.HEALTH_SCIENCES_LIBRARY && <Row className='library pb5 pt5'>
         <Col xs={12} sm={2}>
           <p>{translateText('COMMON:REFERENCE')}:</p>
         </Col>
@@ -60,31 +61,31 @@ const Libraryinformation = (libProps) => (
           <Mailto email={libProps.libData.reference.email ? libProps.libData.reference.email : ''}>{libProps.libData.reference.email ? libProps.libData.reference.email : ''}</Mailto>
         </Col>
       </Row>}
-      {libProps.title !== translateText('COMMON:HEALTH_SCIENCES_LIBRARY') && libProps.title !== translateText('COMMON:LAW_LIBRARY') && <Row className='library pb5 pt5'>
+      {libProps.title !== CommonConstants.HEALTH_SCIENCES_LIBRARY && libProps.title !== CommonConstants.LAW_LIBRARY && <Row className='library pb5 pt5'>
         <Col xs={12} sm={2}>
           <p>{translateText('COMMON:TEXT')}:</p>
         </Col>
         <Col xs={12} sm={10}>
-          <p><a href={libProps.libData.text ? `tel:${telephoneCheck(libProps.libData.text, '.')}` : ''} className='phoneNumber'>{libProps.libData.text ? telephoneCheck(libProps.libData.text, '.') : ''}</a></p>
+          <p className='phoneNumber'>{libProps.libData.text ? telephoneCheck(libProps.libData.text, '.') : ''}</p>
         </Col>
       </Row>}
-      {libProps.title !==translateText('COMMON:HEALTH_SCIENCES_LIBRARY') && libProps.title !== translateText('COMMON:LAW_LIBRARY') && <Row className='library pb5 pt5'>
+      {libProps.title !==CommonConstants.HEALTH_SCIENCES_LIBRARY && libProps.title !== CommonConstants.LAW_LIBRARY && <Row className='library pb5 pt5'>
         <Col xs={12} sm={2}>
           <p>{translateText('COMMON:AUTOMATED_ATTENDANT')}:</p>
         </Col>
         <Col xs={12} sm={10}>
-          <p><a href={libProps.libData.automatedAttendant ? `tel:${telephoneCheck(libProps.libData.automatedAttendant, '.')}` : ''} className='phoneNumber'>{libProps.libData.automatedAttendant ? telephoneCheck(libProps.libData.automatedAttendant, '.') : ''}</a></p>
+          <p className='phoneNumber'>{libProps.libData.automatedAttendant ? telephoneCheck(libProps.libData.automatedAttendant, '.') : ''}</p>
         </Col>
       </Row>}
-      {libProps.title ===translateText('COMMON:LAW_LIBRARY') && <Row className='library pb5 pt5'>
+      {libProps.title ===CommonConstants.LAW_LIBRARY && <Row className='library pb5 pt5'>
         <Col xs={12} sm={2}>
           <p>{translateText('COMMON:ADMIN')}:</p>
         </Col>
         <Col xs={12} sm={10}>
-          <p><a href={libProps.libData.admin ? `tel:${telephoneCheck(libProps.libData.admin, '.')}` : ''} className='phoneNumber'>{libProps.libData.admin ? telephoneCheck(libProps.libData.admin, '.') : ''}</a></p>
+          <p className='phoneNumber'>{libProps.libData.admin ? telephoneCheck(libProps.libData.admin, '.') : ''}</p>
         </Col>
       </Row>}
-      {libProps.title !==translateText('COMMON:HEALTH_SCIENCES_LIBRARY') && <Row className='library pb5 pt5'>
+      {libProps.title !==CommonConstants.HEALTH_SCIENCES_LIBRARY && <Row className='library pb5 pt5'>
         <Col xs={12} sm={2}>
           <p>{translateText('COMMON:CHAT')}:</p>
         </Col>

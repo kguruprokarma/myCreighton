@@ -7,7 +7,6 @@ import Libraryinformation from './libraryinformation';
 import More from './more';
 import * as CommonConstants from '../../constants/commonConstants';
 import * as UrlConstants from '../../constants/urlConstants';
-import { translateText } from '../../common/translate';
 
 const urlDirctionsLibrary = {
   libraryHours: UrlConstants.REINERT_HOURS_URL,
@@ -23,7 +22,7 @@ const urlDirctionsMore = {
 
 const ReinertAlumni = (aluminProps) => (  
   <div>  
-    <Libraryinformation title={translateText('COMMON:REINERT_ALUMNI_LIBRARY')} libData={aluminProps.aluminiData} redirectTo={urlDirctionsLibrary} />
+    <Libraryinformation title={CommonConstants.REINERT_ALUMNI_LIBRARY} libData={aluminProps.aluminiData} redirectTo={urlDirctionsLibrary} />
     <More title={CommonConstants.REINERT_ALUMNI_LIBRARY} scrollTopClick={aluminProps.scrollTopClick} redirectTo={urlDirctionsMore} /> 
   </div>   
 );

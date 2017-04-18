@@ -23,11 +23,11 @@ const classInfo = (classInfoProps) => (
           <Row>
             <Col xs={6}>
               <p>{classInfoProps.class_held_build_desc} {classInfoProps.class_room_code}</p>
-              <p>{scheduleDays(classInfoProps.class_schedule)} {convertTo24Format(classInfoProps.class_begin_time)} - {convertTo24Format(classInfoProps.class_end_time)}<span> CT</span></p>
+              <p>{scheduleDays(classInfoProps.class_schedule)} {convertTo24Format(classInfoProps.class_begin_time)} - {convertTo24Format(classInfoProps.class_end_time)}</p>
             </Col>
             <Col xs={6} className='text-right'>
               <p>{classInfoProps.instructor_name.last_name}</p>
-              <p className='NextDate'><span>{translateText('NEXT')}</span>: {classInfoProps.nextDate}</p>
+              <p className='NextDate'><span>{translateText('NEXT')}</span>: {getScheduledNextDate(classInfoProps.class_schedule)}</p>
             </Col>
           </Row>
         </div>
