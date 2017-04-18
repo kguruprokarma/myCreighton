@@ -5,9 +5,9 @@ import * as urlConstants from '../constants/urlConstants';
 import * as CommonConstants from '../constants/commonConstants';
 
 
-// Add a request interceptor
-axios.interceptors.request.use((config) => {
-  // Do something before request is sent
+// Request interceptor
+axios.interceptors.request.use((confi) => {
+  const config =confi;
   const URL = config.url.split('/');
   if (indexOf(URL, 'logoutadfs') < 0) {
     config.withCredentials = true;
@@ -15,10 +15,8 @@ axios.interceptors.request.use((config) => {
   return config;
 }, (error) => Promise.reject(error));
 
-// Add a response interceptor
+// Response interceptor
 axios.interceptors.response.use((response) => {
-  // Do something with response data
-  console.log(response);
   if (response && response.config && response.config.url) {
     const URL = response.config.url.split('/');
     let roleObj = {};
@@ -32,10 +30,6 @@ axios.interceptors.response.use((response) => {
       if (response.data.role.indexOf(CommonConstants.ROLE_STAFF_TITLE) >= 0 || response.data.role.indexOf(CommonConstants.GUEST_TITLE) >= 0) {
         roleObj = {'userRole': CommonConstants.ROLE_STAFF};
       }
-      // For Guest user
-      // if (response.data.role.indexOf('Guest') >= 0) {
-      //   roleObj = {'userRole': CommonConstants.ROLE_STAFF};
-      // }
       localStorage.setItem('roleInfo', JSON.stringify(roleObj));
       if (window.location.hash === '#/') {
         hashHistory.replace('/dashboard');
@@ -47,7 +41,6 @@ axios.interceptors.response.use((response) => {
   }
   return response;
 }, (error) => {
-  // Do something with response error
   console.log(error);
   if (error.response.status === 401) {
     const currentUrl = encodeURIComponent(document.URL);

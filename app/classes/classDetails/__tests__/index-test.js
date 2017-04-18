@@ -103,10 +103,10 @@ describe('index files in Class Details testing ', () => {
     ]
   }];
   eventList = JSON.stringify(eventList);
-  const classDetails = JSON.stringify(eventList);
+  //const classDetails = eventList;
 
   localStorage.setItem('eventsFilterData', eventList);
-  localStorage.setItem('classDetails', classDetails);
+  localStorage.setItem('classDetails', eventList);
   const minProps = {
     getClassDetails: () => 1,
     classDetails: {
@@ -152,9 +152,12 @@ describe('index files in Class Details testing ', () => {
     },
     params: {
       id: '201610_HAP_200_A',
-      categoryname: CLASSES_DETAILS
+      categoryname: CLASSES_DETAILS,
+      objIndex: 0,
+      index: 0
     }
   };
+  //props.params.index
   const classDetails1 = shallow(<ClassDetails {...minProps} />);
   it('ClassDetails is defined', () => {
     expect(classDetails1).toBeDefined();

@@ -7,6 +7,7 @@ import Libraryinformation from './libraryinformation';
 import More from './more';
 import * as CommonConstants from '../../constants/commonConstants';
 import * as UrlConstants from '../../constants/urlConstants';
+import { translateText } from '../../common/translate';
 
 const urlDirctionsLibrary = {
   libraryHours: UrlConstants.LAW_HOURS_URL,
@@ -20,7 +21,7 @@ const urlDirctionsMore = {
 };
 const LawLibrary = (lawProps) => (  
   <div>  
-    <Libraryinformation title={CommonConstants.LAW_LIBRARY} libData={lawProps.lawData} redirectTo={urlDirctionsLibrary} />
+    <Libraryinformation title={translateText('COMMON:LAW_LIBRARY')} libData={lawProps.lawData} redirectTo={urlDirctionsLibrary} />
     <More title={CommonConstants.LAW_LIBRARY} scrollTopClick={lawProps.scrollTopClick} redirectTo={urlDirctionsMore} /> 
   </div>   
 );

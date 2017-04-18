@@ -54,7 +54,7 @@
 
 .avatar-name {
     font-size: 1.7333333333333334em;
-    line-height: 1.8;
+    line-height: 1.3;
 }
 
 .user-type {
@@ -195,17 +195,22 @@
 .avatar-left {
     width: 14%;
     margin-right: 6px;
-    float: left;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .avatar-right {
     width: 82%;
-    float: left;
+    display: table-cell;
+    vertical-align: middle;
+    min-height: 48px;
 }
 
 .avatar-container {
     overflow: hidden;
     height: 100%;
+    display: table;
+    width: 100%;
 }
 
 /* Media for small devices */
@@ -370,6 +375,7 @@
         top:-2px;
         margin-left: 6px;
     }
+
     .moduleImage {
       text-align: center;
       padding-right: 0;
@@ -397,7 +403,7 @@
 @media screen and (min-width: 500px) and  (max-width: 767px) {
     
     .avatar-left {
-        width: 10%;
+        width: 16%;
     }
 
     .avatar-right {

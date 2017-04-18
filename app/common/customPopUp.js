@@ -28,7 +28,7 @@ export class CustomPopUp extends React.Component {
     };
     this.role = authUserDetails().userRole;
     if (this.role) {
-     // customPopUpProps.getUserDetailsData(`/${this.role}`);
+      // customPopUpProps.getUserDetailsData(`/${this.role}`);
       if (!localStorage.getItem('infos')) {
         if (this.role === roleConstants.ROLE_FACULTY) {
           props.getFacultyProfileData();
@@ -36,7 +36,7 @@ export class CustomPopUp extends React.Component {
           props.getStaffProfileData();
         } else if (this.role === roleConstants.ROLE_STUDENT) {
           props.getStudentProfileData();
-        }        
+        }
       }
     }
     this.languageChangeBind = this.changeLanguage.bind(this);
@@ -45,8 +45,27 @@ export class CustomPopUp extends React.Component {
   }
 
   signOutPopUp() {
-    this.props.popUpClose();
-    this.props.openSignOutPopUp();
+    //this.props.popUpClose();
+    //this.props.openSignOutPopUp();
+    axios.get(urlConstants.ADFS_LOGOUT_URL).then((response) => {
+      if (response.status === urlConstants.STATUS_CODE) {
+        localStorage.removeItem('roleInfo');
+        localStorage.removeItem('infos');
+        localStorage.removeItem('lang');
+        localStorage.removeItem('classMasterCopy');
+        localStorage.removeItem('assignmentMasterCopy');
+        localStorage.removeItem('temp');
+        localStorage.removeItem('classDetails');
+        //localStorage.removeItem('setFilterValue');
+        //localStorage.removeItem('setDisplayOptionValue');
+        //localStorage.removeItem('displayOptions');
+        localStorage.removeItem('eventList');
+        localStorage.removeItem('eventsFilterData');
+        //location.reload();
+      }
+    }, (error) => {
+      console.log(error);
+    });
   }
   changeLanguage(langKey) {
     localStorage.setItem('lang', langKey);
@@ -65,13 +84,13 @@ export class CustomPopUp extends React.Component {
     let profileInformation;
     if (profileDetails && profileDetails.data && profileDetails.data.length > 0) {
       const data = profileDetails.data[0];
-      if (this.role === roleConstants.ROLE_FACULTY) {        
+      if (this.role === roleConstants.ROLE_FACULTY) {
         profileInformation = data.faculty_name;
       } else if (this.role === roleConstants.ROLE_STAFF) {
         profileInformation = data.staff_name;
       } else if (this.role === roleConstants.ROLE_STUDENT) {
         profileInformation = data.legal_name;
-      }    
+      }
     }
 
     const languages = [{ 'langkey': 'en', 'language': translateText('common:COMMON_ENGLISH') }, { 'langkey': 'es', 'language': translateText('common:COMMON_SPANISH') }];
@@ -85,7 +104,7 @@ export class CustomPopUp extends React.Component {
           <ListGroupItem key={item.itemName} className='openSansLight profile-icon'>
             {
               item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ?
-                <Link onClick={() => { this.setState({ languageState: false }); }} > {item.itemName}</Link>
+                <Link onClick={() => { this.setState({ languageState: false }); } } > {item.itemName}</Link>
                 : <Link to={item.link} onClick={item.itemName === translateText('common:COMMON_SIGN_OUT') ? this.signOutPopUp : this.props.showPopValue} activeClassName='active'>
                   {item.itemName}
                 </Link>
@@ -99,7 +118,7 @@ export class CustomPopUp extends React.Component {
           <ListGroupItem className='openSansLight'>
             <Row>
               <Col sm={2} xs={2}>
-                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); }} />
+                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); } } />
               </Col>
               <Col sm={10} xs={10}>
                 <p className='selectLang pt5'>{translateText('common:COMMON_SELECT_LANGUAGE')}</p>
@@ -107,13 +126,13 @@ export class CustomPopUp extends React.Component {
             </Row>
           </ListGroupItem>
           {languages.map((lanItem) => (
-            <ListGroupItem key={lanItem.language} onClick={() => { this.languageChangeBind(lanItem.langkey); }} className='openSansLight'>
+            <ListGroupItem key={lanItem.language} onClick={() => { this.languageChangeBind(lanItem.langkey); } } className='openSansLight'>
               <Link>{lanItem.language}</Link>
             </ListGroupItem>
           ))}
         </ListGroup>
       }
-      
+
     </div>
     );
   }

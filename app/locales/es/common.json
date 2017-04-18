@@ -97,7 +97,7 @@
   "DASH_BOARD_SCHOOL_AND_SEMESTER": "Escuela y semestre",
   "DASH_BOARD_SCHOOL_STUFF" : "Cosas escolares de las que soy responsable.",
   "DASH_BOARD_CLASSES": "Clases",
-  "DASH_BOARD_WHAT_I_NEED_CLASS":"Lo que necesito para cada clase.",
+  "DASH_BOARD_WHAT_I_NEED_CLASS":"Mi horario de clases.",
   "DASH_BOARD_WHAT_I_NEED_READY" : "Lo que necesito estar listo para.",
   "DASH_BOARD_CAMPUS_DIRECTORY": "Campus Directorio de empresas",
   "DASH_BOARD_NEXT_EVENTS": "Próximos Eventos",
@@ -259,5 +259,13 @@
   "DIRECTORY" : "Directorio",
   "LIAISONS" : "Enlaces",
   "LIBRARY_SERVICES" : "Servicios de biblioteca",
-  "WEBSITE" : "Sitio web"
+  "WEBSITE" : "Sitio web",
+  
+  "REINERT_ALUMNI_LIBRARY": "Biblioteca Reinert-Alumni",
+  "HEALTH_SCIENCES_LIBRARY": "Biblioteca de Ciencias de la Salud",
+  "LAW_LIBRARY": "Biblioteca de Derecho",
+  "SIGNOUT_TEXT": "¿Realmente desea cerrar la sesión?",
+  "SIGNOUT_CANCEL_TEXT": "Cancelar",
+  "SIGNOUT_OK_TEXT": "De acuerdo",
+  "SIGNOUT_CONFIRM_TEXT": "Confirmación de salida"
 }

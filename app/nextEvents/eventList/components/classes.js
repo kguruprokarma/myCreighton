@@ -24,7 +24,7 @@ const Classes = (classesProps) => (
           <span className='classBy'>{convertDateFromTimeStamp(classesProps.data.timeStamp)}</span>
         </Col>
         <Col md={2} sm={2} className='text-right'>
-          <div className='classTime'>{classesProps.data.class_begin_time !== null ? convertTo24Format(classesProps.data.class_begin_time) : 'N/A'} - {classesProps.data.class_end_time !== null ?convertTo24Format(classesProps.data.class_end_time): 'N/A'}</div>
+          <div className='classTime'>{classesProps.data.class_begin_time !== null ? convertTo24Format(classesProps.data.class_begin_time) : 'N/A'} - {classesProps.data.class_end_time !== null ?convertTo24Format(classesProps.data.class_end_time): 'N/A'}<span> CT</span></div>
         </Col>
       </Link>
     </div>
@@ -44,7 +44,7 @@ const Classes = (classesProps) => (
           <span className='classPlace'> {classesProps.data.class_room_code}</span>
         </Col>
         <Col xs={5} className='text-right'>
-          <span className='classTime'>{convertTo24Format(classesProps.data.class_begin_time)} - {convertTo24Format(classesProps.data.class_end_time)}</span>
+          <span className='classTime'>{convertTo24Format(classesProps.data.class_begin_time)} - {convertTo24Format(classesProps.data.class_end_time)}<span> CT</span></span>
         </Col>
       </Row>
     </Link>
