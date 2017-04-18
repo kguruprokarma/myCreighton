@@ -22,7 +22,7 @@ const ClassInfo = (classInfoProps) => (
         <span className='classBy'>{classInfoProps.data.instructor_name.last_name}</span>
       </Col>
       <Col md={3} sm={3} className='text-right'>
-        <div className='classTime'>{scheduleDays(classInfoProps.data.class_schedule)} {convertTo24Format(classInfoProps.data.class_begin_time)} - {convertTo24Format(classInfoProps.data.class_end_time)}</div>
+        <div className='classTime'>{scheduleDays(classInfoProps.data.class_schedule)} {convertTo24Format(classInfoProps.data.class_begin_time)} - {convertTo24Format(classInfoProps.data.class_end_time)}<span> CT</span></div>
         <div className='classDate'><span className='openSansRegular'>{translateText('çommon:NEXT')}:</span> {classInfoProps.data.nextDate}</div>
       </Col>
     </div>
@@ -44,7 +44,7 @@ const ClassInfo = (classInfoProps) => (
         <span className='classPlace'> {classInfoProps.data.class_room_code}</span>
       </Col>
       <Col xs={5} className='text-right'>
-        <span className='classTime'>{scheduleDays(classInfoProps.data.class_schedule)} {convertTo24Format(classInfoProps.data.class_begin_time)} - {convertTo24Format(classInfoProps.data.class_end_time)}</span>
+        <span className='classTime'>{scheduleDays(classInfoProps.data.class_schedule)} {convertTo24Format(classInfoProps.data.class_begin_time)} - {convertTo24Format(classInfoProps.data.class_end_time)}<span> CT</span></span>
       </Col>
     </Row>
   </article>

@@ -14,8 +14,8 @@ import Footer from '../footer/index';
 import Navigation from '../common/mainNav';
 import HeaderComponent from '../header/index';
 import * as urlConstants from '../constants/urlConstants';
-import * as commonConstants from '../constants/commonConstants';
-import ConfirmationPopUp from './confirmationPopUp';
+//import * as commonConstants from '../constants/commonConstants';
+//import ConfirmationPopUp from './confirmationPopUp';
 
 @translate([], { wait: true })
 
@@ -115,7 +115,7 @@ class Main extends React.PureComponent {
         {this.state.isLogin && <Footer />}
         {/* /this is footer section */}
         {(props.popUpData || props.filterPopUpData || props.signOut) && <input type='button' className='btn btn-link btnnoPadding popUpPatch' onClick={this.hidePopUp} />}
-        {props.signOut && <ConfirmationPopUp onConfirm={this.signOutBind} onCancel={props.closeSignOutPopUp} />}
+        {/*props.signOut && <ConfirmationPopUp onConfirm={this.signOutBind} onCancel={props.closeSignOutPopUp} />*/}
         {/*<IdleTimer
           ref={() => this.reference}
           element={document}
