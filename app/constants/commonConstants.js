@@ -5,6 +5,7 @@ export const ENROLLED_STUDENT = 'Enrolled Student';
 export const STUDENT_TITLE = 'Student';
 export const ROLE_STUDENT = 'student';
 export const STUDENT_LABEL = 'STUDENT';
+export const GUEST_TITLE = 'Guest';
 export const ROLE_STAFF_TITLE = 'Staff';
 export const ROLE_STAFF = 'staff';
 export const STAFF_LABEL = 'STAFF';

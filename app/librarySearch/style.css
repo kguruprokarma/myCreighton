@@ -27,3 +27,7 @@
 .onlineClass:focus {
     text-decoration: none;
 }
+
+.libraryDataHeading {
+    text-transform: uppercase;
+}

@@ -27,7 +27,7 @@ const classInfo = (classInfoProps) => (
             </Col>
             <Col xs={6} className='text-right'>
               <p>{classInfoProps.instructor_name.last_name}</p>
-              <p className='NextDate'><span>{translateText('NEXT')}</span>: {getScheduledNextDate(classInfoProps.class_schedule)}</p>
+              <p className='NextDate'><span>{translateText('NEXT')}</span>: {classInfoProps.nextDate}</p>
             </Col>
           </Row>
         </div>

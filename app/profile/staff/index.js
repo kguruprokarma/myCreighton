@@ -39,7 +39,7 @@ export class StaffProfile extends React.PureComponent {
       <section role='region'>
         {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
-        {USER_DATA &&
+        {USER_DATA && USER_DATA.data && USER_DATA.data.length>0 &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
               <form>
@@ -59,7 +59,7 @@ export class StaffProfile extends React.PureComponent {
             </Col>
           </Row>
         }
-        {((!USER_DATA && !props.loading) || (USER_DATA.error)) &&
+        {((!USER_DATA && !props.loading) || (USER_DATA.data && USER_DATA.data.length <= 0) || (USER_DATA.error)) &&
           <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>

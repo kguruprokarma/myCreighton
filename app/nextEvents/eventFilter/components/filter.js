@@ -16,7 +16,7 @@ const EventFilter = (eventFilterProps) => (
         </p>
       </Col>
     </div>
-    <Scrollbars className='slim-scroll-bar'>
+    <Scrollbars className='slim-scroll-bar' style={{ height: 300 }}>
       <p className='filterHeading openSansRegular mt10 mb0 plr15'>{translateText('common:EVENT_PERIOD_HEADING')}</p>
       <div className='control-group eventFilterGroup'>
         <ListGroup>
