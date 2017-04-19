@@ -60,6 +60,10 @@ const data = {
     }
   ]
 };
+
+const data1 ={
+  'bool': 'true'
+};
 describe('Next Event actions testing', () => {
   beforeEach(() => {
     moxios.install();
@@ -127,5 +131,34 @@ describe('Next Event actions testing', () => {
         expect(JSON.stringify(result[1].data.error.response.data)).toEqual(JSON.stringify(expectedActions[1].data));
         expect(result[1].type).toEqual(expectedActions[1].type);
       });
+  });
+
+
+  it('testing action onMasterDataChange', () => {
+    const expectedActions = [{ type: types.ON_MASTER_DATA_CHANGE }];
+    const store = mockStore();
+    store.dispatch(actions.onMasterDataChange());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('testing action onLoading', () => {
+    const expectedActions = [{ type: types.ON_LOADING_CHANGE }];
+    const store = mockStore();
+    store.dispatch(actions.onLoading());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('testing action offLoadingChange', () => {
+    const expectedActions = [{ type: types.OFF_LOADING_CHANGE }];
+    const store = mockStore();
+    store.dispatch(actions.offLoading());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('testing action offLoadingChange', () => {
+    const expectedActions = [{ type: types.OFF_LOADING_CHANGE }];
+    const store = mockStore();
+    store.dispatch(actions.offLoading());
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });

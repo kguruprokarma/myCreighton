@@ -8,6 +8,7 @@ import '../../__mock_i18n__/i18n_mockKeys';
 
 const defaultProps = {
   getLibraryData: () => { },
+  scrollToPosition: () => {},
   libraryInfoData: {
     'libraryInformation': [{
       'reinertAlumni': {
@@ -60,6 +61,10 @@ const libraryInformation = shallow(<LibraryInformation {...defaultProps} />);
 describe('LibraryInformation Test Suite', () => {
   it('should provide i18n context', () => {
     expect(libraryInformation).toBeDefined();
+  });
+
+  it('scrollToPosition method verification', () => {
+    libraryInformation.instance().scrollToPosition('reinertAlumni');
   });
 
   it('LibraryInformation component ReinertAlumni is there or not', () => {

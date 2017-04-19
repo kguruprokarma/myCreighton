@@ -4,6 +4,7 @@ import moxios from 'moxios';
 import * as types from '../actionTypes';
 import * as actions from '../actions';
 import * as urlConstants from '../../../constants/urlConstants';
+import apis from '../../../middleware/classes/api';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
@@ -33,7 +34,22 @@ describe('Classes actions testing', () => {
   const userReqObj = {};
   userReqObj.primaryKey = 'netid';
   userReqObj.primaryValue = '6cb4db8459';
-  
+
+  moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS}${urlConstants.STUDENT_CLASSES}`, {
+    status: 200,
+    response: data
+  });
+  moxios.stubRequest(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.CLASS_DETAILS_DATA, {
+    status: 200,
+    response: data
+  });
+  moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS}${urlConstants.ASSIGNMENTS}`, {
+    status: 200,
+    responseText: data
+  });
+  apis.getClassesDataByWeek();
+  apis.getClassDetails();
+  apis.getAssignmentDetails();
   it('testing get classes data', () => {
     const expectedActions = [
       { type: types.REQUEST_CLASSES_DATA },

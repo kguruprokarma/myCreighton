@@ -74,6 +74,69 @@ describe('index component testing for Next Events ----->', () => {
       'term_name': 'Fall 2014'
     }
   ]);    
+  let mockdisplay = [
+    {
+      'itemName': 'All',
+      'checked': true,
+      'childrenUnselect': false,
+      'children': ''
+    },
+    {
+      'itemName': 'Classes',
+      'checked': true,
+      'childrenUnselect': false,
+      'children': [
+        {
+          'name': 'Organic Chemistry Lecture II',
+          'sid': '201610_CHM_323_B',
+          'checked': true
+        },
+        {
+          'name': 'Managing Public&Non-Profit',
+          'sid': '201670_HAP_331_B',
+          'checked': true
+        },
+        {
+          'name': 'Biblical Trad:Sickness-Healing',
+          'sid': '201610_THL_235_B',
+          'checked': true
+        },
+        {
+          'name': 'Biochemistry of Metabolism',
+          'sid': '201670_CHM_371_A',
+          'checked': true
+        },
+        {
+          'name': 'Elementary Probability Stats',
+          'sid': '201610_MTH_363_1',
+          'checked': true
+        }
+      ]
+    },
+    {
+      'itemName': 'Class events',
+      'checked': true,
+      'childrenUnselect': false,
+      'children': [
+        {
+          'name': 'Elementary Probability Stats',
+          'sid': '201610_MTH_363_1',
+          'checked': true
+        },
+        {
+          'name': 'Mgr Proc & Organiztional Behav',
+          'sid': '201670_MGT_301_E',
+          'checked': true
+        },
+        {
+          'name': 'Healthcare, Society & Culture',
+          'sid': '201610_HAP_315_NA',
+          'checked': true
+        }
+      ]
+    }
+  ];
+  mockdisplay = JSON.stringify(mockdisplay);
   const defaultProps = {
     classesData: {
       data: mockData
@@ -82,6 +145,9 @@ describe('index component testing for Next Events ----->', () => {
       data: mockAssignmentData
     },
     getEventsData: () => {},
+    getEventDisplayOptions: () => {},
+    onReceiveError: () => {},
+    getSelectedFilterData: () => {},
     getClassesDataByWeek: () => {},
     onLoading: () => {},
     onMasterDataChange: () => {}
@@ -115,11 +181,14 @@ describe('index component testing for Next Events ----->', () => {
       '201610_HAP_315_NA'
     ]
   };
+  const mockFilterSelection = '7 Days';
 
   localStorage.setItem('roleInfo', JSON.stringify(userDate));
   localStorage.setItem('classMasterCopy', mockData);  
   localStorage.setItem('assignmentMasterCopy', mockAssignmentData);
   localStorage.setItem('setDisplayOptionValue', JSON.stringify(mockDisplayOptionsVal));
+  localStorage.setItem('setFilterValue', '7 Days');
+  localStorage.setItem('eventList', mockData);
   const EventListC = shallow(<EventList {...defaultProps} />);
 
   it('EventList is defined', () => {
@@ -127,16 +196,15 @@ describe('index component testing for Next Events ----->', () => {
   });
 
   it('Check getEventsData function', () => {
-    const value = EventListC.instance().componentWillMount();
-    expect(value).toHaveBeenCalled;
+    EventListC.instance().getEventsData('props');
   });
 
-  it('Checking Classes component in Event List', () => {
-    //expect(EventListC.find('Classes').length).toBe(1);
+  it('CheckinggetSelectedFilterData function', () => {
+    EventListC.instance().getSelectedFilterData(mockFilterSelection, mockdisplay);
   });
 
-  it('Checking Assignments component in Event List ', () => {
-    //expect(EventListC.find('Assignments').length).toBe(1);
+  it('Checking getEventDisplayOptions function ', () => {
+    EventListC.instance().getEventDisplayOptions(mockdisplay);
   });
   it('Checking OutlookCalendar component in Event List', () => {
     expect(EventListC.find('OutlookCalendar').length).toBe(0);

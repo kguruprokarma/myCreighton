@@ -17,6 +17,8 @@ import * as actionCreators from '../actions';
 import AutoPopulateList from './resultsList';
 import Spinner from '../../common/spinner';
 
+const listItems = document.getElementsByClassName('result-list-item');
+
 export class SearchBox extends Component {
   constructor(props) {
     super(props);
@@ -25,13 +27,15 @@ export class SearchBox extends Component {
     this.state = constructorProps.state;
     this.state = { 
       searchText: searchboxProps.searchString ? searchboxProps.searchString : '',
-      selectUser: true
+      selectUser: true,
+      selectionNumber: -1
     };
    // this.state.searchURL = '';
     this.onSearchText = this.onSearchText.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.clearSearchText = this.clearSearchText.bind(this);
     this.selectedUser = this.selectedUser.bind(this);
+    this.selection = this.selection.bind(this);
     if (constructorProps.currentPath === CommonConstants.SEARCH_RESULTS ) {
       searchboxProps.onSearchText(constructorProps.searchString);
     }
@@ -39,19 +43,6 @@ export class SearchBox extends Component {
 
   onSearchText(event) {
     event.preventDefault();
-    //const props = this.props;
-    /* if (!this.state.searchText.trim()) return false;
-     if (props.currentPath === CommonConstants.SEARCH_RESULTS) {
-       //props.onSearchText(this.state.searchText);
-       this.state.searchURL = `${ROUTE_URL.SERCHRESULTS}/${this.state.searchText}`;
-       hashHistory.replace(this.state.searchURL);
-       // location.reload();
-     } else {
-       this.state.searchURL = `${ROUTE_URL.SERCHRESULTS}/${this.state.searchText}`;
-       hashHistory.replace(this.state.searchURL);
-     }
-     return true;
-   }*/
     const query = this.state.searchText.replace(/ /g, '');
     if (!query) {
       return false;
@@ -82,10 +73,56 @@ export class SearchBox extends Component {
     this.setState({ searchText: '' });
   }
 
+  selection(event) {
+    let current = null;
+    const evt = (event) ? event : window.event;
+    const key = (evt.which) ? evt.which : evt.keyCode;
+    const selected = listItems.length;
+    if (selected<=0) {
+      return false;
+    }
+   // if (key !== 40 && key !== 38) return;
+    const element = document.querySelector('.selected');
+    if (element) {
+      element.classList.remove('selected');
+    }
+    if (key === 40) {
+      this.setState({selectionNumber: (++this.state.selectionNumber)});
+      if (this.state.selectionNumber === (selected)) {
+        this.setState({selectionNumber: -1});
+      } else if (this.state.selectionNumber >= selected) {
+        this.setState({selectionNumber: (0)});
+        current = listItems.item(0);
+      } else {
+        current = listItems.item(this.state.selectionNumber);
+      }
+    } else if (key === 38) {
+      this.setState({selectionNumber: --this.state.selectionNumber});
+      if (this.state.selectionNumber === -1) {
+        this.setState({selectionNumber: (selected)});
+      } else if (this.state.selectionNumber <= -2) {
+        this.setState({selectionNumber: (selected-1)});
+        current = listItems.item(selected-1);
+      } else {
+        current = listItems.item(this.state.selectionNumber);
+      }
+    }
+    if (current) {
+      current.classList.add('selected');
+      const text = current.text.split(' ');
+      this.setState({ searchText: (`${text[0]}, ${text[1]}`)});
+      current.scrollIntoView(false);
+    }
+  }
+  
   handleChange(event) {
     if (!this.state.selectUser) {
       this.setState({ selectUser: true });
     }
+    this.setState({selectionNumber: -1});
+   /* if (this.state.keySelection) {
+      return false;
+    }*/
    /* if (!event.target.value.trim()) {
       return false;
     }*/
@@ -133,7 +170,7 @@ export class SearchBox extends Component {
             <Row>
               <Col xs={12} sm={9}>
                 <FormGroup>
-                  <FormControl type='search' autoFocus value={this.state.searchText} onChange={this.handleChange} className='openSansLight input-lg cmpsDirSearch mt20' placeholder={translateText('common:SEARCH_CREIGHTON_STAFF')} />
+                  <FormControl type='search' autoFocus value={this.state.searchText} onChange={this.handleChange} className='openSansLight input-lg cmpsDirSearch mt20' onKeyDown={this.selection} placeholder={translateText('common:SEARCH_CREIGHTON_STAFF')} />
                   <button className={`icon-addon btn btn-link btnnoPadding openSansLight ${this.state.searchText === '' ? 'show' : 'hide'}`}><ImageComponent imagePath={SEARCH_ICON} /></button>
                   <Link className='icon-addon-right btnnoPadding openSansLight show' onClick={this.clearSearchText} ><ImageComponent imagePath={MENUCLOSE_ICON} /></Link>
                   <HelpBlock className='openSansRegular cmpsDirText mt10'>{translateText('common:EXAMPLE_CAMPUS_DIRECTORY_SEARCH')} </HelpBlock>

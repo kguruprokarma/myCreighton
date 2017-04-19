@@ -22,7 +22,7 @@ import PreviousNext from '../../common/previousNext1';
 import { stringEncodeURIComponent, browserTitle } from '../../common/utility';
 import * as actionCreators from '../eventList/actions';
 
-class EventDetails extends React.PureComponent {
+export class EventDetails extends React.PureComponent {
 
   render() {
     let details;

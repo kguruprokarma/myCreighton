@@ -163,27 +163,27 @@ export const convertEncodeURIComponent = (data) => {
 };
 
 /*Data sort method is used to sort the array items in time sequence*/
-export const dateTime = (dataArray, startTime, endTime /* order*/) => {
-  const data = dataArray;
-  //const sortByKey = key;
-  //const sortOrder = order || CommonConstants.SORT_CLASS;
-  const sortedData = [...data].sort((a, b) => {
-    const timePart1 = convertTo24Format(a[startTime]);
-    const timePart2 = convertTo24Format(b[endTime]);
-    const amOrPmOfTime1 = timePart1.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
-    const amOrPmOfTime2 = timePart2.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
-    const time1Spliting = timePart1.split(amOrPmOfTime1)[0].split(':');
-    const time2Spliting = timePart2.split(amOrPmOfTime2)[0].split(':');
-    const time1Hours = time1Spliting[0];
-    const time2Hours = time2Spliting[0];
-    const time1HasMinutes = time1Spliting[1] || '00';
-    const time2HasMinutes = time2Spliting[1] || '00';
-    const time1 = `${time1Hours}:${time1HasMinutes} ${amOrPmOfTime1}`;
-    const time2 = `${time2Hours}:${time2HasMinutes} ${amOrPmOfTime2}`;
-    return new Date(`2017/01/01 ${time1}`) - new Date(`2017/01/01 ${time2}`);
-  });
-  return sortedData;
-};
+// export const dateTime = (dataArray, startTime, endTime /* order*/) => {
+//   const data = dataArray;
+//   //const sortByKey = key;
+//   //const sortOrder = order || CommonConstants.SORT_CLASS;
+//   const sortedData = [...data].sort((a, b) => {
+//     const timePart1 = convertTo24Format(a[startTime]);
+//     const timePart2 = convertTo24Format(b[endTime]);
+//     const amOrPmOfTime1 = timePart1.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
+//     const amOrPmOfTime2 = timePart2.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
+//     const time1Spliting = timePart1.split(amOrPmOfTime1)[0].split(':');
+//     const time2Spliting = timePart2.split(amOrPmOfTime2)[0].split(':');
+//     const time1Hours = time1Spliting[0];
+//     const time2Hours = time2Spliting[0];
+//     const time1HasMinutes = time1Spliting[1] || '00';
+//     const time2HasMinutes = time2Spliting[1] || '00';
+//     const time1 = `${time1Hours}:${time1HasMinutes} ${amOrPmOfTime1}`;
+//     const time2 = `${time2Hours}:${time2HasMinutes} ${amOrPmOfTime2}`;
+//     return new Date(`2017/01/01 ${time1}`) - new Date(`2017/01/01 ${time2}`);
+//   });
+//   return sortedData;
+// };
 
 export const createTimeStamp1 = (data1) => {
   //const data = data1;
@@ -270,7 +270,7 @@ export const dataFilterAddingData = (dataArray) => {
   }
 
   days.map((day) => {
-    dateTime(newObject[day], 'class_begin_time', 'class_end_time', CommonConstants.SORT_CLASS).map((dateTimeSortedData) => {
+    dataSort(newObject[day], CommonConstants.CLASS_BEGIN_TIME, CommonConstants.SORT_CLASS).map((dateTimeSortedData) => {
       newArray.push(dateTimeSortedData);
       return newArray;
     });
@@ -327,11 +327,14 @@ export const authUserDetails = () => localStorage.getItem('roleInfo') ? JSON.par
 //   return newArray;
 // };
 
-export const datesCompare = (currectDate, nextDate) => {
-  const currentdateTime = moment(currectDate, 'DD/MM/YYYY').toDate();
-  const nextdateTime = moment(new Date(nextDate), 'DD/MM/YYYY').toDate();
-  if (currentdateTime > nextdateTime) return 1;
-  else if (currentdateTime < nextdateTime) return -1;
+export const datesCompare = (nextDate) => {
+  const todayDate = moment().toDate();
+  const APIDate = moment(nextDate).toDate();
+  const todayTime = moment(todayDate).format('HH:mm');
+  const APITime = moment(nextDate).format('HH:mm');
+  if (APIDate === todayDate && (APITime > todayTime)) {
+    return 1;
+  } else if (todayDate < APIDate) return -1;
   return 0;
 };
 

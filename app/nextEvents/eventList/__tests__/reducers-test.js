@@ -26,4 +26,23 @@ describe('Next Event list reducer testing ----->', () => {
     const afterState = reducer({}, { type: types.RECEIVE_EVENTS_DATA_ERROR, error });
     expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
   });
+
+  it('reducer onMasterDataChange state', () => {
+    const data = { 'name': 'myCreighton' };
+    const expectedState = { isMasterDataChange: data};
+    const afterState = reducer({}, {type: types.ON_MASTER_DATA_CHANGE, data});
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
+
+  it('testing action on loading change case', () => {
+    const expectedState = {...defaultState, isLoading: true};
+    const afterState = reducer(undefined, { type: types.ON_LOADING_CHANGE });
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
+
+  it('testing action off loading case', () => {
+    const expectedState = {...defaultState, isLoading: false};
+    const afterState = reducer(undefined, { type: types.OFF_LOADING_CHANGE });
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
 });

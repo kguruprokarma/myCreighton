@@ -47,14 +47,13 @@ class ClassDetails extends React.PureComponent {
     const upcomingAssignmentsData = [];
     let sortedUpcomingAssignments = [];
     let sortedassignmentDue = [];
-    const currentDate = new Date();
     if (assignments && assignments.length > 0 ) {
       assignments.map((assignmentObj) => {
         // if (assignmentObj.submission_types === 'online_quiz') {
         //   testOrQuizzesData.push(assignmentObj);
         // } else {
         if (assignmentObj.assign_due) {
-          const dateValue = datesCompare(currentDate, assignmentObj.assign_due);
+          const dateValue = datesCompare(assignmentObj.assign_due);
           if (dateValue === 1) {
             assignmentDue.push(assignmentObj);
           } else if (dateValue === -1) {

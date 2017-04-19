@@ -45,8 +45,9 @@ export const getAssigmentsAndQuizzesData = (arrayData, eventFilterData, today) =
     data = filter(eventFilterData, { 'sis_source_id': arrayId });
     if (data && data.length > 0) {
       for (let i = 0; i<data.length; i++) {
-        const listOfAssignmentsOrQuizze = data[0].assignmentData;
-        listOfAssignmentsOrQuizze.map((assignmentOrQuizze) => {
+        const assignmentOrQuizze = data[i];
+        if (assignmentOrQuizze) {
+          //listOfAssignmentsOrQuizze.map((assignmentOrQuizze) => {
           if (assignmentOrQuizze.type === CommonConstants.EVENT_TYPE_ASSIGNMENTS ||
                 assignmentOrQuizze.type === CommonConstants.EVENT_TYPE_QUIZ) {
             const value = showFeatureEvents(assignmentOrQuizze.timeStamp, today);
@@ -54,7 +55,8 @@ export const getAssigmentsAndQuizzesData = (arrayData, eventFilterData, today) =
               displayOptionData.push(assignmentOrQuizze);
             }
           }
-        });
+         // });
+        }
       }
     }
   });

@@ -15,11 +15,11 @@ const ClassBox = (classBoxProps) => (
   <div>
     {
       classBoxProps.catagoryName === CommonConstants.TODAY ? (
-        <TodayClasses catagory={classBoxProps.catagoryName} listOfData={dataSort(filterTodaysClassSchedule(classBoxProps.data.data), 'class_begin_time', 'ASC')} />
+        <TodayClasses catagory={classBoxProps.catagoryName} listOfData={dataSort(filterTodaysClassSchedule(classBoxProps.data.data), CommonConstants.CLASS_BEGIN_TIME, CommonConstants.SORT_CLASS)} />
       ) : (
           (classBoxProps.catagoryName === CommonConstants.WEEK ? (
-            <WeekClasses catagory={classBoxProps.catagoryName} listOfData={(dataFilterAddingData(dataSort(classBoxProps.data.data, 'class_begin_time', 'ASC')))} />)
-            : (<AToZClasses catagory={classBoxProps.catagoryName} listOfData={addNextDate(dataSort(classBoxProps.data.data, 'course_title', 'ASC'))} />)
+            <WeekClasses catagory={classBoxProps.catagoryName} listOfData={(dataFilterAddingData(classBoxProps.data.data, CommonConstants.CLASS_BEGIN_TIME, CommonConstants.SORT_CLASS))} />)
+            : (<AToZClasses catagory={classBoxProps.catagoryName} listOfData={addNextDate(dataSort(classBoxProps.data.data, CommonConstants.COURSE_TITLE, CommonConstants.SORT_CLASS))} />)
           )
         )
     }

@@ -45,7 +45,7 @@ describe('actions testing for campus directory search', () => {
   userReqObj.lastName = 'f7';
   
   it('testing action sequence for success case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.CAMPUS_DIRECTORY_SIMPLE}?firstName=f&lastName=f7`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS}${urlConstants.CAMPUS_DIRECTORY_SIMPLE}?firstName=f&lastName=f7`, {
       status: 200,
       response: data
     });
@@ -65,7 +65,7 @@ describe('actions testing for campus directory search', () => {
   });
 
   it('testing action  sequence for failure case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.CAMPUS_DIRECTORY_SIMPLE}?firstName=f&lastName=f7`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.CAMPUS_DIRECTORY_SIMPLE}?firstName=f&lastName=f7`, {
       status: 404,
       responseText: 'error'
     });

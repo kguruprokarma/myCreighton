@@ -98,7 +98,7 @@ export class Classes extends React.PureComponent {
         return objClass;
       });
       if (classListData.params.classtab === CommonConstants.WEEK) {
-        localStorage.setItem('classDetails', JSON.stringify((dataFilterAddingData(dataSort(defaultArray, CommonConstants.CLASS_BEGIN_TIME, CommonConstants.ASC)))));
+        localStorage.setItem('classDetails', JSON.stringify((dataFilterAddingData(defaultArray, CommonConstants.CLASS_BEGIN_TIME, CommonConstants.ASC))));
       } else if (classListData.params.classtab === CommonConstants.TODAY) {
         localStorage.setItem('classDetails', JSON.stringify(dataSort(filterTodaysClassSchedule(defaultArray), CommonConstants.CLASS_BEGIN_TIME, CommonConstants.ASC)));
       } else if (classListData.params.classtab === CommonConstants.LIST) {
