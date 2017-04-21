@@ -28,7 +28,8 @@ export class SearchBox extends Component {
     this.state = { 
       searchText: searchboxProps.searchString ? searchboxProps.searchString : '',
       selectUser: true,
-      selectionNumber: -1
+      selectionNumber: -1,
+      serchTextPreserved: ''
     };
    // this.state.searchURL = '';
     this.onSearchText = this.onSearchText.bind(this);
@@ -51,10 +52,10 @@ export class SearchBox extends Component {
     searchText = searchText.split(',');
     const reqObj = {};
     if (searchText[0]) {
-      reqObj.lastName = searchText[0];
+      reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
     }
     if (searchText[1]) {
-      const firstName = searchText[1];
+      const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
       if (firstName) {
         reqObj.firstName = firstName;
       }
@@ -66,11 +67,11 @@ export class SearchBox extends Component {
   }
 
   selectedUser(firstName, lastName) {
-    this.setState({ searchText: (`${firstName}, ${lastName}`), selectUser: false });
+    this.setState({ searchText: (`${firstName}, ${lastName}`), selectUser: false, serchTextPreserved: (`${firstName}, ${lastName}`) });
   }
 
   clearSearchText() {
-    this.setState({ searchText: '' });
+    this.setState({ searchText: '', serchTextPreserved: ''});
   }
 
   selection(event) {
@@ -81,7 +82,9 @@ export class SearchBox extends Component {
     if (selected<=0) {
       return false;
     }
-   // if (key !== 40 && key !== 38) return;
+    if (key === 38 || key === 40) {
+      evt.preventDefault();
+    }
     const element = document.querySelector('.selected');
     if (element) {
       element.classList.remove('selected');
@@ -90,6 +93,7 @@ export class SearchBox extends Component {
       this.setState({selectionNumber: (++this.state.selectionNumber)});
       if (this.state.selectionNumber === (selected)) {
         this.setState({selectionNumber: -1});
+        this.setState({ searchText: this.state.serchTextPreserved});
       } else if (this.state.selectionNumber >= selected) {
         this.setState({selectionNumber: (0)});
         current = listItems.item(0);
@@ -100,6 +104,7 @@ export class SearchBox extends Component {
       this.setState({selectionNumber: --this.state.selectionNumber});
       if (this.state.selectionNumber === -1) {
         this.setState({selectionNumber: (selected)});
+        this.setState({ searchText: this.state.serchTextPreserved});
       } else if (this.state.selectionNumber <= -2) {
         this.setState({selectionNumber: (selected-1)});
         current = listItems.item(selected-1);
@@ -109,7 +114,7 @@ export class SearchBox extends Component {
     }
     if (current) {
       current.classList.add('selected');
-      const text = current.text.split(' ');
+      const text = current.querySelector('span').innerText.split(' ');
       this.setState({ searchText: (`${text[0]}, ${text[1]}`)});
       current.scrollIntoView(false);
     }
@@ -126,33 +131,34 @@ export class SearchBox extends Component {
    /* if (!event.target.value.trim()) {
       return false;
     }*/
- //   const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
-//    const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
+    const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
+    const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
     if (event.target.value.length <= CommonConstants.CAMPUS_SEARCH_TEXT_LENGTH) {
-      /* if (txtShouldnotStartWithSpace.test(event.target.value)) {
-         if (txtRestrictNumeric.test(event.target.value)) {*/
-      this.props.resetCampusDirectoryData();
-      let query = event.target.value;
-      this.setState({ searchText: query });
-      query = event.target.value.replace(/ /g, '');
-      this.props.resetSearchItemClicked();
-      if (query.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH) {
-        let searchText = query.toLowerCase();
-        searchText = searchText.split(',');
-        const reqObj = {};
-        if (searchText[0]) {
-          reqObj.lastName = searchText[0];
-        }
-        if (searchText[1]) {
-          const firstName = searchText[1];
-          if (firstName) {
-            reqObj.firstName = firstName;
+      if (txtShouldnotStartWithSpace.test(event.target.value)) {
+        if (txtRestrictNumeric.test(event.target.value)) {
+          this.props.resetCampusDirectoryData();
+          let query = event.target.value;
+          this.setState({ searchText: query, serchTextPreserved: query });
+
+          query = event.target.value.replace(/ /g, '');
+          this.props.resetSearchItemClicked();
+          if (query.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH) {
+            let searchText = query.toLowerCase();
+            searchText = searchText.split(',');
+            const reqObj = {};
+            if (searchText[0]) {
+              reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
+            }
+            if (searchText[1]) {
+              const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
+              if (firstName) {
+                reqObj.firstName = firstName;
+              }
+            }
+
+            this.props.getCampusDirectoryData(reqObj);
           }
         }
-
-        this.props.getCampusDirectoryData(reqObj);
-        /*   }
-         }*/
       }
       if (event.target.value === '') {
         this.setState({ searchText: event.target.value });

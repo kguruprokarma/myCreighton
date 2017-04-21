@@ -267,5 +267,8 @@
   "SIGNOUT_TEXT": "¿Realmente desea cerrar la sesión?",
   "SIGNOUT_CANCEL_TEXT": "Cancelar",
   "SIGNOUT_OK_TEXT": "De acuerdo",
-  "SIGNOUT_CONFIRM_TEXT": "Confirmación de salida"
+  "SIGNOUT_CONFIRM_TEXT": "Confirmación de salida",
+  "E-JOURNAL": "Revistas electrónicas",
+  "LIBRARY_GUIDES": "Guías de la biblioteca",
+  "DATABASES": "Bases de datos"
 }

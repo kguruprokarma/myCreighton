@@ -7,7 +7,7 @@ const ConfirmationPopUp = (basicRowProps) => (
     <div className='modal-header'>
       <Row>
         <Col xs={10}>
-          <h4 className='m0 logoutText'>Logout Confirmation!</h4>
+          <h4 className='m0 logoutText'>{translateText('SIGNOUT_CONFIRM_TEXT')}!</h4>
         </Col>
         <Col xs={2}>
           <button type='button' className='close popup' data-dismiss='modal' onClick={basicRowProps.onCancel}>&times;</button>

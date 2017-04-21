@@ -31,3 +31,29 @@
 .libraryDataHeading {
     text-transform: uppercase;
 }
+    
+.btn-group .btn-group.librarySearch {
+    font-size: 1em;
+}
+
+.btn-group .btn.btn-default.libraryButton {
+    border: 1px solid #019cdb;
+    background-color: #fff;
+    color: #019cdb;
+    font-size: 0.8em;    /* font size 11 in pixel */
+}
+
+.btn.btn-default.libraryButton:hover,
+.btn.btn-default.libraryButton:active,
+.btn.btn-default.libraryButton:focus {
+    outline: 0;
+    background-color: #019cdb;
+    color: #fff;
+}
+
+@media screen and (max-width: 769px) {
+
+    .libraryLinks {
+        text-align: center;
+    }
+}
