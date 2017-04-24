@@ -33,6 +33,19 @@ const loadingChange = () => (
     type: types.ON_LOADING_CHANGE
   } 
  );
+const requestCalendarDetailsData =() => ({
+  type: types.REQUEST_CALENDAR_DETAILS_DATA
+});
+
+const receiveCalendarDetailsData =(calendarData) => ({
+  type: types.RECEIVE_CALENDAR_DETAILS_DATA,
+  data: calendarData
+});
+
+const receiveCalendarDetailsError =(error) => ({
+  type: types.RECEIVE_CALENDAR_DETAILS_DATA_ERROR,
+  data: error
+});
 
 const offLoadingChange = () => (
   {
@@ -81,4 +94,17 @@ export function getEventsData(reqObj) {
   };
 }
 
+export function getCalendarData() {
+  return function (dispatch) {
+    dispatch(requestCalendarDetailsData());
+    return EventListApi.getCalendarData().then((response) => {
+      dispatch(receiveCalendarDetailsData(response.data));
+    })
+     .catch((error) => {
+       dispatchEvent(receiveCalendarDetailsError({
+         error: error
+       }));
+     });
+  };
+}
 export default getEventsData;

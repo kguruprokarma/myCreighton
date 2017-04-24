@@ -8,7 +8,8 @@ const initialState = {
   eventsData: {},
   isLoading: false,
   error: false,
-  isMasterDataChange: false
+  isMasterDataChange: false,
+  calendarDetailData: {}
 };
 
 const eventsReducer = (state = initialState, action = null) => {
@@ -42,6 +43,22 @@ const eventsReducer = (state = initialState, action = null) => {
     case types.OFF_LOADING_CHANGE:
       return Object.assign({}, state, {
         isLoading: false
+      });
+
+    case types.REQUEST_CALENDAR_DETAILS_DATA:
+      return Object.assign({}, state, {
+        isloading: true,
+        error: false
+      });
+    case types.RECEIVE_CALENDAR_DETAILS_DATA:
+      return Object.assign({}, state, {
+        isloading: false,
+        calendarDetailData: action.data
+      });
+    case types.RECEIVE_CALENDAR_DETAILS_DATA_ERROR:
+      return Object.assign({}, state, {
+        error: true,
+        calendarDetailData: []
       });
       
     default:

@@ -3,13 +3,13 @@
  */
 
 import React from 'react';
-import { find, findIndex, sortBy } from 'lodash';
+import { find, sortBy } from 'lodash';
 import HeaderLabel from './../../common/headerLabel';
 import ClassInfo from './../classDetails/components/classInfo';
 import ClassAssignments from './../classDetails/components/classAssignments';
 //import TodaysClass from './../classDetails/components/todaysClass';
 import UpcomingAssignments from './../classDetails/components/upcomingAssignments';
-import TestsOrQuizzes from './../classDetails/components/testsOrQuizzes';
+// import TestsOrQuizzes from './../classDetails/components/testsOrQuizzes';
 import '../classDetails/style.css';
 import PreviousNextComponent from '../../common/previousNext';
 import { translateText } from '../../common/translate';

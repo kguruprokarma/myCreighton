@@ -41,8 +41,9 @@ export const EVENT_FILTER_NEXT_EVENT = 'Next event detail';
 export const EVENT_TYPE_QUIZ = 'testorquiz';
 export const EVENT_TYPE_ASSIGNMENTS = 'assignments';
 export const QUIZ_SUBMISSION_TYPES = 'online_quiz';
+export const TYPE_CALENDER_EVENT = 'calender';
 
-export const ITEM_NAME = 'itemName'; 
+export const ITEM_NAME = 'itemName';
 export const CLASSES = 'Classes';
 export const CHECKED = 'checked';
 export const CLASS_BEGIN_TIME = 'class_begin_time';
@@ -50,9 +51,10 @@ export const ASC = 'ASC';
 export const COURSE_TITLE = 'course_title';
 export const FALSE = false;
 export const TRUE = true;
+export const TRUE_TEXT = 'true';
 export const CHILDREN = 'children';
-export const CLASS_EVENTS = 'Class events'; 
-export const CLASS_ASSIGNMENTS = 'Class assignments'; 
+export const CLASS_EVENTS = 'Class events';
+export const CLASS_ASSIGNMENTS = 'Class assignments';
 export const TESTS_AND_QUIZZES = 'Tests and Quizzes';
 export const DISPLAY_OPTIONS = 'displayOptions';
 export const SIS_SOURCE_ID = 'sid';
@@ -64,11 +66,21 @@ export const STAFF_DETAIL = 'Staff Detail';
 export const DEPARTMENT = 'Department';
 export const REPORT_TO = 'Reports to';
 export const EXPERTISE_SKILLS = 'EXPERTISE/SKILLS';
-export const APPLICATION_TOOLS ='APPLICATION/TOOLS';
-export const GROYUPS ='GROUP(S)';
+export const APPLICATION_TOOLS = 'APPLICATION/TOOLS';
+export const GROYUPS = 'GROUP(S)';
 
 export const REINERT_ALUMNI_LIBRARY = 'REINERT-ALUMNI LIBRARY';
 export const HEALTH_SCIENCES_LIBRARY = 'HEALTH SCIENCES LIBRARY';
 export const LAW_LIBRARY = 'LAW LIBRARY';
 
 export const IDLE_TIME_OUT = 1800000;
+
+export const ONLINE_CLASSES = 'ONLINE';
+
+export const DAY_SUNDAY = 'Sunday';
+export const DAY_MONDAY = 'Monday';
+export const DAY_TUESDAY = 'Tuesday';
+export const DAY_WEDNESDAY = 'Wednesday';
+export const DAY_THURSDAY = 'Thursday';
+export const DAY_FRIDAY = 'Friday';
+export const DAY_SATURDAY = 'Saturday';

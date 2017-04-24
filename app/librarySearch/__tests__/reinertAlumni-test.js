@@ -7,7 +7,7 @@ import ReinertAlumni from '../components/reinertAlumni';
 
 const defaultProps = [{
   'titile': '1234 Creighton St, Omaha, NE 60179',
-  'reference': 'refdesk@creighton.edu',				
+  'reference': 'refdesk@creighton.edu',
   'circulation': '402.280.2160 | ralcirc@creighton.edu',
   'main': '402.280.5108',
   'text:': '402.507.4272',

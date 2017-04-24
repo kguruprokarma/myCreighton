@@ -21,6 +21,7 @@ import * as ROUTE_URL from './../../constants/routeContants';
 import PreviousNext from '../../common/previousNext1';
 import { stringEncodeURIComponent, browserTitle } from '../../common/utility';
 import * as actionCreators from '../eventList/actions';
+import CalendarEventDetails from './components/calendarDetails';
 
 export class EventDetails extends React.PureComponent {
 
@@ -48,7 +49,11 @@ export class EventDetails extends React.PureComponent {
     } else if (this.eventType === NextEventsConstants.CLASSES_DETAILS) {
       headerText = translateText('common:NEXT_EVENTS_CLASSES');
       browserTitle(translateText('common:NEXT_EVENTS_CLASSES'));
+    } else if (this.eventType === NextEventsConstants.CALENDER) {
+      headerText = translateText('common:NEXT_EVENTS_CALENDAR');
+      browserTitle(translateText('common:NEXT_EVENTS_CALENDAR'));
     }
+    
     if (selectedFilterPeriod === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
       headerText = translateText('common:NEXT_EVENTS_DETAIL');
       browserTitle(translateText('common:NEXT_EVENTS_DETAIL'));
@@ -67,19 +72,28 @@ export class EventDetails extends React.PureComponent {
       this.assignmentData = details && details[props.params.index];
       index1 = parseInt(props.params.index);
     }
+    if (this.eventType === NextEventsConstants.CALENDER) {
+      this.calendarData = details && details[props.params.index];
+      index1 = parseInt(props.params.index);
+      console.log('this.calendarData', this.calendarData);
+    }
     // if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
     //   this.quizData = details && find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
     //   index1 = findIndex(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
     // }
     if (index1 < details.length - 1) {
       nextObject = details[index1 + 1];
+      nextObject.next_Event_ID = nextObject.sis_source_id !==undefined ? nextObject.sis_source_id : nextObject.event_id
     } else {
       nextObject.sis_source_id = {};
+      nextObject.next_Event_ID = {};
     }
     if (index1 > 0) {
       prevObject = details[index1 - 1];
+      prevObject.next_Event_ID =  prevObject.sis_source_id !==undefined ? prevObject.sis_source_id : prevObject.event_id
     } else {
       prevObject.sis_source_id = {};
+      prevObject.next_Event_ID = {};
     }
     
     return (<section role='region'>
@@ -109,10 +123,14 @@ export class EventDetails extends React.PureComponent {
           {/*this.eventType === NextEventsConstants.ASSIGNMENTS && details && <Assignments data={this.assignmentData} />*/}
           {/*this.eventType === NextEventsConstants.TEST_OR_QUIZ && details && <TestOrQuiz data={this.quizData} />*/}
           {(this.eventType === NextEventsConstants.ASSIGNMENTS || this.eventType === NextEventsConstants.TEST_OR_QUIZ) && details && <NextEventDetails data={this.assignmentData} />}
-          {this.eventType === NextEventsConstants.CLASSES_DETAILS && this.classData && <ClassDetails data={this.classData} categoryname={NextEventsConstants.CLASSES_DETAILS} id={this.eventId} objIndex={props.params.index}  />}
+          {this.eventType === NextEventsConstants.CLASSES_DETAILS && this.classData && <ClassDetails data={this.classData} categoryname={NextEventsConstants.CLASSES_DETAILS} id={this.eventId} objIndex={props.params.index} />}
+          {this.eventType === NextEventsConstants.CALENDER && this.calendarData && <CalendarEventDetails data={this.calendarData} categoryname={NextEventsConstants.CLASSES_DETAILS} />}
         </div>
         }
-      <PreviousNext prevObj={prevObject} nextObj={nextObject} presentCategory={this.eventType} totalLength={details.length - 1} currentIndex={index1} prevItem={prevObject.sis_source_id} nextItem={nextObject.sis_source_id} />
+      <PreviousNext
+        prevObj={prevObject} nextObj={nextObject} presentCategory={this.eventType} totalLength={details.length - 1} currentIndex={index1} 
+        prevItem={prevObject.next_Event_ID} nextItem={nextObject.next_Event_ID}
+      />
     </section>);
   }
 }

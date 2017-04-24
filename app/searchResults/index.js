@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import Result from './components/resultBox';
-import { Link } from 'react-router';
 import { translateText } from '../common/translate';
 import SearchLeftNav from '../common/searchLeftNav';
 import * as actionCreators from '../campusDirectory/actions';

@@ -39,6 +39,7 @@ export const STAFF_BIO_API = `${ROOT_URL}/staff_bioAPI.json`;
 export const STAFF_PROFESSIONAL_API = `${ROOT_URL}/staff_professionalAPI.json`;
 export const STUDENTCLASSES_API = `${ROOT_URL}/studentclassesAPI.json`;
 export const STUDENTPROFILE_API = `${ROOT_URL}/studentProfileAPI.json`;
+export const CALENDER_API = `${ROOT_URL}/calendarAPI.json`;
 ///
 /// Add API related links below
 ///
@@ -65,31 +66,29 @@ export const ASSIGNMENT = '/assignments';
 export const CAMPUS_DIRECTORY_SIMPLE = '/searchFaculty';
 export const NEXTEVENT_ASSIGNMENTS = `${API_GATEWAY}${ASSIGNMENTS}${API_SINGLE}?primaryKey=netid&primaryValue=9dfa6baa7a`;
 export const ROLE = '/role';
+export const CALENDAR_DATA ='/Calendar'; 
 
 export const LOCAL_URL = 'http://localhost:8000/#/';
 export const SERVER_URL = 'mycu-rundev1.creighton.edu';
 export const STATUS_CODE = 200;
 
-export const REINERT_HOURS_URL ='http://www.creighton.edu/reinert/aboutus/hours';
-export const REINERT_DIRECTORY_URL= 'http://www.creighton.edu/reinert/contactsandhelp/staffdirectory';
+export const REINERT_HOURS_URL = 'http://www.creighton.edu/reinert/aboutus/hours';
+export const REINERT_DIRECTORY_URL = 'http://www.creighton.edu/reinert/contactsandhelp/staffdirectory';
 export const REINERT_ONLINE_CHAT = 'http://libraryh3lp.com/chat/curalaskusqueue@chat.libraryh3lp.com?skin=15519';
 export const REINERT_LIASIONS_URL = 'http://www.creighton.edu/reinert/contactsandhelp/subjectliaisons';
 export const REINERT_LIBSERVICES_URL = 'http://www.creighton.edu/reinert/services';
 export const REINERT_WEBSITE_URL = 'http://www.creighton.edu/reinert';
 
-export const HEALTH_HOURS_URL ='http://www.creighton.edu/health/library/aboutus/hours';
-export const HEALTH_DIRECTORY_URL= 'http://www.creighton.edu/health/library/aboutus/staffdirectory';
+export const HEALTH_HOURS_URL = 'http://www.creighton.edu/health/library/aboutus/hours';
+export const HEALTH_DIRECTORY_URL = 'http://www.creighton.edu/health/library/aboutus/staffdirectory';
 export const HEALTH_LIASIONS_URL = 'http://www.creighton.edu/health/library/services/libraryliaisons';
 export const HEALTH_LIBSERVICES_URL = 'http://www.creighton.edu/health/library/services';
 export const HEALTH_WEBSITE_URL = 'http://www.creighton.edu/health/library';
 export const HEALTH_JAY_SEARCH = 'http://culibraries.creighton.edu/printjournals';
 
 
-export const LAW_HOURS_URL ='http://culibraries.creighton.edu/GeneralInfo/hours';
+export const LAW_HOURS_URL = 'http://culibraries.creighton.edu/GeneralInfo/hours';
 export const LAW_ONLINE_CHAT = 'https://libraryh3lp.com/chat/3libraryq@chat.libraryh3lp.com?skin=22212';
-export const LAW_DIRECTORY_URL= 'https://law.creighton.edu/current-students/law-library/administration-and-staff';
+export const LAW_DIRECTORY_URL = 'https://law.creighton.edu/current-students/law-library/administration-and-staff';
 export const LAW_LIBSERVICES_URL = 'https://law.creighton.edu/current-students/law-library/services';
 export const LAW_WEBSITE_URL = 'https://law.creighton.edu/current-students/law-library';
-
-
-

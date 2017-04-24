@@ -134,7 +134,10 @@
   "NEXT_EVENTS_ASSIGNMENTS_HEADER": "Assignment Detail",
   "NEXT_EVENTS_EVENT_DETAIL": "NEXT EVENTS - EVENT DETAIL",  
   "NEXT_EVENTS_DETAIL": "NEXT EVENTS",
-  "NEXT_EVENTS_EVENT_DETAIL_HEADER": "DESCRIPTION",  
+  "NEXT_EVENTS_EVENT_DETAIL_HEADER": "DESCRIPTION", 
+  "NEXT_EVENTS_CALENDAR": "Next Events - Calendar Detail",
+  "CREIGHTON_CALENDAR_EVENT":"Creighton calender item" ,
+  "CONTACT_INFO": "Contact Info",
 
   "COMMON_TITLE": "Title",
   "COMMON_CLASS": "Class",
@@ -274,5 +277,8 @@
   "E-JOURNAL": "e-Journals",
   "LIBRARY_GUIDES": "Library Guides",
   "DATABASES": "Databases",
+
+  "ALL_DAY_TEXT": "All Day",
+  "NA_TEXT": "NA"
 
 }

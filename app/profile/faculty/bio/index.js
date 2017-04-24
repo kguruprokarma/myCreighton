@@ -54,7 +54,6 @@ FacultyProfile.propTypes = {
   profile: React.PropTypes.string,
   profileData: React.PropTypes.string,
   getFacultyProfileData: React.PropTypes.func
-  
 };
 
 const mapStateToProps = (bioState) => (
@@ -63,8 +62,6 @@ const mapStateToProps = (bioState) => (
     profile: bioState.profileReducer.profile,
     isLoading: bioState.profileReducer.isLoading,
     isError: bioState.profileReducer.error
-
-
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);

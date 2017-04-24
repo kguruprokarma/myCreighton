@@ -5,7 +5,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link, hashHistory } from 'react-router';
+import { Link } from 'react-router';
 import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import * as actionCreators from '../dashboard/actions';
@@ -22,7 +22,7 @@ import * as roleConstants from '../constants/commonConstants';
 export class CustomPopUp extends React.Component {
   constructor(props) {
     super(props);
-    const customPopUpProps = this.props;
+    //  const customPopUpProps = this.props;
     this.state = {
       languageState: true
     };

@@ -72,7 +72,7 @@ export class Header extends React.PureComponent {
         <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}</h1>
         <nav role='navigation' id='navigation01' className='container'>
           <Row >
-            <nav role="navigation" id="navigation01" className='col-xs-2 col-sm-2 hidden-lg hamburgerMenu'>
+            <nav role='navigation' id='navigation01' className='col-xs-2 col-sm-2 hidden-lg hamburgerMenu'>
               {props.currentState.split('/')[1] === CommonContants.DASHBOARD ?
                 <button className='btn btn-link btnnoPadding' onClick={this.navClick}><ImageComponent imagePath={props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} imagealtText={props.navData ? translateText('common:MENU_ALT_CLOSE_TAG') : translateText('common:MENU_ALT_TAG')} /></button>
                 : <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ? () => hashHistory.replace(`${RouteContants.CAMPUSDIRECTORY}${RouteContants.SIMPLE_SEARCH}`): this.goBack} />

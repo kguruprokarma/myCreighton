@@ -7,7 +7,7 @@ import LawLibrary from '../components/lawLibrary';
 
 const defaultProps = [{
   'titile': 'Ahmanson Law Center, 2nd floor 2100 Cass St, Omaha, NE 60179',
-  'reference': '402.280.5541 | lawref@lists.creighton.edu | hours',				
+  'reference': '402.280.5541 | lawref@lists.creighton.edu | hours',
   'circulation': '402.280.2242',
   'main': '402.280.2875',
   'admin': '402.507.2815',

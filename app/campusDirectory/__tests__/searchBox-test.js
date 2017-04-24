@@ -80,5 +80,4 @@ describe(' SearchBox component testing for campus directory search ----->', () =
     const searchBox1 = shallow(<SearchBox state={defaultState} {...defaultProps1} />);
     expect(searchBox1.find('.cmpNoResult').text()).toBe('ffd');
   });*/
-
 });

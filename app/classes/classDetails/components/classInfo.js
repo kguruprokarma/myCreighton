@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { convertTo24Format, getScheduledNextDate, scheduleDays } from '../../../common/utility';
+import { convertTo24Format, scheduleDays } from '../../../common/utility';
 import { translateText } from '../../../common/translate';
 
 const classInfo = (classInfoProps) => (

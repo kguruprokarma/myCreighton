@@ -130,6 +130,9 @@
   "NEXT_EVENTS_EVENT_DETAIL": "PRÓXIMOS EVENTOS - DETALLE DEL EVENTO",  
   "NEXT_EVENTS_DETAIL": "PRÓXIMOS EVENTOS",
   "NEXT_EVENTS_EVENT_DETAIL_HEADER": "DESCRIPCIÓN", 
+  "NEXT_EVENTS_CALENDAR": "Próximos eventos - Detalle de calendario",
+  "CREIGHTON_CALENDAR_EVENT":"Creighton calendario artículo",
+  "CONTACT_INFO": "Datos de contacto",
 
   "COMMON_TITLE": "Título",
   "COMMON_CLASS": "Clase",
@@ -270,5 +273,8 @@
   "SIGNOUT_CONFIRM_TEXT": "Confirmación de salida",
   "E-JOURNAL": "Revistas electrónicas",
   "LIBRARY_GUIDES": "Guías de la biblioteca",
-  "DATABASES": "Bases de datos"
+  "DATABASES": "Bases de datos",
+
+  "ALL_DAY_TEXT": "Todo el dia",
+  "NA_TEXT": "NA"
 }

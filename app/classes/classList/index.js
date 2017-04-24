@@ -14,7 +14,7 @@ import '../classList/style.css';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import Spinner from '../../common/spinner';
-import { filterTodaysClassSchedule, dataSort, dataFilterAddingData, authUserDetails, convertEncodeURIComponent, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
+import { filterTodaysClassSchedule, dataSort, dataFilterAddingData, addNextDate, authUserDetails, convertEncodeURIComponent, browserTitle, getClassAndAssignmentAPIData } from '../../common/utility';
 import AlertComponent from '../../common/alertComponent';
 
 export class Classes extends React.PureComponent {
@@ -102,7 +102,7 @@ export class Classes extends React.PureComponent {
       } else if (classListData.params.classtab === CommonConstants.TODAY) {
         localStorage.setItem('classDetails', JSON.stringify(dataSort(filterTodaysClassSchedule(defaultArray), CommonConstants.CLASS_BEGIN_TIME, CommonConstants.ASC)));
       } else if (classListData.params.classtab === CommonConstants.LIST) {
-        localStorage.setItem('classDetails', JSON.stringify(dataSort(defaultArray, CommonConstants.COURSE_TITLE, CommonConstants.ASC)));
+        localStorage.setItem('classDetails', JSON.stringify(addNextDate(dataSort(defaultArray, CommonConstants.COURSE_TITLE, CommonConstants.ASC))));
       }
     }
 

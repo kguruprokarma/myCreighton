@@ -56,10 +56,10 @@ const routes = (
           <Route path={ROUTE_URL.STAFF + ROUTE_URL.PROFESSIONAL} title='Professional - ' component={Professional} />
           <Route path={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SEARCH_TYPE} title='Campus Directory - ' component={CampusDirectoryComponent} />
           <Route path={ROUTE_URL.SERCHRESULTS + ROUTE_URL.SEARCH_QUERY} title='Search - ' component={SearchResultsComponent} />
-          <Route path={ROUTE_URL.STAFF_DETAILS} title='StaffDetails - ' component={StaffDetails} /> 
+          <Route path={ROUTE_URL.STAFF_DETAILS} title='StaffDetails - ' component={StaffDetails} />
           <Route path={ROUTE_URL.SEMESTERACADEMICS} title='Semester Academics - ' component={semesterAcademics} />
           <Route path={ROUTE_URL.LIBRARY_SEARCH} title='Library Search - ' component={LibrarySearch} />
-          
+
           {/*<Route path='/' component={Login} />
           <Route path={ROUTE_URL.PROFILE} component={Bio} />
           <Route path={ROUTE_URL.ACADEMIC} component={Academic} />

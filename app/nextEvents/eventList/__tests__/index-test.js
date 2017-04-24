@@ -149,6 +149,7 @@ describe('index component testing for Next Events ----->', () => {
     onReceiveError: () => {},
     getSelectedFilterData: () => {},
     getClassesDataByWeek: () => {},
+    getCalendarData: () => {},
     onLoading: () => {},
     onMasterDataChange: () => {}
   };

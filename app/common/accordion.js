@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import Link from 'react-router';
 
 class Accordion extends React.Component {
 
@@ -23,9 +24,9 @@ class Accordion extends React.Component {
     const accordStateClass = this.state.accordionState ? 'accord-active' : '';
     return (
       <section role='region'>
-        <div className='accord-title' onClick={this.accordToggle}>
+        <Link className='accord-title' onClick={this.accordToggle}>
           {this.props.title}
-        </div>
+        </Link>
         <div className={`${accordStateClass} accord-description`}>
           {this.props.description}
         </div>

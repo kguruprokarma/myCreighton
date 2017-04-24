@@ -1,6 +1,5 @@
-.reinertAlumni,.healthScience,.law {
+.boomarkLinks {
     line-height: 30px;
-    display: block;
     text-decoration: none;
     font-size: 1.2em;
 }
@@ -41,14 +40,47 @@
     background-color: #fff;
     color: #019cdb;
     font-size: 0.8em;    /* font size 11 in pixel */
+    white-space: pre-wrap;
 }
 
 .btn.btn-default.libraryButton:hover,
 .btn.btn-default.libraryButton:active,
-.btn.btn-default.libraryButton:focus {
+.btn.btn-default.libraryButton:focus,
+.btn.btn-default.libraryButton.active:hover,
+.btn.btn-default.libraryButton.active:active,
+.btn.btn-default.libraryButton.active:focus  {
     outline: 0;
+    box-shadow: none;
+}
+
+.btn.btn-default.libraryButton.active  {
     background-color: #019cdb;
+    box-shadow: none;
     color: #fff;
+}
+
+.sr-only {
+ position: absolute;
+ width: 1px;
+ height: 1px;
+ padding: 0;
+ margin: -1px;
+ overflow: hidden;
+ clip: rect(0, 0, 0, 0);
+ border: 0;
+ }
+
+ .btn-group .btn btn-default {
+     border-left: 1px solid #ddd;
+ }
+
+.btn.btn-default.organsisationBtn {
+    width: 90%;
+}
+
+.btn.btn-default.organisationToggle {
+    width: 10%;
+    border-left: 1px solid #ddd;
 }
 
 @media screen and (max-width: 769px) {

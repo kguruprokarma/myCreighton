@@ -3,8 +3,8 @@
  */
 
 import React from 'react';
-import { translateText } from '../../../common/translate';
 import moment from 'moment';
+import { translateText } from '../../../common/translate';
 
 const upcomingAssignments = (upcomingAssignProps) => (
   <article className='upcomingAssignments mb25'>

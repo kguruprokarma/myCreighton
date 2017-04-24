@@ -16,3 +16,5 @@ export function onReceiveData(data) {
     dispatch(receiveData(data));
   };
 }
+
+export default onReceiveData;

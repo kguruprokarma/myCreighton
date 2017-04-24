@@ -2,7 +2,7 @@
  * This file is used for unit testing simple search js file of campus directory search page
  */
 import React from 'react';
-import {shallow, mount} from 'enzyme';
+import { shallow } from 'enzyme';
 import {SimpleSearchDirectory} from '../components/simpleSearch';
 
 describe('Campus Directory simple search ----->', () => {

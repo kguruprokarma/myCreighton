@@ -26,9 +26,8 @@ const defaultProps = {
 };
 
 const propsD = {
-  'libraryHours':'http://culibraries.creighton.edu/GeneralInfo/hours' ,
+  'libraryHours': 'http://culibraries.creighton.edu/GeneralInfo/hours',
   'onlineChat': 'http://culibraries.creighton.edu/GeneralInfo/hours'
-
 };
 describe('HealthSciences component testing ----->', () => {
   const libraryinformation = shallow(<Libraryinformation libData={defaultProps} redirectTo={propsD} />);

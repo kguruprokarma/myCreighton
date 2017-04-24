@@ -25,3 +25,4 @@ export const STAFF_DETAIL = 'staffDetails';
 export const SCHOOL_AND_SEMESTER= 'schoolsandsemester';
 export const SEMESTER_ACADEMICS = 'semesteracademics';
 export const LIBRARY_SEARCH = 'librarysearch';
+export const EVENT_CALENDAR_DETAILS = 'calender';
