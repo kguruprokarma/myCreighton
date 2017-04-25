@@ -298,7 +298,11 @@ export const addNextDate = (dataArray) => {
   const currentDay = today.getDay();
   let returnDate = moment();
   tempItem.map((singleItem) => {
-    //const nextDateArray = getScheduledNextDate(singleItem.class_schedule);
+    const nextDateArray = getScheduledNextDate(singleItem.class_schedule);
+    const filteredDates = sortBy(nextDateArray, function (o) {
+      return new moment(o.date).format('MMM DD');
+    }).reverse();
+    //console.log('filteredDates: ', filteredDates);
     const item = singleItem;
     const mySchedules = item.class_schedule;
     if (!mySchedules) {
@@ -306,32 +310,41 @@ export const addNextDate = (dataArray) => {
       item.day = 'N/A';
       return item;
     }
-    const tempSchedules = mySchedules.split('');
-    const classSchedules = tempSchedules.map((schedule) => {
-      returnDate = moment();
-      const returnObj = {};
-      let daysToAdd = 0;
-      if (currentDay > daysIndex[schedule]) {
-        daysToAdd = (((7 + daysIndex[schedule]) - returnDate.get('day')) % 7);
-      } else {
-        daysToAdd = daysIndex[schedule] - currentDay;
+    for (let i=0; i<nextDateArray.length; i++) {
+      // console.log('nextDateArray[i].date: ', nextDateArray[i].date, today);
+      // console.log('nextDateArray[i].date > today: ', nextDateArray[i].date > today);
+    if (nextDateArray[i].date > today) {
+      item.nextDate = moment(nextDateArray[i].date).format('MMM DD');
+      item.day =nextDateArray[i].day;
+      break;
       }
-      if (daysToAdd === 0) {
-        daysToAdd = 7;
-      }
-      //returnDate.setDate(returnDate.get('date') + daysToAdd);
-      returnDate.add(daysToAdd, 'days');
-
-      //returnObj.day = days[daysIndex[schedule]];
-      returnObj.date = returnDate.toDate();
-      return returnObj;
-    });
-
-    for (let i = 0; i < tempSchedules.length; i++) {
-      classSchedules[i].day = days[daysIndex[tempSchedules[i]]];
     }
-    item.nextDate = moment(classSchedules[0].date).format('MMM DD');
-    item.day = classSchedules[0].day;
+    //const tempSchedules = mySchedules.split('');
+    // const classSchedules = tempSchedules.map((schedule) => {
+    //   returnDate = moment();
+    //   const returnObj = {};
+    //   let daysToAdd = 0;
+    //   if (currentDay > daysIndex[schedule]) {
+    //     daysToAdd = (((7 + daysIndex[schedule]) - returnDate.get('day')) % 7);
+    //   } else {
+    //     daysToAdd = daysIndex[schedule] - currentDay;
+    //   }
+    //   if (daysToAdd === 0) {
+    //     daysToAdd = 7;
+    //   }
+    //   //returnDate.setDate(returnDate.get('date') + daysToAdd);
+    //   returnDate.add(daysToAdd, 'days');
+
+    //   //returnObj.day = days[daysIndex[schedule]];
+    //   returnObj.date = returnDate.toDate();
+    //   return returnObj;
+    // });
+
+    // for (let i = 0; i < tempSchedules.length; i++) {
+    //   classSchedules[i].day = days[daysIndex[tempSchedules[i]]];
+    // }
+    // item.nextDate = moment(classSchedules[0].date).format('MMM DD');
+    // item.day = classSchedules[0].day;
     return item;
   });
   return tempItem;
