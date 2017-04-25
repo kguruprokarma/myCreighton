@@ -129,6 +129,7 @@
 
 .doller-icon img {
     max-width:30px;
+    max-height: 30px;
 }
 
 .doller-icon.btn-link:focus, .doller-icon.btn-link:hover
@@ -160,12 +161,6 @@
     position: relative;
     top: -7px;
     line-height: 9px;
-}
-
-.moneyIcon {
-    background:url(../assets/images/money.svg) no-repeat;
-    width: 40px;
-    height: 40px;
 }
 
 .school-img {

@@ -60,7 +60,25 @@ const data = {
     }
   ]
 };
-
+const calenderData = {
+  'data': [{
+    'startdate': '2017-04-18',
+    'event_id': '58016',
+    'allday_event': 'false',
+    'building_name': 'Hixson-Lied Science Building',
+    'calendars': 'Student Life',
+    'contactemail': null,
+    'contactname': 'Drci Legore',
+    'contactphone': null,
+    'description': 'School of Pharmacy and Health Professions',
+    'enddate': '2017-04-18',
+    'endtime': '17:00:00',
+    'event_name': 'Pre-Pharmacy Club Meeting',
+    'location': 'HLSB G04',
+    'starttime': '16:00:00',
+    'status': '1'
+  }]
+};
 const data1 ={
   'bool': 'true'
 };
@@ -160,5 +178,44 @@ describe('Next Event actions testing', () => {
     const store = mockStore();
     store.dispatch(actions.offLoading());
     expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('testing get Calendar data', () => {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.CALENDAR_DATA}`, {
+      status: 200,
+      response: calenderData
+    });
+    const expectedActions = [
+          {type: types.REQUEST_CALENDAR_DETAILS_DATA},
+          {type: types.RECEIVE_CALENDAR_DETAILS_DATA, data: calenderData}
+    ];
+    const store = mockStore();
+    return store.dispatch(actions.getCalendarData())
+      .then(() => {
+        const result = store.getActions();
+        expect(result[0].type).toEqual(expectedActions[0].type);
+        expect(result[1].data).toEqual(expectedActions[1].data);
+        expect(result[1].type).toEqual(expectedActions[1].type);
+      });
+  });
+
+  it('testing calender action failure case', () => {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.CALENDAR_DATA}`, {
+      status: 404,
+      response: 'error'
+    });
+    const expectedActions = [
+      { type: types.REQUEST_CALENDAR_DETAILS_DATA },
+      { type: types.RECEIVE_CALENDAR_DETAILS_DATA_ERROR, data: 'error' }
+    ];
+    const store = mockStore();
+
+    return store.dispatch(actions.getCalendarData())
+      .then(() => {
+        const result = store.getActions();
+        expect(result[0].type).toEqual(expectedActions[0].type);
+        expect(JSON.stringify(result[1].data.error.response.data)).toEqual(JSON.stringify(expectedActions[1].data));
+        expect(result[1].type).toEqual(expectedActions[1].type);
+      });
   });
 });

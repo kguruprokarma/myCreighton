@@ -4,7 +4,7 @@ import {Accordion} from '../accordion/index';
 import { translateText } from '../../common/translate';
 
 const SemesterContainer = (semesterProps) => (
-  <article>
+  <article role='article'>
     {semesterProps.data && <div>
       <h2 className='semester-title hidden'>{translateText(semesterProps.data.title)} </h2>
       <h3 className='semester-sub-title openSansLight pb10 mb20'>{translateText(semesterProps.data.headlines)} </h3>

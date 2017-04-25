@@ -84,3 +84,8 @@ export const DAY_WEDNESDAY = 'Wednesday';
 export const DAY_THURSDAY = 'Thursday';
 export const DAY_FRIDAY = 'Friday';
 export const DAY_SATURDAY = 'Saturday';
+
+export const TIMEZONE_CT = 'CT';
+
+export const MOMENT_DAYS = 'days';
+export const MOMENT_AMERICA_CHICAGO_TIMEZONE = 'America/Chicago';

@@ -1,4 +1,5 @@
 import moment from 'moment';
+import 'moment-timezone';
 import { sortBy } from 'lodash';
 import * as CommonConstants from '../constants/commonConstants';
 import * as urlConstants from '../constants/urlConstants';
@@ -51,8 +52,6 @@ export const getScheduledNextDate = (schedules) => {
   //const days = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
   const daysIndex = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
-  const today = new Date();
-  //const currentDay = today.getDay();
   const tempSchedules = mySchedules.split('');
   const currentWeekStartDate = moment().startOf('week').toDate();
   const classSchedules = [];
@@ -100,8 +99,9 @@ export const filterTodaysClassSchedule = (schedule) => {
             tempItem.nextDate = moment(nextDateArray[i].date).format('MMM DD');
           }
         }
-
-        if (item.class_begin_time !== null && item.class_end_time !== null && item.class_building_code !== CommonConstants.ONLINE_CLASSES) {
+        //This below commented if condition can be used in Sprint-6.
+        //if (item.class_begin_time !== null && item.class_end_time !== null && item.class_building_code !== CommonConstants.ONLINE_CLASSES) {
+        if (item.class_begin_time !== null && item.class_end_time !== null && item.class_schedule !== null) {
           return scheduleTodayArray.push(tempItem);
         }
       }
@@ -181,25 +181,24 @@ export const convertEncodeURIComponent = (data) => {
 // };
 
 export const createTimeStamp1 = (data1) => {
-  //const data = data1;
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
-  //const filterlist = data.map((singleclassObject) => {
   const classObject = data1;
   for (let day = 0; day < 8; day++) {
-    const getCurrentDay = moment().add(day, 'days')._d;
+    const getCurrentDay = moment().add(day, CommonConstants.MOMENT_DAYS)._d;
     if (days[getCurrentDay.getDay()] === classObject.day) {
-      const hours = parseInt(classObject.class_begin_time !== null ? classObject.class_begin_time.slice(0, 2) : 0);
+      let hours = parseInt(classObject.class_begin_time !== null ? classObject.class_begin_time.slice(0, 2) : 0);
       const minutes = parseInt(classObject.class_begin_time !== null ? classObject.class_begin_time.slice(-2) : 0);
-      const newDateTimeStampWithoutTime = moment(getCurrentDay).format('LL');
-      const timeStampWithTime = new Date(newDateTimeStampWithoutTime).setMinutes((hours * 60) + minutes);
-      const timeStampString = new Date(timeStampWithTime).toString();
-      classObject.timeStamp = new Date(timeStampString);
+      if (moment(moment()._d).tz(CommonConstants.MOMENT_AMERICA_CHICAGO_TIMEZONE).isDST()) {
+        hours = hours + 5;
+      } else {
+        hours = hours + 6;
+      }
+      const timeStampWithTime = moment.utc([getCurrentDay.getFullYear(), getCurrentDay.getMonth(), getCurrentDay.getDate(), hours, minutes]);
+      classObject.timeStamp = moment(timeStampWithTime).utc().format();
       break;
     }
   }
   return classObject;
-  //});
-  //return filterlist;
 };
 
 /*This method is for segregating  the items as per the week days and retuns an object*/
@@ -214,6 +213,9 @@ export const dataFilterAddingData = (dataArray) => {
   const daysIndex = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
   data.map((singleitem) => {
     const item = singleitem;
+    if (!item.class_schedule) {
+      return 'N/A';
+    }
     const tempArray = getScheduledNextDate(item.class_schedule);
     for (let i = 0; i < tempArray.length; i++) {
       const selectedDate = moment(tempArray[i].date);
@@ -222,7 +224,9 @@ export const dataFilterAddingData = (dataArray) => {
       tempItem.day = tempArray[i].day;
       tempItem.nextDate = selectedDate.format('MMM DD');
       tempItem = createTimeStamp1(tempItem);
-      if (tempItem.class_begin_time !== null && tempItem.class_end_time !== null && tempItem.class_building_code !== CommonConstants.ONLINE_CLASSES) {
+      //This below commented if condition can be used in Sprint-6.
+      //if (tempItem.class_begin_time !== null && tempItem.class_end_time !== null && tempItem.class_building_code !== CommonConstants.ONLINE_CLASSES) {
+      if (tempItem.class_begin_time !== null && tempItem.class_end_time !== null && item.class_schedule !== null) {
         newarrayProduced.push(tempItem);
       }
     }
@@ -292,14 +296,20 @@ export const addNextDate = (dataArray) => {
   const daysIndex = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
   const today = new Date();
   const currentDay = today.getDay();
+  let returnDate = moment();
   tempItem.map((singleItem) => {
     //const nextDateArray = getScheduledNextDate(singleItem.class_schedule);
     const item = singleItem;
-    const mySchedules = singleItem.class_schedule;
+    const mySchedules = item.class_schedule;
+    if (!mySchedules) {
+      item.nextDate = 'N/A';
+      item.day = 'N/A';
+      return item;
+    }
     const tempSchedules = mySchedules.split('');
-    const classSchedules = mySchedules.split('').map((schedule) => {
+    const classSchedules = tempSchedules.map((schedule) => {
+      returnDate = moment();
       const returnObj = {};
-      const returnDate = moment();
       let daysToAdd = 0;
       if (currentDay > daysIndex[schedule]) {
         daysToAdd = (((7 + daysIndex[schedule]) - returnDate.get('day')) % 7);
@@ -606,15 +616,17 @@ export const caldenderEventsTimeStamp = (calenderItems) => {
   items = items.map((calenderItem) => {
     const item = calenderItem;
     const time = calenderItem.starttime ? calenderItem.starttime.split(':') : [];
-    const hours = parseInt(time[0]) || 0;
+    let hours = parseInt(time[0]) || 0;
     const minutes = parseInt(time[1]) || 0;
-    const newDateTimeStampWithoutTime = moment(calenderItem.startdate).format('LL');
-    const timeStampWithTime = new Date(newDateTimeStampWithoutTime).setMinutes((hours * 60) + minutes);
-    const timeStampString = new Date(timeStampWithTime).toString();
-    item.timeStamp = moment(new Date(timeStampString)).utc().format();
+    if (moment(moment()._d).tz(CommonConstants.MOMENT_AMERICA_CHICAGO_TIMEZONE).isDST()) {
+      hours = hours + 5;
+    } else {
+      hours = hours + 6;
+    }
+    const timeStampWithZeroTime = moment(calenderItem.startdate)._d;
+    const timeStampWithGivenTime = moment.utc([timeStampWithZeroTime.getFullYear(), timeStampWithZeroTime.getMonth(), timeStampWithZeroTime.getDate(), hours, minutes]);
+    item.timeStamp = moment(timeStampWithGivenTime).utc().format();
     return item;
   });
   return items;
 };
-
-

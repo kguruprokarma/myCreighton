@@ -45,4 +45,23 @@ describe('Next Event list reducer testing ----->', () => {
     const afterState = reducer(undefined, { type: types.OFF_LOADING_CHANGE });
     expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
   });
+
+  it('reducer request calender state', () => {
+    const expectedState = {...defaultState, isLoading: true};
+    const afterState = reducer(undefined, {type: types.REQUEST_CALENDAR_DETAILS_DATA});
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
+
+  it('reducer receive cakender state', () => {
+    const data = {'event_type': 'Exploring your Strengths'};
+    const expectedState = {isLoading: false, calendarDetailData: data};
+    const afterState = reducer({}, {type: types.RECEIVE_CALENDAR_DETAILS_DATA, data: data});
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));  
+  });
+
+  it('reducer error calender state', () => {
+    const expectedState = {isLoading: false, error: true, calendarDetailData: [] };
+    const afterState = reducer({}, {type: types.RECEIVE_CALENDAR_DETAILS_DATA_ERROR, error});
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
 });

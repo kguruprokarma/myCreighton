@@ -101,7 +101,7 @@ export function getCalendarData() {
       dispatch(receiveCalendarDetailsData(response.data));
     })
      .catch((error) => {
-       dispatchEvent(receiveCalendarDetailsError({
+       dispatch(receiveCalendarDetailsError({
          error: error
        }));
      });

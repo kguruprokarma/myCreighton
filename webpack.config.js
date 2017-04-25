@@ -33,7 +33,7 @@ Object.assign(exports, {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
+        //exclude: /node_modules/,
         /*loaders: [
           'style-loader',
           'css-loader?modules&importLoaders=1&sourceMap'
@@ -51,6 +51,10 @@ Object.assign(exports, {
       {
         test: /\.(png|gif|jpe?g|svg)$/,
         loaders: ['url-loader']
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },
@@ -61,9 +65,9 @@ Object.assign(exports, {
       }
     }),
     new CopyWebpackPlugin([
-      { from: `${__dirname  }/app/assets`, to: `${__dirname  }/build/assets` },
-      { from: `${__dirname  }/app/mock_data`, to: `${__dirname  }/build/mock_data` },
-      { from: `${__dirname  }/app/locales`, to: `${__dirname  }/build/app/locales` }
+      { from: `${__dirname}/app/assets`, to: `${__dirname}/build/assets` },
+      { from: `${__dirname}/app/mock_data`, to: `${__dirname}/build/mock_data` },
+      { from: `${__dirname}/app/locales`, to: `${__dirname}/build/app/locales` }
     ]),
     new HtmlWebpackPlugin({
       chunksSortMode: 'dependency',

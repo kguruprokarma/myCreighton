@@ -83,6 +83,10 @@
     border-left: 1px solid #ddd;
 }
 
+.btn-group>.btn.libraryButton:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-right: 0;
+}
+
 @media screen and (max-width: 769px) {
 
     .libraryLinks {

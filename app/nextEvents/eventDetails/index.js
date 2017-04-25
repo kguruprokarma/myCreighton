@@ -31,10 +31,18 @@ export class EventDetails extends React.PureComponent {
     let index1;
     let nextObject = {};
     let prevObject = {};
+    let routePath = [];
     const props = this.props;
     this.assignDue = props.params.assigndue;
     this.eventType = props.params.eventdetailstype;
     this.eventId = stringEncodeURIComponent(props.params.id);
+    
+    if (window.location) {
+      routePath = window.location.hash;
+      if (routePath.length > 0) {
+        routePath = routePath.split('/');
+      }
+    }
     this.currentPath = '';
     if (location && location.hash) {
       this.currentPath = location.hash.split('/');
@@ -75,7 +83,6 @@ export class EventDetails extends React.PureComponent {
     if (this.eventType === NextEventsConstants.CALENDER) {
       this.calendarData = details && details[props.params.index];
       index1 = parseInt(props.params.index);
-      console.log('this.calendarData', this.calendarData);
     }
     // if (this.eventType === NextEventsConstants.TEST_OR_QUIZ) {
     //   this.quizData = details && find(details, { sis_source_id: this.eventId, assignment_id: this.assignDue });
@@ -83,14 +90,14 @@ export class EventDetails extends React.PureComponent {
     // }
     if (index1 < details.length - 1) {
       nextObject = details[index1 + 1];
-      nextObject.next_Event_ID = nextObject.sis_source_id !==undefined ? nextObject.sis_source_id : nextObject.event_id
+      nextObject.next_Event_ID = nextObject.sis_source_id !==undefined ? nextObject.sis_source_id : nextObject.event_id;
     } else {
       nextObject.sis_source_id = {};
       nextObject.next_Event_ID = {};
     }
     if (index1 > 0) {
       prevObject = details[index1 - 1];
-      prevObject.next_Event_ID =  prevObject.sis_source_id !==undefined ? prevObject.sis_source_id : prevObject.event_id
+      prevObject.next_Event_ID = prevObject.sis_source_id !==undefined ? prevObject.sis_source_id : prevObject.event_id;
     } else {
       prevObject.sis_source_id = {};
       prevObject.next_Event_ID = {};
@@ -123,7 +130,7 @@ export class EventDetails extends React.PureComponent {
           {/*this.eventType === NextEventsConstants.ASSIGNMENTS && details && <Assignments data={this.assignmentData} />*/}
           {/*this.eventType === NextEventsConstants.TEST_OR_QUIZ && details && <TestOrQuiz data={this.quizData} />*/}
           {(this.eventType === NextEventsConstants.ASSIGNMENTS || this.eventType === NextEventsConstants.TEST_OR_QUIZ) && details && <NextEventDetails data={this.assignmentData} />}
-          {this.eventType === NextEventsConstants.CLASSES_DETAILS && this.classData && <ClassDetails data={this.classData} categoryname={NextEventsConstants.CLASSES_DETAILS} id={this.eventId} objIndex={props.params.index} />}
+          {this.eventType === NextEventsConstants.CLASSES_DETAILS && this.classData && <ClassDetails routePath={routePath} data={this.classData} categoryname={NextEventsConstants.CLASSES_DETAILS} id={this.eventId} objIndex={props.params.index} />}
           {this.eventType === NextEventsConstants.CALENDER && this.calendarData && <CalendarEventDetails data={this.calendarData} categoryname={NextEventsConstants.CLASSES_DETAILS} />}
         </div>
         }

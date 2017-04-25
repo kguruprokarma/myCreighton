@@ -5,7 +5,7 @@ const ProfessionalInfo = (professionalInfo) => (
   <article role='article' className='openSansLight'>
     <div className='pt20 pb20'>
       <p className='openSansRegular bold'>{translateText('common:PROFESSIONAL_STAFF')}</p>
-      <p>{professionalInfo.professionalInfo.job_title}</p>
+      <p>{professionalInfo.professionalInfo.job_title ? professionalInfo.professionalInfo.job_title : ''}</p>
     </div>
     <div className='pb20'>
       <p className='openSansRegular bold'>{translateText('common:DEPARTMENT')}</p>
@@ -15,7 +15,7 @@ const ProfessionalInfo = (professionalInfo) => (
     </div>
     <div className='pb20'>
       <p className='openSansRegular bold'>{translateText('common:REPORT_TO')}</p>
-      <p>{professionalInfo.professionalInfo.reports_to}</p>
+      <p>{professionalInfo.professionalInfo.reports_to ? professionalInfo.professionalInfo.reports_to : ''}</p>
     </div>
   </article>
 );

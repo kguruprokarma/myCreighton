@@ -5,6 +5,8 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { EventList } from '../index';
+import * as user from '../../../common/utility'; 
+
 
 describe('index component testing for Next Events ----->', () => {
   const mockData = JSON.stringify([
@@ -31,7 +33,7 @@ describe('index component testing for Next Events ----->', () => {
         'middle_name': 'P'
       },
       'netid': '6cb4db8459',
-      'sis_source_id': '201670_ACC_201_E',
+      'sis_source_id': '201470_COM_101_WK',
       'subject_code': 'ACC',
       'term_description': 'Fall 2016',
       'day': 'Tuesday',
@@ -136,6 +138,94 @@ describe('index component testing for Next Events ----->', () => {
       ]
     }
   ];
+  const calendarDetailData = {
+    'timing': '57.341',
+    'data': [
+      {
+        'startdate': '2017-04-17',
+        'event_id': '58287',
+        'allday_event': 'false',
+        'building_name': 'Skutt Student Center',
+        'calendars': 'Academics-Lectures, Theater, Performances and Community Events',
+        'contactemail': 'MaorongJiang@creighton.edu',
+        'contactname': 'Dr. Maorong Jiang',
+        'contactphone': '4022802896',
+        'description': '13th Annual Asian Culture Week.\r\nOrganized by the Asian World Center, with sponsorship from the University Non-Western Studies Committee and the Department of Political Science and International Relations, Creighton University\r\n\r\nRoundtable Seminar:  Lesson Globally Not Learned: A Historical Look at the Fate of Indigenous Cultures\r\nLeading Speaker: Ms. Sonya Stejskal, Adjunct History Professor at UNO and Past President for the Nebraska State Council for Social Studies\r\n\r\nReception follows. Event is free and Open to the Public',
+        'enddate': '2017-04-17',
+        'endtime': '19:30:00',
+        'event_name': '"Lessons Globally Not Learned: A Historical Look at the Fate of Indigenous Cultures"',
+        'location': 'Room 104',
+        'starttime': '17:30:00',
+        'status': '1'
+      },
+      {
+        'startdate': '2017-04-18',
+        'event_id': '58016',
+        'allday_event': 'false',
+        'building_name': 'Hixson-Lied Science Building',
+        'calendars': 'Student Life',
+        'contactemail': null,
+        'contactname': 'Drci Legore',
+        'contactphone': null,
+        'description': 'School of Pharmacy and Health Professions',
+        'enddate': '2017-04-18',
+        'endtime': '17:00:00',
+        'event_name': 'Pre-Pharmacy Club Meeting',
+        'location': 'HLSB G04',
+        'starttime': '16:00:00',
+        'status': '1'
+      }, {
+        'startdate': '2017-04-19',
+        'event_id': '57641',
+        'allday_event': 'false',
+        'building_name': 'Saint John\'s Church',
+        'calendars': 'Ministry',
+        'contactemail': '',
+        'contactname': '',
+        'contactphone': '',
+        'description': 'TaizÃ© Prayer is meditative, musical prayer for all Christian faith traditions. Our evening prayer is based on the style of TaizÃ©, an ecumenical monastic community and popular pilgrimage destination. Services include mantra songs like â€œJesus, Remember Me,â€� one or two short readings, silent prayer, and a candle-lit environment. We will also have a volume of the St. Johnâ€™s Bible as part of our prayer space. Services typically lasts 35-45 minutes. Come at 5pm to learn harmonies beforehand, or just come pray at 5:30pm!',
+        'enddate': null,
+        'endtime': null,
+        'event_name': 'Taize Prayer',
+        'location': '',
+        'starttime': '17:30:00',
+        'status': '1'
+      },
+      {
+        'startdate': '2017-05-06',
+        'event_id': '56126',
+        'allday_event': 'true',
+        'building_name': 'Boyne Dental Building',
+        'calendars': 'Academics-Student Life',
+        'contactemail': 'wpkelsey@creighton.edu',
+        'contactname': 'William P. Kelsey, III, D.D.S.',
+        'contactphone': '4022805093',
+        'description': '',
+        'enddate': '2017-05-28',
+        'endtime': null,
+        'event_name': 'Dental School Spring Recess:  New Sophomores',
+        'location': null,
+        'starttime': null,
+        'status': '1'
+      },
+      {
+        'startdate': '2017-05-06',
+        'event_id': '56126',
+        'allday_event': 'true',
+        'building_name': 'Boyne Dental Building',
+        'calendars': 'Academics-Student Life',
+        'contactemail': 'wpkelsey@creighton.edu',
+        'contactname': 'William P. Kelsey, III, D.D.S.',
+        'contactphone': '4022805093',
+        'description': '',
+        'enddate': '2017-05-28',
+        'endtime': '18:00:00',
+        'event_name': 'Dental School Spring Recess:  New Sophomores',
+        'location': null,
+        'starttime': '17:30:00',
+        'status': '1'
+      }
+    ]};
   mockdisplay = JSON.stringify(mockdisplay);
   const defaultProps = {
     classesData: {
@@ -151,7 +241,12 @@ describe('index component testing for Next Events ----->', () => {
     getClassesDataByWeek: () => {},
     getCalendarData: () => {},
     onLoading: () => {},
-    onMasterDataChange: () => {}
+    onMasterDataChange: () => {},
+    calendarDetailData: calendarDetailData,
+    masterObj: {
+      assignmentMasterCopy: JSON.parse(mockAssignmentData),
+      classMasterCopy: JSON.parse(mockData)
+    } 
   };
   const userDate = {
     'email': 'nt123',
@@ -190,14 +285,21 @@ describe('index component testing for Next Events ----->', () => {
   localStorage.setItem('setDisplayOptionValue', JSON.stringify(mockDisplayOptionsVal));
   localStorage.setItem('setFilterValue', '7 Days');
   localStorage.setItem('eventList', mockData);
+  user.getClassAndAssignmentAPIData = jest.fn().mockReturnValue(
+    new Promise((resolve) => {
+      resolve(defaultProps.masterObj);
+    })
+  );
   const EventListC = shallow(<EventList {...defaultProps} />);
-
+  EventListC.instance().masterObj = defaultProps.masterObj;
   it('EventList is defined', () => {
     expect(EventListC).toBeDefined();
+    EventListC.instance().componentWillMount();
+    EventListC.instance().render();
   });
 
   it('Check getEventsData function', () => {
-    EventListC.instance().getEventsData('props');
+  //  EventListC.instance().getEventsData('props');
   });
 
   it('CheckinggetSelectedFilterData function', () => {

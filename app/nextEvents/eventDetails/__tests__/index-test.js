@@ -133,12 +133,15 @@ describe('index component testing for Next event details  ----->', () => {
   ]);
 
   const defaultProps = {
-    onLoading: () => {},
-    onMasterDataChange: () => {},
+    onLoading: () => { },
+    onMasterDataChange: () => { },
     eventType: 'assignments',
     params: {
       assigndue: '2016-01-27T06:00:00.000Z',
       eventdetailstype: 'assignments'
+    },
+    route: {
+      path: '/eventdetails/16'
     },
     selectedFilterPeriod: 'Next event detail',
     index1: 1
@@ -158,15 +161,15 @@ describe('index component testing for Next event details  ----->', () => {
   };
 
   localStorage.setItem('roleInfo', JSON.stringify(userDate));
-  localStorage.setItem('eventsFilterData', eventsFilterData);  
+  localStorage.setItem('eventsFilterData', eventsFilterData);
   localStorage.setItem('setFilterValue', 'Next event detail');
   const EventDetailsC = shallow(<EventDetails {...defaultProps} />);
 
   it('EventDetails is defined', () => {
     expect(EventDetailsC).toBeDefined();
   });
-  
-  const changedProps = Object.assign({}, defaultProps, {params: {eventdetailstype: 'eventsclassdetails'}});
+
+  const changedProps = Object.assign({}, defaultProps, { params: { eventdetailstype: 'eventsclassdetails' } });
   const EventDetailsC1 = shallow(<EventDetails {...changedProps} />);
 
   it('EventDetails is defined', () => {

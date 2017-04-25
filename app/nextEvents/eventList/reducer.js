@@ -47,16 +47,17 @@ const eventsReducer = (state = initialState, action = null) => {
 
     case types.REQUEST_CALENDAR_DETAILS_DATA:
       return Object.assign({}, state, {
-        isloading: true,
+        isLoading: true,
         error: false
       });
     case types.RECEIVE_CALENDAR_DETAILS_DATA:
       return Object.assign({}, state, {
-        isloading: false,
+        isLoading: false,
         calendarDetailData: action.data
       });
     case types.RECEIVE_CALENDAR_DETAILS_DATA_ERROR:
       return Object.assign({}, state, {
+        isLoading: false,
         error: true,
         calendarDetailData: []
       });

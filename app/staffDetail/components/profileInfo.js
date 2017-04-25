@@ -6,16 +6,16 @@ const ProfileInfo = (staffDetailsProps) => (
     <div className='graybtBorder pb20'>
       <Row>
         <Col sm={12}>
-          <p>{staffDetailsProps.profileInfo.fac_first_name} {staffDetailsProps.profileInfo.fac_last_name} </p>
+          <p>{staffDetailsProps.profileInfo.fac_first_name ? staffDetailsProps.profileInfo.fac_first_name : ''} {staffDetailsProps.profileInfo.fac_last_name ? staffDetailsProps.profileInfo.fac_last_name : ''} </p>
           <span />
         </Col>
       </Row>
       <Row>
         <Col sm={6} xs={6}>
-          <a>{staffDetailsProps.profileInfo.work_email}</a>
+          <a>{staffDetailsProps.profileInfo.work_email ? staffDetailsProps.profileInfo.work_email : ''}</a>
         </Col>
         <Col sm={6} xs={6}>
-          <a className='pull-right'>{staffDetailsProps.profileInfo.phone}</a>
+          <a className='pull-right'>{staffDetailsProps.profileInfo.phone ? staffDetailsProps.profileInfo.phone : ''}</a>
         </Col>
       </Row>
       <Row>

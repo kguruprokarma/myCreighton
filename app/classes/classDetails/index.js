@@ -28,10 +28,14 @@ class ClassDetails extends React.PureComponent {
     let classData;
     let obj = null;
     let showPrevNext = false;
+    let currentView = '';
+    if (props.params.routePath) {
+      currentView = props.params.routePath[1];
+    }
     if (props.params.categoryname === CLASSES_DETAILS) {
       obj = JSON.parse(localStorage.getItem('eventsFilterData'));
       showPrevNext = false;
-      classData = find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id), type: props.params.categoryname });
+      classData = obj[props.params.objIndex]; //find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id), type: props.params.categoryname });
     } else {
       obj = JSON.parse(localStorage.getItem('classDetails'));
       showPrevNext = true;
@@ -47,7 +51,7 @@ class ClassDetails extends React.PureComponent {
     const upcomingAssignmentsData = [];
     let sortedUpcomingAssignments = [];
     let sortedassignmentDue = [];
-    if (assignments && assignments.length > 0 ) {
+    if (assignments && assignments.length > 0) {
       assignments.map((assignmentObj) => {
         // if (assignmentObj.submission_types === 'online_quiz') {
         //   testOrQuizzesData.push(assignmentObj);
@@ -97,7 +101,7 @@ class ClassDetails extends React.PureComponent {
           </div>
         }
         {(classData && Object.keys(classData).length > 0) && (<div>
-          <ClassInfo {...classData} />
+          <ClassInfo {...classData} currentView={currentView} />
           {(assignmentDue.length !== 0 || upcomingAssignmentsData.length !== 0 || testOrQuizzesData.length !== 0) ? (<div>
             <ClassAssignments data={sortedassignmentDue} />
             {/*<TodaysClass data={todaysClass} />*/}

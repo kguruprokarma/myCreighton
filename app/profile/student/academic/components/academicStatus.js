@@ -11,7 +11,7 @@ const AcademicStatus = (academicStatusProps) => (
     <h2 className='dataHeading openSansRegular'>{translateText('common:ACADEMIC_STATUS')}</h2>
     <BasicRow displayName={translateText('common:PROFILE_MAJOR')} displayValue={academicStatusProps.json.major_desc ? academicStatusProps.json.major_desc : ''} />
     <BasicRow displayName={translateText('common:PROFILE_MINOR')} displayValue={academicStatusProps.json.minor ? academicStatusProps.json.minor : ''} />
-    <BasicRow displayName={translateText('common:PROFILE_CLASS')} displayValue={academicStatusProps.json.status ? academicStatusProps.json.status.class : ''} />
+    <BasicRow displayName={translateText('common:PROFILE_CLASS')} displayValue={academicStatusProps.json.class ? academicStatusProps.json.class : ''} />
     <BasicRow displayName={translateText('common:PROFILE_ACADEMIC_RANKING')} displayValue={academicStatusProps.json.status ? academicStatusProps.json.status.ranking : ''} />
     <BasicRow displayName={translateText('common:PROFILE_ENROLLMENT')} displayValue={academicStatusProps.json.status ? academicStatusProps.json.status.enrollment : ''} />
     <BasicRow displayName={translateText('common:PROFILE_DISCIPLINARY')} displayValue={academicStatusProps.json.status ? academicStatusProps.json.status.disciplinary : ''} />

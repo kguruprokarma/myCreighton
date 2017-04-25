@@ -6,12 +6,12 @@ import { translateText } from '../../common/translate';
 const SemesterNav = (SemesterNavprops) => (
 
   <nav role='navigation'>
-    <ListGroup className='main-list-group  openSansLight'>
+    <ListGroup className='main-list-group semester-links  openSansLight'>
       {
         SemesterNavprops.semesterLinks.map((semesterDetails, semesterIndex) => (
           <ListGroupItem key={semesterIndex}>
-            <Link className='visible-xs' to={semesterDetails.linkto} key={semesterIndex}>{translateText(semesterDetails.title)} <span className='glyphicon glyphicon-chevron-right pull-right' /> </Link>
-            <button className='btn btn-link btnnoPadding hidden-xs' onClick={SemesterNavprops.toggleClick}>{translateText(semesterDetails.title)}</button>
+            <Link className='visible-xs' to={semesterDetails.linkto} key={semesterIndex} activeClassName='active'>{translateText(semesterDetails.title)} <span className='glyphicon glyphicon-chevron-right pull-right' /> </Link>
+            <Link className='hidden-xs' onClick={SemesterNavprops.toggleClick} activeClassName='active'>{translateText(semesterDetails.title)}</Link>
           </ListGroupItem>
         ))
       }
