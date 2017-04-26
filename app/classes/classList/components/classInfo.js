@@ -12,7 +12,8 @@ const ClassInfo = (classInfoProps) => (
   <article role='article' className='classesWeek'>
     <div className='hidden-xs desktopClassesList'>
       <Col md={5} sm={5}>
-        <h2 className='pull-left mb0 classesHeading'>{classInfoProps.data.course_title} {classInfoProps.data.course_number} <span className='classOn'>{classInfoProps.data.course_section}</span></h2>
+        <h2 className='mb10 classesHeading'>{classInfoProps.data.course_title} {classInfoProps.data.course_number}</h2>
+        <p className='classOn'>{classInfoProps.data.course_section}</p>
       </Col>
       <Col md={2} sm={2}>
         <span className='classPlace'>{classInfoProps.data.class_held_build_desc}</span>

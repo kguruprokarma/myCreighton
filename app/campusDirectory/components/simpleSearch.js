@@ -31,10 +31,12 @@ export class SimpleSearchDirectory extends React.PureComponent {
     const searchText = text.toLowerCase().split(',');
     const reqObj = {};
     if (searchText[0]) {
-      reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
+     // reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
+      reqObj.lastName = searchText[0];
     }
     if (searchText[1]) {
-      const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
+     // const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
+      const firstName = searchText[1];
       if (firstName) {
         reqObj.firstName = firstName;
       }

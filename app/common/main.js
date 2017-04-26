@@ -16,6 +16,7 @@ import HeaderComponent from '../header/index';
 import * as urlConstants from '../constants/urlConstants';
 //import * as commonConstants from '../constants/commonConstants';
 //import ConfirmationPopUp from './confirmationPopUp';
+import * as ROUTE_URL from '../constants/routeContants';
 
 @translate([], { wait: true })
 
@@ -35,10 +36,7 @@ class Main extends React.PureComponent {
 
   componentWillMount() {
     const props = this.props;
-    if (localStorage.roleInfo === undefined) {
-      hashHistory.replace('/');
-      this.setState({ isLogin: false });
-    } else if (localStorage.roleInfo === undefined || props.location.pathname === '/') {
+    if (props.location.pathname === ROUTE_URL.LOGOUT) {
       this.setState({ isLogin: false });
     } else {
       this.setState({ isLogin: true });
@@ -46,13 +44,10 @@ class Main extends React.PureComponent {
   }
   componentWillReceiveProps(nextProps) {
     const propsNext = nextProps;
-    if (localStorage.roleInfo === undefined && propsNext.location.pathname !== '/') {
-      hashHistory.replace('/');
+    if (propsNext.location.pathname === ROUTE_URL.LOGOUT) {
       this.setState({ isLogin: false });
-    } else if (localStorage.roleInfo && propsNext.location.pathname !== '/') {
+    } else {
       this.setState({ isLogin: true });
-    } else if (localStorage.roleInfo === undefined || propsNext.location.pathname === '/') {
-      this.setState({ isLogin: false });
     }
   }
   hidePopUp() {

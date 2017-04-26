@@ -5,7 +5,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import * as actionCreators from '../dashboard/actions';
@@ -18,6 +18,7 @@ import i18n from '../i18n';
 import { translateText } from '../common/translate';
 import * as urlConstants from '../constants/urlConstants';
 import * as roleConstants from '../constants/commonConstants';
+import * as ROUTE_URL from '../constants/routeContants';
 
 export class CustomPopUp extends React.Component {
   constructor(props) {
@@ -45,7 +46,7 @@ export class CustomPopUp extends React.Component {
   }
 
   signOutPopUp() {
-    //this.props.popUpClose();
+    this.props.popUpClose();
     //this.props.openSignOutPopUp();
     axios.get(urlConstants.ADFS_LOGOUT_URL).then((response) => {
       if (response.status === urlConstants.STATUS_CODE) {
@@ -56,12 +57,14 @@ export class CustomPopUp extends React.Component {
         localStorage.removeItem('assignmentMasterCopy');
         localStorage.removeItem('temp');
         localStorage.removeItem('classDetails');
+        localStorage.removeItem('i18nextLng');
         //localStorage.removeItem('setFilterValue');
         //localStorage.removeItem('setDisplayOptionValue');
         //localStorage.removeItem('displayOptions');
         localStorage.removeItem('eventList');
         localStorage.removeItem('eventsFilterData');
         //location.reload();
+        hashHistory.replace(ROUTE_URL.LOGOUT);
       }
     }, (error) => {
       console.log(error);

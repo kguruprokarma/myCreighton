@@ -272,6 +272,7 @@
   "FREQUENT_FUNCTIONS_AND_INFORMATION": "Frequent functions and information needed during the semester",
   "SEMESTER_CHANGES": "Changes",
   "CHANGE_UNDERGRADUATE_COLLEGE": "Change Undergraduate College",
+  "SEARCH_BOOKS_ARTICLES_MORE": "Search books, articles, more",
 
   "SIGNOUT_TEXT": "Do you really want to Logout?",
   "SIGNOUT_CANCEL_TEXT": "Cancel",
@@ -282,5 +283,7 @@
   "DATABASES": "Databases",
 
   "ALL_DAY_TEXT": "All Day",
-  "NA_TEXT": "NA"
+  "NA_TEXT": "NA",
+
+  "LOGOUT_TEXT": "Logout"
 }

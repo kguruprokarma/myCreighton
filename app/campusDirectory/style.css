@@ -14,12 +14,15 @@
     position: relative;
     padding-left: 26px;
 }
+
 .bootstrap-typeahead-input-main { 
     height: 45px;
 }
+
 .bootstrap-typeahead .bootstrap-typeahead-input input:nth-child(2){
     display: none !important;
 }
+
 .cmpsDirSearch:focus,
 .cmpsDirSearch:active {
     box-shadow: none;

@@ -52,10 +52,12 @@ export class SearchBox extends Component {
     searchText = searchText.split(',');
     const reqObj = {};
     if (searchText[0]) {
-      reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
+     // reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
+      reqObj.lastName = searchText[0];
     }
     if (searchText[1]) {
-      const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
+     // const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
+      const firstName = searchText[1];
       if (firstName) {
         reqObj.firstName = firstName;
       }
@@ -134,8 +136,8 @@ export class SearchBox extends Component {
     const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
     const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
     if (event.target.value.length <= CommonConstants.CAMPUS_SEARCH_TEXT_LENGTH) {
-      if (txtShouldnotStartWithSpace.test(event.target.value)) {
-        if (txtRestrictNumeric.test(event.target.value)) {
+     // if (txtShouldnotStartWithSpace.test(event.target.value)) {
+       // if (txtRestrictNumeric.test(event.target.value)) {
           this.props.resetCampusDirectoryData();
           let query = event.target.value;
           this.setState({ searchText: query, serchTextPreserved: query });
@@ -147,10 +149,12 @@ export class SearchBox extends Component {
             searchText = searchText.split(',');
             const reqObj = {};
             if (searchText[0]) {
-              reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
+              //reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
+              reqObj.lastName = searchText[0];
             }
             if (searchText[1]) {
-              const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
+             // const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
+              const firstName = searchText[1];
               if (firstName) {
                 reqObj.firstName = firstName;
               }
@@ -158,8 +162,8 @@ export class SearchBox extends Component {
 
             this.props.getCampusDirectoryData(reqObj);
           }
-        }
-      }
+        //}
+     // }
       if (event.target.value === '') {
         this.setState({ searchText: event.target.value });
       }

@@ -274,7 +274,10 @@
   "E-JOURNAL": "Revistas electrónicas",
   "LIBRARY_GUIDES": "Guías de la biblioteca",
   "DATABASES": "Bases de datos",
+  "SEARCH_BOOKS_ARTICLES_MORE":"Buscar libros, artículos, más",
 
   "ALL_DAY_TEXT": "Todo el dia",
-  "NA_TEXT": "NA"
+  "NA_TEXT": "NA",
+
+  "LOGOUT_TEXT": "Cerrar sesión"
 }

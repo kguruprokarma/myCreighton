@@ -34,10 +34,10 @@ axios.interceptors.response.use((response) => {
       if (window.location.hash === '#/') {
         hashHistory.replace('/dashboard');
       }
-    } else if (indexOf(URL, 'logoutadfs') > 0) {
+    } /*else if (indexOf(URL, 'logoutadfs') > 0) {
       const currentUrl = encodeURIComponent(document.URL);
       window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
-    }
+    }*/
   }
   return response;
 }, (error) => {

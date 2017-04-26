@@ -11,9 +11,9 @@ const Quiz = (quizProps) => (
   <section role='region' className='quizzEvent'>
     <Link to={`${ROUTE_URL.EVENT_DETAILS}/${quizProps.data.type}/${quizProps.data.sis_source_id}/${quizProps.data.assignment_id}/${quizProps.currentIndex}`}>
       <div className='hidden-xs desktopEventsList'>
-        <Col md={6} sm={6}>
-          <h3 className='mb0 eventHeading'><span className='testIcon mr10'>&nbsp;</span> {quizProps.data.assign_title} <span className='eventOn'>{quizProps.data.ssrmeet_bldg_code === null ? 'N/A' : quizProps.data.ssrmeet_bldg_code}</span></h3>
-          
+        <Col md={5} sm={5}>
+          <h2 className='mb10 eventHeading'><span className='testIcon mr10'>&nbsp;</span> {quizProps.data.assign_title}</h2> 
+          <p className='eventOn'>{quizProps.data.ssrmeet_bldg_code === null ? 'N/A' : quizProps.data.ssrmeet_bldg_code}</p>
         </Col>
         <Col md={2} sm={2}>
           <span className='eventPlace'>{quizProps.data.course_name}</span>

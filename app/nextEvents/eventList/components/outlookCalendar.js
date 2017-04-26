@@ -14,8 +14,9 @@ const OutlookCalendar = (outlookCalendarProps) => (
   <section role='region' className='eventOutlook' id='eventOutlookList'>
     <Link to={`${ROUTE_URL.EVENT_DETAILS}/${outlookCalendarProps.data.type}/${outlookCalendarProps.data.event_id}/${outlookCalendarProps.currentIndex}`}>
       <div className='hidden-xs desktopEventsList'>
-        <Col md={6} sm={6}>
-          <h2 className='mb0 classesHeading'>{outlookCalendarProps.data.event_name ? outlookCalendarProps.data.event_name : ''}<span className='classOn'>{getDueTime(outlookCalendarProps.data.timeStamp)}</span></h2>
+        <Col md={5} sm={5}>
+          <h2 className='mb10 classesHeading'>{outlookCalendarProps.data.event_name ? outlookCalendarProps.data.event_name : ''}</h2>
+          <p className='classOn'>{getDueTime(outlookCalendarProps.data.timeStamp)}</p>
         </Col>
         <Col md={2} sm={2}>
           <span className='classPlace'>{outlookCalendarProps.data.building_name ? outlookCalendarProps.data.building_name : ''}</span>
@@ -23,7 +24,7 @@ const OutlookCalendar = (outlookCalendarProps) => (
         <Col md={2} sm={2} className='text-center'>
           <span className='classBy'>{convertDateFromTimeStamp(outlookCalendarProps.data.timeStamp)}</span>
         </Col>
-        <Col md={2} sm={2} className='text-right'>
+        <Col md={3} sm={3} className='text-right'>
           {(outlookCalendarProps.data.starttime && outlookCalendarProps.data.endtime) ? <div className='classTime'>{convertTo24Format(outlookCalendarProps.data.starttime.slice(0, 5).replace(':', ''))}- {convertTo24Format(outlookCalendarProps.data.endtime.slice(0, 5).replace(':', ''))}<span> {CommonConstants.TIMEZONE_CT}</span></div> : (outlookCalendarProps.data.allday_event === CommonConstants.TRUE_TEXT) ? <div className='classTime'>{translateText('common:ALL_DAY_TEXT')}</div> : <div className='classTime'>{translateText('common:NA_TEXT')}</div>}
         </Col>
       </div>

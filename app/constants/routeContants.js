@@ -28,6 +28,7 @@ export const SERCHRESULTS = '/searchresults';
 export const STAFF_DETAILS = '/staffDetails';
 export const SEMESTERACADEMICS = '/semesteracademics';
 export const LIBRARY_SEARCH = '/librarysearch';
+export const LOGOUT = '/logout';
 
 /*
 * Relative path url's parameters for components

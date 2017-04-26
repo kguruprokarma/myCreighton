@@ -29,6 +29,7 @@ import SearchResultsComponent from '../searchResults';
 import semesterAcademics from '../schoolandsemester/components/academics';
 import axiosInterceptor from './axiosInterceptor';
 import StaffDetails from '../staffDetail/index';
+import Logout from '../logout/index';
 import LibrarySearch from '../librarySearch';
 
 const store = configureStore();
@@ -59,6 +60,7 @@ const routes = (
           <Route path={ROUTE_URL.STAFF_DETAILS} title='StaffDetails - ' component={StaffDetails} />
           <Route path={ROUTE_URL.SEMESTERACADEMICS} title='Semester Academics - ' component={semesterAcademics} />
           <Route path={ROUTE_URL.LIBRARY_SEARCH} title='Library Search - ' component={LibrarySearch} />
+          <Route path={ROUTE_URL.LOGOUT} title='Logout - ' component={Logout} />
 
           {/*<Route path='/' component={Login} />
           <Route path={ROUTE_URL.PROFILE} component={Bio} />

@@ -235,7 +235,7 @@
     
 }
 
-@media screen and (min-width: 768px) and (max-width:1010px) {
+@media screen and (min-width: 768px) and (max-width:992px) {
 
     .jbvalue {
        font-size: 1.4666666666666666em; /* font size 22 in pixel */
@@ -249,6 +249,7 @@
         font-size: 1.6em;    /* font size 24 in pixel */
         text-align:left;
     }
+
     .angle-right {
         top:8px;
     }

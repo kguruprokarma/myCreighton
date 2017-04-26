@@ -19,10 +19,11 @@
 }
 
 .classOn, .classPlace, .classBy, .classTime, .classDate {
-    font-size: 1em; /* font size 15 in pixel */
+    font-size: 1em;
     font-family: 'open_sansregular', sans-serif;
-    line-height: 1.3;
+    line-height: 1;
 }
+
 
 .classOn, .classDate
 {
@@ -48,10 +49,6 @@
 
 .classDate label{
     font-weight: normal;
-}
-
-.classOn {
-        padding-left: 10px;
 }
 
 .controller-buttons .btn-group a {
@@ -89,23 +86,13 @@
     border-left: 0;
 }
 
-.classesHeading .classOn {
-    font-size: .6em;
-    line-height: .8em;
-    padding: 4px; 
-    position: relative;
-    top: -4px;  
-}
-
 .cls:last-child .mobileClassesList, .cls:last-child .desktopClassesList {
     border-bottom:1px solid #c8c7cc;
 }
 
 /* Media for small devices */
 @media screen and (min-width:992px) {
-    .classOn {
-        padding-left: 10px;
-    }
+
     .classDate {
         line-height: 2.8em;
     }
@@ -118,13 +105,11 @@
 }
 
 @media screen and (min-width:768px) and (max-width:992px) {
-    .classOn {
-        width: 100%;
-        padding-left: 0;  
-    }
+
     .classesHeading {
         font-size: 1.6em;    /* font size 24 in pixel */
     }
+    
     .dayHeading
     {
         padding-left:23px;

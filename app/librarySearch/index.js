@@ -16,8 +16,7 @@ import Libraryleftnav from '../common/libraryleftnav';
 import ReinertAlumni from './components/reinertAlumni';
 import LawLibrary from './components/lawLibrary';
 import HealthSciences from './components/healthSciences';
-
-import Searchbox from './../campusDirectory/components/searchBox';
+import LibrarySearchbox from './components/librarySearch';
 import '../librarySearch/style.css';
 import Spinner from './../common/spinner';
 
@@ -78,7 +77,7 @@ export class LibraryInformation extends React.PureComponent {
     
         <Row>
           <Col sm={9} xs={12} className='pull-right'>
-            <Searchbox />
+            <LibrarySearchbox />
             <div className='libraryLinks hidden graybtBorder pb10'>
               <Link>Advanced JaySearch</Link><span> | </span><Link>Browse Jaysearch</Link>
             </div>
@@ -101,7 +100,83 @@ export class LibraryInformation extends React.PureComponent {
             <Libraryleftnav />
           </Col>
         </Row>
-        
+        <form>
+          <Row className='form-group'>
+            <Col xs={6}>
+              <label htmlFor='email'>Last Name</label>
+            </Col>
+            <Col xs={6}>
+              <input type='email' className='form-control' id='email' />
+            </Col>
+          </Row>
+          <Row className='form-group'>
+            <Col xs={6}>
+              <label htmlFor='pwd'>Organisation</label>
+            </Col>
+            <Col xs={6}>
+              <div className='btn-group btn-group-justified'>
+                <Link type='button' className='btn btn-default organsisationBtn'>-select-</Link>
+                <Link type='button' className='btn btn-default dropdown-toggle organisationToggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                  <span>^</span>
+                </Link>
+                <ul className='dropdown-menu'>
+                  <li><a>Action</a>
+                  </li>
+                  <li><a>Another action</a>
+                  </li>
+                  <li><a>Something else here</a>
+                  </li>
+                  <li role='separator' className='divider' />
+                  <li><a>Separated link</a>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+          </Row>
+          <Row className='form-group'>
+            <Col xs={6}>
+              <label htmlFor='email'>Department</label>
+            </Col>
+            <Col xs={6}>
+              <input type='email' className='form-control' id='email' />
+            </Col>
+          </Row>
+          <Row className='form-group'>
+            <Col xs={6}>
+              <label htmlFor='email'>Title</label>
+            </Col>
+            <Col xs={6}>
+              <input type='email' className='form-control' id='email' />
+            </Col>
+          </Row>
+          <Row className='form-group'>
+            <Col xs={6}>
+              <label htmlFor='email'>Expertise/skill</label>
+            </Col>
+            <Col xs={6} className='select-content'>
+              <Link className='popUpClass searchSelect' onClick={this.showSkillPopOver}>select</Link>
+              <button className='btn btn-link btnnoPadding pull-right' onClick={this.clearSkills}><span className='glyphicon glyphicon-remove-circle' /></button>
+              
+            </Col>
+          </Row>
+          <Row className='form-group'>
+            <Col xs={6}>
+              <label htmlFor='email'>Application/tool</label>
+            </Col>
+            <Col xs={6}>
+              <a>select</a>
+            </Col>
+          </Row>
+          <Row className='form-group'>
+            <Col xs={6}>
+              <label htmlFor='email'>Groups</label>
+            </Col>
+            <Col xs={6}>
+              <a>select</a>
+            </Col>
+          </Row>
+          <button type='submit' className='btn btn-default'>Search</button>
+        </form>
       </section>
     );
   }
