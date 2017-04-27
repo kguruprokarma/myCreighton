@@ -54,8 +54,7 @@
 
 .avatar-name {
     font-size: 1.7333333333333334em;
-    line-height: 2.0em;
-    margin-left: 8px;
+    line-height: 1.3;
 }
 
 .user-type {
@@ -65,10 +64,10 @@
 }
 
 .white-well {
-    margin-bottom:30px;
-    padding: 19px 15px 20px;
     background-color: #fff;
     border:1px solid #0054a6;
+    margin-bottom:30px;
+    padding: 1.3em 1.1em 1.4em; 
     overflow: hidden;
     border-radius:5px;
     -moz-border-radius: 5px;
@@ -77,10 +76,11 @@
 }
 
 .well-title {
-    font-size: 2.1333333333333333em;    /* font size 32 in pixel */
     color: #0054a6;
-    line-height:normal;
-    margin-bottom:0;  
+    font-size: 1.93333em;
+	  letter-spacing: -0.03em;
+	  line-height: 1;
+	  margin-bottom: 0.1em; 
     text-align: center;
 }
 
@@ -113,8 +113,8 @@
 }
 
 .well-caption {
-    font-size: 1.2em;   /* font size 18 in pixel */  
     color: #757575;  
+    font-size: 1.2em;   /* font size 18 in pixel */  
 }
 
 .wel-title, .well-caption {
@@ -129,6 +129,7 @@
 
 .doller-icon img {
     max-width:30px;
+    max-height: 30px;
 }
 
 .doller-icon.btn-link:focus, .doller-icon.btn-link:hover
@@ -162,18 +163,49 @@
     line-height: 9px;
 }
 
-.moneyIcon {
-    background:url(../assets/images/money.svg) no-repeat;
-    width: 40px;
-    height: 40px;
+.school-img {
+  max-width: 62px;
+  height: 44px;
 }
 
-.school-img {
-  width: 52px;
+.classes-img {
+  max-width: 36px;
+  height: 52px
+}
+
+.nextevent-img {
+  max-width: 44px;
+  height: 52px
+}
+
+.campus-img {
+  max-width: 44px;
+  height: 52px
 }
 
 .imageHide {
     display: none;
+}
+
+.avatar-left {
+    width: 14%;
+    margin-right: 6px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.avatar-right {
+    width: 82%;
+    display: table-cell;
+    vertical-align: middle;
+    min-height: 48px;
+}
+
+.avatar-container {
+    overflow: hidden;
+    height: 100%;
+    display: table;
+    width: 100%;
 }
 
 /* Media for small devices */
@@ -194,6 +226,7 @@
     .moduleImage {
         text-align:center;
         vertical-align:middle;
+        height: 63px;
     }
     
     .angle-right {
@@ -202,7 +235,7 @@
     
 }
 
-@media screen and (min-width: 768px) and (max-width:1010px) {
+@media screen and (min-width: 768px) and (max-width:992px) {
 
     .jbvalue {
        font-size: 1.4666666666666666em; /* font size 22 in pixel */
@@ -216,6 +249,7 @@
         font-size: 1.6em;    /* font size 24 in pixel */
         text-align:left;
     }
+
     .angle-right {
         top:8px;
     }
@@ -231,6 +265,22 @@
 
     .moduleImage {
         vertical-align:middle;
+        width: 21%;
+        padding-right: 0;
+        text-align: center;
+    }
+ 
+    .avatar-left {
+        width: 20%;
+    }
+
+    .avatar-right {
+        width: 76%;
+    }
+
+    .school-img {
+      max-width: 58px;
+      height: 42px;
     }
 }
 
@@ -267,13 +317,6 @@
     
 }
 
-@media screen and (min-width: 560px) and  (max-width: 660px) {
-
-    .moduleImage {
-        width: 20%;
-    }
-
-}
 
 @media screen and (max-width: 767px) {
       
@@ -328,6 +371,41 @@
         top:-2px;
         margin-left: 6px;
     }
+
+    .moduleImage {
+      text-align: center;
+      padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 590px) and  (max-width: 767px) {
+
+    .moduleImage {
+        width: 16%;
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (min-width: 560px) and  (max-width: 660px) {
+
+    .moduleImage {
+        width: 18%;
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (min-width: 500px) and  (max-width: 767px) {
+    
+    .avatar-left {
+        width: 16%;
+    }
+
+    .avatar-right {
+        width: 86%;
+    }
+
 }
 
 @media screen and (max-width: 590px) {
@@ -362,13 +440,25 @@
     }
     
      .well-title {
-        font-size: 2.063em;
+        font-size: 1.9em;
         text-align:left;
     }
 
     .well-caption {
-        font-size: 1em; /* font size 15 in pixel */
+        font-size: 1.2em; /* font size 15 in pixel */
         text-align:left;
+    }
+
+    .avatar-left {
+        width: 18%;
+    }
+
+    .avatar-right {
+        width: 76%;
+    }
+    
+    .moduleImage {
+      width: 22%;
     }
     
 }
@@ -396,12 +486,24 @@
     }
 
     .well-title {
-        font-size: 1.6em;    /* font size 24 in pixel */
+        font-size: 1.5em;    /* font size 24 in pixel */
         text-align:left;
     }
 
     .well-caption {
-        font-size: 1.2em;   /* font size 18 in pixel */
+        font-size: 1.0em;   /* font size 18 in pixel */
         text-align:left;
     }
+
+    .avatar-left {
+        width: 24%;
+    }
+
+    .avatar-right {
+        width: 70%;
+    }
+
+    #dashboard .white-well {
+      padding: 13px;
+    } 
 }

@@ -24,14 +24,24 @@ export class SimpleSearchDirectory extends React.PureComponent {
 
   }
 
-  onSearchText(text) {
+  onSearchText(textValue) {
     const simpleSearchDirectoryPorps = this.props;
+    const text = textValue.replace(/ /g, '');
     if (!text) return;
-    const searchText = text.split(' ');
-    const reqObj = {
-      firstName: searchText[0],
-      lastName: searchText[1]
-    };
+    const searchText = text.toLowerCase().split(',');
+    const reqObj = {};
+    if (searchText[0]) {
+     // reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
+      reqObj.lastName = searchText[0];
+    }
+    if (searchText[1]) {
+     // const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
+      const firstName = searchText[1];
+      if (firstName) {
+        reqObj.firstName = firstName;
+      }
+    }
+    simpleSearchDirectoryPorps.searchItemClicked();
     simpleSearchDirectoryPorps.getCampusDirectoryData(reqObj);
   }
 

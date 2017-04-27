@@ -29,7 +29,7 @@ class MainNav extends React.Component {
                   <a href={`#${ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SIMPLE_SEARCH}`}>{translateText('common:CAMPUS_DIRECTORY')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a>
                 </li> : null
               }
-              <li className='navigation-item'><a>{translateText('common:LIBRARY_SEARCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
+              <li className='navigation-item'><a href={`#${ROUTE_URL.LIBRARY_SEARCH}`}>{translateText('common:LIBRARY_SEARCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               <li className='navigation-item'><a>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
             </ul>
           </Row>

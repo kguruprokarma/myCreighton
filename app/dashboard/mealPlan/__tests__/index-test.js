@@ -16,6 +16,10 @@ const defaultProps ={
       'dinning': '360.00',
       'jaybucks': '750.25'
     }
+  },
+  showMeal: true,
+  role: {
+    userRole: 'student'
   }
 };
 
@@ -23,6 +27,7 @@ const mealPlanC = shallow(<MealPlan {...defaultProps} />);
 describe('Mealplan Test Suite', () => {
   it('should provide i18n context', () => {
     expect(mealPlanC).toBeDefined();
+    mealPlanC.instance().componentWillReceiveProps(defaultProps);
   });
 
   it('MealPlan component Swipes is there or not', () => {

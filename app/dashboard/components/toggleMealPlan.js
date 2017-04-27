@@ -4,10 +4,12 @@
 
 import React from 'react';
 import { translateText } from '../../common/translate';
+import ImageComponent from '../../common/imageComponent';
+import { MONEY_ICON } from '../../constants/imageConstants';
 
 const toggleMealPlan = (toggleMealPlanProps) => (
   <button className='doller-icon btn btn-link pull-right btnnoPadding' onClick={toggleMealPlanProps.toggle}>
-    <img src={'./assets/images/money.png'} alt={translateText('common:MONEY_ALT_TEXT')} />
+    <ImageComponent imagePath={MONEY_ICON} imagealtText={translateText('common:MONEY_ALT_TEXT')} />
   </button>
 );
 

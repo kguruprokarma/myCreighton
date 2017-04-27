@@ -13,27 +13,26 @@ const Assignments = (assignmentProps) => (
   <section role='region' className='eventAssignments'>
     <Link to={`${ROUTE_URL.EVENT_DETAILS}/${assignmentProps.data.type}/${assignmentProps.data.sis_source_id}/${assignmentProps.data.assignment_id}/${assignmentProps.currentIndex}`}>
       <div className='hidden-xs desktopEventsList'>
-        <Col md={6} sm={6}>
-          <h3 className='mb0 eventHeading'><span className='assignIcon mr10'>&nbsp;</span> {assignmentProps.data.assign_title} <span className='eventOn'><span>{translateText('DUE')} </span>{convertDueDateTimeStamp(assignmentProps.data.assign_due)}</span></h3>
-          <h3 className='pull-left mb0 eventHeading'><span className='assignIcon mr10'>&nbsp;</span> {assignmentProps.data.assign_title}</h3>
-          <span className='pull-left eventOn'><span>{translateText('DUE')} </span>{ConvertDueDateTimeStamp(assignmentProps.data.assign_due)}</span>
+        <Col md={5} sm={5}>
+          <h2 className='mb10 eventHeading'><span className='assignIcon mr10'>&nbsp;</span> {(assignmentProps.data!==null && assignmentProps.data.assign_title) ? assignmentProps.data.assign_title:''} </h2>
+          <p className='eventOn'><span>{translateText('DUE')} </span>{convertDueDateTimeStamp((assignmentProps.data !==null && assignmentProps.data.assign_due)?assignmentProps.data.assign_due:'')}</p>
         </Col>
         <Col md={2} sm={2}>
-          <span className='eventPlace'>{assignmentProps.data.course_name}</span>  
+          <span className='eventPlace'>{(assignmentProps.data!==null && assignmentProps.data.course_name)?assignmentProps.data.course_name:''}</span>
         </Col>
         <Col md={2} sm={2} className='text-center'>
-          <span className='eventBy'>{convertDateFromTimeStamp(assignmentProps.data.assign_due)}</span>
+          <span className='eventBy'>{convertDateFromTimeStamp((assignmentProps.data!==null && assignmentProps.data.assign_due) ? assignmentProps.data.assign_due:'')}</span>
         </Col>
-        <Col md={2} sm={2} className='text-center'>
+        <Col md={3} sm={3} className='text-center'>
           <span className='eventTime'>&nbsp;</span>
         </Col>
       </div>
       <Row className='visible-xs mobileEventsList'>
         <Col xs={7}>
-          <span className='eventOn'>Due {convertDueDateTimeStamp(assignmentProps.data.assign_due)}</span>
+          <span className='eventOn'>Due {convertDueDateTimeStamp((assignmentProps.data!==null && assignmentProps.data.assign_due) ? assignmentProps.data.assign_due :'')}</span>
         </Col>
         <Col xs={5} className='text-right'>
-          <span className='eventDate'>{convertDateFromTimeStamp(assignmentProps.data.assign_due)}</span>
+          <span className='eventDate'>{convertDateFromTimeStamp((assignmentProps.data !==null && assignmentProps.data.assign_due)?assignmentProps.data.assign_due:'')}</span>
         </Col>
         <Col xs={7}>
           <h3 className='mb0 eventHeading'><span className='assignIcon mr5'>&nbsp;</span> {assignmentProps.data.assign_title}</h3>
@@ -42,7 +41,7 @@ const Assignments = (assignmentProps) => (
           &nbsp;
         </Col>
         <Col xs={7}>
-          <span className='eventBy'>{assignmentProps.data.course_name}</span>
+          <span className='eventBy'>{(assignmentProps.data!==null && assignmentProps.data.course_name)?assignmentProps.data.course_name:''}</span>
         </Col>
         <Col xs={5} className='text-right'>
           &nbsp;

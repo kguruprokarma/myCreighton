@@ -45,7 +45,7 @@ describe('actions testing for campus directory search', () => {
   userReqObj.lastName = 'f7';
   
   it('testing action sequence for success case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY}${urlConstants.CAMPUS_DIRECTORY_SIMPLE}?firstName=f&lastName=f7`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS}${urlConstants.CAMPUS_DIRECTORY_SIMPLE}?firstName=f&lastName=f7`, {
       status: 200,
       response: data
     });
@@ -65,7 +65,7 @@ describe('actions testing for campus directory search', () => {
   });
 
   it('testing action  sequence for failure case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.CAMPUS_DIRECTORY_SIMPLE}?firstName=f&lastName=f7`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.CAMPUS_DIRECTORY_SIMPLE}?firstName=f&lastName=f7`, {
       status: 404,
       responseText: 'error'
     });
@@ -82,5 +82,26 @@ describe('actions testing for campus directory search', () => {
         expect(JSON.stringify(result[1].data.error.response.data)).toEqual(JSON.stringify(expectedActions[1].data));
         expect(result[1].type).toEqual(expectedActions[1].type);
       });
+  });
+
+  it('reset CampusDirectory Data', () => {
+    const expectedActions = [{ type: types.RESET_SIMPLE_SEARCH_DATA }];
+    const store = mockStore();
+    store.dispatch(actions.resetCampusDirectoryData());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('testing action close popup case', () => {
+    const expectedActions = [{ type: types.CLICKED_SEARCH }];
+    const store = mockStore();
+    store.dispatch(actions.searchItemClicked());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('testing action open nav case', () => {
+    const expectedActions = [{ type: types.RESET_SEARCH }];
+    const store = mockStore();
+    store.dispatch(actions.resetSearchItemClicked());
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });

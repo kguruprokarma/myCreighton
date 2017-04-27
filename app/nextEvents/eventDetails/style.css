@@ -89,3 +89,11 @@
     margin-bottom: 1px;
     display: inline-block;
 }
+
+.contactInfo {
+    line-height: 28px;
+}
+
+.calendarDate {
+    display: block;
+}

@@ -13,7 +13,7 @@ import ToggleMealPlan from './components/toggleMealPlan';
 import dashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as actionCreators from './actions';
-import * as profileData from '../profile/actions';
+import * as profileDataAction from '../profile/actions';
 import './style.css';
 import { authUserDetails, browserTitle } from '../common/utility';
 
@@ -24,13 +24,13 @@ export class Dashboard extends Component {
     const dashboardProps = this.props;
     this.state = { shouldHide: true };
     this.onClick = this.onClick.bind(this);
-    this.role = dashboardProps.userData ? dashboardProps.userData.userRole : authUserDetails().userRole;
+    this.role = authUserDetails().userRole;
     if (this.role) { dashboardProps.getUserDetailsData(`/${this.role}`); }
   }
 
   componentWillMount() {
     const props = this.props;
-    this.role = props.userData ? props.userData.userRole : authUserDetails().userRole;
+    this.role = authUserDetails().userRole;
     if (this.role) { props.getUserDetailsData(`/${this.role}`); }
 
     if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
@@ -38,7 +38,15 @@ export class Dashboard extends Component {
     } else {
       this.setState({ shouldHide: true });
     }
-    props.getStudentProfileData();
+    if (this.role) {
+      if (this.role === CommonConstants.ROLE_FACULTY) {
+        props.getFacultyProfileData();
+      } else if (this.role === CommonConstants.ROLE_STAFF) {
+        props.getStaffProfileData();
+      } else if (this.role === CommonConstants.ROLE_STUDENT) {
+        props.getStudentProfileData();
+      }     
+    }
     browserTitle(translateText('common:DASH_BOARD'));
   }
 
@@ -51,18 +59,30 @@ export class Dashboard extends Component {
     const userDetails = props.userDetailsData;
     const dashboardList = dashboardModulesList(this.role);
     //const profileData = props.profileData;
-    const profileData = props.profileData;
+    const profileInfo = props.profileData;
+    let profileInformation;
+    if (profileInfo && profileInfo.data && profileInfo.data.length >0 ) {
+      const data = profileInfo.data[0];
+      if (this.role === CommonConstants.ROLE_FACULTY) {      
+        profileInformation = data.faculty_name;
+      } else if (this.role === CommonConstants.ROLE_STAFF) {       
+        profileInformation = data.staff_name;
+      } else if (this.role === CommonConstants.ROLE_STUDENT) {
+        profileInformation = data.legal_name;
+      }    
+    }
+
     return (
       <section role='region' id='dashboard'>
         <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
         <Row className='mb20'>
           <Col sm={5} xs={10} md={5}>           
-            {(profileData && profileData.data) && <UserDetail userDetail={profileData.data[0]} />}
+            { profileInformation && <UserDetail userDetail={profileInformation} role={this.role} />}
           </Col>
           <Col xs={2} className='pull-right text-right'>
             <div className={this.state.shouldHide ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>
           </Col>
-          <Col xs={12} sm={7} md={7}>
+          <Col xs={12} sm={7} md={7} className='pull-right'>
             <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetails} />
           </Col>
         </Row>
@@ -94,6 +114,6 @@ const mapStateToProps = (dashboardState) => (
   }
 );
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators,profileData), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileDataAction), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

@@ -1,0 +1,14 @@
+.btn.btn-primary.resultsList {
+    background-color: #fff;
+    color: #0054a6;
+}
+
+.btn.btn-primary.resultsList:active,
+.btn.btn-primary.resultsList:hover,
+.btn.btn-primary.resultsList:focus {
+    background-color: #fff;
+    color: #0054a6;
+    border: 1px solid #0054a6;
+    outline: 0;
+    box-shadow: none;
+}

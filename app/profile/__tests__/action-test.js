@@ -71,7 +71,7 @@ describe('async actions', () => {
   userReqObj.primaryKey = 'netid';
   userReqObj.primaryValue = '5de48407ab';
   it('testing action for profile data for student retrival case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.STUDENT_PROFILE}`, {
       status: 200,
       response: studentData
     });
@@ -90,7 +90,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure for student profile case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STUDENT_PROFILE + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.STUDENT_PROFILE}`, {
       status: 404,
       responseText: 'error'
     });
@@ -110,7 +110,7 @@ describe('async actions', () => {
 
 
   it('testing action for profile data for staff retrival case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STAFF_BIO + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.STAFF_BIO}`, {
       status: 200,
       response: staffProfileData
     });
@@ -130,7 +130,7 @@ describe('async actions', () => {
   });
 
   it('testing action failure for staff profile case', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.STAFF_BIO + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.STAFF_BIO}`, {
       status: 404,
       responseText: 'error'
     });
@@ -150,7 +150,7 @@ describe('async actions', () => {
   });
 
   it('Success test case for faculty Profile', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.FACULTY_BIO + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.FACULTY_BIO}`, {
       status: 200,
       response: facultyProfileData
     });
@@ -170,7 +170,7 @@ describe('async actions', () => {
   });
 
   it('faculty profile action test case for error', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.FACULTY_BIO + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.FACULTY_BIO}`, {
       status: 404,
       responseText: 'error'
     });
@@ -190,7 +190,7 @@ describe('async actions', () => {
   });
 
   it('Success test case for faculty Academic', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.FACULTY_LEARN + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.FACULTY_LEARN}`, {
       status: 200,
       response: facultyAcademicData
     });
@@ -210,7 +210,7 @@ describe('async actions', () => {
   });
 
   it('faculty academic action test case for error', () => {
-    moxios.stubRequest(`${urlConstants.API_GATEWAY + urlConstants.FACULTY_LEARN + urlConstants.API_SINGLE}?primaryKey=netid&primaryValue=5de48407ab`, {
+    moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.FACULTY_LEARN}`, {
       status: 404,
       responseText: 'error'
     });

@@ -7,7 +7,8 @@ import * as types from './actionTypes';
 const initialState = {
   showPopUp: false,
   showNav: false,
-  showFilterPopUp: false
+  showFilterPopUp: false,
+  signOut: false
 };
 
 const headerReducer = (state = initialState, action = null) => {
@@ -35,6 +36,14 @@ const headerReducer = (state = initialState, action = null) => {
     case types.CLOSE_NAV:
       return Object.assign({}, state, {
         showNav: false
+      });
+    case types.SIGN_OUT_OPEN:
+      return Object.assign({}, state, {
+        signOut: true
+      });
+    case types.SIGN_OUT_CLOSE:
+      return Object.assign({}, state, {
+        signOut: false
       });
     default:
       return state;

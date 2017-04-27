@@ -35,7 +35,7 @@ describe('index files in staff testing ----->', () => {
   });
   it('Check EmergencyContact component is present', () => {
     expect(staffProfile.find('EmergencyContact').length).toBe(1);
-    expect(staffProfile.find('EmergencyContact').prop('emergencyContact')).toBe(minProps.profileData.data[0].emergency_contact);
+    expect(staffProfile.find('EmergencyContact').prop('data')).toBe(minProps.profileData.data[0]);
   });
 
   it('Check Other component is present', () => {

@@ -64,6 +64,7 @@ body {
 .openSansBold{
     font-family: 'open_sanssemibold', sans-serif;
 }
+
 /* End font family */
 
 /* Header */
@@ -118,6 +119,10 @@ a {
 a:hover {
     color:#0054a6;
     cursor: pointer;
+}
+
+a:hover, a:focus, a:active {
+    text-decoration: none;
 }
 /* End of Anchor links */
 
@@ -347,8 +352,6 @@ input {
     width: 5px;
 }
 
-
-
 .control-checkbox input[disabled]+.control__indicator:after {
     left: 8px;
     top: 4px;
@@ -470,13 +473,94 @@ title {
     text-transform: capitalize;
 }
 
-.disableButton{
+.disableButton,
+.disableButton:focus,
+.disableButton:hover,
+.disableButton:active {
     pointer-events: none;
     color: gray;
     background: #ddd;
     border-color: #ddd;
 }
 
+.accord-description {
+    display: none;
+}
+
+.accord-active {
+    display: block;
+}
+
+.btn-link:hover, 
+.btn-link:focus,
+.btn-link:active {
+    text-decoration: none;
+}
+
+.phoneNumber {
+    color: #0054a6;
+    text-decoration: none;
+}
+
+.phoneNumber:hover,
+.phoneNumber:active,
+.phoneNumber:focus {
+    text-decoration: none;
+}
+
+a:focus, a:active, a:hover {
+    text-decoration: none;
+}
+ 
+/*logout Confirmation popup*/
+
+.close.popup {
+    color: #fff;
+    font-weight:100;
+    font-size: 1.0em;
+    opacity: 1;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    padding-bottom: 2px;
+}
+
+.close.popup:hover,
+.close.popup:active,
+.close.popup:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.popupCancel {
+    background-color: #ddd;
+}
+
+.confirmText {
+    display: block;
+}
+
+.popupConfirm:hover,.popupConfirm:active,.popupConfirm:focus,
+.popupCancel:hover,.popupCancel:active,.popupCancel:focus {
+    outline: 0px;
+}
+
+.logoutText {
+    line-height: 20px;
+}
+
+.modal-content {
+    position: absolute;
+    z-index: 9999;
+    top:200px;   
+    border-radius: 0; 
+}
+
+.modal-header {
+    background-color: #0054a6;
+    color: #fff;
+}
 
 /* Media for small devices */
 @media screen and (min-width: 1170px) {
@@ -515,9 +599,8 @@ title {
     .container {
         width: 1021px;
     }
-    
+  
 }
-
 
 @media screen and (min-width: 1025px) and (max-width: 1170px) {
    
@@ -635,6 +718,16 @@ title {
     .view-container {
         padding-bottom:230px;   
     }
+
+    .modal-content {
+        position: absolute;
+        z-index: 9999;
+        top: 200px;
+        border-radius: 0;
+        width: 92%;
+        left: 50%;
+        margin-left: -46%; 
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -647,3 +740,9 @@ title {
     }
 }
 
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.form-group input::-ms-clear {
+        display: none;
+    }
+}

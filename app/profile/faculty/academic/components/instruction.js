@@ -18,7 +18,7 @@ const FacultyAppointment = (facultyProps) => (
       </Col>
       <Col xs={8} md={9} sm={8} className='dataField'>
         {facultyProps.data.map((course) => (
-          <div> {course.course_number} {course.course_title}</div>
+          <div key={course.course_number}> {course.course_number} {course.course_title}</div>
         ))}
       </Col>
     </Row>

@@ -5,19 +5,18 @@
 import React from 'react';
 import * as ROUTE_URL from '../constants/routeContants';
 import * as CommonConstants from '../constants/commonConstants';
-import { CLASSES_ICON, NEXTEVENTS_ICON } from '../constants/imageConstants';
+import { CLASSES_ICON, NEXTEVENTS_ICON, SCHOOL_ICON } from '../constants/imageConstants';
 import { translateText } from './translate';
 
 export const modulesBlocksData = (roleType) => {
   const modulesData = [];
   if (roleType === CommonConstants.ROLE_STUDENT) {
     modulesData.push([{
-      'imgURL': '../assets/images/school.png',
-      'linkto': '',
+      'imgURL': SCHOOL_ICON,
+      'linkto': ROUTE_URL.SCHOOLS_AND_SEMESTER,
       'name': translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER'),
       'description': translateText('common:DASH_BOARD_SCHOOL_STUFF'),
-      'class': 'school-img',
-      'width': '52px'
+      'class': 'school-img'
     }],
       [{
         'imgURL': CLASSES_ICON,

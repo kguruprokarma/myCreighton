@@ -4,7 +4,7 @@
 
 import React from 'react';
 import WeekClasses from './weekClasses';
-import { dataFilterAddingData, dataSort, filterTodaysClassSchedule } from '../../../common/utility';
+import { dataFilterAddingData, dataSort, filterTodaysClassSchedule, addNextDate } from '../../../common/utility';
 import AToZClasses from './aToZClasses';
 import TodayClasses from './todayClasses';
 import * as CommonConstants from '../../../constants/commonConstants';
@@ -15,11 +15,11 @@ const ClassBox = (classBoxProps) => (
   <div>
     {
       classBoxProps.catagoryName === CommonConstants.TODAY ? (
-        <TodayClasses catagory={classBoxProps.catagoryName} listOfData={dataSort(filterTodaysClassSchedule(classBoxProps.data.data), 'class_begin_time', 'ASC')} />
+        <TodayClasses catagory={classBoxProps.catagoryName} listOfData={dataSort(filterTodaysClassSchedule(classBoxProps.data.data), CommonConstants.CLASS_BEGIN_TIME, CommonConstants.SORT_CLASS)} />
       ) : (
           (classBoxProps.catagoryName === CommonConstants.WEEK ? (
-            <WeekClasses catagory={classBoxProps.catagoryName} listOfData={(dataFilterAddingData(dataSort(classBoxProps.data.data, 'class_begin_time', 'ASC')))} />)
-            : (<AToZClasses catagory={classBoxProps.catagoryName} listOfData={dataSort(classBoxProps.data.data, 'course_title', 'ASC')} />)
+            <WeekClasses catagory={classBoxProps.catagoryName} listOfData={(dataFilterAddingData(classBoxProps.data.data, CommonConstants.CLASS_BEGIN_TIME, CommonConstants.SORT_CLASS))} />)
+            : (<AToZClasses catagory={classBoxProps.catagoryName} listOfData={addNextDate(dataSort(classBoxProps.data.data, CommonConstants.COURSE_TITLE, CommonConstants.SORT_CLASS))} />)
           )
         )
     }

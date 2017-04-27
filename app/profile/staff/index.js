@@ -34,12 +34,12 @@ export class StaffProfile extends React.PureComponent {
 
   render() {
     const props = this.props;
-    const USER_DATA = props.profile === CommonConstants.STAFF_LABEL && props.profileData;
+    const USER_DATA = props.profile === CommonConstants.STAFF_LABEL && props.profileData;    
     return (
       <section role='region'>
         {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
-        {USER_DATA &&
+        {USER_DATA && USER_DATA.data && USER_DATA.data.length>0 &&
           <Row>
             <Col sm={8} md={9} xs={12} className='userData pull-right'>
               <form>
@@ -48,7 +48,7 @@ export class StaffProfile extends React.PureComponent {
                 <WorkAddress workAddress={USER_DATA.data[0].work_address} profile={props.profile} />
                 <MailAddress mailAddress={USER_DATA.data[0].mail_address} />
                 <PrimaryContact primaryContact={USER_DATA.data[0].phone} />
-                <EmergencyContact emergencyContact={USER_DATA.data[0].emergency_contact} relation={USER_DATA.data[0].emrg_cont_type} phone={USER_DATA.data[0].emergency_contact_phone} />
+                <EmergencyContact data={USER_DATA.data[0]} />
                 <Email professionalLabel={translateText('common:COMMON_SCHOOL')} professionalEmail={USER_DATA.data[0].work_email} personalLabel={translateText('common:COMMON_PERSONAL')} personalEmail={USER_DATA.data[0].personal_email} isShowPersonalEmail />
                 <Other profile={props.profile} detail={USER_DATA.data[0]} />
                 <FamilyDetail familyDetail={USER_DATA.data[0]} />
@@ -59,7 +59,7 @@ export class StaffProfile extends React.PureComponent {
             </Col>
           </Row>
         }
-        {((!USER_DATA && !props.loading) || (USER_DATA.error)) &&
+        {((!USER_DATA && !props.loading) || (USER_DATA.data && USER_DATA.data.length <= 0) || (USER_DATA.error)) &&
           <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
         }
       </section>

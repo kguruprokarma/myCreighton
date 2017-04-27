@@ -9,3 +9,7 @@ export const ON_MASTER_DATA_CHANGE = 'on.master.data.change';
 export const ON_LOADING_CHANGE = 'on.loading.change';
 export const OFF_LOADING_CHANGE = 'off.loading.change';
 export const CLEAR = null;
+
+export const REQUEST_CALENDAR_DETAILS_DATA = 'request.calendar.details.data';
+export const RECEIVE_CALENDAR_DETAILS_DATA = 'receive.calendar.details.data';
+export const RECEIVE_CALENDAR_DETAILS_DATA_ERROR = 'receive.calendar.details.data.error';

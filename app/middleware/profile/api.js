@@ -6,10 +6,10 @@ import axios from 'axios';
 import * as urlConstants from '../../constants/urlConstants';
 
 const ProfileApi = {
-  getProfileData: () => axios.get( urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.STUDENT_PROFILE, {withCredentials: true}),
-  getStaffProfileData: () => axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.STAFF_BIO, {withCredentials: true} ),
-  getFacultyProfileData: () => axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.FACULTY_BIO, {withCredentials: true}),
-  getFacultyAcademicData: () => axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.FACULTY_LEARN, {withCredentials: true})
+  getProfileData: () => axios.get( urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.STUDENT_PROFILE),
+  getStaffProfileData: () => axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.STAFF_BIO ),
+  getFacultyProfileData: () => axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.FACULTY_BIO),
+  getFacultyAcademicData: () => axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS + urlConstants.FACULTY_LEARN)
 };
 
 export default ProfileApi;

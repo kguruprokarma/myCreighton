@@ -12,7 +12,7 @@
 }
 
 .eventHeading{
-    font-size: 1.7333333333333334em;
+    font-size: 1.7333333333333334em;    /* font size 26 in pixel */
     line-height: 1.1;
     color: #019cdb;
     font-family: 'open_sanslight', sans-serif;
@@ -49,13 +49,6 @@
     font-weight: normal;
 }
 
-.eventOn {
-    font-size: .6em;
-    line-height: .8em;
-    padding: 4px; 
-    position: relative;
-    top: -4px;  
-}
 
 .assignIcon {
     background: url(../../assets/images/assignment_icon.png) no-repeat 0 0;

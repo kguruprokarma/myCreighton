@@ -13,11 +13,11 @@ export default function (argument) {
     title = translateText('common:CLASS_SCHEDULE');
     return title;
   }
-  if (rootURL[1] === HEADER.CLASS_DETAILS) {    
+  if (rootURL[1] === HEADER.CLASS_DETAILS) {
     title = translateText('common:CLASS_DETAIL');
     return title;
   }
-  if (rootURL[2] === HEADER.PROFILE && ( rootURL[1] === HEADER.STAFF_PROFILE || rootURL[1] === HEADER.FACULTY )) {
+  if (rootURL[2] === HEADER.PROFILE && (rootURL[1] === HEADER.STAFF_PROFILE || rootURL[1] === HEADER.FACULTY)) {
     title = translateText('common:PROFILE_MY_PROFILE');
     return title;
   }
@@ -29,7 +29,7 @@ export default function (argument) {
     title = translateText('common:PROFILE_ACADEMIC');
     return title;
   }
-  if (rootURL[2] === HEADER.ACADEMIC && ( rootURL[1] === HEADER.STAFF_PROFILE || rootURL[1] === HEADER.FACULTY )) {
+  if (rootURL[2] === HEADER.ACADEMIC && (rootURL[1] === HEADER.STAFF_PROFILE || rootURL[1] === HEADER.FACULTY)) {
     title = translateText('common:PROFILE_ACADEMIC');
     return title;
   }
@@ -61,5 +61,24 @@ export default function (argument) {
     title = translateText('common:SEARCH_RESULT');
     return title;
   }
-  return title; 
+  if (rootURL[1] === HEADER.STAFF_DETAIL) {
+    title = translateText('common:STAFF_DETAIL');
+  }
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER) {
+    title = translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER');
+    return title;
+  }
+  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS) {
+    title = translateText('common:SEMESTER_ACADEMICS');
+    return title;
+  }
+  if (rootURL[1] === HEADER.LIBRARY_SEARCH) {
+    title = translateText('common:LIBRARY_SEARCH');
+    return title;
+  }
+  if (rootURL[1] === HEADER.EVENT_DETAILS && rootURL[2] === HEADER.EVENT_CALENDAR_DETAILS) {
+    title = translateText('common:NEXT_EVENTS_CALENDAR_HEADER');
+    return title;
+  }
+  return title;
 }

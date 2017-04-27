@@ -18,7 +18,10 @@ import auth from '../login/reducer';
 import professionalReducer from '../profile/staff/professional/reducer';
 import campusDirectoryReducer from '../campusDirectory/reducer';
 import eventsFilterReducer from '../nextEvents/eventFilter/reducer';
-
+import staffProfileReducer from '../searchResults/reducer';
+import libraryInformationReducer from '../librarySearch/reducer';
+import schoolAndSemesterReducer from '../schoolandsemester/reducer';
+import accordionReducer from '../schoolandsemester/accordion/reducer';
 
 // enable Redux Dev Tools
 const enhancers = compose(
@@ -42,6 +45,10 @@ const reducers = {
   professionalReducer: professionalReducer,
   campusDirectoryReducer: campusDirectoryReducer,
   eventsFilterReducer: eventsFilterReducer,
+  libraryInformationReducer: libraryInformationReducer,
+  staffProfileReducer: staffProfileReducer,
+  schoolAndSemesterReducer: schoolAndSemesterReducer,
+  accordionReducer: accordionReducer,
   routing: routing
 };
 
@@ -53,7 +60,8 @@ const configureStore = preloadedState => {
     ),
     preloadedState,
     compose(
-      applyMiddleware(thunkMiddleware, createLogger()),
+//      applyMiddleware(thunkMiddleware, createLogger()),
+      applyMiddleware(thunkMiddleware),
       enhancers
     )
   );

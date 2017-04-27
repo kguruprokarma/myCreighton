@@ -8,7 +8,8 @@ const initialState = {
   campusSimpleSearch: {},
   isLoading: false,
   error: false,
-  searchType: 'simple'
+  searchType: 'simple',
+  searchClick: false
 };
 
 const campusDirectoryReducer = (state = initialState, action = null) => {
@@ -29,6 +30,19 @@ const campusDirectoryReducer = (state = initialState, action = null) => {
         isLoading: false,
         error: true,
         campusSimpleSearch: []
+      });
+    case types.RESET_SIMPLE_SEARCH_DATA:
+      return Object.assign({}, state, {
+        campusSimpleSearch: {}
+      });
+     
+    case types.CLICKED_SEARCH:
+      return Object.assign({}, state, {
+        searchClick: true
+      });
+    case types.RESET_SEARCH:
+      return Object.assign({}, state, {
+        searchClick: false
       });
      
     default:

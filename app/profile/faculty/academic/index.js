@@ -21,20 +21,21 @@ export class FacultyAcademic extends React.PureComponent {
   }
 
   componentWillMount() {
+    const props = this.props;
     this.headerText = translateText('common:PROFILE_ACADEMIC');
-    this.props.getFacultyAcademicData();
+    props.getFacultyAcademicData();
     const facultyTitleValue = `${translateText('common:PROFILE_ACADEMIC')} ${translateText('common:USER_PROFILE')}`;
     browserTitle(facultyTitleValue);
   }
 
   render() {
-    const ACADEMIC_DATA = this.props.profileData;
     const props = this.props;
+    const ACADEMIC_DATA = props.profileData;
     return (
       <section role='region'>
         {props.isLoading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
-        {ACADEMIC_DATA && <FacultyAcademicView data={ACADEMIC_DATA} facultyProfile={this.props.profile} />}
+        {ACADEMIC_DATA && <FacultyAcademicView data={ACADEMIC_DATA} facultyProfile={props.profile} />}
         {((!ACADEMIC_DATA && !props.loading && props.isError)) &&
           <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />
         }
@@ -42,14 +43,6 @@ export class FacultyAcademic extends React.PureComponent {
     );
   }
 }
-
-FacultyAcademic.propTypes = {
-  isLoading: React.PropTypes.bool,
-  profile: React.PropTypes.string,
-  profileData: React.PropTypes.string,
-  getFacultyAcademicData: React.PropTypes.func
-
-};
 
 const mapStateToProps = (bioState) => (
   {

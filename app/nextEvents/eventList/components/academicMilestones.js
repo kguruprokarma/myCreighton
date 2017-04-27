@@ -9,7 +9,8 @@ const AcademicMilestones = (academicMilestonesProps) => (
   <section role='region' className='academicMilestone' id='academicMilestoneList'>
     <div className='hidden-xs desktopEventsList'>
       <Col md={5} sm={5}>
-        <h3 className='mb0 eventHeading'>{academicMilestonesProps.data.title} <span className=' eventOn'>{academicMilestonesProps.data.startDate}to {academicMilestonesProps.data.endDate}</span></h3>
+        <h2 className='mb10 eventHeading'>{academicMilestonesProps.data.title}</h2>
+        <p className=' eventOn'>{academicMilestonesProps.data.startDate}to {academicMilestonesProps.data.endDate}</p>
       </Col>
       <Col md={2} sm={2}>
         <span className='eventPlace'>{academicMilestonesProps.data.dateofOccurrence}</span>
@@ -17,13 +18,10 @@ const AcademicMilestones = (academicMilestonesProps) => (
       <Col md={2} sm={2} className='text-center'>
         <span className='eventDate'>{academicMilestonesProps.data.dateofOccurrence}</span>
       </Col>
-      <Col md={2} sm={2} className='text-right'>
+      <Col md={3} sm={3} className='text-right'>
         <span className='eventTime'>{academicMilestonesProps.data.startTime}to {academicMilestonesProps.data.endTime}</span>
       </Col>
-      <Col md={1} sm={1} className='text-center remove-list'>
-        <span className='remove-icon'>&nbsp;</span>
-        <p className='openSansBold fs0pt86'>Remove</p>
-      </Col>
+    
     </div>
     <Row className='visible-xs mobileEventsList'>
       <Col xs={7}>

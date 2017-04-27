@@ -1,0 +1,95 @@
+.boomarkLinks {
+    line-height: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.libraryHours {
+    display: block;
+    line-height: 35px;
+}
+
+.library {
+    line-height: 25px;
+}
+
+.libraryArrow {
+    font-size: 0.85em;
+}
+
+.libraryData,.libraryMore {
+    font-size: 1.2em;
+}
+
+.onlineClass:hover,
+.onlineClass:active,
+.onlineClass:focus {
+    text-decoration: none;
+}
+
+.libraryDataHeading {
+    text-transform: uppercase;
+}
+    
+.btn-group .btn-group.librarySearch {
+    font-size: 1em;
+}
+
+.btn-group .btn.btn-default.libraryButton {
+    border: 1px solid #019cdb;
+    background-color: #fff;
+    color: #019cdb;
+    font-size: 0.8em;    /* font size 11 in pixel */
+    white-space: pre-wrap;
+}
+
+.btn.btn-default.libraryButton:hover,
+.btn.btn-default.libraryButton:active,
+.btn.btn-default.libraryButton:focus,
+.btn.btn-default.libraryButton.active:hover,
+.btn.btn-default.libraryButton.active:active,
+.btn.btn-default.libraryButton.active:focus  {
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn.btn-default.libraryButton.active  {
+    background-color: #019cdb;
+    box-shadow: none;
+    color: #fff;
+}
+
+.sr-only {
+ position: absolute;
+ width: 1px;
+ height: 1px;
+ padding: 0;
+ margin: -1px;
+ overflow: hidden;
+ clip: rect(0, 0, 0, 0);
+ border: 0;
+ }
+
+ .btn-group .btn btn-default {
+     border-left: 1px solid #ddd;
+ }
+
+.btn.btn-default.organsisationBtn {
+    width: 90%;
+}
+
+.btn.btn-default.organisationToggle {
+    width: 10%;
+    border-left: 1px solid #ddd;
+}
+
+.btn-group>.btn.libraryButton:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-right: 0;
+}
+
+@media screen and (max-width: 769px) {
+
+    .libraryLinks {
+        text-align: center;
+    }
+}

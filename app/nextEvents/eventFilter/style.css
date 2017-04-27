@@ -134,7 +134,7 @@
  }
 
  .slim-scroll-bar {
-    min-height:390px !important;
-    max-height:500px !important;
+    min-height:400px !important;
+    max-height:442px !important;
     overflow: auto;
  }

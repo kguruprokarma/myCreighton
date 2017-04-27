@@ -13,14 +13,17 @@ import Dining from './components/dining';
 import Jaybucks from './components/jaybucks';
 import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
+import ImageComponent from '../../common/imageComponent';
+import { MEALPLANMORE_ICON } from '../../constants/imageConstants';
 
 export class MealPlan extends Component {
   componentWillReceiveProps(nextProps) {
+    const props = this.props;
     const propsNext = nextProps;
     if (propsNext.role && this.role !== propsNext.role.userRole) {
       this.role = propsNext.role.userRole;
       if (this.role !== undefined) {
-        this.props.getMealPlanData(`${(this.role).toLowerCase()}`);
+        props.getMealPlanData(`${(this.role).toLowerCase()}`);
       }
     }
   }
@@ -30,20 +33,21 @@ export class MealPlan extends Component {
     return (
       <article role='article' id='mealPlan'>
         <h1 className='announced-only'>{translateText('common:Creighton_Currency')}</h1>
+
         <div className={props.showMeal ? 'show' : 'hide'}>
           <Well bsSize='small' className='jaybucksWell'>
             <Col sm={11} xs={10}>
               <Row>{MEALPLAN_DATA &&
-              <ul className='list-inline listflex row text-center'>
-                <li><Swipes expire={MEALPLAN_DATA.mealBalance.swipesExpire} swipeCount={MEALPLAN_DATA.mealBalance.remainSwipes} /></li>
-                <li><Guest guestCount={MEALPLAN_DATA.mealBalance.guestSwipes} /></li>
-                <li><Dining diningCount={MEALPLAN_DATA.mealBalance.dinning} /></li>
-                <li><Jaybucks jaybucksCount={MEALPLAN_DATA.mealBalance.jaybucks} /></li>
-              </ul>}
+                <ul className='list-inline listflex row text-center'>
+                  <li><Swipes expire={MEALPLAN_DATA.mealBalance.swipesExpire} swipeCount={MEALPLAN_DATA.mealBalance.remainSwipes} /></li>
+                  <li><Guest guestCount={MEALPLAN_DATA.mealBalance.guestSwipes} /></li>
+                  <li><Dining diningCount={MEALPLAN_DATA.mealBalance.dinning} /></li>
+                  <li><Jaybucks jaybucksCount={MEALPLAN_DATA.mealBalance.jaybucks} /></li>
+                </ul>}
               </Row>
             </Col>
             <Col sm={1} xs={2}>
-              <div className='angle-right text-right'><Link><img src={'./assets/images/more.png'} alt={translateText('common:MORE_ALT_TEXT')} /></Link></div>
+              <div className='angle-right text-right'><Link><ImageComponent imagePath={MEALPLANMORE_ICON} imagealtText={translateText('common:MORE_ALT_TEXT')} /></Link></div>
             </Col>
           </Well>
         </div>

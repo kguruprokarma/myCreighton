@@ -17,7 +17,8 @@ it('advisorInformation is defined', () => {
           endTime: 'endTime'
         },
         emailAddress: 'emailAddress'
-      }
+      },
+      advisor: 'advisor'
     }
   };
   const advisorInformation = shallow(<AdvisorInformation {...defaultProps} />);

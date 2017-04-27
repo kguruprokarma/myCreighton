@@ -9,6 +9,7 @@
 export const PROFILE = '/profile'; 
 export const ACADEMIC = '/academic';
 export const CLASSES = '/classes';
+export const SCHOOLS_AND_SEMESTER = '/schoolsandsemester';
 export const CLASS_DETAILS = '/classesdetails';
 export const DASHBOARD = '/dashboard';
 export const TODAY = '/today';
@@ -23,8 +24,11 @@ export const PROFESSIONAL = '/professional';
 export const CAMPUSDIRECTORY = '/campusdirectory';
 export const SIMPLE_SEARCH = '/simple';
 export const ADVANCED_SEARCH = '/advanced';
-export const SERCHRESULTS = '/searchresults'; 
-
+export const SERCHRESULTS = '/searchresults';
+export const STAFF_DETAILS = '/staffDetails';
+export const SEMESTERACADEMICS = '/semesteracademics';
+export const LIBRARY_SEARCH = '/librarysearch';
+export const LOGOUT = '/logout';
 
 /*
 * Relative path url's parameters for components

@@ -4,8 +4,10 @@
 
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { convertTo24Format, getScheduledNextDate, scheduleDays } from '../../../common/utility';
+import moment from 'moment';
+import { convertTo24Format, scheduleDays } from '../../../common/utility';
 import { translateText } from '../../../common/translate';
+import * as CommonConstants from '../../../constants/commonConstants';
 
 const classInfo = (classInfoProps) => (
   <article role='article' className='classInfo'>
@@ -23,46 +25,16 @@ const classInfo = (classInfoProps) => (
           <Row>
             <Col xs={6}>
               <p>{classInfoProps.class_held_build_desc} {classInfoProps.class_room_code}</p>
-              <p>{scheduleDays(classInfoProps.class_schedule)} {convertTo24Format(classInfoProps.class_begin_time)} - {convertTo24Format(classInfoProps.class_end_time)}</p>
+              <p>{scheduleDays(classInfoProps.class_schedule)} {convertTo24Format(classInfoProps.class_begin_time)} - {convertTo24Format(classInfoProps.class_end_time)}<span> {CommonConstants.TIMEZONE_CT}</span></p>
             </Col>
             <Col xs={6} className='text-right'>
-              <p>{classInfoProps.instructor_name.last_name}</p>
-              <p><span>{translateText('NEXT')}</span>: {getScheduledNextDate(classInfoProps.class_schedule)}</p>
+              <p>{(classInfoProps.instructor_name !== null && classInfoProps.instructor_name.last_name) ? classInfoProps.instructor_name.last_name:''}</p>
+              <p className='NextDate'><span>{translateText('NEXT')}</span>: {(classInfoProps.currentView === 'eventdetails' || classInfoProps.currentView === 'eventlist') ? moment(classInfoProps.timeStamp).format('MMM DD') : classInfoProps.nextDate}</p>
             </Col>
           </Row>
         </div>
       </Col>
     </Row>
   </article>
-import { ConvertTo24Format, ScheduleDays, GetScheduledNextDate } from '../../../common/utility';
-import { translateText } from '../../../common/translate';
-
-const ClassInfo = (classInfoProps) => (
-    <article className='classInfo'>
-      <Row>
-        <Col xs={12}>
-          <div className='m-grayBorder'>
-            <h3 className='pull-left classDetailHeading'>{classInfoProps.course_title} {classInfoProps.course_number}</h3>
-            <p className='pull-left classDetialOn'>{classInfoProps.course_section}</p>
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12}>
-          <div className='graybtBorder pb10'>
-            <Row>
-              <Col xs={6}>
-                <p>{classInfoProps.class_held_build_desc} {classInfoProps.class_room_code}</p>
-                <p>{classInfoProps.class_schedule} {ConvertTo24Format(classInfoProps.class_begin_time)} - {ConvertTo24Format(classInfoProps.class_end_time)}</p>
-              </Col>
-              <Col xs={6} className='text-right'>
-                <p>{classInfoProps.instructor_name.last_name}</p>
-                <p><span>{translateText('NEXT')}</span>: {GetScheduledNextDate(classInfoProps.class_schedule)}</p>
-              </Col>
-            </Row>
-          </div>
-        </Col>
-      </Row>
-    </article>
 );
 export default classInfo;

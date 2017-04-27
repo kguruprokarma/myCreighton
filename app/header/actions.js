@@ -29,6 +29,16 @@ const closeNav = () => (
     type: types.CLOSE_NAV
   });
 
+const signOutOpen = () => (
+  {
+    type: types.SIGN_OUT_OPEN
+  });
+
+const signOutClose = () => (
+  {
+    type: types.SIGN_OUT_CLOSE
+  });
+
 export function popUpOpen() {
   return function (dispatch) {
     dispatch(openPopUp());
@@ -62,6 +72,18 @@ export function navOpen() {
 export function navClose() {
   return function (dispatch) {
     dispatch(closeNav());
+  };
+}
+
+export function openSignOutPopUp() {
+  return function (dispatch) {
+    dispatch(signOutOpen());
+  };
+}
+
+export function closeSignOutPopUp() {
+  return function (dispatch) {
+    dispatch(signOutClose());
   };
 }
 

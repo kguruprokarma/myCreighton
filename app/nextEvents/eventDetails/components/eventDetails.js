@@ -17,10 +17,10 @@ const NextEventDetails = (assignmentsDetails) => (
     <div className='eventTiming graybtBorder pb10'>
       <p>{assignmentsDetails.data.course_name}</p>
       <Row>
-        <Col md={6} xs={6}>
+        <Col xs={6}>
           <p className='text-left'><span>{translateText('DUE')} </span><span>{convertDueDateTimeStamp(assignmentsDetails.data.assign_due)}</span></p>
         </Col>
-        <Col md={6} xs={6}>
+        <Col xs={6}>
           <p className='eventDate text-right'>{convertDateFromTimeStamp(assignmentsDetails.data.assigned_date)}</p>
         </Col>
       </Row>

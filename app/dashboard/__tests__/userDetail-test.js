@@ -8,11 +8,9 @@ import UserDetail from '../components/userDetail';
 describe('ToggleMealPlan component testing ----->', () => {
   const userDetailTestProps = {
     userDetail: {
-      legal_name: {
-        'first_name': 'John',
-        'last_name': 'Edward',
-        'userRole': 'Student'
-      }
+      'first_name': 'John',
+      'last_name': 'Edward',
+      'userRole': 'Student'      
     }
   };
   const userDetail = shallow(<UserDetail {...userDetailTestProps} />);

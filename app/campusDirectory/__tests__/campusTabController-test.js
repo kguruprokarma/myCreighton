@@ -3,11 +3,15 @@
  */
 
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import TabController from '../components/campusTabController';
 
+const defaultProps = {
+  onSearchTypeChange: () => { }
+};
+
 describe('Campus Directory search type tabController component testing ----->', () => {
-  const SearchController = shallow(<TabController />);
+  const SearchController = shallow(<TabController {...defaultProps} />);
 
   it('Campus Directory search type component is defined', () => {
     expect(SearchController).toBeDefined();
@@ -15,5 +19,9 @@ describe('Campus Directory search type tabController component testing ----->', 
 
   it('Campus Directory search type component buttons', () => {
     expect(SearchController.find('Link').length).toBe(2);
+  });
+  
+  it('Campus Directory search type component buttons', () => {
+    SearchController.find('Link').at(0).simulate('click');
   });
 });
