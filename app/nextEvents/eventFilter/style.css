@@ -120,7 +120,7 @@
 }
 
 .eventFilterCheckGroup .control__indicator.back_checkbox {
-    background-color:#0054a6;
+    background-color:#fff;
 }
 
  .eventFilterCheckGroup .control__indicator.back_checkbox .box-minus {
@@ -129,7 +129,7 @@
     left: 3px;
     width: 8px;
     height: 2px;
-    background-color: #fff;
+    background-color: #0054a6;
     z-index: 9999;
  }
 

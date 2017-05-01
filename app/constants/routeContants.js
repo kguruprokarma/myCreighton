@@ -22,6 +22,7 @@ export const EVENT_LIST = '/eventlist';
 export const EVENT_DETAILS = '/eventdetails';
 export const PROFESSIONAL = '/professional';
 export const CAMPUSDIRECTORY = '/campusdirectory';
+export const ADVANCE_SEARCH_DIRECTORY = '/advancesearch';
 export const SIMPLE_SEARCH = '/simple';
 export const ADVANCED_SEARCH = '/advanced';
 export const SERCHRESULTS = '/searchresults';

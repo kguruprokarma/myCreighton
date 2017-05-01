@@ -13,9 +13,9 @@ const Libraryinformation = (libProps) => (
   
   <article role='article' className='libraryData'>
     { libProps.libData && <div>
-      <h3 className='libraryDataHeading'>{libProps.title}</h3>
-      <div>
-        <p className='libraryAddress'>{libProps.libData.titile}</p>
+      <h4 className='libraryDataHeading graybtBorder pb10 mb10'>{libProps.title}</h4>
+      <div className='pb15'>
+        <Link className='libraryAddress'>{libProps.libData.titile}</Link>
       </div>
       <div className='libraryHours'>
         <Link href={libProps.redirectTo.libraryHours} target='_blank' >{translateText('COMMON:LIBRARY_HOURS')}</Link>

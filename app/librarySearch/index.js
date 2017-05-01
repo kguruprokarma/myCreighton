@@ -12,11 +12,15 @@ import * as actionCreators from './actions';
 import HeaderLabel from '../common/headerLabel';
 import { translateText } from '../common/translate';
 import { browserTitle } from '../common/utility';
-import Libraryleftnav from '../common/libraryleftnav';
+import LeftNavComponent from '../common/leftNavComponent';
 import ReinertAlumni from './components/reinertAlumni';
 import LawLibrary from './components/lawLibrary';
 import HealthSciences from './components/healthSciences';
-import LibrarySearchbox from './components/librarySearch';
+import LibraryTabs from './components/libraryTabs';
+import LibrarySearch from './components/librarySearch';
+import { LIBRARY_JAYSEARCH_CONST, LIBRARY_DATABASE_CONST } from '../common/linksPipeConstants';
+import LinksPipe from '../common/linksPipeComponent';
+import LIBRARY_NAV_LINKS from '../common/navLinksConstants';
 import '../librarySearch/style.css';
 import Spinner from './../common/spinner';
 
@@ -24,7 +28,11 @@ export class LibraryInformation extends React.PureComponent {
 
   constructor(props) {
     super(props);
+    this.state = {
+      tabIndex: 0
+    };
     this.scrollToPosition = this.scrollToPosition.bind(this);
+    this.setTabindex = this.setTabindex.bind(this);
   }
 
   componentWillMount() {
@@ -32,6 +40,11 @@ export class LibraryInformation extends React.PureComponent {
     browserTitle(translateText('common:CAMPUS_DIRECTORY'));
     props.getLibraryData();
   }
+
+  setTabindex(indexid) {
+    this.setState({ tabIndex: indexid });
+  }
+
   scrollToPosition(positionId) {
     if (document.getElementById(positionId) !== null) {
       document.getElementById(positionId).scrollIntoView();
@@ -44,6 +57,13 @@ export class LibraryInformation extends React.PureComponent {
     let aluminDetails;
     let healthDetails;
     let lawDetails;
+
+    this.linksPipeContent = [];
+    if (this.state.tabIndex === 0) {
+      this.linksPipeContent = LIBRARY_JAYSEARCH_CONST;
+    } else if (this.state.tabIndex === 2) {
+      this.linksPipeContent = LIBRARY_DATABASE_CONST;
+    }
 
     map(DATA, (evntData) => {
       map(evntData, (libData) => {
@@ -58,46 +78,44 @@ export class LibraryInformation extends React.PureComponent {
         }
       });
     });
+
+
     return (
       <section role='region'>
         <div className='hidden-xs'>
           <HeaderLabel headerLabel={translateText('common:LIBRARY_SEARCH')} />
         </div>
         {props.loading && <Spinner />}
-        <Row className='pb10 visible-xs'>
-          <Col xs={12}>
-            <div className='btn-group btn-group-justified librarySearch openSansLight'>
-              <Link className='btn btn-default libraryButton plr5' activeClassName='active'>JaySearch</Link>
-              <Link className='btn btn-default libraryButton plr5' activeClassName='active'>e-Journals</Link>
-              <Link className='btn btn-default libraryButton plr5' activeClassName='active'>Library Guides</Link>
-              <Link className='btn btn-default libraryButton plr5' activeClassName='active'>Databases</Link>
-            </div>
-          </Col>
-        </Row>
-    
+        <LibraryTabs tabIndex={this.state.tabIndex} changeTab={this.setTabindex} navLibLinks={LIBRARY_NAV_LINKS} />
         <Row>
+          {/*<Col sm={12} md={9} className='pull-right'>*/}
           <Col sm={9} xs={12} className='pull-right'>
-            <LibrarySearchbox />
-            <div className='libraryLinks hidden graybtBorder pb10'>
-              <Link>Advanced JaySearch</Link><span> | </span><Link>Browse Jaysearch</Link>
-            </div>
-            <div id='container' className='openSansLight'>
+
+            {this.state.tabIndex === 0 &&
+              <LibrarySearch tabindex={this.state.tabIndex} />
+            }
+            {this.linksPipeContent && this.linksPipeContent.length>0 &&
+              <div className='libraryLinks graybtBorder pb10 openSansLight fs1em'>
+                <LinksPipe linksPipeData={this.linksPipeContent} />
+              </div>
+            }
+            <div id='container' className='bookmarkContainer openSansLight pt25 pb35'>
               <p className='boomarkLinks'><Link onClick={() => this.scrollToPosition('reinertAlumni')}>{translateText('COMMON:REINERT_ALUMNI_LIBRARY')}</Link></p>
               <p className='boomarkLinks'><Link onClick={() => this.scrollToPosition('healthScience')} >{translateText('COMMON:HEALTH_SCIENCES_LIBRARY')}</Link></p>
               <p className='boomarkLinks'> <Link onClick={() => this.scrollToPosition('law')}>{translateText('COMMON:LAW_LIBRARY')}</Link></p>
             </div>
-            <div id='reinertAlumni' className='openSansLight graybtBorder pt20 pb20'>
+            <div id='reinertAlumni' className='libraryHeader openSansLight pt15 pb15'>
               {DATA && <ReinertAlumni aluminiData={aluminDetails} scrollTopClick={() => this.scrollToPosition('header')} />}
             </div>
-            <div id='healthScience' className='openSansLight graybtBorder pt20 pb20'>
+            <div id='healthScience' className='libraryHeader openSansLight pt15 pb15'>
               {DATA && <HealthSciences healthData={healthDetails} scrollTopClick={() => this.scrollToPosition('header')} />}
             </div>
-            <div id='law' className='openSansLight pt20 pb20'>
+            <div id='law' className='openSansLight pt15'>
               {DATA && <LawLibrary lawData={lawDetails} scrollTopClick={() => this.scrollToPosition('header')} />}
             </div>
           </Col>
           <Col sm={3} className='hidden-xs'>
-            <Libraryleftnav />
+            <LeftNavComponent tabIndex={this.state.tabIndex} navLibLinks={LIBRARY_NAV_LINKS} changeTab={this.setTabindex} />
           </Col>
         </Row>
       </section>

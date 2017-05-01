@@ -30,7 +30,7 @@ class MainNav extends React.Component {
                 </li> : null
               }
               <li className='navigation-item'><a href={`#${ROUTE_URL.LIBRARY_SEARCH}`}>{translateText('common:LIBRARY_SEARCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
-              <li className='navigation-item'><a>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
+              <li className='navigation-item'><a rel='noopener noreferrer' target='_blank' href='http://help.creighton.edu'>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
             </ul>
           </Row>
         </Grid>

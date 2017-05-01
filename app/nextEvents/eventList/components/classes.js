@@ -22,7 +22,7 @@ const Classes = (classesProps) => (
           <span className='classPlace'> {(classesProps.data !== null && classesProps.data.class_room_code) ? classesProps.data.class_room_code : ''}</span>
         </Col>
         <Col md={2} sm={2} className='text-center'>
-          <span className='classBy'>{convertDateFromTimeStamp((classesProps.data !== null && classesProps.data.timeStamp) ? classesProps.data.timeStamp : '')}</span>
+          <span className='classBy'>{convertDateFromTimeStamp((classesProps.data !== null && classesProps.data.startDate) ? classesProps.data.startDate : '')}</span>
         </Col>
         <Col md={3} sm={3} className='text-right'>
           <div className='classTime'>{(classesProps.data !== null && classesProps.data.class_begin_time !== null) ? convertTo24Format(classesProps.data.class_begin_time) : 'N/A'} - {(classesProps.data !== null && classesProps.data.class_end_time !== null) ? convertTo24Format(classesProps.data.class_end_time) : 'N/A'}<span> {CommonConstants.TIMEZONE_CT}</span></div>
@@ -33,7 +33,7 @@ const Classes = (classesProps) => (
           <span className='classOn'>{getDueTime((classesProps.data !== null && classesProps.data.timeStamp) ? classesProps.data.timeStamp : '')}</span>
         </Col>
         <Col xs={5} className='text-right'>
-          <span className='classBy'>{convertDateFromTimeStamp((classesProps.data !== null && classesProps.data.timeStamp) ? classesProps.data.timeStamp : '')}</span>
+          <span className='classBy'>{convertDateFromTimeStamp((classesProps.data !== null && classesProps.data.startDate) ? classesProps.data.startDate : '')}</span>
         </Col>
         <Col xs={7}>
           <h2 className='mb0 classesHeading'>{(classesProps.data !== null && classesProps.data.course_title) ? classesProps.data.course_title : ''} {(classesProps.data !== null && classesProps.data.course_number) ? classesProps.data.course_number : ''} </h2>

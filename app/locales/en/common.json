@@ -278,12 +278,23 @@
   "SIGNOUT_CANCEL_TEXT": "Cancel",
   "SIGNOUT_OK_TEXT": "Ok",
   "SIGNOUT_CONFIRM_TEXT": "Logout Confirmation",
-  "E-JOURNAL": "e-Journals",
+  "E_JOURNAL": "e-Journals",
   "LIBRARY_GUIDES": "Library Guides",
-  "DATABASES": "Databases",
+  "DATA_BASES": "Databases",
+  "LIB_JAYSEARCH": "JaySearch",
 
   "ALL_DAY_TEXT": "All Day",
   "NA_TEXT": "NA",
 
-  "LOGOUT_TEXT": "Logout"
+  "LOGOUT_TEXT": "Logout",
+  
+  "CAMPUSDIRECTORY_GROUPS": "Groups",
+  "COMMON_SEARCH": "Search",
+  "ADVANCED_JAYSEARCH": "Advanced JaySearch",
+  "BROWSE_JAYSEARCH": "Browse JaySearch",
+  "BROWSE_ALL_DATABASES": "Browse all databases",
+  "BROWSE_REINERT_ALUMNI_DATABASES": "Browse Reinert-Alumni databases",
+  "BROWSE_HEALTH_SCIENCE_DATABASES": "Browse Health Sciences database",
+  "OPTIONAL_ENTRY_NARROWS_THE_SEARCH_RESULTS": "Optional entry narrows the search results.",
+  "OPTIONAL_KEYWORD":"Optional Keyword"
 }

@@ -92,3 +92,4 @@ export const LAW_ONLINE_CHAT = 'https://libraryh3lp.com/chat/3libraryq@chat.libr
 export const LAW_DIRECTORY_URL = 'https://law.creighton.edu/current-students/law-library/administration-and-staff';
 export const LAW_LIBSERVICES_URL = 'https://law.creighton.edu/current-students/law-library/services';
 export const LAW_WEBSITE_URL = 'https://law.creighton.edu/current-students/law-library';
+export const LIBRARY_SEARCH_URL = 'http://creighton-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/dlSearch.do?';

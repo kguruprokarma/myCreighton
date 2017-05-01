@@ -10,7 +10,7 @@ import * as CommonConstants from '../../constants/commonConstants';
 
 const More = (moreProps) => ( 
   <section>
-    <Row className='libraryMore pt10 pb10'>
+    <Row className='libraryMore pt10'>
       <Col sm={2} xs={12}>
         <h4 className='libraryDataHeading'>{translateText('common:MORE')}</h4>
       </Col>
@@ -26,10 +26,10 @@ const More = (moreProps) => (
           <Link href={moreProps.redirectTo.jaySearch} target='_blank' >{translateText('common:JAY_SEARCH')}</Link></span>}
       </Col>
     </Row>
-    <div>
+    {/*<div>
       <Col className='pull-right'>
         <Link onClick={moreProps.scrollTopClick}><span className='glyphicon glyphicon-arrow-up pr5' /> {translateText('common:PAGE_TOP')}</Link>
       </Col>
-    </div>
+    </div>*/}
   </section>);
 export default More;

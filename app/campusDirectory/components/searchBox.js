@@ -116,7 +116,7 @@ export class SearchBox extends Component {
     }
     if (current) {
       current.classList.add('selected');
-      const text = current.querySelector('span').innerText.split(' ');
+      const text = current.querySelector('span').textContent.split(' ');
       this.setState({ searchText: (`${text[0]}, ${text[1]}`)});
       current.scrollIntoView(false);
     }

@@ -130,6 +130,141 @@
     background: #dadada;
 }
 
+/* Styling for Campus Directory Advanced search */
+.searchPopup .popup-box-shaow {
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.searchPopupPointer {
+    background: url('../assets/images/popup-arrow.png') no-repeat;
+    position: absolute;
+    top: -12px;
+    right: 171px;
+    width: 20px;
+    height: 11px;
+    margin-top: 6px;
+}
+
+.searchSelect:hover,
+.searchSelect:active,
+.searchSelect:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.searchSubmit {
+    background-color: #fff;
+    color: #0079b3;
+    border: 1px solid #0079b3;
+}
+
+.searchSubmit:hover,
+.searchSubmit:active,
+.searchSubmit:focus {
+    background-color: #fff;
+    color: #0079b3;
+    border: 1px solid #0079b3;
+}
+
+.select-content .searchPopup {
+    z-index: 10000;
+    background: #fff;
+    position: absolute;
+    width: 200px;
+}
+
+.btn.btn-sm.btn-secondary.dropdown-toggle.dropdown-toggle-split {
+    border: 1px solid #ccc;
+}
+
+.searchPopUp .control__indicator {
+    height: 18px;
+    width: 18px;
+    margin-top: -5px;
+    border-radius: 50%;
+}
+
+.searchPopUp .control input:checked ~ .control__indicator:after {
+    left: 6px;
+    top: 2px;
+}
+
+.searchPopUp label:after {
+    content: '';
+}
+
+.searchDone {
+    border: none;
+    background-color: #fff;
+    color: #0079b3;
+    font-size: 1em; /* font size 15 in pixel */
+}
+
+.searchDone:hover,
+.searchDone:active,
+.searchDone:focus {
+    border-color: #0079b3;
+    background-color: #fff;
+    outline: none;
+    box-shadow: none;
+}
+
+.styled-select select {
+   background: url('../assets/images/down-arrow.svg') no-repeat right 10px center;
+   width: 100%;
+   border: 1px solid #ccc;
+   margin-right: 15px;
+   -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.advancedSearch, .bootstrap-typeahead-input-main {
+    border: 1px solid #ccc;
+    color: #868686;
+    font-size: 1.266666666666667em;
+    position: relative;
+    padding-left: 26px;
+}
+
+.advancedSearch:focus,
+.advancedSearch:active,
+.advncSearch:focus,
+.advncSearch:active {
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.advncSearch.Dropdown {
+    color: #0079b3;
+}
+
+.advncLabel:after { 
+    content: "\a"; 
+    white-space: pre; 
+}
+
+.icon-addon-right.advancedTextBox {
+    top: 9px;
+    width: 15px;
+    height: 15px;
+}
+
+.icon-addon-right.advancedTextBox img {
+    width: 6px;
+    padding-bottom: 6px;
+}
+
+
+/* Styling for Campus Directory Advanced search */
+
 @media screen and (max-width: 758px) {
 
     .cmpsDirSearch,.cmpsDirSearchBtn {

@@ -54,6 +54,7 @@ export const TRUE = true;
 export const TRUE_TEXT = 'true';
 export const CHILDREN = 'children';
 export const CLASS_EVENTS = 'Class events';
+export const CALENDAR_EVENTS = 'Creighton Calendar';
 export const CLASS_ASSIGNMENTS = 'Class assignments';
 export const TESTS_AND_QUIZZES = 'Tests and Quizzes';
 export const DISPLAY_OPTIONS = 'displayOptions';
@@ -89,3 +90,7 @@ export const TIMEZONE_CT = 'CT';
 
 export const MOMENT_DAYS = 'days';
 export const MOMENT_AMERICA_CHICAGO_TIMEZONE = 'America/Chicago';
+export const DROPDOWN_SELECT_TEXT = '-select-';
+export const COMMON_SELECT_TEXT = 'select';
+
+

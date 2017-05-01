@@ -2,7 +2,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { filter, map, sortBy, uniqBy, each, find } from 'lodash';
+import { filter, map, sortBy, uniqBy, each } from 'lodash';
 import { Col, Row, Alert } from 'react-bootstrap';
 import moment from 'moment';
 import HeaderLabel from './../../common/headerLabel';
@@ -15,12 +15,12 @@ import * as classesActionCreators from '../../classes/classList/actions';
 import * as NextEventsConstants from '../../constants/nextEventsConstants';
 import * as CommonConstants from '../../constants/commonConstants';
 import { translateText } from '../../common/translate';
-import { authUserDetails, dataFilterAddingData, createTimeStamp, caldenderItemWithTwoDates, convertEncodeURIComponent, addedTypeField, browserTitle, getClassAndAssignmentAPIData, caldenderEventsTimeStamp } from '../../common/utility';
+import { authUserDetails, dataFilterAddingData, caldenderItemWithTwoDates, convertEncodeURIComponent, addedTypeField, browserTitle, getClassAndAssignmentAPIData, caldenderEventsTimeStamp } from '../../common/utility';
 import { getClassesData, getAssigmentsAndQuizzesData, prepareDisplayObject } from '../eventList/components/nextEventUtility';
 import AlertComponent from '../../common/alertComponent';
 import './style.css';
 import Spinner from '../../common/spinner';
-import EventDetails from '../eventDetails/index';
+import EventDetailsPage from '../eventDetails/index';
 
 export class EventList extends React.PureComponent {
   constructor() {
@@ -33,7 +33,7 @@ export class EventList extends React.PureComponent {
   componentWillMount() {
     const props = this.props;
     props.onMasterDataChange(false);
-    
+
     props.onLoading();
     if (this.userReqObj !== undefined && authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {
       const result = getClassAndAssignmentAPIData(this.userReqObj).catch((error) => {
@@ -94,8 +94,8 @@ export class EventList extends React.PureComponent {
         finalCalenderEvents.push(...remainingEventsWithDates, ...naEvents, ...allDayEvents);
       }
       if (assignmentsData && classesData) {
-        const classObjs = dataFilterAddingData(classesData.data);        
-        const assignmentObjs = addedTypeField(assignmentsData.data);       
+        const classObjs = dataFilterAddingData(classesData.data);
+        const assignmentObjs = addedTypeField(assignmentsData.data);
         classObjs.map((classObj) => {
           const classObject = classObj;
           const assignmentObjects = filter(assignmentObjs, { 'sis_source_id': classObject.sis_source_id });
@@ -105,7 +105,6 @@ export class EventList extends React.PureComponent {
               return EVENT_DATA;
             });
           }
-  
           classObject.assignmentData = assignmentObjects;
           classObject.type = NextEventsConstants.CLASSES_DETAILS;
           EVENT_DATA.push(classObject);
@@ -116,10 +115,10 @@ export class EventList extends React.PureComponent {
         EVENT_DATA.push(...finalCalenderEvents);
         localStorage.setItem('eventList', JSON.stringify(EVENT_DATA));
       }
-      let val = props.EventChangedValue;    
+      let val = props.EventChangedValue;
       if (localStorage.getItem('setFilterValue') === null) {
         localStorage.setItem('setFilterValue', CommonConstants.EVENT_FILTER_7_DAYS);
-      }      
+      }
       if (localStorage.getItem(CommonConstants.DISPLAY_OPTIONS) === null) {
         this.getEventDisplayOptions();
       }
@@ -128,7 +127,6 @@ export class EventList extends React.PureComponent {
       const result = this.getSelectedFilterData(val, val1);
       return result;
     }
-
     return EVENT_DATA;
   }
 
@@ -142,7 +140,6 @@ export class EventList extends React.PureComponent {
     let eventFilterData;
     let options;
 
-
     if (displayOptionFilter && filterSelection) {
       day = filterSelection;
       options = JSON.parse(displayOptionFilter);
@@ -155,7 +152,6 @@ export class EventList extends React.PureComponent {
     } else {
       day = filterSelection;
     }
-
 
     if (localStorage !== undefined) {
       eventDetails = JSON.parse(localStorage.getItem('eventList'));
@@ -178,7 +174,7 @@ export class EventList extends React.PureComponent {
         }
       }
     });
-    
+
     if (filterlist && filterlist.length > 0) {
       sortedEventData = sortBy(filterlist, ['timeStamp']);
       if (sortedEventData && sortedEventData.length > 0 && day === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
@@ -198,26 +194,16 @@ export class EventList extends React.PureComponent {
       if (options && keys && keys.length > 0) {
         eventFilterData = this.sortingDisplayOptionSelection(options, eventFilterData);
         localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
-      } /*else {
-        if (eventFilterData) {
-          localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
-          this.getEventDisplayOptions();
-        }
-      }*/
+      }
     }
-    
     return eventFilterData;
   }
-
 
   getEventDisplayOptions() {
     let eventDetails;
     const displayOptions = [];
     const classes = [];
     const classAssignments = [];
-    // const quizzes = [];
-    // let classEvent = [];
-
     if (localStorage !== undefined) {
       eventDetails = JSON.parse(localStorage.getItem('eventList'));
     }
@@ -232,35 +218,24 @@ export class EventList extends React.PureComponent {
         if (eventObject.assignmentData && eventObject.assignmentData.length > 0) {
           const assignmentDetails = eventObject.assignmentData;
           map(assignmentDetails, (assignmentData) => {
-            //classAssignments.push(assignmentData);
             if (assignmentData.type === NextEventsConstants.ASSIGNMENTS || assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
               classAssignments.push(data);
             }
-            // else if (assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
-            //   quizzes.push(data);
-            // }
           });
         }
       }
     });
-    //const ASSIGNMENTS_DATA = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
-    //const classEvent = prepareAssignmentOrQuizze(ASSIGNMENTS_DATA);
-
     const matchedclassesObj = map(uniqBy(classes, CommonConstants.SIS_SOURCE_ID));
     const matchedAssignments = map(uniqBy(classAssignments, CommonConstants.SIS_SOURCE_ID));
-    //const matchedquizzes = map(uniqBy(quizzes, CommonConstants.SIS_SOURCE_ID));
     const classesObj = prepareDisplayObject(CommonConstants.CLASSES, matchedclassesObj);
     const assignmentObj = prepareDisplayObject(CommonConstants.CLASS_EVENTS, matchedAssignments);
-    //const quizzesObj = prepareDisplayObject(CommonConstants.TESTS_AND_QUIZZES, matchedquizzes);
-    //const classEvents = prepareDisplayObject(CommonConstants.CLASS_EVENTS, classEvent);
     const allEventsObj = prepareDisplayObject(CommonConstants.EVENT_FILTER_ALL, '');
-
+    const calenderObj = prepareDisplayObject(CommonConstants.CALENDAR_EVENTS, '');
 
     displayOptions.push(allEventsObj);
     displayOptions.push(classesObj);
     displayOptions.push(assignmentObj);
-    //displayOptions.push(quizzesObj);
-    //displayOptions.push(classEvents);
+    displayOptions.push(calenderObj);
     localStorage.setItem(CommonConstants.DISPLAY_OPTIONS, JSON.stringify(displayOptions));
 
     const selectedObj = {};
@@ -281,17 +256,15 @@ export class EventList extends React.PureComponent {
           }
           selectedObj.displayOptions[item.itemName] = selectedChildItems;
         }
-      } 
+      }
       localStorage.setItem('setDisplayOptionValue', JSON.stringify(selectedObj.displayOptions));
-    }   
+    }
   }
 
   sortingDisplayOptionSelection(options, eventFilterData) {
     let classesIds = [];
-    //const assignmentsIds = [];
-    //const quizzesIds = [];
     let classEventsIds = [];
-    //const displayOptionData = [];
+    let showCalendarEvents;
     const finalResult = [];
     const keys = Object.keys(options);
     const today = moment()._d;
@@ -299,32 +272,24 @@ export class EventList extends React.PureComponent {
       if (key === CommonConstants.CLASSES) {
         classesIds = options[key];
       }
-      // else if (key === CommonConstants.CLASS_ASSIGNMENTS) {
-      //   assignmentsIds = options.displayOptions[key];
-      // } else if (key === CommonConstants.TESTS_AND_QUIZZES) {
-      //   quizzesIds = options.displayOptions[key];
-      // } else
       if (key === CommonConstants.CLASS_EVENTS) {
         classEventsIds = options[key];
+      }
+      if (key === CommonConstants.CALENDAR_EVENTS) {
+        showCalendarEvents = true;
       }
     });
     if (classesIds && classesIds.length > 0) {
       const result = getClassesData(classesIds, eventFilterData, today);
       finalResult.push(result);
     }
-    // if (assignmentsIds && assignmentsIds.length > 0) {
-    //   displayOptionData = getAssigmentsAndQuizzesData(assignmentsIds, eventFilterData, today);
-    //   finalResult.push(displayOptionData);
-    // }
-    // if (quizzesIds && quizzesIds.length > 0) {
-    //   const result = getAssigmentsAndQuizzesData(assignmentsIds, eventFilterData, today);
-    //   finalResult.push(result);
-    // }
     if (classEventsIds && classEventsIds.length > 0) {
       const result = getAssigmentsAndQuizzesData(classEventsIds, eventFilterData, today);
       finalResult.push(result);
     }
-    finalResult.push(filter(eventFilterData, {type: NextEventsConstants.CALENDER}));
+    if (showCalendarEvents) {
+      finalResult.push(filter(eventFilterData, {type: NextEventsConstants.CALENDER}));
+    }
     const displayFinal = [];
     each(finalResult, (nexteventchildObj) => {
       each(nexteventchildObj, (childObj) => {
@@ -387,18 +352,15 @@ export class EventList extends React.PureComponent {
             {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} currentIndex={index} />}
             {eventType.type === NextEventsConstants.CALENDER && <OutlookCalendar data={eventType} currentIndex={index} />}
           </li>
-          )) :
+            )) :
           <Alert bsStyle='warning'>
             <div>
               <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
               <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
             </div>
           </Alert>
-          }
+            }
         </ul>
-        {/*{((!EVENT_DATA && !props.loading) || (EVENT_DATA.error)) &&
-          <AlertComponent typename='danger' msg={translateText('common:NO_RESPONSE')} />
-        }*/}
       </article>
     );
   }
@@ -420,7 +382,7 @@ export class EventList extends React.PureComponent {
     }
     return (
       <span>
-        <EventDetails params={eventData} />
+        <EventDetailsPage params={eventData} />
       </span>
     );
   }

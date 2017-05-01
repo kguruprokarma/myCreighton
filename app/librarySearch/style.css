@@ -51,6 +51,8 @@
 .btn.btn-default.libraryButton.active:focus  {
     outline: 0;
     box-shadow: none;
+    background-color: #019cdb;
+    color: #fff;
 }
 
 .btn.btn-default.libraryButton.active  {
@@ -59,37 +61,37 @@
     color: #fff;
 }
 
-.sr-only {
- position: absolute;
- width: 1px;
- height: 1px;
- padding: 0;
- margin: -1px;
- overflow: hidden;
- clip: rect(0, 0, 0, 0);
- border: 0;
- }
-
- .btn-group .btn btn-default {
-     border-left: 1px solid #ddd;
- }
-
-.btn.btn-default.organsisationBtn {
-    width: 90%;
-}
-
-.btn.btn-default.organisationToggle {
-    width: 10%;
-    border-left: 1px solid #ddd;
+.bookmarkContainer {
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .btn-group>.btn.libraryButton:not(:first-child):not(:last-child):not(.dropdown-toggle) {
     border-right: 0;
 }
 
+.icon-addon.librarySearch {
+    left: 21px;
+    top: 12px;
+}
+
 @media screen and (max-width: 769px) {
 
     .libraryLinks {
         text-align: center;
+    }
+
+    .libraryDataHeading {
+        border: none;
+    }
+
+    .libraryHeader {
+        border-bottom:1px solid #c8c7cc;
+	    overflow: hidden;
+    }
+
+    .bookmarkContainer {
+        padding-top: 15px;
+        padding-bottom: 10px;
     }
 }

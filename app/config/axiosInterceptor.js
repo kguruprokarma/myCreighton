@@ -8,10 +8,7 @@ import * as CommonConstants from '../constants/commonConstants';
 // Request interceptor
 axios.interceptors.request.use((confi) => {
   const config =confi;
-  const URL = config.url.split('/');
-  if (indexOf(URL, 'logoutadfs') < 0) {
-    config.withCredentials = true;
-  }
+  config.withCredentials = true;
   return config;
 }, (error) => Promise.reject(error));
 
@@ -42,7 +39,7 @@ axios.interceptors.response.use((response) => {
   return response;
 }, (error) => {
   console.log(error);
-  if (error.response.status === 401) {
+  if (error && error.response && error.response.status === 401) {
     const currentUrl = encodeURIComponent(document.URL);
     window.location = urlConstants.ADFS_LOGIN_URL + currentUrl;
   }

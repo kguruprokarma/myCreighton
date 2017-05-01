@@ -22,10 +22,10 @@ export class Accordion extends React.Component {
   accordToggle() {
     const props = this.props;
     if (props.isAccordToggle) {
-      props.hideAccordionTab();
+      //props.hideAccordionTab();
       this.imageClass = '';
     } else {
-      props.showAccordionTab();
+      //props.showAccordionTab();
       this.imageClass = 'revImage';
     }
   }

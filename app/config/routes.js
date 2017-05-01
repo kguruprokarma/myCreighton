@@ -25,6 +25,7 @@ import EventListComponent from '../nextEvents/eventList';
 import EventDetails from '../nextEvents/eventDetails';
 import Professional from '../profile/staff/professional';
 import CampusDirectoryComponent from '../campusDirectory';
+import AdvanceSearchDirectory from '../campusDirectory/advanceSearch/index';
 import SearchResultsComponent from '../searchResults';
 import semesterAcademics from '../schoolandsemester/components/academics';
 import axiosInterceptor from './axiosInterceptor';
@@ -55,6 +56,7 @@ const routes = (
           <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.EVENT_ASSIGN_DUE + ROUTE_URL.INDEX_PARAM} title='Event Detail - ' component={EventDetails} />
           <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.INDEX_PARAM} title='Event Detail - ' component={EventDetails} />
           <Route path={ROUTE_URL.STAFF + ROUTE_URL.PROFESSIONAL} title='Professional - ' component={Professional} />
+          <Route path={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.ADVANCE_SEARCH_DIRECTORY} title='Advance Directory - ' component={AdvanceSearchDirectory} />
           <Route path={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SEARCH_TYPE} title='Campus Directory - ' component={CampusDirectoryComponent} />
           <Route path={ROUTE_URL.SERCHRESULTS + ROUTE_URL.SEARCH_QUERY} title='Search - ' component={SearchResultsComponent} />
           <Route path={ROUTE_URL.STAFF_DETAILS} title='StaffDetails - ' component={StaffDetails} />

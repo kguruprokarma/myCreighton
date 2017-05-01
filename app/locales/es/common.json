@@ -271,13 +271,22 @@
   "SIGNOUT_CANCEL_TEXT": "Cancelar",
   "SIGNOUT_OK_TEXT": "De acuerdo",
   "SIGNOUT_CONFIRM_TEXT": "Confirmación de salida",
-  "E-JOURNAL": "Revistas electrónicas",
+  "E-E_JOURNAL": "Revistas electrónicas",
   "LIBRARY_GUIDES": "Guías de la biblioteca",
-  "DATABASES": "Bases de datos",
+  "DATA_BASES": "Bases de datos",
   "SEARCH_BOOKS_ARTICLES_MORE":"Buscar libros, artículos, más",
-
+  "LIB_JAYSEARCH": "JaySearch",
   "ALL_DAY_TEXT": "Todo el dia",
   "NA_TEXT": "NA",
 
-  "LOGOUT_TEXT": "Cerrar sesión"
+  "LOGOUT_TEXT": "Cerrar sesión",
+  "CAMPUSDIRECTORY_GROUPS": "GRUPOS",
+  "COMMON_SEARCH": "Buscar",
+  "ADVANCED_JAYSEARCH": "Avanzado JaySearch",
+  "BROWSE_JAYSEARCH": "Navegar por JaySearch",
+  "BROWSE_ALL_DATABASES": "Examinar todas las bases de datos",
+  "BROWSE_REINERT_ALUMNI_DATABASES": "Navegar por las bases de datos Reinert-Alumni",
+  "BROWSE_HEALTH_SCIENCE_DATABASES": "Navegar por la base de datos de Ciencias de la Salud",
+  "OPTIONAL_ENTRY_NARROWS_THE_SEARCH_RESULTS": "La entrada opcional reduce los resultados de la búsqueda.",
+  "OPTIONAL_KEYWORD":"Palabra clave opcional"
 }
