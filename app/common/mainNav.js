@@ -8,6 +8,7 @@ import { translateText } from './translate';
 import * as CommonConstants from '../constants/commonConstants';
 import { authUserDetails } from './utility';
 import * as ROUTE_URL from '../constants/routeContants';
+import * as URL_CONSTANTS from '../constants/urlConstants';
 
 class MainNav extends React.Component {
   componentWillMount() {
@@ -21,7 +22,7 @@ class MainNav extends React.Component {
         <Grid>
           <Row>
             <ul className='main-navigation'>
-              <li className='navigation-item hidden-lg'><h2 className=' pl15 pt10 pb10 pr15 menuHeading m0'>{translateText('common:HAMBURGER_MENU')}</h2></li>
+              <li className='navigation-item hidden-lg menu-heading'><h2 className=' pl15 pt10 pb10 pr15 menuHeading m0'>{translateText('common:HAMBURGER_MENU')}</h2></li>
               <li className='navigation-item hidden-lg'><a href={`#${ROUTE_URL.DASHBOARD}`}>{translateText('common:DASH_BOARD')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               <li className='navigation-item'><a>{translateText('common:CREIGHTON_SERVICES_AND_RESOURCES')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               {
@@ -30,7 +31,7 @@ class MainNav extends React.Component {
                 </li> : null
               }
               <li className='navigation-item'><a href={`#${ROUTE_URL.LIBRARY_SEARCH}`}>{translateText('common:LIBRARY_SEARCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
-              <li className='navigation-item'><a rel='noopener noreferrer' target='_blank' href='http://help.creighton.edu'>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
+              <li className='navigation-item'><a rel='noopener noreferrer' target='_blank' href={URL_CONSTANTS.LINK_TO_DOIT_SERVICES}>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
             </ul>
           </Row>
         </Grid>

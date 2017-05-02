@@ -93,3 +93,6 @@ export const LAW_DIRECTORY_URL = 'https://law.creighton.edu/current-students/law
 export const LAW_LIBSERVICES_URL = 'https://law.creighton.edu/current-students/law-library/services';
 export const LAW_WEBSITE_URL = 'https://law.creighton.edu/current-students/law-library';
 export const LIBRARY_SEARCH_URL = 'http://creighton-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/dlSearch.do?';
+
+export const LINK_TO_DOIT_SERVICES = 'http://help.creighton.edu';
+export const CREIGHTON_LOGIN= 'https://login.cuhsl.creighton.edu/login';

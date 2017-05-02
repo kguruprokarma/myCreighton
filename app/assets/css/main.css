@@ -562,6 +562,11 @@ a:focus, a:active, a:hover {
     color: #fff;
 }
 
+.select.input-lg {
+    height: auto;
+    line-height: auto;
+}
+
 /* Media for small devices */
 @media screen and (min-width: 1170px) {
 
@@ -604,9 +609,6 @@ a:focus, a:active, a:hover {
 
 @media screen and (min-width: 1025px) and (max-width: 1170px) {
    
-    .hamburgerMenu {
-        display: none;
-    }
     .logo {
         text-align: left;
         text-transform: capitalize;
@@ -614,6 +616,17 @@ a:focus, a:active, a:hover {
 
     .glyphicon.glyphicon-chevron-right {
         display: none;
+    }
+}
+
+@media screen and (min-width: 1025px) 
+{
+     .hamburgerMenu, .main-navigation li.menu-heading {
+        display: none;
+    }
+
+    .mobile-header {
+        text-align:left;
     }
 }
 
@@ -645,7 +658,7 @@ a:focus, a:active, a:hover {
         transition: .5s;
         -moz-transition: .5s;
         -webkit-transition: .5s;
-        left: -100%;
+        left: -103%;
     }
 
     .main-navigation {
@@ -740,9 +753,9 @@ a:focus, a:active, a:hover {
     }
 }
 
-
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 	.form-group input::-ms-clear {
         display: none;
     }
 }
+

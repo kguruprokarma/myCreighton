@@ -74,9 +74,12 @@ export const REINERT_ALUMNI_LIBRARY = 'REINERT-ALUMNI LIBRARY';
 export const HEALTH_SCIENCES_LIBRARY = 'HEALTH SCIENCES LIBRARY';
 export const LAW_LIBRARY = 'LAW LIBRARY';
 
-export const IDLE_TIME_OUT = 1800000;
+export const IDLE_TIME_OUT = 30 * 60 * 1000;
+export const SESSION_STORAGE_INTERVAL_TIME = 30 * 60 * 1000;
 
 export const ONLINE_CLASSES = 'ONLINE';
+export const ONLINE_CLASSES_DISPLAY = 'Online';
+export const ONLINE_CLASSES_HEADER = 'Online Classes';
 
 export const DAY_SUNDAY = 'Sunday';
 export const DAY_MONDAY = 'Monday';
@@ -90,7 +93,7 @@ export const TIMEZONE_CT = 'CT';
 
 export const MOMENT_DAYS = 'days';
 export const MOMENT_AMERICA_CHICAGO_TIMEZONE = 'America/Chicago';
-export const DROPDOWN_SELECT_TEXT = '-select-';
-export const COMMON_SELECT_TEXT = 'select';
+export const DROPDOWN_SELECT_TEXT = '-Select-';
+export const COMMON_SELECT_TEXT = 'Select';
 
 

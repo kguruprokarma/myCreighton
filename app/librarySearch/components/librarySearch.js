@@ -26,8 +26,15 @@ export class LibrarySearch extends React.PureComponent {
     this.setState({ searchText: query});
   }
   search() {
+    if (!this.state.searchText) {
+      return false;
+    }
     if (this.props.tabindex === 0) {
       const queryParamsArray = ['institution=01CRU', 'vid=01CRU', 'tab=default_tab', 'search_scope=EVERYTHING', 'mode=Basic', 'displayMode=full', 'bulkSize=10', 'highlight=true', 'dum=true', `query=any,contains,${this.state.searchText}`, 'displayField=all', 'pcAvailabiltyMode=false'];
+      dynamicUrlGeneration(urlConstants.LIBRARY_SEARCH_URL, queryParamsArray);
+    }
+    if (this.props.tabindex === 1) {
+      const queryParamsArray = [`vl(freeText0)=${this.state.searchText}`, 'institution=01CRU', 'vid=01CRU', 'indx=1', 'bulkSize=30', 'dym=false', 'loc=local,scope:(AZ01CRU)', 'fn=goAlmaAz', 'almaAzSearch=true', 'initialSearch=true'];
       dynamicUrlGeneration(urlConstants.LIBRARY_SEARCH_URL, queryParamsArray);
     }
   }
@@ -51,7 +58,7 @@ export class LibrarySearch extends React.PureComponent {
               </Col>
               <Col xs={12} sm={3}>
                 <FormGroup>
-                  <Link onClick={this.search} className='openSansLight btn btn-default btn-large btn-block cmpsDirSearchBtn mt20 pl10 searchButton'>{translateText('common:SEARCH')}</Link>
+                  <Link onClick={this.search} className='openSansLight btn btn-default btn-large btn-block librarySearchBtn mt20 pl10 searchButton' disabled={this.state.searchText.trim() === '' ? true : false}>{translateText('common:SEARCH')}</Link>
                 </FormGroup>
               </Col>
             </Row>

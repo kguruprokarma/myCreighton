@@ -7,23 +7,26 @@ import { Link } from 'react-router';
 import ClassInfo from './classInfo';
 import DayHeader from './dayHeader';
 import { translateText } from '../../../common/translate';
-import { todayHeader } from '../../../common/utility';
 import * as ROUTE_URL from '../../../constants/routeContants';
 
-const TodayClasses = (todayProps) => (
-  <div>
-    <DayHeader day={todayHeader()} />
-    {
+const TodayClasses = (todayProps) => {
+  let lastHeader = null;
+  let presentHeader;
+  return (
+    <div>{
       todayProps.listOfData.length > 0 ?
-      todayProps.listOfData.map((todayClass, index) => (
-        <div key={index} className='cls'>
-          <Link to={`${ROUTE_URL.CLASS_DETAILS}/${todayProps.catagory}/${todayClass.sis_source_id}/${index}`}>
-            <ClassInfo data={todayClass} />
-          </Link>
-        </div>
-      )) : translateText('common:NO_CLASSES_SCHEDULED')
+        todayProps.listOfData.map((todayClass, todayindex) => {
+          presentHeader = todayClass.day;
+          return (
+            <div key={todayindex} className='cls'>
+              {lastHeader !== presentHeader && <DayHeader day={lastHeader = todayClass.day} />}
+              <Link to={`${ROUTE_URL.CLASS_DETAILS}/${todayProps.catagory}/${todayClass.sis_source_id}/${todayindex}`}>
+                <ClassInfo data={todayClass} />
+              </Link>
+            </div>);
+        }) : translateText('common:NO_CLASSES_SCHEDULED')
     }
-  </div>
-);
+    </div>); 
+};
 
 export default TodayClasses;

@@ -41,10 +41,10 @@ describe('TodayClasses component testing ----->', () => {
     expect(todayClassesC).toBeDefined();
   });
 
-  it('TodayClasses header text', () => {
-    const item = todayClassesC.find('DayHeader');
-    expect(item.props().day).toBe(todayHeaderText);
-  });
+  // it('TodayClasses header text', () => {
+  //   const item = todayClassesC.find('DayHeader');
+  //   expect(item.props().day).toBe(todayHeaderText);
+  // });
 
   it('WeekClasses component contails ClassInfo component length', () => {
     expect(todayClassesC.find('ClassInfo').length).toBe(1);

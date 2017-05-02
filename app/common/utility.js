@@ -77,6 +77,13 @@ export const getScheduledNextDate = (schedules) => {
   return (classSchedules && classSchedules.length > 0) ? classSchedules : '';
 };
 
+export const todayHeader = () => {
+  const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
+  const months = [translateText('common:COMMON_JAN'), translateText('common:COMMON_FEB'), translateText('common:COMMON_MAR'), translateText('common:COMMON_APR'), translateText('common:COMMON_MAY'), translateText('common:COMMON_JUNE'), translateText('common:COMMON_JULY'), translateText('common:COMMON_AUG'), translateText('common:COMMON_SEPT'), translateText('common:COMMON_OCT'), translateText('common:COMMON_NOV'), translateText('common:COMMON_DEC')];
+  const today = new Date();
+  return `${days[today.getDay()]} ${months[today.getMonth()]} ${today.getDate()}`;
+};
+
 // Filter fot today's class schedule
 export const filterTodaysClassSchedule = (schedule) => {
   const days = { 0: 'U', 1: 'M', 2: 'T', 3: 'W', 4: 'R', 5: 'F', 6: 'S' };
@@ -84,10 +91,19 @@ export const filterTodaysClassSchedule = (schedule) => {
   const daysArray = [CommonConstants.DAY_SUNDAY, CommonConstants.DAY_MONDAY, CommonConstants.DAY_TUESDAY, CommonConstants.DAY_WEDNESDAY, CommonConstants.DAY_THURSDAY, CommonConstants.DAY_FRIDAY, CommonConstants.DAY_SATURDAY];
   const currentDate = moment().toDate();
   const today = days[moment(currentDate).get('day')];
+  const onlineClassesArray = [];
 
   if (!schedule) return schedule;
   const scheduleTodayArray = [];
   schedule.map((item) => {
+    const onlineItems = item;
+    if (onlineItems.class_building_code === CommonConstants.ONLINE_CLASSES) {
+      onlineItems.day = CommonConstants.ONLINE_CLASSES_HEADER;
+      onlineItems.class_begin_time = '0000';
+      onlineItems.class_end_time = null;
+      onlineItems.class_schedule = null;
+      onlineClassesArray.push(onlineItems);
+    }
     const tempItem = JSON.parse(JSON.stringify(item));
     if (item.class_schedule !== null && item.class_schedule !== '') {
       if (item.class_schedule.indexOf(today) !== -1) {
@@ -97,17 +113,21 @@ export const filterTodaysClassSchedule = (schedule) => {
           const currentDay = moment(currentDate).get('day');
           if (requiredDay === currentDay) {
             tempItem.nextDate = moment(nextDateArray[i].date).format('MMM DD');
-          }
+          }          
         }
         //This below commented if condition can be used in Sprint-6.
         //if (item.class_begin_time !== null && item.class_end_time !== null && item.class_building_code !== CommonConstants.ONLINE_CLASSES) {
         if (item.class_begin_time !== null && item.class_end_time !== null && item.class_schedule !== null) {
-          return scheduleTodayArray.push(tempItem);
+         // scheduleTodayArray.unshift(...onlineClassesArray);
+          tempItem.day = todayHeader();
+          scheduleTodayArray.push(tempItem);
+          return true;
         }
       }
     }
     return false;
   });
+  scheduleTodayArray.unshift(...onlineClassesArray);
   return scheduleTodayArray;
 };
 
@@ -235,11 +255,19 @@ export const dataFilterAddingData = (dataArray) => {
   const newArray = [];
   const newarrayProduced = [];
   const newScheduleItems = [];
+  const onlineClassesArray = [];
   let count = 0;
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
   const daysIndex = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
   data.map((singleitem) => {
     const item = singleitem;
+    if (item.class_building_code === CommonConstants.ONLINE_CLASSES) {
+      item.day = CommonConstants.ONLINE_CLASSES_HEADER;
+      item.class_begin_time = null;
+      item.class_end_time = null;
+      item.class_schedule = null;
+      onlineClassesArray.push(item);
+    }
     if (!item.class_schedule) {
       return 'N/A';
     }
@@ -290,7 +318,7 @@ export const dataFilterAddingData = (dataArray) => {
     }
     newObject[item.day].push(item);
   }
-  //Below for loop is for showing empty clases under a day which does not have classes, 
+  //Below for loop is for showing empty clases under a day which does not have classes,
   //Ex: If Sunday has no classes, it should have empty data in newObject array.
   for (let i = 0; i < 7; i++) {
     const item = days[i];
@@ -307,15 +335,12 @@ export const dataFilterAddingData = (dataArray) => {
     return newArray;
   });
 
+  newArray.unshift(...onlineClassesArray);
+
   return newArray;
 };
 
-export const todayHeader = () => {
-  const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
-  const months = [translateText('common:COMMON_JAN'), translateText('common:COMMON_FEB'), translateText('common:COMMON_MAR'), translateText('common:COMMON_APR'), translateText('common:COMMON_MAY'), translateText('common:COMMON_JUNE'), translateText('common:COMMON_JULY'), translateText('common:COMMON_AUG'), translateText('common:COMMON_SEPT'), translateText('common:COMMON_OCT'), translateText('common:COMMON_NOV'), translateText('common:COMMON_DEC')];
-  const today = new Date();
-  return `${days[today.getDay()]} ${months[today.getMonth()]} ${today.getDate()}`;
-};
+
 
 export const addNextDate = (dataArray) => {
   const data = dataArray;
@@ -489,7 +514,7 @@ export const telephoneCheck = (phoneNumber, separator) => {
   if (phoneNumber) {
     const concat = `$1${separator}$2${separator}$3`;
     return phoneNumber.replace(/[^\d]/g, '')
-      .replace(regExpression, concat);
+        .replace(regExpression, concat);
   }
   return '';
 };
@@ -532,15 +557,15 @@ export const getClassAndAssignmentAPIData = (reqObj) => {
             resolve(masterObj); //Yay! Everything went well!
           }, 250);
         })
+            .catch((error) => {
+              console.log('error: ', error);
+              reject(error);
+            });
+      })
           .catch((error) => {
             console.log('error: ', error);
             reject(error);
           });
-      })
-        .catch((error) => {
-          console.log('error: ', error);
-          reject(error);
-        });
     } else {
       masterObj.classMasterCopy = JSON.parse(localStorage.getItem('classMasterCopy'));
       masterObj.assignmentMasterCopy = JSON.parse(localStorage.getItem('assignmentMasterCopy'));

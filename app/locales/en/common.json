@@ -296,5 +296,16 @@
   "BROWSE_REINERT_ALUMNI_DATABASES": "Browse Reinert-Alumni databases",
   "BROWSE_HEALTH_SCIENCE_DATABASES": "Browse Health Sciences database",
   "OPTIONAL_ENTRY_NARROWS_THE_SEARCH_RESULTS": "Optional entry narrows the search results.",
-  "OPTIONAL_KEYWORD":"Optional Keyword"
+  "OPTIONAL_KEYWORD":"Optional Keyword",
+
+  "BROWSE_LIBRARY_TEXT": "Browse library guides:",
+  "OR_TEXT": "or",
+  "LIBRARY_GUIDE_PART1": "Access to resources requires",
+  "LIBRARY_GUIDE_PART2": "Creighton login",
+  "LIBRARY_GUIDE_PART3": "or other login credentials.",
+  "CREIGHTON_LOGIN": "Creighton login",
+  "ADV_EXPERTISE": "Expertise",
+  "ADV_SKILL": "Skill",
+  "ADV_APPLICATION": "Application",
+  "ADV_TOOL": "Tool"
 }

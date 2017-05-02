@@ -14,7 +14,7 @@ import Footer from '../footer/index';
 import Navigation from '../common/mainNav';
 import HeaderComponent from '../header/index';
 import * as urlConstants from '../constants/urlConstants';
-//import * as commonConstants from '../constants/commonConstants';
+import * as commonConstants from '../constants/commonConstants';
 //import ConfirmationPopUp from './confirmationPopUp';
 import * as ROUTE_URL from '../constants/routeContants';
 
@@ -32,6 +32,19 @@ class Main extends React.PureComponent {
     this.signOutBind = this.signOut.bind(this);
     this._onIdle = this._onIdle.bind(this);
     axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE);
+    if (!sessionStorage.getItem('time')) {
+      sessionStorage.setItem('time', commonConstants.SESSION_STORAGE_INTERVAL_TIME);
+    }
+    this.timer = setInterval(() => {
+      let time = parseInt(sessionStorage.getItem('time'));
+      time = time - 1000;
+      if (time > 0) {
+        sessionStorage.setItem('time', time);
+      } else {
+        clearInterval(this.timer);
+        this.signOutBind();
+      }
+    }, 1000);
   }
 
   componentWillMount() {
@@ -73,12 +86,14 @@ class Main extends React.PureComponent {
         localStorage.removeItem('classMasterCopy');
         localStorage.removeItem('assignmentMasterCopy');
         localStorage.removeItem('temp');
+        sessionStorage.removeItem('time');
         localStorage.removeItem('classDetails');
         //localStorage.removeItem('setFilterValue');
         //localStorage.removeItem('setDisplayOptionValue');
         //localStorage.removeItem('displayOptions');
         localStorage.removeItem('eventList');
         localStorage.removeItem('eventsFilterData');
+        hashHistory.replace(ROUTE_URL.LOGOUT);
         //location.reload();
       }
     }, (error) => {

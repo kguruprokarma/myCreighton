@@ -288,5 +288,17 @@
   "BROWSE_REINERT_ALUMNI_DATABASES": "Navegar por las bases de datos Reinert-Alumni",
   "BROWSE_HEALTH_SCIENCE_DATABASES": "Navegar por la base de datos de Ciencias de la Salud",
   "OPTIONAL_ENTRY_NARROWS_THE_SEARCH_RESULTS": "La entrada opcional reduce los resultados de la búsqueda.",
-  "OPTIONAL_KEYWORD":"Palabra clave opcional"
+  "OPTIONAL_KEYWORD":"Palabra clave opcional",
+  "BROWSE_LIBRARY_TEXT": "Navegar por las guías de la biblioteca:",
+  "OR_TEXT": "o",
+  "LIBRARY_GUIDE_PART1": "El acceso a los recursos requiere",
+  "LIBRARY_GUIDE_PART2": "Creighton login",
+  "LIBRARY_GUIDE_PART3": "U otras credenciales de inicio de sesión.",
+  "CREIGHTON_LOGIN": "Creighton login",
+
+  "ADV_EXPERTISE": "Pericia",
+  "ADV_SKILL": "Habilidad",
+  "ADV_APPLICATION": "Solicitud",
+  "ADV_TOOL": "Herramienta"
+
 }

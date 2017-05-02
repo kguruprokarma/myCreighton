@@ -437,6 +437,42 @@
 	height: 50px;
 }
 
+/*line height*/
+.gbl_lh-1 {
+	line-height: 1;
+}
+.gbl_lh-12 {
+	line-height: 1.2
+}
+.gbl_lh-14 {
+	line-height: 1.4;
+}
+.gbl_lh-16 {
+	line-height: 1.6;
+}
+.gbl_lh-18 {
+	line-height: 1.8;
+}
+.gbl_lh-20 {
+	line-height: 2.0;
+}
+.gbl_lh-22 {
+	line-height: 2.2;
+}
+.gbl_lh-24 {
+	line-height: 2.4;
+}
+.gbl_lh-26 {
+	line-height: 2.6;
+}
+.gbl_lh-28 {
+	line-height: 2.8;
+}
+.gbl_lh-30 {
+	line-height: 3.0;
+}
+
+
 /*Font sizes with em value*/
 .fs0pt66{
     font-size: 0.6666666666666666em; /* font size 10 in pixel */

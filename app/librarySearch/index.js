@@ -20,7 +20,10 @@ import LibraryTabs from './components/libraryTabs';
 import LibrarySearch from './components/librarySearch';
 import { LIBRARY_JAYSEARCH_CONST, LIBRARY_DATABASE_CONST } from '../common/linksPipeConstants';
 import LinksPipe from '../common/linksPipeComponent';
-import LIBRARY_NAV_LINKS from '../common/navLinksConstants';
+import LibraryGuide from './components/libraryGuide';
+import {LIBRARY_NAV_LINKS} from '../common/navLinksConstants';
+import * as URL_CONSTANTS from '../constants/urlConstants';
+
 import '../librarySearch/style.css';
 import Spinner from './../common/spinner';
 
@@ -61,7 +64,7 @@ export class LibraryInformation extends React.PureComponent {
     this.linksPipeContent = [];
     if (this.state.tabIndex === 0) {
       this.linksPipeContent = LIBRARY_JAYSEARCH_CONST;
-    } else if (this.state.tabIndex === 2) {
+    } else if (this.state.tabIndex === 3) {
       this.linksPipeContent = LIBRARY_DATABASE_CONST;
     }
 
@@ -79,7 +82,6 @@ export class LibraryInformation extends React.PureComponent {
       });
     });
 
-
     return (
       <section role='region'>
         <div className='hidden-xs'>
@@ -91,14 +93,25 @@ export class LibraryInformation extends React.PureComponent {
           {/*<Col sm={12} md={9} className='pull-right'>*/}
           <Col sm={9} xs={12} className='pull-right'>
 
-            {this.state.tabIndex === 0 &&
+            {this.state.tabIndex <= 1 &&
               <LibrarySearch tabindex={this.state.tabIndex} />
             }
-            {this.linksPipeContent && this.linksPipeContent.length>0 &&
+            {this.linksPipeContent && this.linksPipeContent.length > 0 &&
               <div className='libraryLinks graybtBorder pb10 openSansLight fs1em'>
                 <LinksPipe linksPipeData={this.linksPipeContent} />
               </div>
             }
+            {this.state.tabIndex === 2 && 
+            <div className='libraryGuideContent pb10'>
+              <LibraryGuide tabindex={this.state.tabIndex} />
+            </div>
+            }
+            {(this.state.tabIndex === 1 || this.state.tabIndex === 2) &&
+              <p className='fs1pt2 pb10 graybtBorder openSansLight'>{translateText('common:LIBRARY_GUIDE_PART1')} <a rel='noopener noreferrer' target='_blank' href={URL_CONSTANTS.CREIGHTON_LOGIN}>{translateText('common:LIBRARY_GUIDE_PART2')}</a> {translateText('common:LIBRARY_GUIDE_PART3')}</p> 
+            }
+            <div className='libraryLinks hidden graybtBorder pb10'>
+              <Link>Advanced JaySearch</Link><span> | </span><Link>Browse Jaysearch</Link>
+            </div>
             <div id='container' className='bookmarkContainer openSansLight pt25 pb35'>
               <p className='boomarkLinks'><Link onClick={() => this.scrollToPosition('reinertAlumni')}>{translateText('COMMON:REINERT_ALUMNI_LIBRARY')}</Link></p>
               <p className='boomarkLinks'><Link onClick={() => this.scrollToPosition('healthScience')} >{translateText('COMMON:HEALTH_SCIENCES_LIBRARY')}</Link></p>

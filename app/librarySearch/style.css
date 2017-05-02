@@ -75,6 +75,36 @@
     top: 12px;
 }
 
+.librarySearchBtn {
+    background-color:#ffffff;
+    border:1px solid #0054a6;
+    color: #0054a6;
+    text-align: center;
+    font-size: 1.266666666666667em;
+    height: 46px;
+    line-height: 30px;
+}
+
+.librarySearchBtn:hover,
+.librarySearchBtn:active,
+.librarySearchBtn:focus, 
+.librarySearchBtn[disabled]:hover, 
+.librarySearchBtn[disabled]:focus,
+.librarySearchBtn[disabled]:active,
+.btn-default.librarySearchBtn:active {
+    background-color: #fff;
+    color: #0054a6;
+    box-shadow: none;
+    outline: none;
+    border-color: #0054a6;
+}
+
+.libraryGuideContent .form-control {
+    border: 1px solid #a2a2a2;
+    box-shadow: none;
+    font-family: 'open_sanslight', sans-serif;
+}
+
 @media screen and (max-width: 769px) {
 
     .libraryLinks {
