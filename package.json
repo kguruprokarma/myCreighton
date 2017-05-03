@@ -5,11 +5,16 @@
   "main": "index.js",
   "scripts": {
     "prod": "webpack -p",
-    "build": "set NODE_ENV=production && webpack",
+    "builddev": "set NODE_ENV=dev&& webpack",
+    "buildtest": "set NODE_ENV=test&& webpack",
+    "build": "set NODE_ENV=production&& webpack",
     "test": "jest",
     "textlint": "eslint -c .eslintrc --ignore-path .eslintignore bluebird.min.js -f checkstyle app/**/*.js  > myCreightonEslintReport.xml || true",
     "linthtml": "eslint -c .eslintrc --ignore-path .eslintignore bluebird.min.js -f html app/**/*.js > myCreightonEslintReport.html || true",
     "lint": "npm run textlint & npm run linthtml",
+    "starttest": "set NODE_ENV=test&& webpack-dev-server",
+    "startdev": "set NODE_ENV=dev&& webpack-dev-server",
+    "startprod": "set NODE_ENV=production&& webpack-dev-server",
     "start": "webpack-dev-server"
   },
   "jest": {
@@ -52,6 +57,7 @@
     "moment-timezone": "^0.5.11",
     "nodemon": "^1.11.0",
     "postcss-loader": "^1.0.0",
+    "prop-types": "^15.5.8",
     "react": "^15.4.1",
     "react-avatar": "^2.3.0",
     "react-bootstrap": "^0.30.7",

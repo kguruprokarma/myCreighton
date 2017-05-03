@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV;
 
 Object.assign(exports, {
   context: path.resolve(__dirname, './app'),
@@ -87,9 +87,10 @@ Object.assign(exports, {
     })
   ]
 });
-
-if (isProduction) {
+console.log("=======>"+isProduction);
+if (isProduction==='production') {
   // deployed environments
+  console.log("=======>"+isProduction);
   Object.assign(exports, {
     bail: true,
     devtool: 'source-map',
