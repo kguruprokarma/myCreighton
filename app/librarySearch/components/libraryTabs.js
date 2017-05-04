@@ -8,7 +8,7 @@ import { Link } from 'react-router';
 import { translateText } from '../../common/translate';
 
 const LibraryTabs = (tabProps) => (
-  <Row className='pb20 visible-xs'>
+  <Row className='visible-xs'>
     <Col xs={12}>
       <div className='btn-group btn-group-justified librarySearch openSansLight'>
         {tabProps && tabProps.navLibLinks.length > 0 &&

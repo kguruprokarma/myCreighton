@@ -79,10 +79,10 @@ export class Header extends React.PureComponent {
               }
             </nav>
             <Col lg={10} className='visible-lg'>
-              <h2 className='bebasregular logo mt10 mb10 fs1pt4'><Link to={`${RouteContants.DASHBOARD}`}>{translateText('common:MY_CREIGHTON')}</Link></h2>
+              <h2 className='bebasregular logo mt0 mb0 fs1pt4'><Link className='myCreighton-logo' to={`${RouteContants.DASHBOARD}`}><span className='hidden'>{translateText('common:MY_CREIGHTON')}</span></Link></h2>
             </Col>
             <Col xs={8} sm={8} className='hidden-lg mobile-header text-center'>
-              <h2 className='bebasregular visible-sm visible-md logo mt10 mb10 fs1pt4'><Link to={`${RouteContants.DASHBOARD}`}>{translateText('common:MY_CREIGHTON')}</Link></h2>
+              <h2 className='bebasregular visible-sm visible-md logo mt10 mb0 fs1pt4'><Link className='myCreighton-logo' to={`${RouteContants.DASHBOARD}`}>{translateText('common:MY_CREIGHTON')}</Link></h2>
               <div className='visible-xs'><Title path={props.currentState} /></div>
             </Col>
             <Col xs={2} sm={2} lg={2} className='pull-right icons-list'>

@@ -69,4 +69,17 @@ describe('Classes actions testing', () => {
     store.dispatch(actions.getAssignmentDetails(data));
     expect(store.getActions()).toEqual(expectedActions);
   });
+
+  it('testing action receiveError', () => {
+    const expectedActions = [{ type: types.RECEIVE_CLASSES_DATA_ERROR }];
+    const store = mockStore();
+    store.dispatch(actions.onReceiveError());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+  it('testing action catagoryChange', () => {
+    const expectedActions = [{ type: types.ON_CATAGORY_CHANGE }];
+    const store = mockStore();
+    store.dispatch(actions.onCatagoryChange());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

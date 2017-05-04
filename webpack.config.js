@@ -89,8 +89,6 @@ Object.assign(exports, {
 });
 console.log("=======>"+isProduction);
 if (isProduction==='production') {
-  // deployed environments
-  console.log("=======>"+isProduction);
   Object.assign(exports, {
     bail: true,
     devtool: 'source-map',

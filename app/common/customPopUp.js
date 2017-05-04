@@ -107,7 +107,7 @@ export class CustomPopUp extends React.Component {
           <ListGroupItem key={item.itemName} className='openSansLight profile-icon'>
             {
               item.itemName === translateText('common:COMMON_CHANGE_LANGUAGE') ?
-                <Link onClick={() => { this.setState({ languageState: false }); } } > {item.itemName}</Link>
+                <Link onClick={() => { this.setState({ languageState: false }); }} > {item.itemName}</Link>
                 : <Link to={item.link} onClick={item.itemName === translateText('common:COMMON_SIGN_OUT') ? this.signOutPopUp : this.props.showPopValue} activeClassName='active'>
                   {item.itemName}
                 </Link>
@@ -121,7 +121,7 @@ export class CustomPopUp extends React.Component {
           <ListGroupItem className='openSansLight'>
             <Row>
               <Col sm={2} xs={2}>
-                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); } } />
+                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); }} />
               </Col>
               <Col sm={10} xs={10}>
                 <p className='selectLang pt5'>{translateText('common:COMMON_SELECT_LANGUAGE')}</p>
@@ -129,7 +129,7 @@ export class CustomPopUp extends React.Component {
             </Row>
           </ListGroupItem>
           {languages.map((lanItem) => (
-            <ListGroupItem key={lanItem.language} onClick={() => { this.languageChangeBind(lanItem.langkey); } } className='openSansLight'>
+            <ListGroupItem key={lanItem.language} onClick={() => { this.languageChangeBind(lanItem.langkey); }} className='openSansLight'>
               <Link>{lanItem.language}</Link>
             </ListGroupItem>
           ))}
@@ -143,7 +143,10 @@ export class CustomPopUp extends React.Component {
 
 CustomPopUp.propTypes = {
   showPopValue: React.PropTypes.func,
-  userData: React.PropTypes.string
+  getFacultyProfileData: React.PropTypes.func,
+  getStaffProfileData: React.PropTypes.func,
+  popUpClose: React.PropTypes.func,
+  getStudentProfileData: React.PropTypes.func
 };
 
 const mapStateToProps = (dashboardState) => (

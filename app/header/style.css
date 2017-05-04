@@ -186,7 +186,31 @@
     float: left;
 }
 
+.myCreighton-logo {
+        background: url('/assets/images/mycreighton-logo.svg') no-repeat;
+        background-size: 116px auto;
+        text-indent: -9999px;
+        width:100%;
+        overflow: hidden;
+        height: 32px;
+        display: inline-block;
+    } 
+.logo {
+    overflow: hidden;
+    max-width: 116px;
+    margin-top: 4px;
+}
+
+
 /* Media for small devices */
+
+@media screen and (max-width: 1024px) {
+    
+       .logo {
+        margin: 4px auto 0;
+    }
+}
+
 @media screen and (max-width: 767px) {
    
     .tileInfo {
@@ -195,6 +219,15 @@
 
     .popUpPatch {
         background: rgba(0,0,0,0.5);
+    }
+
+    .logo {
+        line-height: 1.8;
+        max-width: 100%;
+    } 
+
+    .myCreighton-logo {
+        background-position: center 2px;
     }
      
 
@@ -233,10 +266,10 @@
     .popUpContainer {
         white-space: normal;
     }
-      
+
     .logo {
         font-size: 1.2em;    /* font size 16 in pixel */
-        line-height: 22px;
-    }    
+        line-height: 1.8;
+    } 
 
 }

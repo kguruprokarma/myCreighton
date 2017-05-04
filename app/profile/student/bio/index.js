@@ -34,7 +34,7 @@ export class Profile extends React.PureComponent {
     const props = this.props;
     const USER_DATA = props.profile === CommonConstants.STUDENT_LABEL && props.profileData;
     return (
-      <section role='region'>
+      <section role='region' className='section-container'>
         {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_MY_PROFILE')} /></div>
         {(USER_DATA && USER_DATA.data.length>0) &&

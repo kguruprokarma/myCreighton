@@ -1,13 +1,14 @@
-
+import React from 'react';
 import * as HEADER from '../../constants/headerTitleConstants';
 import { translateText } from '../../common/translate';
+import * as RouteContants from '../../constants/routeContants';
 
 export default function (argument) {
   let title = '';
   const rootURL = argument.path.split('/');
   if (rootURL[1] === '' || rootURL[1] === HEADER.DASHBOARD) {
     title = translateText('common:MY_CREIGHTON');
-    return title;
+    return (<span className='myCreighton-logo' to={`${RouteContants.DASHBOARD}`}>{translateText('common:MY_CREIGHTON')}</span>);
   }
   if (rootURL[1] === HEADER.CLASSES) {
     title = translateText('common:CLASS_SCHEDULE');

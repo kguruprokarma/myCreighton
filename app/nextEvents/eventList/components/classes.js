@@ -25,12 +25,12 @@ const Classes = (classesProps) => (
           <span className='classBy'>{convertDateFromTimeStamp((classesProps.data !== null && classesProps.data.startDate) ? classesProps.data.startDate : '')}</span>
         </Col>
         <Col md={3} sm={3} className='text-right'>
-          <div className='classTime'>{(classesProps.data !== null && classesProps.data.class_begin_time !== null) ? convertTo24Format(classesProps.data.class_begin_time) : 'N/A'} - {(classesProps.data !== null && classesProps.data.class_end_time !== null) ? convertTo24Format(classesProps.data.class_end_time) : 'N/A'}<span> {CommonConstants.TIMEZONE_CT}</span></div>
+          <div className='classTime'>{(classesProps.data !== null && classesProps.data.class_begin_time !== null) ? convertTo24Format(classesProps.data.class_begin_time) : 'N/A'} - {(classesProps.data !== null && classesProps.data.class_end_time !== null) ? convertTo24Format(classesProps.data.class_end_time) : 'N/A'}{classesProps.data.class_building_code !== CommonConstants.ONLINE_CLASSES ? <span> {CommonConstants.TIMEZONE_CT}</span> : '' }</div>
         </Col>
       </div>
       <Row className='visible-xs mobileClassesList'>
         <Col xs={7}>
-          <span className='classOn'>{getDueTime((classesProps.data !== null && classesProps.data.timeStamp) ? classesProps.data.timeStamp : '')}</span>
+          <span className='classOn'>{(classesProps.data.class_building_code !== CommonConstants.ONLINE_CLASSES && classesProps.data !== null && classesProps.data.timeStamp) ? getDueTime(classesProps.data.timeStamp) : ''}</span>
         </Col>
         <Col xs={5} className='text-right'>
           <span className='classBy'>{convertDateFromTimeStamp((classesProps.data !== null && classesProps.data.startDate) ? classesProps.data.startDate : '')}</span>
@@ -43,7 +43,7 @@ const Classes = (classesProps) => (
           <span className='classPlace'> {(classesProps.data !== null && classesProps.data.class_room_code) ? classesProps.data.class_room_code : ''}</span>
         </Col>
         <Col xs={5} className='text-right'>
-          <span className='classTime'>{convertTo24Format((classesProps.data !== null && classesProps.data.class_begin_time) ? classesProps.data.class_begin_time : '')} - {classesProps.data !== null && classesProps.data.class_end_time ? convertTo24Format(classesProps.data.class_end_time) : ''}<span> {CommonConstants.TIMEZONE_CT}</span></span>
+          <span className='classTime'>{(classesProps.data !== null && classesProps.data.class_begin_time) ? convertTo24Format(classesProps.data.class_begin_time) : 'N/A'} - {(classesProps.data !== null && classesProps.data.class_end_time) ? convertTo24Format(classesProps.data.class_end_time) : 'N/A'}{classesProps.data.class_building_code !== CommonConstants.ONLINE_CLASSES ? <span> {CommonConstants.TIMEZONE_CT}</span> : '' }</span>
         </Col>
       </Row>
     </Link>

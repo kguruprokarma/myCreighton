@@ -22,8 +22,8 @@ const EventFilter = (eventFilterProps) => (
         <ListGroup>
           {eventFilterProps && eventFilterProps.Items && eventFilterProps.Items.eventperiodItems && eventFilterProps.Items.eventperiodItems.map((eventItem, eventIndex) => (
             <ListGroupItem className='radioLabel' key={eventIndex}>
-              <label className='control control-radio'><span className='openSansLight filterRadioText'>{eventFilterProps.displayLabel(eventItem)}</span>
-                <input type='radio' value={eventItem} onChange={eventFilterProps.toggleRadio} name='eventPeriod' checked={eventFilterProps.eventPeriod === eventItem} />
+              <label htmlFor={eventItem} className='control control-radio'><span className='openSansLight filterRadioText'>{eventFilterProps.displayLabel(eventItem)}</span>
+                <input type='radio' id={eventItem} value={eventItem} onChange={eventFilterProps.toggleRadio} name='eventPeriod' checked={eventFilterProps.eventPeriod === eventItem} />
                 <div className='FilterRadioBtn control__indicator' />
               </label>
             </ListGroupItem>
@@ -36,11 +36,11 @@ const EventFilter = (eventFilterProps) => (
         <ListGroup>
           {eventFilterProps && eventFilterProps.displayOptions && eventFilterProps.displayOptions.map((eventItem, eventIndex) => (
             <ListGroupItem key={eventIndex}>
-              {eventItem.itemName === 'All' ? <label className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItem.itemName}</span>
-                <input type='checkbox' name='eventPeriod' value={eventItem.itemName} onChange={eventFilterProps.toggleCheckAll()} checked={eventFilterProps.checkedAll} />
+              {eventItem.itemName === 'All' ? <label htmlFor='testAll' className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItem.itemName}</span>
+                <input type='checkbox' id='testAll' name='eventPeriod' value={eventItem.itemName} onChange={eventFilterProps.toggleCheckAll()} checked={eventFilterProps.checkedAll} />
                 <div className='control__indicator' />
-              </label> : <label className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItem.itemName}</span>
-                <input type='checkbox' name='eventPeriod' value={eventItem.itemName} onChange={eventFilterProps.toggleCheckBoxParent(eventItem)} checked={eventItem.checked} />
+              </label> : <label htmlFor={eventItem.itemName} className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItem.itemName}</span>
+                <input type='checkbox' id={eventItem.itemName} name='eventPeriod' value={eventItem.itemName} onChange={eventFilterProps.toggleCheckBoxParent(eventItem)} checked={eventItem.checked} />
                 <div className={eventItem.childrenUnselect ? 'control__indicator back_checkbox' : 'control__indicator'}><span className='box-minus' /></div>
               </label>}
               {eventItem.children.length > 0 && <button className='btn btn-link btnnoPadding downArrowImage' onClick={eventFilterProps.showChild(eventItem)}><img src={DOWN_ARROW} alt='' className={eventItem.showItem ? 'revImage' : ''} /></button>}
@@ -48,8 +48,8 @@ const EventFilter = (eventFilterProps) => (
                 {
                   eventItem.children.map((eventItemChildren, childrenIndex) => (
                     <ListGroupItem className='childCheckBox' key={childrenIndex}>
-                      <label className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItemChildren.name}</span>
-                        <input type='checkbox' name='eventPeriod' value={eventItemChildren.name} onChange={eventFilterProps.toggleCheck(eventItemChildren, eventItem)} checked={eventItemChildren.checked} />
+                      <label htmlFor={eventItemChildren.name} className='control control-checkbox'><span className='openSansLight filterCheckText'>{eventItemChildren.name}</span>
+                        <input type='checkbox' id={eventItemChildren.name} name='eventPeriod' value={eventItemChildren.name} onChange={eventFilterProps.toggleCheck(eventItemChildren, eventItem)} checked={eventItemChildren.checked} />
                         <div className='control__indicator' />
                       </label>
                     </ListGroupItem>

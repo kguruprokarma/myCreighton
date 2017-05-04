@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Accordion } from '../index';
+import Accordion from '../index';
 
 describe('index files in school and semester ----->', () => {
   const minProps = {

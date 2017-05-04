@@ -48,7 +48,7 @@ export class SearchResults extends React.PureComponent {
   render() {
     const props = this.props;
     return (
-      <section role='region'>
+      <section role='region' className='section-container'>
         <div className='hidden-xs'>
           <HeaderLabel headerLabel={translateText('common:SEARCH_RESULT')} />
         </div>

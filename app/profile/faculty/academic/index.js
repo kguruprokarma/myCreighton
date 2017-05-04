@@ -32,7 +32,7 @@ export class FacultyAcademic extends React.PureComponent {
     const props = this.props;
     const ACADEMIC_DATA = props.profileData;
     return (
-      <section role='region'>
+      <section role='region' className='section-container'>
         {props.isLoading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={this.headerText} /></div>
         {ACADEMIC_DATA && <FacultyAcademicView data={ACADEMIC_DATA} facultyProfile={props.profile} />}

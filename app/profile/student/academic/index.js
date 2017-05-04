@@ -31,7 +31,7 @@ export class Academic extends React.PureComponent {
     const props = this.props;
     const USER_DATA = props.academicData;
     return (
-      <section role='region' id='academic'>
+      <section role='region' id='academic' className='section-container'>
         {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:PROFILE_ACADEMIC')} /></div>
         {USER_DATA &&

@@ -99,7 +99,7 @@ export const filterTodaysClassSchedule = (schedule) => {
     const onlineItems = item;
     if (onlineItems.class_building_code === CommonConstants.ONLINE_CLASSES) {
       onlineItems.day = CommonConstants.ONLINE_CLASSES_HEADER;
-      onlineItems.class_begin_time = '0000';
+      onlineItems.class_begin_time = '';
       onlineItems.class_end_time = null;
       onlineItems.class_schedule = null;
       onlineClassesArray.push(onlineItems);
@@ -176,29 +176,6 @@ export const convertEncodeURIComponent = (data) => {
   });
   return { 'data': encodeArray };
 };
-
-/*Data sort method is used to sort the array items in time sequence*/
-// export const dateTime = (dataArray, startTime, endTime /* order*/) => {
-//   const data = dataArray;
-//   //const sortByKey = key;
-//   //const sortOrder = order || CommonConstants.SORT_CLASS;
-//   const sortedData = [...data].sort((a, b) => {
-//     const timePart1 = convertTo24Format(a[startTime]);
-//     const timePart2 = convertTo24Format(b[endTime]);
-//     const amOrPmOfTime1 = timePart1.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
-//     const amOrPmOfTime2 = timePart2.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
-//     const time1Spliting = timePart1.split(amOrPmOfTime1)[0].split(':');
-//     const time2Spliting = timePart2.split(amOrPmOfTime2)[0].split(':');
-//     const time1Hours = time1Spliting[0];
-//     const time2Hours = time2Spliting[0];
-//     const time1HasMinutes = time1Spliting[1] || '00';
-//     const time2HasMinutes = time2Spliting[1] || '00';
-//     const time1 = `${time1Hours}:${time1HasMinutes} ${amOrPmOfTime1}`;
-//     const time2 = `${time2Hours}:${time2HasMinutes} ${amOrPmOfTime2}`;
-//     return new Date(`2017/01/01 ${time1}`) - new Date(`2017/01/01 ${time2}`);
-//   });
-//   return sortedData;
-// };
 
 export const createTimeStampForDueTime = (data1) => {
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
@@ -340,20 +317,12 @@ export const dataFilterAddingData = (dataArray) => {
   return newArray;
 };
 
-
-
 export const addNextDate = (dataArray) => {
   const data = dataArray;
-  //const currentDate = moment().toDate();
   const tempItem = JSON.parse(JSON.stringify(data));
-  const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
-  const daysIndex = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
   const today = new Date();
-  const currentDay = today.getDay();
-  const returnDate = moment();
   tempItem.map((singleItem) => {
     const nextDateArray = getScheduledNextDate(singleItem.class_schedule);
-    const filteredDates = sortBy(nextDateArray, (o) => new moment(o.date).format('MMM DD')).reverse();
     const item = singleItem;
     const mySchedules = item.class_schedule;
     if (!mySchedules) {
@@ -368,59 +337,12 @@ export const addNextDate = (dataArray) => {
         break;
       }
     }
-    //const tempSchedules = mySchedules.split('');
-    // const classSchedules = tempSchedules.map((schedule) => {
-    //   returnDate = moment();
-    //   const returnObj = {};
-    //   let daysToAdd = 0;
-    //   if (currentDay > daysIndex[schedule]) {
-    //     daysToAdd = (((7 + daysIndex[schedule]) - returnDate.get('day')) % 7);
-    //   } else {
-    //     daysToAdd = daysIndex[schedule] - currentDay;
-    //   }
-    //   if (daysToAdd === 0) {
-    //     daysToAdd = 7;
-    //   }
-    //   //returnDate.setDate(returnDate.get('date') + daysToAdd);
-    //   returnDate.add(daysToAdd, 'days');
-
-    //   //returnObj.day = days[daysIndex[schedule]];
-    //   returnObj.date = returnDate.toDate();
-    //   return returnObj;
-    // });
-
-    // for (let i = 0; i < tempSchedules.length; i++) {
-    //   classSchedules[i].day = days[daysIndex[tempSchedules[i]]];
-    // }
-    // item.nextDate = moment(classSchedules[0].date).format('MMM DD');
-    // item.day = classSchedules[0].day;
     return item;
   });
   return tempItem;
 };
 
 export const authUserDetails = () => localStorage.getItem('roleInfo') ? JSON.parse(localStorage.getItem('roleInfo')) : {};
-
-// export const SEGREGATEDATA = (list) => {
-//   const newArray = [];
-//   for (const key in list) {
-//     const arr = list[key];
-//     const keys = Object.keys(arr);
-//     for (let j = 0; j < keys.length; j++) {
-//       var obj;
-//       const dataSize = arr[keys[j]].length;
-//       if (dataSize > 0) {
-//         const data = arr[keys[j]];
-//         for (let i = 0; i < dataSize; i++) {
-//           obj = data[i];
-//           obj.type = keys[j];
-//           newArray.push(obj);
-//         }
-//       }
-//     }
-//   }
-//   return newArray;
-// };
 
 export const datesCompare = (nextDate) => {
   const todayDate = moment().toDate();
@@ -432,39 +354,6 @@ export const datesCompare = (nextDate) => {
   } else if (todayDate < APIDate) return -1;
   return 0;
 };
-
-// export const dateSort = (dataArray, key, dueDate, startTime, dueTime) => {
-//   const date = dataArray;
-//   const startDateSort = key;
-//   const dueDateSort = dueDate;
-//   const sortedData = date.sort((a, b) => {
-//     let date1;
-//     let date2;
-//     if (a[startDateSort] === undefined ? date1 = new Date(a[dueDateSort]) : date1 = new Date(a[startDateSort]));
-//     if (b[startDateSort] === undefined ? date2 = new Date(b[dueDateSort]) : date2 = new Date(b[startDateSort]));
-//     if (date1.toDateString() === date2.toDateString()) {
-//       let timePart1;
-//       let timePart2;
-//       if (a[startTime] === undefined ? timePart1 = a[dueTime] : timePart1 = a[startTime]);
-//       if (b[startTime] === undefined ? timePart2 = b[dueTime] : timePart2 = b[startTime]);
-//       const amOrPmOfTime1 = timePart1.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
-//       const amOrPmOfTime2 = timePart2.toLowerCase().indexOf('a') > 0 ? 'am' : 'pm';
-//       const time1Spliting = timePart1.split(amOrPmOfTime1)[0].split(':');
-//       const time2Spliting = timePart2.split(amOrPmOfTime2)[0].split(':');
-//       const time1Hours = time1Spliting[0];
-//       const time2Hours = time2Spliting[0];
-//       const time1HasMinutes = time1Spliting[1] || '00';
-//       const time2HasMinutes = time2Spliting[1] || '00';
-//       const time1 = `${time1Hours}:${time1HasMinutes} ${amOrPmOfTime1}`;
-//       const time2 = `${time2Hours}:${time2HasMinutes} ${amOrPmOfTime2}`;
-//       date1 = new Date(`2017/01/01 ${time1}`);
-//       date2 = new Date(`2017/01/01 ${time2}`);
-//       return date1 - date2;
-//     }
-//     return date1 - date2;
-//   });
-//   return sortedData;
-// };
 
 export const createTimeStamp = (dataArray) => {
   const data = dataArray;
@@ -673,42 +562,37 @@ export const caldenderItemWithTwoDates = (calenderItem) => {
   return calenderArray;
 };
 
-// export const caldenderEventsTimeStamp = (calenderItems) => {
-//   let items = calenderItems;
-//   items = items.map((calenderItem) => {
-//     const item = calenderItem;
-//     const time = calenderItem.starttime?calenderItem.starttime.split(':'):[];
-//     const hours = parseInt(time[0]) || 23;
-//     const minutes = parseInt(time[1]) || 59;
-//     const newDateTimeStampWithoutTime = moment(calenderItem.startdate).format('LL');
-//     const timeStampWithTime = new Date(newDateTimeStampWithoutTime).setMinutes((hours * 60) + minutes);
-//     const timeStampString = new Date(timeStampWithTime).toString();
-//     item.timeStamp = moment(new Date(timeStampString)).utc().format();
-//     return item;
-//   });
-//   return items;
-// };
-
 export const caldenderEventsTimeStamp = (calenderItems) => {
   let items = calenderItems;
   items = items.map((calenderItem) => {
     const item = calenderItem;
     let additionaldays = 0;
-    const time = calenderItem.starttime ? calenderItem.starttime.split(':') : [];
-    let hours = parseInt(time[0]) || 23;
-    const minutes = parseInt(time[1]) || 59;
-    if (moment(moment()._d).tz(CommonConstants.MOMENT_AMERICA_CHICAGO_TIMEZONE).isDST()) {
-      hours = hours + 5;
-    } else {
-      hours = hours + 6;
+    let counter = 1;
+    const timerArray = [[0, 0], [23, 59]];
+    if (!(calenderItem.starttime && calenderItem.endtime)) {
+      counter = 2;
     }
-    if (hours > 23) {
-      additionaldays = parseInt(hours/24);
-      hours = (hours - (additionaldays * 24));
+    for (let i = 0; i< counter; i++) {
+      const time = (calenderItem.starttime && calenderItem.endtime) ? calenderItem.starttime.split(':') : timerArray[i];
+      let hours = parseInt(time[0]);
+      const minutes = parseInt(time[1]);
+      if (moment(moment()._d).tz(CommonConstants.MOMENT_AMERICA_CHICAGO_TIMEZONE).isDST()) {
+        hours = hours + 5;
+      } else {
+        hours = hours + 6;
+      }
+      if (hours > 23) {
+        additionaldays = parseInt(hours/24);
+        hours = (hours - (additionaldays * 24));
+      }
+      const timeStampWithZeroTime = moment(calenderItem.startdate)._d;
+      const timeStampWithGivenTime = moment.utc([timeStampWithZeroTime.getFullYear(), timeStampWithZeroTime.getMonth(), timeStampWithZeroTime.getDate()+ additionaldays, hours, minutes]);
+      if (i === 0) {
+        item.timeStamp = moment(timeStampWithGivenTime).utc().format();
+      } else if (!(calenderItem.starttime && calenderItem.endtime) && i === 1) {
+        item.timeStamp1 = moment(timeStampWithGivenTime).utc().format();
+      }
     }
-    const timeStampWithZeroTime = moment(calenderItem.startdate)._d;
-    const timeStampWithGivenTime = moment.utc([timeStampWithZeroTime.getFullYear(), timeStampWithZeroTime.getMonth(), timeStampWithZeroTime.getDate()+ additionaldays, hours, minutes]);
-    item.timeStamp = moment(timeStampWithGivenTime).utc().format();
     return item;
   });
   return items;
@@ -716,7 +600,6 @@ export const caldenderEventsTimeStamp = (calenderItems) => {
 
 export const dynamicUrlGeneration = (url, queryParamsArray) => {
   if (url || (queryParamsArray && queryParamsArray.length>0)) {
-    const anchor = document.createElement('a');
     let queryParamsStr = '';
     let href = '';
     if (queryParamsArray && queryParamsArray.length>0) {
@@ -726,8 +609,6 @@ export const dynamicUrlGeneration = (url, queryParamsArray) => {
     } else if (url) {
       href = url;
     }
-    anchor.setAttribute('href', href);
-    anchor.setAttribute('target', '_blank');
-    anchor.click();
+    window.open(href, '_blank');
   }
 };

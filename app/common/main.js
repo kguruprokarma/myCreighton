@@ -19,7 +19,6 @@ import * as commonConstants from '../constants/commonConstants';
 import * as ROUTE_URL from '../constants/routeContants';
 
 @translate([], { wait: true })
-
 class Main extends React.PureComponent {
 
   constructor() {
@@ -30,6 +29,7 @@ class Main extends React.PureComponent {
     };
     this.reference='idleTimer';
     this.signOutBind = this.signOut.bind(this);
+    this.clearStorage = this.clearStorage.bind(this);
     this._onIdle = this._onIdle.bind(this);
     axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE);
     if (!sessionStorage.getItem('time')) {
@@ -42,9 +42,17 @@ class Main extends React.PureComponent {
         sessionStorage.setItem('time', time);
       } else {
         clearInterval(this.timer);
-        this.signOutBind();
+        this.clearStorage();
       }
     }, 1000);
+    if (!localStorage.getItem('roleInfo')) {
+      this.checkRole = setInterval(() => {
+        if (localStorage.getItem('roleInfo')) {
+          clearInterval(this.checkRole);
+          location.reload();
+        }
+      }, 1000);
+    }
   }
 
   componentWillMount() {
@@ -55,6 +63,7 @@ class Main extends React.PureComponent {
       this.setState({ isLogin: true });
     }
   }
+
   componentWillReceiveProps(nextProps) {
     const propsNext = nextProps;
     if (propsNext.location.pathname === ROUTE_URL.LOGOUT) {
@@ -74,6 +83,23 @@ class Main extends React.PureComponent {
     if (props.signOut) {
       props.closeSignOutPopUp();
     }
+  }
+
+  clearStorage() {
+    localStorage.removeItem('roleInfo');
+    localStorage.removeItem('infos');
+    localStorage.removeItem('lang');
+    localStorage.removeItem('classMasterCopy');
+    localStorage.removeItem('assignmentMasterCopy');
+    localStorage.removeItem('temp');
+    sessionStorage.removeItem('time');
+    localStorage.removeItem('classDetails');
+    //localStorage.removeItem('setFilterValue');
+    //localStorage.removeItem('setDisplayOptionValue');
+    //localStorage.removeItem('displayOptions');
+    localStorage.removeItem('eventList');
+    localStorage.removeItem('eventsFilterData');
+    location.reload();
   }
   signOut() {
     // const currentUrl = encodeURIComponent(urlConstants.LOCAL_URL);

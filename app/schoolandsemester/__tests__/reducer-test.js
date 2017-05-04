@@ -10,7 +10,8 @@ describe('<Schoolandsemester bio reducer />', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       isLoading: false,
-      isToggle: false
+      isToggle: false,
+      descToggle: false
     });
   });
 

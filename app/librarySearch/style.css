@@ -105,6 +105,7 @@
     font-family: 'open_sanslight', sans-serif;
 }
 
+
 @media screen and (max-width: 769px) {
 
     .libraryLinks {
@@ -123,5 +124,16 @@
     .bookmarkContainer {
         padding-top: 15px;
         padding-bottom: 10px;
+    }
+    
+    .libraryGuideContent  {
+        padding-top: 20px;
+    }
+
+    .librarySearchBtn  {
+        margin-top: 5px;
+    }
+    .libraryGuideContent .librarySearchBtn {
+        margin-top: 0;
     }
 }

@@ -46,9 +46,13 @@ export const CALENDER_API = `${ROOT_URL}/calendarAPI.json`;
 export const BLUE_LINE = 'https://blueline.instructure.com';
 export const API_GATEWAY = 'http://api-gateway01.creighton.edu'; //'http://reduxblog.herokuapp.com';
 //export const API_DATA = '/studentProfile/'; //'/myProfile.json'; //http://reduxblog.herokuapp.com/api/posts
+//export const DEV_URL_CREIGHTON = 'http://dev-api-node01.creighton.edu';
+//export const DEV_URL_CREIGHTON_ADFS = 'https://dev-dl-api.creighton.edu';
 export const DEV_URL_CREIGHTON = 'http://'+process.env.NODE_ENV+'-api-node01.creighton.edu';
 export const DEV_URL_CREIGHTON_ADFS = 'https://'+process.env.NODE_ENV+'-dl-api.creighton.edu';
 export const ADFS = '/adfs';
+//export const ADFS_LOGIN_URL = 'https://dev-dl-api.creighton.edu/loginadfs?redirect=';
+//export const ADFS_LOGOUT_URL = 'https://dev-dl-api.creighton.edu/logoutadfs';
 export const ADFS_LOGIN_URL = 'https://'+process.env.NODE_ENV+'-dl-api.creighton.edu/loginadfs?redirect=';
 export const ADFS_LOGOUT_URL = 'https://'+process.env.NODE_ENV+'-dl-api.creighton.edu/logoutadfs';
 export const API_SINGLE = '/single';
@@ -93,6 +97,7 @@ export const LAW_DIRECTORY_URL = 'https://law.creighton.edu/current-students/law
 export const LAW_LIBSERVICES_URL = 'https://law.creighton.edu/current-students/law-library/services';
 export const LAW_WEBSITE_URL = 'https://law.creighton.edu/current-students/law-library';
 export const LIBRARY_SEARCH_URL = 'http://creighton-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/dlSearch.do?';
+export const LAW_DATABASE_URL = 'http://culibraries.creighton.edu/az.php?';
 
 export const LINK_TO_DOIT_SERVICES = 'http://help.creighton.edu';
 export const CREIGHTON_LOGIN= 'https://login.cuhsl.creighton.edu/login';

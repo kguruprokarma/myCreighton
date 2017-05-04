@@ -83,7 +83,7 @@ export class LibraryInformation extends React.PureComponent {
     });
 
     return (
-      <section role='region'>
+      <section role='region' className='section-container'>
         <div className='hidden-xs'>
           <HeaderLabel headerLabel={translateText('common:LIBRARY_SEARCH')} />
         </div>
@@ -93,29 +93,26 @@ export class LibraryInformation extends React.PureComponent {
           {/*<Col sm={12} md={9} className='pull-right'>*/}
           <Col sm={9} xs={12} className='pull-right'>
 
-            {this.state.tabIndex <= 1 &&
+            {(this.state.tabIndex <= 1 || this.state.tabIndex === 3)&&
               <LibrarySearch tabindex={this.state.tabIndex} />
             }
             {this.linksPipeContent && this.linksPipeContent.length > 0 &&
-              <div className='libraryLinks graybtBorder pb10 openSansLight fs1em'>
+              <div className={this.state.tabIndex!==3 ? 'libraryLinks pb10 mb10 openSansLight fs1em graybtBorder' : 'libraryLinks pb10 openSansLight fs1em'}>
                 <LinksPipe linksPipeData={this.linksPipeContent} />
               </div>
             }
-            {this.state.tabIndex === 2 && 
+            {this.state.tabIndex === 2 &&
             <div className='libraryGuideContent pb10'>
               <LibraryGuide tabindex={this.state.tabIndex} />
             </div>
             }
-            {(this.state.tabIndex === 1 || this.state.tabIndex === 2) &&
-              <p className='fs1pt2 pb10 graybtBorder openSansLight'>{translateText('common:LIBRARY_GUIDE_PART1')} <a rel='noopener noreferrer' target='_blank' href={URL_CONSTANTS.CREIGHTON_LOGIN}>{translateText('common:LIBRARY_GUIDE_PART2')}</a> {translateText('common:LIBRARY_GUIDE_PART3')}</p> 
+            {(this.state.tabIndex > 0 ) &&
+              <p className='fs1pt2 pb10 graybtBorder openSansLight'>{translateText('common:LIBRARY_GUIDE_PART1')} <a rel='noopener noreferrer' target='_blank' href={URL_CONSTANTS.CREIGHTON_LOGIN}>{translateText('common:LIBRARY_GUIDE_PART2')}</a> {translateText('common:LIBRARY_GUIDE_PART3')}</p>
             }
-            <div className='libraryLinks hidden graybtBorder pb10'>
-              <Link>Advanced JaySearch</Link><span> | </span><Link>Browse Jaysearch</Link>
-            </div>
             <div id='container' className='bookmarkContainer openSansLight pt25 pb35'>
-              <p className='boomarkLinks'><Link onClick={() => this.scrollToPosition('reinertAlumni')}>{translateText('COMMON:REINERT_ALUMNI_LIBRARY')}</Link></p>
-              <p className='boomarkLinks'><Link onClick={() => this.scrollToPosition('healthScience')} >{translateText('COMMON:HEALTH_SCIENCES_LIBRARY')}</Link></p>
-              <p className='boomarkLinks'> <Link onClick={() => this.scrollToPosition('law')}>{translateText('COMMON:LAW_LIBRARY')}</Link></p>
+              <p className='boomarkLinks'><Link onClick={() => this.scrollToPosition('reinertAlumni')}><span className='glyphicon glyphicon-arrow-down pr5 fs0pt73' aria-hidden='true' /> {translateText('COMMON:REINERT_ALUMNI_LIBRARY')}</Link></p>
+              <p className='boomarkLinks'><Link onClick={() => this.scrollToPosition('healthScience')} ><span className='glyphicon glyphicon-arrow-down pr5 fs0pt73' aria-hidden='true' /> {translateText('COMMON:HEALTH_SCIENCES_LIBRARY')}</Link></p>
+              <p className='boomarkLinks'> <Link onClick={() => this.scrollToPosition('law')}><span className='glyphicon glyphicon-arrow-down pr5 fs0pt73' aria-hidden='true' /> {translateText('COMMON:LAW_LIBRARY')}</Link></p>
             </div>
             <div id='reinertAlumni' className='libraryHeader openSansLight pt15 pb15'>
               {DATA && <ReinertAlumni aluminiData={aluminDetails} scrollTopClick={() => this.scrollToPosition('header')} />}

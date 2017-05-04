@@ -12,14 +12,20 @@ import * as ROUTE_URL from '../../../constants/routeContants';
 const TodayClasses = (todayProps) => {
   let lastHeader = null;
   let presentHeader;
+  let flag;
   return (
     <div>{
       todayProps.listOfData.length > 0 ?
         todayProps.listOfData.map((todayClass, todayindex) => {
           presentHeader = todayClass.day;
+          flag = false;
+          if (lastHeader !== presentHeader) {
+            lastHeader = todayClass.day;
+            flag= true;
+          }
           return (
             <div key={todayindex} className='cls'>
-              {lastHeader !== presentHeader && <DayHeader day={lastHeader = todayClass.day} />}
+              {flag && <DayHeader day={lastHeader} />}
               <Link to={`${ROUTE_URL.CLASS_DETAILS}/${todayProps.catagory}/${todayClass.sis_source_id}/${todayindex}`}>
                 <ClassInfo data={todayClass} />
               </Link>

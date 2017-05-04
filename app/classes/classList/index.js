@@ -107,12 +107,12 @@ export class Classes extends React.PureComponent {
     }
 
     return (
-      <section role='region' id='classSchedule'>
+      <section role='region' id='classSchedule' className='section-container'>
         <Row>
           <Col md={8} sm={6} xs={12} className='hidden-xs'>
             <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} /></div>
           </Col>
-          <Col md={4} sm={6} xs={12} className='controller-buttons'>
+          <Col md={4} sm={6} xs={12} className='controller-buttons classListButtons'>
             <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />
           </Col>
         </Row>

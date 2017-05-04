@@ -79,9 +79,7 @@ const calenderData = {
     'status': '1'
   }]
 };
-const data1 ={
-  'bool': 'true'
-};
+
 describe('Next Event actions testing', () => {
   beforeEach(() => {
     moxios.install();

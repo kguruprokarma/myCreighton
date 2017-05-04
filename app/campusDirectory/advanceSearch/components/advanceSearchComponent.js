@@ -6,7 +6,7 @@ import { translateText } from '../../../common/translate';
 import PopOver from './popOver';
 import * as CommonConstants from '../../../constants/commonConstants';
 import ImageComponent from '../../../common/imageComponent';
-import { SEARCH_ICON, MENUCLOSE_ICON } from '../../../constants/imageConstants';
+import { MENUCLOSE_ICON } from '../../../constants/imageConstants';
 
 const AdvanceSearchComponent = (advanceSearchProps) => (
   <section role='region' className='adv-search'>
@@ -14,17 +14,17 @@ const AdvanceSearchComponent = (advanceSearchProps) => (
       <Col md={10} xs={12}>
         <Form>
           <Row className='form-group'>
-            <Col xs={12}>
-              <div className='visible-xs'>
-                <FormControl type='search' className='openSansLight advancedSearch input-lg mt20' placeholder={translateText('OPTIONAL_KEYWORD')} />
-                <button className='icon-addon btn btn-link btnnoPadding openSansLight'><ImageComponent imagePath={SEARCH_ICON} /></button>
-              </div>
-              <p className='pt10 pb15 adv-optional'>{translateText('OPTIONAL_ENTRY_NARROWS_THE_SEARCH_RESULTS')}</p>
+            <Col xs={4}>
+              <label className='gbl_lh-22' htmlFor={translateText('common:PROFILE_LAST_NAME')}>{translateText('common:PROFILE_LAST_NAME')}</label>
+            </Col>
+            <Col xs={8}>
+              <FormControl className='input-lg' type='text' />
+              <Link className='icon-addon-right btnnoPadding openSansLight advancedTextBox show'><ImageComponent imagePath={MENUCLOSE_ICON} /></Link>
             </Col>
           </Row>
           <Row className='form-group'>
             <Col xs={4}>
-              <label className='gbl_lh-22' htmlFor={translateText('common:PROFILE_LAST_NAME')}>{translateText('common:PROFILE_LAST_NAME')}</label>
+              <label className='gbl_lh-22' htmlFor={translateText('common:PROFILE_FIRST_NAME')}>{translateText('common:PROFILE_FIRST_NAME')}</label>
             </Col>
             <Col xs={8}>
               <FormControl className='input-lg' type='text' />
@@ -38,9 +38,9 @@ const AdvanceSearchComponent = (advanceSearchProps) => (
             <Col xs={8}>
               <FormGroup controlId='formControlsSelect' className='styled-select'>
                 <FormControl componentClass='select' placeholder='select' className='input-lg'>
-                  <option className='list-group-item' value='' disabled>{CommonConstants.DROPDOWN_SELECT_TEXT}</option>
+                  <option value=''>{CommonConstants.DROPDOWN_SELECT_TEXT}</option>
                   {
-                    advanceSearchProps.organizationData.organizationDropDownOptions.map((item, orgIndex) => (<option className='list-group-item' key={orgIndex} value={item.id}>{item.name}</option>))
+                    advanceSearchProps.organizationData.organizationDropDownOptions.map((item, orgIndex) => (<option key={orgIndex} value={item.id}>{item.name}</option>))
                   }
                 </FormControl>
               </FormGroup>
@@ -54,8 +54,8 @@ const AdvanceSearchComponent = (advanceSearchProps) => (
               {/*<select value={this.state.deptValue} className='form-control'>*/}
               <FormGroup controlId='formControlsSelect' className='styled-select'>
                 <FormControl componentClass='select' placeholder='select' className='input-lg'>
-                  <option className='list-group-item' value='' disabled>{CommonConstants.DROPDOWN_SELECT_TEXT}</option>
-                  {advanceSearchProps.filteredDepartments && advanceSearchProps.filteredDepartments.map((item, deptIndex) => (<option className='list-group-item' key={deptIndex} value={item.id}>{item.name}</option>))}
+                  <option value=''>{CommonConstants.DROPDOWN_SELECT_TEXT}</option>
+                  {advanceSearchProps.filteredDepartments && advanceSearchProps.filteredDepartments.map((item, deptIndex) => (<option key={deptIndex} value={item.id}>{item.name}</option>))}
                 </FormControl>
               </FormGroup>
             </Col>

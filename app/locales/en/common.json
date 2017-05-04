@@ -271,8 +271,15 @@
   "SCHOOL_TASKS_AND_ACTIVITIES": "School Tasks and Activities",
   "FREQUENT_FUNCTIONS_AND_INFORMATION": "Frequent functions and information needed during the semester",
   "SEMESTER_CHANGES": "Changes",
+  "SEMESTER_PROBLEMS": "Problems",
+  "SEMESTER_GRADES": "Grades",
+  "SEMESTER_RECORDS": "Records",
+  "SEMESTER_CALENDAR_DATES": "Calendar Dates",
+  "SEMESTER_MY_PROGRAM": "My Program",
   "CHANGE_UNDERGRADUATE_COLLEGE": "Change Undergraduate College",
   "SEARCH_BOOKS_ARTICLES_MORE": "Search books, articles, more",
+  "SEARCH_BY_TITLE": "Search by title",
+  "SEARCH_ALL_DATABASES": "Search all databases",
 
   "SIGNOUT_TEXT": "Do you really want to Logout?",
   "SIGNOUT_CANCEL_TEXT": "Cancel",
@@ -294,7 +301,7 @@
   "BROWSE_JAYSEARCH": "Browse JaySearch",
   "BROWSE_ALL_DATABASES": "Browse all databases",
   "BROWSE_REINERT_ALUMNI_DATABASES": "Browse Reinert-Alumni databases",
-  "BROWSE_HEALTH_SCIENCE_DATABASES": "Browse Health Sciences database",
+  "BROWSE_HEALTH_SCIENCE_DATABASES": "Browse Health Sciences databases",
   "OPTIONAL_ENTRY_NARROWS_THE_SEARCH_RESULTS": "Optional entry narrows the search results.",
   "OPTIONAL_KEYWORD":"Optional Keyword",
 
@@ -307,5 +314,6 @@
   "ADV_EXPERTISE": "Expertise",
   "ADV_SKILL": "Skill",
   "ADV_APPLICATION": "Application",
-  "ADV_TOOL": "Tool"
+  "ADV_TOOL": "Tool",
+  "GO_BUTTON": "Go"
 }

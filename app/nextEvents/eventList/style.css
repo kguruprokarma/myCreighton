@@ -102,11 +102,7 @@ a:hover, *:hover  {
        line-height: 1.1;
     }
 
-    .event-topsection {
-        margin-top: -51px;
-    }
-
-     .event-listSection li:last-child
+    .event-listSection li:last-child
      {
          border-bottom:0;
      }

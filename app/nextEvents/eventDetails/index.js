@@ -103,7 +103,7 @@ export class EventDetails extends React.PureComponent {
       prevObject.next_Event_ID = {};
     }
     
-    return (<section role='region'>
+    return (<section role='region' className='section-container'>
       <div className='hidden-xs mb10 eventDetailsTitle'>
 
         <Row>

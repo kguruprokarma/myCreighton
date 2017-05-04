@@ -18,8 +18,4 @@ describe('index files in school and semester ----->', () => {
   it('SchoolAndSemester is defined', () => {
     expect(schoolAndSemester).toBeDefined();
   });
-
-  it('toggle Click', () => {
-    schoolAndSemester.instance().toggleClick();
-  });
 });

@@ -16,11 +16,10 @@ const ClassInfo = (classInfoProps) => (
         <p className='classOn'>{classInfoProps.data.course_section}</p>
       </Col>
       <Col md={2} sm={2}>
-        {classInfoProps.data.class_building_code !== CommonConstants.ONLINE_CLASSES ?
-          <div>
-            <span className='classPlace'>{classInfoProps.data.class_held_build_desc}</span>
-            <span className='classPlace'> {classInfoProps.data.class_room_code}</span>
-          </div>:CommonConstants.ONLINE_CLASSES_DISPLAY}
+        <div>
+          <span className='classPlace'>{classInfoProps.data.class_held_build_desc}</span>
+          <span className='classPlace'> {classInfoProps.data.class_room_code}</span>
+        </div>
       </Col>
       <Col md={2} sm={2} className='text-center'>
         <span className='classBy'>{(classInfoProps.data.instructor_name !==null && classInfoProps.data.instructor_name.last_name) ? classInfoProps.data.instructor_name.last_name:''}</span>
@@ -46,10 +45,8 @@ const ClassInfo = (classInfoProps) => (
         {classInfoProps.data.class_building_code !== CommonConstants.ONLINE_CLASSES && <span className='classDate'><span>{translateText('çommon:NEXT')}:</span> {classInfoProps.data.nextDate} </span>}
       </Col>
       <Col xs={7}>
-        {classInfoProps.data.class_building_code !== CommonConstants.ONLINE_CLASSES ? <div>
-          <span className='classPlace'>{classInfoProps.data.class_held_build_desc}</span>
-          <span className='classPlace'> {classInfoProps.data.class_room_code}</span>
-        </div>:CommonConstants.ONLINE_CLASSES_DISPLAY}
+        <span className='classPlace'>{classInfoProps.data.class_held_build_desc}</span>
+        <span className='classPlace'> {classInfoProps.data.class_room_code}</span>
       </Col>
       <Col xs={5} className='text-right'>
         {classInfoProps.data.class_building_code !== CommonConstants.ONLINE_CLASSES && <span className='classTime'>{scheduleDays(classInfoProps.data.class_schedule)} {convertTo24Format(classInfoProps.data.class_begin_time)} - {convertTo24Format(classInfoProps.data.class_end_time)}<span> {CommonConstants.TIMEZONE_CT}</span></span>}

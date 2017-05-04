@@ -159,5 +159,8 @@
     .controller-buttons .btn-group a {
         font-size: 1.2em;   /* font size 18 in pixel */
     }
-    
+    .controller-buttons.classListButtons {
+        margin-bottom: 20px;
+    }
+       
 }

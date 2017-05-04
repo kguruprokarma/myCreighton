@@ -27,7 +27,7 @@ export class StaffProfessional extends React.PureComponent {
     const props = this.props;
     const USER_DATA = props.professionalData.data;
     return (
-      <section role='region' id='academic'>
+      <section role='region' id='academic' className='section-container'>
         {props.isLoading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:STAFF_PROFESSIONAL')} /></div>
         {USER_DATA &&

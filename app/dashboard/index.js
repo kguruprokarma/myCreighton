@@ -73,7 +73,7 @@ export class Dashboard extends Component {
     }
 
     return (
-      <section role='region' id='dashboard'>
+      <section role='region' id='dashboard' className='section-container'>
         <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
         <Row className='mb20'>
           <Col sm={5} xs={10} md={5}>           

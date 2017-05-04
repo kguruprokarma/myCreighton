@@ -9,18 +9,24 @@ import ClassInfo from './classInfo';
 import { translateText } from '../../../common/translate';
 import * as ROUTE_URL from '../../../constants/routeContants';
 
-let lastHeader = null;
-let presentHeader;
-
-const WeekClasses = (weekProps) => (
-  <div>
-    {
+const WeekClasses = (weekProps) => {
+  let lastHeader = null;
+  let presentHeader;
+  let flag;
+  return (
+    <div>
+      {
       weekProps.listOfData.length > 0 ?
       weekProps.listOfData.map((weekClass, weekIndex) => {
         presentHeader = weekClass.day;
+        flag = false;
+        if (lastHeader !== presentHeader) {
+          lastHeader = weekClass.day;
+          flag= true;
+        }
         return (
           <div key={weekIndex} className='cls'>
-            {lastHeader !== presentHeader && <DayHeader day={lastHeader = weekClass.day} />}
+            {flag && <DayHeader day={lastHeader} />}
             <Link to={`${ROUTE_URL.CLASS_DETAILS}/${weekProps.catagory}/${weekClass.sis_source_id}/${weekIndex}`}>
               <ClassInfo data={weekClass} />
             </Link>
@@ -28,6 +34,6 @@ const WeekClasses = (weekProps) => (
         );
       }) : translateText('common:NO_CLASSES_SCHEDULED')
     }
-  </div>
-);
+    </div>);
+};
 export default WeekClasses;

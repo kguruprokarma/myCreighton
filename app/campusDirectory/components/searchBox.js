@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col, Form, FormGroup, FormControl, HelpBlock } from 'react-bootstrap';
 import { Link, hashHistory } from 'react-router';
-//import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import { translateText } from '../../common/translate';
 import * as CommonConstants from '../../constants/commonConstants';
 import ImageComponent from '../../common/imageComponent';
@@ -25,19 +24,19 @@ export class SearchBox extends Component {
     const constructorProps = props;
     const searchboxProps = this.props;
     this.state = constructorProps.state;
-    this.state = { 
+    this.state = {
       searchText: searchboxProps.searchString ? searchboxProps.searchString : '',
       selectUser: true,
       selectionNumber: -1,
       serchTextPreserved: ''
     };
-   // this.state.searchURL = '';
+    // this.state.searchURL = '';
     this.onSearchText = this.onSearchText.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.clearSearchText = this.clearSearchText.bind(this);
     this.selectedUser = this.selectedUser.bind(this);
     this.selection = this.selection.bind(this);
-    if (constructorProps.currentPath === CommonConstants.SEARCH_RESULTS ) {
+    if (constructorProps.currentPath === CommonConstants.SEARCH_RESULTS) {
       searchboxProps.onSearchText(constructorProps.searchString);
     }
   }
@@ -52,11 +51,11 @@ export class SearchBox extends Component {
     searchText = searchText.split(',');
     const reqObj = {};
     if (searchText[0]) {
-     // reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
+      // reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
       reqObj.lastName = searchText[0];
     }
     if (searchText[1]) {
-     // const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
+      // const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
       const firstName = searchText[1];
       if (firstName) {
         reqObj.firstName = firstName;
@@ -66,6 +65,7 @@ export class SearchBox extends Component {
     this.props.searchItemClicked();
     const searchURL = `${ROUTE_URL.SERCHRESULTS}/${this.state.searchText}`;
     hashHistory.replace(searchURL);
+    return true;
   }
 
   selectedUser(firstName, lastName) {
@@ -73,7 +73,7 @@ export class SearchBox extends Component {
   }
 
   clearSearchText() {
-    this.setState({ searchText: '', serchTextPreserved: ''});
+    this.setState({ searchText: '', serchTextPreserved: '' });
   }
 
   selection(event) {
@@ -81,7 +81,7 @@ export class SearchBox extends Component {
     const evt = (event) ? event : window.event;
     const key = (evt.which) ? evt.which : evt.keyCode;
     const selected = listItems.length;
-    if (selected<=0) {
+    if (selected <= 0) {
       return false;
     }
     if (key === 38 || key === 40) {
@@ -92,24 +92,24 @@ export class SearchBox extends Component {
       element.classList.remove('selected');
     }
     if (key === 40) {
-      this.setState({selectionNumber: (++this.state.selectionNumber)});
+      this.setState({ selectionNumber: (++this.state.selectionNumber) });
       if (this.state.selectionNumber === (selected)) {
-        this.setState({selectionNumber: -1});
-        this.setState({ searchText: this.state.serchTextPreserved});
+        this.setState({ selectionNumber: -1 });
+        this.setState({ searchText: this.state.serchTextPreserved });
       } else if (this.state.selectionNumber >= selected) {
-        this.setState({selectionNumber: (0)});
+        this.setState({ selectionNumber: (0) });
         current = listItems.item(0);
       } else {
         current = listItems.item(this.state.selectionNumber);
       }
     } else if (key === 38) {
-      this.setState({selectionNumber: --this.state.selectionNumber});
+      this.setState({ selectionNumber: --this.state.selectionNumber });
       if (this.state.selectionNumber === -1) {
-        this.setState({selectionNumber: (selected)});
-        this.setState({ searchText: this.state.serchTextPreserved});
+        this.setState({ selectionNumber: (selected) });
+        this.setState({ searchText: this.state.serchTextPreserved });
       } else if (this.state.selectionNumber <= -2) {
-        this.setState({selectionNumber: (selected-1)});
-        current = listItems.item(selected-1);
+        this.setState({ selectionNumber: (selected - 1) });
+        current = listItems.item(selected - 1);
       } else {
         current = listItems.item(this.state.selectionNumber);
       }
@@ -117,11 +117,12 @@ export class SearchBox extends Component {
     if (current) {
       current.classList.add('selected');
       const text = current.querySelector('span').textContent.split(' ');
-      this.setState({ searchText: (`${text[0]}, ${text[1]}`)});
+      this.setState({ searchText: (`${text[0]}, ${text[1]}`) });
       current.scrollIntoView(false);
     }
+    return true;
   }
-  
+
   handleChange(event) {
     if (!this.state.selectUser) {
       this.setState({ selectUser: true });
@@ -133,37 +134,37 @@ export class SearchBox extends Component {
    /* if (!event.target.value.trim()) {
       return false;
     }*/
-    const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
-    const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
+    // const txtShouldnotStartWithSpace = /^\S[A-Za-z,\s-]*$/;
+    // const txtRestrictNumeric = /^[A-Za-z,\s-]*$/;
     if (event.target.value.length <= CommonConstants.CAMPUS_SEARCH_TEXT_LENGTH) {
      // if (txtShouldnotStartWithSpace.test(event.target.value)) {
        // if (txtRestrictNumeric.test(event.target.value)) {
-          this.props.resetCampusDirectoryData();
-          let query = event.target.value;
-          this.setState({ searchText: query, serchTextPreserved: query });
-
-          query = event.target.value.replace(/ /g, '');
-          this.props.resetSearchItemClicked();
-          if (query.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH) {
-            let searchText = query.toLowerCase();
-            searchText = searchText.split(',');
-            const reqObj = {};
-            if (searchText[0]) {
+      this.props.resetCampusDirectoryData();
+      let query = event.target.value;
+      this.setState({ searchText: query, serchTextPreserved: query });
+      query = event.target.value.replace(/ /g, '');
+      this.props.resetSearchItemClicked();
+      if (query.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH) {
+        let searchText = query.toLowerCase();
+        searchText = searchText.split(',');
+        const reqObj = {};
+        if (searchText[0]) {
               //reqObj.lastName = searchText[0].charAt(0).toUpperCase() + searchText[0].slice(1);
-              reqObj.lastName = searchText[0];
-            }
-            if (searchText[1]) {
+          reqObj.lastName = searchText[0];
+        }
+        if (searchText[1]) {
              // const firstName = searchText[1].charAt(0).toUpperCase() + searchText[1].slice(1);
-              const firstName = searchText[1];
-              if (firstName) {
-                reqObj.firstName = firstName;
-              }
-            }
-
-            this.props.getCampusDirectoryData(reqObj);
+          const firstName = searchText[1];
+          if (firstName) {
+            reqObj.firstName = firstName;
           }
+        }
+
+        this.props.getCampusDirectoryData(reqObj);
+      }
         //}
      // }
+
       if (event.target.value === '') {
         this.setState({ searchText: event.target.value });
       }
@@ -171,10 +172,10 @@ export class SearchBox extends Component {
   }
 
   render() {
-    const props =this.props;
+    const props = this.props;
     return (
       <Row>
-        { props.loading && <Spinner />}
+        {props.loading && <Spinner />}
         <Col xs={12}>
           <Form className='searchForm' onSubmit={this.onSearchText}>
             <Row>
@@ -187,7 +188,6 @@ export class SearchBox extends Component {
                 </FormGroup>
                 {(props.campusSimpleSearchData && props.campusSimpleSearchData.data && props.campusSimpleSearchData.data.length > 0 && this.state.searchText.length > CommonConstants.CAMPUS_SEARCH_MINIUM_LENGTH && !props.searchClick && this.state.selectUser) &&
                   <AutoPopulateList selectedUser={this.selectedUser} populatedList={props.campusSimpleSearchData.data} />}
-
               </Col>
               <Col xs={12} sm={3}>
                 <FormGroup>
@@ -197,16 +197,6 @@ export class SearchBox extends Component {
             </Row>
           </Form>
         </Col>
-        {/*<Col xs={12}>
-          {
-<<<<<<< Updated upstream
-            (props.campusSimpleSearchData && props.campusSimpleSearchData.data && props.campusSimpleSearchData.data.length === 0 && this.state.searchText) && <div> {translateText('common:NO_SEARCH_RESULT')}: <span className='cmpNoResult'>{this.state.searchText} </span></div>
-=======
-            (this.props.campusSimpleSearchData && this.props.campusSimpleSearchData.data && this.props.campusSimpleSearchData.data.length === 0 && this.state.searchText) && <div> {translateText('common:NO_SEARCH_RESULT')}: <span className='cmpNoResult'>{this.state.searchText}</span></div>
->>>>>>> Stashed changes
-          }
-        </Col>*/}
-
       </Row>
     );
   }

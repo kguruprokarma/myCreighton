@@ -275,6 +275,8 @@
   "LIBRARY_GUIDES": "Guías de la biblioteca",
   "DATA_BASES": "Bases de datos",
   "SEARCH_BOOKS_ARTICLES_MORE":"Buscar libros, artículos, más",
+  "SEARCH_BY_TITLE": "Búsqueda por título",
+  "SEARCH_ALL_DATABASES": "Buscar en todas las bases de datos",
   "LIB_JAYSEARCH": "JaySearch",
   "ALL_DAY_TEXT": "Todo el dia",
   "NA_TEXT": "NA",
@@ -286,7 +288,7 @@
   "BROWSE_JAYSEARCH": "Navegar por JaySearch",
   "BROWSE_ALL_DATABASES": "Examinar todas las bases de datos",
   "BROWSE_REINERT_ALUMNI_DATABASES": "Navegar por las bases de datos Reinert-Alumni",
-  "BROWSE_HEALTH_SCIENCE_DATABASES": "Navegar por la base de datos de Ciencias de la Salud",
+  "BROWSE_HEALTH_SCIENCE_DATABASES": "Ver bases de datos de Ciencias de la Salud",
   "OPTIONAL_ENTRY_NARROWS_THE_SEARCH_RESULTS": "La entrada opcional reduce los resultados de la búsqueda.",
   "OPTIONAL_KEYWORD":"Palabra clave opcional",
   "BROWSE_LIBRARY_TEXT": "Navegar por las guías de la biblioteca:",
@@ -299,6 +301,7 @@
   "ADV_EXPERTISE": "Pericia",
   "ADV_SKILL": "Habilidad",
   "ADV_APPLICATION": "Solicitud",
-  "ADV_TOOL": "Herramienta"
+  "ADV_TOOL": "Herramienta",
+  "GO_BUTTON": "Ir"
 
 }

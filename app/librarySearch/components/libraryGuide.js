@@ -38,7 +38,7 @@ class LibraryGuide extends React.PureComponent {
             </div>
           </Col>
           <Col xs={3}>
-            <a rel='noopener noreferrer' className='openSansLight btn btn-default btn-large btn-block librarySearchBtn pl10 searchButton' target='_blank' href={libraryUrl}>{translateText('common:SEARCH')}</a>
+            <a rel='noopener noreferrer' className='openSansLight btn btn-default btn-large btn-block librarySearchBtn pl10 searchButton' target='_blank' href={libraryUrl}>{translateText('common:GO_BUTTON')}</a>
           </Col>
         </Row>
         <p className='openSansLight libraryGuideOr fs1pt2 pb10'>{translateText('common:OR_TEXT')}</p>
@@ -53,7 +53,7 @@ class LibraryGuide extends React.PureComponent {
             </div>
           </Col>
           <Col xs={3}>
-            <a rel='noopener noreferrer' className='openSansLight btn btn-default btn-large btn-block librarySearchBtn pl10 searchButton' target='_blank' href={subjectUrl}>{translateText('common:SEARCH')}</a>
+            <a rel='noopener noreferrer' className='openSansLight btn btn-default btn-large btn-block librarySearchBtn pl10 searchButton' target='_blank' href={subjectUrl}>{translateText('common:GO_BUTTON')}</a>
           </Col>
         </Row>
       </Form>

@@ -15,6 +15,7 @@ const accordionReducer = (state = initialState, action = null) => {
       return Object.assign({}, state, {
         accordionToggle: false
       });
+
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import TodayClasses from '../components/todayClasses';
-import { todayHeader } from '../../../common/utility';
+// import { todayHeader } from '../../../common/utility';
 
 describe('TodayClasses component testing ----->', () => {
   const defaultProps = {
@@ -34,7 +34,7 @@ describe('TodayClasses component testing ----->', () => {
       }
     ]
   };
-  const todayHeaderText = todayHeader();
+  // const todayHeaderText = todayHeader();
   const todayClassesC = shallow(<TodayClasses listOfData={defaultProps.data} />);
 
   it('TodayClasses is defined', () => {

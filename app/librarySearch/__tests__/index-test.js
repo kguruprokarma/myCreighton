@@ -8,7 +8,8 @@ import '../../__mock_i18n__/i18n_mockKeys';
 
 const defaultProps = {
   getLibraryData: () => { },
-  scrollToPosition: () => {},
+  scrollToPosition: () => { 'healthScience'; },
+  setTabindex: () => {},
   libraryInfoData: {
     'libraryInformation': [{
       'reinertAlumni': {
@@ -78,5 +79,20 @@ describe('LibraryInformation Test Suite', () => {
   it('LibraryInformation component LawLibrary is there or not', () => {
     expect(libraryInformation.find('LawLibrary').length).toBe(1);
   });
+
+  it('LibraryTabs component LawLibrary is there or not', () => {
+    expect(libraryInformation.find('LibraryTabs').length).toBe(1);
+  });
+
+  // it('Test setTabindex, scrollToPosition functions', () => {
+  //   libraryInformation.instance().setTabindex('header');
+  //   libraryInformation.instance().scrollToPosition();
+  // });
+  //
+  // it('Test scrollReinertAlumni,scrollHealthScience,scrollLaw functions', () => {
+  //   libraryInformation.instance().scrollReinertAlumni();
+  //   libraryInformation.instance().scrollHealthScience();
+  //   libraryInformation.instance().scrollLaw();
+  // });
 });
 

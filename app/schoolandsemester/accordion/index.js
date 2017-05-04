@@ -3,54 +3,97 @@
  */
 
 import React from 'react';
-import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
-import { connect } from 'react-redux';
-import { Col, ListGroup, ListGroupItem } from 'react-bootstrap';
-import * as actionCreators from './actions';
+import { Col, Row, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { translateText } from '../../common/translate';
 import { DOWN_ARROW } from '../../constants/imageConstants';
 
-export class Accordion extends React.Component {
+class Accordion extends React.Component {
 
   constructor(props) {
     super(props);
-    this.accordToggle = this.accordToggle.bind(this);
     this.imageClass = '';
+    this.state = {
+      isAccordToggle: false,
+      //toggleSingleAccordClass: '',
+      selected: ''
+    };
+    //this.accordToggle = this.accordToggle.bind(this);
+    this.isActive = this.isActive.bind(this);
   }
 
-  accordToggle() {
-    const props = this.props;
-    if (props.isAccordToggle) {
-      //props.hideAccordionTab();
-      this.imageClass = '';
-    } else {
-      //props.showAccordionTab();
-      this.imageClass = 'revImage';
+  accordToggle(filter) {
+    //const props = this.props;
+    //if (this.state.isAccordToggle) {
+    //this.setState({toggleSingleAccordClass: ''});
+    this.setState({ selected: filter });
+    //this.setState({isAccordToggle: false});
+
+    // this.imageClass = '';
+    //} else {
+    // this.imageClass = '';
+    //this.setState({toggleSingleAccordClass: 'accord-active'});
+    //this.setState({isAccordToggle: true});
+    //}
+  }
+
+  isActive(value) {
+   // this.imageClass = (value === this.state.selected) ? 'revImage' : '';
+    let returnVal = '';
+    if (value === this.state.selected) {
+      if (returnVal !== 'accord-active') {
+        returnVal = 'accord-active';
+      } else {
+        returnVal = '';
+      }
+      if (this.imageClass !== 'revImage') {
+        this.imageClass = 'revImage';
+      } else {
+        this.imageClass = '';
+      }
     }
+    /*else {
+      this.imageClass = '';
+    }*/
+
+    return returnVal;
+    //return ((value === this.state.selected) ? 'accord-active' : '');
   }
 
   render() {
     const props = this.props;
-    //console.log('this.props.isAccordToggle: ', this.props.isAccordToggle);
-    //const accordStateClass = props.isAccordToggle ? 'accord-active' : '';
+    const descStateClass = props.showHideDesc ? 'accord-active' : '';
+    const accordStateClass = props.showHideAccord ? 'accord-active' : 'accord-description';
+    this.imageClass = props.showHideAccord ? 'revImage' : '';
     return (
       <section role='region'>
         {props.accordionObj && props.accordionObj.map((accordionDetails, accordionIndex) => (
           <div key={accordionIndex}>
-            <button className='btn btn-link btnnoPadding accord-title' onClick={this.accordToggle}>
-              <Col xs={10}>{translateText(accordionDetails.accordionTitle)}</Col>
-              <Col xs={2} className='text-right'> <img src={DOWN_ARROW} alt='' className={this.imageClass} /></Col>
+            <button className='btn btn-link btnnoPadding accord-title' onClick={() => this.accordToggle(`${accordionIndex}`)}>
+              <Col xs={10}>
+                <p className='openSansLight fs1pt2 semesterTitle'>{translateText(accordionDetails.accordionTitle)}</p>
+              </Col>
+              <Col xs={2} className='openSansLight text-right'> <img src={DOWN_ARROW} alt='' className={this.imageClass} /></Col>
             </button>
-            {/*<div className={`${accordStateClass} accord-description`}>*/}
-            <ListGroup className='main-list-group accordian-list-data'>
-              {accordionDetails.links.map((linkDetails, linkIndex) => (
-                <ListGroupItem key={linkIndex}>
-                  <Link>{translateText(linkDetails)}   
-                    <img src={DOWN_ARROW} alt='' className='pull-right rightArrow' />
-                  </Link>
-                </ListGroupItem>
-              ))}
+            <ListGroup className={`${this.isActive(`${accordionIndex}`)} ${accordStateClass} main-list-group accordian-list-data`}>
+              {
+                accordionDetails.links.map((linkDetails, linkIndex) => (
+                  <ListGroupItem key={linkIndex}>
+                    <Link to={linkDetails.linkTo}>
+                      <Row>
+                        <Col xs={10}>
+                          <p className='openSansLight fs1pt2 semesterTitle'>{translateText(linkDetails.linkKey)}</p>
+                        </Col>
+                        <Col xs={2}>
+                          <img src={DOWN_ARROW} alt='' className='pull-right rightArrow' />
+                        </Col>
+                      </Row>
+                    </Link>
+                    <div className={`${descStateClass} accord-description`}>
+                      {linkDetails.linkDesc}
+                    </div>
+                  </ListGroupItem>
+                ))}
             </ListGroup>
           </div>
         ))}
@@ -59,11 +102,5 @@ export class Accordion extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => (
-  {
-    isAccordToggle: state.accordionReducer.accordionToggle
-  });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Accordion);
+export default Accordion;

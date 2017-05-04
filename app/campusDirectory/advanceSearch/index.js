@@ -13,7 +13,7 @@ class AdvanceSearch extends React.PureComponent {
   }
   render() {
     return (
-      <section role='region'>
+      <section role='region' className='section-container'>
         <div className='hidden-xs'>
           <HeaderLabel headerLabel={translateText('common:CAMPUS_DIRECTORY')} />
         </div>

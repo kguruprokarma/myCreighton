@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { find, sortBy } from 'lodash';
+import { sortBy } from 'lodash';
 import HeaderLabel from './../../common/headerLabel';
 import ClassInfo from './../classDetails/components/classInfo';
 import ClassAssignments from './../classDetails/components/classAssignments';
@@ -13,7 +13,7 @@ import UpcomingAssignments from './../classDetails/components/upcomingAssignment
 import '../classDetails/style.css';
 import PreviousNextComponent from '../../common/previousNext';
 import { translateText } from '../../common/translate';
-import { datesCompare, stringEncodeURIComponent, browserTitle } from '../../common/utility';
+import { datesCompare, browserTitle } from '../../common/utility';
 import { CLASSES_DETAILS } from '../../constants/nextEventsConstants';
 //import * as locales from '../../locales/en/common';
 
@@ -94,7 +94,7 @@ class ClassDetails extends React.PureComponent {
       prevObject.sis_source_id = {};
     }
     return (
-      <section role='region' className='classesDeatils'>
+      <section role='region' className='classesDeatils section-container'>
         {showPrevNext &&
           <div className='hidden-xs'>
             <HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />

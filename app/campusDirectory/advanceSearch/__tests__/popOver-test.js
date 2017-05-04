@@ -19,6 +19,4 @@ describe(' Index component testing for campus directory search ----->', () => {
   it('toggleSkill is called', () => {
     popOver.instance().toggleSkill(defaultProps.items);
   });
-
-
 });

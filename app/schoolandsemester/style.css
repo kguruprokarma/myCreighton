@@ -35,7 +35,6 @@
 .semester-sub-title {
     font-size: 1.8em;;
     line-height: 1.8;
-    border-bottom: 1px solid #c8c7cc;
 }
 
 .semester-badge-text {
@@ -98,11 +97,41 @@
     display: inline-block
 }
 
+.semesterTitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.semisterShow {
+    border: none;
+    background-color: #fff;
+    color: #0079b3;
+    font-size: 1em; /* font size 15 in pixel */
+}
+
+.semisterShow:hover,
+.semisterShow:active,
+.semisterShow:focus {
+    border-color: #0079b3;
+    background-color: #fff;
+    outline: none;
+    box-shadow: none;
+}
+
+
 /* Media for small devices */
 @media screen and (max-width: 767px) {
     .school-and-semester  .semester-links {
-        margin-top: -50px;
         margin-left:-15px;
         margin-right: -15px;
+    }
+    
+    .main-list-group {
+        margin-top: 0;
+    }
+    .semester-internal-data {
+        padding-top: 20px;
     }
 }

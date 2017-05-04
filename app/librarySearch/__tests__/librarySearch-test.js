@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { shallow } from 'enzyme';
-import {LibrarySearch} from '../components/librarySearch';
+import LibrarySearch from '../components/librarySearch';
 
 describe('Law library search ----->', () => {
   const defaultProps = {
@@ -11,11 +11,12 @@ describe('Law library search ----->', () => {
     search: () => {},
     handleChange: () => {},
     onSearchText: () => {},
-    tabindex: 0
+    tabindex: 0,
+    searchText: ''
   };
 
   const defaultState = {
-    presentState: ''
+    presentState: ''    
   };
 
   const librarySearch = shallow(<LibrarySearch state={defaultState} {...defaultProps} />);

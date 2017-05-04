@@ -160,7 +160,12 @@ export class EventList extends React.PureComponent {
       const APIDate = new Date(moment(eventObject.timeStamp).format('MMM D, YYYY'));
       const todayDate = new Date(moment(today).format('MMM D, YYYY'));
       const seventhDate = new Date(moment(seventhDay).format('MMM D, YYYY'));
-      const APITime = moment(eventObject.timeStamp).format('HH:mm');
+      let APITime;
+      if (eventObject.type === NextEventsConstants.CALENDER && !(eventObject.starttime && eventObject.endtime)) {
+        APITime = moment(eventObject.timeStamp1).format('HH:mm');
+      } else {
+        APITime = moment(eventObject.timeStamp).format('HH:mm');
+      }
       const todayTime = moment(today).format('HH:mm');
       if (day === CommonConstants.EVENT_FILTER_7_DAYS && APIDate >= todayDate && APIDate <= seventhDate) {
         if (!(APIDate.toString() === todayDate.toString() && APITime < todayTime)) {
@@ -338,7 +343,7 @@ export class EventList extends React.PureComponent {
     const props = this.props;
     props.offLoading();
     return (
-      <article className='event-topsection'>
+      <article className='event-topsection section-container init-top'>
         <Row><Col md={8} sm={6} xs={12}>
           <div className='hidden-xs'>
             <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} />

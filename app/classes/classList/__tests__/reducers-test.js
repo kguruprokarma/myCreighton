@@ -26,4 +26,29 @@ describe('ClassList reducer testing ----->', () => {
     const afterState = reducer({}, { type: types.RECEIVE_CLASSES_DATA_ERROR, error });
     expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
   });
+
+  it('reducer ON_CATAGORY_CHANGE state', () => {
+    const expectedState = { isLoading: true };
+    const afterState = reducer({}, { type: types.ON_CATAGORY_CHANGE });
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
+
+  it('reducer request(RECEIVE_ASSIGNMENTS_DATA_ERROR) state', () => {
+    const expectedState = { isLoading: false, error: true, assignmentsData: [] };
+    const afterState = reducer({}, {type: types.RECEIVE_ASSIGNMENTS_DATA_ERROR});
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
+
+  it('reducer request(REQUEST_ASSIGNMENTS_DATA) state', () => {
+    const expectedState = { ...defaultState, isLoading: true };
+    const afterState = reducer(undefined, { type: types.REQUEST_ASSIGNMENTS_DATA });
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
+
+  it('reducer request(RECEIVE_ASSIGNMENTS_DATA) state', () => {
+    const data = { 'name': 'myCreighton' };
+    const expectedState = { isLoading: false, assignmentsData: data };
+    const afterState = reducer({}, { type: types.RECEIVE_ASSIGNMENTS_DATA, data: data });
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
 });

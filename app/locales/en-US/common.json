@@ -271,6 +271,8 @@
   "SEMESTER_CHANGES": "Changes",
   "CHANGE_UNDERGRADUATE_COLLEGE": "Change Undergraduate College",
   "SEARCH_BOOKS_ARTICLES_MORE":"Search books, articles, more",
+  "SEARCH_BY_TITLE": "Search by title",
+  "SEARCH_ALL_DATABASES": "Search all databases",
 
   "SIGNOUT_TEXT": "Do you really want to Logout?",
   "SIGNOUT_CANCEL_TEXT": "Cancel",
@@ -291,7 +293,7 @@
   "BROWSE_JAYSEARCH": "Browse JaySearch",
   "BROWSE_ALL_DATABASES": "Browse all databases",
   "BROWSE_REINERT_ALUMNI_DATABASES": "Browse Reinert-Alumni databases",
-  "BROWSE_HEALTH_SCIENCE_DATABASES": "Browse Health Sciences database",
+  "BROWSE_HEALTH_SCIENCE_DATABASES": "Browse Health Sciences databases",
   "OPTIONAL_ENTRY_NARROWS_THE_SEARCH_RESULTS": "Optional entry narrows the search results.",
   "OPTIONAL_KEYWORD":"Optional Keyword",
   "BROWSE_LIBRARY_TEXT": "Browse library guides:",
@@ -304,6 +306,7 @@
   "ADV_EXPERTISE": "Expertise",
   "ADV_SKILL": "Skill",
   "ADV_APPLICATION": "Application",
-  "ADV_TOOL": "Tool"
+  "ADV_TOOL": "Tool",
+  "GO_BUTTON": "Go"
 
 }

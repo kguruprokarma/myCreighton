@@ -25,11 +25,11 @@ const classInfo = (classInfoProps) => (
           <Row>
             <Col xs={6}>
               <p>{classInfoProps.class_held_build_desc} {classInfoProps.class_room_code}</p>
-              <p>{scheduleDays(classInfoProps.class_schedule)} {convertTo24Format(classInfoProps.class_begin_time)} - {convertTo24Format(classInfoProps.class_end_time)}<span> {CommonConstants.TIMEZONE_CT}</span></p>
+              <p>{scheduleDays(classInfoProps.class_schedule)} {convertTo24Format(classInfoProps.class_begin_time)} - {convertTo24Format(classInfoProps.class_end_time)}{classInfoProps.class_building_code !== CommonConstants.ONLINE_CLASSES ? <span> {CommonConstants.TIMEZONE_CT}</span> : '' }</p>
             </Col>
             <Col xs={6} className='text-right'>
               <p>{(classInfoProps.instructor_name !== null && classInfoProps.instructor_name.last_name) ? classInfoProps.instructor_name.last_name:''}</p>
-              <p className='NextDate'><span>{translateText('NEXT')}</span>: {(classInfoProps.currentView === 'eventdetails' || classInfoProps.currentView === 'eventlist') ? moment(classInfoProps.timeStamp).format('MMM DD') : classInfoProps.nextDate}</p>
+              <p className='NextDate'><span>{translateText('NEXT')}</span>: {(classInfoProps.class_building_code !== CommonConstants.ONLINE_CLASSES && (classInfoProps.currentView === 'eventdetails' || classInfoProps.currentView === 'eventlist')) ? moment(classInfoProps.timeStamp).format('MMM DD') : (classInfoProps.nextDate?classInfoProps.nextDate:'N/A')}</p>
             </Col>
           </Row>
         </div>
