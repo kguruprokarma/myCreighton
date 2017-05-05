@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV;
 
 Object.assign(exports, {
   context: path.resolve(__dirname, './app'),
@@ -18,13 +18,13 @@ Object.assign(exports, {
     publicPath: '/'
   },
   module: {
-    preLoaders: [
+    /*preLoaders: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: 'eslint-loader',
         exclude: /node_modules/
       }
-    ],
+    ],*/
     loaders: [
       {
         test: /\.js?$/,
@@ -33,7 +33,7 @@ Object.assign(exports, {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
+        //exclude: /node_modules/,
         /*loaders: [
           'style-loader',
           'css-loader?modules&importLoaders=1&sourceMap'
@@ -51,6 +51,10 @@ Object.assign(exports, {
       {
         test: /\.(png|gif|jpe?g|svg)$/,
         loaders: ['url-loader']
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },
@@ -61,11 +65,9 @@ Object.assign(exports, {
       }
     }),
     new CopyWebpackPlugin([
-      { from: `${__dirname  }/app/assets`, to: `${__dirname  }/build/assets` },
-      { from: `${__dirname  }/app/mock_data`, to: `${__dirname  }/build/mock_data` },
-      { from: `${__dirname  }/app/locales`, to: `${__dirname  }/build/app/locales` },
-      { from: `${__dirname  }/app/service-worker.js`, to: `${__dirname  }/build/service-worker.js` },
-      { from: `${__dirname  }/app/manifest.json`, to: `${__dirname  }/build/manifest.json` },
+      { from: `${__dirname}/app/assets`, to: `${__dirname}/build/assets` },
+      { from: `${__dirname}/app/mock_data`, to: `${__dirname}/build/mock_data` },
+      { from: `${__dirname}/app/locales`, to: `${__dirname}/build/app/locales` }
     ]),
     new HtmlWebpackPlugin({
       chunksSortMode: 'dependency',
@@ -85,9 +87,8 @@ Object.assign(exports, {
     })
   ]
 });
-
-if (isProduction) {
-  // deployed environments
+console.log("=======>"+isProduction);
+if (isProduction==='production') {
   Object.assign(exports, {
     bail: true,
     devtool: 'source-map',
