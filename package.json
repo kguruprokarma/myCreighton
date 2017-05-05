@@ -1,15 +1,24 @@
 {
   "name": "myCreighton",
   "version": "0.0.1",
-  "description": "PoC",
+  "description": "A digital culture that enables a truly edgeless university exhibiting Creighton's Catholic, Jesuit Mission and the One Creighton vision",
   "main": "index.js",
   "scripts": {
     "prod": "webpack -p",
     "build": "set NODE_ENV=production && webpack",
     "test": "jest",
-    "build-css": "node-sass --importer ./node_modules/node-sass-json-importer/dist/node-sass-json-importer.js --include-path scss ./app/assets/sass/app.scss --output ./app/assets/css/",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "start": "npm run build-css && webpack-dev-server"
+    "start": "webpack-dev-server"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/app/__mock_i18n__/localstoarge_mock.js",
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
+    },
+    "collectCoverage": true,
+    "coverageFormats": [
+      "json",
+      "html"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -24,20 +33,25 @@
     "babel-preset-stage-1": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
     "babel-register": "^6.18.0",
-    "chai": "^3.5.0",
     "css-loader": "^0.26.1",
     "enzyme": "^2.7.0",
+    "firebase": "^3.7.5",
+    "html-react-parser": "^0.3.3",
     "html-webpack-plugin": "^2.24.1",
+    "i18next": "5.0.0",
+    "i18next-browser-languagedetector": "1.0.1",
+    "i18next-xhr-backend": "1.3.0",
     "jest": "^18.1.0",
-    "mocha": "^3.2.0",
-    "node-sass": "^3.13.0",
-    "node-sass-json-importer": "^2.1.1",
+    "moment": "^2.17.1",
     "nodemon": "^1.11.0",
     "postcss-loader": "^1.0.0",
     "react": "^15.4.1",
     "react-avatar": "^2.3.0",
     "react-bootstrap": "^0.30.7",
+    "react-display-name": "^0.2.0",
     "react-dom": "^15.4.1",
+    "react-i18next": "^2.0.1",
+    "react-mailto": "^0.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^3.0.0",
     "react-router-bootstrap": "^0.23.1",
@@ -47,27 +61,33 @@
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
+    "redux-form": "^6.5.0",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
-    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.14.0",
-    "sinon": "^1.17.6",
-    "redux-mock-store": "^1.2.1"
+    "webpack": "^1.14.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "bluebird": "^3.4.7",
     "copy-webpack-plugin": "^4.0.1",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-config-react-app": "^0.5.0",
     "eslint-loader": "^1.6.1",
+    "eslint-plugin-babel": "^4.0.1",
     "eslint-plugin-flowtype": "^2.29.2",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
+    "jest-css-modules": "^1.1.0",
+    "moxios": "^0.3.0",
     "react-addons-test-utils": "^15.4.1",
+    "redux-mock-store": "^1.2.1",
+    "redux-thunk": "^2.2.0",
     "webpack-dev-server": "^1.16.2"
   }
 }

@@ -1,0 +1,14 @@
+D:\poc\myc\sprint3\app\footer\components
+D:\poc\myc\sprint3\app\footer\index.js
+D:\poc\myc\sprint3\app\footer\print.txt
+D:\poc\myc\sprint3\app\footer\style.css
+D:\poc\myc\sprint3\app\footer\__tests__
+D:\poc\myc\sprint3\app\footer\components\copyRightText.js
+D:\poc\myc\sprint3\app\footer\components\footerNav.js
+D:\poc\myc\sprint3\app\footer\components\universityAddress.js
+D:\poc\myc\sprint3\app\footer\components\universityLogo.js
+D:\poc\myc\sprint3\app\footer\__tests__\copyRightText-test.js
+D:\poc\myc\sprint3\app\footer\__tests__\footerNav-test.js
+D:\poc\myc\sprint3\app\footer\__tests__\index-test.js
+D:\poc\myc\sprint3\app\footer\__tests__\universityAddress-test.js
+D:\poc\myc\sprint3\app\footer\__tests__\universityLogo-test.js

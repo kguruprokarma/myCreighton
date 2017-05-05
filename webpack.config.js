@@ -1,15 +1,15 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const path = require('path')
-const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production';
 
 Object.assign(exports, {
   context: path.resolve(__dirname, './app'),
-  entry: {    
-    app: [ './index.js' ],
-    vendor: [ 'react', 'react-dom', 'redux' ]
+  entry: {
+    app: ['./index'],
+    vendor: ['react', 'react-dom', 'redux']
   },
   output: {
     path: path.join(__dirname, 'build'),
@@ -18,15 +18,27 @@ Object.assign(exports, {
     publicPath: '/'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
-        test: /\.js?$/, 
-        exclude: /node_modules/, 
+        test: /\.js?$/,
+        exclude: /node_modules/,
         loaders: ['babel-loader']
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
+        /*loaders: [
+          'style-loader',
+          'css-loader?modules&importLoaders=1&sourceMap'
+          //'postcss-loader' Malappa removed for loader issue while building
+        ]*/
         loader: 'style-loader!css-loader'
       },
       {
@@ -38,7 +50,7 @@ Object.assign(exports, {
       },
       {
         test: /\.(png|gif|jpe?g|svg)$/,
-        loaders: [ 'url-loader' ]
+        loaders: ['url-loader']
       }
     ]
   },
@@ -49,14 +61,17 @@ Object.assign(exports, {
       }
     }),
     new CopyWebpackPlugin([
-      { from: __dirname + '/app/assets', to: __dirname + '/build/assets' },
-      { from: __dirname + '/app/mock_data', to: __dirname + '/build/mock_data' },
+      { from: `${__dirname  }/app/assets`, to: `${__dirname  }/build/assets` },
+      { from: `${__dirname  }/app/mock_data`, to: `${__dirname  }/build/mock_data` },
+      { from: `${__dirname  }/app/locales`, to: `${__dirname  }/build/app/locales` },
+      { from: `${__dirname  }/app/service-worker.js`, to: `${__dirname  }/build/service-worker.js` },
+      { from: `${__dirname  }/app/manifest.json`, to: `${__dirname  }/build/manifest.json` },
     ]),
     new HtmlWebpackPlugin({
       chunksSortMode: 'dependency',
       filename: 'index.html',
       inject: true,
-      template: __dirname + '/app/index.html',
+      template: 'index.html',
       minify: {
         collapseWhitespace: true,
         removeAttributeQuotes: true,
@@ -69,7 +84,7 @@ Object.assign(exports, {
       filename: '[name].[hash].js'
     })
   ]
-})
+});
 
 if (isProduction) {
   // deployed environments
@@ -92,21 +107,22 @@ if (isProduction) {
       }),
       ...exports.plugins
     ]
-  })
+  });
 } else {
   Object.assign(exports, {
-    devtool: 'cheap-source-map',
+    debug: true,
+    devtool: 'inline-source-map', //Debuging purpose i added this --> Malappa
     cache: true,
     output: Object.assign(exports.output, {
       pathinfo: true
     }),
     devServer: {
-        outputPath: path.join(__dirname, 'build'),
-        colors: true,
-        historyApiFallback: true,
-        host:'0.0.0.0',
-        port:8000,
-        inline:true
+      outputPath: path.join(__dirname, 'build'),
+      colors: true,
+      historyApiFallback: true,
+      host: '0.0.0.0',
+      port: 8000,
+      inline: true
     }
-  })
+  });
 }

@@ -1,9 +1,22 @@
+/*Created Date: - 26th -01 -2017
+*Usage of file: - This file is used to communicate with server side classes APIs*
+*/
+
 import axios from 'axios';
+import * as urlConstants from '../../constants/urlConstants';
 
-let ClassesApi = {
-  getClassesDataByWeek: () => axios.get( '../.././mock_data/classes.json' ),
-  getClassesDataByToday: () => axios.get( '../.././mock_data/classesDataForToday.json' ),
-  getClassesAtoZData: () => axios.get( '../.././mock_data/classesDataForAtoZ.json' )
-}
+const ClassesApi = {
+  //getClassesDataByWeek: () => axios.get(urlConstants.ROOT_URL + urlConstants.CLASSES_DATA),
+  getClassesDataByWeek: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.STUDENT_ACADEMIC_SINGLE}`, { params: reqObj }),
+  getClassesDataByToday: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.STUDENT_ACADEMIC_SINGLE}`, { params: reqObj }),
+  getClassesAtoZData: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.STUDENT_CLASSES}${urlConstants.STUDENT_ACADEMIC_SINGLE}`, { params: reqObj }),
+  //later i need to add dynamic id for get class details '/id'
+  //Removed 'id' because it is giveing eslint error: 'id' is defined but never used.
+  getClassDetails: () => axios.get(urlConstants.ROOT_URL + urlConstants.CLASS_DETAILS_DATA),
 
-export default ClassesApi
+  getAssignmentDetails: (reqObj) => axios.get(`${urlConstants.API_GATEWAY}${urlConstants.ASSIGNMENTS}${urlConstants.STUDENT_ACADEMIC_SINGLE}`, { params: reqObj })
+
+  // getAssignmentDetails:(reqObj) => axios.get(urlConstants.ROOT_URL + urlConstants.ASSIGNMENTSAPI)
+};
+
+export default ClassesApi;

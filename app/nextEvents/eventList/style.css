@@ -1,0 +1,96 @@
+/*Created Date: - 23rd -02 -2017
+*Usage of file: - this file is used to add styles to Event list.*
+*/
+
+.dayHeading {
+    background-color: #f2f2f2;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #7d7d7d;
+    font-size: 0.8em;   /* font size 12 in pixel */
+    border-top:1px solid #c8c7cc;    
+}
+
+.eventHeading{
+    font-size: 1.7333333333333334em;    /* font size 26 in pixel */
+    line-height: 32px;
+    color: #019cdb;
+    font-family: 'open_sanslight';
+}
+
+.eventOn, .eventPlace, .eventBy, .eventTime, .eventDate {
+    font-size: 1em; /* font size 15 in pixel */
+    font-family: 'open_sansregular';
+    line-height: 22px;
+}
+
+.eventOn, .eventDate
+{
+     color: #9a9a9a;   
+}
+
+.eventPlace, .eventBy, .eventTime {
+    color: #313131;
+}
+
+.eventTime {
+    font-family: 'open_sanssemibold';
+}
+
+.mobileEventsList, .desktopEventsList {
+        border-left:8px solid #019cdb   ;
+        overflow: hidden;
+        border-top:1px solid #c8c7cc;
+        padding-top:10px;
+        padding-bottom:10px;
+}
+
+.eventDate label{
+    font-weight: normal;
+}
+
+.eventOn {
+        padding-left: 10px;
+}
+
+.assignIcon {
+    background: url(../../assets/images/assignment_icon.png) no-repeat 0 0;
+    width: 20px;
+    height: 26px;
+    overflow: hidden;
+    display: inline-block;
+    text-indent: -9999px;
+}
+
+.testIcon {
+    background: url(../../assets/images/test_icon.png) no-repeat 0 0;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    display: inline-block;
+    text-indent: -9999px;
+}
+
+a:hover, *:hover  {
+        text-decoration: none;
+}
+
+
+
+@media (min-width:768px) and (max-width: 992px) {
+   
+    .eventHeading {
+        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    } 
+}
+
+@media (max-width: 767px) {
+
+    .eventOn {
+        padding-left: 0px;
+    }
+
+    .eventHeading {
+       font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    }
+}

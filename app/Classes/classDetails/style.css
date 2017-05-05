@@ -1,0 +1,80 @@
+/*Created Date: - 24th -01 -2017
+*Usage of file: - this file is used to add styles to class details page.*
+*/
+
+.classDetailHeading{
+    font-size: 1.7333333333333334em;    /* font size 26 in pixel */
+    line-height: 32px;
+    color: #313131;
+    font-family: 'open_sanslight';
+    margin-bottom: 10px;
+}
+
+.classesDeatils .headerLabel {
+    padding-bottom:20px;
+    border-bottom: 4px solid #d7d7d7;
+}
+
+p{
+    margin-bottom:0px;
+}
+
+.classDetialOn
+{
+    color: #9a9a9a;
+    font-family: 'open_sansregular';
+    font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+    padding-left: 10px;
+    line-height: 2.2em;
+     
+}
+
+clsDetailContent{
+    font-size: 1.1333333333333333em;    /* font size 17 in pixel */
+    color: #313131;
+}
+
+.detailSubhead{
+    text-transform: uppercase;
+    font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+    line-height: 38px;
+}
+
+#cls a {
+    text-decoration: none;
+}
+
+#cls a:hover {
+    text-decoration:none;
+}
+
+.classInfo p{
+    font-size: 1.1333333333333333em;    /* font size 17 in pixel */
+}
+
+/* Media for small devices */
+@media (max-width:767px) {
+
+    .classDetailHeading{
+        width: 100%;
+        float:none !important;
+        font-size: 1.6em;   /* font size 24 in pixel */
+        line-height: 28px;
+        margin-bottom: 4px;
+    }
+
+    .classDetialOn {
+        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+        padding-left: 0;
+        width: 100%;
+        line-height: 1em;
+        float: none !important;  
+        margin-bottom:8px;
+        
+    } 
+
+    .classInfo .m-grayBorder {
+        padding-bottom: 4px;
+        margin-bottom:10px;
+    }  
+}

@@ -1,0 +1,34 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "name": "English 112",
+            "time": "11am - 12pm",
+            "by": "Miller",
+            "place": "Building Rm 119",
+            "on": "poetry",
+            "date": "jan 28",
+            "recurrence": "Sa"
+        },
+        {
+            "id": "2",
+            "name": "Political science 223",
+            "time": "3pm - 4pm",
+            "by": "Dow",
+            "place": "Hopper Lecture 100",
+            "on": "20th-century politics in the U.S",
+            "date": "jan 28",
+            "recurrence": "Sa"
+        },
+        {
+            "id": "3",
+            "name": "Theology 100",
+            "time": "7am - 8am",
+            "by": "Miller",
+            "place": "Room 105",
+            "on": "Christianity in context",
+            "date": "jan 28",
+            "recurrence": "Sa"
+        }
+    ]
+}

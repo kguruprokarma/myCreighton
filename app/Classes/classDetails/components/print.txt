@@ -1,0 +1,6 @@
+D:\poc\myc\sprint3\app\classes\classDetails\components\classAssignments.js
+D:\poc\myc\sprint3\app\classes\classDetails\components\classInfo.js
+D:\poc\myc\sprint3\app\classes\classDetails\components\print.txt
+D:\poc\myc\sprint3\app\classes\classDetails\components\testsOrQuizzes.js
+D:\poc\myc\sprint3\app\classes\classDetails\components\todaysClass.js
+D:\poc\myc\sprint3\app\classes\classDetails\components\upcomingAssignments.js

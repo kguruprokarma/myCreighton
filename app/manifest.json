@@ -1,0 +1,14 @@
+{  
+  "name": "MyCreighton",  
+  "short_name": "AirHorner",  
+  "start_url": "/index.html",  
+  "display": "standalone",  
+  "gcm_sender_id": "898936412325",
+  "icons": [
+    {
+      "src": "assets/images/todo.png",
+      "type": "image/png",
+      "sizes": "300x300"
+    }
+  ]
+}

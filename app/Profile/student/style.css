@@ -1,0 +1,93 @@
+/*Created Date: - 18th -01 -2017
+*Usage of file: - Styling for student profile: bio and academic*
+*/
+
+.dataHeading{
+    font-size: 1em; /* font size 15 in pixel */
+   color: #313131;
+   text-transform: uppercase; 
+   margin: 0 0 8px;
+   padding-bottom: 6px;
+   border-bottom: 1px solid #c8c7cc;
+}
+
+.labelField {
+    font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    font-family: 'open_sanslight';
+}
+.dataField {
+    font-size: 1.4em;   /* font size 21 in pixel */  
+    font-family: 'open_sanslight';   
+}
+
+.mobileNumber{
+    text-decoration: none !important;
+}
+
+.emailAddress .dataField {
+    color: #0054a6;
+    cursor: pointer;
+}
+
+/* Profile Page css mobile view */
+@media screen and (max-width: 767px) {
+
+    .userData {
+        width: 100%;
+    }
+
+    .dataField {
+        font-size: 1.2em;   /* font size 18 in pixel */ 
+    } 
+
+    .labelField {
+        font-size: 1.0666666666666667em;    /* font size 16 in pixel */
+    }
+
+    .dataHeading{
+        font-size: 0.9333333333333333em; /* font size 14 in pixel */
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .userData {
+        width: 100%;
+    }
+
+    .dataField {
+        font-size: 1em; /* font size 15 in pixel */
+    } 
+
+    .labelField {
+        font-size: 0.9333333333333333em; /* font size 14 in pixel */  
+    }
+
+    .dataHeading{
+        font-size: 0.8666666666666667em;    /* font size 13 in pixel */
+    }
+
+    .control-checkbox {
+        line-height: 24px;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+
+    .userData {
+        width: 100%;
+    }
+    
+    .dataField {
+        font-size: 0.9333333333333333em; /* font size 14 in pixel */  
+    } 
+
+    .labelField {
+        font-size: 0.8em;   /* font size 12 in pixel */
+    }
+
+    .dataHeading{
+        font-size: 0.8666666666666667em;    /* font size 13 in pixel */
+    }
+}
