@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import { SchoolAndSemester } from '../index';
+import SchoolAndSemester from '../index';
 
 describe('index files in school and semester ----->', () => {
   const minProps = {

@@ -51,7 +51,11 @@ export class EventList extends React.PureComponent {
     } else {
       //The below code has to be changed once we receive seperate API for faculty and staff
       this.masterObj = {};
-      props.onMasterDataChange(true);
+      new Promise((resolve) => {
+        resolve(props.getCalendarData());
+      }).then(() => {
+        props.onMasterDataChange(true);
+      });
     }
     browserTitle(translateText('common:NEXT_EVENTS'));
   }
@@ -351,7 +355,7 @@ export class EventList extends React.PureComponent {
         </Col>
         </Row>
         <ul className='list-unstyled event-listSection'>
-          {EVENT_DATA && authUserDetails().userRole === CommonConstants.ROLE_STUDENT && EVENT_DATA.length > 0 ? EVENT_DATA.map((eventType, index) => ( <li key={index}>
+          {EVENT_DATA && EVENT_DATA.length > 0 ? EVENT_DATA.map((eventType, index) => ( <li key={index}>
             {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} currentIndex={index} />}
             {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} currentIndex={index} />}
             {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} currentIndex={index} />}

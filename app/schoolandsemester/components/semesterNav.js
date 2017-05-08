@@ -11,7 +11,7 @@ const SemesterNav = (SemesterNavprops) => (
       {
         SemesterNavprops.semesterLinks.map((semesterDetails, semesterIndex) => (
           <ListGroupItem key={semesterIndex}>
-            <Link className='visible-xs' to={semesterDetails.linkto} onClick={() => SemesterNavprops.navToLink(translateText(semesterDetails.title))} key={semesterIndex} activeClassName='active'>
+            <Link className='visible-xs' to={semesterDetails.linkto} onClick={() => SemesterNavprops.navToLink(semesterDetails.objectKey)} key={semesterIndex} activeClassName='active'>
               <Row>
                 <Col xs={11}>
                   <p className='openSansLight fs1pt2 semesterTitle'>{translateText(semesterDetails.title)}</p>
@@ -21,7 +21,7 @@ const SemesterNav = (SemesterNavprops) => (
                 </Col>
               </Row>
             </Link>
-            <Link className='hidden-xs' activeClassName='active' onClick={() => SemesterNavprops.navToLink(translateText(semesterDetails.title))}>{translateText(semesterDetails.title)}</Link>
+            <Link className='hidden-xs' activeClassName='active' onClick={() => SemesterNavprops.navToLink(translateText(semesterDetails.objectKey))}>{translateText(semesterDetails.title)}</Link>
           </ListGroupItem>
         ))
       }

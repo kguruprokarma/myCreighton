@@ -23,22 +23,10 @@ class Accordion extends React.Component {
   }
 
   accordToggle(filter) {
-    //const props = this.props;
-    //if (this.state.isAccordToggle) {
-    //this.setState({toggleSingleAccordClass: ''});
     this.setState({ selected: filter });
-    //this.setState({isAccordToggle: false});
-
-    // this.imageClass = '';
-    //} else {
-    // this.imageClass = '';
-    //this.setState({toggleSingleAccordClass: 'accord-active'});
-    //this.setState({isAccordToggle: true});
-    //}
   }
 
   isActive(value) {
-   // this.imageClass = (value === this.state.selected) ? 'revImage' : '';
     let returnVal = '';
     if (value === this.state.selected) {
       if (returnVal !== 'accord-active') {

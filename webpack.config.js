@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-const isProduction = process.env.NODE_ENV;
+const isProduction = process.env.NODE_ENV || 'production';
 
 Object.assign(exports, {
   context: path.resolve(__dirname, './app'),

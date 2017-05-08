@@ -4,7 +4,7 @@
 
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import createLogger from 'redux-logger';
+//import createLogger from 'redux-logger';
 import { routerReducer as routing } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 import academicReducer from '../profile/student/academic/reducer';
@@ -20,8 +20,8 @@ import campusDirectoryReducer from '../campusDirectory/reducer';
 import eventsFilterReducer from '../nextEvents/eventFilter/reducer';
 import staffProfileReducer from '../searchResults/reducer';
 import libraryInformationReducer from '../librarySearch/reducer';
-import schoolAndSemesterReducer from '../schoolandsemester/reducer';
-import accordionReducer from '../schoolandsemester/accordion/reducer';
+// import schoolAndSemesterReducer from '../schoolandsemester/reducer';
+// import accordionReducer from '../schoolandsemester/accordion/reducer';
 
 // enable Redux Dev Tools
 const enhancers = compose(
@@ -47,8 +47,8 @@ const reducers = {
   eventsFilterReducer: eventsFilterReducer,
   libraryInformationReducer: libraryInformationReducer,
   staffProfileReducer: staffProfileReducer,
-  schoolAndSemesterReducer: schoolAndSemesterReducer,
-  accordionReducer: accordionReducer,
+  //schoolAndSemesterReducer: schoolAndSemesterReducer,
+  //accordionReducer: accordionReducer,
   routing: routing
 };
 
