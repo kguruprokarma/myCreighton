@@ -5,7 +5,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
-import ConnectedAcademics, { Academics } from '../components/academics';
+import Academics from '../components/academics';
 //import i18n from '../../__mock_i18n__/i18n_mockKeys';
 
 describe('index files in school and semester ----->', () => {
@@ -16,9 +16,7 @@ describe('index files in school and semester ----->', () => {
   };
 
   const academics = shallow(<Academics {...minProps} />);
-  const connectedAcademics = shallow(<Provider><ConnectedAcademics {...minProps} /></Provider>);
   it('Academics is defined', () => {
     expect(academics).toBeDefined();
-    expect(connectedAcademics).toBeDefined();
   });
 });

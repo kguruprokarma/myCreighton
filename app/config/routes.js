@@ -13,7 +13,7 @@ import Home from '../home/index';
 import Bio from '../profile/student/bio';
 import AcademicComponent from '../profile/student/academic';
 import ClassesComponent from '../classes/classList';
-import SchoolAndSemester from '../schoolandsemester';
+import SchoolAndSemesterComponent from '../schoolandsemester';
 import ClassDetails from '../classes/classDetails';
 import DashboardComponent from '../dashboard/index';
 import StaffProfileComponent from '../profile/staff';
@@ -22,14 +22,16 @@ import FacultyAcademicComponent from '../profile/faculty/academic';
 import i18n from '../i18n'; // initialized i18next instance
 import * as ROUTE_URL from '../constants/routeContants';
 import EventListComponent from '../nextEvents/eventList';
-import EventDetails from '../nextEvents/eventDetails';
+import EventDetailsComponent from '../nextEvents/eventDetails';
 import Professional from '../profile/staff/professional';
 import CampusDirectoryComponent from '../campusDirectory';
 import AdvanceSearchDirectory from '../campusDirectory/advanceSearch/index';
 import SearchResultsComponent from '../searchResults';
 import semesterAcademics from '../schoolandsemester/components/academics';
+/* eslint-disable */
 import axiosInterceptor from './axiosInterceptor';
-import StaffDetails from '../staffDetail/index';
+/* eslint-enable */
+import StaffDetailComponent from '../staffDetail/index';
 import Logout from '../logout/index';
 import LibrarySearch from '../librarySearch';
 
@@ -44,7 +46,7 @@ const routes = (
           <Route path='/' title='' component={Home} />
           <Route path={ROUTE_URL.PROFILE} title='My Profile - ' component={Bio} />
           <Route path={ROUTE_URL.ACADEMIC} title='Academic - ' component={AcademicComponent} />
-          <Route path={ROUTE_URL.SCHOOLS_AND_SEMESTER} title='School and Semester - ' component={SchoolAndSemester} />
+          <Route path={ROUTE_URL.SCHOOLS_AND_SEMESTER} title='School and Semester - ' component={SchoolAndSemesterComponent} />
           <Route path={ROUTE_URL.CLASSES + ROUTE_URL.CLASS_TAB_PARAM} title='Class Schedule - ' component={ClassesComponent} />
           <Route path={ROUTE_URL.CLASS_DETAILS + ROUTE_URL.CATEGORY_NAME_PARAM + ROUTE_URL.ID_PARAM + ROUTE_URL.INDEX_PARAM} title='Class Detail - ' component={ClassDetails} />
           <Route path={ROUTE_URL.DASHBOARD} title='' component={DashboardComponent} />
@@ -53,13 +55,13 @@ const routes = (
           <Route path={ROUTE_URL.FACULTY + ROUTE_URL.PROFILE} title='Faculty Profile -' component={FacultyProfileComponent} />
           <Route path={ROUTE_URL.FACULTY + ROUTE_URL.ACADEMIC} title='Faculty Academic -' component={FacultyAcademicComponent} />
           <Route path={ROUTE_URL.EVENT_LIST} title='' component={EventListComponent} />
-          <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.EVENT_ASSIGN_DUE + ROUTE_URL.INDEX_PARAM} title='Event Detail - ' component={EventDetails} />
-          <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.INDEX_PARAM} title='Event Detail - ' component={EventDetails} />
+          <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.EVENT_ASSIGN_DUE + ROUTE_URL.INDEX_PARAM} title='Event Detail - ' component={EventDetailsComponent} />
+          <Route path={ROUTE_URL.EVENT_DETAILS + ROUTE_URL.EVENT_DETAILS_TYPE + ROUTE_URL.ID_PARAM + ROUTE_URL.INDEX_PARAM} title='Event Detail - ' component={EventDetailsComponent} />
           <Route path={ROUTE_URL.STAFF + ROUTE_URL.PROFESSIONAL} title='Professional - ' component={Professional} />
           <Route path={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.ADVANCE_SEARCH_DIRECTORY} title='Advance Directory - ' component={AdvanceSearchDirectory} />
           <Route path={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SEARCH_TYPE} title='Campus Directory - ' component={CampusDirectoryComponent} />
           <Route path={ROUTE_URL.SERCHRESULTS + ROUTE_URL.SEARCH_QUERY} title='Search - ' component={SearchResultsComponent} />
-          <Route path={ROUTE_URL.STAFF_DETAILS} title='StaffDetails - ' component={StaffDetails} />
+          <Route path={ROUTE_URL.STAFF_DETAILS} title='StaffDetails - ' component={StaffDetailComponent} />
           <Route path={ROUTE_URL.SEMESTERACADEMICS + ROUTE_URL.CATEGORY_NAME_PARAM} title='Semester Academics - ' component={semesterAcademics} />
           <Route path={ROUTE_URL.LIBRARY_SEARCH} title='Library Search - ' component={LibrarySearch} />
           <Route path={ROUTE_URL.LOGOUT} title='Logout - ' component={Logout} />

@@ -3,36 +3,44 @@ import { translateText } from '../../common/translate';
 
 export const SemesterLinks = [
   {
-    'title': 'Open Requests Status',
-    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/Open Requests Status`
+    'objectKey': 'openrequestsstatus',
+    'title': translateText('common:OPEN_REQUESSTS_STATUS'),
+    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/openrequestsstatus`
   },
   {
-    'title': 'Semester Start',
-    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/Semester Start`
+    'objectKey': 'semesterstart',
+    'title': translateText('common:SEMESTER_SEMESTER_START'),
+    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/semesterstart`
   },
   {
-    'title': 'Class Registration',
-    'linkto': `${ROUTE_URL.SCHOOLS_AND_SEMESTER}/Class Registration`
+    'objectKey': 'classregistration', 
+    'title': translateText('common:CLASS_REGISTRATION'),
+    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/classregistration`
   },
   {
+    'objectKey': 'academics',
     'title': translateText('common:SEMESTER_ACADEMICS'),
-    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/Academics`
+    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/academics`
   },
   {
-    'title': 'Finances',
-    'linkto': ROUTE_URL.SCHOOLS_AND_SEMESTER
+    'objectKey': 'finances', 
+    'title': translateText('common:FINANCES_TEXT'),
+    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/finances`
   },
   {
-    'title': 'Student Life',
-    'linkto': ROUTE_URL.SCHOOLS_AND_SEMESTER
+    'objectKey': 'studentlife', 
+    'title': translateText('common:STUDENT_LIFE'),
+    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/studentlife`
   },
   {
-    'title': 'Semester End',
-    'linkto': ROUTE_URL.SCHOOLS_AND_SEMESTER
+    'objectKey': 'semesterend', 
+    'title': translateText('common:SEMESTER_END'),
+    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/semesterend`
   },
   {
-    'title': 'Graduation',
-    'linkto': ROUTE_URL.SCHOOLS_AND_SEMESTER
+    'objectKey': 'graduation', 
+    'title': translateText('common:GRADUATION_TEXT'),
+    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/graduation`
   }
 ];
 

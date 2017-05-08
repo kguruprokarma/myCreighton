@@ -9,6 +9,8 @@ import { translateText } from '../../../../common/translate';
 import { getParentorGuardian } from '../../../../common/utility';
 
 class RelationDetail extends React.Component {
+  componentWillMount() {
+  }
   render() {
     const props = this.props;
     const parentOrGuardian = getParentorGuardian(props.dateOfBirth);

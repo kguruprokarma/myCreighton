@@ -69,8 +69,42 @@ export default function (argument) {
     title = translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER');
     return title;
   }
-  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS) {
+  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.ACADEMICS) {
     title = translateText('common:SEMESTER_ACADEMICS');
+    return title;
+  }
+  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_SEMESTER_START) {
+    title = translateText('common:SEMESTER_SEMESTER_START');
+    return title;
+  }
+  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_OPEN_REQUESTS_STATUS) {
+    //title = translateText('common:SEMESTER_SEMESTER_START');
+    title = translateText('common:OPEN_REQUESSTS_STATUS');
+    return title;
+  }
+  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_CLASS_REGISTRATION) {
+    //title = translateText('common:SEMESTER_SEMESTER_START');
+    title = translateText('common:CLASS_REGISTRATION');
+    return title;
+  }
+  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_FINANCES) {
+    //title = translateText('common:SEMESTER_SEMESTER_START');
+    title = translateText('common:FINANCES_TEXT');
+    return title;
+  }
+  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_STUDENT_LIFE) {
+    //title = translateText('common:SEMESTER_SEMESTER_START');
+    title = translateText('common:STUDENT_LIFE');
+    return title;
+  }
+  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_SEMESTER_END) {
+    //title = translateText('common:SEMESTER_SEMESTER_START');
+    title = translateText('common:SEMESTER_END');
+    return title;
+  }
+  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_GRADUATION) {
+    //title = translateText('common:SEMESTER_SEMESTER_START');
+    title = translateText('common:GRADUATION_TEXT');
     return title;
   }
   if (rootURL[1] === HEADER.LIBRARY_SEARCH) {
