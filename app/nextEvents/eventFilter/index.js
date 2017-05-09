@@ -159,13 +159,24 @@ export class NextEventFilter extends React.Component {
     }
     return returnLabel;
   }
-
   render() {
     return (<div className='customPopUp test'>
       <span className='popupPointer'>&nbsp;</span>
       <ListGroup className='popup-box-shaow'>
         <ListGroupItem >
-          <Filter Items={this.state.Items} displayOptions={this.state.displayOptions} eventPeriod={this.state.eventPeriod} toggleRadio={(depen) => this.toggleRadio(depen)} showChild={(item) => this.showChild.bind(this, item)} toggleCheckBoxParent={(item) => this.toggleCheckBoxParent.bind(this, item)} toggleCheck={(item, parent) => this.toggleCheck.bind(this, item, parent)} showSelected={this.showSelected} toggleCheckAll={() => this.toggleCheckAll.bind(this)} displayLabel={(inputKey) => this.displayLabel(inputKey)} checkedAll={this.state.selectAll} />
+          <Filter
+            Items={this.state.Items} 
+            displayOptions={this.state.displayOptions} 
+            eventPeriod={this.state.eventPeriod} 
+            toggleRadio={this.toggleRadio} 
+            showChild={this.showChild} 
+            toggleCheckBoxParent={this.toggleCheckBoxParent} 
+            toggleCheck={this.toggleCheck} 
+            showSelected={this.showSelected} 
+            toggleCheckAll={this.toggleCheckAll} 
+            displayLabel={this.displayLabel} 
+            checkedAll={this.state.selectAll}
+          />
         </ListGroupItem >
       </ListGroup>
     </div>

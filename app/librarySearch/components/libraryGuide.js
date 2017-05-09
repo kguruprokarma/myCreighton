@@ -32,7 +32,7 @@ class LibraryGuide extends React.PureComponent {
             <div className='styled-select'>
               <select className='fs1pt2 openSansLight input-lg librarySelection form-control' value={this.state.librarySelected} onChange={this.handleLibraryGuideChange} >
                 {
-                  LIBRARY_GUIDES_LIBRARIES.map((item, libIndex) => (<option key={libIndex} value={item.id}>{item.name}</option>))
+                  LIBRARY_GUIDES_LIBRARIES.map((item, libIndex) => (<option key={libIndex} value={item.id}>{translateText(`common:${item.name}`)}</option>))
                 }
               </select>
             </div>
@@ -47,7 +47,7 @@ class LibraryGuide extends React.PureComponent {
             <div className='fs1pt2 styled-select'>
               <select className='form-control openSansLight subjectSelection input-lg' value={this.state.subjectSelected} onChange={this.handleSubjectChange} >
                 {
-                   LIBRARY_GUIDES_SUBJECTS.map((item, subIndex) => (<option key={subIndex} value={item.id}>{item.name}</option>))
+                   LIBRARY_GUIDES_SUBJECTS.map((item, subIndex) => (<option key={subIndex} value={item.id}>{translateText(`common:${item.name}`)}</option>))
                   }
               </select>
             </div>

@@ -1,36 +1,36 @@
-/*Created Date: - 6th -02 -2017
+/*Created Date: - 9th -05 -2017
 *Usage of file: - it maintains the state.*
 */
 
 import * as types from './actionTypes';
 
 const initialState = {
-  userDetailsData: {},
+  feedbackData: {},
   isLoading: false,
   error: false
 };
 
-const userDetailsReducer = (state = initialState, action = null) => {
+const fedbackReducer = (state = initialState, action = null) => {
   switch (action && action.type) {
-    case types.REQUEST_USER_DETAILS_DATA:
+    case types.REQUEST_FEEDBACK_DATA:
       return Object.assign({}, state, {
         isLoading: true,
         error: false
       });
-    case types.RECEIVE_USER_DETAILS_DATA:
+    case types.RECEIVE_FEEDBACK_DATA:
       return Object.assign({}, state, {
         isLoading: false,
-        userDetailsData: action.data
+        feedbackData: action.data
       });
-    case types.RECEIVE_USER_DETAILS_DATA_ERROR:
+    case types.RECEIVE_FEEDBACK_DATA_ERROR:
       return Object.assign({}, state, {
         isLoading: false,
         error: true,
-        userDetailsData: []
+        feedbackData: []
       });
     default:
       return state;
   }
 };
 
-export default userDetailsReducer;
+export default fedbackReducer;

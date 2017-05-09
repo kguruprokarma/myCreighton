@@ -49,7 +49,6 @@ class Main extends React.PureComponent {
       this.checkRole = setInterval(() => {
         if (localStorage.getItem('roleInfo')) {
           clearInterval(this.checkRole);
-          location.reload();
         }
       }, 1000);
     }

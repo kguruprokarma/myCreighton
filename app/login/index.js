@@ -33,6 +33,7 @@ class Login extends Component {
         </div>
       );
     }
+    return true;     
   }
 
   render() {
@@ -57,6 +58,10 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes={
+  handleSubmit: React.PropTypes.func
+};
 
 function mapStateToProps(state) {
   return {

@@ -34,3 +34,4 @@ export const SEMESTER_FINANCES = 'finances';
 export const SEMESTER_STUDENT_LIFE = 'studentlife';
 export const SEMESTER_SEMESTER_END = 'semesterend';
 export const SEMESTER_GRADUATION = 'graduation';
+export const FEEDBACK = 'feedback';

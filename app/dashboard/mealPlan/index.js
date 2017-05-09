@@ -18,12 +18,11 @@ import { MEALPLANMORE_ICON } from '../../constants/imageConstants';
 
 export class MealPlan extends Component {
   componentWillReceiveProps(nextProps) {
-    const props = this.props;
     const propsNext = nextProps;
     if (propsNext.role && this.role !== propsNext.role.userRole) {
       this.role = propsNext.role.userRole;
       if (this.role !== undefined) {
-        props.getMealPlanData(`${(this.role).toLowerCase()}`);
+        this.props.getMealPlanData(`${(this.role).toLowerCase()}`);
       }
     }
   }
@@ -57,6 +56,9 @@ export class MealPlan extends Component {
     );
   }
 }
+MealPlan.propTypes = {
+  getMealPlanData: React.PropTypes.func
+};
 
 const mapStateToProps = (mealPlanState) => (
   {

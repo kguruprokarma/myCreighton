@@ -48,13 +48,15 @@ export const API_GATEWAY = 'http://api-gateway01.creighton.edu'; //'http://redux
 //export const API_DATA = '/studentProfile/'; //'/myProfile.json'; //http://reduxblog.herokuapp.com/api/posts
 //export const DEV_URL_CREIGHTON = 'http://dev-api-node01.creighton.edu';
 //export const DEV_URL_CREIGHTON_ADFS = 'https://dev-dl-api.creighton.edu';
-export const DEV_URL_CREIGHTON = 'http://'+process.env.NODE_ENV+'-api-node01.creighton.edu';
-export const DEV_URL_CREIGHTON_ADFS = 'https://'+process.env.NODE_ENV+'-dl-api.creighton.edu';
+
+export const DEV_URL_CREIGHTON = `http://${process.env.NODE_ENV}-api-node01.creighton.edu`;
+export const DEV_URL_CREIGHTON_ADFS = `https://${process.env.NODE_ENV}-dl-api.creighton.edu`;
 export const ADFS = '/adfs';
 //export const ADFS_LOGIN_URL = 'https://dev-dl-api.creighton.edu/loginadfs?redirect=';
 //export const ADFS_LOGOUT_URL = 'https://dev-dl-api.creighton.edu/logoutadfs';
-export const ADFS_LOGIN_URL = 'https://'+process.env.NODE_ENV+'-dl-api.creighton.edu/loginadfs?redirect=';
-export const ADFS_LOGOUT_URL = 'https://'+process.env.NODE_ENV+'-dl-api.creighton.edu/logoutadfs';
+export const ADFS_LOGIN_URL = `https://${process.env.NODE_ENV}-dl-api.creighton.edu/loginadfs?redirect=`;
+export const ADFS_LOGOUT_URL = `https://${process.env.NODE_ENV}-dl-api.creighton.edu/logoutadfs`;
+
 export const API_SINGLE = '/single';
 export const STUDENT_ACADEMIC = '/studentAcademic';
 export const STUDENT_PROFILE = '/studentProfile';
@@ -71,6 +73,7 @@ export const CAMPUS_DIRECTORY_SIMPLE = '/searchFaculty';
 export const NEXTEVENT_ASSIGNMENTS = `${API_GATEWAY}${ASSIGNMENTS}${API_SINGLE}?primaryKey=netid&primaryValue=9dfa6baa7a`;
 export const ROLE = '/role';
 export const CALENDAR_DATA ='/Calendar'; 
+export const FEEDBACK ='/feedback';
 
 export const LOCAL_URL = 'http://localhost:8000/#/';
 export const SERVER_URL = 'mycu-rundev1.creighton.edu';

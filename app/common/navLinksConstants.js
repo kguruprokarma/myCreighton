@@ -15,73 +15,73 @@ export const LIBRARY_NAV_LINKS = [
 ];
 export const LIBRARY_GUIDES_LIBRARIES = [
   {
-    name: 'All libraries',
+    name: 'ALL_LIBRARIES',
     link: 'http://www.creighton.edu/libraries/',
     id: 1
   },
   {
-    name: 'Health Sciences Library',
+    name: 'HEALTH_SCIENCES_LIBRARY',
     link: 'http://www.creighton.edu/health/library/',
     id: 2
   },
   {
-    name: 'Law Library',
+    name: 'LAW_LIBRARY',
     link: 'https://law.creighton.edu/academics/law-library',
     id: 3
   },
   {
-    name: 'Reinert-Alumni Library',
+    name: 'REINERT_ALUMNI_LIBRARY',
     link: 'http://www.creighton.edu/reinert/',
     id: 4
   }];
 export const LIBRARY_GUIDES_SUBJECTS = [
   {
-    name: 'All subjects', 
+    name: 'ALL_SUBJECTS', 
     link: 'http://culibraries.creighton.edu/ral?',
     id: 1
   },
   {
-    name: 'Biology', 
+    name: 'BIOLOGY_SUBJECT', 
     link: 'http://culibraries.creighton.edu/biology?',
     id: 2
   }, 
   {
-    name: 'Communication Studies', 
+    name: 'COMMUNICATION_STUDIES_SUBJECT', 
     link: 'http://culibraries.creighton.edu/communication?',
     id: 3
   },
   {
-    name: 'Economics and Finance', 
+    name: 'ECONOMICS_AND_FINANCE_SUBJECT', 
     link: 'http://culibraries.creighton.edu/ecofinance?',
     id: 4
   }, 
   {
-    name: 'English', 
+    name: 'ENGLISH_SUBJECT', 
     link: 'http://culibraries.creighton.edu/english?',
     id: 5
   },
   {
-    name: 'History', 
+    name: 'HISTORY_SUBJECT', 
     link: 'http://culibraries.creighton.edu/history?',
     id: 6
   }, 
   {
-    name: 'Political Science',
+    name: 'POLITICAL_SCIENCE_SUBJECT',
     link: 'http://culibraries.creighton.edu/poliscience?',
     id: 7
   }, 
   {
-    name: 'Psychology', 
+    name: 'PSYCHOLOGY_SUBJECT', 
     link: 'http://culibraries.creighton.edu/psychology?',
     id: 8
   }, 
   {
-    name: 'Sociology', 
+    name: 'SOCIOLOGY_SUBJECT', 
     link: 'http://culibraries.creighton.edu/sociology?',
     id: 9
   },
   {
-    name: 'Theology',
+    name: 'THEOLOGY_SUBJECT',
     link: 'http://culibraries.creighton.edu/Theology?',
     id: 10
   }

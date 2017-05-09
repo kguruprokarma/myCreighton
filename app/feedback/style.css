@@ -1,0 +1,31 @@
+.feedBackText {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.feedbackInstruction {
+    color: #757575;
+}
+
+.select .form-control.dropDown {
+    color: #0054a6;
+}
+
+.feedbackSubmit {
+    background-color: #fff;
+    color: #0079b3;
+    border: 1px solid #0079b3;
+}
+
+.feedbackSubmit:hover,
+.feedbackSubmit:active,
+.feedbackSubmit:focus,
+.feedbackSubmit:active:hover {
+    background-color: #fff;
+    color: #0079b3;
+    border: 1px solid #0079b3;
+    box-shadow: none;
+    outline: 0;
+}

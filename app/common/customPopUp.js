@@ -8,7 +8,6 @@ import { bindActionCreators } from 'redux';
 import { Link, hashHistory } from 'react-router';
 import { ListGroupItem, ListGroup, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
-import * as actionCreators from '../dashboard/actions';
 import * as profileData from '../profile/actions';
 import * as headerActions from '../header/actions';
 import UserDetail from '../dashboard/components/userDetail';
@@ -23,13 +22,11 @@ import * as ROUTE_URL from '../constants/routeContants';
 export class CustomPopUp extends React.Component {
   constructor(props) {
     super(props);
-    //  const customPopUpProps = this.props;
     this.state = {
       languageState: true
     };
     this.role = authUserDetails().userRole;
     if (this.role) {
-      // customPopUpProps.getUserDetailsData(`/${this.role}`);
       if (!localStorage.getItem('infos')) {
         if (this.role === roleConstants.ROLE_FACULTY) {
           props.getFacultyProfileData();
@@ -41,13 +38,11 @@ export class CustomPopUp extends React.Component {
       }
     }
     this.languageChangeBind = this.changeLanguage.bind(this);
-    //this.signOutBind = this.signOut.bind(this);
     this.signOutPopUp = this.signOutPopUp.bind(this);
   }
 
   signOutPopUp() {
     this.props.popUpClose();
-    //this.props.openSignOutPopUp();
     axios.get(urlConstants.ADFS_LOGOUT_URL).then((response) => {
       if (response.status === urlConstants.STATUS_CODE) {
         localStorage.removeItem('roleInfo');
@@ -151,12 +146,11 @@ CustomPopUp.propTypes = {
 
 const mapStateToProps = (dashboardState) => (
   {
-    //userDetailsData: dashboardState.dashboardReducer.userDetailsData.data,
     profileData: dashboardState.profileReducer.profileData.data,
     userData: dashboardState.auth.data
   }
 );
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileData, headerActions), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(profileData, headerActions), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomPopUp);

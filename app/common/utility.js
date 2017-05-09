@@ -48,7 +48,7 @@ export const scheduleDays = (schedule) => {
 /* To get the next date for schedule: M-W-F */
 export const getScheduledNextDate = (schedules) => {
   if (!schedules) return 'N/A';
-  const mySchedules = schedules.replace(/\-/g, '');
+  const mySchedules = schedules.replace(/\\-/g, '');
   //const days = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
   const daysIndex = { 'U': 0, 'M': 1, 'T': 2, 'W': 3, 'R': 4, 'F': 5, 'S': 6 };
@@ -342,7 +342,13 @@ export const addNextDate = (dataArray) => {
   return tempItem;
 };
 
-export const authUserDetails = () => localStorage.getItem('roleInfo') ? JSON.parse(localStorage.getItem('roleInfo')) : {};
+//  export const authUserDetails = () => localStorage.getItem('roleInfo') ? JSON.parse(localStorage.getItem('roleInfo')) : {};
+
+
+export const authUserDetails = () => {
+  const userRole = localStorage.getItem('roleInfo');
+  return userRole ? JSON.parse(localStorage.getItem('roleInfo')) : {};
+};
 
 export const datesCompare = (nextDate) => {
   const todayDate = moment().toDate();

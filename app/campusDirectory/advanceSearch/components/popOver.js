@@ -61,5 +61,7 @@ class PopOver extends React.Component {
     );
   }
 }
-
+PopOver.propTypes={
+  items: React.PropTypes.Array
+};
 export default PopOver;

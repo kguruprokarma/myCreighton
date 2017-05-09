@@ -120,8 +120,7 @@ const mapStateToProps = (storeData) => (
   {
     popUpData: storeData.headerReducer.showPopUp,
     filterPopUpData: storeData.headerReducer.showFilterPopUp,
-    navData: storeData.headerReducer.showNav,
-    userDetailsData: storeData.dashboardReducer.userDetailsData.data
+    navData: storeData.headerReducer.showNav
   }
 );
 

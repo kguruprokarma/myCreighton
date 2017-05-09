@@ -12,27 +12,21 @@ import ModuleBlock from './components/moduleBlock';
 import ToggleMealPlan from './components/toggleMealPlan';
 import dashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
-import * as actionCreators from './actions';
 import * as profileDataAction from '../profile/actions';
 import './style.css';
 import { authUserDetails, browserTitle } from '../common/utility';
 
 export class Dashboard extends Component {
-
   constructor(props) {
     super(props);
-    const dashboardProps = this.props;
     this.state = { shouldHide: true };
     this.onClick = this.onClick.bind(this);
     this.role = authUserDetails().userRole;
-    if (this.role) { dashboardProps.getUserDetailsData(`/${this.role}`); }
   }
 
   componentWillMount() {
     const props = this.props;
     this.role = authUserDetails().userRole;
-    if (this.role) { props.getUserDetailsData(`/${this.role}`); }
-
     if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
       this.setState({ shouldHide: false });
     } else {
@@ -56,9 +50,8 @@ export class Dashboard extends Component {
 
   render() {
     const props = this.props;
-    const userDetails = props.userDetailsData;
+    const userDetails = {userRole: this.role};
     const dashboardList = dashboardModulesList(this.role);
-    //const profileData = props.profileData;
     const profileInfo = props.profileData;
     let profileInformation;
     if (profileInfo && profileInfo.data && profileInfo.data.length >0 ) {
@@ -108,12 +101,11 @@ export class Dashboard extends Component {
 }
 const mapStateToProps = (dashboardState) => (
   {
-    userDetailsData: dashboardState.dashboardReducer.userDetailsData.data,
     userData: dashboardState.auth.data,
     profileData: dashboardState.profileReducer.profileData.data
   }
 );
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileDataAction), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(profileDataAction), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

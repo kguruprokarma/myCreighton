@@ -78,7 +78,7 @@ class Accordion extends React.Component {
                       </Row>
                     </Link>
                     <div className={`${descStateClass} accord-description`}>
-                      {linkDetails.linkDesc}
+                      {translateText(linkDetails.linkDesc)}
                     </div>
                   </ListGroupItem>
                 ))}

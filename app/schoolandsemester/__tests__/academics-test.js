@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Provider } from 'react-redux';
 import Academics from '../components/academics';
 //import i18n from '../../__mock_i18n__/i18n_mockKeys';
 

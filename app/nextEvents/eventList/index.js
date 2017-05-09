@@ -223,12 +223,18 @@ export class EventList extends React.PureComponent {
         data.name = eventObject.course_title;
         data.sid = eventObject.sis_source_id;
         data.checked = true;
+        data.parentname = CommonConstants.CLASSES+eventObject.sis_source_id;
         classes.push(data);
         if (eventObject.assignmentData && eventObject.assignmentData.length > 0) {
           const assignmentDetails = eventObject.assignmentData;
           map(assignmentDetails, (assignmentData) => {
             if (assignmentData.type === NextEventsConstants.ASSIGNMENTS || assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
-              classAssignments.push(data);
+              const data2 = {};
+              data2.name = eventObject.course_title;
+              data2.sid = eventObject.sis_source_id;
+              data2.checked = true;
+              data2.parentname = NextEventsConstants.ASSIGNMENTS+eventObject.sis_source_id;
+              classAssignments.push(data2);
             }
           });
         }

@@ -124,7 +124,7 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'School of Pharmacy',
+            linkKey: 'common:SCHOOL_OF_PHARMACY',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -143,23 +143,23 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: translateText('common:HEALTH_INSURANCE_WAIVER'),
+            linkKey: 'common:HEALTH_INSURANCE_WAIVER',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
 
           },
           {
-            linkKey: translateText('common:PAY_TUITION'),
+            linkKey: 'common:PAY_TUITION',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: translateText('common:CHANGE_LOAN_AMOUNT_STATUS'),
+            linkKey: 'common:CHANGE_LOAN_AMOUNT_STATUS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: translateText('common:DORM_WORK_ORDER_STATUS'),
+            linkKey: 'common:DORM_WORK_ORDER_STATUS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -178,13 +178,13 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: translateText('EMERGENCY_CONTACT'),
+            linkKey: 'common:EMERGENCY_CONTACT',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
 
           },
           {
-            linkKey: translateText('OTHER_CONTACT_DETAILS'),
+            linkKey: 'common:OTHER_CONTACT_DETAILS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -195,13 +195,13 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Campus Clubs',
+            linkKey: 'common:CAMPUS_CLUBS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
 
           },
           {
-            linkKey: 'Academic Interests',
+            linkKey: 'common:ACADEMIC_INTERESTS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -212,13 +212,13 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Health Insurance Waiver',
+            linkKey: 'common:HEALTH_INSURANCE_WAIVER',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
 
           },
           {
-            linkKey: 'Immunization Records',
+            linkKey: 'common:IMMUNIZATION_RECORDS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -229,23 +229,23 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'FERPA permission - Financial',
+            linkKey: 'common:FERPA_PERMISSION_FINANCIAL',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
 
           },
           {
-            linkKey: 'FERPA permission - Academic',
+            linkKey: 'common:FERPA_PERMISSION_ACADEMIC',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'FERPA permission - Conduct',
+            linkKey: 'common:FERPA_PERMISSION_CONDUCT',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Parents Weekend',
+            linkKey: 'common:PARENTS_WEEKEND',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -256,23 +256,23 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Statement of Financial Responsibi…',
+            linkKey: 'common:STATEMENT_OF_FINANCIAL_RESPONSIBILITY',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
 
           },
           {
-            linkKey: 'Accept Financial Aid Award',
+            linkKey: 'common:ACCEPT_FINANCIAL_AID_AWARD',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Load Dining Dollars',
+            linkKey: 'common:LOAD_DINING_DOLLARS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Load JayBuck$',
+            linkKey: 'common:LOAD_JAYBUCKS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -283,29 +283,29 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Sign Housing Contact',
+            linkKey: 'common:SIGN_HOUSING_CONTACT',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
 
           },
           {
-            linkKey: 'Lottery enrollment',
+            linkKey: 'common:LOTTERY_ENROLLMENT',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Find a Roommate',
+            linkKey: 'common:FIND_A_ROOMMATE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Identify a Roommate',
+            linkKey: 'common:IDENTIFY_A_ROOMMATE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
 
           },
           {
-            linkKey: 'Verify a Roommate',
+            linkKey: 'common:VERIFY_A_ROOMMATE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -316,13 +316,13 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Select a Meal Plan',
+            linkKey: 'common:SELECT_A_MEAL_PLAN',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
 
           },
           {
-            linkKey: 'Update a Meal Plan',
+            linkKey: 'common:UPDATE_A_MEAL_PLAN',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -333,13 +333,13 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Welcome Events',
+            linkKey: 'common:WELCOME_EVENTS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
 
           },
           {
-            linkKey: 'Service Trips',
+            linkKey: 'common:SERVICE_TRIPS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -358,32 +358,32 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Register for Classes',
+            linkKey: 'common:REGISTER_FOR_CLASSES',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Enrollment Override - Prerequisites',
+            linkKey: 'common:ENROLLMENT_OVERRIDE_PREREQUISITES',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Enrollment Override - Class Size',
+            linkKey: 'common:ENROLLMENT_OVERRIDE_CLASS_SIZE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },  
           {
-            linkKey: 'Drop or Add Classes',
+            linkKey: 'common:DROP_OR_ADD_CLASSES',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },  
           {
-            linkKey: 'My Waitlist',
+            linkKey: 'common:MY_WAITLIST',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Course Registration Minimum',
+            linkKey: 'common:COURSE_REGISTRATION_MINIMUM',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }    
@@ -394,17 +394,17 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Pay Tuition',
+            linkKey: 'common:PAY_TUITION',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Outstanding Fees and Holds',
+            linkKey: 'common:OUTSTANDING_FEES_AND_HOLDS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'My Promissory Notes',
+            linkKey: 'common:MY_PROMISSORY_NOTES',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -415,22 +415,22 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'My Current Class Schedule',
+            linkKey: 'common:MY_CURRENT_CLASS_SCHEDULE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Textbooks for Registered Classes',
+            linkKey: 'common:TEXTBOOKS_FOR_REGISTERED_CLASSES',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Materials for Registered Classes',
+            linkKey: 'common:MATERIALS_FOR_REGISTERED_CLASSES',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Syllabus for Registered Classes',
+            linkKey: 'common:SYLLABUS_FOR_REGISTERED_CLASSES',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -441,7 +441,7 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Creighton Bookstore',
+            linkKey: 'common:CREIGHTON_BOOKSTORE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -460,32 +460,32 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Pay Damage Bill',
+            linkKey: 'common:PAY_DAMAGE_BILL',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Pay Desk Fee',
+            linkKey: 'common:PAY_DESK_FEE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Pay Conduct Fee',
+            linkKey: 'common:PAY_CONDUCT_FEE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },  
           {
-            linkKey: 'Pay Parking Fee',
+            linkKey: 'common:PAY_PARKING_FEE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },  
           {
-            linkKey: 'Past-due Tuition',
+            linkKey: 'common:PAST_DUE_TUITION',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'How Much Do I Owe?',
+            linkKey: 'common:HOW_MUCH_DO_I_OWE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -496,17 +496,17 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'Load Dining Dollars',
+            linkKey: 'common:LOAD_DINING_DOLLARS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Load JayBuck$',
+            linkKey: 'common:LOAD_JAYBUCKS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Load Print Credits',
+            linkKey: 'common:LOAD_PRINT_CREDITS',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -517,37 +517,37 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'FAFSA',
+            linkKey: 'common:SEMESTER_FAFSA',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Financial Aid',
+            linkKey: 'common:FINANCIAL_AID',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Federal Work Study',
+            linkKey: 'common:FEDERAL_WORK_STUDY',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Budget Increase',
+            linkKey: 'common:BUDGET_INCREASE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Change Loan Amount',
+            linkKey: 'common:CHANGE_LOAN_AMOUNT',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },          
           {
-            linkKey: 'ParentPlus Loan',
+            linkKey: 'common:PARENTPLUS_LOAN',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           },
           {
-            linkKey: 'Financial Status Change',
+            linkKey: 'common:FINANCIAL_STATUS_CHANGE',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
