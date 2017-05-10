@@ -23,7 +23,7 @@ class MainNav extends React.Component {
           <Row>
             <ul className='main-navigation'>
               <li className='navigation-item hidden-lg menu-heading'><h2 className=' pl15 pt10 pb10 pr15 menuHeading m0'>{translateText('common:HAMBURGER_MENU')}</h2></li>
-              <li className='navigation-item hidden-lg menu-heading'><a href={`#${ROUTE_URL.DASHBOARD}`}>{translateText('common:DASH_BOARD')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
+              {/*<li className='navigation-item hidden-lg menu-heading'><a href={`#${ROUTE_URL.DASHBOARD}`}>{translateText('common:DASH_BOARD')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>*/}
 
               <li className='navigation-item'><a>{translateText('common:CREIGHTON_SERVICES_AND_RESOURCES')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               {

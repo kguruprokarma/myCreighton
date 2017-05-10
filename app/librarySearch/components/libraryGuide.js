@@ -45,7 +45,7 @@ class LibraryGuide extends React.PureComponent {
         <Row className='form-group'>
           <Col xs={9}>
             <div className='fs1pt2 styled-select'>
-              <select className='form-control openSansLight subjectSelection input-lg' value={this.state.subjectSelected} onChange={this.handleSubjectChange} >
+              <select className='form-control openSansLight subjectSelection input-lg textPadding' value={this.state.subjectSelected} onChange={this.handleSubjectChange} >
                 {
                    LIBRARY_GUIDES_SUBJECTS.map((item, subIndex) => (<option key={subIndex} value={item.id}>{translateText(`common:${item.name}`)}</option>))
                   }

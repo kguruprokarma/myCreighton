@@ -2,137 +2,6 @@ import { translateText } from '../../common/translate';
 
 export const semesterDataObj = [
   {
-    objectKey: 'academics',
-    title: translateText('common:SEMESTER_ACADEMICS'),
-    headlines: translateText('common:SCHOOL_TASKS_AND_ACTIVITIES'),
-    description: translateText('common:FREQUENT_FUNCTIONS_AND_INFORMATION'),
-    accordionObj:
-    [
-      {
-        accordionTitle: translateText('common:SEMESTER_CHANGES'),
-        links:
-        [
-          {
-            linkKey: 'common:CHANGE_UNDERGRADUATE_COLLEGE',
-            linkDesc: translateText('common:CHANGE_UNDERGRADUATE_DESC'),
-            linkTo: ''
-
-          },
-          {
-            linkKey: 'common:LEAVE_OF_ABSENCE',
-            linkDesc: 'Request a short-term leave of absence (1 or 2 semesters) for full-time students with a cumulative of GPA 2.00 or above.',
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:WITHDRAWAL_APPLY_FOR_APPROVAL',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:APPLY_FOR_A_MAJOR',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:MY_INCOMPLETES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          }
-        ]
-      },
-      {
-        accordionTitle: translateText('common:SEMESTER_PROBLEMS'),
-        links:
-        [
-          {
-            linkKey: 'common:REQUEST_A_TUTOR',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:REQUEST_ACADEMIC_SUPPORT',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          }
-        ]
-      },
-      {
-        accordionTitle: translateText('common:SEMESTER_GRADES'),
-        links:
-        [
-          {
-            linkKey: 'common:MY_CURRENT_SEMESTER_SCORES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:MY_CURRENT_SEMESTER_GPA',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          }
-        ]
-      },
-      {
-        accordionTitle: translateText('common:SEMESTER_RECORDS'),
-        links:
-        [
-          {
-            linkKey: 'common:VIEW_PROGRESS_TOWARDS_GRADUATION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:View_Dismissal_Expulsion_Record',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:REQUEST_ACADEMIC_STANDING_RECORD',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:REQUEST_ENROLLMENT_VERIFICATION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:REQUEST_DEGREE_VERIFICATION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:REQUEST_TRANSCRIPT',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          }
-        ]
-      },
-      {
-        accordionTitle: translateText('common:SEMESTER_CALENDAR_DATES'),
-        links:
-        [
-          {
-            linkKey: 'common:CURRENT_SEMESTER_MILESTONES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          }
-        ]
-      },
-      {
-        accordionTitle: translateText('common:SEMESTER_MY_PROGRAM'),
-        links:
-        [
-          {
-            linkKey: 'common:SCHOOL_OF_PHARMACY',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          }
-        ]
-      }
-    ]
-  },
-  {
     objectKey: 'openrequestsstatus', 
     title: translateText('common:OPEN_REQUESSTS_STATUS'),
     headlines: translateText('common:ACTION_REQUIRED_AND_STATUS_OF_MY_OPEN_ITEMS'),
@@ -140,6 +9,7 @@ export const semesterDataObj = [
     accordionObj: [
       {
         accordionTitle: '',
+        collapse: true,
         links:
         [
           {
@@ -175,6 +45,7 @@ export const semesterDataObj = [
     accordionObj: [
       {
         accordionTitle: translateText('PROFILE_INFORMATION'),
+        collapse: true,
         links:
         [
           {
@@ -192,6 +63,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('CLUBS_AND_INTERESTS'),
+        collapse: true,
         links:
         [
           {
@@ -209,6 +81,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('HEALTH_TEXT'),
+        collapse: true,
         links:
         [
           {
@@ -226,6 +99,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('PARENTS_TEXT'),
+        collapse: true,
         links:
         [
           {
@@ -251,8 +125,10 @@ export const semesterDataObj = [
           }
         ]
       },
+      
       {
         accordionTitle: translateText('FINANCES_TEXT'),
+        collapse: true,
         links:
         [
           {
@@ -280,6 +156,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('HOUSING_TEXT'),
+        collapse: true,
         links:
         [
           {
@@ -313,6 +190,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('DINING_TEXT'),
+        collapse: true,
         links:
         [
           {
@@ -330,6 +208,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('WAVIERS_TEXT'),
+        collapse: true,
         links:
         [
           {
@@ -355,6 +234,7 @@ export const semesterDataObj = [
     accordionObj: [
       {
         accordionTitle: translateText('REGISTER_CLASS_CLASSES'),
+        collapse: true,
         links:
         [
           {
@@ -391,6 +271,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('FINANCES_TEXT'),
+        collapse: true,
         links:
         [
           {
@@ -412,6 +293,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('MY_REGISTER_CLASS'),
+        collapse: true,
         links:
         [
           {
@@ -438,10 +320,153 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('SHOP_CREIGHTON'),
+        collapse: true,
         links:
         [
           {
             linkKey: 'common:CREIGHTON_BOOKSTORE',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          }
+        ]
+      }
+    ]
+  },
+  {
+    objectKey: 'academics',
+    title: translateText('common:SEMESTER_ACADEMICS'),
+    headlines: translateText('common:SCHOOL_TASKS_AND_ACTIVITIES'),
+    description: translateText('common:FREQUENT_FUNCTIONS_AND_INFORMATION'),
+    accordionObj:
+    [
+      {
+        accordionTitle: translateText('common:SEMESTER_CHANGES'),
+        collapse: true,
+        links:
+        [
+          {
+            linkKey: 'common:CHANGE_UNDERGRADUATE_COLLEGE',
+            linkDesc: translateText('common:CHANGE_UNDERGRADUATE_DESC'),
+            linkTo: ''
+
+          },
+          {
+            linkKey: 'common:LEAVE_OF_ABSENCE',
+            linkDesc: 'Request a short-term leave of absence (1 or 2 semesters) for full-time students with a cumulative of GPA 2.00 or above.',
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:WITHDRAWAL_APPLY_FOR_APPROVAL',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:WITHDRAWAL_RETURN_TITLE_4_FUNDS',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:APPLY_FOR_A_MAJOR',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:MY_INCOMPLETES',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          }
+        ]
+      },
+      {
+        accordionTitle: translateText('common:SEMESTER_PROBLEMS'),
+        collapse: true,
+        links:
+        [
+          {
+            linkKey: 'common:REQUEST_A_TUTOR',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:REQUEST_ACADEMIC_SUPPORT',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          }
+        ]
+      },
+      {
+        accordionTitle: translateText('common:SEMESTER_GRADES'),
+        collapse: true,
+        links:
+        [
+          {
+            linkKey: 'common:MY_CURRENT_SEMESTER_SCORES',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:MY_CURRENT_SEMESTER_GPA',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          }
+        ]
+      },
+      {
+        accordionTitle: translateText('common:SEMESTER_RECORDS'),
+        collapse: true,
+        links:
+        [
+          {
+            linkKey: 'common:VIEW_PROGRESS_TOWARDS_GRADUATION',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:View_Dismissal_Expulsion_Record',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:REQUEST_ACADEMIC_STANDING_RECORD',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:REQUEST_ENROLLMENT_VERIFICATION',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:REQUEST_DEGREE_VERIFICATION',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          },
+          {
+            linkKey: 'common:REQUEST_TRANSCRIPT',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          }
+        ]
+      },
+      {
+        accordionTitle: translateText('common:SEMESTER_CALENDAR_DATES'),
+        collapse: true,
+        links:
+        [
+          {
+            linkKey: 'common:CURRENT_SEMESTER_MILESTONES',
+            linkDesc: translateText('common:COMMON_NA'),
+            linkTo: ''
+          }
+        ]
+      },
+      {
+        accordionTitle: translateText('common:SEMESTER_MY_PROGRAM'),
+        collapse: true,
+        links:
+        [
+          {
+            linkKey: 'common:SCHOOL_OF_PHARMACY',
             linkDesc: translateText('common:COMMON_NA'),
             linkTo: ''
           }
@@ -457,6 +482,7 @@ export const semesterDataObj = [
     accordionObj: [
       {
         accordionTitle: translateText('FINANCE_BILLS'),
+        collapse: true,
         links:
         [
           {
@@ -493,6 +519,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('CREIGHTON_CURRENCY'),
+        collapse: true,
         links:
         [
           {
@@ -579,6 +606,7 @@ export const semesterDataObj = [
     accordionObj: [
       {
         accordionTitle: translateText('Clubs and Interests'),
+        collapse: true,
         links:
         [
           {
@@ -595,6 +623,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('SERVICE_FOR_OTHER'),
+        collapse: true,
         links:
         [
           {
@@ -611,6 +640,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('WAVIERS_TEXT'),
+        collapse: true,
         links:
         [
           {
@@ -627,6 +657,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('STUDENT_LIFE_FACILITIES'),
+        collapse: true,
         links:
         [
           {
@@ -651,6 +682,7 @@ export const semesterDataObj = [
     accordionObj: [
       {
         accordionTitle: translateText('SEMESTER_CALENDAR_DATES'),
+        collapse: true,
         links:
         [
           {
@@ -667,6 +699,7 @@ export const semesterDataObj = [
       },
       {
         accordionTitle: translateText('SEMESTER_END_GRADES'),
+        collapse: true,
         links:
         [
           {

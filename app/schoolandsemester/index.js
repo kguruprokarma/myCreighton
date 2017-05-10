@@ -30,6 +30,7 @@ class SchoolAndSemester extends React.PureComponent {
     this.navigateOnClick = this.navigateOnClick.bind(this);
     this.showAllDesc = this.showAllDesc.bind(this);
     this.showAllAccordions = this.showAllAccordions.bind(this);
+    this.setStateAccordions = this.setStateAccordions.bind(this);
   }
   componentWillMount() {
     const titleValue = `${translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER')}`;
@@ -37,9 +38,12 @@ class SchoolAndSemester extends React.PureComponent {
     this.navigateOnClick('openrequestsstatus');
   }
 
-  navigateOnClick(val) {
-    const temp = filter(semesterDataObj, { 'objectKey': val });
-    this.setState({ selectedArray: temp[0] });
+  setStateAccordions() {
+    const tempArray = Object.assign({}, this.state.selectedArray);
+    for (let i = 0; i < tempArray.accordionObj.length; i++) {
+      tempArray.accordionObj[i].collapse = this.state.accordToggle;
+    }
+    this.setState({ selectedArray: tempArray });
   }
 
   showAllDesc() {
@@ -50,15 +54,28 @@ class SchoolAndSemester extends React.PureComponent {
     }
   }
 
+  navigateOnClick(val) {
+    const temp = filter(semesterDataObj, { 'objectKey': val });
+    this.setState({ selectedArray: temp[0] });
+    this.setState({ accordToggle: true }, () => {
+      this.setStateAccordions();
+    });
+  }
+
   showAllAccordions() {
     if (this.state.accordToggle) {
-      this.setState({ accordToggle: false });
+      this.setState({ accordToggle: false }, () => {
+        this.setStateAccordions();
+      });
     } else {
-      this.setState({ accordToggle: true });
+      this.setState({ accordToggle: true }, () => {
+        this.setStateAccordions();
+      });
     }
   }
 
   render() {
+    console.log('this.props.route.params: ', this.props);
     return (
       <section role='region' className='school-and-semester section-container init-top'>
         {/*<Accordion title='Open Requests Status' description='Dart' />

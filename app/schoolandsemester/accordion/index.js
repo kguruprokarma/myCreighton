@@ -13,57 +13,41 @@ class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.imageClass = '';
-    this.state = {
-      isAccordToggle: false,
-      //toggleSingleAccordClass: '',
-      selected: ''
-    };
-    //this.accordToggle = this.accordToggle.bind(this);
-    this.isActive = this.isActive.bind(this);
+    this.accordToggle = this.accordToggle.bind(this);
   }
 
   accordToggle(filter) {
-    this.setState({ selected: filter });
-  }
-
-  isActive(value) {
-    let returnVal = '';
-    if (value === this.state.selected) {
-      if (returnVal !== 'accord-active') {
-        returnVal = 'accord-active';
-      } else {
-        returnVal = '';
-      }
-      if (this.imageClass !== 'revImage') {
-        this.imageClass = 'revImage';
-      } else {
-        this.imageClass = '';
-      }
-    }
-    /*else {
-      this.imageClass = '';
-    }*/
-
-    return returnVal;
-    //return ((value === this.state.selected) ? 'accord-active' : '');
-  }
+    const filterOption = filter; 
+    filterOption.collapse = !filterOption.collapse;
+    this.forceUpdate();
+  }  
 
   render() {
     const props = this.props;
     const descStateClass = props.showHideDesc ? 'accord-active' : '';
-    const accordStateClass = props.showHideAccord ? 'accord-active' : 'accord-description';
+    //const accordStateClass = props.showHideAccord ? 'accord-active' : 'accord-description';
     this.imageClass = props.showHideAccord ? 'revImage' : '';
     return (
       <section role='region'>
         {props.accordionObj && props.accordionObj.map((accordionDetails, accordionIndex) => (
           <div key={accordionIndex}>
-            <button className='btn btn-link btnnoPadding accord-title' onClick={() => this.accordToggle(`${accordionIndex}`)}>
+
+            {accordionIndex===0 && <Row className='openSansLight fs1pt2 mb10'>
+              <Col sm={6} xs={6}>
+                <span>{translateText('common:COMMON_DESCRIPTION')}:</span><button className='semisterShow' onClick={props.showAllDesc}>{props.showHideDesc ? translateText('common:COMMON_HIDE'):translateText('common:COMMON_SHOW')}</button>
+              </Col>
+              {accordionDetails.accordionTitle && <Col sm={6} xs={6}>
+                <button className='semisterShow pull-right' onClick={props.showAllAccordions}>{props.showHideAccord ? translateText('common:COMMON_COLLAPSE_ALL') : translateText('common:COMMON_EXPAND_ALL')}</button>
+              </Col>}
+            </Row>}
+
+            {accordionDetails.accordionTitle && <button className='btn btn-link btnnoPadding accord-title ' onClick={() => this.accordToggle(accordionDetails)}>
               <Col xs={10}>
                 <p className='openSansLight fs1pt2 semesterTitle'>{translateText(accordionDetails.accordionTitle)}</p>
               </Col>
               <Col xs={2} className='openSansLight text-right'> <img src={DOWN_ARROW} alt='' className={this.imageClass} /></Col>
-            </button>
-            <ListGroup className={`${this.isActive(`${accordionIndex}`)} ${accordStateClass} main-list-group accordian-list-data`}>
+            </button>}            
+            <ListGroup className={`${accordionDetails.collapse ? 'accord-active' : 'accord-description'} main-list-group accordian-list-data`}>
               {
                 accordionDetails.links.map((linkDetails, linkIndex) => (
                   <ListGroupItem key={linkIndex}>

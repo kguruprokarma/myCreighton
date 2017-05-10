@@ -10,6 +10,7 @@ import { SemesterLinks } from './semesterLinks';
 import { semesterDataObj } from '../constants/semesterData';
 import { translateText } from '../../common/translate';
 import HeaderLabel from '../../common/headerLabel';
+import PreviousNext from './previousNext';
 
 class Academics extends Component {
 
@@ -18,17 +19,25 @@ class Academics extends Component {
     this.state = {
       selectedArray: {},
       descToggle: false,
-      mobileAccordToggle: false
+      mobileAccordToggle: true
     };
     this.navigateOnClick = this.navigateOnClick.bind(this);
     this.showAllDesc = this.showAllDesc.bind(this);
     this.mobileShowAllAccordions = this.mobileShowAllAccordions.bind(this);
+    this.setStateAccordions = this.setStateAccordions.bind(this);
   }
 
   componentWillMount() {
     this.navigateOnClick();
   }
 
+  setStateAccordions() {
+    const tempArray = Object.assign({}, this.state.selectedArray);
+    for (let i = 0; i < tempArray.accordionObj.length; i++) {
+      tempArray.accordionObj[i].collapse = this.state.mobileAccordToggle;
+    }
+    this.setState({ selectedArray: tempArray });
+  }
   navigateOnClick() {
     const props = this.props;
     if (props.params) {
@@ -37,6 +46,9 @@ class Academics extends Component {
     } else {
       this.setState({ selectedArray: props.selectedArray });
     }
+    this.setState({mobileAccordToggle: true}, () => {
+      this.setStateAccordions();
+    });
   }
 
   showAllDesc() {
@@ -46,12 +58,15 @@ class Academics extends Component {
       this.setState({ descToggle: true });
     }
   }
-
   mobileShowAllAccordions() {
     if (this.state.mobileAccordToggle) {
-      this.setState({ mobileAccordToggle: false });
+      this.setState({ mobileAccordToggle: false }, () => {
+        this.setStateAccordions();
+      });
     } else {
-      this.setState({ mobileAccordToggle: true });
+      this.setState({ mobileAccordToggle: true }, () => {
+        this.setStateAccordions();
+      });
     }
   }
 
@@ -67,12 +82,15 @@ class Academics extends Component {
         </Col>
         <Col sm={8} md={9} xs={12} className='semester-internal-data'>
           <SemesterContainer
-            showAllDesc={props.showAllDesc ? props.showAllDesc : this.showAllDesc} 
-            data={(props.selectedArray ? props.selectedArray : this.state.selectedArray)} 
-            showHideDesc={props.descToggle ? props.descToggle : this.state.descToggle} 
-            showHideAccord={props.accordToggle ? props.accordToggle : this.state.mobileAccordToggle} 
-            showAllAccordions={props.showAllAccordions ? props.showAllAccordions : this.mobileShowAllAccordions}
+            showAllDesc={props.showAllDesc!==undefined ? props.showAllDesc : this.showAllDesc} 
+            data={(props.selectedArray!==undefined ? props.selectedArray : this.state.selectedArray)} 
+            showHideDesc={props.descToggle!==undefined ? props.descToggle : this.state.descToggle} 
+            showHideAccord={props.accordToggle!==undefined ? props.accordToggle : this.state.mobileAccordToggle} 
+            showAllAccordions={props.showAllAccordions!==undefined ? props.showAllAccordions : this.mobileShowAllAccordions}
           />
+        </Col>
+        <Col>
+          {props.routeParams && props.routeParams.categoryname && <PreviousNext currentPath={props.routeParams} navigateOnClick={this.navigateOnClick} />}
         </Col>
       </Row>
     );
@@ -80,4 +98,3 @@ class Academics extends Component {
 }
 
 export default Academics;
-

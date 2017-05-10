@@ -325,7 +325,9 @@
 
   "CHANGE_UNDERGRADUATE_DESC": "Request application to the Registrar’s Office for changing from your major and current undergraduate college to a different college on campus.",
   "LEAVE_OF_ABSENCE":"Leave of Absence",
+  "LEAVE_OF_ABSENCE_DESC":"Request a short-term leave of absence (1 or 2 semesters) for full-time students with a cumulative of GPA 2.00 or above.",
   "WITHDRAWAL_APPLY_FOR_APPROVAL": "Withdrawal - Apply for Approval",
+  "WITHDRAWAL_RETURN_TITLE_4_FUNDS": "Withdrawal - Return Title 4 Funds",
   "APPLY_FOR_A_MAJOR":"Apply for a Major",
   "MY_INCOMPLETES":"My Incompletes",
   "REQUEST_A_TUTOR":"Request a Tutor",
