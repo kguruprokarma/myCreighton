@@ -17,7 +17,7 @@ const SemesterContainer = (semesterProps) => (
           <button className='semisterShow pull-right' onClick={semesterProps.showAllAccordions}>{semesterProps.showHideAccord?translateText('common:COMMON_COLLAPSE_ALL'):translateText('common:COMMON_EXPAND_ALL')}</button>
         </Col>
       </Row>*/}
-      {semesterProps.data.accordionObj && <Accordion accordionObj={semesterProps.data.accordionObj} showHideDesc={semesterProps.showHideDesc} showHideAccord={semesterProps.showHideAccord} showAllAccordions={semesterProps.showAllAccordions} showAllDesc={semesterProps.showAllDesc} />
+      {semesterProps.data.accordionObj && <Accordion accordionObj={semesterProps.data.accordionObj} showHideDesc={semesterProps.showHideDesc} showHideAccord={semesterProps.showHideAccord} showAllAccordions={semesterProps.showAllAccordions} showAllDesc={semesterProps.showAllDesc} accordToggleFunc={semesterProps.accordToggleFunc} />
       }
     </div>
     }

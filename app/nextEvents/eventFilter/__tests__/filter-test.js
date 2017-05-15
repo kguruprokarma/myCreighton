@@ -10,28 +10,72 @@ describe('EventFilter component testing ----->', () => {
     },
     displayOptions: [
       {  
-        'itemName': 'Classes',
+        'itemName': 'All',
         'checked': 'false',
+        'showItem': true, 
         'children': [  
           {  
             'name': 'Law And Health Systems',
             'sid': '201670_HAP_515_N',
-            'checked': false
+            'checked': false,
+            'parentname': 'Classes201610_HAP_315_NA'
           },         
           {  
             'name': 'Healthcare, Society & Culture',
             'sid': '201610_HAP_315_NA',
-            'checked': false
+            'checked': false,
+            'parentname': 'assignments201610_HAP_315_NA'
           }
         ]
       }
     ],
     toggleCheckBoxParent: () => {},
     showChild: () => {},
-    displayLabel: () => {}
+    displayLabel: () => {},
+    toggleRadio: () => {},
+    toggleCheck: () => {},
+    showSelected: () => {},
+    toggleCheckAll: () => {}
   };
   const eventFilterc = shallow(<EventFilter {...defaultProps} />);
   it('eventFilter is defined', () => {
     expect(eventFilterc).toBeDefined();
+    eventFilterc.instance().toggleRadioFilter();
+    eventFilterc.instance().showChildFilter();
+    eventFilterc.instance().toggleCheckBoxParentFilter();
+    eventFilterc.instance().toggleCheckFilter();
+    eventFilterc.instance().showSelectedFilter();
+    eventFilterc.instance().toggleCheckAllFilter();
+    eventFilterc.find('#testAll').simulate('change');
+  });
+
+  it('ListGroupItem is test', () => {
+    const eventFilterC1 = shallow(<EventFilter
+      {...Object.assign({}, defaultProps, {displayOptions: [
+        {  
+          'itemName': 'Classes',
+          'checked': 'false', 
+          'children': [  
+            {  
+              'name': 'Law And Health Systems',
+              'sid': '201670_HAP_515_N',
+              'checked': false
+            },         
+            {  
+              'name': 'Healthcare, Society & Culture',
+              'sid': '201610_HAP_315_NA',
+              'checked': false
+            }
+          ]
+        }
+      ]})}
+    />);
+    eventFilterC1.find('#Classes').simulate('change');
+  });
+  it('OnChange() toggleCheckFilter is defined', () => {
+    eventFilterc.find('#assignments201610_HAP_315_NA').simulate('change');
+  });
+  it('OnChange() showChildFilter is defined', () => {
+    eventFilterc.find('button').at(1).simulate('change');
   });
 });

@@ -7,13 +7,13 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 //import { bindActionCreators } from 'redux';
 //import { connect } from 'react-redux';
-import { filter } from 'lodash';
+import { filter} from 'lodash';
 import { browserTitle } from '../common/utility';
 import { translateText } from '../common/translate';
 import HeaderLabel from '../common/headerLabel';
 import './style.css';
-import Academics from './components/academics';
 import SemesterNav from './components/semesterNav';
+import Academics from './components/academics';
 import { SemesterLinks } from './components/semesterLinks';
 //import * as actionCreators from './actions';
 import { semesterDataObj } from './constants/semesterData';
@@ -25,12 +25,14 @@ class SchoolAndSemester extends React.PureComponent {
     this.state = {
       selectedArray: {},
       descToggle: false,
-      accordToggle: true
+      accordToggle: true,
+      activeNavLink: translateText('common:OPEN_REQUESSTS_STATUS')
     };
     this.navigateOnClick = this.navigateOnClick.bind(this);
     this.showAllDesc = this.showAllDesc.bind(this);
     this.showAllAccordions = this.showAllAccordions.bind(this);
     this.setStateAccordions = this.setStateAccordions.bind(this);
+    this.accordToggleFunc = this.accordToggleFunc.bind(this);
   }
   componentWillMount() {
     const titleValue = `${translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER')}`;
@@ -60,6 +62,7 @@ class SchoolAndSemester extends React.PureComponent {
     this.setState({ accordToggle: true }, () => {
       this.setStateAccordions();
     });
+    this.setState({activeNavLink: translateText(temp[0].title)}); 
   }
 
   showAllAccordions() {
@@ -74,8 +77,28 @@ class SchoolAndSemester extends React.PureComponent {
     }
   }
 
+  accordToggleFunc(accordObj) {
+    const accordObjOption = accordObj;
+    accordObjOption.collapse = !accordObjOption.collapse;
+    let tempCount=0;
+    this.forceUpdate();
+    for (let i = 0; i < this.state.selectedArray.accordionObj.length; i++) {
+      if (this.state.selectedArray.accordionObj[i].collapse === true) {
+        tempCount++;
+        if (tempCount === this.state.selectedArray.accordionObj.length-1) {
+          this.setState({ accordToggle: true });
+        }
+      }
+    }
+    for (let i = 0; i < this.state.selectedArray.accordionObj.length; i++) {
+      if (this.state.selectedArray.accordionObj[i].collapse === false) {
+        tempCount=0;
+        this.setState({ accordToggle: false });
+      }      
+    }
+  }
+
   render() {
-    console.log('this.props.route.params: ', this.props);
     return (
       <section role='region' className='school-and-semester section-container init-top'>
         {/*<Accordion title='Open Requests Status' description='Dart' />
@@ -84,13 +107,14 @@ class SchoolAndSemester extends React.PureComponent {
         <Row>
           <Col md={3} sm={4}>
             {/*<SemesterNav semesterLinks={SemesterLinks} toggleClick={this.toggleClick} />*/}
-            <SemesterNav semesterLinks={SemesterLinks} navToLink={this.navigateOnClick} />
+
+            <SemesterNav semesterLinks={SemesterLinks} navToLink={this.navigateOnClick} activeNavLink={this.state.activeNavLink} />
           </Col>
           <Col sm={8} md={9} xs={12} className='hidden-xs'>
-            <Academics 
-              selectedArray={this.state.selectedArray} descToggle={this.state.descToggle} 
-              showAllDesc={this.showAllDesc} accordToggle={this.state.accordToggle} 
-              showAllAccordions={this.showAllAccordions} 
+            <Academics
+              selectedArray={this.state.selectedArray} descToggle={this.state.descToggle}
+              showAllDesc={this.showAllDesc} accordToggle={this.state.accordToggle} accordToggleFunc={this.accordToggleFunc}
+              showAllAccordions={this.showAllAccordions} activeNavLink={this.state.activeNavLink} 
             />
           </Col>
         </Row>

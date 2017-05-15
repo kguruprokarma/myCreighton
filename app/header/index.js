@@ -67,6 +67,12 @@ export class Header extends React.PureComponent {
   }
   render() {
     const props = this.props;
+    let filterIndicator = true;
+    if (localStorage.getItem('displayOptions') && localStorage.getItem('setFilterValue')) {
+      const savedDisplayOptions = JSON.parse(localStorage.getItem('displayOptions'));
+      filterIndicator = (localStorage.getItem('setFilterValue') === CommonContants.EVENT_FILTER_7_DAYS && savedDisplayOptions[0].checked === true);
+    }
+    
     return (
       <header role='banner' id='header'>
         <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}</h1>
@@ -90,7 +96,7 @@ export class Header extends React.PureComponent {
                 {(props.currentState === RouteContants.EVENT_LIST || props.currentState === RouteContants.EVENT_DETAILS) &&
                   <li className='head-Icons mr10 event-icon'>
                     <div className='popUp'>
-                      <button className='btn btn-link btnnoPadding filter-img' onClick={this.showFilterPopUp}><ImageComponent imagePath={EVENTFILTER_ICON} imageWidth='25' /></button>
+                      <button className='btn btn-link btnnoPadding filter-img' onClick={this.showFilterPopUp}><ImageComponent imagePath={EVENTFILTER_ICON} imageWidth='25' />{filterIndicator ? '' : <span className='filter-checkmark glyphicon glyphicon-ok' aria-hidden='true' />}</button>
                       <div className='popUpContainer'>
                         {props.filterPopUpData &&
                           <NextEventFilterComponent />}

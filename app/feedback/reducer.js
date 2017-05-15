@@ -7,11 +7,25 @@ import * as types from './actionTypes';
 const initialState = {
   feedbackData: {},
   isLoading: false,
-  error: false
+  error: false,
+  showFeedbackPopUp: false
 };
 
 const fedbackReducer = (state = initialState, action = null) => {
   switch (action && action.type) {
+
+    case types.OPEN_FEEDBACK_POPUP:
+      return Object.assign({}, state, {
+        showFeedbackPopUp: true
+      });
+    case types.CLOSE_FEEDBACK_POPUP:
+      return Object.assign({}, state, {
+        showFeedbackPopUp: false
+      });
+    case types.RESET_FEEDBACK_POPUP:
+      return Object.assign({}, state, {
+        feedbackData: []
+      });
     case types.REQUEST_FEEDBACK_DATA:
       return Object.assign({}, state, {
         isLoading: true,

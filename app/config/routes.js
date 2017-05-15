@@ -35,6 +35,7 @@ import StaffDetailComponent from '../staffDetail/index';
 import Logout from '../logout/index';
 import LibrarySearch from '../librarySearch';
 import FeedbackComponent from '../feedback';
+import MissionAndMinistryComponent from '../missionAndMinistry';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
@@ -65,7 +66,8 @@ const routes = (
           <Route path={ROUTE_URL.STAFF_DETAILS} title='StaffDetails - ' component={StaffDetailComponent} />
           <Route path={ROUTE_URL.SEMESTERACADEMICS + ROUTE_URL.CATEGORY_NAME_PARAM} title='Semester Academics - ' component={semesterAcademics} />
           <Route path={ROUTE_URL.LIBRARY_SEARCH} title='Library Search - ' component={LibrarySearch} />
-          <Route path='Feedback' title='Feedback - ' component={FeedbackComponent} />
+          <Route path={ROUTE_URL.FEEDBACK} title='Feedback - ' component={FeedbackComponent} />
+          <Route path={ROUTE_URL.MISSION_AND_MINISTRY} title='Mission and ministry - ' component={MissionAndMinistryComponent} />
           <Route path={ROUTE_URL.LOGOUT} title='Logout - ' component={Logout} />
 
           {/*<Route path='/' component={Login} />

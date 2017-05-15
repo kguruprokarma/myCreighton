@@ -30,12 +30,12 @@ class PreviousNext extends React.Component {
     return (
       <div className='row' >
         <div className='form-group col-xs-6'>
-          <Link to={`${ROUTE_URL.SEMESTERACADEMICS}/${prevUrl}`} className={`btn btn-primary ${currentIndex===0?'disableButton':''}`} onClick={props.navigateOnClick}>
+          <Link to={`${ROUTE_URL.SEMESTERACADEMICS}/${prevUrl}`} className={`btn btn-primary ${currentIndex===0?'disableButton':''}`} onClick={() => props.navigateOnClick(prevUrl)}>
             <span className='glyphicon glyphicon-chevron-left' /> {translateText('common:PREVIOUS')}
           </Link>
         </div>
         <div className='form-group col-xs-6 text-right'>
-          <Link to={`${ROUTE_URL.SEMESTERACADEMICS}/${nextUrl}`} className={`btn btn-primary ${currentIndex===totalLength?'disableButton':''}`} onClick={props.navigateOnClick}> {translateText('common:NEXT')}
+          <Link to={`${ROUTE_URL.SEMESTERACADEMICS}/${nextUrl}`} className={`btn btn-primary ${currentIndex===totalLength?'disableButton':''}`} onClick={() => props.navigateOnClick(nextUrl)}> {translateText('common:NEXT')}
             <span className='glyphicon glyphicon-chevron-right' />
           </Link>
         </div>

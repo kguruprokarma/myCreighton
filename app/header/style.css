@@ -71,7 +71,7 @@
     height: 100%;
     width: 100%;
     background: rgba(0,0,0,0.01);
-    z-index: 900;
+    z-index: 0;
 }
 
 .popUpContainer a {
@@ -199,6 +199,10 @@
     overflow: hidden;
     max-width: 116px;
     margin-top: 4px;
+}
+
+.filter-checkmark{
+    color: #fff;
 }
 
 

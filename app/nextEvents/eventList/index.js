@@ -25,17 +25,13 @@ import EventDetailsPage from '../eventDetails/index';
 export class EventList extends React.PureComponent {
   constructor() {
     super();
-    this.userReqObj = {};
-    this.userReqObj.primaryKey = 'netid';
-    this.userReqObj.primaryValue = authUserDetails().netid; //'6cb4db8459';
     this.masterObj = null;
   }
   componentWillMount() {
     const props = this.props;
     props.onMasterDataChange(false);
-
     props.onLoading();
-    if (this.userReqObj !== undefined && authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {
+    if (authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {
       const result = getClassAndAssignmentAPIData(this.userReqObj).catch((error) => {
         //for catching API error
         props.onReceiveError(error);
@@ -50,12 +46,14 @@ export class EventList extends React.PureComponent {
       });
     } else {
       //The below code has to be changed once we receive seperate API for faculty and staff
-      this.masterObj = {};
-      new Promise((resolve) => {
-        resolve(props.getCalendarData());
-      }).then(() => {
-        props.onMasterDataChange(true);
-      });
+      if (localStorage.getItem('roleInfo')) {
+        this.masterObj = {};
+        new Promise((resolve) => {
+          resolve(props.getCalendarData());
+        }).then(() => {
+          props.onMasterDataChange(true);
+        });
+      }
     }
     browserTitle(translateText('common:NEXT_EVENTS'));
   }
@@ -217,39 +215,40 @@ export class EventList extends React.PureComponent {
       eventDetails = JSON.parse(localStorage.getItem('eventList'));
     }
     classes.Classes = null;
-    map(eventDetails, (eventObject) => {
-      if (eventObject.type === NextEventsConstants.CLASSES_DETAILS) {
-        const data = {};
-        data.name = eventObject.course_title;
-        data.sid = eventObject.sis_source_id;
-        data.checked = true;
-        data.parentname = CommonConstants.CLASSES+eventObject.sis_source_id;
-        classes.push(data);
-        if (eventObject.assignmentData && eventObject.assignmentData.length > 0) {
-          const assignmentDetails = eventObject.assignmentData;
-          map(assignmentDetails, (assignmentData) => {
-            if (assignmentData.type === NextEventsConstants.ASSIGNMENTS || assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
-              const data2 = {};
-              data2.name = eventObject.course_title;
-              data2.sid = eventObject.sis_source_id;
-              data2.checked = true;
-              data2.parentname = NextEventsConstants.ASSIGNMENTS+eventObject.sis_source_id;
-              classAssignments.push(data2);
-            }
-          });
-        }
-      }
-    });
-    const matchedclassesObj = map(uniqBy(classes, CommonConstants.SIS_SOURCE_ID));
-    const matchedAssignments = map(uniqBy(classAssignments, CommonConstants.SIS_SOURCE_ID));
-    const classesObj = prepareDisplayObject(CommonConstants.CLASSES, matchedclassesObj);
-    const assignmentObj = prepareDisplayObject(CommonConstants.CLASS_EVENTS, matchedAssignments);
     const allEventsObj = prepareDisplayObject(CommonConstants.EVENT_FILTER_ALL, '');
-    const calenderObj = prepareDisplayObject(CommonConstants.CALENDAR_EVENTS, '');
-
     displayOptions.push(allEventsObj);
-    displayOptions.push(classesObj);
-    displayOptions.push(assignmentObj);
+    if (authUserDetails().userRole === CommonConstants.ROLE_STUDENT) {
+      map(eventDetails, (eventObject) => {
+        if (eventObject.type === NextEventsConstants.CLASSES_DETAILS) {
+          const data = {};
+          data.name = eventObject.course_title;
+          data.sid = eventObject.sis_source_id;
+          data.checked = true;
+          data.parentname = CommonConstants.CLASSES+eventObject.sis_source_id;
+          classes.push(data);
+          if (eventObject.assignmentData && eventObject.assignmentData.length > 0) {
+            const assignmentDetails = eventObject.assignmentData;
+            map(assignmentDetails, (assignmentData) => {
+              if (assignmentData.type === NextEventsConstants.ASSIGNMENTS || assignmentData.type === NextEventsConstants.TEST_OR_QUIZ) {
+                const data2 = {};
+                data2.name = eventObject.course_title;
+                data2.sid = eventObject.sis_source_id;
+                data2.checked = true;
+                data2.parentname = NextEventsConstants.ASSIGNMENTS+eventObject.sis_source_id;
+                classAssignments.push(data2);
+              }
+            });
+          }
+        }
+      });
+      const matchedclassesObj = map(uniqBy(classes, CommonConstants.SIS_SOURCE_ID));
+      const matchedAssignments = map(uniqBy(classAssignments, CommonConstants.SIS_SOURCE_ID));
+      const classesObj = prepareDisplayObject(CommonConstants.CLASSES, matchedclassesObj);
+      const assignmentObj = prepareDisplayObject(CommonConstants.CLASS_EVENTS, matchedAssignments);
+      displayOptions.push(classesObj);
+      displayOptions.push(assignmentObj);
+    }
+    const calenderObj = prepareDisplayObject(CommonConstants.CALENDAR_EVENTS, '');
     displayOptions.push(calenderObj);
     localStorage.setItem(CommonConstants.DISPLAY_OPTIONS, JSON.stringify(displayOptions));
 

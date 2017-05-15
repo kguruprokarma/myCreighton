@@ -9,10 +9,13 @@ import SemLinks from '../components/semesterLinks';
 
 describe('semester nav files in school and semester ----->', () => {
   const minProps = {
-    semesterLinks: SemLinks
+    semesterLinks: SemLinks,
+    navToLink: () => { }
   };
   const semesterNav = shallow(<SemesterNav {...minProps} />);
   it('SemesterNav is defined', () => {
     expect(semesterNav).toBeDefined();
+    semesterNav.find('Link').at(0).simulate('click');
+    semesterNav.find('Link').at(1).simulate('click');
   });
 });

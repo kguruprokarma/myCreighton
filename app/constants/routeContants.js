@@ -30,6 +30,8 @@ export const STAFF_DETAILS = '/staffDetails';
 export const SEMESTERACADEMICS = '/semesteracademics';
 export const LIBRARY_SEARCH = '/librarysearch';
 export const LOGOUT = '/logout';
+export const FEEDBACK = '/feedback';
+export const MISSION_AND_MINISTRY = '/missionandministry';
 
 /*
 * Relative path url's parameters for components

@@ -35,3 +35,4 @@ export const SEMESTER_STUDENT_LIFE = 'studentlife';
 export const SEMESTER_SEMESTER_END = 'semesterend';
 export const SEMESTER_GRADUATION = 'graduation';
 export const FEEDBACK = 'feedback';
+export const MISSION_AND_MINISTRY = 'missionandministry';

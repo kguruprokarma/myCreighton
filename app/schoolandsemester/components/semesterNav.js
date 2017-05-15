@@ -20,7 +20,7 @@ const SemesterNav = (SemesterNavprops) => (
                 </Col>
               </Row>
             </Link>
-            <Link className='hidden-xs' onClick={() => SemesterNavprops.navToLink(translateText(semesterDetails.objectKey))}>{translateText(semesterDetails.title)}</Link>
+            <Link className={SemesterNavprops.activeNavLink === translateText(semesterDetails.title)?'hidden-xs active':'hidden-xs'} onClick={() => SemesterNavprops.navToLink(translateText(semesterDetails.objectKey))}>{translateText(semesterDetails.title)}</Link>
           </ListGroupItem>
         ))
       }

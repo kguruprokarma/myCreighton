@@ -19,16 +19,21 @@ class Academics extends Component {
     this.state = {
       selectedArray: {},
       descToggle: false,
-      mobileAccordToggle: true
+      mobileAccordToggle: true,
+      activeNavLink: translateText('common:OPEN_REQUESSTS_STATUS')
     };
     this.navigateOnClick = this.navigateOnClick.bind(this);
     this.showAllDesc = this.showAllDesc.bind(this);
     this.mobileShowAllAccordions = this.mobileShowAllAccordions.bind(this);
+    this.accordToggleFunc = this.accordToggleFunc.bind(this);
     this.setStateAccordions = this.setStateAccordions.bind(this);
   }
 
   componentWillMount() {
-    this.navigateOnClick();
+    const props = this.props;
+    if (props.params) {
+      this.navigateOnClick(props.params.categoryname);
+    }
   }
 
   setStateAccordions() {
@@ -38,17 +43,18 @@ class Academics extends Component {
     }
     this.setState({ selectedArray: tempArray });
   }
-  navigateOnClick() {
+  navigateOnClick(pathName) {
     const props = this.props;
+    const temp = filter(semesterDataObj, { 'objectKey': pathName });
     if (props.params) {
-      const temp = filter(semesterDataObj, { 'objectKey': props.params.categoryname });
       this.setState({ selectedArray: temp[0] });
     } else {
       this.setState({ selectedArray: props.selectedArray });
     }
-    this.setState({mobileAccordToggle: true}, () => {
+    this.setState({ mobileAccordToggle: true }, () => {
       this.setStateAccordions();
     });
+    this.setState({activeNavLink: translateText(temp[0].title)}); 
   }
 
   showAllDesc() {
@@ -70,29 +76,53 @@ class Academics extends Component {
     }
   }
 
+  accordToggleFunc(accordObj) {
+    const accordObjOption = accordObj;
+    accordObjOption.collapse = !accordObjOption.collapse;
+    let tempCount=0;
+    this.forceUpdate();
+    for (let i = 0; i < this.state.selectedArray.accordionObj.length; i++) {
+      if (this.state.selectedArray.accordionObj[i].collapse === true) {
+        tempCount++;
+        if (tempCount === this.state.selectedArray.accordionObj.length-1) {
+          this.setState({ mobileAccordToggle: true });
+        }
+      }
+    }
+    for (let i = 0; i < this.state.selectedArray.accordionObj.length; i++) {
+      if (this.state.selectedArray.accordionObj[i].collapse === false) {
+        tempCount=0;
+        this.setState({ mobileAccordToggle: false });
+      }      
+    }
+  }
+
   render() {
     const props = this.props;
     return (
-      <Row>
-        <Grid className='hidden-xs semester-internal-nav'>
-          <HeaderLabel headerLabel={translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER')} />
-        </Grid>
-        <Col md={3} sm={4} className='hidden-xs semester-internal-nav'>
-          <SemesterNav semesterLinks={SemesterLinks} />
-        </Col>
-        <Col sm={8} md={9} xs={12} className='semester-internal-data'>
-          <SemesterContainer
-            showAllDesc={props.showAllDesc!==undefined ? props.showAllDesc : this.showAllDesc} 
-            data={(props.selectedArray!==undefined ? props.selectedArray : this.state.selectedArray)} 
-            showHideDesc={props.descToggle!==undefined ? props.descToggle : this.state.descToggle} 
-            showHideAccord={props.accordToggle!==undefined ? props.accordToggle : this.state.mobileAccordToggle} 
-            showAllAccordions={props.showAllAccordions!==undefined ? props.showAllAccordions : this.mobileShowAllAccordions}
-          />
-        </Col>
-        <Col>
+      <section role='region'>
+        <Row>
+          <Grid className='hidden-xs semester-internal-nav'>
+            <HeaderLabel headerLabel={translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER')} />
+          </Grid>
+          <Col md={3} sm={4} className='hidden-xs semester-internal-nav'>
+            <SemesterNav semesterLinks={SemesterLinks} activeNavLink={props.activeNavLink !== undefined ?props.activeNavLink:this.state.activeNavLink} />
+          </Col>
+          <Col sm={8} md={9} xs={12} className='semester-internal-data'>
+            <SemesterContainer
+              showAllDesc={props.showAllDesc !== undefined ? props.showAllDesc : this.showAllDesc}
+              data={(props.selectedArray !== undefined ? props.selectedArray : this.state.selectedArray)}
+              showHideDesc={props.descToggle !== undefined ? props.descToggle : this.state.descToggle}
+              showHideAccord={props.accordToggle !== undefined ? props.accordToggle : this.state.mobileAccordToggle}
+              showAllAccordions={props.showAllAccordions !== undefined ? props.showAllAccordions : this.mobileShowAllAccordions}
+              accordToggleFunc={props.accordToggleFunc !== undefined ? props.accordToggleFunc:this.accordToggleFunc}
+            />
+          </Col>
+        </Row>
+        <Col xs={12} className='mt20'>
           {props.routeParams && props.routeParams.categoryname && <PreviousNext currentPath={props.routeParams} navigateOnClick={this.navigateOnClick} />}
         </Col>
-      </Row>
+      </section>
     );
   }
 }

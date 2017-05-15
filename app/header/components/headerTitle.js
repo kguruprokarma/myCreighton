@@ -115,6 +115,10 @@ export default function (argument) {
     title = translateText('common:POST_FEEDBACK');
     return title;
   }
+  if (rootURL[1] === HEADER.MISSION_AND_MINISTRY) {
+    title = translateText('common:MISSION_AND_MINISTRY');
+    return title;
+  }
   if (rootURL[1] === HEADER.EVENT_DETAILS && rootURL[2] === HEADER.EVENT_CALENDAR_DETAILS) {
     title = translateText('common:NEXT_EVENTS_CALENDAR_HEADER');
     return title;

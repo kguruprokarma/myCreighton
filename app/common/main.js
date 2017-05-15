@@ -14,9 +14,11 @@ import Footer from '../footer/index';
 import Navigation from '../common/mainNav';
 import HeaderComponent from '../header/index';
 import * as urlConstants from '../constants/urlConstants';
-import * as commonConstants from '../constants/commonConstants';
+import * as CommonConstants from '../constants/commonConstants';
+import * as profileDataAction from '../profile/actions';
 //import ConfirmationPopUp from './confirmationPopUp';
 import * as ROUTE_URL from '../constants/routeContants';
+import { authUserDetails } from '../common/utility';
 
 @translate([], { wait: true })
 class Main extends React.PureComponent {
@@ -33,7 +35,7 @@ class Main extends React.PureComponent {
     this._onIdle = this._onIdle.bind(this);
     axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE);
     if (!sessionStorage.getItem('time')) {
-      sessionStorage.setItem('time', commonConstants.SESSION_STORAGE_INTERVAL_TIME);
+      sessionStorage.setItem('time', CommonConstants.SESSION_STORAGE_INTERVAL_TIME);
     }
     this.timer = setInterval(() => {
       let time = parseInt(sessionStorage.getItem('time'));
@@ -49,6 +51,17 @@ class Main extends React.PureComponent {
       this.checkRole = setInterval(() => {
         if (localStorage.getItem('roleInfo')) {
           clearInterval(this.checkRole);
+          this.role = authUserDetails().userRole;
+          const props = this.props;
+          if (this.role) {
+            if (this.role === CommonConstants.ROLE_FACULTY) {
+              props.getFacultyProfileData();
+            } else if (this.role === CommonConstants.ROLE_STAFF) {
+              props.getStaffProfileData();
+            } else if (this.role === CommonConstants.ROLE_STUDENT) {
+              props.getStudentProfileData();
+            }
+          }
         }
       }, 1000);
     }
@@ -114,8 +127,8 @@ class Main extends React.PureComponent {
         sessionStorage.removeItem('time');
         localStorage.removeItem('classDetails');
         //localStorage.removeItem('setFilterValue');
-        //localStorage.removeItem('setDisplayOptionValue');
-        //localStorage.removeItem('displayOptions');
+        localStorage.removeItem('setDisplayOptionValue');
+        localStorage.removeItem('displayOptions');
         localStorage.removeItem('eventList');
         localStorage.removeItem('eventsFilterData');
         hashHistory.replace(ROUTE_URL.LOGOUT);
@@ -143,13 +156,14 @@ class Main extends React.PureComponent {
         {/* this is main section */}
         <main role='main' id='content' className='container'>
           <a id='maincontent' className='announced-only'>&nbsp;</a>
-          {props.children}
+          {localStorage.getItem('roleInfo') && props.children}
         </main>
         {/* /this is main section */}
         {/* this is footer section */}
         {this.state.isLogin && <Footer />}
         {/* /this is footer section */}
         {(props.popUpData || props.filterPopUpData || props.signOut) && <input type='button' className='btn btn-link btnnoPadding popUpPatch' onClick={this.hidePopUp} />}
+        {props.feedbackPopup && <input type='button' className='btn btn-link btnnoPadding mycu-model-patchup popUpPatch' onClick={this.hidePopUp} />}
         {/*props.signOut && <ConfirmationPopUp onConfirm={this.signOutBind} onCancel={props.closeSignOutPopUp} />*/}
         {/*<IdleTimer
           ref={() => this.reference}
@@ -163,14 +177,21 @@ class Main extends React.PureComponent {
     );
   }
 }
+Main.propTypes = {
+  getFacultyProfileData: React.PropTypes.func,
+  getStaffProfileData: React.PropTypes.func,
+  getStudentProfileData: React.PropTypes.func
+};
 const mapStateToProps = (storeData) => (
   {
     popUpData: storeData.headerReducer.showPopUp,
     navData: storeData.headerReducer.showNav,
     signOut: storeData.headerReducer.signOut,
-    filterPopUpData: storeData.headerReducer.showFilterPopUp
+    filterPopUpData: storeData.headerReducer.showFilterPopUp,
+    feedbackPopup: storeData.feedbackReducer.showFeedbackPopUp,
+    profileData: storeData.profileReducer.profileData.data
   });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileDataAction), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

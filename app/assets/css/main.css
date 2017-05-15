@@ -555,7 +555,7 @@ a:focus, a:active, a:hover {
 
 .modal-content {
     position: absolute;
-    z-index: 9999;
+    z-index: 10;
     top:200px;   
     border-radius: 0; 
 }
@@ -569,6 +569,76 @@ a:focus, a:active, a:hover {
     height: auto;
     line-height: auto;
 }
+
+textarea.form-control {
+    border: 1px solid #a2a2a2;
+}
+
+.confirm-button, 
+.confirm-button:hover,
+.confirm-button:focus,
+.confirm-button:active {
+    background-color: #0054a6;
+    border: 1px solid #0054a6;
+    color: #fff;
+}
+
+.myc-model-popup {
+    position: relative;
+    max-width: 60%;
+    left: 50%;
+    margin-left: -30.5%;
+    padding-left: 15px;
+    padding-right: 15px;
+    top: 140px;
+}
+
+.myc-model-popup .modal-content {
+    border: 0;
+    border-radius: 16px;
+    -webkit-border-radius:16px;
+    -moz-border-radius: 16px;
+    top: 0;
+}
+
+.myc-model-popup .modal-content .white-circle
+{
+    width: 60px;
+    height: 60px;
+    background-color: #0054a6;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-box-shadow: 0px -5px 15px -5px rgba(0,0,0,0.49);
+    -moz-box-shadow: 0px -5px 15px -5px rgba(0,0,0,0.49);
+    box-shadow: 0px -5px 15px -5px rgba(0,0,0,0.49);
+    z-index: 9999;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    margin-left: -30px;
+    border: 8px solid #fff;
+}
+
+.myc-model-popup .modal-content .check-mark {
+    font-size: 1.8em;
+    color: #fff;
+    position: relative;
+    top: 10px;
+    left: 9px;
+}
+
+.modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+
+.mycu-model-patchup.popUpPatch {
+    opacity: .3;
+    background-color: #000;
+    z-index: 1
+}
+
 
 /* Media for small devices */
 @media screen and (min-width: 1170px) {
@@ -706,6 +776,11 @@ a:focus, a:active, a:hover {
     .container {
         width: 100%;
     }
+      
+    .myc-model-popup {
+        max-width: 80%;
+        margin-left: -40%;
+    }
 
 }
 
@@ -754,6 +829,14 @@ a:focus, a:active, a:hover {
 
     .main-navigation .glyphicon.glyphicon-chevron-right {
         padding-top: 2px;
+    }
+
+    .myc-model-popup .modal-content .white-circle {
+        width: 56px;
+        height: 56px;
+        top: -30px;
+        margin-left: -28px;
+        border: 6px solid #fff;
     }
   
 }

@@ -61,6 +61,7 @@ export const DISPLAY_OPTIONS = 'displayOptions';
 export const SIS_SOURCE_ID = 'sid';
 
 export const CAMPUS_SEARCH_TEXT_LENGTH = 32;
+export const FEEDBACK_MESSAGE_TEXT_LENGTH = 256;
 export const CAMPUS_SEARCH_MINIUM_LENGTH = 2;
 
 export const STAFF_DETAIL = 'Staff Detail';

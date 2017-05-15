@@ -32,6 +32,13 @@ export const modulesBlocksData = (roleType) => {
         'name': translateText('common:DASH_BOARD_NEXT_EVENTS'),
         'description': translateText('common:DASH_BOARD_WHAT_I_NEED_READY'),
         'class': 'nextevent-img'
+      }],
+      [{
+        'imgURL': NEXTEVENTS_ICON,
+        'linkto': ROUTE_URL.MISSION_AND_MINISTRY,
+        'name': translateText('common:MISSION_AND_MINISTRY'),
+        'description': translateText('common:DASH_BOARD_WHAT_I_NEED_TO_DO'),
+        'class': 'nextevent-img'
       }]);
   } else {
     modulesData.push([
@@ -51,7 +58,14 @@ export const modulesBlocksData = (roleType) => {
           'description': translateText('common:DASH_BOARD_MY_LISTS'),
           'class': 'nextevent-img'
         }
-      ]);
+      ],
+      [{
+        'imgURL': NEXTEVENTS_ICON,
+        'linkto': ROUTE_URL.MISSION_AND_MINISTRY,
+        'name': translateText('common:MISSION_AND_MINISTRY'),
+        'description': translateText('common:DASH_BOARD_WHAT_I_NEED_TO_DO'),
+        'class': 'nextevent-img'
+      }]);
   }
   return modulesData;
 };

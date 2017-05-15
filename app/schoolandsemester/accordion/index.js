@@ -13,14 +13,14 @@ class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.imageClass = '';
-    this.accordToggle = this.accordToggle.bind(this);
+    //this.accordToggle = this.accordToggle.bind(this);
   }
 
-  accordToggle(filter) {
+ /* accordToggle(filter) {
     const filterOption = filter; 
     filterOption.collapse = !filterOption.collapse;
     this.forceUpdate();
-  }  
+  }  */
 
   render() {
     const props = this.props;
@@ -31,7 +31,6 @@ class Accordion extends React.Component {
       <section role='region'>
         {props.accordionObj && props.accordionObj.map((accordionDetails, accordionIndex) => (
           <div key={accordionIndex}>
-
             {accordionIndex===0 && <Row className='openSansLight fs1pt2 mb10'>
               <Col sm={6} xs={6}>
                 <span>{translateText('common:COMMON_DESCRIPTION')}:</span><button className='semisterShow' onClick={props.showAllDesc}>{props.showHideDesc ? translateText('common:COMMON_HIDE'):translateText('common:COMMON_SHOW')}</button>
@@ -41,7 +40,7 @@ class Accordion extends React.Component {
               </Col>}
             </Row>}
 
-            {accordionDetails.accordionTitle && <button className='btn btn-link btnnoPadding accord-title ' onClick={() => this.accordToggle(accordionDetails)}>
+            {accordionDetails.accordionTitle && <button className='btn btn-link btnnoPadding accord-title ' onClick={() => props.accordToggleFunc(accordionDetails)}>
               <Col xs={10}>
                 <p className='openSansLight fs1pt2 semesterTitle'>{translateText(accordionDetails.accordionTitle)}</p>
               </Col>

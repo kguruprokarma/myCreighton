@@ -23,6 +23,19 @@ const receiveFeedbackError = (error) => (
   }
 );
 
+const openFeedbackPopUp = () => ({
+  type: types.OPEN_FEEDBACK_POPUP
+});
+
+const closeFeedbackPopUp = () => (
+  {
+    type: types.CLOSE_FEEDBACK_POPUP
+  });
+
+const resetFeedbackStatus = () => ({
+  type: types.RESET_FEEDBACK_POPUP
+});
+
 export function postFeedback(feedbackData) {
   return function (dispatch) {
     dispatch(requestPostFeedbackData());
@@ -37,4 +50,20 @@ export function postFeedback(feedbackData) {
   };
 }
 
-export default postFeedback;
+export function popUpOpen() {
+  return function (dispatch) {
+    dispatch(openFeedbackPopUp());
+  };
+}
+
+export function popUpClose() {
+  return function (dispatch) {
+    dispatch(closeFeedbackPopUp());
+  };
+}
+
+export function resetStatus() {
+  return function (dispatch) {
+    dispatch(resetFeedbackStatus());
+  };
+}
