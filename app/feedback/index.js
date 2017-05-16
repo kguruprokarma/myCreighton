@@ -65,7 +65,7 @@ export class Feedback extends React.PureComponent {
       <section role='region' className='section-container'>
         {this.props.showFeedbackPopUp && <FeedbackConfirmPopUp status={this.resetFeedback} />}
         <div className='hidden-xs'>
-          <HeaderLabel headerLabel='FEEDBACK' />
+          <HeaderLabel headerLabel='FEEDBACK Guru' />
         </div>
         <Row>
           {this.props.isLoading && <Spinner />}
