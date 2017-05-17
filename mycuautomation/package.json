@@ -17,7 +17,8 @@
   "devDependencies": {
     "allure-commandline": "^2.0.0",
     "nightwatch": "^0.9.14",
-    "nightwatch-html-reporter": "~1.0.8"
+    "nightwatch-html-reporter": "~1.0.8",
+    "xlsjs": "^0.7.6"
   },
   "scripts": {
     "allurereports": "allure generate ./allure-results",
