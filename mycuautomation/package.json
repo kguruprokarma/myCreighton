@@ -20,9 +20,8 @@
     "nightwatch-html-reporter": "~1.0.8"
   },
   "scripts": {
-    "allureresults": "allure generate -o ./allure-results",
-    "allurereport": "allure report open",
+    "allurereports": "allure generate ./allure-results",
     "mycu-automation-test": "nightwatch",
-    "localautomation-test": "nightwatch ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/ClassesTest.js ./tests/testscripts/NextEventsTest.js ./tests/testscripts/LibrarySearchTest.js ./tests/testscripts/CampusDirectoryTest.js"
+    "automation-test": "nightwatch ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/ClassesTest.js ./tests/testscripts/NextEventsTest.js ./tests/testscripts/LibrarySearchTest.js ./tests/testscripts/CampusDirectoryTest.js"
   }
 }
