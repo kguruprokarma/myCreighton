@@ -1,4 +1,5 @@
 ###Breif information about myCreighton project###
+automation ---
 
 This project provides enterprise life cycle communication in between profiles(student,faculty and staff) and 
 creighton university.
