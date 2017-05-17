@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="testscripts.LoginTest"
+    errors="0" failures="0" hostname="" id="" package="testscripts" skipped="0"
+    tests="1" time="21.44" timestamp="Wed, 17 May 2017 11:19:08 GMT">
+  
+    <testcase name="LoginApplication" classname="testscripts.LoginTest" time="21.44" assertions="5">
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>

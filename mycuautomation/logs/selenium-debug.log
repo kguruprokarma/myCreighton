@@ -1,0 +1,15 @@
+16:39:56.498 INFO - Selenium build info: version: '3.3.1', revision: '5234b32'
+16:39:56.498 INFO - Launching a standalone Selenium Server
+2017-05-17 16:39:56.520:INFO::main: Logging initialized @293ms to org.seleniumhq.jetty9.util.log.StdErrLog
+16:39:56.571 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+16:39:56.572 INFO - Driver provider com.opera.core.systems.OperaDriver registration is skipped:
+Unable to create new instances on this machine.
+16:39:56.572 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+16:39:56.572 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+16:39:56.580 INFO - Driver provider org.openqa.selenium.safari.SafariDriver registration is skipped:
+ registration capabilities Capabilities [{browserName=safari, version=, platform=MAC}] does not match the current platform VISTA
+2017-05-17 16:39:56.634:INFO:osjs.Server:main: jetty-9.2.20.v20161216
+2017-05-17 16:39:56.676:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@604ed9f0{/,null,AVAILABLE}
+2017-05-17 16:39:56.704:INFO:osjs.AbstractConnector:main: Started ServerConnector@31a5c39e{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
+2017-05-17 16:39:56.705:INFO:osjs.Server:main: Started @478ms
+16:39:56.705 INFO - Selenium Server is up and running

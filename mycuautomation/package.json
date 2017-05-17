@@ -1,0 +1,28 @@
+{
+  "name": "nightwatch",
+  "description": "A node.js bindings implementation for selenium 3.0/webdriver",
+  "version": "0.9.14",
+  "homepage": "",
+  "main": "",
+  "license": "",
+  "bugs": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "chromedriver": "^2.29.0",
+    "nightwatch-allure-adapter": "^1.2.4"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.0.0",
+    "nightwatch": "^0.9.14",
+    "nightwatch-html-reporter": "~1.0.8"
+  },
+  "scripts": {
+    "allureresults": "allure generate -o ./allure-results",
+    "allurereport": "allure report open",
+    "mycu-automation-test": "nightwatch",
+    "localautomation-test": "nightwatch ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/ClassesTest.js ./tests/testscripts/NextEventsTest.js ./tests/testscripts/LibrarySearchTest.js ./tests/testscripts/CampusDirectoryTest.js"
+  }
+}

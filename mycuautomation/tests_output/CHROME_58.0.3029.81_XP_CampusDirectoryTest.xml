@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="CampusDirectoryTest"
+    errors="0" failures="0" hostname="" id="" package="CampusDirectoryTest" skipped="0"
+    tests="1" time="70.76" timestamp="Thu, 27 Apr 2017 13:16:11 GMT">
+  
+    <testcase name="campusDirectorySearchTest" classname="CampusDirectoryTest" time="70.76" assertions="6">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>

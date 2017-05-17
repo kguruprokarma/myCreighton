@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="globals"
+    errors="0" failures="1" hostname="" id="" package="globals" skipped="0"
+    tests="1" time="42.08" timestamp="Thu, 20 Apr 2017 14:30:30 GMT">
+  
+    <testcase name="Login to myc application" classname="globals" time="42.08" assertions="4">
+
+    
+
+    
+<system-out>[[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200100-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200101-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200102-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200103-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200104-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200104-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200106-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200106-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200107-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200108-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200109-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200110-GMT+0530-(India-Standard.png]][[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200111-GMT+0530-(India-Standard.png]]</system-out>
+      <failure message="Timed out while waiting for element &lt;.openSansBold.user-type&gt; to be present for 20000 milliseconds.">    at Object.verifyStudent (D:\NightWatch\tests\pages\LoginPage.js:41:17)
+    at Object.Login to myc application (D:\NightWatch\globals.js:11:14)</failure>
+<system-out>[[ATTACHMENT|D:\NightWatch\reports\screenshots\globals\Login-to-myc-application_ERROR_Apr-20-2017-200112-GMT+0530-(India-Standard.png]]</system-out>
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>
