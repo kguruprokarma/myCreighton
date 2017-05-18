@@ -21,8 +21,8 @@
     "xlsjs": "^0.7.6"
   },
   "scripts": {
-    "allurereports": "allure generate ./allure-results",
+    "allurereports": "allure generate ./allure-results&& allure open",
     "mycu-automation-test": "nightwatch",
-    "automation-test": "nightwatch ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/ClassesTest.js ./tests/testscripts/NextEventsTest.js ./tests/testscripts/LibrarySearchTest.js ./tests/testscripts/CampusDirectoryTest.js"
+    "automation-test": "nightwatch ./tests/testscripts/LoginTest.js"
   }
 }

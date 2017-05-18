@@ -1,0 +1,7 @@
+node_modules/
+.vscode/
+selenium-debug.log
+npm-debug.log
+allure-report/
+allure-results/
+tests_output/
