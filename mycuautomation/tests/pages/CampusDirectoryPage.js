@@ -44,10 +44,9 @@ module.exports = {
                 this.click('@clearicon');
     },
     verifyResults :function(){
-    return this.waitForElementVisible('@result',5000)
-                .getText('@result');
-     
-                }
-    
-    }]
+    this.api.elements('css selector', 'div.col-md-9.col-sm-8 p.cpmsDirProfName', function (result) {
+        console.log("The Search results are  " + result.value.length) 
+     });               
+    }
+ }]
 };

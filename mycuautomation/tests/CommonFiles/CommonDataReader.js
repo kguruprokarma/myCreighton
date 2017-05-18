@@ -1,6 +1,6 @@
 var XLS = require('xlsjs');
 function ExcelDataReader(excelfile) {
-    console.log("==========>" + excelfile)
+   // console.log("==========>" + excelfile)
     if (typeof excelfile === 'string') {
         var workbook = XLS.readFile(excelfile);
         var sheet_name_list = workbook.SheetNames;

@@ -22,7 +22,8 @@ console.log("click on search");
 client.pause(6000);
 campus.clickOnSearch();
 console.log("verify results");
-var results=campus.verifyResults();
+client.pause(6000);
+campus.verifyResults();
 
   }
 };
