@@ -41,7 +41,14 @@ module.exports = {
     },
     Done : {
       selector : 'button.filterDoneBtn.openSansRegular.pull-right'
-    }
+    },
+    calendarEvent1 : {
+      selector : "h2.mb10.classesHeading",
+      index : 1
+    },
+    CreightonCalendarItem :{
+      selector : 'div.eventDetailSubject'
+    },
 
   },
   
@@ -71,21 +78,40 @@ module.exports = {
                    .click('@AllEvents');      
      },
       checkClassesEvents : function () {
-        return this.waitForElementVisible('@sevenDays',20000)
-                   .click('@sevenDays');      
+        return this.waitForElementVisible('@ClassesEvents',20000)
+                   .click('@ClassesEvents');      
      },
       checkClassAssignmentEvents : function () {
-        return this.waitForElementVisible('@All',20000)
-                   .click('@All');      
+        return this.waitForElementVisible('@ClassAssignmentEvents',20000)
+                   .click('@ClassAssignmentEvents');      
      },
      checkCreightonCalendarEvents : function () {
-        return this.waitForElementVisible('@All',20000)
-                   .click('@All');      
+        return this.waitForElementVisible('@CreightonCalendarEvents',20000)
+                   .click('@CreightonCalendarEvents');      
+     },
+       clickDone : function () {
+        return this.waitForElementVisible('@Done',20000)
+                   .click('@Done');      
      },
        ProfilePageheaderText : function () {
         return this.waitForElementVisible('@profilepageheader',5000)
                .getText('profilepageheader');
        },
+
+       verifyCalendarEvents : function(){
+        this.api.elements('css selector', '.mb10.classesHeading', function (result) {
+        console.log("The total calendar events for the week are :   " + result.value.length)      
+});
+     },
+       clickCalendarEvent : function(){
+         return this.waitForElementVisible('@calendarEvent1',5000)
+                    .click('@calendarEvent1');   
+       } ,
+       verifyCalendarEventItem : function(){
+         return this.waitForElementVisible('@CreightonCalendarItem',5000)
+                    .assert.containsText('@CreightonCalendarItem','Creighton calendar item')
+       },
+
        weekEvents : function(client){
     client.waitForElementVisible('@sevenDays',20000)
         .element('cssselector', 'li.radioLabel.list-group-item :nth-child(3)', function(response) {

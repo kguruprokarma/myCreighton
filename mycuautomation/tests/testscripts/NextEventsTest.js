@@ -7,11 +7,8 @@
                     .LoginStudent();
 
     },
-     after: client => client.end(),
+     //after: client => client.end(),
 'NextEventsTest' : function (client) {
-// var login=client.page.LoginPage();
-// login.navigate() ;
-// login.LoginStudent();
 var dash = client.page.DashboardPage();
  dash.clickOnNextEvents();
  var events=client.page.NextEventsPage();
@@ -19,8 +16,12 @@ var dash = client.page.DashboardPage();
 events.clickOnEventFilter();
 client.pause(2000);
 events.checkAllEvents();
-
-
-
+events.checkCreightonCalendarEvents();
+client.pause(2000);
+events.clickDone();
+events.verifyCalendarEvents();
+client.pause(2000);
+events.clickCalendarEvent();
+events.verifyCalendarEventItem();
   }
 };
