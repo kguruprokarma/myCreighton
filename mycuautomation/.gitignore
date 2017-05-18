@@ -1,4 +1,5 @@
 node_modules/
+<<<<<<< HEAD
 coverage/
 build/
 .vscode/
@@ -6,4 +7,11 @@ mycuautomation/selenium-debug.log
 mycuautomation/npm-debug.log
 allure-results/
 allure-report/
+=======
+.vscode/
+selenium-debug.log
+npm-debug.log
+allure-report/
+allure-results/
+>>>>>>> b146d50bbdd69cc966097ba40279fa89837aaf2c
 tests_output/

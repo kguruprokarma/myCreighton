@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 16:17:08.273 INFO - Selenium build info: version: '3.3.1', revision: '5234b32'
 16:17:08.273 INFO - Launching a standalone Selenium Server
 2017-05-18 16:17:08.296:INFO::main: Logging initialized @276ms to org.seleniumhq.jetty9.util.log.StdErrLog
@@ -13,3 +14,20 @@ Unable to create new instances on this machine.
 2017-05-18 16:17:08.470:INFO:osjs.AbstractConnector:main: Started ServerConnector@31a5c39e{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
 2017-05-18 16:17:08.471:INFO:osjs.Server:main: Started @451ms
 16:17:08.471 INFO - Selenium Server is up and running
+=======
+19:22:15.899 INFO - Selenium build info: version: '3.3.1', revision: '5234b32'
+19:22:15.899 INFO - Launching a standalone Selenium Server
+2017-05-17 19:22:15.915:INFO::main: Logging initialized @226ms to org.seleniumhq.jetty9.util.log.StdErrLog
+19:22:15.961 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+19:22:15.961 INFO - Driver provider com.opera.core.systems.OperaDriver registration is skipped:
+Unable to create new instances on this machine.
+19:22:15.961 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+19:22:15.961 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+19:22:15.977 INFO - Driver provider org.openqa.selenium.safari.SafariDriver registration is skipped:
+ registration capabilities Capabilities [{browserName=safari, version=, platform=MAC}] does not match the current platform VISTA
+2017-05-17 19:22:16.008:INFO:osjs.Server:main: jetty-9.2.20.v20161216
+2017-05-17 19:22:16.024:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@604ed9f0{/,null,AVAILABLE}
+2017-05-17 19:22:16.041:INFO:osjs.AbstractConnector:main: Started ServerConnector@3f49dace{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
+2017-05-17 19:22:16.041:INFO:osjs.Server:main: Started @362ms
+19:22:16.041 INFO - Selenium Server is up and running
+>>>>>>> b146d50bbdd69cc966097ba40279fa89837aaf2c

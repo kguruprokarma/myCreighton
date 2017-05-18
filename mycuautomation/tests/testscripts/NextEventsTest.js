@@ -7,7 +7,7 @@
                     .LoginStudent();
 
     },
-     //after: client => client.end(),
+     after: client => client.end(),
 'NextEventsTest' : function (client) {
 var dash = client.page.DashboardPage();
  dash.clickOnNextEvents();
