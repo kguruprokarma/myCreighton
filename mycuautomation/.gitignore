@@ -2,8 +2,8 @@ node_modules/
 coverage/
 build/
 .vscode/
-selenium-debug.log
-app/npm-debug.log
-allure-results
-allure-report
-tests_output
+mycuautomation/selenium-debug.log
+mycuautomation/npm-debug.log
+allure-results/
+allure-report/
+tests_output/
