@@ -1,10 +1,10 @@
 node_modules/
 .vscode/
-mycuautomation/selenium-debug.log
+mycuautomation/logs/selenium-debug.log
 mycuautomation/npm-debug.log
 selenium-debug.log
 npm-debug.log
 allure-report/
 allure-results/
 tests_output/
-log/
+logs/

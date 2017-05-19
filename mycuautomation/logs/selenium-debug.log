@@ -1,86 +1,15 @@
-19:28:06.739 INFO - Selenium build info: version: '3.3.1', revision: '5234b32'
-19:28:06.740 INFO - Launching a standalone Selenium Server
-2017-05-18 19:28:06.768:INFO::main: Logging initialized @303ms to org.seleniumhq.jetty9.util.log.StdErrLog
-19:28:06.825 INFO - Driver class not found: com.opera.core.systems.OperaDriver
-19:28:06.825 INFO - Driver provider com.opera.core.systems.OperaDriver registration is skipped:
+19:30:14.002 INFO - Selenium build info: version: '3.3.1', revision: '5234b32'
+19:30:14.003 INFO - Launching a standalone Selenium Server
+2017-05-19 19:30:14.027:INFO::main: Logging initialized @294ms to org.seleniumhq.jetty9.util.log.StdErrLog
+19:30:14.083 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+19:30:14.083 INFO - Driver provider com.opera.core.systems.OperaDriver registration is skipped:
 Unable to create new instances on this machine.
-19:28:06.825 INFO - Driver class not found: com.opera.core.systems.OperaDriver
-19:28:06.825 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
-19:28:06.832 INFO - Driver provider org.openqa.selenium.safari.SafariDriver registration is skipped:
+19:30:14.083 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+19:30:14.084 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+19:30:14.091 INFO - Driver provider org.openqa.selenium.safari.SafariDriver registration is skipped:
  registration capabilities Capabilities [{browserName=safari, version=, platform=MAC}] does not match the current platform VISTA
-2017-05-18 19:28:06.883:INFO:osjs.Server:main: jetty-9.2.20.v20161216
-2017-05-18 19:28:06.922:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@604ed9f0{/,null,AVAILABLE}
-2017-05-18 19:28:06.949:INFO:osjs.AbstractConnector:main: Started ServerConnector@376348cb{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
-2017-05-18 19:28:06.950:INFO:osjs.Server:main: Started @485ms
-19:28:06.950 INFO - Selenium Server is up and running
-19:28:07.471 INFO - SessionCleaner initialized with insideBrowserTimeout 0 and clientGoneTimeout 1800000 polling every 180000
-19:28:07.497 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, marionette=false, name=Testscripts\ Login Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]])
-19:28:07.585 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, marionette=false, name=Testscripts\ Login Test, browserName=firefox, javascriptEnabled=true, platform=ANY}]
-19:28:07.822 WARN - Exception thrown
-java.util.concurrent.ExecutionException: org.openqa.selenium.WebDriverException: java.lang.reflect.InvocationTargetException
-Build info: version: '3.3.1', revision: '5234b32', time: '2017-03-10 09:04:52 -0800'
-System info: host: 'AANKATHI', ip: '10.47.149.215', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_60'
-Driver info: driver.version: unknown
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
-	at org.openqa.selenium.remote.server.DefaultSession.execute(DefaultSession.java:183)
-	at org.openqa.selenium.remote.server.DefaultSession.<init>(DefaultSession.java:119)
-	at org.openqa.selenium.remote.server.DefaultSession.createSession(DefaultSession.java:95)
-	at org.openqa.selenium.remote.server.DefaultDriverSessions.newSession(DefaultDriverSessions.java:131)
-	at org.openqa.selenium.remote.server.handler.NewSession.handle(NewSession.java:59)
-	at org.openqa.selenium.remote.server.handler.NewSession.handle(NewSession.java:36)
-	at org.openqa.selenium.remote.server.rest.ResultConfig.handle(ResultConfig.java:111)
-	at org.openqa.selenium.remote.server.JsonHttpCommandHandler.handleRequest(JsonHttpCommandHandler.java:190)
-	at org.openqa.selenium.remote.server.DriverServlet.handleRequest(DriverServlet.java:222)
-	at org.openqa.selenium.remote.server.DriverServlet.doPost(DriverServlet.java:184)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
-	at org.openqa.selenium.remote.server.DriverServlet.service(DriverServlet.java:150)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
-	at org.seleniumhq.jetty9.servlet.ServletHolder.handle(ServletHolder.java:841)
-	at org.seleniumhq.jetty9.servlet.ServletHandler.doHandle(ServletHandler.java:543)
-	at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
-	at org.seleniumhq.jetty9.server.handler.ContextHandler.doHandle(ContextHandler.java:1228)
-	at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)
-	at org.seleniumhq.jetty9.servlet.ServletHandler.doScope(ServletHandler.java:481)
-	at org.seleniumhq.jetty9.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)
-	at org.seleniumhq.jetty9.server.handler.ContextHandler.doScope(ContextHandler.java:1130)
-	at org.seleniumhq.jetty9.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
-	at org.seleniumhq.jetty9.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
-	at org.seleniumhq.jetty9.server.Server.handle(Server.java:564)
-	at org.seleniumhq.jetty9.server.HttpChannel.handle(HttpChannel.java:320)
-	at org.seleniumhq.jetty9.server.HttpConnection.onFillable(HttpConnection.java:251)
-	at org.seleniumhq.jetty9.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
-	at org.seleniumhq.jetty9.io.FillInterest.fillable(FillInterest.java:112)
-	at org.seleniumhq.jetty9.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
-	at org.seleniumhq.jetty9.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:672)
-	at org.seleniumhq.jetty9.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:590)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.openqa.selenium.WebDriverException: java.lang.reflect.InvocationTargetException
-Build info: version: '3.3.1', revision: '5234b32', time: '2017-03-10 09:04:52 -0800'
-System info: host: 'AANKATHI', ip: '10.47.149.215', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_60'
-Driver info: driver.version: unknown
-	at org.openqa.selenium.remote.server.FirefoxDriverProvider.callConstructor(FirefoxDriverProvider.java:89)
-	at org.openqa.selenium.remote.server.FirefoxDriverProvider.newInstance(FirefoxDriverProvider.java:63)
-	at org.openqa.selenium.remote.server.DefaultDriverFactory.newInstance(DefaultDriverFactory.java:60)
-	at org.openqa.selenium.remote.server.DefaultSession$BrowserCreator.call(DefaultSession.java:222)
-	at org.openqa.selenium.remote.server.DefaultSession$BrowserCreator.call(DefaultSession.java:209)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	... 1 more
-Caused by: java.lang.reflect.InvocationTargetException
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
-	at org.openqa.selenium.remote.server.FirefoxDriverProvider.callConstructor(FirefoxDriverProvider.java:81)
-	... 9 more
-Caused by: java.lang.ClassCastException: org.openqa.selenium.remote.service.DriverCommandExecutor cannot be cast to org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor
-	at org.openqa.selenium.firefox.FirefoxDriver.startClient(FirefoxDriver.java:325)
-	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:119)
-	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:218)
-	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:125)
-	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:150)
-	... 14 more
-19:28:07.828 WARN - Exception: org.openqa.selenium.remote.service.DriverCommandExecutor cannot be cast to org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor
+2017-05-19 19:30:14.155:INFO:osjs.Server:main: jetty-9.2.20.v20161216
+2017-05-19 19:30:14.194:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@604ed9f0{/,null,AVAILABLE}
+2017-05-19 19:30:14.224:INFO:osjs.AbstractConnector:main: Started ServerConnector@31a5c39e{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
+2017-05-19 19:30:14.225:INFO:osjs.Server:main: Started @490ms
+19:30:14.225 INFO - Selenium Server is up and running

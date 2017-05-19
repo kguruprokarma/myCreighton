@@ -1,5 +1,4 @@
 
-var dash = client.page.DashboardPage();
 module.exports = {
    before: function(client,done) {
         //stuff to initialize page
@@ -10,15 +9,17 @@ module.exports = {
                  .verifyStudent();
     },
      after: client => client.end(),
-'VerifyDashboardlinks' : function (client,done){  
+'FooterValidationTest' : function (client,done){  
+    var dash = client.page.DashboardPage();
  client.pause(5000);
- dash.clickOnprofileicon();
- dash.clickOnMyProfile();
+ dash.verifyFooter();
+// dash.clickOnMyProfile();
 },
-'VerifyFooter' : function (client,done){  
+/*'FooterValidationTest' : function (client,done){ 
+ 
 },
-'VerifyDashboardsDescription' : function (client,done){  
+'DashboardsDescriptionTest' : function (client,done){  
 },
-'VerifyMyCreightonLogo' : function (client,done){  
-}
+'MyCreightonLogoTest' : function (client,done){  
+}*/
 };

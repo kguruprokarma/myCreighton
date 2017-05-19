@@ -1,3 +1,4 @@
+var label=require("../CommonFiles/LabelConstants")
 module.exports = {  
   elements: {
    schoolAndSemester:{
@@ -143,7 +144,27 @@ module.exports = {
      return this.waitForElementVisible('body',2000)
 	              .waitForElementVisible('@signout',2000)
                  .click('@signout')
-    } 
+    },
+   verifyDashboardlinks:function(){
+     return this.waitForElementVisible('body',2000)
+	              .waitForElementVisible('@signout',2000)
+                 .click('@signout')
+    },
+    verifyFooter :function(){
+     return this.waitForElementVisible('@footer',2000)
+	              .assert.containsText('@footer',label.footerAddress)
+                
+    },
+    verifyDashboardsDescription:function(){
+     return this.waitForElementVisible('body',2000)
+	              .waitForElementVisible('@signout',2000)
+                 .click('@signout')
+    },
+    verifyMyCreightonLogo:function(){
+     return this.waitForElementVisible('body',2000)
+	              .waitForElementVisible('@signout',2000)
+                 .click('@signout')
+    },
 
  }]
 
