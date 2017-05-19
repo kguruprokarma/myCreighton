@@ -11,12 +11,16 @@ module.exports = {
 'VerifyProfile' : function (client,done){
 var dash = client.page.DashboardPage();
  client.pause(5000);
- dash.clickOnprofileicon();
- dash.clickOnMyProfile();
+ dash.clickOnprofileicon()
+    .clickOnMyProfile();
  var profile=client.page.ProfilePage();
   client.pause(5000);
- profile.assert.containsText('@profilepageheader', 'My Profile');
+ profile.ProfilePageheaderText();
+ profile.verifyMyProfileLabels();
  profile.verifyProfile();
+  client.pause(5000);
+  profile.verifyPhoneNumber()
+  profile.verifyEmailFormat();
 },
 
 'NavigateToAcademic' : function (client,done){
@@ -26,7 +30,8 @@ var dash = client.page.DashboardPage();
    client.pause(5000);
  dash.clickOnAcademic();
  var profile=client.page.ProfilePage();
- profile.assert.containsText('@Academicpageheader', 'Academic');
+ profile.AcademicPageheaderText();
+  profile.verifyAcademicLabels();
 },
 
 };

@@ -23,7 +23,7 @@ module.exports = {
        LibrarySearch  :{
        selector:'ul.main-navigation li:nth-of-type(4) a'
    },
-     DoITServicesSupport  :{
+       DoITServicesSupport  :{
        selector:'ul.main-navigation li:nth-of-type(5) a'
    },
 
@@ -58,6 +58,20 @@ module.exports = {
     signout :{
        selector :"li.openSansLight.profile-icon.list-group-item",
        index:4
+   },
+   mycLogo : {
+       selector : "a.myCreighton-logo span"
+   },
+   footer :{
+       selector : "span.space-mb"
+   },
+   site :{
+       selector : "//a[contains(text(),'Site')]",
+       locateStrategy : 'xpath'
+   },
+     feedback :{
+       selector : "//a[contains(text(),'Feedback')]",
+       locateStrategy : 'xpath'
    }
    
   },
