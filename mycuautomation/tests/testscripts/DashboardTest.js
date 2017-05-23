@@ -11,7 +11,7 @@ module.exports = {
      after: client => client.end(),
 'FooterValidationTest' : function (client,done){  
     var dash = client.page.DashboardPage();
- client.pause(5000);
+ client.pause(50000);
  dash.verifyFooter();
 // dash.clickOnMyProfile();
 },

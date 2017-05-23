@@ -19,7 +19,10 @@ var dash = client.page.DashboardPage();
  profile.verifyMyProfileLabels();
  profile.verifyProfile();
   client.pause(5000);
-  profile.verifyPhoneNumber()
+  profile.verifyPhoneNumber();
+  // this.assert.ok(profile.verifyPhoneNumber(),true,'correct phone format');
+// console.log(
+//   '++++++',profile.verifyPhoneNumber());
   profile.verifyEmailFormat();
 },
 
@@ -32,6 +35,7 @@ var dash = client.page.DashboardPage();
  var profile=client.page.ProfilePage();
  profile.AcademicPageheaderText();
   profile.verifyAcademicLabels();
+  
 },
 
 };

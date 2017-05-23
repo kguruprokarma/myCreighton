@@ -6,13 +6,13 @@ module.exports =
   "globals_path": "./globals.js",
   "selenium" : {
     "start_process" : true,
-    "server_path" : "bin/selenium-server-standalone-3.3.1.jar",
+    "server_path" : "bin/selenium-server-standalone-3.4.0.jar",
     "log_path" : "./logs",
     "host" : "127.0.0.1",
     "port" : 4444,
     
     "cli_args" : {
-     "webdriver.chrome.driver" : "bin/chromedriver.exe"
+       "webdriver.chrome.driver" : "bin/chromedriver.exe"
 	   //"webdriver.ie.driver" : "bin/IEDriverServer.exe"
     //"webdriver.gecko.driver" : "./bin/geckodriver.exe"
     }
@@ -28,20 +28,23 @@ module.exports =
 	  "globals": {
         "waitForConditionTimeout": 10000 // sometimes internet is slow so wait.
       },
-      "desiredCapabilities": {
+    "desiredCapabilities": {
         "browserName": "chrome",
         "javascriptEnabled": true,
        "acceptSslCerts": true
        },
-      /*"desiredCapabilities": {
+   /*   "desiredCapabilities": {
         "browserName": "internet explorer",
         "javascriptEnabled": true,
        "acceptSslCerts": true 
-    },
-       "desiredCapabilities": {
-                "browserName": "firefox",
-                "marionette": true,
     },*/
+     /*  "desiredCapabilities": {
+                "browserName": "firefox",
+                "marionette": true,   
+                "javascriptEnabled": true,
+                "acceptSslCerts": true            
+    }*/
+    
   }
 }
 };

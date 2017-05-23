@@ -1,5 +1,6 @@
 var excel = require('../CommonFiles/ProfileReader');
-  var profiledata=excel.returnProfileData();
+var profiledata=excel.returnProfileData();
+var label=require("../CommonFiles/LabelConstants");
 
 module.exports = {
 
@@ -78,7 +79,7 @@ module.exports = {
         locateStrategy : 'xpath'
     },
     phone : {
-      selector :"a[href*=tel]"
+      selector :'p.phoneNumber'
     },
     emailformat :{
       selector : "a[href*='@creighton.edu']"
@@ -137,29 +138,30 @@ module.exports = {
       var phoneformat =  /^\(?([0-9]{3})\)?[.]?([0-9]{3})[.]?([0-9]{4})$/; 
       if(result.value.match(phoneformat))
         {  
-      console.log("Valid phone number format");  
+    this.assert.containsText('p.phoneNumber a',label.phonenumber,'Retrieved valid phone number format ')
         }  
       else  
         {  
-       console.log("Invalid phone number format");
+        this.assert.containsText('p.phoneNumber a',label.phonenumber,'Retrieved Invalid phone number format');
         return false;  
        }
     });
+    
 
        },
         verifyEmailFormat : function () {
     return  this.getText("a[href*='@creighton.edu']",function(result){
       console.log('School Email id : ',result.value);
       var emailformat =/(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@creighton.edu/; 
-      ///[a-z]{2}[0-9]{5}[a-z]{1}@creighton.edu/;
+      ///^[a-z]{2}[0-9]{5}[a-z]@creighton.edu$/;
       
       if(result.value.match(emailformat))
         {  
-      console.log("Valid email id format");  
+      this.assert.containsText("div  a[href*='@creighton.edu']",label.email,'Retrieved valid email format ')  
         }  
       else  
         {  
-       console.log("Invalid  email id format");
+      this.assert.containsText("div  a[href*='@creighton.edu']",label.email,'Retrieved Invalid email format ')  
         return false;  
        }
     });

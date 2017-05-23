@@ -26,7 +26,7 @@ url: 'http://mycu-rundev1.creighton.edu/#/',
   },
 
  commands : [{
-   LoginStudent:function(){
+   LoginStudent:function(client){
      return this.waitForElementVisible('body',20000)
 	              .waitForElementVisible('@mycuname',20000)
                  .setValue('@mycuname',user[0].Username ) //user[2].Username
