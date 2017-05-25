@@ -73,6 +73,9 @@ module.exports = {
      feedback :{
        selector : "//a[contains(text(),'Feedback')]",
        locateStrategy : 'xpath'
+   },
+   dashboardlinks :{
+       selector : 'h3.well-title.openSansLight'
    }
    
   },
@@ -145,28 +148,45 @@ module.exports = {
 	              .waitForElementVisible('@signout',2000)
                  .click('@signout')
     },
-   verifyDashboardlinks:function(){
-     return this.waitForElementVisible('body',2000)
-	              .waitForElementVisible('@signout',2000)
-                 .click('@signout')
+   verifyDashboardLinks:function(){
+       this.api.elements('css selector','h3.well-title.openSansLight', function (result) {
+    console.log("No. of Dashboard links are "+ result.value.length) ;
+for (var i = 0; i < result.value.length; i++) {
+    this.pause(3000);
+   /* this.getText('h3.well-title.openSansLight',function(links){
+            console.log(links.value[i])
+            }
+    );*/
+        //if(links.value===))
+    this.elementIdClick(result.value[i].ELEMENT);
+  //  console.log(result.value[i].ELEMENT)
+   this.pause(3000);
+     this.back();
+
+}
+ 
+      //this.assert.equal(result.value.length, 4);
+    //this.expect.element('h3.well-title.openSansLight').text.to.contain('School & Semester');
+
+    //this.expect.element('h3.well-title.openSansLight').to.be.present;
+        
+       });
+   
     },
     verifyFooter :function(){
      return this.waitForElementVisible('@footer',2000)
-	              .assert.containsText('@footer',label.footerAddress)
-                
+	              .assert.containsText('@footer',label.footerAddress)        
     },
-    verifyDashboardsDescription:function(){
-     return this.waitForElementVisible('body',2000)
-	              .waitForElementVisible('@signout',2000)
-                 .click('@signout')
+    verifyNavigationLinks:function(){
+   
     },
     verifyMyCreightonLogo:function(){
-     return this.waitForElementVisible('body',2000)
-	              .waitForElementVisible('@signout',2000)
-                 .click('@signout')
+
     },
+    
 
  }]
+ 
 
   
 };

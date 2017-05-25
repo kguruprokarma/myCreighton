@@ -12,9 +12,9 @@ module.exports =
     "port" : 4444,
     
     "cli_args" : {
-       "webdriver.chrome.driver" : "bin/chromedriver.exe"
+     //  "webdriver.chrome.driver" : "bin/chromedriver.exe"
 	   //"webdriver.ie.driver" : "bin/IEDriverServer.exe"
-    //"webdriver.gecko.driver" : "./bin/geckodriver.exe"
+    "webdriver.gecko.driver" : "bin/geckodriver.exe"
     }
   },
   "test_settings" : {
@@ -37,13 +37,11 @@ module.exports =
         "browserName": "internet explorer",
         "javascriptEnabled": true,
        "acceptSslCerts": true 
-    },*/
-     /*  "desiredCapabilities": {
-                "browserName": "firefox",
-                "marionette": true,   
-                "javascriptEnabled": true,
-                "acceptSslCerts": true            
-    }*/
+  }, */
+       "desiredCapabilities": {
+                "browserName": "firefox", 
+                 "marionette": true,  
+    }
     
   }
 }

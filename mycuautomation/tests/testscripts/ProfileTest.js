@@ -20,9 +20,6 @@ var dash = client.page.DashboardPage();
  profile.verifyProfile();
   client.pause(5000);
   profile.verifyPhoneNumber();
-  // this.assert.ok(profile.verifyPhoneNumber(),true,'correct phone format');
-// console.log(
-//   '++++++',profile.verifyPhoneNumber());
   profile.verifyEmailFormat();
 },
 

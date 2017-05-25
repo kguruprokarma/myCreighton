@@ -8,18 +8,18 @@ module.exports = {
                  .LoginStudent()
                  .verifyStudent();
     },
-     after: client => client.end(),
+     //after: client => client.end(),
 'FooterValidationTest' : function (client,done){  
     var dash = client.page.DashboardPage();
- client.pause(50000);
+ client.pause(5000);
  dash.verifyFooter();
+ dash.verifyDashboardLinks();
 // dash.clickOnMyProfile();
 },
-/*'FooterValidationTest' : function (client,done){ 
+/*'DashboardLinksTest' : function (client,done){ 
  
 },
-'DashboardsDescriptionTest' : function (client,done){  
-},
-'MyCreightonLogoTest' : function (client,done){  
+
+'NavigationLinksTest' : function (client,done){  
 }*/
 };
