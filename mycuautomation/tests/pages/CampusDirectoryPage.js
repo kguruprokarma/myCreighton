@@ -1,8 +1,7 @@
 module.exports = {  
   elements: {
    CampusDirectoryPageHeader :{
-       selector:"//h3[text()=School & Semester]",
-           locateStrategy: 'xpath'
+       selector:'h1.bebasregular.headerLabel.mt5.mb20',
    },
    LoaclPageSimpleSearch:{
        selector:"//h3[text()=Classes]",
@@ -27,6 +26,11 @@ module.exports = {
    }
   },
     commands : [{
+         verifyCampusDirectoryPageTitle: function(){
+        const msg ="Campus Directory page header";
+ return this.waitForElementPresent('@CampusDirectoryPageHeader')
+		 .assert.containsText('@CampusDirectoryPageHeader', 'Campus Directory',msg + "verified");       
+    },
      enterSearchQuery :function(){
      return this.waitForElementVisible('@CampusDirectorySearchfield',20000)
                  .setValue('@CampusDirectorySearchfield', 'John,Smith');

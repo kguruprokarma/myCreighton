@@ -13,8 +13,12 @@ module.exports = {
        selector:"//h3[contains(text(),'Next Events')]",
        locateStrategy: 'xpath'
    },
-      CreightonServicesResources:{
-       selector:"//a[contains(text(),'Creighton Services & Resources')]",
+   missionAndMinistry :{
+       selector:"//h3[contains(text(),'Mission and Ministry')]",
+       locateStrategy: 'xpath'   
+    },
+      quickLaunch:{
+       selector:"//a[contains(text(),'Quick Launch')]",
        locateStrategy: 'xpath'
    },
        CampusDirectory :{
@@ -74,46 +78,57 @@ module.exports = {
        selector : "//a[contains(text(),'Feedback')]",
        locateStrategy : 'xpath'
    },
-   dashboardlinks :{
-       selector : 'h3.well-title.openSansLight'
-   }
    
   },
 
     commands : [{
    clickOnSchoolAndSemester :function(){
-     return this.waitForElementVisible('schoolAndSemester',2000)
-                .click('schoolAndSemester')
            
+     return this.waitForElementVisible('@schoolAndSemester',2000)
+                .waitForElementPresent('@schoolAndSemester',"Click on school & Semester")
+                .click('@schoolAndSemester')
+               
+               
    },
     clickOnClasses:function(){
      return this.waitForElementVisible('@Classes',20000)
+                 .waitForElementPresent('@Classes',"Click on Classes")
                 .click('@Classes')
     },
     clickOnNextEvents :function(){
-     return this.waitForElementVisible('@nextEvents',2000)            
+     return this.waitForElementVisible('@nextEvents',2000)
+                .waitForElementPresent('@nextEvents',"Click on Next Events")            
                 .click('@nextEvents')
     },
-    clickOnCreightonServicesResources :function(){
-     return this.waitForElementVisible('@CreightonServicesResources',2000)	          
-                .click('@CreightonServicesResources')
+      clickOnMissionAndMinistry :function(){
+     return this.waitForElementVisible('@missionAndMinistry',2000)
+                .waitForElementPresent('@missionAndMinistry',"Click on Mission And Ministry")            
+                .click('@missionAndMinistry')
+    },
+    clickOnQuickLaunch :function(){
+     return this.waitForElementVisible('@quickLaunch',2000)
+                .waitForElementPresent('@missionAndMinistry',"Click on Quick Launch")	          
+                .click('@quickLaunch')
     },
      clickOnCampusDirectory:function(){
      return this.waitForElementVisible('@CampusDirectory',20000)
-                .click('@CampusDirectory')    ;
-                        
-              
-                //.moveToElement('@CampusDirectory', 1, 1)
-                
+                .waitForElementPresent('@missionAndMinistry',"Click on Campus Directory")
+                .click('@CampusDirectory')    
     },
     clickOnLibrarySearch:function(){
      return this.waitForElementVisible('@LibrarySearch',20000)
+                 .waitForElementPresent('@missionAndMinistry',"Click on Library Search")
                  .click('@LibrarySearch')
     },
     clickOnDoITServicesSupport:function(){
      return this.waitForElementVisible('body',2000)
 	            .waitForElementVisible('@DoITServicesSupport',2000)
+                .waitForElementPresent('@DoITServicesSupport',"Click on DoIT Services & Support")
                 .click('@DoITServicesSupport')
+              // .assert.title("easyvista");
+             // .assert.urlContains('creighton-apps.easyvista.com')
+             // .assert.urlEquals('http://www.easyvista');  
+
     },
      clickOnHide:function(){
      return this.waitForElementVisible('body',2000)
@@ -151,42 +166,65 @@ module.exports = {
    verifyDashboardLinks:function(){
        this.api.elements('css selector','h3.well-title.openSansLight', function (result) {
     console.log("No. of Dashboard links are "+ result.value.length) ;
-for (var i = 0; i < result.value.length; i++) {
-    this.pause(3000);
-   /* this.getText('h3.well-title.openSansLight',function(links){
-            console.log(links.value[i])
-            }
-    );*/
-        //if(links.value===))
-    this.elementIdClick(result.value[i].ELEMENT);
-  //  console.log(result.value[i].ELEMENT)
-   this.pause(3000);
-     this.back();
-
-}
+    this.assert.equal(result.value.length, 4,"No. of Dashboard links are 4");
+// for (var i = 0; i < result.value.length; i++) {
+//     this.pause(20000);
+//    /* this.getText('h3.well-title.openSansLight',function(links){
+//             console.log(links.value[i])
+//             }
+//     );*/
+    
+//         //if(links.value===))
+//     this.elementIdClick(result.value[i].ELEMENT);
+//   //  console.log(result.value[i].ELEMENT)
+//    this.pause(8000);
+//      this.back();
+       });
  
       //this.assert.equal(result.value.length, 4);
     //this.expect.element('h3.well-title.openSansLight').text.to.contain('School & Semester');
 
     //this.expect.element('h3.well-title.openSansLight').to.be.present;
         
-       });
-   
+       },
+    verifySchoolAndSemester: function(){
+        const msg ="School & Semester page header";
+ return this.waitForElementPresent('h1.bebasregular.headerLabel.mt5.mb20')
+		 .assert.containsText('h1.bebasregular.headerLabel.mt5.mb20', 'School & Semester',msg+ "verified");       
     },
+
     verifyFooter :function(){
-     return this.waitForElementVisible('@footer',2000)
+     return this.waitForElementVisible('@footer',20000)
 	              .assert.containsText('@footer',label.footerAddress)        
     },
     verifyNavigationLinks:function(){
-   
+    this.api.elements('css selector','ul.main-navigation li', function (result) {
+    console.log("No. of Navigation links are "+ result.value.length) ;
+    this.verify.equal(result.value.length, 4,"No. of Navigation links are 4");
+    });
     },
-    verifyMyCreightonLogo:function(){
-
+    navigationlinks : function(){
+             this.api.elements('css selector', 'ul.main-navigation li', function(result) {
+        for(var i in result.value) {
+          this.elementIdClick(result.value[i].ELEMENT)
+            // console.log(links.value);
+            this.pause(8000) 
+        }
+             });
     },
-    
 
+    verifyDoItServices : function (){
+        this.api.window_handles(function(result) {
+        this.verify.equal(result.value.length, 2, 'verify the navigation to creighton easy vista ')
+        var handle = result.value[1]
+        this.switchWindow(handle)
+      })
+      
+           .waitForElementVisible('body',5000)
+            .verify.urlContains(label.easyvistaurl,'DoIT Services & Support is verified')
+
+    }
  }]
- 
 
-  
 };
+
