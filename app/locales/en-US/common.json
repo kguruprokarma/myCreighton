@@ -535,7 +535,25 @@
   "MY_WORK_STUDY_DESC":"Each year over 2,600 Creighton students help meet their educational expenses by working here at Creighton, both through the Federal Work Study program and University funded employment.",
   "WORK_STUDY_OPPORTUNITIES_DESC":"Information about jobs at Creighton and detail needed before you beign your employment.",
   "VIEW_PROGRESS_TOWARD_GRADUATION_DESC":"Students who complete their degrees in the Spring Semester are expected to be present at Commencement to receive their degrees.",
-  
+  "SERVICE_OPPORTUNITIES_DESC":"At Creighton University, our students, faculty and staff are committed to a spirit of service on campus and beyond.",
+  "REPORT_A_FACILITIES_PROBLEM_DESC":"Link to Creighton Facilities request process.",
+  "FILE_A_DORM_WORK_ORDER_DESC":"Service Request Form",
+  "CURRENT_SEMESTER_END_MILESTONES_DESC":"Information on Semester Milestones for every program",
+  "FUTURE_SEMESTER_END_MILESTONES_DESC":"Information on Semester Milestones for every program",
+  "GRADE_CHANGES_DESC":"Information on Grade Changes",
+  "MY_GRADE_APPEALS_DESC":"The student has the right to appeal a grade that the student believes to be in error",
+  "CURRENT_SEMESTER_FINAL_GRADES_DESC":"Information on grades including final grades",
+  "APPLY_FOR_GRADUATION_DESC":"How to apply for graduation",
+  "CAREER_SURVEY_DESC":"The following career assessments focus on a variety of different areas",
+  "REMOVE_HOLDS_DESC":"Answers to holds questions",
+  "GPA_CALCULATOR_DESC":"Pre-Health Advising BCPM Calculator Form",
+  "PLAN_FOR_NEXT_SEMESTER_DESC":"Enter Your Courses and Grades",
+  "CURRENT_SEMESTER_GRADUATION_DATES_DESC":"Dates for the current Graduation Commencement",
+  "FUTURE_SEMESTER_GRADUATION_DATES_DESC":"Information concerning future graduation dates",
+
+
+
+
   "ALL_LIBRARIES": "All libraries",
   "SELECT_OPTION_LIBRARY": "- select Library -",
   "ALL_SUBJECTS": "All subjects",

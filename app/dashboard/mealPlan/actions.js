@@ -23,6 +23,17 @@ const receiveMealPlansError = (error) => (
   }
 );
 
+const showMealPan = () => (
+  {
+    type: types.MEAL_PLAN_VIEW_SHOW
+  });
+
+const hideMealPlan = () => (
+  {
+    type: types.MEAL_PLAN_VIEW_HIDE
+  }
+);
+
 export function getMealPlanData(role) {
   return function (dispatch) {
     dispatch(requestMealPlanDetailsData());
@@ -37,4 +48,14 @@ export function getMealPlanData(role) {
   };
 }
 
-export default getMealPlanData;
+export function openMealPlan() {
+  return function (dispatch) {
+    dispatch(showMealPan());
+  };
+}
+
+export function closeMealPlan() {
+  return function (dispatch) {
+    dispatch(hideMealPlan());
+  };
+}

@@ -11,7 +11,7 @@ import * as actionCreators from './actions';
 import NotificationDetailView from './components/notificationDetailView';
 import NotificationListView from './components/notificationListView';
 import Spinner from '../common/spinner';
-import '../notification/style.css';
+import './style.css';
 
 //const json = require('../locales/en/common.json');
 

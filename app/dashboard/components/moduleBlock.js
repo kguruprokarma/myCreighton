@@ -8,7 +8,7 @@ import { Well, Row, Col } from 'react-bootstrap';
 import ImageComponent from '../../common/imageComponent';
 
 const moduleBlock = (modulesprops) => (
-  <article>
+  <article role='article'>
     {modulesprops.modulelist.map((moduleDetail, moduleIndex) => (<Col md={5} sm={6} key={moduleIndex} className={moduleIndex % 2 === 1 ? 'col-md-offset-2' : ''}>
       <Link to={(moduleDetail && moduleDetail.description) ? moduleDetail.linkto : ''}>
         <Well bsSize='large' className='white-well' >

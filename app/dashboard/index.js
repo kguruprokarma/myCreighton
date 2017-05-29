@@ -13,6 +13,7 @@ import ToggleMealPlan from './components/toggleMealPlan';
 import dashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as profileDataAction from '../profile/actions';
+import * as mealPlanAction from './mealPlan/actions';
 import Spinner from '../common/spinner';
 import './style.css';
 import { authUserDetails, browserTitle } from '../common/utility';
@@ -20,7 +21,7 @@ import { authUserDetails, browserTitle } from '../common/utility';
 export class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = { shouldHide: true };
+    //this.state = { shouldHide: true };
     this.onClick = this.onClick.bind(this);
     this.role = authUserDetails().userRole;
   }
@@ -29,10 +30,11 @@ export class Dashboard extends Component {
     const props = this.props;
     this.role = authUserDetails().userRole;
     if (window.innerWidth <= CommonConstants.DEVICE_WIDTH) {
-      this.setState({ shouldHide: false });
+      this.props.closeMealPlan();
     } else {
-      this.setState({ shouldHide: true });
+      this.props.openMealPlan();
     }
+      
     if (this.role) {
       if (this.role === CommonConstants.ROLE_FACULTY) {
         props.getFacultyProfileData();
@@ -46,7 +48,12 @@ export class Dashboard extends Component {
   }
 
   onClick() {
-    this.setState({ shouldHide: !this.state.shouldHide });
+    //this.setState({ shouldHide: !this.state.shouldHide });
+    if(this.props.mealPlanView){
+      this.props.closeMealPlan();
+    }else{
+      this.props.openMealPlan();
+    }
   }
 
   render() {
@@ -75,14 +82,14 @@ export class Dashboard extends Component {
         {!props.loading && <article>
           <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
           <Row className='mb20'>
-            <Col sm={5} xs={10} md={5}>
+            <Col sm={5} xs={10} md={4}>
               {profileInformation && <UserDetail userDetail={profileInformation} role={this.role} />}
             </Col>
             <Col xs={2} className='pull-right text-right'>
-              <div className={this.state.shouldHide ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>
+              <div className={this.props.mealPlanView ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>
             </Col>
-            <Col xs={12} sm={7} md={7} className='pull-right'>
-              <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetails} />
+            <Col xs={12} sm={7} md={8} className='pull-right'>
+              <MealPlanView showMeal={this.props.mealPlanView} toggleMeal={this.onClick} role={userDetails} />
             </Col>
           </Row>
           <article role='article' id='wells'>
@@ -98,11 +105,12 @@ export class Dashboard extends Component {
 const mapStateToProps = (dashboardState) => (
   {
     userData: dashboardState.auth.data,
+    mealPlanView: dashboardState.mealPlanReducer.mealPlanView,
     profileData: dashboardState.profileReducer.profileData.data,
     loading: dashboardState.profileReducer.isLoading
   }
 );
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(profileDataAction), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(profileDataAction, mealPlanAction), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

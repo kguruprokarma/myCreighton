@@ -9,6 +9,7 @@ import '../../__mock_i18n__/i18n_mockKeys';
 const studentdefaultProps ={
   getUserDetailsData: () => {},
   getStudentProfileData: () => {},
+  openMealPlan: () => {},
   userDetailsData: {
     'userName': {
       'firstName': 'Gary',
@@ -33,6 +34,7 @@ const studentdefaultProps ={
 const staffdefaultProps ={
   getUserDetailsData: () => {},
   getStaffProfileData: () => {},
+  openMealPlan: () => {},
   userDetailsData: {
     'userName': {
       'firstName': 'Gary',

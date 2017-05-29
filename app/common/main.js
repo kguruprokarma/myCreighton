@@ -14,6 +14,7 @@ import * as actionCreators from '../header/actions';
 import * as notificationActions from '../notification/actions';
 import Footer from '../footer/index';
 import Navigation from '../common/mainNav';
+import Help from '../help/index';
 import HeaderComponent from '../header/index';
 import * as urlConstants from '../constants/urlConstants';
 import * as CommonConstants from '../constants/commonConstants';
@@ -167,6 +168,7 @@ class Main extends React.PureComponent {
         {/* /this is footer section */}
         {(props.popUpData || props.filterPopUpData || props.signOut) && <input type='button' className='btn btn-link btnnoPadding popUpPatch' onClick={this.hidePopUp} />}
         {props.feedbackPopup && <input type='button' className='btn btn-link btnnoPadding mycu-model-patchup popUpPatch' onClick={this.hidePopUp} />}
+        {props.helpPopUpData && <Help currentState={props.location.pathname} />}
         {/*props.signOut && <ConfirmationPopUp onConfirm={this.signOutBind} onCancel={props.closeSignOutPopUp} />*/}
         {/*<IdleTimer
           ref={() => this.reference}
@@ -188,7 +190,8 @@ const mapStateToProps = (storeData) => (
     signOut: storeData.headerReducer.signOut,
     filterPopUpData: storeData.headerReducer.showFilterPopUp,
     feedbackPopup: storeData.feedbackReducer.showFeedbackPopUp,
-    profileData: storeData.profileReducer.profileData.data
+    profileData: storeData.profileReducer.profileData.data,
+    helpPopUpData: storeData.helpReducer.showHelpPopUp
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileDataAction, notificationActions), dispatch);

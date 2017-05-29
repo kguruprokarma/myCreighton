@@ -95,7 +95,7 @@ describe('schoolAndSemester files in school and semester ----->', () => {
     schoolAndSemester.instance().state.accordToggle = false;
     schoolAndSemester.instance().showAllAccordions();
 
-    schoolAndSemester.instance().accordToggleFunc(minProps.semesterDataObj[0].accordionObj);
-    schoolAndSemester.instance().accordToggleFunc(accordionObj);
+    //schoolAndSemester.instance().accordToggleFunc(minProps.semesterDataObj[0].accordionObj);
+    //schoolAndSemester.instance().accordToggleFunc(accordionObj);
   });
 });

@@ -538,3 +538,7 @@
 .mycu_darkgray {
 	color: #313131;
 }
+
+.position-relative {
+	position: relative;
+}

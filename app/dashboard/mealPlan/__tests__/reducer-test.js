@@ -11,6 +11,7 @@ describe('<Meal Plan reducer />', () => {
     expect(reducer(undefined, {})).toEqual({
       mealPlanData: {},
       isLoading: false,
+      mealPlanView: true,
       error: false
     });
   });
