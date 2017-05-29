@@ -50,7 +50,7 @@ class Main extends React.PureComponent {
         this.clearStorage();
       }
     }, 1000);
-    const socket = io.connect('http://localhost:8081');
+    const socket = io.connect('http://172.16.100.45:8081');
     socket.on('connect', () => {
       socket.emit('join', 'Hello World from client');
     });
