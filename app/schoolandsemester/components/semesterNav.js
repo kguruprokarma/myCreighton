@@ -12,10 +12,10 @@ const SemesterNav = (SemesterNavprops) => (
           <ListGroupItem key={semesterIndex}>
             <Link className='visible-xs' to={semesterDetails.linkto} onClick={() => SemesterNavprops.navToLink(semesterDetails.objectKey)} key={semesterIndex} activeClassName='active'>
               <Row>
-                <Col xs={11}>
+                <Col xs={10}>
                   <p className='openSansLight fs1pt2 semesterTitle'>{translateText(semesterDetails.title)}</p>
                 </Col>
-                <Col xs={1}>
+                <Col xs={2} className='text-right'>
                   <span className='glyphicon glyphicon-chevron-right pull-right' />
                 </Col>
               </Row>

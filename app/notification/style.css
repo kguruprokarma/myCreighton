@@ -1,0 +1,60 @@
+
+.oldNotification{
+    background: #d2d2d2;
+    color: #333333
+}
+
+.newNotification{
+    background: #ffffff;
+    color: #000000
+}
+
+.notification-title {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.notification-date span {
+    text-transform: uppercase;
+}
+
+.list-group.notification-list button.list-group-item {
+    color: #313131;
+}
+
+.notification-list button.list-group-item,
+.notification-list button.list-group-item:focus,
+.notification-list button.list-group-item:hover,
+.notification-list button.list-group-item:active {
+    background-color: #fff;
+    cursor: pointer;
+    color: #313131;
+    outline: #fff;
+}
+
+.notification-list .oldNotification.list-group-item {
+    background-color: #f2f2f2;
+}
+
+.notification-list .oldNotification.list-group-item:hover,
+.notification-list .oldNotification.list-group-item:focus,
+.notification-list .oldNotification.list-group-item:active {
+    background-color: #f2f2f2;
+    cursor: pointer;
+    color: #313131;
+    outline: #fff;
+}
+
+.back-btn img {
+    -webkit-transform: rotate(-270deg); /* Safari */
+    transform: rotate(-270deg);
+    -moz-transform: rotate(-270deg);
+    overflow: visible;
+}
+
+@media screen and (max-width:767px) {
+    .notification-list {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+} 

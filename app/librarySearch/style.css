@@ -59,6 +59,7 @@
     background-color: #019cdb;
     box-shadow: none;
     color: #fff;
+    z-index: 0;
 }
 
 .bookmarkContainer {

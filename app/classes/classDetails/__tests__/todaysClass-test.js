@@ -13,4 +13,12 @@ describe('TodaysClass component testing ----->', () => {
     const todaysClass = shallow(< TodaysClass {...defaultProps} />);
     expect(todaysClass).toBeDefined();
   });
+
+  it('TodaysClass Null check', () => {
+    const defaultProps = {
+      data: ''
+    };
+    const classAssignments = shallow(<TodaysClass {...defaultProps} />);
+    expect(classAssignments).toBeDefined();
+  });
 });

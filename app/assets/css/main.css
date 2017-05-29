@@ -639,6 +639,39 @@ textarea.form-control {
     z-index: 1
 }
 
+.confirm-patch.popUpPatch {
+    opacity: .3;
+    background-color: #000;
+    z-index: 3;
+    position: fixed;
+} 
+
+/* Notification CSS */
+.notification-icon .glyphicon-bell {
+    color: #fff;
+    font-size: 19px;
+    position: relative;
+    top: 5px;
+    margin-left: 9px;
+}
+
+.badge-notification {
+    background-color: #ff3451;
+    width: auto;
+    height: auto;
+    min-width: 16px;
+    min-height: 16px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top:6px;
+    right: 8px;
+    font-size: 9px;
+    padding: 2px;
+}
+/* Notification CSS */
 
 /* Media for small devices */
 @media screen and (min-width: 1170px) {
@@ -678,6 +711,14 @@ textarea.form-control {
         width: 1021px;
     }
   
+}
+
+@media screen and (min-width: 768px) {
+    
+    .myc-model-popup.confirm-model-popup {
+        margin-left: -200px;
+        width: 400px;
+    }
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1170px) {
@@ -854,3 +895,7 @@ textarea.form-control {
     }
 }
 
+.avatarCss1{display: inline-block; width: 48px; height: 48px; border-radius: 500px;}
+.avatarCss2{
+    width: 48px; height: 48px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 16px; line-height: 48px; font-family: Helvetica, Arial, sans-serif; text-align: center; text-transform: uppercase; color: rgb(255, 255, 255); border-radius: 100%; background: rgb(215, 61, 50);
+}

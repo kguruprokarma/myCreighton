@@ -87,8 +87,7 @@ Object.assign(exports, {
     })
   ]
 });
-console.log("=======>"+isProduction);
-if (isProduction==='production') {
+if (isProduction==='production' || isProduction==='test') {
   Object.assign(exports, {
     bail: true,
     devtool: 'source-map',

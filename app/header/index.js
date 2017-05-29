@@ -16,7 +16,7 @@ import ImageComponent from '../common/imageComponent';
 import NextEventFilterComponent from '../nextEvents/eventFilter/index';
 import * as RouteContants from '../constants/routeContants';
 import * as CommonContants from '../constants/commonConstants';
-import { HAMBURGER_ICON, MENUCLOSE_ICON, EVENTFILTER_ICON } from '../constants/imageConstants';
+import { HAMBURGER_ICON, MENUCLOSE_ICON, EVENTFILTER_ICON, EVENTFILTER_DEFAULT_ICON } from '../constants/imageConstants';
 
 export class Header extends React.PureComponent {
   constructor(props) {
@@ -68,11 +68,14 @@ export class Header extends React.PureComponent {
   render() {
     const props = this.props;
     let filterIndicator = true;
+    if (localStorage.getItem('setFilterValue')) {
+      filterIndicator = localStorage.getItem('setFilterValue') === CommonContants.EVENT_FILTER_ALL;
+    }
     if (localStorage.getItem('displayOptions') && localStorage.getItem('setFilterValue')) {
       const savedDisplayOptions = JSON.parse(localStorage.getItem('displayOptions'));
-      filterIndicator = (localStorage.getItem('setFilterValue') === CommonContants.EVENT_FILTER_7_DAYS && savedDisplayOptions[0].checked === true);
+      filterIndicator = (localStorage.getItem('setFilterValue') === CommonContants.EVENT_FILTER_ALL && savedDisplayOptions[0].checked === true);
     }
-    
+
     return (
       <header role='banner' id='header'>
         <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}</h1>
@@ -81,7 +84,7 @@ export class Header extends React.PureComponent {
             <nav role='navigation' id='navigation01' className='col-xs-2 col-sm-2 hidden-lg hamburgerMenu'>
               {props.currentState.split('/')[1] === CommonContants.DASHBOARD ?
                 <button className='btn btn-link btnnoPadding' onClick={this.navClick}><ImageComponent imagePath={props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} imagealtText={props.navData ? translateText('common:MENU_ALT_CLOSE_TAG') : translateText('common:MENU_ALT_TAG')} /></button>
-                : <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ? () => hashHistory.replace(`${RouteContants.CAMPUSDIRECTORY}${RouteContants.SIMPLE_SEARCH}`): this.goBack} />
+                : <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ? () => hashHistory.replace(`${RouteContants.CAMPUSDIRECTORY}${RouteContants.SIMPLE_SEARCH}`) : this.goBack} />
               }
             </nav>
             <Col lg={10} className='visible-lg'>
@@ -96,7 +99,7 @@ export class Header extends React.PureComponent {
                 {(props.currentState === RouteContants.EVENT_LIST || props.currentState === RouteContants.EVENT_DETAILS) &&
                   <li className='head-Icons mr10 event-icon'>
                     <div className='popUp'>
-                      <button className='btn btn-link btnnoPadding filter-img' onClick={this.showFilterPopUp}><ImageComponent imagePath={EVENTFILTER_ICON} imageWidth='25' />{filterIndicator ? '' : <span className='filter-checkmark glyphicon glyphicon-ok' aria-hidden='true' />}</button>
+                      <button className='btn btn-link btnnoPadding filter-img' onClick={this.showFilterPopUp}><ImageComponent imagePath={filterIndicator ? EVENTFILTER_DEFAULT_ICON : EVENTFILTER_ICON} imgClassName={filterIndicator ? 'filter-default' : ''} /></button>
                       <div className='popUpContainer'>
                         {props.filterPopUpData &&
                           <NextEventFilterComponent />}
@@ -113,6 +116,13 @@ export class Header extends React.PureComponent {
                     </div>
                   </div>
                 </li>
+                <li className='head-Icons notification-icon'>
+                  <Link to={RouteContants.NOTIFICATION} className='btn btn-link btnnoPadding' activeClassName='active'>
+                    <span className='glyphicon glyphicon-bell ' aria-hidden='true' /> 
+                    {/*props.newNotification && <span className='badge-notification'>{props.notificationData.length}</span>*/}
+                    {props.notificationData.length > 0 && <span className='badge-notification'>{props.notificationData.length}</span>}
+                  </Link>
+                </li>
               </ul>
             </Col>
           </Row>
@@ -126,7 +136,10 @@ const mapStateToProps = (storeData) => (
   {
     popUpData: storeData.headerReducer.showPopUp,
     filterPopUpData: storeData.headerReducer.showFilterPopUp,
-    navData: storeData.headerReducer.showNav
+    navData: storeData.headerReducer.showNav,
+    newNotification: storeData.notificationReducer.newNotification,
+    //notificationData: storeData.notificationReducer.newNotificationData,
+    notificationData: storeData.notificationReducer.notificationData
   }
 );
 

@@ -195,6 +195,7 @@
         height: 32px;
         display: inline-block;
     } 
+
 .logo {
     overflow: hidden;
     max-width: 116px;
@@ -204,6 +205,19 @@
 .filter-checkmark{
     color: #fff;
 }
+
+ .event-icon .filter-img img{
+        width:20px;
+        min-width: 20px;
+        position: relative;
+        top: -3px;
+    }
+    
+ .event-icon .filter-img img.filter-default
+    {
+        width:19px;
+        min-width: 19px;
+    }
 
 
 /* Media for small devices */
@@ -257,10 +271,10 @@
     }
 
     .event-icon .filter-img img{
-        width:24px;
-        min-width: 24px;
+        width:21px;
+        min-width: 21px;
         position: relative;
-        top: -1px;
+        top: -2px;
     }
 
     .event-icon ~ li {

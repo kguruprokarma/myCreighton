@@ -1,6 +1,6 @@
 /*Created Date: - 3rd -02 -2017
-*Usage of file: - TMerge individual components of Dashboard into this file..*
-*/
+ *Usage of file: - TMerge individual components of Dashboard into this file..*
+ */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -13,6 +13,7 @@ import ToggleMealPlan from './components/toggleMealPlan';
 import dashboardModulesList from '../common/dashboardModulesDetail';
 import * as CommonConstants from '../constants/commonConstants';
 import * as profileDataAction from '../profile/actions';
+import Spinner from '../common/spinner';
 import './style.css';
 import { authUserDetails, browserTitle } from '../common/utility';
 
@@ -39,7 +40,7 @@ export class Dashboard extends Component {
         props.getStaffProfileData();
       } else if (this.role === CommonConstants.ROLE_STUDENT) {
         props.getStudentProfileData();
-      }     
+      }
     }
     browserTitle(translateText('common:DASH_BOARD'));
   }
@@ -50,54 +51,46 @@ export class Dashboard extends Component {
 
   render() {
     const props = this.props;
-    const userDetails = {userRole: this.role};
+    const userDetails = { userRole: this.role };
     const dashboardList = dashboardModulesList(this.role);
     const profileInfo = props.profileData;
     let profileInformation;
-    if (profileInfo && profileInfo.data && profileInfo.data.length >0 ) {
+    if (profileInfo && profileInfo.data && profileInfo.data.length > 0) {
       const data = profileInfo.data[0];
-      if (this.role === CommonConstants.ROLE_FACULTY) {      
+      if (this.role === CommonConstants.ROLE_FACULTY) {
         profileInformation = data.faculty_name;
-      } else if (this.role === CommonConstants.ROLE_STAFF) {       
+      } else if (this.role === CommonConstants.ROLE_STAFF) {
         profileInformation = data.staff_name;
       } else if (this.role === CommonConstants.ROLE_STUDENT) {
         profileInformation = data.legal_name;
-      }    
+      }
+    }    
+    if (profileInfo && profileInfo.data) {
+      localStorage.setItem('infos', JSON.stringify(profileInfo));
     }
 
     return (
       <section role='region' id='dashboard' className='section-container'>
-        <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
-        <Row className='mb20'>
-          <Col sm={5} xs={10} md={5}>           
-            { profileInformation && <UserDetail userDetail={profileInformation} role={this.role} />}
-          </Col>
-          <Col xs={2} className='pull-right text-right'>
-            <div className={this.state.shouldHide ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>
-          </Col>
-          <Col xs={12} sm={7} md={7} className='pull-right'>
-            <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetails} />
-          </Col>
-        </Row>
-        <article role='article' id='wells'>
-          <Row>
-            <h1 className='announced-only'>{translateText('common:DASH_BOARD_CONTENT')}</h1>
-            <Col md={5} sm={6}>
-              {this.role && <ModuleBlock modulelist={dashboardList[0]} />}
+        {props.loading && <Spinner />}
+        {!props.loading && <article>
+          <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
+          <Row className='mb20'>
+            <Col sm={5} xs={10} md={5}>
+              {profileInformation && <UserDetail userDetail={profileInformation} role={this.role} />}
             </Col>
-            <Col md={5} sm={6} className='col-md-offset-2'>
-              {this.role && <ModuleBlock modulelist={dashboardList[1]} />}
+            <Col xs={2} className='pull-right text-right'>
+              <div className={this.state.shouldHide ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>
             </Col>
-            {
-              this.role === CommonConstants.ROLE_STUDENT && <Col md={5} sm={6} >
-                <ModuleBlock modulelist={dashboardList[2]} />
-              </Col>
-            }
-            <Col md={5} sm={6} className='col-md-offset-2'>
-              {this.role && <ModuleBlock modulelist={dashboardList[3]} />}
+            <Col xs={12} sm={7} md={7} className='pull-right'>
+              <MealPlanView showMeal={this.state.shouldHide} toggleMeal={this.onClick} role={userDetails} />
             </Col>
           </Row>
-        </article>
+          <article role='article' id='wells'>
+            <Row>
+              {this.role && this.role.trim().length > 0 && dashboardList && dashboardList.length > 0 && <ModuleBlock modulelist={dashboardList} />}
+            </Row>
+          </article>
+        </article>}
       </section>
     );
   }
@@ -105,7 +98,8 @@ export class Dashboard extends Component {
 const mapStateToProps = (dashboardState) => (
   {
     userData: dashboardState.auth.data,
-    profileData: dashboardState.profileReducer.profileData.data
+    profileData: dashboardState.profileReducer.profileData.data,
+    loading: dashboardState.profileReducer.isLoading
   }
 );
 

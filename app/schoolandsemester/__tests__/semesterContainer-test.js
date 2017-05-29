@@ -7,7 +7,15 @@ import { shallow } from 'enzyme';
 import SemesterContainer from '../components/semesterContainer';
 
 describe('SemesterContainer files in school and semester ----->', () => {
-  const semesterContainer = shallow(<SemesterContainer />);
+  const minProps ={
+    data: {
+      title: 'title',
+      accordionObj: {
+
+      }
+    }
+  };
+  const semesterContainer = shallow(<SemesterContainer {...minProps} />);
   it('SemesterContainer is defined', () => {
     expect(semesterContainer).toBeDefined();
   });

@@ -3,5 +3,4 @@
 */
 
 export const FILTER_CHANGE = 'filter.change';
-
-export default FILTER_CHANGE;
+export const DATE_CHANGE = 'filter.date';

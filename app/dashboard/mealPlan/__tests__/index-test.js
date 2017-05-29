@@ -22,12 +22,12 @@ const defaultProps ={
     userRole: 'student'
   }
 };
-
+localStorage.setItem('roleInfo', JSON.stringify({'userRole': 'student'}));
 const mealPlanC = shallow(<MealPlan {...defaultProps} />);
 describe('Mealplan Test Suite', () => {
   it('should provide i18n context', () => {
     expect(mealPlanC).toBeDefined();
-    mealPlanC.instance().componentWillReceiveProps(defaultProps);
+   // mealPlanC.instance().componentWillReceiveProps(defaultProps);
   });
 
   it('MealPlan component Swipes is there or not', () => {
@@ -50,5 +50,9 @@ describe('Mealplan Test Suite', () => {
   it('MealPlan component buttons', () => {
     expect(mealPlanC.find('button').length).toBe(1);
   });
+  it('MealPlan component buttons', () => {
+    const mealPlanC1 = shallow(<MealPlan {...Object.assign({}, defaultProps, {showMeal: false})} />);
+    expect(mealPlanC1.find('button').length).toBe(1);
+  });  
 });
 

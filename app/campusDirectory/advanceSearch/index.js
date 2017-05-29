@@ -1,10 +1,11 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import HeaderLabel from '../../common/headerLabel';
-import {browserTitle} from '../../common/utility';
+import { browserTitle } from '../../common/utility';
 import SearchLeftNav from '../../common/searchLeftNav';
 import { translateText } from '../../common/translate';
-import {AdvanceSearchBox} from './components/advanceSearchBox';
+import { AdvanceSearchBox } from './components/advanceSearchBox';
+import FutureFunctionalityPopUp from './../../common/futureFunctionalityPopUp';
 
 class AdvanceSearch extends React.PureComponent {
 
@@ -13,20 +14,23 @@ class AdvanceSearch extends React.PureComponent {
   }
   render() {
     return (
-      <section role='region' className='section-container'>
-        <div className='hidden-xs'>
-          <HeaderLabel headerLabel={translateText('common:CAMPUS_DIRECTORY')} />
-        </div>
-        <Row>
-          <Col md={9} sm={8} xs={12} className='userData pull-right'>
-            {/*<SimpleSearch {...this.props} />*/}
-            <AdvanceSearchBox />
-          </Col>
-          <Col md={3} sm={4} className='hidden-xs'>
-            <SearchLeftNav />
-          </Col>
-        </Row>
-      </section>
+      <div>
+        <section role='region' className='section-container'>
+          <FutureFunctionalityPopUp />
+          <div className='hidden-xs'>
+            <HeaderLabel headerLabel={translateText('common:CAMPUS_DIRECTORY')} />
+          </div>
+          <Row>
+            <Col md={9} sm={8} xs={12} className='userData pull-right'>
+              {/*<SimpleSearch {...this.props} />*/}
+              <AdvanceSearchBox />
+            </Col>
+            <Col md={3} sm={4} className='hidden-xs'>
+              <SearchLeftNav />
+            </Col>
+          </Row>
+        </section>
+      </div>
     );
   }
 }

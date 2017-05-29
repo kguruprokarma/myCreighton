@@ -56,6 +56,7 @@ export const ADFS = '/adfs';
 //export const ADFS_LOGOUT_URL = 'https://dev-dl-api.creighton.edu/logoutadfs';
 export const ADFS_LOGIN_URL = `https://${process.env.NODE_ENV}-dl-api.creighton.edu/loginadfs?redirect=`;
 export const ADFS_LOGOUT_URL = `https://${process.env.NODE_ENV}-dl-api.creighton.edu/logoutadfs`;
+export const INTERCOLLEGE_TRANSFER = `http://workflowtest.web-${process.env.NODE_ENV}.creighton.edu/node/add/intercollege-transfer`;
 
 export const API_SINGLE = '/single';
 export const STUDENT_ACADEMIC = '/studentAcademic';

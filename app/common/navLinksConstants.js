@@ -120,3 +120,9 @@ export const LIBRARY_GUIDES_LIBRARIES = [
   }
 ];*/
 
+export const MINISTRY_LEFTMENU_LINKS = [
+  {
+    key: 'LINK_EXAMPLE'
+  }
+];
+

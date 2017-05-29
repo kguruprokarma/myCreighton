@@ -1,42 +1,7 @@
 import { translateText } from '../../common/translate';
+import * as urlConstants from '../../constants/urlConstants';
 
 export const semesterDataObj = [
-  {
-    objectKey: 'openrequestsstatus', 
-    title: translateText('common:OPEN_REQUESSTS_STATUS'),
-    headlines: translateText('common:ACTION_REQUIRED_AND_STATUS_OF_MY_OPEN_ITEMS'),
-    description: translateText('common:OPEN_REQUEST_DESC'),
-    accordionObj: [
-      {
-        accordionTitle: '',
-        collapse: true,
-        links:
-        [
-          {
-            linkKey: 'common:HEALTH_INSURANCE_WAIVER',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-
-          },
-          {
-            linkKey: 'common:PAY_TUITION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:CHANGE_LOAN_AMOUNT_STATUS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:DORM_WORK_ORDER_STATUS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          }
-        ]
-      }
-    ]
-  },
   {
     objectKey: 'semesterstart', 
     title: translateText('SEMESTER_START'),
@@ -50,14 +15,14 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:EMERGENCY_CONTACT',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:EMERGENCY_CONTACT_DESC'),
+            linkTo: 'https://www.creighton.edu/studentlife/living/housinginformation/newstudentinformation/'
 
           },
           {
             linkKey: 'common:OTHER_CONTACT_DETAILS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:OTHER_CONTACT_DETAILS_DESC'),
+            linkTo: 'https://www.creighton.edu/studentlife/living/housinginformation/newstudentinformation/'
           }
         ]
       },
@@ -68,32 +33,32 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:CAMPUS_CLUBS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:CAMPUS_CLUBS_DESC'),
+            linkTo: 'https://www.creighton.edu/student-experience/clubs-groups'
 
           },
           {
             linkKey: 'common:ACADEMIC_INTERESTS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:ACADEMIC_INTERESTS_DESC'),
+            linkTo: 'http://www.creighton.edu/studentlife/studentleadershipinvolvementcenter/'
           }
         ]
       },
       {
         accordionTitle: translateText('HEALTH_TEXT'),
         collapse: true,
-        links:
+        links: 
         [
           {
             linkKey: 'common:HEALTH_INSURANCE_WAIVER',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:HEALTH_INSURANCE_WAIVER_DESC'),
+            linkTo: 'https://www.creighton.edu/chc/studenthealthservices/healthinsurance/creightonstudenthealthinsuranceplan/'
 
           },
           {
             linkKey: 'common:IMMUNIZATION_RECORDS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:IMMUNIZATION_RECORDS_DESC'),
+            linkTo: 'https://www.creighton.edu/chc/studenthealthservices/immunizationrequirements/'
           }
         ]
       },
@@ -103,25 +68,15 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'common:FERPA_PERMISSION_FINANCIAL',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkKey: 'common:FERPA',
+            linkDesc: translateText('common:FERPA_DESC'),
+            linkTo: 'https://www.creighton.edu/generalcounsel/compliance/facultystudentcompliance/ferpa/'
 
           },
           {
-            linkKey: 'common:FERPA_PERMISSION_ACADEMIC',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
-            linkKey: 'common:FERPA_PERMISSION_CONDUCT',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
             linkKey: 'common:PARENTS_WEEKEND',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:PARENTS_WEEKEND_DESC'),
+            linkTo: 'https://www.creighton.edu/parentprogram/parentandfamilyevents/'
           }
         ]
       },
@@ -133,24 +88,24 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:STATEMENT_OF_FINANCIAL_RESPONSIBILITY',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:STATEMENT_OF_FINANCIAL_RESPONSIBILITY_DESC'),
+            linkTo: 'https://choose.creighton.edu/apply/?sr=ce8e51a2-43e6-4131-8ee9-b88ce041c3a3'
 
           },
           {
             linkKey: 'common:ACCEPT_FINANCIAL_AID_AWARD',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:ACCEPT_FINANCIAL_AID_AWARD_DESC'),
+            linkTo: 'https://www.creighton.edu/financialaid/applyingforfinancialaid/acceptingyouraidoffer/'
           },
           {
             linkKey: 'common:LOAD_DINING_DOLLARS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:LOAD_DINING_DOLLARS_DESC'),
+            linkTo: 'https://www.creighton.edu/admin/cardservices/jaybuckprogram/jaybuckvsdiningdollars/'
           },
           {
             linkKey: 'common:LOAD_JAYBUCKS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:LOAD_JAYBUCKS_DESC'),
+            linkTo: 'https://www.creighton.edu/admin/cardservices/jaybuckprogram/loadingfunds/'
           }
         ]
       },
@@ -161,30 +116,30 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:SIGN_HOUSING_CONTACT',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:SIGN_HOUSING_CONTACT_DESC'),
+            linkTo: 'https://www.creighton.edu/studentlife/departmentofresidencelife/housinginformation/'
 
           },
           {
             linkKey: 'common:LOTTERY_ENROLLMENT',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:LOTTERY_ENROLLMENT_DESC'),
+            linkTo: 'https://www.creighton.edu/studentlife/living/housinginformation/starrezdashboard/'
           },
           {
             linkKey: 'common:FIND_A_ROOMMATE',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:FIND_A_ROOMMATE_DESC'),
+            linkTo: 'https://www.creighton.edu/studentlife/living/housinginformation/newstudentinformation/newstudentroommatesearchprocess/'
           },
           {
             linkKey: 'common:IDENTIFY_A_ROOMMATE',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:IDENTIFY_A_ROOMMATE_DESC'),
+            linkTo: 'https://www.creighton.edu/studentlife/living/housinginformation/newstudentinformation/newstudentroommatesearchprocess/'
 
           },
           {
             linkKey: 'common:VERIFY_A_ROOMMATE',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:VERIFY_A_ROOMMATE_DESC'),
+            linkTo: 'https://www.creighton.edu/studentlife/living/housinginformation/newstudentinformation/newstudentroommatesearchprocess/'
           }
         ]
       },
@@ -195,14 +150,14 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:SELECT_A_MEAL_PLAN',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:SELECT_A_MEAL_PLAN_DESC'),
+            linkTo: 'https://creighton.sodexomyway.com/dining-plans/index.html'
 
           },
           {
             linkKey: 'common:UPDATE_A_MEAL_PLAN',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:UPDATE_A_MEAL_PLAN_DESC'),
+            linkTo: 'https://creighton.sodexomyway.com/profile/login.html?ReturnUrl=/index.html'
           }
         ]
       },
@@ -219,8 +174,8 @@ export const semesterDataObj = [
           },
           {
             linkKey: 'common:SERVICE_TRIPS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:SERVICE_TRIPS_DESC'),
+            linkTo: ' https://www.creighton.edu/fileadmin/user/GeneralCounsel/docs/Service_Trip_Release_of_Claims.doc'
           }
         ]
       }
@@ -239,23 +194,23 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:REGISTER_FOR_CLASSES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:REGISTER_FOR_CLASSES_DESC'),
+            linkTo: 'http://www.creighton.edu/registrar/registration/registeringonthenest/'
           },
           {
             linkKey: 'common:ENROLLMENT_OVERRIDE_PREREQUISITES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:ENROLLMENT_OVERRIDE_PREREQUISITES_DESC'),
+            linkTo: 'http://www.creighton.edu/registrar/registration/overridesandexceptions/'
           },
           {
             linkKey: 'common:ENROLLMENT_OVERRIDE_CLASS_SIZE',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:ENROLLMENT_OVERRIDE_CLASS_SIZE_DESC'),
+            linkTo: 'http://www.creighton.edu/registrar/registration/overridesandexceptions/'
           },  
           {
             linkKey: 'common:DROP_OR_ADD_CLASSES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:DROP_OR_ADD_CLASSES_DESC'),
+            linkTo: 'http://www.creighton.edu/registrar/registration/changingyourschedule/'
           },  
           {
             linkKey: 'common:MY_WAITLIST',
@@ -264,8 +219,8 @@ export const semesterDataObj = [
           },
           {
             linkKey: 'common:COURSE_REGISTRATION_MINIMUM',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:COURSE_REGISTRATION_MINIMUM_DESC'),
+            linkTo: 'http://www.creighton.edu/registrar/registration/preparingtoregister/'
           }    
         ]
       },
@@ -276,18 +231,18 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:PAY_TUITION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:PAY_TUITION_DESC'),
+            linkTo: 'https://www.creighton.edu/businessoffice/billinginfo/billingpaymentoptions/'
           },
           {
             linkKey: 'common:OUTSTANDING_FEES_AND_HOLDS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:OUTSTANDING_FEES_AND_HOLDS_DESC'),
+            linkTo: 'https://www.creighton.edu/businessoffice/billinginfo/billingpaymentoptions/'
           },
           {
             linkKey: 'common:MY_PROMISSORY_NOTES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:MY_PROMISSORY_NOTES_DESC'),
+            linkTo: 'https://www.creighton.edu/businessoffice/loans/studentloandepartment/'
           }
         ]
       },
@@ -298,13 +253,13 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:MY_CURRENT_CLASS_SCHEDULE',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:MY_CURRENT_CLASS_SCHEDULE_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/scheduleofcourses/'
           },
           {
             linkKey: 'common:TEXTBOOKS_FOR_REGISTERED_CLASSES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:TEXTBOOKS_FOR_REGISTERED_CLASSES_DESC'),
+            linkTo: 'https://law.creighton.edu/werner-institute/current-werner-students/course-schedules-booklists'
           },
           {
             linkKey: 'common:MATERIALS_FOR_REGISTERED_CLASSES',
@@ -325,8 +280,8 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:CREIGHTON_BOOKSTORE',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:CREIGHTON_BOOKSTORE_DESC'),
+            linkTo: 'http://www.bkstr.com/creightonstore/home'
           }
         ]
       }
@@ -347,33 +302,33 @@ export const semesterDataObj = [
           {
             linkKey: 'common:CHANGE_UNDERGRADUATE_COLLEGE',
             linkDesc: translateText('common:CHANGE_UNDERGRADUATE_DESC'),
-            linkTo: ''
+            linkTo: urlConstants.INTERCOLLEGE_TRANSFER
 
           },
           {
             linkKey: 'common:LEAVE_OF_ABSENCE',
-            linkDesc: 'Request a short-term leave of absence (1 or 2 semesters) for full-time students with a cumulative of GPA 2.00 or above.',
-            linkTo: ''
+            linkDesc: translateText('common:LEAVE_OF_ABSENCE_DESC'),
+            linkTo: 'http://catalog.creighton.edu/graduate/administration-policies/leave-absence/'
           },
           {
             linkKey: 'common:WITHDRAWAL_APPLY_FOR_APPROVAL',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:WITHDRAWAL_APPLY_FOR_APPROVAL_DESC'),
+            linkTo: 'http://catalog.creighton.edu/undergraduate/academic-policies-procedures/withdrawal/'
           },
           {
             linkKey: 'common:WITHDRAWAL_RETURN_TITLE_4_FUNDS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:WITHDRAWAL_RETURN_TITLE_4_FUNDS_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/withdrawalsandrefunds/'
           },
           {
             linkKey: 'common:APPLY_FOR_A_MAJOR',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:APPLY_FOR_A_MAJOR_DESC'),
+            linkTo: 'https://www.creighton.edu/programs'
           },
           {
             linkKey: 'common:MY_INCOMPLETES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:MY_INCOMPLETES_DESC'),
+            linkTo: 'http://catalog.creighton.edu/undergraduate/academic-policies-procedures/incomplete/'
           }
         ]
       },
@@ -384,13 +339,13 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:REQUEST_A_TUTOR',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:REQUEST_A_TUTOR_DESC'),
+            linkTo: 'http://blogs.creighton.edu/edge/academic-success/#tutoring'
           },
           {
             linkKey: 'common:REQUEST_ACADEMIC_SUPPORT',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:REQUEST_ACADEMIC_SUPPORT_DESC'),
+            linkTo: 'https://www.creighton.edu/academics/centers-institutes'
           }
         ]
       },
@@ -401,13 +356,13 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:MY_CURRENT_SEMESTER_SCORES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:MY_CURRENT_SEMESTER_SCORES_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/grades/'
           },
           {
             linkKey: 'common:MY_CURRENT_SEMESTER_GPA',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:MY_CURRENT_SEMESTER_GPA_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/grades/'
           }
         ]
       },
@@ -418,33 +373,33 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:VIEW_PROGRESS_TOWARDS_GRADUATION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:VIEW_PROGRESS_TOWARDS_GRADUATION_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/graduationcommencement/'
           },
           {
-            linkKey: 'common:View_Dismissal_Expulsion_Record',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkKey: 'common:VIEW_DISMISSAL_EXPULSION_RECORD',
+            linkDesc: translateText('common:VIEW_DISMISSAL_EXPULSION_RECORD_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/confidentialityprivacyferpa/'
           },
           {
             linkKey: 'common:REQUEST_ACADEMIC_STANDING_RECORD',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:REQUEST_ACADEMIC_STANDING_RECORD_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/registration/'
           },
           {
             linkKey: 'common:REQUEST_ENROLLMENT_VERIFICATION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:REQUEST_ENROLLMENT_VERIFICATION_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/enrollmentdegreeverification/'
           },
           {
             linkKey: 'common:REQUEST_DEGREE_VERIFICATION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:REQUEST_DEGREE_VERIFICATION_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/enrollmentdegreeverification/'
           },
           {
             linkKey: 'common:REQUEST_TRANSCRIPT',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:REQUEST_TRANSCRIPT_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/transcripts/'
           }
         ]
       },
@@ -455,8 +410,8 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:CURRENT_SEMESTER_MILESTONES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:CURRENT_SEMESTER_MILESTONES_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/catalogs/'
           }
         ]
       },
@@ -467,8 +422,8 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:SCHOOL_OF_PHARMACY',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:SCHOOL_OF_PHARMACY_DESC'),
+            linkTo: 'https://spahp.creighton.edu/academics/pharmacy'
           }
         ]
       }
@@ -487,28 +442,28 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:PAY_DAMAGE_BILL',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:PAY_DAMAGE_BILL_DESC'),
+            linkTo: 'http://www.creighton.edu/fileadmin/user/Admissions/docs/Admissions/2012-13_Housing_Agreement_parent_agreement_form.pdf'
           },
           {
             linkKey: 'common:PAY_DESK_FEE',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:PAY_DESK_FEE_DESC'),
+            linkTo: 'https://www.creighton.edu/businessoffice/billinginfo/billingpaymentoptions/'
           },
           {
             linkKey: 'common:PAY_CONDUCT_FEE',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:PAY_CONDUCT_FEE_DESC'),
+            linkTo: 'https://www.creighton.edu/businessoffice/billinginfo/billingpaymentoptions/'
           },  
           {
             linkKey: 'common:PAY_PARKING_FEE',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:PAY_PARKING_FEE_DESC'),
+            linkTo: 'http://www.creighton.edu/businessoffice/billinginfo/parkingpermitmedicalschoolyearbookstudenthealthinsurancefees/'
           },  
           {
             linkKey: 'common:PAST_DUE_TUITION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:PAST_DUE_TUITION_DESC'),
+            linkTo: 'https://www.creighton.edu/businessoffice/billinginfo/billingpaymentoptions/'
           },
           {
             linkKey: 'common:HOW_MUCH_DO_I_OWE',
@@ -524,18 +479,18 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:LOAD_DINING_DOLLARS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:LOAD_DINING_DOLLARS_DESC'),
+            linkTo: 'https://www.creighton.edu/admin/cardservices/jaybuckprogram/jaybuckvsdiningdollars/'
           },
           {
             linkKey: 'common:LOAD_JAYBUCKS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:LOAD_JAYBUCKS_DESC'),
+            linkTo: 'https://www.creighton.edu/admin/cardservices/jaybuckprogram/loadingfunds/'
           },
           {
             linkKey: 'common:LOAD_PRINT_CREDITS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:LOAD_PRINT_CREDITS_DESC'),
+            linkTo: 'https://www.creighton.edu/admin/cardservices/jaybuckprogram/'
           }
         ]
       },
@@ -545,18 +500,18 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:SEMESTER_FAFSA',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:SEMESTER_FAFSA_DESC'),
+            linkTo: 'http://online.creighton.edu/admissions/financial-aid'
           },
           {
             linkKey: 'common:FINANCIAL_AID',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:FINANCIAL_AID_DESC'),
+            linkTo: 'http://online.creighton.edu/admissions/financial-aid'
           },
           {
             linkKey: 'common:FEDERAL_WORK_STUDY',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:FEDERAL_WORK_STUDY_DESC'),
+            linkTo: 'https://www.creighton.edu/studentemployment/federalworkstudyprogram/'
           },
           {
             linkKey: 'common:BUDGET_INCREASE',
@@ -565,18 +520,18 @@ export const semesterDataObj = [
           },
           {
             linkKey: 'common:CHANGE_LOAN_AMOUNT',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:CHANGE_LOAN_AMOUNT_DESC'),
+            linkTo: 'https://www.creighton.edu/financialaid/typesofaid/loanprograms/'
           },          
           {
             linkKey: 'common:PARENTPLUS_LOAN',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:PARENTPLUS_LOAN_DESC'),
+            linkTo: 'https://www.creighton.edu/financialaid/typesofaid/loanprograms/directloanprogramguide/'
           },
           {
             linkKey: 'common:FINANCIAL_STATUS_CHANGE',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:FINANCIAL_STATUS_CHANGE_DESC'),
+            linkTo: 'https://www.creighton.edu/financialaid/financialaidinfo/generalpolicies/'
           }
         ]
       },
@@ -586,13 +541,13 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:MY_WORK_STUDY',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:MY_WORK_STUDY_DESC'),
+            linkTo: 'https://www.creighton.edu/studentemployment/'
           },
           {
             linkKey: 'common:WORK_STUDY_OPPORTUNITIES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:WORK_STUDY_OPPORTUNITIES_DESC'),
+            linkTo: 'https://www.creighton.edu/studentemployment/oncampusjobs/'
           }
         ]
       }
@@ -611,13 +566,13 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:CAMPUS_CLUBS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:CAMPUS_CLUBS_DESC'),
+            linkTo: 'https://www.creighton.edu/student-experience/clubs-groups'
           },
           {
             linkKey: 'common:ACADEMIC_INTERESTS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:ACADEMIC_INTERESTS_DESC'),
+            linkTo: 'http://www.creighton.edu/studentlife/studentleadershipinvolvementcenter/'
           }
         ]
       },
@@ -627,14 +582,9 @@ export const semesterDataObj = [
         links:
         [
           {
-            linkKey: 'common:MY_SERVICE_HOURS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
-          },
-          {
             linkKey: 'common:SERVICE_OPPORTUNITIES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:SERVICE_OPPORTUNITIES_DESC'),
+            linkTo: 'https://www.creighton.edu/cu-community/service'
           }
         ]
       },
@@ -650,8 +600,8 @@ export const semesterDataObj = [
           },
           {
             linkKey: 'common:SERVICE_TRIPS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:SERVICE_TRIPS_DESC'),
+            linkTo: 'https://www.creighton.edu/fileadmin/user/GeneralCounsel/docs/Service_Trip_Release_of_Claims.doc'
           }
         ]
       },
@@ -662,13 +612,13 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:REPORT_A_FACILITIES_PROBLEM',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:REPORT_A_FACILITIES_PROBLEM_DESC'),
+            linkTo: 'https://www.creighton.edu/admin/facilities/'
           },
           {
             linkKey: 'common:FILE_A_DORM_WORK_ORDER',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:FILE_A_DORM_WORK_ORDER_DESC'),
+            linkTo: 'https://www.creighton.edu/admin/facilities/servicerequestform/'
           }
         ]
       }
@@ -687,13 +637,13 @@ export const semesterDataObj = [
         [
           {
             linkKey: translateText('CURRENT_SEMESTER_END_MILESTONES'),
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:CURRENT_SEMESTER_END_MILESTONES_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/academiccalendars/'
           },
           {
-            linkKey: 'common:Future_Semester_End_Milestones',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkKey: 'common:FUTURE_SEMESTER_END_MILESTONES',
+            linkDesc: translateText('common:FUTURE_SEMESTER_END_MILESTONES_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/academiccalendars/'
           }
         ]
       },
@@ -704,18 +654,18 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:GRADE_CHANGES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:GRADE_CHANGES_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/grades/faculty/'
           },
           {
             linkKey: 'common:MY_GRADE_APPEALS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:MY_GRADE_APPEALS_DESC'),
+            linkTo: 'http://catalog.creighton.edu/undergraduate/academic-policies-procedures/grades/'
           },
           {
             linkKey: 'common:CURRENT_SEMESTER_FINAL_GRADES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:CURRENT_SEMESTER_FINAL_GRADES_DESC'),
+            linkTo: 'http://catalog.creighton.edu/dentistry/administration-supervision-academic-policies/grading-system-policy/'
           }
         ]
       }
@@ -733,18 +683,18 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:APPLY_FOR_GRADUATION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:APPLY_FOR_GRADUATION_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/graduationcommencement/'
           },
           {
             linkKey: 'common:CAREER_SURVEY',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:CAREER_SURVEY_DESC'),
+            linkTo: 'https://www.creighton.edu/careercenter/students/careeracademicexploration/careerpersonalityassessments/'
           },
           {
             linkKey: 'common:REMOVE_HOLDS',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:REMOVE_HOLDS_DESC'),
+            linkTo: 'https://www.creighton.edu/businessoffice/other/faq/'
           }
         ]
       },
@@ -754,17 +704,17 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:VIEW_PROGRESS_TOWARD_GRADUATION',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:VIEW_PROGRESS_TOWARD_GRADUATION_DESC'),
+            linkTo: 'https://www.creighton.edu/registrar/degreeworks/'
           },
           {
             linkKey: 'common:GPA_CALCULATOR',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:GPA_CALCULATOR_DESC'),
+            linkTo: 'https://people.creighton.edu/~bjk79676/PHealth/BCPMCalculator.php'
           },
           {
             linkKey: 'common:PLAN_FOR_NEXT_SEMESTER',
-            linkDesc: translateText('common:COMMON_NA'),
+            linkDesc: translateText('common:PLAN_FOR_NEXT_SEMESTER_DESC'),
             linkTo: ''
           }
         ]
@@ -775,13 +725,13 @@ export const semesterDataObj = [
         [
           {
             linkKey: 'common:CURRENT_SEMESTER_GRADUATION_DATES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:CURRENT_SEMESTER_GRADUATION_DATES_DESC'),
+            linkTo: 'http://www.creighton.edu/commencement/schedule/'
           },
           {
             linkKey: 'common:FUTURE_SEMESTER_GRADUATION_DATES',
-            linkDesc: translateText('common:COMMON_NA'),
-            linkTo: ''
+            linkDesc: translateText('common:FUTURE_SEMESTER_GRADUATION_DATES_DESC'),
+            linkTo: 'http://www.creighton.edu/commencement/'
           }
         ]
       }

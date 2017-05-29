@@ -21,11 +21,16 @@ import AlertComponent from '../../common/alertComponent';
 import './style.css';
 import Spinner from '../../common/spinner';
 import EventDetailsPage from '../eventDetails/index';
+import DateFilter from './components/dateFilter';
 
 export class EventList extends React.PureComponent {
   constructor() {
     super();
     this.masterObj = null;
+    this.state ={
+      dateFilter: true
+    };
+    this.onSaveCalendar = this.onSaveCalendar.bind(this);
   }
   componentWillMount() {
     const props = this.props;
@@ -58,9 +63,17 @@ export class EventList extends React.PureComponent {
     browserTitle(translateText('common:NEXT_EVENTS'));
   }
 
+  onSaveCalendar() {
+    this.setState({dateFilter: true});
+  }
+
   getEventsData(props) {
     const EVENT_DATA = [];
     const finalCalenderEvents = [];
+    let dateRange = null;
+    if (localStorage.getItem('dateRange')) {
+      dateRange = JSON.parse(localStorage.getItem('dateRange'));
+    }
     if (this.masterObj && props.calendarDetailData && props.calendarDetailData.data) {
       const assignmentsData = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
       const classesData = convertEncodeURIComponent(this.masterObj.classMasterCopy);
@@ -119,20 +132,20 @@ export class EventList extends React.PureComponent {
       }
       let val = props.EventChangedValue;
       if (localStorage.getItem('setFilterValue') === null) {
-        localStorage.setItem('setFilterValue', CommonConstants.EVENT_FILTER_7_DAYS);
+        localStorage.setItem('setFilterValue', CommonConstants.EVENT_FILTER_ALL);
       }
       if (localStorage.getItem(CommonConstants.DISPLAY_OPTIONS) === null) {
         this.getEventDisplayOptions();
       }
       val = localStorage.getItem('setFilterValue');
       const val1 = localStorage.getItem('setDisplayOptionValue');
-      const result = this.getSelectedFilterData(val, val1);
+      const result = this.getSelectedFilterData(val, val1, dateRange);
       return result;
     }
     return EVENT_DATA;
   }
 
-  getSelectedFilterData(filterSelection, displayOptionFilter) {
+  getSelectedFilterData(filterSelection, displayOptionFilter, range) {
     let day;
     let eventDetails;
     let sortedEventData;
@@ -141,7 +154,14 @@ export class EventList extends React.PureComponent {
     const filterlist = [];
     let eventFilterData;
     let options;
-
+    let dateRange;
+    if (range) {
+      dateRange = {
+        from: moment(range.from)._d,
+        to: moment(range.to)._d
+      };
+    }
+    
     if (displayOptionFilter && filterSelection) {
       day = filterSelection;
       options = JSON.parse(displayOptionFilter);
@@ -176,6 +196,10 @@ export class EventList extends React.PureComponent {
       } else if (day === CommonConstants.EVENT_FILTER_TODAY && (APIDate.toString() === todayDate.toString()) && (APITime > todayTime)) {
         filterlist.push(eventObject);
       } else if ((day === CommonConstants.EVENT_FILTER_ALL || day === CommonConstants.EVENT_FILTER_NEXT_EVENT) && APIDate >= todayDate) {
+        if (!(APIDate.toString() === todayDate.toString() && APITime < todayTime)) {
+          filterlist.push(eventObject);
+        }
+      } else if (day === CommonConstants.EVENT_FILTER_CALENDAR && dateRange && (APIDate >= dateRange.from && APIDate <= dateRange.to)) {
         if (!(APIDate.toString() === todayDate.toString() && APITime < todayTime)) {
           filterlist.push(eventObject);
         }
@@ -320,6 +344,7 @@ export class EventList extends React.PureComponent {
     return (localStorageValue === CommonConstants.EVENT_FILTER_NEXT_EVENT ? this.renderNextEventDetail(EVENT_DATA) : this.renderData(EVENT_DATA));
   }
 
+
   renderNoDataFound() {
     return (
       <Alert bsStyle='warning'>
@@ -359,22 +384,36 @@ export class EventList extends React.PureComponent {
           </div>
         </Col>
         </Row>
-        <ul className='list-unstyled event-listSection'>
-          {EVENT_DATA && EVENT_DATA.length > 0 ? EVENT_DATA.map((eventType, index) => ( <li key={index}>
-            {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} currentIndex={index} />}
-            {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} currentIndex={index} />}
-            {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} currentIndex={index} />}
-            {eventType.type === NextEventsConstants.CALENDER && <OutlookCalendar data={eventType} currentIndex={index} />}
-          </li>
+        <Row>
+          {/*<Col xs={12}>
+            <span className='hidden-sm hidden-md hidden-lg'>
+              <span className='glyphicon glyphicon-calendar' onClick={() => { this.state.dateFilter = this.setState({dateFilter: !this.state.dateFilter}); }} />
+              <span> By date: </span>
+              <a onClick={() => { this.state.dateFilter = this.setState({dateFilter: !this.state.dateFilter}); }}>
+                {this.state.dateFilter ? translateText('common:COMMON_SHOW') : translateText('common:COMMON_HIDE')}
+              </a>
+            </span>
+          </Col>
+  <Col md={3} sm={12} xs={12} className={`pull-right ${this.state.dateFilter && 'calendarFilter'}`}><DateFilter onSave={this.onSaveCalendar} /></Col>*/}
+          <Col md={12} sm={6} xs={12}>
+            <ul className='list-unstyled event-listSection'>
+              {EVENT_DATA && EVENT_DATA.length > 0 ? EVENT_DATA.map((eventType, index) => ( <li key={index}>
+                {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} currentIndex={index} />}
+                {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} currentIndex={index} />}
+                {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} currentIndex={index} />}
+                {eventType.type === NextEventsConstants.CALENDER && <OutlookCalendar data={eventType} currentIndex={index} />}
+              </li>
             )) :
-          <Alert bsStyle='warning'>
-            <div>
-              <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
-              <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
-            </div>
-          </Alert>
+              <Alert bsStyle='warning'>
+                <div>
+                  <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
+                  <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
+                </div>
+              </Alert>
             }
-        </ul>
+            </ul>
+          </Col>
+        </Row>
       </article>
     );
   }
@@ -415,7 +454,7 @@ export class EventList extends React.PureComponent {
     const props = this.props;
     const EVENT_DATA = this.getEventsData(this.props);
     return (
-      <section role='region'>
+      <section role='region' className='event-topsection section-container init-top'>
         {props.isMasterDataChange ? this.renderDataCheck(EVENT_DATA) : this.renderLoader()}
       </section>
     );
@@ -431,7 +470,8 @@ const mapStateToProps = (eventsState) => (
     isMasterDataChange: eventsState.eventsReducer.isMasterDataChange,
     classLoading: eventsState.classesReducer.isLoading,
     EventChangedValue: eventsState.eventsFilterReducer.changedValue,
-    calendarDetailData: eventsState.eventsReducer.calendarDetailData
+    calendarDetailData: eventsState.eventsReducer.calendarDetailData,
+    changedDate: eventsState.eventsFilterReducer.changedDate
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, classesActionCreators), dispatch);

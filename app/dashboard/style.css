@@ -100,6 +100,7 @@
     top: -6px;
     position: relative;
     margin-left: 6px;
+
 }
 
 .well-badge span {
@@ -163,24 +164,9 @@
     line-height: 9px;
 }
 
-.school-img {
-  max-width: 62px;
-  height: 44px;
-}
-
-.classes-img {
-  max-width: 36px;
-  height: 52px
-}
-
-.nextevent-img {
-  max-width: 44px;
-  height: 52px
-}
-
-.campus-img {
-  max-width: 44px;
-  height: 52px
+.dashboard-icon {
+    max-width: 50px;
+    height: 63px;
 }
 
 .imageHide {
@@ -210,6 +196,21 @@
 
 /* Media for small devices */
 
+@media screen and (min-width:1025px) {
+
+    .white-well {
+        display: table;
+        height: 218px;
+        width: 100%;
+    }
+
+    .white-well .row {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+    }
+}
+
 @media screen and (min-width: 768px) {
 
     .plantoggle {
@@ -226,11 +227,23 @@
     .moduleImage {
         text-align:center;
         vertical-align:middle;
-        height: 63px;
+        height: 68px;
     }
     
     .angle-right {
         top: 6px;
+    }
+    
+    .white-well {
+        display: table;
+        height: 218px;
+        width: 100%;
+    }
+
+    .white-well .row {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
     }
     
 }

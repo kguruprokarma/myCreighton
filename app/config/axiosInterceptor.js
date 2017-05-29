@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { hashHistory } from 'react-router';  
+import { hashHistory } from 'react-router';
 import { indexOf } from 'lodash';
 import * as urlConstants from '../constants/urlConstants';
 import * as CommonConstants from '../constants/commonConstants';
@@ -7,8 +7,10 @@ import * as CommonConstants from '../constants/commonConstants';
 
 // Request interceptor
 axios.interceptors.request.use((confi) => {
-  const config =confi;
-  config.withCredentials = true;
+  const config = confi;
+  if (config.url.indexOf('notifications') === -1) {
+    config.withCredentials = true;
+  }
   return config;
 }, (error) => Promise.reject(error));
 
@@ -18,14 +20,14 @@ axios.interceptors.response.use((response) => {
     const URL = response.config.url.split('/');
     let roleObj = {};
     if (indexOf(URL, 'role') > 0 && response.data && response.data.role) {
-      if (response.data.role.indexOf(CommonConstants.STUDENT_TITLE)>0) {
-        roleObj = {'userRole': CommonConstants.ROLE_STUDENT};
+      if (response.data.role.indexOf(CommonConstants.STUDENT_TITLE) > 0) {
+        roleObj = { 'userRole': CommonConstants.ROLE_STUDENT };
       }
       if (response.data.role.indexOf(CommonConstants.ROLE_FACULTY_TITLE) >= 0) {
-        roleObj = {'userRole': CommonConstants.ROLE_FACULTY};
+        roleObj = { 'userRole': CommonConstants.ROLE_FACULTY };
       }
       if (response.data.role.indexOf(CommonConstants.ROLE_STAFF_TITLE) >= 0 || response.data.role.indexOf(CommonConstants.GUEST_TITLE) >= 0) {
-        roleObj = {'userRole': CommonConstants.ROLE_STAFF};
+        roleObj = { 'userRole': CommonConstants.ROLE_STAFF };
       }
       localStorage.setItem('roleInfo', JSON.stringify(roleObj));
       if (window.location.hash === '#/') {

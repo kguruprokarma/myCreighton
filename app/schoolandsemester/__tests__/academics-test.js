@@ -15,17 +15,17 @@ describe('index files in school and semester ----->', () => {
     mobileAccordToggle: true,
     showAllAccordions: jest.fn(),
     params: {
-      categoryname: 'openrequestsstatus'
+      categoryname: 'semesterstart'
     },
     routeParams: {
-      categoryname: 'openrequestsstatus'
+      categoryname: 'semesterstart'
     },
     semesterDataObj: [
       {
-        objectKey: 'openrequestsstatus',
-        title: translateText('common:OPEN_REQUESSTS_STATUS'),
-        headlines: translateText('common:ACTION_REQUIRED_AND_STATUS_OF_MY_OPEN_ITEMS'),
-        description: translateText('common:OPEN_REQUEST_DESC'),
+        objectKey: 'semesterstart',
+        title: translateText('common:SEMESTER_START'),
+        headlines: translateText('common:BE_READY_FOR_SCHOOL'),
+        description: translateText('common:SEMESTER_START_DESC'),
         accordionObj: [
           {
             accordionTitle: '',
@@ -76,12 +76,13 @@ describe('index files in school and semester ----->', () => {
     academics.instance().mobileShowAllAccordions();
   });
   it('Simulates navigateOnClick', () => {
-    academics.instance().navigateOnClick('openrequestsstatus');
+    academics.instance().navigateOnClick('semesterstart');
   });
   it('Simulates setStateAccordions', () => {
     academics.instance().state.selectedArray = minProps.semesterDataObj[0];
     academics.instance().state.mobileAccordToggle = true;
     academics.instance().setStateAccordions();
+    academics.instance().accordToggleFunc(minProps.semesterDataObj[0].accordionObj);
   });
 
   it('Boolean values to false', () => {
@@ -91,17 +92,17 @@ describe('index files in school and semester ----->', () => {
       mobileAccordToggle: false,
       showAllAccordions: jest.fn(),
       params: {
-        categoryname: 'openrequestsstatus'
+        categoryname: 'semesterstart'
       },
       routeParams: {
-        categoryname: 'openrequestsstatus'
+        categoryname: 'semesterstart'
       },
       semesterDataObj: [
         {
-          objectKey: 'openrequestsstatus',
-          title: translateText('common:OPEN_REQUESSTS_STATUS'),
-          headlines: translateText('common:ACTION_REQUIRED_AND_STATUS_OF_MY_OPEN_ITEMS'),
-          description: translateText('common:OPEN_REQUEST_DESC'),
+          objectKey: 'semesterstart',
+          title: translateText('common:SEMESTER_START'),
+          headlines: translateText('common:BE_READY_FOR_SCHOOL'),
+          description: translateText('common:SEMESTER_START_DESC'),
           accordionObj: [
             {
               accordionTitle: '',

@@ -22,22 +22,22 @@ describe('Law library search ----->', () => {
   });
   it('call search function when tabindex == 0', () => {
     const librarySearch = shallow(<LibrarySearch {...Object.assign({}, defaultProps, {tabindex: 0})} />);
-    librarySearch.instance().state.searchText = 'usman';
+    librarySearch.instance().state.searchText = 'Adam';
     librarySearch.instance().search();
   });
   it('call search function when tabindex == 1', () => {
     const librarySearch = shallow(<LibrarySearch {...Object.assign({}, defaultProps, {tabindex: 1})} />);
-    librarySearch.instance().state.searchText = 'usman';
+    librarySearch.instance().state.searchText = 'Adam';
     librarySearch.instance().search();
   });
   it('call search function when tabindex == 2', () => {
     const librarySearch = shallow(<LibrarySearch {...Object.assign({}, defaultProps, {tabindex: 2})} />);
-    librarySearch.instance().state.searchText = 'usman';
+    librarySearch.instance().state.searchText = 'Adam';
     librarySearch.instance().search();
   });
   it('call search function when tabindex == 3', () => {
     const librarySearch = shallow(<LibrarySearch {...Object.assign({}, defaultProps, {tabindex: 3})} />);
-    librarySearch.instance().state.searchText = 'usman';
+    librarySearch.instance().state.searchText = 'Adam';
     librarySearch.instance().search();
   });
   it('call clearSearchText function', () => {
@@ -46,6 +46,6 @@ describe('Law library search ----->', () => {
   });
   it('call handleChange function', () => {
     const librarySearch = shallow(<LibrarySearch {...defaultProps} />);
-    librarySearch.instance().handleChange({target: {value: 'usman'}});
+    librarySearch.instance().handleChange({target: {value: 'Adam'}});
   });
 });

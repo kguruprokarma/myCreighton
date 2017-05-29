@@ -84,6 +84,10 @@ describe('LibraryInformation Test Suite', () => {
     expect(libraryInformation.find('LibraryTabs').length).toBe(1);
   });
 
+  it('Link', () => {
+    libraryInformation.find('Link').at(0).simulate('click');
+  });
+
   // it('Test setTabindex, scrollToPosition functions', () => {
   //   libraryInformation.instance().setTabindex('header');
   //   libraryInformation.instance().scrollToPosition();

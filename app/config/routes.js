@@ -36,6 +36,8 @@ import Logout from '../logout/index';
 import LibrarySearch from '../librarySearch';
 import FeedbackComponent from '../feedback';
 import MissionAndMinistryComponent from '../missionAndMinistry';
+import QuickLaunchComponent from '../quickLaunch';
+import Notification from '../notification';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
@@ -68,8 +70,9 @@ const routes = (
           <Route path={ROUTE_URL.LIBRARY_SEARCH} title='Library Search - ' component={LibrarySearch} />
           <Route path={ROUTE_URL.FEEDBACK} title='Feedback - ' component={FeedbackComponent} />
           <Route path={ROUTE_URL.MISSION_AND_MINISTRY} title='Mission and ministry - ' component={MissionAndMinistryComponent} />
+          <Route path={ROUTE_URL.QUICK_LAUNCH} component={QuickLaunchComponent} />
           <Route path={ROUTE_URL.LOGOUT} title='Logout - ' component={Logout} />
-
+          <Route path={ROUTE_URL.NOTIFICATION} title='Logout - ' component={Notification} />
           {/*<Route path='/' component={Login} />
           <Route path={ROUTE_URL.PROFILE} component={Bio} />
           <Route path={ROUTE_URL.ACADEMIC} component={Academic} />

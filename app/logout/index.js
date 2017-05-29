@@ -9,8 +9,7 @@ class Logout extends React.PureComponent {
   render() {
     return (
       <div>
-        You are almost logged out!
-        To complete the logout process, please close/exit your browser completely. 
+        {translateText('common:SIGNOUT_MESSAGE')} 
       </div>
     );
   }

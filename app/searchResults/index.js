@@ -84,7 +84,7 @@ export class SearchResults extends React.PureComponent {
             }
           </Col>
           <Col md={3} sm={4} className='hidden-xs'>
-            <SearchLeftNav />
+            <SearchLeftNav url />
           </Col>
         </Row>
       </section>

@@ -1,6 +1,6 @@
 /*Created Date: - 2nd -02 -2017
-*Usage of file: - This component is for Footer details *
-*/
+ *Usage of file: - This component is for Footer details *
+ */
 
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';

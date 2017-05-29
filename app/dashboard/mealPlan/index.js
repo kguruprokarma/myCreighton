@@ -11,20 +11,16 @@ import Swipes from './components/swipes';
 import Guest from './components/guest';
 import Dining from './components/dining';
 import Jaybucks from './components/jaybucks';
+import PrintCredit from './components/printCredit';
 import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
 import ImageComponent from '../../common/imageComponent';
 import { MEALPLANMORE_ICON } from '../../constants/imageConstants';
+import { authUserDetails } from '../../common/utility';
 
 export class MealPlan extends Component {
-  componentWillReceiveProps(nextProps) {
-    const propsNext = nextProps;
-    if (propsNext.role && this.role !== propsNext.role.userRole) {
-      this.role = propsNext.role.userRole;
-      if (this.role !== undefined) {
-        this.props.getMealPlanData(`${(this.role).toLowerCase()}`);
-      }
-    }
+  componentWillMount() {
+    this.props.getMealPlanData(`${(authUserDetails().userRole).toLowerCase()}`);
   }
   render() {
     const props = this.props;
@@ -38,10 +34,11 @@ export class MealPlan extends Component {
             <Col sm={11} xs={10}>
               <Row>{MEALPLAN_DATA &&
                 <ul className='list-inline listflex row text-center'>
-                  <li><Swipes expire={MEALPLAN_DATA.mealBalance.swipesExpire} swipeCount={MEALPLAN_DATA.mealBalance.remainSwipes} /></li>
-                  <li><Guest guestCount={MEALPLAN_DATA.mealBalance.guestSwipes} /></li>
-                  <li><Dining diningCount={MEALPLAN_DATA.mealBalance.dinning} /></li>
-                  <li><Jaybucks jaybucksCount={MEALPLAN_DATA.mealBalance.jaybucks} /></li>
+                  <li className={!MEALPLAN_DATA.mealBalance.swipesExpire ? 'hidden-xs' : ''}><Swipes expire={MEALPLAN_DATA.mealBalance.swipesExpire} swipeCount={MEALPLAN_DATA.mealBalance.remainSwipes} /></li>
+                  <li className={!MEALPLAN_DATA.mealBalance.guestSwipes ? 'hidden-xs' : ''}><Guest guestCount={MEALPLAN_DATA.mealBalance.guestSwipes} /></li>
+                  <li className={!MEALPLAN_DATA.mealBalance.dinning ? 'hidden-xs' : ''}><Dining diningCount={MEALPLAN_DATA.mealBalance.dinning} /></li>
+                  <li className={!MEALPLAN_DATA.mealBalance.jaybucks ? 'hidden-xs' : ''}><Jaybucks jaybucksCount={MEALPLAN_DATA.mealBalance.jaybucks} /></li>
+                  <li className='hidden-xs'><PrintCredit printCount={MEALPLAN_DATA.mealBalance.print} /></li>
                 </ul>}
               </Row>
             </Col>

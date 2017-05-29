@@ -75,6 +75,9 @@ a:hover, *:hover  {
 .event-listSection li:last-child {
     border-bottom: 1px solid #c8c7cc;
 }
+.DayPicker-Week .DayPicker-Day--today{
+    color: green;
+}
 
 
 @media (min-width:768px) and (max-width: 992px) {
@@ -114,6 +117,28 @@ a:hover, *:hover  {
     .event-topsection .alert-warning, .event-topsection .alert-error {
         margin-top: 50px;
     }
-
+    .calendarFilter{
+       display: none;
+     }
+     .RangeExample {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    z-index: 1;
+    background-color: white;
+    border: 1px solid #ccc;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 12px;
+}
+    .calenderPointer{
+        background: url('./../../assets/images/popup-arrow.png') no-repeat;
+        position: absolute;
+        top: -11px;
+        left: 5px;
+        width: 20px;
+        height: 11px;
+    }
 
 }
+

@@ -22,6 +22,8 @@ import libraryInformationReducer from '../librarySearch/reducer';
 // import schoolAndSemesterReducer from '../schoolandsemester/reducer';
 // import accordionReducer from '../schoolandsemester/accordion/reducer';
 import feedbackReducer from '../feedback/reducer';
+import notificationReducer from '../notification/reducer';
+//import helpReducer from '../footer/reducer';
 
 // enable Redux Dev Tools
 const enhancers = compose(
@@ -47,6 +49,8 @@ const reducers = {
   libraryInformationReducer: libraryInformationReducer,
   staffProfileReducer: staffProfileReducer,
   feedbackReducer: feedbackReducer,
+  notificationReducer: notificationReducer,
+  //helpReducer: helpReducer,
   routing: routing
 };
 

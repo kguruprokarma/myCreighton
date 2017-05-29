@@ -38,6 +38,7 @@ export const EVENT_FILTER_7_DAYS = '7 Days';
 export const EVENT_FILTER_TODAY = 'Today';
 export const EVENT_FILTER_ALL = 'All';
 export const EVENT_FILTER_NEXT_EVENT = 'Next event detail';
+export const EVENT_FILTER_CALENDAR = 'Calendar';
 export const EVENT_TYPE_QUIZ = 'testorquiz';
 export const EVENT_TYPE_ASSIGNMENTS = 'assignments';
 export const QUIZ_SUBMISSION_TYPES = 'online_quiz';

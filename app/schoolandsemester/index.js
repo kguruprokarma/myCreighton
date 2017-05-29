@@ -26,7 +26,7 @@ class SchoolAndSemester extends React.PureComponent {
       selectedArray: {},
       descToggle: false,
       accordToggle: true,
-      activeNavLink: translateText('common:OPEN_REQUESSTS_STATUS')
+      activeNavLink: translateText('common:SEMESTER_SEMESTER_START')
     };
     this.navigateOnClick = this.navigateOnClick.bind(this);
     this.showAllDesc = this.showAllDesc.bind(this);
@@ -37,7 +37,7 @@ class SchoolAndSemester extends React.PureComponent {
   componentWillMount() {
     const titleValue = `${translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER')}`;
     browserTitle(titleValue);
-    this.navigateOnClick('openrequestsstatus');
+    this.navigateOnClick('semesterstart');
   }
 
   setStateAccordions() {
@@ -59,6 +59,7 @@ class SchoolAndSemester extends React.PureComponent {
   navigateOnClick(val) {
     const temp = filter(semesterDataObj, { 'objectKey': val });
     this.setState({ selectedArray: temp[0] });
+    this.setState({ descToggle: false });
     this.setState({ accordToggle: true }, () => {
       this.setStateAccordions();
     });

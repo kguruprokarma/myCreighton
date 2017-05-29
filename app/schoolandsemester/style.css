@@ -69,6 +69,13 @@
 
 .main-list-group.accordian-list-data .list-group-item {
     border-color: #dbdbdd; 
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.main-list-group.accordian-list-data .list-group-item .row {
+    padding-top: 10px;
+    padding-bottom:10px;
 }
 
 .main-list-group.accordian-list-data .list-group-item:hover,
@@ -120,6 +127,15 @@
     box-shadow: none;
 }
 
+.semester-links .list-group-item a.active {
+    color: #313131;
+}
+
+.accord-description {
+    padding-bottom: 10px;
+    margin-top: -8px;
+}
+
 
 /* Media for small devices */
 @media screen and (max-width: 767px) {
@@ -131,7 +147,8 @@
     .main-list-group {
         margin-top: 0;
     }
+
     .semester-internal-data {
-        padding-top: 20px;
+        margin-top: 20px;
     }
 }

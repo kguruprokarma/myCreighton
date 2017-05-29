@@ -32,6 +32,8 @@ export const LIBRARY_SEARCH = '/librarysearch';
 export const LOGOUT = '/logout';
 export const FEEDBACK = '/feedback';
 export const MISSION_AND_MINISTRY = '/missionandministry';
+export const QUICK_LAUNCH = '/quicklaunch';
+export const NOTIFICATION = '/notification';
 
 /*
 * Relative path url's parameters for components

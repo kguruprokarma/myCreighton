@@ -9,7 +9,9 @@ import { bindActionCreators } from 'redux';
 /*import IdleTimer from 'react-idle-timer';*/
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import io from 'socket.io-client';
 import * as actionCreators from '../header/actions';
+import * as notificationActions from '../notification/actions';
 import Footer from '../footer/index';
 import Navigation from '../common/mainNav';
 import HeaderComponent from '../header/index';
@@ -18,7 +20,6 @@ import * as CommonConstants from '../constants/commonConstants';
 import * as profileDataAction from '../profile/actions';
 //import ConfirmationPopUp from './confirmationPopUp';
 import * as ROUTE_URL from '../constants/routeContants';
-import { authUserDetails } from '../common/utility';
 
 @translate([], { wait: true })
 class Main extends React.PureComponent {
@@ -27,9 +28,10 @@ class Main extends React.PureComponent {
     super();
     this.hidePopUp = this.hidePopUp.bind(this);
     this.state = {
-      isLogin: false
+      isLogin: false,
+      isRole: false
     };
-    this.reference='idleTimer';
+    this.reference = 'idleTimer';
     this.signOutBind = this.signOut.bind(this);
     this.clearStorage = this.clearStorage.bind(this);
     this._onIdle = this._onIdle.bind(this);
@@ -47,32 +49,33 @@ class Main extends React.PureComponent {
         this.clearStorage();
       }
     }, 1000);
-    if (!localStorage.getItem('roleInfo')) {
-      this.checkRole = setInterval(() => {
-        if (localStorage.getItem('roleInfo')) {
-          clearInterval(this.checkRole);
-          this.role = authUserDetails().userRole;
-          const props = this.props;
-          if (this.role) {
-            if (this.role === CommonConstants.ROLE_FACULTY) {
-              props.getFacultyProfileData();
-            } else if (this.role === CommonConstants.ROLE_STAFF) {
-              props.getStaffProfileData();
-            } else if (this.role === CommonConstants.ROLE_STUDENT) {
-              props.getStudentProfileData();
-            }
-          }
-        }
-      }, 1000);
-    }
+    const socket = io.connect('http://localhost:8081');
+    socket.on('connect', () => {
+      socket.emit('join', 'Hello World from client');
+    });
+    socket.on('messages', (data) => {
+      console.log(data);
+    });
   }
 
   componentWillMount() {
     const props = this.props;
+    props.getNotifications();
+    props.resetNewNotifications();
     if (props.location.pathname === ROUTE_URL.LOGOUT) {
       this.setState({ isLogin: false });
     } else {
       this.setState({ isLogin: true });
+    }
+    if (!localStorage.getItem('roleInfo')) {
+      this.checkRole = setInterval(() => {
+        if (localStorage.getItem('roleInfo')) {
+          clearInterval(this.checkRole);
+          this.setState({ isRole: true });
+        }
+      }, 1000);
+    } else {
+      this.setState({ isRole: true });
     }
   }
 
@@ -156,7 +159,7 @@ class Main extends React.PureComponent {
         {/* this is main section */}
         <main role='main' id='content' className='container'>
           <a id='maincontent' className='announced-only'>&nbsp;</a>
-          {localStorage.getItem('roleInfo') && props.children}
+          {this.state.isRole && props.children}
         </main>
         {/* /this is main section */}
         {/* this is footer section */}
@@ -177,11 +180,7 @@ class Main extends React.PureComponent {
     );
   }
 }
-Main.propTypes = {
-  getFacultyProfileData: React.PropTypes.func,
-  getStaffProfileData: React.PropTypes.func,
-  getStudentProfileData: React.PropTypes.func
-};
+
 const mapStateToProps = (storeData) => (
   {
     popUpData: storeData.headerReducer.showPopUp,
@@ -192,6 +191,6 @@ const mapStateToProps = (storeData) => (
     profileData: storeData.profileReducer.profileData.data
   });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileDataAction), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, profileDataAction, notificationActions), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
