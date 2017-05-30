@@ -96,7 +96,7 @@ module.exports = {
                 .click('@Classes')
     },
     clickOnNextEvents :function(){
-     return this.waitForElementVisible('@nextEvents',2000)
+     return this.waitForElementVisible('@nextEvents',20000)
                 .waitForElementPresent('@nextEvents',"Click on Next Events")            
                 .click('@nextEvents')
     },
@@ -125,9 +125,6 @@ module.exports = {
 	            .waitForElementVisible('@DoITServicesSupport',2000)
                 .waitForElementPresent('@DoITServicesSupport',"Click on DoIT Services & Support")
                 .click('@DoITServicesSupport')
-              // .assert.title("easyvista");
-             // .assert.urlContains('creighton-apps.easyvista.com')
-             // .assert.urlEquals('http://www.easyvista');  
 
     },
      clickOnHide:function(){
@@ -189,7 +186,7 @@ module.exports = {
        },
     verifySchoolAndSemester: function(){
         const msg ="School & Semester page header";
- return this.waitForElementPresent('h1.bebasregular.headerLabel.mt5.mb20')
+          return this.waitForElementPresent('h1.bebasregular.headerLabel.mt5.mb20')
 		 .assert.containsText('h1.bebasregular.headerLabel.mt5.mb20', 'School & Semester',msg+ "verified");       
     },
 
@@ -222,6 +219,7 @@ module.exports = {
       
            .waitForElementVisible('body',5000)
             .verify.urlContains(label.easyvistaurl,'DoIT Services & Support is verified')
+            .assert.title("CU SS Portal Shortcut (PROD)")
 
     }
  }]

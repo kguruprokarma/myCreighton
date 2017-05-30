@@ -1,3 +1,4 @@
+var allure = require("nightwatch-allure-adapter");
 module.exports = {
 
   elements: {
@@ -60,6 +61,7 @@ module.exports = {
     },
    clickOnEventFilter :function(){
      return this.waitForElementVisible('@eventfilter',5000)
+                .waitForElementPresent('@eventfilter','Click on event filter')
                  .click('@eventfilter');                           
    },
      checkNexteventdetail : function () {
@@ -91,11 +93,13 @@ module.exports = {
                    .click('@ClassAssignmentEvents');      
      },
      checkCreightonCalendarEvents : function () {
-        return this.waitForElementVisible('@CreightonCalendarEvents',20000)
+        return this.waitForElementVisible('@CreightonCalendarEvents',20000,'verify claendar event check box')
+                   .waitForElementPresent('@CreightonCalendarEvents',"Check creighton calendar events from display options")
                    .click('@CreightonCalendarEvents');      
      },
        clickDone : function () {
         return this.waitForElementVisible('@Done',20000)
+                   .waitForElementPresent('@Done',"Click on Done")
                    .click('@Done');      
      },
        ProfilePageheaderText : function () {
@@ -105,15 +109,17 @@ module.exports = {
 
        verifyCalendarEvents : function(){
         this.api.elements('css selector', '.mb10.classesHeading', function (result) {
-        console.log("The total calendar events for the week are :   " + result.value.length)      
+      this.waitForElementPresent('.mb10.classesHeading',"The total calendar events  are :   " + result.value.length)
 });
      },
        clickCalendarEvent : function(){
          return this.waitForElementVisible('@calendarEvent1',5000)
+                     .waitForElementPresent('@calendarEvent1','Click on Calendar Event ')
                     .click('@calendarEvent1');   
        } ,
        verifyCalendarEventItem : function(){
          return this.waitForElementVisible('@CreightonCalendarItem',5000)
+                    .waitForElementPresent('@CreightonCalendarItem',"verify event description - Creighton calendar item")
                     .assert.containsText('@CreightonCalendarItem','Creighton calendar item')
        },
 
@@ -125,6 +131,19 @@ module.exports = {
           client.assert.ok(result.value, 'Checkbox is selected');
   });
 });
-       }
+       },
+       uncheckAllDisplayOptions : function(client) {
+         this.verify.visible('li label[for="testAll"]', 'The checkbox named All is visible');
+            this.api.element('css selector', 'li label[for="testAll"]', function(response) {
+        this.assert.ok('Checkbox response ');
+        this.elementIdSelected(response.value.ELEMENT, function(result){
+          this.verify.ok(!result.value, 'Checkbox is  selected');
+          this.click('li label[for="testAll"]')
+          this.assert.ok('Display Options-ALL is unchecked');
+           });
+      })
+   }
+ 
+
  }]
 };
