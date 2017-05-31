@@ -9,7 +9,7 @@ module.exports = {
    verifyQuickLaunchPageTitle: function(){
         const msg ="Quick Launch page header";
  return this.waitForElementPresent('@quicklaunchPageHeader')
-		 .assert.containsText('@quicklaunchPageHeader', 'Quick Launch',msg + "verified");       
+		 .assert.containsText('@quicklaunchPageHeader', 'Quick Launch',msg + " verified");       
     },
 
   }]

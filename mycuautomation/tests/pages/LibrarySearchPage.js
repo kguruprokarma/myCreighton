@@ -53,7 +53,7 @@ module.exports = {
     verifyLibrarySearchPageTitle: function(){
         const msg ="Library search page header";
     return this.waitForElementPresent('@LibrarySearchPageheader')
-		 .assert.containsText('@LibrarySearchPageheader', 'Library Search',msg+ "verified");       
+		 .assert.containsText('@LibrarySearchPageheader', 'Library Search',msg + " verified");       
     },
    clickJaySearch:function(){
      return this.waitForElementVisible('@JaySearch',20000)

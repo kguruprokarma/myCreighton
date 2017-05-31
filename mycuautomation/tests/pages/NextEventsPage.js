@@ -57,7 +57,7 @@ module.exports = {
     verifyNextEventsPageTitle: function(){
         const msg ="Next Events page header";
     return this.waitForElementPresent('h1.bebasregular.headerLabel.mt5.mb20')
-		 .assert.containsText('@NextEventspageheader', 'Next Events',msg+ "verified");       
+		 .assert.containsText('@NextEventspageheader', 'Next Events',msg + " verified");       
     },
    clickOnEventFilter :function(){
      return this.waitForElementVisible('@eventfilter',5000)
