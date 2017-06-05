@@ -7,18 +7,7 @@
                     .LoginStudent();
 
     },
-   //  after: client => client.end(),
-/*'NextEventsTest' : function (client) {
-
-events.checkAllEvents();
-events.checkCreightonCalendarEvents();
-client.pause(2000);
-events.clickDone();
-events.verifyCalendarEvents();
-client.pause(2000);
-events.clickCalendarEvent();
-events.verifyCalendarEventItem();
-  },*/
+    after: client => client.end(),
 'verify EventPeriod All and DisplayOptions Creighton Calendar ' : function (client) {
 var dash = client.page.DashboardPage();
 dash.clickOnNextEvents();
@@ -52,10 +41,6 @@ client.pause(2000);
 events.clickEvent();
 client.pause(2000);
 events.verifyClassesEvents();
- },
-// 'verify EventPeriod All and DisplayOptions All ' : function (client) {
-// },
-
-
+ }
 
 };
