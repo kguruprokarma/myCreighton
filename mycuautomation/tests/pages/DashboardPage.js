@@ -192,16 +192,17 @@ module.exports = {
 
     verifyFooter :function(){
      return this.waitForElementVisible('@footer',20000)
-	              .assert.containsText('@footer',label.footerAddress)        
+	              .assert.containsText('@footer',label.footerAddress)    
+                  .assert.containsText('@footer',label.footerphonenumber)    
     },
     verifyNavigationLinks:function(){
-    this.api.elements('css selector','ul.main-navigation li', function (result) {
+    this.api.elements('css selector','.navigation-item a', function (result) {
     console.log("No. of Navigation links are "+ result.value.length) ;
     this.verify.equal(result.value.length, 4,"No. of Navigation links are 4");
     });
     },
     navigationlinks : function(){
-             this.api.elements('css selector', 'ul.main-navigation li', function(result) {
+             this.api.elements('css selector', '.navigation-item a', function(result) {
         for(var i in result.value) {
           this.elementIdClick(result.value[i].ELEMENT)
             // console.log(links.value);
@@ -215,9 +216,8 @@ module.exports = {
         this.verify.equal(result.value.length, 2, 'verify the navigation to creighton easy vista ')
         var handle = result.value[1]
         this.switchWindow(handle)
-      })
-      
-           .waitForElementVisible('body',5000)
+      })      
+           .waitForElementVisible('body',20000)
             .verify.urlContains(label.easyvistaurl,'DoIT Services & Support is verified')
             .assert.title("CU SS Portal Shortcut (PROD)")
 

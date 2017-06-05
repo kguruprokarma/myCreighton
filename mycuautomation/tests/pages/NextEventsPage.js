@@ -43,13 +43,16 @@ module.exports = {
     Done : {
       selector : 'button.filterDoneBtn.openSansRegular.pull-right'
     },
-    calendarEvent1 : {
+    eventlistitem : {
       selector : "h2.mb10.classesHeading",
       index : 1
     },
     CreightonCalendarItem :{
       selector : 'div.eventDetailSubject'
     },
+    NextEventsTab :{
+      selector : 'span.float-right.nextEventBtnTxt'
+    }
 
   },
   
@@ -93,7 +96,7 @@ module.exports = {
                    .click('@ClassAssignmentEvents');      
      },
      checkCreightonCalendarEvents : function () {
-        return this.waitForElementVisible('@CreightonCalendarEvents',20000,'verify claendar event check box')
+        return this.waitForElementVisible('@CreightonCalendarEvents',20000,'verify calendar event check box')
                    .waitForElementPresent('@CreightonCalendarEvents',"Check creighton calendar events from display options")
                    .click('@CreightonCalendarEvents');      
      },
@@ -106,21 +109,32 @@ module.exports = {
         return this.waitForElementVisible('@profilepageheader',5000)
                .getText('profilepageheader');
        },
+       clickNextEventsTab : function(){
+          return this.waitForElementVisible('@NextEventsTab',20000,'verify NextEvents Tab ')
+                   .waitForElementPresent('@NextEventsTab',"click on NextEvents Tab for navigating back to event list")
+                   .click('@NextEventsTab');
+       },
 
        verifyCalendarEvents : function(){
         this.api.elements('css selector', '.mb10.classesHeading', function (result) {
       this.waitForElementPresent('.mb10.classesHeading',"The total calendar events  are :   " + result.value.length)
 });
      },
-       clickCalendarEvent : function(){
-         return this.waitForElementVisible('@calendarEvent1',5000)
-                     .waitForElementPresent('@calendarEvent1','Click on Calendar Event ')
-                    .click('@calendarEvent1');   
+       clickEvent : function(){
+         return this.waitForElementVisible('@eventlistitem',5000)
+                     .waitForElementPresent('@eventlistitem','Click on Event from eventlist ')
+                    .click('@eventlistitem');   
        } ,
+
        verifyCalendarEventItem : function(){
          return this.waitForElementVisible('@CreightonCalendarItem',5000)
                     .waitForElementPresent('@CreightonCalendarItem',"verify event description - Creighton calendar item")
                     .assert.containsText('@CreightonCalendarItem','Creighton calendar item')
+       },
+       verifyClassesEvents:function(){
+        return this.waitForElementVisible('@NextEventspageheader',5000)
+                    .waitForElementPresent('@NextEventspageheader',"verify page header Next Events-Class Detail is present")
+                    .assert.containsText('@NextEventspageheader','Next Events - Class Detail')
        },
 
        weekEvents : function(client){
