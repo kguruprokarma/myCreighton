@@ -11,6 +11,6 @@ module.exports = {
       login.navigate()
            .LoginStudent();
       client.pause(6000);
-           login.verifyStudent();
+     login.verifyStudent();
   }
 };

@@ -29,6 +29,7 @@ client.pause(5000);
 classes.verifyPageTitle();
 client.back();
 
+client.pause(5000);
 dash.clickOnNextEvents();
 client.pause(5000);
  var events=client.page.NextEventsPage();

@@ -1,17 +1,14 @@
 var excel = require('../CommonFiles/ProfileReader');
   var user=excel.returnLoginData();
 module.exports = {
-//  url: 'http://mycu-rundev2.creighton.edu/#',
-url: 'http://dev-dl-api.creighton.edu/loginadfs?redirect=http%3A%2F%2Fmycu-rundev2.creighton.edu%2F%23%2F',
+  url: 'http://mycu-rundev2.creighton.edu/#',
+//url: 'http://dev-dl-api.creighton.edu/loginadfs?redirect=http%3A%2F%2Fmycu-rundev2.creighton.edu%2F%23%2F',
   // beforeEach:function (browser,done){
   //   browser.maximizeWindow(done)
   //   .navigate();
   // },
 
   elements: {
-    usertype :{
-      selector: 'span.openSansBold.user-type' 
-    },
     mycuname :{
       selector : 'input#userNameInput'
     },
@@ -22,7 +19,7 @@ url: 'http://dev-dl-api.creighton.edu/loginadfs?redirect=http%3A%2F%2Fmycu-runde
       selector : 'span#submitButton'
     },
     usertype : {
-      selector : '.openSansBold.user-type'
+      selector : 'span.openSansBold.user-type'
     }
   },
 
