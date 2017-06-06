@@ -10,8 +10,7 @@ module.exports = {
       var login = client.page.LoginPage();
       login.navigate()
            .LoginStudent();
-          //  .waitForElementVisible('body',20000)
-          //  .verifyStudent();
-     console.log("Login as Student")  
+      client.pause(6000);
+           login.verifyStudent();
   }
 };

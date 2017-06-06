@@ -69,7 +69,7 @@ client.back();
 
 client.pause(4000);
 dash.clickOnDoITServicesSupport();
-client.pause(8000);
+client.pause(20000);
 dash.verifyDoItServices();
 
 }

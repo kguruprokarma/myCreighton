@@ -4,8 +4,9 @@ module.exports = {
         var loginPage = client.page.LoginPage();
         client.maximizeWindow(done);
         loginPage.navigate()
-                 .LoginStudent()
-                 .verifyStudent();
+                 .LoginStudent();
+        client.pause(5000);
+        loginPage.verifyStudent();
     },
      after: client => client.end(),
 'VerifyProfile' : function (client,done){
@@ -30,6 +31,7 @@ var dash = client.page.DashboardPage();
    client.pause(5000);
  dash.clickOnAcademic();
  var profile=client.page.ProfilePage();
+    client.pause(5000);
  profile.AcademicPageheaderText();
   profile.verifyAcademicLabels();
   

@@ -10,6 +10,7 @@
     after: client => client.end(),
 'verify EventPeriod All and DisplayOptions Creighton Calendar ' : function (client) {
 var dash = client.page.DashboardPage();
+client.pause(4000);
 dash.clickOnNextEvents();
 var events=client.page.NextEventsPage();
 client.pause(4000);
