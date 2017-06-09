@@ -23,19 +23,19 @@ module.exports = {
       selector : '.dataHeading.openSansRegular'
     },
     firstname :{
-      selector : "//div[contains(text(),'6aed0206d6')]",
+      selector : "//div[contains(text(),'1ae6e6416a')]",
       locateStrategy : 'xpath'
     },
       Lastname : {
-      selector : "//div[contains(text(),'15f86e24ed')]",
+      selector : "//div[contains(text(),'f186449d7e')]",
       locateStrategy : 'xpath'
     },
       Middle :{
-      selector : "//div[contains(text(),'Marie')]",
+      selector : "//div[contains(text(),'M')]",
       locateStrategy : 'xpath'
     },
       NetID : {
-      selector : "//div[contains(text(),'6cb4db8459')]",
+      selector : "//div[contains(text(),'b140849adb')]",
       locateStrategy : 'xpath'
     },
     LegalName : {
