@@ -1,0 +1,144 @@
+.boomarkLinks {
+    line-height: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.libraryHours {
+    display: block;
+    line-height: 35px;
+}
+
+.library {
+    line-height: 25px;
+}
+
+.libraryArrow {
+    font-size: 0.85em;
+}
+
+.libraryData,.libraryMore {
+    font-size: 1.2em;
+}
+
+.onlineClass:hover,
+.onlineClass:active,
+.onlineClass:focus {
+    text-decoration: none;
+}
+
+.libraryDataHeading {
+    text-transform: uppercase;
+    font-size: 1.2em;   /* font size 18 in pixel */
+}
+    
+.btn-group .btn-group.librarySearch {
+    font-size: 1em;
+}
+
+.btn-group .btn.btn-default.libraryButton {
+    border: 1px solid #019cdb;
+    background-color: #fff;
+    color: #019cdb;
+    font-size: 0.8em;    /* font size 11 in pixel */
+    white-space: pre-wrap;
+}
+
+.btn.btn-default.libraryButton:hover,
+.btn.btn-default.libraryButton:active,
+.btn.btn-default.libraryButton:focus,
+.btn.btn-default.libraryButton.active:hover,
+.btn.btn-default.libraryButton.active:active,
+.btn.btn-default.libraryButton.active:focus  {
+    outline: 0;
+    box-shadow: none;
+    background-color: #019cdb;
+    color: #fff;
+}
+
+.btn.btn-default.libraryButton.active  {
+    background-color: #019cdb;
+    box-shadow: none;
+    color: #fff;
+    z-index: 0;
+}
+
+.bookmarkContainer {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.btn-group>.btn.libraryButton:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-right: 0;
+}
+
+.icon-addon.librarySearch {
+    left: 21px;
+    top: 12px;
+}
+
+.librarySearchBtn {
+    background-color:#ffffff;
+    border:1px solid #0054a6;
+    color: #0054a6;
+    text-align: center;
+    font-size: 1.266666666666667em;
+    height: 46px;
+    line-height: 30px;
+}
+
+.librarySearchBtn:hover,
+.librarySearchBtn:active,
+.librarySearchBtn:focus, 
+.librarySearchBtn[disabled]:hover, 
+.librarySearchBtn[disabled]:focus,
+.librarySearchBtn[disabled]:active,
+.btn-default.librarySearchBtn:active {
+    background-color: #fff;
+    color: #0054a6;
+    box-shadow: none;
+    outline: none;
+    border-color: #0054a6;
+}
+
+.libraryGuideContent .form-control {
+    border: 1px solid #a2a2a2;
+    box-shadow: none;
+    font-family: 'open_sanslight', sans-serif;
+}
+.textPadding {
+    padding: 8px 16px;
+}
+
+@media screen and (max-width: 767px) {
+
+    .libraryLinks {
+        text-align: center;
+    }
+
+    .libraryDataHeading {
+        border: none;
+    }
+
+    .libraryHeader {
+        border-bottom:1px solid #c8c7cc;
+	    overflow: hidden;
+    }
+
+    .bookmarkContainer {
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+    
+    .libraryGuideContent  {
+        padding-top: 20px;
+    }
+
+    .librarySearchBtn  {
+        margin-top: 5px;
+    }
+    
+    .libraryGuideContent .librarySearchBtn {
+        margin-top: 0;
+    }
+}

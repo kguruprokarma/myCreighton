@@ -1,0 +1,575 @@
+
+.jaybucksWell {
+    padding: 2px 0px 8px;
+    background-color: #ebfee7;
+    border: 1px solid #73b865;
+    overflow: hidden;
+    margin-bottom:2px;
+    text-align:center;
+    min-height: 45px;
+}
+
+.jbvalue {
+    color: #619c55; /*Changed as per given Hardening comments. Previously it was #73b865 */
+    font-size: 1.7333333333333334em;    /* font size 26 in pixel */
+}
+.jbText {
+    font-size: 0.8em;    /* font size 12 in pixel */
+    color: #707070; /*Changed as per given Hardening comments. Previously it was #878787 */
+    text-transform: uppercase;
+    line-height: 2.2em;
+}
+
+.classes{
+    background: #e3e3e3;
+    border-left: 4px solid red;
+    border-bottom: 1px dotted grey;
+}
+
+.listflex {
+    min-height: 20px;
+    overflow: visible;
+    text-align: center;
+    margin-bottom:0;
+    padding-left: 10px;
+}
+
+.angle-right {
+       position: relative;
+       top:-2px; 
+       right: 0px;
+       width: 10px;
+       height: 10px;
+       float:right;
+}
+
+.listflex li {
+       margin-right: .1em;
+}
+
+
+.avatar-name {
+    font-size: 1.7333333333333334em;
+    line-height: 1.3;
+}
+
+.user-type {
+    font-size: 1.2em;   /* font size 18 in pixel */
+    color: #737373; /*Changed as per given Hardening comments. Previously it was #828282*/
+    text-transform: capitalize;
+}
+
+.white-well {
+    background-color: #fff;
+    border:1px solid #0054a6;
+    margin-bottom:30px;
+    padding: 1.3em 1.1em 1.4em; 
+    overflow: hidden;
+    border-radius:5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius:5px;
+    box-shadow: none;
+}
+
+.well-title {
+    color: #0054a6;
+    font-size: 1.93333em;
+	  letter-spacing: -0.03em;
+	  line-height: 1;
+	  margin-bottom: 0.1em; 
+    text-align: center;
+}
+
+.well-title a:hover, .well-title a:hover {
+    text-decoration:none;
+}
+
+.well-badge {
+    width:14px;
+    height:14px;
+    background-color: #ff3451;
+    text-align:center;
+    display: inline-block;
+    border-radius:50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    top: -6px;
+    position: relative;
+    margin-left: 6px;
+
+}
+
+.well-badge span {
+    font-size:10px;    /* font size 11 in pixel */
+    color:#ffffff;
+    background-color: transparent;
+    line-height:10px;
+    float: left;
+    width: 14px;
+    text-align: center;
+    margin-top:1px;
+}
+
+.well-caption {
+    color: #757575;  
+    font-size: 1.2em;   /* font size 18 in pixel */  
+}
+
+.wel-title, .well-caption {
+    text-align:center;
+}
+
+.doller-icon{
+    font-size: 0.8em;   /* font size 12 in pixel */
+    text-transform: uppercase;
+    color: #0054a6;
+}
+
+.doller-icon img {
+    max-width:30px;
+    max-height: 30px;
+}
+
+.doller-icon.btn-link:focus, .doller-icon.btn-link:hover
+{
+    color: #0054a6;
+    outline: 0;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.doller-icon {
+        margin-top:4px;
+        text-shadow: none;
+}
+
+.mpDoller {
+    font-size: 1.2em;   /* font size 18 in pixel */
+    position: relative;
+    top: 1px;
+    left: 1px;
+}
+
+#wells a:hover {
+    text-decoration: none;
+}
+
+.meal-doller {
+    font-size: 0.6em;   /* font size 12 in pixel */
+    position: relative;
+    top: -7px;
+    line-height: 9px;
+}
+
+.dashboard-icon {
+    max-width: 50px;
+    height: 63px;
+}
+
+.imageHide {
+    display: none;
+}
+
+.avatar-left {
+    width: 14%;
+    margin-right: 6px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.avatar-right {
+    width: 82%;
+    display: table-cell;
+    vertical-align: middle;
+    min-height: 48px;
+    padding-left: 10px;
+}
+
+.avatar-container {
+    overflow: hidden;
+    height: 100%;
+    display: table;
+    width: 100%;
+}
+
+/* Slick Carousel CSS */
+
+    .slick-slider {
+        margin-right: 15px;
+        margin-left: 15px;
+        
+    }
+
+    .slick-arrow {
+        position: absolute;
+        top: 50%;
+        margin-top: -12px;
+        background: url('/assets/images/mealplan-arrow.png') no-repeat 0 0;
+        /*background: url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAaCAMAAACJtiw1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAY1BMVEVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGUAAABC5qD0AAAAH3RSTlMAXm8FAlXy+3Ja8/ht/v0H+fZrbnH092r8bGnrCWhwSmF99gAAAAFiS0dEILNrPYAAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfhAxYRLQlnDDsYAAAAhElEQVQY02WR2RYCIQxDKyqgdBwXRGaz//+Xlnkxp/B4TxPahIgO7kjwTmcfIoLLVSQ5ADyIyI3/YHR3JY8nzMSgxL+A5LeSgj4fr6SCD02pzUyoqs0HVbm0GXSeFyWBVyBtHwHVZoCVWFP7rV1sXx0isMeZ87uAWEyEXchdDVrUF4v6Ack8DcT27BIrAAAAAElFTkSuQmCC') no-repeat 0 0;*/
+        background-size: 10px auto;
+        border: 0;
+        text-indent: -9999px;
+        z-index: 1;
+        width: 16px;
+        height: 16px;
+
+    }
+
+    .slick-prev {
+        left: -10px;
+        -ms-transform: rotate(-180deg); /* IE 9 */
+        -webkit-transform: rotate(-180deg); /* Chrome, Safari, Opera */
+        transform: rotate(-180deg);
+        background-position: center center;
+    }
+
+    .slick-next {
+        right: -10px;
+        background-position: center center;
+    }
+
+    .slick-disabled {
+        display: none !important;
+    }
+
+    .slick-active *, .slick-active {
+        z-index: 0;
+        position: relative;
+    }
+        
+    .slick-arrow:hover, 
+    .slick-arrow:active,
+    .slick-arrow:focus {
+        border:0;
+        outline: 0;
+        cursor: pointer;
+    }
+
+    .slick-slide {
+        max-width: 110px;
+    }
+
+    /* End of Slick Carousel CSS */
+
+    
+/* Media for small devices */
+
+@media screen and (min-width:1025px) {
+
+    .white-well {
+        display: table;
+        height: 220px;
+        width: 100%;
+    }
+
+    .white-well .row {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .plantoggle {
+        display: block;
+    }
+
+    .mplanToggle {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    .moduleImage {
+        text-align:center;
+        vertical-align:middle;
+        height: 68px;
+    }
+    
+    .angle-right {
+        top: 6px;
+    }
+    
+    .white-well {
+        display: table;
+        height: 220px;
+        width: 100%;
+    }
+
+    .white-well .row {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+    }
+    
+}
+
+@media screen and (min-width: 768px) and (max-width:992px) {
+
+    .jbvalue {
+       font-size: 1.4666666666666666em; /* font size 22 in pixel */
+    }
+
+    .well-title {
+        font-size: 1.6em;    /* font size 24 in pixel */
+        text-align:left;
+    }
+
+    .angle-right {
+        top:8px;
+    }
+
+    .well-caption {
+        font-size: 1em; /* font size 15 in pixel */
+        text-align:left;
+    }
+
+    .white-well {
+        min-height: 100px;
+    }
+
+    .moduleImage {
+        vertical-align:middle;
+        width: 21%;
+        padding-right: 0;
+        text-align: center;
+    }
+ 
+    .avatar-left {
+        width: 20%;
+    }
+
+    .avatar-right {
+        width: 76%;
+    }
+
+    .school-img {
+      max-width: 58px;
+      height: 42px;
+    }
+}
+
+@media screen and (min-width: 360px) and  (max-width: 492px) {
+      
+    .angle-right {
+        top:10px;
+    }
+}
+
+@media screen and (min-width: 481px) and  (max-width: 767px) {
+
+    .angle-right {
+        top: 0;
+    }
+
+   .well-title {
+        font-size: 2.4em;    /* font size 36 in pixel */
+        text-align:left;
+    }
+
+    .well-caption {
+        font-size: 1.6em;    /* font size 24 in pixel */
+        text-align:left;
+    }
+
+}
+
+@media screen and (min-width: 483px) and  (max-width: 520px) {
+   
+     .moduleImage {
+        width: 20%;
+    }
+    
+}
+
+
+@media screen and (max-width: 767px) {
+      
+  .jaybucksWell {
+       padding-top: 8px;
+   }
+    
+    .listflex li {
+       margin-right: .0em;
+       min-width:21%;
+   }
+
+    .listflex li:first-child {
+        margin-left:.2em;
+    }
+
+   .listflex {
+        display: inline-block;
+        white-space: nowrap;
+        min-width:21%;
+        margin-left: 1px;
+        padding-left: 0px;
+        margin-bottom:12px;
+   }
+
+    .listflex li {
+        margin-right:8px;
+        min-width:10px;
+    }
+
+    .listflex li div {
+        white-space: normal;
+    } 
+    
+    .listflex li {
+        height: 18px;  
+    }
+
+    .angle-right {
+        right: -4px;
+    }
+
+    .jaybucksWell {
+        margin-top:14px;
+    }
+
+    .doller-icon {
+        margin-top:8px;
+    }
+
+   .well-badge {
+        top:-2px;
+        margin-left: 6px;
+    }
+
+    .moduleImage {
+      text-align: center;
+      padding-right: 0;
+    }
+
+
+}
+
+@media screen and (min-width: 590px) and  (max-width: 767px) {
+
+    .moduleImage {
+        width: 16%;
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (min-width: 560px) and  (max-width: 660px) {
+
+    .moduleImage {
+        width: 18%;
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (min-width: 500px) and  (max-width: 767px) {
+    
+    .avatar-left {
+        width: 16%;
+    }
+
+    .avatar-right {
+        width: 86%;
+    }
+
+}
+
+
+@media screen and (max-width: 590px) {
+
+ .jbvalue {
+        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    } 
+}
+
+@media screen and (max-width: 480px) {
+
+    .jbText {
+      font-size: 0.7333333333333333em;    /* font size 11 in pixel */
+    }
+    
+    .avatar-name {
+        font-size: 1.625em;    /* font size 20 in pixel */
+        line-height:1.4em;
+
+    }
+
+    .user-type {
+        font-size: 1.125em; /* font size 16 in pixel */
+    }
+    
+     .well-title {
+        font-size: 1.9em;
+        text-align:left;
+    }
+
+    .well-caption {
+        font-size: 1.2em; /* font size 15 in pixel */
+        text-align:left;
+    }
+
+    .avatar-left {
+        width: 18%;
+    }
+
+    .avatar-right {
+        width: 76%;
+    }
+    
+    .moduleImage {
+      width: 22%;
+    }
+    
+}
+
+@media screen and (max-width: 360px) {
+
+   .jaybucksWell {
+       padding-left:0;
+       padding-right:0;   
+   }
+   
+   .listflex li {
+        margin-right:auto;
+        min-width:10px;
+        min-height: 20px;
+    }
+
+   .listflex li:first-child {
+        margin-left:0;
+    }
+    
+    .angle-right {
+        right: -8px;
+        top: 4px;
+    }
+
+    .well-title {
+        font-size: 1.5em;    /* font size 24 in pixel */
+        text-align:left;
+    }
+
+    .well-caption {
+        font-size: 1.0em;   /* font size 18 in pixel */
+        text-align:left;
+    }
+
+    .avatar-left {
+        width: 24%;
+    }
+
+    .avatar-right {
+        width: 70%;
+    }
+
+    #dashboard .white-well {
+      padding: 13px;
+    } 
+    
+    .jbvalue {
+        font-size: 1.23333em;
+    }
+}

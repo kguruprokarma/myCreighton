@@ -1,0 +1,56 @@
+{
+    "userDetails1": [
+        {
+            "email": "nt123",
+            "netid": "6150a8b1f5",
+            "password":"mycreighton",
+            "userName": {
+                "firstName": "John",
+                "middleName": "",
+                "lastName": "",
+                "fullName": "John "
+            },
+            "userImageURL": "",
+            "userRole": "student"
+        },
+        {
+            "email": "nt234",
+            "netid": "ba8bb72a1a",
+            "password":"mycreighton",
+            "userName": {
+                "firstName": "Jane",
+                "middleName": "",
+                "lastName": "Archer",
+                "fullName": "Jane R. Archer"
+            },
+            "userImageURL": "",
+            "userRole": "staff"
+        },
+        {
+            "email": "nt456",
+            "netid": "1a1d2c4ba1",
+            "password":"mycreighton",
+            "userName": {
+                "firstName": "Adam",
+                "middleName": "",
+                "lastName": "",
+                "fullName": "Adam"
+            },
+            "userImageURL": "",
+            "userRole": "faculty"
+        },
+        {
+            "email": "nt789",
+            "netid": "73fc365230",
+            "password":"mycreighton",
+            "userName": {
+                "firstName": "Clark",
+                "middleName": "",
+                "lastName": "",
+                "fullName": "Clark Kent"
+            },
+            "userImageURL": "",
+            "userRole": "student"
+        }
+    ]
+}

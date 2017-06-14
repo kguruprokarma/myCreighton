@@ -1,0 +1,359 @@
+.show {
+    display: block;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.cmpsDirSearch, .bootstrap-typeahead-input-main {
+    border: 1px solid #a2a2a2;
+    color: #868686;
+    font-size: 1.266666666666667em;
+    position: relative;
+    padding-left: 26px;
+}
+
+.bootstrap-typeahead-input-main { 
+    height: 45px;
+}
+
+.bootstrap-typeahead .bootstrap-typeahead-input input:nth-child(2){
+    display: none !important;
+}
+
+.cmpsDirSearch:focus,
+.cmpsDirSearch:active {
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #a2a2a2;
+}
+
+.cmpsDirText {
+    color: #868686;
+    font-size: 0.9333333333333333em;
+}
+
+.cmpsDirSearchBtn {
+    background-color:#ffffff;
+    border:1px solid #0054a6;
+    color: #0054a6;
+    text-align: center;
+    font-size: 1.266666666666667em;
+    height: 46px;
+    line-height: 30px;
+}
+
+.cmpsDirSearchBtn:hover,
+.cmpsDirSearchBtn:active,
+.cmpsDirSearchBtn:focus, 
+.cmpsDirSearchBtn[disabled]:hover, 
+.cmpsDirSearchBtn[disabled]:focus,
+.cmpsDirSearchBtn[disabled]:active,
+.btn-default.cmpsDirSearchBtn:active {
+    background-color: #fff;
+    color: #0054a6;
+    box-shadow: none;
+    outline: none;
+    border-color: #0054a6;
+}
+
+.icon-addon {
+    left: 20px;
+    top: 32px;
+    position: absolute;
+}
+
+.icon-addon:hover,
+.icon-addon:focus,
+.icon-addon:active {
+    cursor: default;
+}
+
+.icon-addon img{
+    width: 16px;
+}
+
+.icon-addon-right img {
+    width: 10px;
+}
+
+.icon-addon-right {   
+    border-radius: 50%;    
+    position: absolute;
+    background-color:#a2a2a2;
+    width: 22px;
+    height: 22px;
+    right: 20px;
+    top: 32px;
+    text-align: center;
+    z-index: 0;
+}
+
+.icon-addon-right:focus,
+.icon-addon-right:hover,
+.icon-addon-right:active  {
+    background-color: #a2a2a2; 
+}
+
+.search-field {
+    position: relative;
+}
+
+.searchResultAvatar {
+    float: none;
+    border: 0px;
+}
+
+ .autosearch-scroll-bar {
+    min-height: 200px;
+    overflow: auto;
+    z-index: 9999;
+    top: -40px;
+    background: #fff;
+    border:1px solid #a2a2a2;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+ }
+
+.result-list-item {
+    border-bottom: 1px solid #c8c7cc;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+ }
+
+.selected {
+    background: #dadada;
+}
+
+/* Styling for Campus Directory Advanced search */
+.searchPopup .popup-box-shaow {
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.searchPopupPointer {
+    background: url('../assets/images/popup-arrow.png') no-repeat;
+    position: absolute;
+    top: -12px;
+    right: 171px;
+    width: 20px;
+    height: 11px;
+    margin-top: 6px;
+}
+
+.searchSelect
+{
+        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+        margin-left: 15px;
+}
+
+.searchSelect:hover,
+.searchSelect:active,
+.searchSelect:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.searchSubmit {
+    background-color: #fff;
+    color: #0079b3;
+    border: 1px solid #0079b3;
+}
+
+.searchSubmit:hover,
+.searchSubmit:active,
+.searchSubmit:focus, 
+.searchSubmit:active:focus {
+    background-color: #fff;
+    color: #0079b3;
+    box-shadow: none;
+    border: 1px solid #0079b3;
+}
+
+.select-content .searchPopup {
+    z-index: 10000;
+    background: #fff;
+    position: absolute;
+    width: 200px;
+}
+
+.btn.btn-sm.btn-secondary.dropdown-toggle.dropdown-toggle-split {
+    border: 1px solid #ccc;
+}
+
+.searchPopUp .control__indicator {
+    height: 18px;
+    width: 18px;
+    margin-top: -5px;
+    border-radius: 50%;
+}
+
+.searchPopUp .control input:checked ~ .control__indicator:after {
+    left: 6px;
+    top: 2px;
+}
+
+.searchPopUp label:after {
+    content: '';
+}
+
+.searchDone {
+    border: none;
+    background-color: #fff;
+    color: #0079b3;
+    font-size: 1em; /* font size 15 in pixel */
+}
+
+.searchDone:hover,
+.searchDone:active,
+.searchDone:focus {
+    border-color: #0079b3;
+    background-color: #fff;
+    outline: none;
+    box-shadow: none;
+}
+
+.styled-select select {
+    background:#fff url('../assets/images/select-down-arrow.png') no-repeat right 10px center;
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-right: 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    line-height: normal;
+    background-size: 15px auto;
+    border: 1px solid #a2a2a2;
+    box-shadow: none;
+
+}
+
+.styled-select {
+    margin-bottom: 0;
+}
+
+.styled-select select.disabled {
+    background: url('../assets/images/select-down-arrow-disabled.png') no-repeat right 10px center;
+}
+
+.advancedSearch, .bootstrap-typeahead-input-main {
+    border: 1px solid #ccc;
+    color: #868686;
+    font-size: 1.266666666666667em;
+    position: relative;
+    padding-left: 26px;
+}
+
+.advancedSearch:focus,
+.advancedSearch:active,
+.advncSearch:focus,
+.advncSearch:active {
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.advncSearch.Dropdown {
+    color: #0079b3;
+}
+
+.advncLabel:after { 
+    content: "\a"; 
+    white-space: pre; 
+}
+
+.icon-addon-right.advancedTextBox {
+    top: 14px;
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+
+.icon-addon-right.advancedTextBox img {
+    width: 8px;
+    padding-bottom: 4px;
+}
+
+.adv-search label:after {
+    content: '';
+}
+
+.adv-search label {
+    font-family: 'open_sanslight', sans-serif;
+    color: #313131;
+    font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+}
+.adv-search .form-control {
+    border: 1px solid #a2a2a2;
+    box-shadow: none;
+    font-family: 'open_sanslight', sans-serif;
+}
+
+.adv-search .form-control:focus {
+    border-color: #a2a2a2;
+    outline:none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.adv-search input.form-control {
+    padding-right: 30px;
+}
+
+/* Styling for Campus Directory Advanced search */
+
+@media screen and (max-width: 767px) {
+
+    .cmpsDirSearch,.cmpsDirSearchBtn {
+        font-size: 1.2em;
+    }
+    .adv-search label {
+        white-space: pre-wrap
+    }
+    
+    .adv-optional {
+        margin-top: 10px;
+    }
+    
+    .controller-buttons .form-group {
+        margin-bottom: 0;
+    }
+
+    .adv-search {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    
+    .adv-search label, .searchSelect {
+        font-size: 1.1em;   /* font size 18 in pixel */
+    }
+}
+
+/* IE10 and IE11
+================== */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    
+    .styled-select select.form-control {
+        width:108%;
+        background-position: 90% 44%;
+        border: 0;
+        margin-bottom: 0;
+    }
+    
+    .styled-select {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 4px;
+        border: 1px solid #a2a2a2;
+    }
+}

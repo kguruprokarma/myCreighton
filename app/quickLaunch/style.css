@@ -1,0 +1,101 @@
+
+.quick-launch-data {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.ql-icons {
+    background: url('/assets/images/sprite-image.png') no-repeat; 
+}
+
+.ql-dimensions {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 0px;
+    position: relative;
+}
+
+.ql-title {
+    width: 80px;
+    margin: auto;
+    position: relative;
+    display: inline-block;
+}
+
+.ql-title:hover,
+.ql-title:focus,
+.ql-title:active {
+    color: #313131;
+}
+.ql-col-height {
+    height: 112px;
+}
+
+.ql-office {
+    background-position: 0 0;
+}
+
+.ql-jaybucks {
+    background-position: -96px 0;
+}
+
+.ql-bluecafe {
+    background-position: -192px 0;
+}
+
+.ql-blueline {
+    background-position: -288px 0;  
+}
+
+.ql-nest {
+    background-position: -384px 0;   
+}
+
+.ql-bluetrain {
+    background-position: -480px 0;  
+}
+
+.ql-blueq {
+    background-position: 0 -96px;   
+}
+
+.ql-doit-newsletter {
+    background-position: -96px -96px;  
+}
+
+.ql-libraries {
+    background-position: -192px -96px;    
+}
+
+.ql-calendar {
+    background-position: -288px -96px;
+}
+
+.ql-employee-benefits {
+    background-position: -384px -96px;
+}
+
+.ql-hr-self-service {
+    background-position: -480px -96px; 
+}
+
+.ql-breakfast-bytes {
+    background-position: 0 -192px; 
+}
+
+.ql-simple-well {
+        background-position: -96px -192px;
+}
+
+.ql-doit-cab {
+        background-position: -192px -192px;  
+}
+
+.ql-myhr {
+    background-position: -288px -192px;   
+}
+
+.ql-myit {
+    background-position: -384px -192px;
+}
