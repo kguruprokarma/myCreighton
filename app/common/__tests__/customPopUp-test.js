@@ -62,6 +62,7 @@ describe('CustomPopUp testing ----->', () => {
   localStorage.setItem('infos', JSON.stringify(userdata));
   localStorage.setItem('roleInfo', JSON.stringify({ 'userRole': 'student' }));
   localStorage.setItem('lang', 'en');
+  sessionStorage.removeItem('first');
   const customPopUpC = shallow(<CustomPopUp {...defaultProps} />);
   customPopUpC.instance().role = 'student';
 
