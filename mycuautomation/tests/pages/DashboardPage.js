@@ -45,11 +45,12 @@ module.exports = {
        selector : "span.openSansBold.user-type"
    },
    profileicon :{
-       selector :"icon.glyphicon.glyphicon-user.btnnoPadding"
+       selector :"a.btn.btn-link.btnnoPadding[role='link']"
    },
     myprofile :{
-       selector :"li.openSansLight.profile-icon.list-group-item",
-       index:1
+        selector : "a[href='#/profile']"
+    //    selector :"li.openSansLight.profile-icon.list-group-item",
+    //    index:1
    },
     Academic :{
          selector :"li a[href*=academic]"
