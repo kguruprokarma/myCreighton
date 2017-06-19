@@ -66,8 +66,6 @@ describe('CustomPopUp testing ----->', () => {
   const customPopUpC = shallow(<CustomPopUp {...defaultProps} />);
   customPopUpC.instance().role = 'student';
 
-
-
   it('CustomPopUp is defined', () => {
     expect(customPopUpC).toBeDefined();
     customPopUpC.instance().signOutPopUp();

@@ -5,6 +5,9 @@ import { translateText } from '../../common/translate';
 
 describe('schoolAndSemester files in school and semester ----->', () => {
   const minProps = {
+    params: {
+      id: 'semesterstart'
+    },
     semesterDataObj: [
       {
         objectKey: 'semesterstart',

@@ -167,8 +167,7 @@ const mapStateToProps = (storeData) => (
     filterPopUpData: storeData.headerReducer.showFilterPopUp,
     navData: storeData.headerReducer.showNav,
     profileData: storeData.profileReducer.profileData.data,
-    notificationData: storeData.notificationReducer.notificationData,
-    mealPlanData: storeData.mealPlanReducer.mealPlanData.data
+    notificationData: storeData.notificationReducer.notificationData
   }
 );
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);

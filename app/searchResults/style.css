@@ -2,6 +2,7 @@
     font-weight: bold;
     font-style: italic;
 }
+
 .cmpsDirRsltsFound {
     color: #313131;
     font-size: 1.0666666666666667em;    /* font size 16 in pixel */
@@ -16,6 +17,7 @@
     color: #0054a6;
     font-size: 1.133333333333333em;
 }
+
 .cmpsDirTitle {
     color: #313131;
     font-size: 1.133333333333333em; 
@@ -44,8 +46,9 @@
     box-shadow: none;
     border-color:#0054a6;
 }
+
 .cmpsDirLoadMoreBtn.focus.active {
-    outline: none ;
+    outline: none;
 }
 
 .show-all-btn {

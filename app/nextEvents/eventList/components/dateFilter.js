@@ -79,17 +79,17 @@ export class Range extends React.Component {
     const from = this.state.from;
     const to = this.state.to;
     const startDate = moment()._d;
-    const endDate = new Date(moment().add('days', 59));
+    const endDate = new Date(moment().add(59, 'days'));
     return (
       <div className='RangeExample openSansLight'>
         <span className='calenderPointer visible-xs'>&nbsp;</span>
         <Row className='visible-xs pt10 pb10'>
           <Col xs={12}>
             <Col xs={6}>
-              <a onClick={this.showSelectedFilter}>{translateText('common:COMMON_SAVE')}</a>
+              <button className='btn btn-link btnnoPadding' onClick={this.showSelectedFilter}>{translateText('common:COMMON_SAVE')}</button>
             </Col>
             <Col xs={6}>
-              <a className='pull-right' onClick={this.handleResetClick}>{translateText('common:COMMON_RESET')}</a>
+              <button className='pull-right btn btn-link btnnoPadding' onClick={this.handleResetClick}>{translateText('common:COMMON_RESET')}</button>
             </Col>
           </Col>
         </Row>

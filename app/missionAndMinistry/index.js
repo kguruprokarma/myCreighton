@@ -33,7 +33,6 @@ class MissionAndMinistry extends React.PureComponent {
         <p className='openSansLight mb20 hidden-xs'>{translateText('common:MINISTRY_CONTENT_DESCRIPTION')}</p>
         <div className='openSansLight fs1pt2 mb10'>{translateText('common:COMMON_DESCRIPTION')} <button className='semisterShow' onClick={this.toggleAccordion} > {this.state.show ? translateText('common:COMMON_HIDE') : translateText('common:COMMON_SHOW')}</button></div>
         <MissionAndMinistryInfo show={this.state.show} />
-
       </section>
     );
   }

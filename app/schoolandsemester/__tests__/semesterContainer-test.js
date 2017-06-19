@@ -8,6 +8,9 @@ import SemesterContainer from '../components/semesterContainer';
 
 describe('SemesterContainer files in school and semester ----->', () => {
   const minProps ={
+    paramId: {
+      id: 'semesterstart'
+    },
     data: {
       title: 'title',
       accordionObj: {

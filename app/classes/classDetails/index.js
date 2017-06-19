@@ -20,13 +20,16 @@ class ClassDetails extends React.PureComponent {
 
   componentWillMount() {
     browserTitle(translateText('common:CLASS_DETAIL'));
-    if (!localStorage.getItem('classDetails')) {
+    const props = this.props;
+    if (props.params.categoryname !== CLASSES_DETAILS && !localStorage.getItem('classDetails')) {
       hashHistory.push(ROUTE_URL.CLASSES + ROUTE_URL.WEEK);
+    } else if (props.params.categoryname === CLASSES_DETAILS && !localStorage.getItem('eventsFilterData')) {
+      hashHistory.push(ROUTE_URL.EVENT_LIST);
     }
   }
 
   render() {
-    if (localStorage.getItem('classDetails')) {
+    if (localStorage.getItem('classDetails') || localStorage.getItem('eventsFilterData')) {
       const props = this.props;
       let classData;
       let obj = null;

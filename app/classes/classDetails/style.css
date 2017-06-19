@@ -2,7 +2,7 @@
 *Usage of file: - this file is used to add styles to class details page.*
 */
 
-.classDetailHeading{
+.classDetailHeading {
     font-size: 1.8em;
     line-height: 32px;
     color: #313131;
@@ -14,24 +14,22 @@
     border-bottom: 4px solid #d7d7d7;
 }
 
-p{
+p {
     margin-bottom:0px;
 }
 
-.classDetialOn
-{
+.classDetialOn {
     color: #757575; /*Changed as per given Hardening comments. Previously it was #9a9a9a*/
     font-family: 'open_sansregular', sans-serif;
     font-size: 1.0666666666666667em;    /* font size 16 in pixel */
-     
 }
 
-.clsDetailContent{
+.clsDetailContent {
     font-size: 1.1333333333333333em;    /* font size 17 in pixel */
     color: #313131;
 }
 
-.detailSubhead{
+.detailSubhead {
     text-transform: uppercase;
     font-size: 1.0666666666666667em;    /* font size 16 in pixel */
     line-height: 38px;
@@ -49,7 +47,7 @@ p{
     border-bottom: 1px solid #c8c7cc;
 }
 
-.classInfo p{
+.classInfo p {
     font-size: 1.1333333333333333em;    /* font size 17 in pixel */
 }
 
@@ -58,9 +56,10 @@ p{
 }
 
 /* Media for small devices */
+
 @media screen and (max-width:767px) {
 
-    .classDetailHeading{
+    .classDetailHeading {
         width: 100%;
         float:none !important;
         font-size: 1.8em;   /* font size 24 in pixel */

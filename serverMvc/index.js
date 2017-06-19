@@ -15,19 +15,31 @@ const io = require('socket.io')(server);
 
 const notificationsArr = [
   {
-    'type': 'Security Alert',
-    'description': 'Person(s) reported checking for unlocked cars in main student parking lot.',
-    'date': new Date()
+    'notificationid': 'e6f1bfe2-f766-4653-b588-238d3eece2b3',
+    'publisherid': 'PK',
+    'netid': '7d5872b5b9',
+    'title': 'Security Alert',
+    'message': 'Person(s) reported checking for unlocked cars in main student parking lot.',
+    'dismissed': false,
+    'created': '2017-06-06T19:54:41.489Z'
   },
   {
-    'type': 'Undergraduate Change',
-    'description': 'The application to the Registrar’s Office for changing from your major has been approved.',
-    'date': new Date()
+    'notificationid': 'e6f1bfe2-f766-4653-b588-238d3eece2b3',
+    'publisherid': 'PK',
+    'netid': '7d5872b5b9',
+    'title': 'Undergraduate Change',
+    'message': 'The application to the Registrar’s Office for changing from your major has been approved.',
+    'dismissed': false,
+    'created': '2017-06-06T19:54:41.489Z'
   },
   {
-    'type': 'Low Balance Alert',
-    'description': 'Your JayBucks account is very low. You may want to add funds to this account soon.',
-    'date': new Date()
+    'notificationid': 'e6f1bfe2-f766-4653-b588-238d3eece2b3',
+    'publisherid': 'PK',
+    'netid': '7d5872b5b9',
+    'title': 'Low Balance Alert',
+    'message': 'Your JayBucks account is very low. You may want to add funds to this account soon.',
+    'dismissed': false,
+    'created': '2017-06-06T19:54:41.489Z'
   }
 ];
 let clients;
@@ -39,20 +51,26 @@ app.get('/notifications', (req, res) => {
 });
 
 app.post('/newnotifications', (req, res) => {
-  fs.appendFile('mynewfile1.txt', req.body.newNotification, (err) => {
-    if (err) throw err;
-    console.log('Updated!');
-  });
-  notificationsArr.unshift({
-    'type': 'Message from the Dean',
-    'description': `I am very pleased to announce that ${req.body.newNotification}`,
-    'date': new Date() 
-  });
+  notificationsArr.unshift(
+    {
+      'notificationid': 'e6f1bfe2-f766-4653-b588-238d3eece2b3',
+      'publisherid': 'PK',
+      'netid': '7d5872b5b9',
+      'title': 'Message from the Dean',
+      'message': `I am very pleased to announce that ${req.body.newNotification}`,
+      'dismissed': false,
+      'created': '2017-06-06T19:54:41.489Z'
+    }
+);
   clients.emit('messages', req.body.newNotification);
   res.send({
-    'type': 'Message from the Dean',
-    'description': `I am very pleased to announce that ${req.body.newNotification}`,
-    'date': new Date() 
+    'notificationid': 'e6f1bfe2-f766-4653-b588-238d3eece2b3',
+    'publisherid': 'PK',
+    'netid': '7d5872b5b9',
+    'title': 'Message from the Dean',
+    'message': `I am very pleased to announce that ${req.body.newNotification}`,
+    'dismissed': false,
+    'created': '2017-06-06T19:54:41.489Z'
   });
 });
 io.on('connection', (client) => {

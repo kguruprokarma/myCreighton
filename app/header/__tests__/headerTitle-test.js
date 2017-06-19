@@ -108,49 +108,49 @@ describe('headerTitle component testing ----->', () => {
     expect(testorquizC).toBe(i18n.properties.NEXT_EVENTS_TEST_DETAIL_HEADER);
   }); 
 
-  const academics = { path: '/semesteracademics/academics' };
+  const academics = { path: '/schoolsandsemester/academics' };
   const academicsC = headerTitle(academics);
   it('academicsC is defined', () => {
     expect(academicsC).toBe(i18n.properties.SEMESTER_ACADEMICS);
   }); 
 
-  const semesterstart = { path: '/semesteracademics/semesterstart' };
+  const semesterstart = { path: '/schoolsandsemester/semesterstart' };
   const semesterstartC = headerTitle(semesterstart);
   it('semesterstart is defined', () => {
     expect(semesterstartC).toBe(i18n.properties.SEMESTER_SEMESTER_START);
   }); 
 
-  const openrequestsstatus = { path: '/semesteracademics/openrequestsstatus' };
+  const openrequestsstatus = { path: '/schoolsandsemester/openrequestsstatus' };
   const openrequestsstatusC = headerTitle(openrequestsstatus);
   it('openrequestsstatus is defined', () => {
     expect(openrequestsstatusC).toBe(i18n.properties.OPEN_REQUESSTS_STATUS);
   }); 
 
-  const classregistration = { path: '/semesteracademics/classregistration' };
+  const classregistration = { path: '/schoolsandsemester/classregistration' };
   const classregistrationC = headerTitle(classregistration);
   it('classregistration is defined', () => {
     expect(classregistrationC).toBe(i18n.properties.CLASS_REGISTRATION);
   }); 
 
-  const finances = { path: '/semesteracademics/finances' };
+  const finances = { path: '/schoolsandsemester/finances' };
   const financesC = headerTitle(finances);
   it('finances is defined', () => {
     expect(financesC).toBe(i18n.properties.FINANCES_TEXT);
   });
 
-  const studentlife = { path: '/semesteracademics/studentlife' };
+  const studentlife = { path: '/schoolsandsemester/studentlife' };
   const studentlifeC = headerTitle(studentlife);
   it('studentlife is defined', () => {
     expect(studentlifeC).toBe(i18n.properties.STUDENT_LIFE);
   });
 
-  const semesterend = { path: '/semesteracademics/semesterend' };
+  const semesterend = { path: '/schoolsandsemester/semesterend' };
   const semesterendC = headerTitle(semesterend);
   it('semesterend is defined', () => {
     expect(semesterendC).toBe(i18n.properties.SEMESTER_END);
   }); 
 
-  const graduation = { path: '/semesteracademics/graduation' };
+  const graduation = { path: '/schoolsandsemester/graduation' };
   const graduationC = headerTitle(graduation);
   it('graduation is defined', () => {
     expect(graduationC).toBe(i18n.properties.GRADUATION_TEXT);

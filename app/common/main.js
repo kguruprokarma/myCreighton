@@ -4,11 +4,10 @@
 
 import React from 'react';
 import axios from 'axios';
-import { hashHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import io from 'socket.io-client';
+//import io from 'socket.io-client';
 import FooterComponent from '../footer/index';
 import * as actionCreators from '../header/actions';
 import * as notificationActions from '../notification/actions';
@@ -40,12 +39,10 @@ class Main extends React.PureComponent {
       const xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState === 4) {
-          if (this.status === 200) { 
-            //axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE); 
-          } else {  
+          if (this.status !== 200) { 
             sessionStorage.setItem('first', true);
             const currentUrl = encodeURIComponent(document.URL);
-            document.location.replace(urlConstants.ADFS_LOGIN_URL + currentUrl);
+            document.location.replace(urlConstants.ADFS_LOGIN_URL + currentUrl); 
           }  
         }
       };
@@ -65,19 +62,22 @@ class Main extends React.PureComponent {
         this.clearStorage();
       }
     }, 1000);*/
-    const socket = io.connect(urlConstants.NOTIFICATION_URL);
+
+/*    const socket = io.connect(urlConstants.NOTIFICATION_URL);
     socket.on('connect', () => {
       socket.emit('join', 'Hello World from client');
     });
     socket.on('messages', (data) => {
       console.log(data);
     });
+    socket.on('notifications', (msg) => {
+      console.log(msg);
+    });*/
   }
 
   componentWillMount() {
     const props = this.props;
-    props.getNotifications();
-    props.resetNewNotifications();
+    //props.resetNewNotifications();
     if (props.location.pathname === ROUTE_URL.LOGOUT) {
       this.setState({ isLogin: false });
     } else {
@@ -88,10 +88,12 @@ class Main extends React.PureComponent {
         if (localStorage.getItem('roleInfo')) {
           clearInterval(this.checkRole);
           this.setState({ isRole: true });
+          props.getNotifications();
         }
       }, 1000);
     } else {
       this.setState({ isRole: true });
+      props.getNotifications();
     }
   }
 

@@ -52,8 +52,8 @@ export class CustomPopUp extends React.Component {
     //localStorage.removeItem('temp');
     localStorage.removeItem('classDetails');
     localStorage.removeItem('i18nextLng');
-    localStorage.removeItem('setDisplayOptionValue');
-    localStorage.removeItem('displayOptions');
+    //localStorage.removeItem('setDisplayOptionValue');
+    //localStorage.removeItem('displayOptions');
     localStorage.removeItem('eventList');
     localStorage.removeItem('eventsFilterData');
     sessionStorage.removeItem('first');

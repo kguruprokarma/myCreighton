@@ -229,7 +229,7 @@
   "SEARCH_ALL_RESULT": "Show All",
   "SEARCH_MORE_RESULT": "Load More",
 
-  "FOOTER_SITE": "Site",
+  "FOOTER_SITE_MAP": "Site map",
   "FOOTER_FEEDBACK": "Feedback",
   "FOOTER_UNIVERSITY_ADDRESS": "2500 California Plaza, Omaha, NE 68178",
   "FOOTER_UNIVERSITY_LANDLINE": "402.280.2700",
@@ -616,5 +616,9 @@
   "NO_MATCHES" : "No matches",
   "SEARCH_MYCREIGHTON_FEATURES" : "Search myCreighton Features",
   "COMMON_SAVE": "Save",
-  "COMMON_RESET": "Reset"
+  "COMMON_RESET": "Reset",
+  "SITE_MAP":"Site Map",
+  "SITEMAP_MAIN_MENU": "Main menu",
+  "SITEMAP_HEADER_MENU": "Header menu",
+  "SITEMAP_FOOTER_MENU": "Footer menu"
 }

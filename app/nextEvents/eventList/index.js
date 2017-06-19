@@ -2,6 +2,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { filter, map, sortBy, uniqBy, each } from 'lodash';
 import { Col, Row, Alert } from 'react-bootstrap';
 import moment from 'moment';
@@ -64,7 +65,9 @@ export class EventList extends React.PureComponent {
   }
   componentWillReceiveProps(nextProps) {
     const props = nextProps;
+    /* eslint-disable */
     if (props.popUpData || props.filterPopUpData) {
+      /* eslint-disable */
       this.onSaveCalendar();
     }
   }
@@ -364,11 +367,11 @@ export class EventList extends React.PureComponent {
         <Row>
           <Col xs={12}>
             <p className='visible-xs calendarRow pb10'>
-              <span className='glyphicon glyphicon-calendar eventListCalendar pt15' onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }} />
-              <span> By date: </span>
-              <a onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }}>
+              <button className='btn btn-link btnnoPadding' onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }} className='btn btn-link btnnoPadding'><span className='glyphicon glyphicon-calendar eventListCalendar' /></button>
+              By date:
+              <button className='btn btn-link btnnoPadding' onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }}>
                 {this.state.dateFilter ? translateText('common:COMMON_SHOW') : translateText('common:COMMON_HIDE')}
-              </a>
+              </button>
             </p>
             <Col md={3} sm={4} xs={12} className={`pull-right ${this.state.dateFilter && 'calendarFilter'}`}><DateFilter onSave={this.onSaveCalendar} /></Col>
             <Col md={9} sm={8} xs={12}>
@@ -404,7 +407,7 @@ export class EventList extends React.PureComponent {
     const props = this.props;
     props.offLoading();
     return (
-      <article className='event-topsection section-container init-top'>
+      <article className='event-topsection section-container'>
         <Row><Col md={8} sm={6} xs={12}>
           <div className='hidden-xs'>
             <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} />
@@ -415,11 +418,11 @@ export class EventList extends React.PureComponent {
           <Col xs={12}>
             <Row>
               <p className='visible-xs calendarRow pb10 pl15'>
-                <span className='glyphicon glyphicon-calendar eventListCalendar pt15' onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }} />
+                <Link onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }} className='btn btn-link btnnoPadding'><span className='glyphicon glyphicon-calendar eventListCalendar' /></Link>
                 <span> By date: </span>
-                <a onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }}>
+                <Link onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }}>
                   {this.state.dateFilter ? translateText('common:COMMON_SHOW') : translateText('common:COMMON_HIDE')}
-                </a>
+                </Link>
               </p>
               <Col md={3} sm={4} xs={12} className={`pull-right ${this.state.dateFilter && 'calendarFilter'}`}><DateFilter onSave={this.onSaveCalendar} /></Col>
               <Col md={9} sm={8} xs={12}>
@@ -431,12 +434,12 @@ export class EventList extends React.PureComponent {
                     {eventType.type === NextEventsConstants.CALENDER && <OutlookCalendar data={eventType} currentIndex={index} />}
                   </li>
                   )) :
-                    <Alert bsStyle='warning'>
-                      <div>
-                        <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
-                        <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
-                      </div>
-                    </Alert>
+                  <Alert bsStyle='warning'>
+                    <div>
+                      <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
+                      <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
+                    </div>
+                  </Alert>
                   }
                 </ul>
               </Col>

@@ -39,3 +39,4 @@ export const MISSION_AND_MINISTRY = 'missionandministry';
 export const QUICK_LAUNCH = 'quicklaunch';
 export const NOTIFICATIONS = 'notifications';
 export const SEARCH = 'search';
+export const SITEMAP = 'sitemap'; 

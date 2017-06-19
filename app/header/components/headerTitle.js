@@ -66,39 +66,39 @@ export default function (argument) {
   if (rootURL[1] === HEADER.STAFF_DETAIL) {
     title = translateText('common:STAFF_DETAIL');
   }
-  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER) {
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER && !rootURL[2]) {
     title = translateText('common:DASH_BOARD_SCHOOL_AND_SEMESTER');
     return title;
   }
-  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.ACADEMICS) {
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER && rootURL[2] === HEADER.ACADEMICS) {
     title = translateText('common:SEMESTER_ACADEMICS');
     return title;
   }
-  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_SEMESTER_START) {
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER && rootURL[2] === HEADER.SEMESTER_SEMESTER_START) {
     title = translateText('common:SEMESTER_SEMESTER_START');
     return title;
   }
-  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_OPEN_REQUESTS_STATUS) {
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER && rootURL[2] === HEADER.SEMESTER_OPEN_REQUESTS_STATUS) {
     title = translateText('common:OPEN_REQUESSTS_STATUS');
     return title;
   }
-  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_CLASS_REGISTRATION) {
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER && rootURL[2] === HEADER.SEMESTER_CLASS_REGISTRATION) {
     title = translateText('common:CLASS_REGISTRATION');
     return title;
   }
-  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_FINANCES) {
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER && rootURL[2] === HEADER.SEMESTER_FINANCES) {
     title = translateText('common:FINANCES_TEXT');
     return title;
   }
-  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_STUDENT_LIFE) {
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER && rootURL[2] === HEADER.SEMESTER_STUDENT_LIFE) {
     title = translateText('common:STUDENT_LIFE');
     return title;
   }
-  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_SEMESTER_END) {
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER && rootURL[2] === HEADER.SEMESTER_SEMESTER_END) {
     title = translateText('common:SEMESTER_END');
     return title;
   }
-  if (rootURL[1] === HEADER.SEMESTER_ACADEMICS && rootURL[2] === HEADER.SEMESTER_GRADUATION) {
+  if (rootURL[1] === HEADER.SCHOOL_AND_SEMESTER && rootURL[2] === HEADER.SEMESTER_GRADUATION) {
     title = translateText('common:GRADUATION_TEXT');
     return title;
   }
@@ -130,5 +130,9 @@ export default function (argument) {
     title = translateText('common:COMMON_SEARCH');
     return title;
   }
+  if (rootURL[1] === HEADER.SITEMAP) {
+    title = translateText('common:FOOTER_SITE_MAP');
+    return title;
+  } 
   return title;
 }

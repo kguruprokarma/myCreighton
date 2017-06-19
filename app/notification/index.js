@@ -33,7 +33,13 @@ class Notification extends React.PureComponent {
     this.props.resetNewNotifications();
   }
   sendNotification() {
-    this.props.postNotifications(document.getElementById('new-notification').value);
+    const notificationObj = {
+      publisherKey: 'c87de60d-1e3c-438a-b606-32944749ea42',
+      title: 'Test Title',                     
+      message: document.getElementById('new-notification').value,          
+      netid: '6cb4db8459'                  
+    };
+    this.props.postNotifications(notificationObj);
     document.getElementById('new-notification').value = '';
   }
   showDetailNotification(data) {

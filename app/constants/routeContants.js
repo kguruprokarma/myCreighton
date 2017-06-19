@@ -31,6 +31,7 @@ export const SEMESTERACADEMICS = '/semesteracademics';
 export const LIBRARY_SEARCH = '/librarysearch';
 export const LOGOUT = '/logout';
 export const FEEDBACK = '/feedback';
+export const SITEMAP = '/sitemap';
 export const MISSION_AND_MINISTRY = '/missionandministry';
 export const QUICK_LAUNCH = '/quicklaunch';
 export const NOTIFICATION = '/notifications';

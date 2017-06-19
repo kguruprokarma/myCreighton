@@ -74,7 +74,7 @@ class ClassListHelp extends Component {
                 </div>
               </div>
               <div className='controller-buttons classListButtons col-md-4 col-sm-6 col-xs-12'>
-                <nav role='navigation' id='navigation03' className='btn-group btn-group-justified form-group openSansRegular fs0pt86'><a className='btn btn-default' href='#/classes/today'>Today</a><a className='btn btn-default active' href='#/classes/week'>Week</a><a className='btn btn-default' href='#/classes/list'>A-Z</a></nav>
+                <nav role='navigation' id='navigation03' className='btn-group btn-group-justified form-group openSansRegular help-tabs fs0pt86'><a className='btn btn-default' href='#/classes/today'>Today</a><a className='btn btn-default active' href='#/classes/week'>Week</a><a className='btn btn-default' href='#/classes/list'>A-Z</a></nav>
                 <div className='container-fluid position-relative'>
                   <div className='clases-help-content'>
                     <div className='classes-arrows'>

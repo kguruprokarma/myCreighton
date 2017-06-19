@@ -1,4 +1,3 @@
-
 .jaybucksWell {
     padding: 2px 0px 8px;
     background-color: #ebfee7;
@@ -13,6 +12,7 @@
     color: #619c55; /*Changed as per given Hardening comments. Previously it was #73b865 */
     font-size: 1.7333333333333334em;    /* font size 26 in pixel */
 }
+
 .jbText {
     font-size: 0.8em;    /* font size 12 in pixel */
     color: #707070; /*Changed as per given Hardening comments. Previously it was #878787 */
@@ -20,7 +20,7 @@
     line-height: 2.2em;
 }
 
-.classes{
+.classes {
     background: #e3e3e3;
     border-left: 4px solid red;
     border-bottom: 1px dotted grey;
@@ -46,7 +46,6 @@
 .listflex li {
        margin-right: .1em;
 }
-
 
 .avatar-name {
     font-size: 1.7333333333333334em;
@@ -74,9 +73,9 @@
 .well-title {
     color: #0054a6;
     font-size: 1.93333em;
-	  letter-spacing: -0.03em;
-	  line-height: 1;
-	  margin-bottom: 0.1em; 
+	letter-spacing: -0.03em;
+	line-height: 1;
+	margin-bottom: 0.1em; 
     text-align: center;
 }
 
@@ -96,7 +95,6 @@
     top: -6px;
     position: relative;
     margin-left: 6px;
-
 }
 
 .well-badge span {
@@ -119,7 +117,7 @@
     text-align:center;
 }
 
-.doller-icon{
+.doller-icon {
     font-size: 0.8em;   /* font size 12 in pixel */
     text-transform: uppercase;
     color: #0054a6;
@@ -130,8 +128,7 @@
     max-height: 30px;
 }
 
-.doller-icon.btn-link:focus, .doller-icon.btn-link:hover
-{
+.doller-icon.btn-link:focus, .doller-icon.btn-link:hover {
     color: #0054a6;
     outline: 0;
     box-shadow: none;
@@ -139,8 +136,8 @@
 }
 
 .doller-icon {
-        margin-top:4px;
-        text-shadow: none;
+    margin-top:4px;
+    text-shadow: none;
 }
 
 .mpDoller {
@@ -194,64 +191,57 @@
 
 /* Slick Carousel CSS */
 
-    .slick-slider {
-        margin-right: 15px;
-        margin-left: 15px;
+.slick-slider {
+    margin-right: 15px;
+    margin-left: 15px;        
+}
+
+.slick-arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    background: url('/assets/images/mealplan-arrow.png') no-repeat 0 0;
+    /*background: url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAaCAMAAACJtiw1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAY1BMVEVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGUAAABC5qD0AAAAH3RSTlMAXm8FAlXy+3Ja8/ht/v0H+fZrbnH092r8bGnrCWhwSmF99gAAAAFiS0dEILNrPYAAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfhAxYRLQlnDDsYAAAAhElEQVQY02WR2RYCIQxDKyqgdBwXRGaz//+Xlnkxp/B4TxPahIgO7kjwTmcfIoLLVSQ5ADyIyI3/YHR3JY8nzMSgxL+A5LeSgj4fr6SCD02pzUyoqs0HVbm0GXSeFyWBVyBtHwHVZoCVWFP7rV1sXx0isMeZ87uAWEyEXchdDVrUF4v6Ack8DcT27BIrAAAAAElFTkSuQmCC') no-repeat 0 0;*/
+    background-size: 10px auto;
+    border: 0;
+    text-indent: -9999px;
+    z-index: 1;
+    width: 16px;
+    height: 16px;
+}
+
+.slick-prev {
+    left: -10px;
+    -ms-transform: rotate(-180deg); /* IE 9 */
+    -webkit-transform: rotate(-180deg); /* Chrome, Safari, Opera */
+    transform: rotate(-180deg);
+    background-position: center center;
+}
+
+.slick-next {
+    right: -10px;
+    background-position: center center;
+}
+
+.slick-disabled {
+     display: none !important;
+}
+
+.slick-active *, .slick-active {
+    z-index: 0;
+    position: relative;
+}
         
-    }
+.slick-arrow:hover, 
+.slick-arrow:active,
+.slick-arrow:focus {
+    border:0;
+    outline: 0;
+    cursor: pointer;
+}
 
-    .slick-arrow {
-        position: absolute;
-        top: 50%;
-        margin-top: -12px;
-        background: url('/assets/images/mealplan-arrow.png') no-repeat 0 0;
-        /*background: url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAaCAMAAACJtiw1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAY1BMVEVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGVzuGUAAABC5qD0AAAAH3RSTlMAXm8FAlXy+3Ja8/ht/v0H+fZrbnH092r8bGnrCWhwSmF99gAAAAFiS0dEILNrPYAAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfhAxYRLQlnDDsYAAAAhElEQVQY02WR2RYCIQxDKyqgdBwXRGaz//+Xlnkxp/B4TxPahIgO7kjwTmcfIoLLVSQ5ADyIyI3/YHR3JY8nzMSgxL+A5LeSgj4fr6SCD02pzUyoqs0HVbm0GXSeFyWBVyBtHwHVZoCVWFP7rV1sXx0isMeZ87uAWEyEXchdDVrUF4v6Ack8DcT27BIrAAAAAElFTkSuQmCC') no-repeat 0 0;*/
-        background-size: 10px auto;
-        border: 0;
-        text-indent: -9999px;
-        z-index: 1;
-        width: 16px;
-        height: 16px;
-
-    }
-
-    .slick-prev {
-        left: -10px;
-        -ms-transform: rotate(-180deg); /* IE 9 */
-        -webkit-transform: rotate(-180deg); /* Chrome, Safari, Opera */
-        transform: rotate(-180deg);
-        background-position: center center;
-    }
-
-    .slick-next {
-        right: -10px;
-        background-position: center center;
-    }
-
-    .slick-disabled {
-        display: none !important;
-    }
-
-    .slick-active *, .slick-active {
-        z-index: 0;
-        position: relative;
-    }
-        
-    .slick-arrow:hover, 
-    .slick-arrow:active,
-    .slick-arrow:focus {
-        border:0;
-        outline: 0;
-        cursor: pointer;
-    }
-
-    .slick-slide {
-        max-width: 110px;
-    }
-
-    /* End of Slick Carousel CSS */
-
-    
+/* End of Slick Carousel CSS */
+   
 /* Media for small devices */
 
 @media screen and (min-width:1025px) {
@@ -346,8 +336,8 @@
     }
 
     .school-img {
-      max-width: 58px;
-      height: 42px;
+        max-width: 58px;
+        height: 42px;
     }
 }
 
@@ -440,11 +430,9 @@
     }
 
     .moduleImage {
-      text-align: center;
-      padding-right: 0;
+        text-align: center;
+        padding-right: 0;
     }
-
-
 }
 
 @media screen and (min-width: 590px) and  (max-width: 767px) {
@@ -480,7 +468,7 @@
 
 @media screen and (max-width: 590px) {
 
- .jbvalue {
+    .jbvalue {
         font-size: 1.3333333333333333em;    /* font size 20 in pixel */
     } 
 }
@@ -488,13 +476,12 @@
 @media screen and (max-width: 480px) {
 
     .jbText {
-      font-size: 0.7333333333333333em;    /* font size 11 in pixel */
+        font-size: 0.7333333333333333em;    /* font size 11 in pixel */
     }
     
     .avatar-name {
         font-size: 1.625em;    /* font size 20 in pixel */
         line-height:1.4em;
-
     }
 
     .user-type {
@@ -520,7 +507,7 @@
     }
     
     .moduleImage {
-      width: 22%;
+        width: 22%;
     }
     
 }

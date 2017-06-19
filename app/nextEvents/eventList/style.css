@@ -1,7 +1,6 @@
 /*Created Date: - 23rd -02 -2017
 *Usage of file: - this file is used to add styles to Event list.*
 */
-
 .dayHeading {
     background-color: #f2f2f2;
     padding-top: 5px;
@@ -24,8 +23,7 @@
     line-height: 1;
 }
 
-.eventOn, .eventDate
-{
+.eventOn, .eventDate {
      color: #757575; /*Changed as per given Hardening comments. Previously it was #9a9a9a*/   
 }
 
@@ -45,10 +43,9 @@
         padding-bottom:10px;
 }
 
-.eventDate label{
+.eventDate label {
     font-weight: normal;
 }
-
 
 .assignIcon {
     background: url(../../assets/images/assignment_icon.png) no-repeat 0 0;
@@ -120,15 +117,15 @@ a:hover, *:hover  {
     color: #000;
 }
 
-  .DayPicker-NavBar {
+.DayPicker-NavBar {
     position: absolute;
     left: 0;
     right: 0;
     padding: 0 .5rem;
     top: 1rem;
-  }
+}
 
-  .DayPicker-NavButton {
+.DayPicker-NavButton {
     position: absolute;
     width: 1.5rem;
     height: 1.5rem;
@@ -137,7 +134,7 @@ a:hover, *:hover  {
     cursor: pointer;
     background-color: #0054a6;
     border-radius: 4px;
-  }
+}
 
 .DayPicker-NavButton--prev {
     top: -1rem;
@@ -349,8 +346,7 @@ a:hover, *:hover  {
        line-height: 1.1;
     }
 
-    .event-listSection li:last-child
-     {
+    .event-listSection li:last-child {
          border-bottom:0;
      }
 

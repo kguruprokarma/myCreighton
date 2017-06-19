@@ -3,7 +3,6 @@
 */
 
 import React, { Component } from 'react';
-import { Well, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import MealPlanAccounts from './components/mealPlanAccount';
@@ -11,20 +10,15 @@ import * as actionCreators from './actions';
 import { translateText } from '../../common/translate';
 
 export class MealPlan extends Component {
+  componentWillMount() {}
   render() {
-    const props = this.props;    
+    const props = this.props;
     const MEALPLAN_DATA = props.mealPlanData;
     return (
       <article role='article' id='mealPlan'>
         <h2 className='announced-only'>{translateText('common:Creighton_Currency')}</h2>
         {MEALPLAN_DATA && MEALPLAN_DATA.data && <div className={props.showMeal ? 'show' : 'hide'}>
-          <Well bsSize='small' className='jaybucksWell'>
-            <Col xs={12} className='meal-plan-list'>
-              <Row>
-                <MealPlanAccounts mealAccounts={MEALPLAN_DATA.data} />
-              </Row>
-            </Col>
-          </Well>
+          <MealPlanAccounts mealAccounts={MEALPLAN_DATA.data} />
         </div>}
         {MEALPLAN_DATA && MEALPLAN_DATA.data && <button className='doller-icon pull-right btn btn-link openSansBold btnnoPadding' onClick={props.toggleMeal}> {props.showMeal ? translateText('common:MEAL_HIDE') : ''}</button>}
       </article>
@@ -32,7 +26,7 @@ export class MealPlan extends Component {
   }
 }
 
-const mapStateToProps = (mealPlanState) => ( {
+const mapStateToProps = (mealPlanState) => ({
   mealPlanData: mealPlanState.mealPlanReducer.mealPlanData.data
 }
 );

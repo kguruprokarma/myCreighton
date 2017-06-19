@@ -49,14 +49,14 @@
 .btn.btn-default.libraryButton:focus,
 .btn.btn-default.libraryButton.active:hover,
 .btn.btn-default.libraryButton.active:active,
-.btn.btn-default.libraryButton.active:focus  {
+.btn.btn-default.libraryButton.active:focus {
     outline: 0;
     box-shadow: none;
     background-color: #019cdb;
     color: #fff;
 }
 
-.btn.btn-default.libraryButton.active  {
+.btn.btn-default.libraryButton.active {
     background-color: #019cdb;
     box-shadow: none;
     color: #fff;
@@ -106,6 +106,7 @@
     box-shadow: none;
     font-family: 'open_sanslight', sans-serif;
 }
+
 .textPadding {
     padding: 8px 16px;
 }

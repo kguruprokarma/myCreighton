@@ -9,6 +9,7 @@
 .footer-section {
     border-top: 1px solid #d5d5d5;
 }
+
 .footer-space {
     padding-left:8px;
 }
@@ -44,12 +45,12 @@
     .footer-address {
         margin-top: 0;
     } 
+
     .foot-nav {
         display: block;
         padding-left: 0;
         text-align: left;
     }
-    
 }
 
 @media screen and (min-width:768px)  and (max-width: 992px) {
@@ -66,7 +67,7 @@
         height: 204px;
     } 
 
-    .footer-space, .copy-right, .foot-nav, .footer-address  {
+    .footer-space, .copy-right, .foot-nav, .footer-address {
         display: block;
         text-align: center;
         padding-left:0;

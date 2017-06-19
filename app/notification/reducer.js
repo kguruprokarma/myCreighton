@@ -18,7 +18,7 @@ const notificationReducer = (state = initialState, action = null) => {
     case types.RECEIVE_NOTIFICATION_DATA:
       return Object.assign({}, state, {
         isLoading: false,
-        notificationData: action.data.data
+        notificationData: action.data.data.data
       });
     case types.RECEIVE_NOTIFICATION_DATA_ERROR:
       return Object.assign({}, state, {

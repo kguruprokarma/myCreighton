@@ -109,7 +109,7 @@ export const filterTodaysClassSchedule = (schedule) => {
           const currentDay = moment(currentDate).get('day');
           if (requiredDay === currentDay) {
             tempItem.nextDate = moment(nextDateArray[i].date).format('MMM DD');
-          }          
+          }
         }
         if (item.class_begin_time !== null && item.class_end_time !== null && item.class_schedule !== null) {
           tempItem.day = todayHeader();
@@ -170,10 +170,9 @@ export const convertEncodeURIComponent = (data) => {
   return { 'data': encodeArray };
 };
 
-export const createTimeStampForDueTime = (data1) => {
+export const createTimeStampForDueTime = (classObj) => {
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
-  const classObject = data1;
-  let additionaldays = 0;
+  const classObject = classObj;
   for (let day = 0; day < 8; day++) {
     const getCurrentDay = moment().add(day, CommonConstants.MOMENT_DAYS)._d;
     if (days[getCurrentDay.getDay()] === classObject.day) {
@@ -184,11 +183,8 @@ export const createTimeStampForDueTime = (data1) => {
       } else {
         hours = hours + 6;
       }
-      if (hours > 23) {
-        additionaldays = parseInt(hours/24);
-        hours = (hours - (additionaldays * 24));
-      }
-      const timeStampWithTime = moment.utc([getCurrentDay.getFullYear(), getCurrentDay.getMonth(), getCurrentDay.getDate()+additionaldays, hours, minutes]);
+      const UTCtimeStampWithZeroTime = moment.utc([getCurrentDay.getFullYear(), getCurrentDay.getMonth(), getCurrentDay.getDate()]);
+      const timeStampWithTime = moment.utc(moment(UTCtimeStampWithZeroTime).add(hours, 'hours').add(minutes, 'minutes')).format();
       classObject.timeStamp = moment(timeStampWithTime).utc().format();
       break;
     }
@@ -310,10 +306,10 @@ export const addNextDate = (dataArray) => {
       item.day = translateText('common:COMMON_NA');
       return item;
     }
-    for (let i=0; i<nextDateArray.length; i++) {
+    for (let i = 0; i < nextDateArray.length; i++) {
       if (nextDateArray[i].date > today) {
         item.nextDate = moment(nextDateArray[i].date).format('MMM DD');
-        item.day =nextDateArray[i].day;
+        item.day = nextDateArray[i].day;
         break;
       }
     }
@@ -387,7 +383,7 @@ export const telephoneCheck = (phoneNumber, separator) => {
   if (phoneNumber) {
     const concat = `$1${separator}$2${separator}$3`;
     return phoneNumber.replace(/[^\d]/g, '')
-        .replace(regExpression, concat);
+      .replace(regExpression, concat);
   }
   return '';
 };
@@ -427,18 +423,18 @@ export const getClassAndAssignmentAPIData = (reqObj) => {
           localStorage.setItem('assignmentMasterCopy', JSON.stringify(assignmentResponse.data.data));
           masterObj.assignmentMasterCopy = assignmentResponse.data.data;
           setTimeout(() => {
-            resolve(masterObj); 
+            resolve(masterObj);
           }, 250);
         })
-            .catch((error) => {
-              console.log('error: ', error);
-              reject(error);
-            });
-      })
           .catch((error) => {
             console.log('error: ', error);
             reject(error);
           });
+      })
+        .catch((error) => {
+          console.log('error: ', error);
+          reject(error);
+        });
     } else {
       masterObj.classMasterCopy = JSON.parse(localStorage.getItem('classMasterCopy'));
       masterObj.assignmentMasterCopy = JSON.parse(localStorage.getItem('assignmentMasterCopy'));
@@ -548,13 +544,12 @@ export const caldenderEventsTimeStamp = (calenderItems) => {
   let items = calenderItems;
   items = items.map((calenderItem) => {
     const item = calenderItem;
-    let additionaldays = 0;
     let counter = 1;
-    const timerArray = [[0, 0], [23, 59]];
+    const timerArray = [[0, 0], [23, 60]];
     if (!(calenderItem.starttime && calenderItem.endtime)) {
       counter = 2;
     }
-    for (let i = 0; i< counter; i++) {
+    for (let i = 0; i < counter; i++) {
       const time = (calenderItem.starttime && calenderItem.endtime) ? calenderItem.starttime.split(':') : timerArray[i];
       let hours = parseInt(time[0]);
       const minutes = parseInt(time[1]);
@@ -563,16 +558,12 @@ export const caldenderEventsTimeStamp = (calenderItems) => {
       } else {
         hours = hours + 6;
       }
-      if (hours > 23) {
-        additionaldays = parseInt(hours/24);
-        hours = (hours - (additionaldays * 24));
-      }
       const timeStampWithZeroTime = moment(calenderItem.startdate)._d;
-      const timeStampWithGivenTime = moment.utc([timeStampWithZeroTime.getFullYear(), timeStampWithZeroTime.getMonth(), timeStampWithZeroTime.getDate()+ additionaldays, hours, minutes]);
+      const UTCtimeStampWithZeroTime = moment.utc([timeStampWithZeroTime.getFullYear(), timeStampWithZeroTime.getMonth(), timeStampWithZeroTime.getDate()]); const UTCtimeStampWithGivenTime = moment.utc(moment(UTCtimeStampWithZeroTime).add(hours, 'hours').add(minutes, 'minutes')).format();
       if (i === 0) {
-        item.timeStamp = moment(timeStampWithGivenTime).utc().format();
+        item.timeStamp = moment(UTCtimeStampWithGivenTime).utc().format();
       } else if (!(calenderItem.starttime && calenderItem.endtime) && i === 1) {
-        item.timeStamp1 = moment(timeStampWithGivenTime).utc().format();
+        item.timeStamp1 = moment(UTCtimeStampWithGivenTime).utc().format();
       }
     }
     return item;
@@ -581,13 +572,13 @@ export const caldenderEventsTimeStamp = (calenderItems) => {
 };
 
 export const dynamicUrlGeneration = (url, queryParamsArray) => {
-  if (url || (queryParamsArray && queryParamsArray.length>0)) {
+  if (url || (queryParamsArray && queryParamsArray.length > 0)) {
     let queryParamsStr = '';
     let href = '';
-    if (queryParamsArray && queryParamsArray.length>0) {
+    if (queryParamsArray && queryParamsArray.length > 0) {
       queryParamsStr = queryParamsArray.join('&');
       queryParamsStr = encodeURI(queryParamsStr);
-      href = url+queryParamsStr;
+      href = url + queryParamsStr;
     } else if (url) {
       href = url;
     }

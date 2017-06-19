@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { bindActionCreators } from 'redux';
+import Perf from 'react-addons-perf';
 import { connect } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
 import HeaderLabel from './../../common/headerLabel';
@@ -23,36 +24,47 @@ export class Classes extends React.PureComponent {
   constructor(props) {
     super(props);
     const classesProps = this.props;
-    // classesProps.sendLog({ type: CommonConstants.INFO, datas: 'entering constructor', logType: this.constructor.name });
     this.onChangeOfTab = this.onChangeOfTab.bind(this);
     this.onChangeOfTab(classesProps.params.classtab);
+    this.initailTime = true;
     this.state = { presentState: '' };
-    // classesProps.sendLog({ type: CommonConstants.INFO, datas: 'leaving constructor', logType: this.constructor.name });
   }
 
   componentDidMount() {
-      // const props = this.props;
-    // props.sendLog({ type: CommonConstants.INFO, datas: 'entering componentDidMount method', logType: this.constructor.name });
     browserTitle(translateText('common:CLASS_SCHEDULE'));
-    // props.sendLog({ type: CommonConstants.INFO, datas: 'leaving componentDidMount method', logType: this.constructor.name });
   }
 
   componentWillReceiveProps(nextProps) {
-    // nextProps.sendLog({ type: CommonConstants.INFO, datas: 'entering componentWillReceiveProps method', logType: this.constructor.name });
     const propsNext = nextProps;
     if (this.state.presentState !== propsNext.params.classtab) {
       this.setState({ presentState: propsNext.params.classtab });
       this.onChangeOfTab(propsNext.params.classtab);
-      // nextProps.sendLog({ type: CommonConstants.INFO, datas: 'leaving componentWillReceiveProps method', logType: this.constructor.name });
     }
+    Perf.start();
+  }
+
+  shouldComponentUpdate(nextProps) {
+    // return a boolean value
+    const prevProps = this.props;
+    if (this.initailTime && prevProps.params.classtab === nextProps.catagoryName && nextProps.classesData !== undefined && nextProps.assignmentsData !== undefined) {
+      this.initailTime = false;
+      return true;
+    }
+    return nextProps.classesData !== undefined && nextProps.assignmentsData !== undefined && prevProps.params.classtab !== nextProps.params.classtab;
+  }
+
+  componentDidUpdate() {
+    Perf.stop();
+    Perf.printInclusive();
+    Perf.printExclusive();
+    Perf.printWasted();
   }
 
   onChangeOfTab(catagoryName) {
     const props = this.props;
-     // props.sendLog({ type: CommonConstants.INFO, datas: 'entering onChangeOfTab method', logType: this.constructor.name });
     props.onCatagoryChange(catagoryName);
     const result = getClassAndAssignmentAPIData(this.userReqObj).catch((error) => {
-        //for catching API error
+      //for catching API error
       props.onReceiveError(error);
     });
     result.then((masterObj) => {
@@ -60,13 +72,11 @@ export class Classes extends React.PureComponent {
       //It doesn't have to be a string, but if it is only a succeed message, it probably will be.
       props.getClassesData({ data: masterObj.classMasterCopy });
       props.getAssignmentDetails({ data: masterObj.assignmentMasterCopy });
-       // props.sendLog({ type: CommonConstants.INFO, datas: 'leaving onChangeOfTab method', logType: this.constructor.name });
     });
   }
 
   render() {
     const classListData = this.props;
-    const props = this.props;
     const USER_DATA = convertEncodeURIComponent(classListData.classesData);
     const ASSIGNMENTS_DATA = convertEncodeURIComponent(classListData.assignmentsData);
     const defaultArray = [];
@@ -106,15 +116,17 @@ export class Classes extends React.PureComponent {
           <Col md={8} sm={6} xs={12} className='hidden-xs'>
             <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:CLASS_SCHEDULE')} /></div>
           </Col>
-          <Col md={4} sm={6} xs={12} className='controller-buttons classListButtons'>
-            <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />
-          </Col>
+          {USER_DATA && USER_DATA.data && USER_DATA.data.length > 0 &&
+            <Col md={4} sm={6} xs={12} className='controller-buttons classListButtons'>
+              <ClassTabController state={this.state.presentState} onChangeOfTab={this.onChangeOfTab} />
+            </Col>
+          }
         </Row>
-        { props.loading && <Spinner />}
-        {USER_DATA && USER_DATA.data && USER_DATA.data.length > 0 && <div>
-
-          <ClassBox data={USER_DATA} catagoryName={classListData.params.classtab} />
-        </div>
+        {!(USER_DATA && USER_DATA.data && USER_DATA.data.length > 0) && <Spinner />}
+        {USER_DATA && USER_DATA.data && USER_DATA.data.length > 0 &&
+          <div>
+            <ClassBox data={USER_DATA} catagoryName={classListData.params.classtab} />
+          </div>
         }
         {(!USER_DATA && classListData.isError) &&
           <AlertComponent typename='success' msg={translateText('common:NO_RESPONSE')} />

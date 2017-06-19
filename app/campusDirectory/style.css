@@ -71,7 +71,7 @@
     cursor: default;
 }
 
-.icon-addon img{
+.icon-addon img {
     width: 16px;
 }
 
@@ -93,7 +93,7 @@
 
 .icon-addon-right:focus,
 .icon-addon-right:hover,
-.icon-addon-right:active  {
+.icon-addon-right:active {
     background-color: #a2a2a2; 
 }
 
@@ -130,6 +130,7 @@
 }
 
 /* Styling for Campus Directory Advanced search */
+
 .searchPopup .popup-box-shaow {
     -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
     -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
@@ -149,10 +150,9 @@
     margin-top: 6px;
 }
 
-.searchSelect
-{
-        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
-        margin-left: 15px;
+.searchSelect {
+    font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    margin-left: 15px;
 }
 
 .searchSelect:hover,
@@ -232,7 +232,6 @@
     background-size: 15px auto;
     border: 1px solid #a2a2a2;
     box-shadow: none;
-
 }
 
 .styled-select {
@@ -290,6 +289,7 @@
     color: #313131;
     font-size: 1.3333333333333333em;    /* font size 20 in pixel */
 }
+
 .adv-search .form-control {
     border: 1px solid #a2a2a2;
     box-shadow: none;
@@ -308,7 +308,7 @@
     padding-right: 30px;
 }
 
-/* Styling for Campus Directory Advanced search */
+/* End of styling for Campus Directory Advanced search */
 
 @media screen and (max-width: 767px) {
 

@@ -4,7 +4,6 @@
          url('/assets/fonts/architectsdaughter-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 .architects_daughterregular {
@@ -155,7 +154,6 @@
     position: relative;
     top:-6px;
     left: -66px;
-
 }
 
 .close-button {
@@ -310,6 +308,14 @@
     width: 200px;
 }
 
+.help-tabs {
+    visibility: hidden;
+}
+
+.help-container.help-classes main {
+    background-color: transparent;
+}
+
 /* End of Classes help css */
 
 
@@ -326,7 +332,6 @@
     .classes-arrows .right-class-arrow {
         left: 122px;
     }
-
 }
 
 @media screen and (min-width:991px) and (max-width:1024px) {
@@ -402,8 +407,7 @@
         
 }
 
-@media screen and (min-width:992px) and (max-width:1024px)
-{
+@media screen and (min-width:992px) and (max-width:1024px) {
     .card-arrow {
         left: 177px;
         top: -42px;
@@ -462,7 +466,6 @@
         margin-left: 15px;
         margin-right: 15px;
     }
-
 }
 
 @media screen and (max-width: 767px) {

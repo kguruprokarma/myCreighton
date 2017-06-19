@@ -1,5 +1,4 @@
-
-.customPopUp{
+.customPopUp {
     min-width: 250px;
     background: #fff;
     border-radius:10px;
@@ -7,36 +6,38 @@
     -webkit-border-radius:10px;
 }
 
-.popUpText{
+.popUpText {
     margin-left: 15px;
     padding: 8px 0px;
 }
 
-.customPopUp .logOut{
+.customPopUp .logOut {
     margin-top: 55px;
     position: relative; 
     text-align:left;
     top: 4px;
 }
 
-.customPopUpItem{
+.customPopUpItem {
     position: relative;
 }
+
 .popUp .glyphicon-user {
     font-size: 1.3333333333333333em;    /* font size 20 in pixel */
     top: 4px;
 }
-.popUp .glyphicon-user:hover{
+
+.popUp .glyphicon-user:hover {
     cursor: pointer;
 }
 
-.popUp{
+.popUp {
     position: relative;
     z-index: 1000;
     top: 3px;
 }
 
-.popUpContainer{
+.popUpContainer {
     position: absolute;
     top:40px;
     right: -10px;
@@ -44,8 +45,7 @@
     min-width: 282px;
 }
 
-.customPopUp .popup-box-shaow
-{
+.customPopUp .popup-box-shaow {
     -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
     -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
     box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
@@ -54,8 +54,7 @@
     -moz-border-radius: 10px;
 }
 
-.popupPointer
-{
+.popupPointer {
     background: url('./../assets/images/popup-arrow.png') no-repeat;
     position:absolute;
     top:-11px;
@@ -64,7 +63,7 @@
     height: 11px;
 }
 
-.popUpPatch{
+.popUpPatch {
     position: absolute;
     top:0px;
     left: 0px;
@@ -91,7 +90,6 @@
     text-decoration: none;
     outline: none;
     position: relative;
-
 }
 
 .hamburgerMenu .popupBackBtn:focus,
@@ -114,7 +112,10 @@
     border-right:0;
     background-color:transparent;
     padding:0;
+    margin-left: 0;
+    margin-right: 0;
 }
+
 .customPopUp .list-group .list-group-item a {
     padding:10px 15px;
     display: block;
@@ -130,7 +131,8 @@
 }
 
 .customPopUp .list-group .list-group-item a:hover, 
-.customPopUp .list-group .list-group-item a:focus, .customPopUp .list-group .list-group-item a.active{
+.customPopUp .list-group .list-group-item a:focus, 
+.customPopUp .list-group .list-group-item a.active {
     color: #313131;
     text-decoration:none;
 }
@@ -191,13 +193,13 @@
 }
 
 .myCreighton-logo {
-        background: url('/assets/images/mycreighton-logo.svg') no-repeat;
-        background-size: 116px auto;
-        text-indent: -9999px;
-        width:100%;
-        height: 30px;    
-        float: left;
-    } 
+    background: url('/assets/images/mycreighton-logo.svg') no-repeat;
+    background-size: 116px auto;
+    text-indent: -9999px;
+    width:100%;
+    height: 30px;    
+    float: left;
+} 
 
 .logo {
     overflow: hidden;
@@ -205,23 +207,22 @@
     margin-top: 4px;
 }
 
-.filter-checkmark{
+.filter-checkmark {
     color: #ffffff;
     background-color: transparent;
 }
 
- .event-icon .filter-img img{
-        width:20px;
-        min-width: 20px;
-        position: relative;
-        top: -3px;
-    }
+ .event-icon .filter-img img {
+    width:20px;
+    min-width: 20px;
+    position: relative;
+    top: -3px;
+}
     
- .event-icon .filter-img img.filter-default
-    {
-        width:19px;
-        min-width: 19px;
-    }
+.event-icon .filter-img img.filter-default {
+    width:19px;
+    min-width: 19px;
+}
 
 /* Media for small devices */
 
@@ -261,7 +262,7 @@
         top: 4px;
     }
 
-    .event-icon .filter-img img{
+    .event-icon .filter-img img {
         width:16px;
         min-width: 16px;
         position: relative;
@@ -288,8 +289,7 @@
         padding-left: 6px;
     }
      
-    .hamburgerMenu .popupBackBtn
-    {
+    .hamburgerMenu .popupBackBtn {
         top: -4px;
     }
 
@@ -307,7 +307,7 @@
     .top-search-icon {
         font-size: 18px;
         position: relative;
-        top: 1px;
+        top: 5px;
     } 
 
     .popUp .glyphicon-user {
@@ -316,12 +316,12 @@
 
     .notification-icon {
         position: relative;
-        top: -5px;
+        top: -2px;
         left: 5px;
     }
 
     .filter-img {
-        top: -4px;
+        top: -1px;
         position: relative;
     }
 
@@ -350,7 +350,6 @@
         padding-left: 0;
         padding-right: 0;
     }
-    
 }
 
 @media screen and (max-width: 480px) {
@@ -376,5 +375,15 @@
         font-size: 1.2em;    /* font size 16 in pixel */
         line-height: 1.2;
     } 
+}
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+    .filter-img {
+        top: 2px;
+    }
+
+    .popUp .glyphicon-user {
+        top: 2px;
+    }
 }

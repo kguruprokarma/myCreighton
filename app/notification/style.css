@@ -1,10 +1,9 @@
-
-.oldNotification{
+.oldNotification {
     background: #d2d2d2;
     color: #333333
 }
 
-.newNotification{
+.newNotification {
     background: #ffffff;
     color: #000000
 }
@@ -52,6 +51,7 @@
 }
 
 @media screen and (max-width:767px) {
+    
     .notification-list {
         margin-left: -15px;
         margin-right: -15px;

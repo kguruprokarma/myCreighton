@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
@@ -26,7 +26,7 @@ export class Footer extends React.PureComponent {
     return (
       <footer className='footer fs0pt93' role='contentinfo'>
         <h1 className='announced-only'>{translateText('common:PAGE_FOOTER')}</h1>
-        <Grid>
+        <div className='container'>
           <button className={HELP_SCREEN.HELP_SCREEN_URLS.indexOf(props.currentState) >= 0 ? 'help-icon pull-right btn btn-link openSansBold btnnoPadding' : 'help-icon help-disable pull-right btn btn-link openSansBold btnnoPadding '} onClick={this.handleClick}><span className='glyphicon glyphicon-question-sign' aria-hidden='true' /></button>
           <div className='footer-section pt15 pb15'>
             <Row>
@@ -38,7 +38,7 @@ export class Footer extends React.PureComponent {
               </Col>
             </Row>
           </div>
-        </Grid>
+        </div>
       </footer>
     );
   }

@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { Link } from 'react-router';
+import { Row, Col } from 'react-bootstrap';
 import {findIndex} from 'lodash';
 import * as ROUTE_URL from '../../constants/routeContants';
 import { translateText } from '../../common/translate'; 
@@ -14,7 +15,7 @@ class PreviousNext extends React.Component {
   }
   render() {
     const props = this.props;
-    const currentIndex = findIndex(semesterDataObj, ['objectKey', props.currentPath.categoryname]);
+    const currentIndex = findIndex(semesterDataObj, ['objectKey', props.currentPath]);
 
     const totalLength = semesterDataObj.length-1;
     let nextUrl;
@@ -25,21 +26,20 @@ class PreviousNext extends React.Component {
     if (currentIndex > 0) {
       prevUrl = semesterDataObj[currentIndex-1].objectKey;
     }
-      //}
-
     return (
-      <div className='row' >
-        <div className='form-group col-xs-6'>
-          <Link to={`${ROUTE_URL.SEMESTERACADEMICS}/${prevUrl}`} className={`btn btn-primary ${currentIndex===0?'disableButton':''}`} onClick={() => props.navigateOnClick(prevUrl)}>
+
+      <Row className='row' >
+        <Col className='form-group col-xs-6'>
+          <Link to={`${ROUTE_URL.SCHOOLS_AND_SEMESTER}/${prevUrl}`} className={`btn btn-primary ${currentIndex===0?'disableButton':''}`}>
             <span className='glyphicon glyphicon-chevron-left' /> {translateText('common:PREVIOUS')}
           </Link>
-        </div>
-        <div className='form-group col-xs-6 text-right'>
-          <Link to={`${ROUTE_URL.SEMESTERACADEMICS}/${nextUrl}`} className={`btn btn-primary ${currentIndex===totalLength?'disableButton':''}`} onClick={() => props.navigateOnClick(nextUrl)}> {translateText('common:NEXT')}
+        </Col>
+        <Col className='form-group col-xs-6 text-right'>
+          <Link to={`${ROUTE_URL.SCHOOLS_AND_SEMESTER}/${nextUrl}`} className={`btn btn-primary ${currentIndex===totalLength?'disableButton':''}`}> {translateText('common:NEXT')}
             <span className='glyphicon glyphicon-chevron-right' />
           </Link>
-        </div>
-      </div>
+        </Col>
+      </Row>
     );
   }
 }

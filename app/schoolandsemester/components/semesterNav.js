@@ -2,15 +2,16 @@ import React from 'react';
 import { Link } from 'react-router';
 import { ListGroup, ListGroupItem, Col, Row } from 'react-bootstrap';
 import { translateText } from '../../common/translate';
+import * as ROUTE_URL from '../../constants/routeContants';
 
 const SemesterNav = (SemesterNavprops) => (
 
   <nav role='navigation'>
-    <ListGroup className='main-list-group semester-links openSansLight'>
+    <ListGroup className={'visible-xs main-list-group semester-links openSansLight'}>
       {
         SemesterNavprops.semesterLinks.map((semesterDetails, semesterIndex) => (
           <ListGroupItem key={semesterIndex}>
-            <Link className='visible-xs' to={semesterDetails.linkto} onClick={() => SemesterNavprops.navToLink(semesterDetails.objectKey)} key={semesterIndex} activeClassName='active'>
+            <Link to={`${ROUTE_URL.SCHOOLS_AND_SEMESTER}/${semesterDetails.objectKey}`} key={semesterIndex} activeClassName='active'>
               <Row>
                 <Col xs={10}>
                   <p className='openSansLight fs1pt2 semesterTitle'>{translateText(semesterDetails.title)}</p>
@@ -20,12 +21,19 @@ const SemesterNav = (SemesterNavprops) => (
                 </Col>
               </Row>
             </Link>
-            <Link className={SemesterNavprops.activeNavLink === translateText(semesterDetails.title)?'hidden-xs active':'hidden-xs'} onClick={() => SemesterNavprops.navToLink(translateText(semesterDetails.objectKey))}>{translateText(semesterDetails.title)}</Link>
+          </ListGroupItem>
+        ))}
+    </ListGroup>
+    <ListGroup className='hidden-xs main-list-group semester-links openSansLight'>
+      {
+        SemesterNavprops.semesterLinks.map((semesterDetails, semesterIndex) => (
+          <ListGroupItem key={semesterIndex}>
+            <Link to={`${ROUTE_URL.SCHOOLS_AND_SEMESTER}/${semesterDetails.objectKey}`} className={SemesterNavprops.activeNavLink === translateText(semesterDetails.title) ? 'active' : ''}>{translateText(semesterDetails.title)}</Link>
           </ListGroupItem>
         ))
       }
     </ListGroup>
-  </nav>
+  </nav >
 
 );
 export default SemesterNav;

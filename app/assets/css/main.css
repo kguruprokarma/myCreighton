@@ -12,14 +12,15 @@ body {
    color: #313131;
    background-color: #fff;
 }
+
 /* Bebas, Open Sans font faces */
+
 @font-face {
     font-family: 'bebasregular';
     src: url('../fonts/bebas.woff2') format('woff2'),
          url('../fonts/bebas.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -28,7 +29,6 @@ body {
          url('../fonts/open-sans.light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -53,7 +53,6 @@ body {
          url('../fonts/architectsdaughter-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 /* End Font face*/
@@ -67,11 +66,11 @@ body {
      font-family: 'open_sanslight', sans-serif;
 }
 
-.openSansRegular{
+.openSansRegular {
     font-family: 'open_sansregular', sans-serif;
 }
 
-.openSansBold{
+.openSansBold {
     font-family: 'open_sanssemibold', sans-serif;
 }
 
@@ -114,14 +113,16 @@ header a:focus {
 }
 
 /* End Header */
+
 /* start menu */
 .menu-xs {
     position: absolute;
     z-index: 9;
 }
+
 /* End menu */
-.wrapper
-{
+
+.wrapper {
 	/* Layout wrapper */
     min-height:100%; 
     position:relative;
@@ -155,6 +156,7 @@ h1, h2, h3, h4, h5 {
     margin: 0 0 14px 0;
     padding: 0;
 }
+
 /* For fixed footer */
 .view-container {
    padding-bottom:130px;
@@ -183,11 +185,11 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Left Menu */
-.userLeftmenu{
+.userLeftmenu {
     margin-top:20px;
 }
 
-.userLeftmenu .list-group-item{
+.userLeftmenu .list-group-item {
     border-top:1px solid #efefef;
     border-right: 0;
     border-bottom: 0;
@@ -196,7 +198,7 @@ h1, h2, h3, h4, h5 {
     font-size: 1em;
 }
 
-.userLeftmenu .list-group-item:last-child{
+.userLeftmenu .list-group-item:last-child {
     border-bottom:1px solid #efefef;
 }
 
@@ -221,11 +223,11 @@ h1, h2, h3, h4, h5 {
     text-transform: capitalize;
 }
 
-.headerLinks{
+.headerLinks {
 	text-align:right;
 }
 
-.graybtBorder{
+.graybtBorder {
 	border-bottom:1px solid #c8c7cc;
 	overflow: hidden;
 }
@@ -242,7 +244,7 @@ h1, h2, h3, h4, h5 {
 	display: inline;
 }
 
-.announced-only{
+.announced-only {
     left: -1200px;
     position: absolute;
     top: -1200px;
@@ -259,7 +261,7 @@ label:after {
 }
 
 label.noclons:after {
-content:"";
+    content:"";
 }
 
 .control-group {
@@ -624,8 +626,7 @@ textarea.form-control {
     top: 0;
 }
 
-.myc-model-popup .modal-content .white-circle
-{
+.myc-model-popup .modal-content .white-circle {
     width: 60px;
     height: 60px;
     background-color: #0054a6;
@@ -671,6 +672,7 @@ textarea.form-control {
 } 
 
 /* Notification CSS */
+
 .notification-icon .glyphicon-bell {
     color: #ffffff;
     background-color: transparent;
@@ -696,6 +698,7 @@ textarea.form-control {
     font-size: 9px;
     padding: 1px 2px 1px 1px;
 }
+
 /* Notification CSS */
 
 .head-Icons {
@@ -728,6 +731,7 @@ textarea.form-control {
 }
 
 /* Media for small devices */
+
 @media screen and (min-width: 1170px) {
 
     .main-navigation .glyphicon-chevron-right {
@@ -749,7 +753,7 @@ textarea.form-control {
         padding-right:15px;
     }
    
-   #navigation {
+    #navigation {
         display: block;
         border-bottom: 1px solid #d5d5d5;
     }
@@ -757,7 +761,6 @@ textarea.form-control {
     .main-navigation li a {
         line-height: 3em;
     }
-    
 }
 
 @media screen and (min-width: 1024px) {
@@ -789,8 +792,8 @@ textarea.form-control {
     
 }
 
-@media screen and (min-width: 1025px) 
-{
+@media screen and (min-width: 1025px) {
+     
      .hamburgerMenu, .main-navigation li.menu-heading {
         display: none;
     }
@@ -854,11 +857,9 @@ textarea.form-control {
         padding-top: 12px;
     }
     
-    .main-navigation li a
-    {
+    .main-navigation li a {
         font-size: 1.4em;   /* font size 21 in pixel */
     }
-    
 }
 
 @media screen and (min-width: 768px) and (max-width: 1010px) {
@@ -878,7 +879,6 @@ textarea.form-control {
         max-width: 80%;
         margin-left: -40%;
     }
-
 }
 
 @media screen and (max-width: 767px) {
@@ -891,8 +891,7 @@ textarea.form-control {
 		text-align: center;
 	}
 
-	.m-grayBorder 
- 	{
+	.m-grayBorder {
 		border-bottom:1px solid #c8c7cc;
 	}
 
@@ -931,18 +930,18 @@ textarea.form-control {
         margin-left: -28px;
         border: 6px solid #fff;
     }
-  
 }
 
 @media screen and (max-width: 360px) {
-.main-navigation li a
-    {
+
+    .main-navigation li a {
         font-size: 1.1em;
     }
 }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-	.form-group input::-ms-clear {
+	
+    .form-group input::-ms-clear {
         display: none;
     }
 }

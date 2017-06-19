@@ -4,8 +4,8 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import Accordion from '../index';
-import { translateText } from '../../../common/translate';
+import Accordion from '../components/accordion';
+import { translateText } from '../../common/translate';
 
 describe('index files of Accordion ----->', () => {
   const minProps = {

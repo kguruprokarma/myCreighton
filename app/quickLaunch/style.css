@@ -1,4 +1,3 @@
-
 .quick-launch-data {
     text-align: center;
     margin-top: 30px;
@@ -28,6 +27,7 @@
 .ql-title:active {
     color: #313131;
 }
+
 .ql-col-height {
     height: 112px;
 }

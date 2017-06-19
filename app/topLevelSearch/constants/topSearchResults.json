@@ -21,6 +21,11 @@
             "url": "/dashboard"
         },
         {
+            "name": "School & Semester",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
             "name": "Feedback",
             "description": "Dashboard",
             "url": "/dashboard"
@@ -369,288 +374,6 @@
             "name": "Search",
             "description": "Search",
             "url": "/search"
-        }
-    ],
-    "student": [
-        {
-            "name": "Next Events",
-            "description": "What I need to be ready for.",
-            "url": "/dashboard"
-        },
-        {
-            "name": "My Profile",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Academic",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "LEGAL NAME",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "First",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Middle",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Last",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "HOME ADDRESS",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Street 1",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Street 2",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "City",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "State",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "ZIP code",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "SCHOOL ADDRESS",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "PRIMARY CONTACT",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Phone",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "EMERGENCY CONTACT",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "First name",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Last name",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Relationship",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "EMAIL",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "School",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Personal",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "OTHER",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Birthdate",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "NetID",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "IF NOT AGE OF MAJORITY",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Parent",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "Guardian",
-            "description": "My Profile",
-            "url": "/profile"
-        },
-        {
-            "name": "ACADEMIC STATUS",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Major",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Minor",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Class",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Academic Ranking",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Enrollment",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Disciplinary",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "ADVISOR INFORMATION",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Name",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Area",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Office",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Office hours",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "Email",
-            "description": "Academic",
-            "url": "/academic"
-        },
-        {
-            "name": "School & Semester",
-            "description": "Dashboard",
-            "url": "/dashboard"
-        },
-        {
-            "name": "Class Schedule",
-            "description": "Class Schedule",
-            "url": "/classes/week"
-        },
-        {
-            "name": "Class Schedule",
-            "description": "Class Schedule",
-            "url": "/classes/today"
-        },
-        {
-            "name": "Class Schedule",
-            "description": "Class Schedule",
-            "url": "/classes/list"
-        },
-        {
-            "name": "Week",
-            "description": "Class Schedule",
-            "url": "/classes/week"
-        },
-        {
-            "name": "Online Classes",
-            "description": "Class Schedule",
-            "url": "/classes/week"
-        },
-        {
-            "name": "Monday",
-            "description": "Class Schedule",
-            "url": "/classes/week"
-        },
-        {
-            "name": "Tuesday",
-            "description": "Class Schedule",
-            "url": "/classes/week"
-        },
-        {
-            "name": "Wednesday",
-            "description": "Class Schedule",
-            "url": "/classes/week"
-        },
-        {
-            "name": "Thursday",
-            "description": "Class Schedule",
-            "url": "/classes/week"
-        },
-        {
-            "name": "Friday",
-            "description": "Class Schedule",
-            "url": "/classes/week"
-        },
-        {
-            "name": "Online Classes",
-            "description": "Class Schedule",
-            "url": "/classes/today"
-        },
-        {
-            "name": "Today",
-            "description": "Class Schedule",
-            "url": "/classes/today"
-        },
-        {
-            "name": "A-Z",
-            "description": "Class Schedule",
-            "url": "/classes/list"
         },
         {
             "name": "Emergency Contact",
@@ -1137,6 +860,283 @@
             "description": "Review and complete the items in this list to make sure you have the basic things needed to begin a successful academic year.",
             "url": "/schoolsandsemester"
         }
+    ],
+    "student": [
+        {
+            "name": "Next Events",
+            "description": "What I need to be ready for.",
+            "url": "/dashboard"
+        },
+        {
+            "name": "My Profile",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Academic",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "LEGAL NAME",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "First",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Middle",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Last",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "HOME ADDRESS",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Street 1",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Street 2",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "City",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "State",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "ZIP code",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "SCHOOL ADDRESS",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "PRIMARY CONTACT",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Phone",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "EMERGENCY CONTACT",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "First name",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Last name",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Relationship",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "EMAIL",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "School",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Personal",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "OTHER",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Birthdate",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "NetID",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "IF NOT AGE OF MAJORITY",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Parent",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Guardian",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "ACADEMIC STATUS",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Major",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Minor",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Class",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Academic Ranking",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Enrollment",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Disciplinary",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "ADVISOR INFORMATION",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Name",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Area",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Office",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Office hours",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Email",
+            "description": "Academic",
+            "url": "/academic"
+        },        
+        {
+            "name": "Class Schedule",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Class Schedule",
+            "description": "Class Schedule",
+            "url": "/classes/today"
+        },
+        {
+            "name": "Class Schedule",
+            "description": "Class Schedule",
+            "url": "/classes/list"
+        },
+        {
+            "name": "Week",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Online Classes",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Monday",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Tuesday",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Wednesday",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Thursday",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Friday",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Online Classes",
+            "description": "Class Schedule",
+            "url": "/classes/today"
+        },
+        {
+            "name": "Today",
+            "description": "Class Schedule",
+            "url": "/classes/today"
+        },
+        {
+            "name": "A-Z",
+            "description": "Class Schedule",
+            "url": "/classes/list"
+        }        
     ],
     "staff": [
         {

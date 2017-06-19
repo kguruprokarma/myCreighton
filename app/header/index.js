@@ -122,7 +122,7 @@ export class Header extends React.PureComponent {
                 <li className='head-Icons notification-icon'>
                   <Link to={RouteContants.NOTIFICATION} className='btn btn-link btnnoPadding' activeClassName='active'>
                     <span className='glyphicon glyphicon-bell' title='Notifications' />
-                    {props.notificationData.length > 0 && <span className='badge-notification'>{props.notificationData.length}</span>}
+                    {props.notificationData && props.notificationData.length > 0 && <span className='badge-notification'>{props.notificationData.length}</span>}
                   </Link>
                 </li>
                 <li className='head-Icons'>

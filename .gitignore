@@ -1,0 +1,9 @@
+node_modules/
+coverage/
+build/
+.vscode/
+app/debug.log
+app/npm-debug.log
+eslintReport.txt
+eslintReport.html
+.chrome
