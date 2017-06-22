@@ -7,12 +7,12 @@ import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
 import * as CommonConstants from '../../../../constants/commonConstants';
 
+const header = (addressProps) => <h2 className='dataHeading openSansRegular'>{addressProps.profile === CommonConstants.FACULTY_LABEL ? translateText(`common:PROFILE_SCHOOL_ADDRESS_${addressProps.profile}`) : translateText('common:PROFILE_SCHOOL_ADDRESS')}</h2>;
 
 const Address = (addressProps) => (
   <article role='article' className='profileRow mt30'>
     {
-      addressProps.shouldShowWhenStaff || addressProps.shouldShowWhenFaculty ? <h3 className='dataHeading openSansRegular'>{translateText('common:MAILING_ADDRESS')}</h3> :
-      <h2 className='dataHeading openSansRegular'>{addressProps.profile === CommonConstants.FACULTY_LABEL ? translateText(`common:PROFILE_SCHOOL_ADDRESS_${addressProps.profile}`) : translateText('common:PROFILE_SCHOOL_ADDRESS')}</h2>
+      addressProps.shouldShowWhenStaff || addressProps.shouldShowWhenFaculty ? <h3 className='dataHeading openSansRegular'>{translateText('common:MAILING_ADDRESS')}</h3> : header(addressProps)
     }
     <BasicRow displayName={translateText('common:PROFILE_STREET_1')} displayValue={(addressProps.schoolAddress!==null && addressProps.schoolAddress.SPRADDR_STREET_LINE1) ? addressProps.schoolAddress.SPRADDR_STREET_LINE1:''} />
     <BasicRow displayName={translateText('common:PROFILE_STREET_2')} displayValue={(addressProps.schoolAddress!==null && addressProps.schoolAddress.SPRADDR_STREET_LINE2) ?addressProps.schoolAddress.SPRADDR_STREET_LINE2:''} />

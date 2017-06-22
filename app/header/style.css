@@ -39,7 +39,7 @@
 
 .popUpContainer {
     position: absolute;
-    top:40px;
+    top:34px;
     right: -10px;
     z-index: 1000;
     min-width: 282px;

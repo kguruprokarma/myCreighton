@@ -34,7 +34,7 @@ export class Footer extends React.PureComponent {
                 <UniversityLogo />
               </Col>
               <Col xs={12} sm={10} md={10}>
-                <UniversityAddress />
+                <UniversityAddress currentPath={props.currentState} />
               </Col>
             </Row>
           </div>

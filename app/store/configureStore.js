@@ -7,9 +7,9 @@ import thunkMiddleware from 'redux-thunk';
 import { routerReducer as routing } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 import academicReducer from '../profile/student/academic/reducer';
-import profileReducer from '../profile/reducer';
+import {facultyProfileReducer, profileReducer} from '../profile/reducer';
 import classesReducer from '../classes/classList/reducer';
-import headerReducer from '../header/reducer';
+import {headerReducer, signOutReducer} from '../header/reducer';
 import mealPlanReducer from '../dashboard/mealPlan/reducer';
 import eventsReducer from '../nextEvents/eventList/reducer';
 import professionalReducer from '../profile/staff/professional/reducer';
@@ -34,7 +34,8 @@ const reducers = {
   form: formReducer,
   profileReducer: profileReducer,
   academicReducer: academicReducer,
-
+  signOutReducer: signOutReducer,
+  facultyProfileReducer: facultyProfileReducer,
   classesReducer: classesReducer,
   mealPlanReducer: mealPlanReducer,
   headerReducer: headerReducer,

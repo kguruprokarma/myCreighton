@@ -14,7 +14,10 @@ const NotificationListView = (notificationListViewProps) => (
     <ListGroup className='main-list-group notification-list'>
       {notificationListViewProps.listViewData && notificationListViewProps.listViewData.length > 0 && notificationListViewProps.listViewData.map((notification, notificationIndex) => (<ListGroupItem key={notificationIndex} className={(notification.newNotification) ? 'newNotification' : 'oldNotification'} onClick={() => notificationListViewProps.showDetailNotification(notification)}>
         <Row>
-          <Col md={11} sm={10} xs={9}>
+          <Col md={1} sm={1} xs={1} className='text-center'>
+            <button className='btn btn-link btnnoPadding notification-delete'><span className='glyphicon glyphicon-remove-sign' /></button>
+          </Col>
+          <Col md={10} sm={9} xs={8}>
             <p className='notification-title fs1pt06 openSansRegular'>{notification.title}</p>
           </Col>
           <Col md={1} sm={2} xs={3} className='text-center'>

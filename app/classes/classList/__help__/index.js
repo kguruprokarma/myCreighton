@@ -27,19 +27,19 @@ class ClassListHelp extends Component {
           <h1 className='announced-only'>Page header</h1>
           <nav role='navigation' id='navigation01' className='container'>
             <div className='row'>
-              <nav role='navigation' id='navigation01' className='pull-left ml15 mr0 hidden-lg hamburgerMenu position-relative'>
+              <div className='pull-left ml15 mr0 hidden-lg hamburgerMenu position-relative'>
                 <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' />
                 <div className='help-position return-icon-position visible-xs'>
-                  <span className='arrow_sprite return-menu-arrow'>&nbsp;</span><span className='return-content'>{translateText('common:RETURN_TO_DASHBOARD')}</span>
+                  <span className='arrow_sprite return-menu-arrow'>&nbsp;</span><span className='return-content'>{translateText('common:RETURN_TO_PREVIOUS_PAGE')}</span>
                 </div>
-              </nav>
+              </div>
               <div className='visible-lg col-lg-10'>
                 <h2 className='bebasregular logo mt0 mb0 fs1pt4'><a className='myCreighton-logo' href='#/dashboard'><span className='hidden'>myCreighton</span></a></h2>
               </div>
               <div className='hidden-lg mobile-header text-left col-sm-8 col-xs-7'>
                 <h2 className='bebasregular visible-sm visible-md logo mt10 mb0 fs1pt4'><a className='myCreighton-logo' href='#/dashboard'>myCreighton</a></h2>
                 <div className='visible-xs'>
-                  <h1 className='bebasregular logo mt10 mb10 fs1pt4'>Class Schedule</h1>
+                  <h1 className='bebasregular logo mt10 mb10 fs1pt4'>{translateText('common:CLASS_SCHEDULE')}</h1>
                 </div>
               </div>
               <div className='pull-right icons-list col-lg-2 col-sm-3 col-xs-3'>
@@ -65,12 +65,12 @@ class ClassListHelp extends Component {
           </nav>
         </header>
         <Navigation navDisplay={props.navData} />
-        <main role='main' id='content' className='container'><a id='maincontent' className='announced-only'>&nbsp;</a>
+        <main role='main' id='content' className='container'>
           <section role='region' id='classSchedule' className='section-container'>
             <div className='row'>
               <div className='hidden-xs col-md-8 col-sm-6 col-xs-12'>
                 <div className='hidden-xs'>
-                  <h1 role='banner' id='header' className='bebasregular headerLabel mt5 mb20'>Class Schedule</h1>
+                  <h1 role='banner' className='bebasregular headerLabel mt5 mb20'>{translateText('common:CLASS_SCHEDULE')}</h1>
                 </div>
               </div>
               <div className='controller-buttons classListButtons col-md-4 col-sm-6 col-xs-12'>

@@ -174,7 +174,7 @@ export const createTimeStampForDueTime = (classObj) => {
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
   const classObject = classObj;
   for (let day = 0; day < 8; day++) {
-    const getCurrentDay = moment().add(day, CommonConstants.MOMENT_DAYS)._d;
+    const getCurrentDay = moment().tz(CommonConstants.MOMENT_AMERICA_CHICAGO_TIMEZONE).add(day, CommonConstants.MOMENT_DAYS)._d;
     if (days[getCurrentDay.getDay()] === classObject.day) {
       let hours = parseInt(classObject.class_begin_time !== null ? classObject.class_begin_time.slice(0, 2) : 0);
       const minutes = parseInt(classObject.class_begin_time !== null ? classObject.class_begin_time.slice(-2) : 0);
@@ -196,7 +196,7 @@ export const createTimeStamp1 = (data1) => {
   const days = [translateText('common:COMMON_SUNDAY'), translateText('common:COMMON_MONDAY'), translateText('common:COMMON_TUESDAY'), translateText('common:COMMON_WEDNESDAY'), translateText('common:COMMON_THURSDAY'), translateText('common:COMMON_FRIDAY'), translateText('common:COMMON_SATURDAY')];
   const classObject = data1;
   for (let day = 0; day < 8; day++) {
-    const getCurrentDay = moment().add(day, CommonConstants.MOMENT_DAYS)._d;
+    const getCurrentDay = moment().tz(CommonConstants.MOMENT_AMERICA_CHICAGO_TIMEZONE).add(day, CommonConstants.MOMENT_DAYS)._d;
     if (days[getCurrentDay.getDay()] === classObject.day) {
       classObject.startDate = getCurrentDay;
       break;

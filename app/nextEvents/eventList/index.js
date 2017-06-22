@@ -220,22 +220,20 @@ export class EventList extends React.PureComponent {
 
     if (filterlist && filterlist.length > 0) {
       sortedEventData = sortBy(filterlist, ['timeStamp']);
-      if (sortedEventData && sortedEventData.length > 0 && day === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
-        const nextEventDetail = [];
-        nextEventDetail.push(sortedEventData[0]);
-        eventFilterData = nextEventDetail;
-      } else {
-        eventFilterData = sortedEventData;
-      }
     }
 
     let keys;
     if (options) {
       keys = Object.keys(options);
     }
-    if (eventFilterData) {
+    if (sortedEventData) {      
       if (options && keys && keys.length > 0) {
-        eventFilterData = this.sortingDisplayOptionSelection(options, eventFilterData);
+        eventFilterData = this.sortingDisplayOptionSelection(options, sortedEventData);
+        if (eventFilterData && eventFilterData.length > 0 && day === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
+          const nextEventDetail = [];          
+          nextEventDetail.push(eventFilterData[0]);
+         eventFilterData = nextEventDetail;
+       }
         localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
       }
     }
@@ -484,6 +482,7 @@ export class EventList extends React.PureComponent {
     const EVENT_DATA = this.getEventsData(this.props);
     return (
       <section role='region' className='event-topsection section-container init-top'>
+        <h1 className='announced-only'>{translateText('common:NEXT_EVENTS_LIST')}</h1>
         {props.isMasterDataChange ? this.renderDataCheck(EVENT_DATA) : this.renderLoader()}
       </section>
     );

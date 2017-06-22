@@ -60,21 +60,8 @@ export class SearchBox extends Component {
     this.setState({ searchText: '', serchTextPreserved: '' });
   }
 
-  selection(event) {
-    let current = null;
-    const evt = (event) ? event : window.event;
-    const key = (evt.which) ? evt.which : evt.keyCode;
-    const selected = listItems.length;
-    if (selected <= 0) {
-      return false;
-    }
-    if (key === 38 || key === 40) {
-      evt.preventDefault();
-    }
-    const element = document.querySelector('.selected');
-    if (element) {
-      element.classList.remove('selected');
-    }
+  subSelection(key, curr, selected) {
+    let current = curr;
     if (key === 40) {
       this.setState({ selectionNumber: (++this.state.selectionNumber) });
       if (this.state.selectionNumber === (selected)) {
@@ -98,6 +85,24 @@ export class SearchBox extends Component {
         current = listItems.item(this.state.selectionNumber);
       }
     }
+    return current;
+  }
+  selection(event) {
+    let current = null;
+    const evt = (event) ? event : window.event;
+    const key = (evt.which) ? evt.which : evt.keyCode;
+    const selected = listItems.length;
+    if (selected <= 0) {
+      return false;
+    }
+    if (key === 38 || key === 40) {
+      evt.preventDefault();
+    }
+    const element = document.querySelector('.selected');
+    if (element) {
+      element.classList.remove('selected');
+    }
+    current = this.subSelection(key, current, selected);
     if (current) {
       current.classList.add('selected');
       const text = current.querySelector('span').textContent.split(' ');

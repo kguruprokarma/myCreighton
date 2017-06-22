@@ -27,13 +27,8 @@ class DashboardHelp extends Component {
   closeHelpPopUp() {
     this.props.helpPopUpClose();
   }
-  render() {
-    this.role = authUserDetails().userRole;
-    const props = this.props;
-    const dashboardList = dashboardModulesList(this.role);
+  profileInfo(profileInfo) {
     let profileInformation;
-    const profileInfo = props.profileData;
-    const mealPlanData = props.mealPlanData;
     if (profileInfo && profileInfo.data && profileInfo.data.length > 0) {
       const data = profileInfo.data[0];
       if (this.role === CommonConstants.ROLE_FACULTY) {
@@ -44,6 +39,24 @@ class DashboardHelp extends Component {
         profileInformation = data.legal_name;
       }
     }
+    return profileInformation;
+  }
+  description(moduleDetail) {
+    return (
+      <div className='help-position card-position'>
+        <span className='arrow_sprite card-arrow'>&nbsp;</span><span className='card-content'><h3 className='well-title white-color architects_daughterregular'>{(moduleDetail && moduleDetail.name) ? moduleDetail.name : ''}</h3>
+          <div className='help-card-caption'>{(moduleDetail && moduleDetail.helpdescription) ? moduleDetail.helpdescription : ''}</div></span>
+      </div>
+    );
+  }
+  render() {
+    this.role = authUserDetails().userRole;
+    const props = this.props;
+    const dashboardList = dashboardModulesList(this.role);
+    const profileInfo = props.profileData;
+    const mealPlanData = props.mealPlanData;
+    const profileInformation = this.profileInfo(profileInfo);
+    
     return (
       <div id='app' className='wrapper dashboard help-container'>
         <input type='button' className='btn btn-link btnnoPadding mycu-model-patchup popUpPatch' value='' onClick={this.closeHelpPopUp} />
@@ -52,12 +65,12 @@ class DashboardHelp extends Component {
             <h1 className='announced-only'>Page header</h1>
             <nav role='navigation' id='navigation01' className='container'>
               <div className='row'>
-                <nav role='navigation' id='navigation01' className='pull-left ml15 mr0 hidden-lg hamburgerMenu'>
+                <div className='pull-left ml15 mr0 hidden-lg hamburgerMenu'>
                   <button className='btn btn-link btnnoPadding hidden-lg'><ImageComponent imagePath={props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} imagealtText={props.navData ? translateText('common:MENU_ALT_CLOSE_TAG') : translateText('common:MENU_ALT_TAG')} /></button>
                   <div className='help-position menu-icon-position visible-xs'>
                     <span className='arrow_sprite main-menu-arrow'>&nbsp;</span><span className='menu-content'>{translateText('common:DASH_BOARD_MENU_HELP')}</span>
                   </div>
-                </nav>
+                </div>
                 <div className='visible-lg col-lg-10'>
                   <h2 className='bebasregular logo mt0 mb0 fs1pt4'><a className='myCreighton-logo' href='#/dashboard'><span className='hidden'>myCreighton</span></a></h2></div>
                 <div className='hidden-lg mobile-header text-left col-sm-8 col-xs-7'>
@@ -137,10 +150,7 @@ class DashboardHelp extends Component {
                                 <div className='well-caption'>{(moduleDetail && moduleDetail.description) ? moduleDetail.description : ''}</div>
                               </Col>
                             </Row>
-                            <div className='help-position card-position'>
-                              <span className='arrow_sprite card-arrow'>&nbsp;</span><span className='card-content'><h3 className='well-title white-color architects_daughterregular'>{(moduleDetail && moduleDetail.name) ? moduleDetail.name : ''}</h3>
-                                <div className='help-card-caption'>{(moduleDetail && moduleDetail.helpdescription) ? moduleDetail.helpdescription : ''}</div></span>
-                            </div>
+                            {this.description(moduleDetail)}
                           </Well>
                         </Col>
                         ))}

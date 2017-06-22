@@ -47,14 +47,6 @@ body {
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'architects_daughterregular';
-    src: url('../fonts/architectsdaughter-webfont.woff2') format('woff2'),
-         url('../fonts/architectsdaughter-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 /* End Font face*/
 
 /* Bebas, Open Sans font family usage */
@@ -74,9 +66,6 @@ body {
     font-family: 'open_sanssemibold', sans-serif;
 }
 
-.architects_daughterregular {
-    font-family: 'architects_daughterregular';
-}
 /* End font family */
 
 /* Header */

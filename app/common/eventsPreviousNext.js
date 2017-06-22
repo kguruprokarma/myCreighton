@@ -8,8 +8,15 @@ import * as ROUTE_URL from '../constants/routeContants';
 import { translateText } from '../common/translate';
 import * as eventTypes from '../constants/nextEventsConstants'; 
 
-export class PreviousNext1 extends React.Component {
+export class EventsPreviousNext extends React.Component {
   componentWillMount() {
+  }
+  prevAssinID(prevEventType, previousNextData) {
+    let prevAssignmentId = '';
+    if (prevEventType === eventTypes.TEST_OR_QUIZ || prevEventType === eventTypes.ASSIGNMENTS) {
+      prevAssignmentId = `/${previousNextData.prevObj.assignment_id}`;
+    }
+    return prevAssignmentId;
   }
   render() {
     let prevAssignmentId = ''; 
@@ -26,9 +33,7 @@ export class PreviousNext1 extends React.Component {
     }    
     if (previousNextData.prevObj !== null) {
       prevEventType = previousNextData.prevObj.type;
-      if (prevEventType === eventTypes.TEST_OR_QUIZ || prevEventType === eventTypes.ASSIGNMENTS) {
-        prevAssignmentId = `/${previousNextData.prevObj.assignment_id}`;
-      }
+      prevAssignmentId = this.prevAssinID(prevEventType, previousNextData);
     }
 
     const prevLink = `${ROUTE_URL.EVENT_DETAILS}/${prevEventType}/${previousNextData.prevItem}${prevAssignmentId}/${previousNextData.currentIndex - 1}`;
@@ -50,4 +55,4 @@ export class PreviousNext1 extends React.Component {
   }
 }
 
-export default PreviousNext1;
+export default EventsPreviousNext;

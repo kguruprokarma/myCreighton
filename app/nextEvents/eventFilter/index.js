@@ -47,32 +47,12 @@ export class NextEventFilter extends React.Component {
       this.setState({ eventPeriod: props.EventChangedValue });
     }
   }
-  toggleCheckAll() {
-    this.setState({selectAll: !this.state.selectAll}, () => {
-      this.checkAll();
-    });
-  }
-  checkAll() {
-    const displayOptions = JSON.parse(localStorage.getItem('displayOptions'));
-    const val = this.state.selectAll;
-    for (let i = 1; i < displayOptions.length; i++) {
-      const item = displayOptions[i];
-      item.checked = val;
-      item.childrenUnselect = false;
-      for (let j = 0; j < item.children.length; j++) {
-        const childItem = item.children[j];
-        childItem.checked = val;
-      }
+
+  setFilteValue() {
+    const localStorageValue = localStorage.getItem('setFilterValue');
+    if (this.state.eventPeriod !== localStorageValue) {
+      localStorage.setItem('setFilterValue', this.state.eventPeriod);
     }
-    this.setState({ displayOptions: displayOptions });
-  }
-  toggleRadio(depen) {
-    this.setState({ eventPeriod: depen.target.value });   
-  }
-  showChild(itemVal) {
-    const item = itemVal;
-    item.showItem = !item.showItem;
-    this.forceUpdate();
   }
 
   toggleCheckBoxParent(itemVal) {
@@ -111,9 +91,36 @@ export class NextEventFilter extends React.Component {
       parent.childrenUnselect = false;
       parent.checked = true;
     }
+
     this.forceUpdate();
   }
-
+  showChild(itemVal) {
+    const item = itemVal;
+    item.showItem = !item.showItem;
+    this.forceUpdate();
+  }
+  toggleRadio(depen) {
+    this.setState({ eventPeriod: depen.target.value });   
+  }
+  checkAll() {
+    const displayOptions = JSON.parse(localStorage.getItem('displayOptions'));
+    const val = this.state.selectAll;
+    for (let i = 1; i < displayOptions.length; i++) {
+      const item = displayOptions[i];
+      item.checked = val;
+      item.childrenUnselect = false;
+      for (let j = 0; j < item.children.length; j++) {
+        const childItem = item.children[j];
+        childItem.checked = val;
+      }
+    }
+    this.setState({ displayOptions: displayOptions });
+  }
+  toggleCheckAll() {
+    this.setState({selectAll: !this.state.selectAll}, () => {
+      this.checkAll();
+    });
+  }
   showSelected() {
     const props = this.props;
     props.filterPopUpClose();
@@ -138,10 +145,7 @@ export class NextEventFilter extends React.Component {
         }
       }    
       localStorage.setItem(EventConstants.DISPLAY_OPTIONS, JSON.stringify(this.state.displayOptions));
-      const localStorageValue = localStorage.getItem('setFilterValue');
-      if (this.state.eventPeriod !== localStorageValue) {
-        localStorage.setItem('setFilterValue', this.state.eventPeriod);
-      }
+      this.setFilteValue();
       localStorage.setItem('setDisplayOptionValue', JSON.stringify(selectedObj.displayOptions));
       props.filterChange(selectedObj);
     }

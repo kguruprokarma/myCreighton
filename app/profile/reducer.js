@@ -11,7 +11,7 @@ const initialState = {
   profile: ''
 };
 
-const profileReducer = (state = initialState, action = null) => {
+export const profileReducer = (state = initialState, action = null) => {
   switch (action && action.type) {
     //Student Action Types
     case types.RECEIVE_STUDENT_DATA_ERROR:
@@ -49,7 +49,13 @@ const profileReducer = (state = initialState, action = null) => {
         profile: types.STAFF_PROFILE_NAME,
         profileData: action.data
       });
-    //Faculty Profile Action Types
+    default:
+      return state;  
+  }
+};
+export const facultyProfileReducer = (state = initialState, action = null) => {
+  switch (action && action.type) {
+     //Faculty Profile Action Types
     case types.RECEIVE_FACULTY_DATA_ERROR:
       return Object.assign({}, state, {
         isLoading: false,
@@ -67,6 +73,7 @@ const profileReducer = (state = initialState, action = null) => {
         profile: types.FACULTY_PROFILE_NAME,
         profileData: action.data
       });
+    
     //Faculty Academic Action Types
     case types.REQUEST_FACULTY_ACADEMIC_DATA:
       return Object.assign({}, state, {
@@ -89,6 +96,3 @@ const profileReducer = (state = initialState, action = null) => {
       return state;
   }
 };
-
-
-export default profileReducer;

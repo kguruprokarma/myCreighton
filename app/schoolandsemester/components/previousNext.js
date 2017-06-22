@@ -27,7 +27,6 @@ class PreviousNext extends React.Component {
       prevUrl = semesterDataObj[currentIndex-1].objectKey;
     }
     return (
-
       <Row className='row' >
         <Col className='form-group col-xs-6'>
           <Link to={`${ROUTE_URL.SCHOOLS_AND_SEMESTER}/${prevUrl}`} className={`btn btn-primary ${currentIndex===0?'disableButton':''}`}>

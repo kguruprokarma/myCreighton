@@ -7,7 +7,10 @@ import axios from 'axios';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-//import io from 'socket.io-client';
+import Perf from 'react-addons-perf';
+/* eslint-disable */
+import io from 'socket.io-client';
+/* eslint-enable */
 import FooterComponent from '../footer/index';
 import * as actionCreators from '../header/actions';
 import * as notificationActions from '../notification/actions';
@@ -18,9 +21,11 @@ import * as urlConstants from '../constants/urlConstants';
 import * as CommonConstants from '../constants/commonConstants';
 import * as profileDataAction from '../profile/actions';
 import * as mealPlanDataAction from '../dashboard/mealPlan/actions';
+import { translateText } from '../common/translate';
 import * as ROUTE_URL from '../constants/routeContants';
 import Spinner from '../common/spinner';
 
+window.Perf = Perf;
 @translate([], { wait: true })
 class Main extends React.PureComponent {
 
@@ -28,12 +33,11 @@ class Main extends React.PureComponent {
     super();
     this.hidePopUp = this.hidePopUp.bind(this);
     this.state = {
-      isLogin: false,
       isRole: false
     };
     this.clearStorage = this.clearStorage.bind(this);
     if (sessionStorage.getItem('first')) {
-      axios.get(urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE);
+      axios.get(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE}?t=${new Date().getTime()}`);
     }
     if (!sessionStorage.getItem('first')) {
       const xhttp = new XMLHttpRequest();
@@ -46,8 +50,8 @@ class Main extends React.PureComponent {
           }  
         }
       };
-      xhttp.open('GET', urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE, false);
-      xhttp.send(null);
+      xhttp.open('GET', `${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE}?t=${new Date().getTime()}`, false);
+      xhttp.send();
     }
    /* if (!sessionStorage.getItem('time')) {
       sessionStorage.setItem('time', CommonConstants.SESSION_STORAGE_INTERVAL_TIME);
@@ -63,47 +67,37 @@ class Main extends React.PureComponent {
       }
     }, 1000);*/
 
-/*    const socket = io.connect(urlConstants.NOTIFICATION_URL);
-    socket.on('connect', () => {
+    const socket = io.connect(urlConstants.NOTIFICATION_URL);
+/*    socket.on('connect', () => {
       socket.emit('join', 'Hello World from client');
     });
     socket.on('messages', (data) => {
       console.log(data);
-    });
+    });*/
     socket.on('notifications', (msg) => {
       console.log(msg);
-    });*/
+    });
   }
 
   componentWillMount() {
     const props = this.props;
     //props.resetNewNotifications();
-    if (props.location.pathname === ROUTE_URL.LOGOUT) {
-      this.setState({ isLogin: false });
-    } else {
-      this.setState({ isLogin: true });
-    }
     if (!localStorage.getItem('roleInfo')) {
       this.checkRole = setInterval(() => {
         if (localStorage.getItem('roleInfo')) {
           clearInterval(this.checkRole);
-          this.setState({ isRole: true });
           props.getNotifications();
+          this.setState({ isRole: true });
         }
       }, 1000);
     } else {
-      this.setState({ isRole: true });
       props.getNotifications();
+      this.setState({ isRole: true });
     }
   }
 
   componentWillReceiveProps(nextProps) {
     const propsNext = nextProps;
-    if (propsNext.location.pathname === ROUTE_URL.LOGOUT) {
-      this.setState({ isLogin: false });
-    } else {
-      this.setState({ isLogin: true });
-    }
     if (propsNext.location.pathname !== ROUTE_URL.DASHBOARD && this.worker) {
       this.worker.terminate();
       this.worker = undefined;
@@ -156,19 +150,19 @@ class Main extends React.PureComponent {
       <div className='view-container'>
         {!this.state.isRole && <Spinner />}
         {/* this is header section */}
-        {this.state.isLogin && <HeaderComponent currentState={props.location.pathname} param={props.params} />}
+        <HeaderComponent currentState={props.location.pathname} param={props.params} />
         {/* Main Navigation */}
-        {this.state.isLogin && <Navigation navDisplay={props.navData} />}
+        <Navigation navDisplay={props.navData} />
         {/* ./Main Navigation */}
         {/* /this is header section */}
         {/* this is main section */}
         <main role='main' id='content' className='container'>
-          <a id='maincontent' className='announced-only'>&nbsp;</a>
+          <h1 id='maincontent' className='announced-only'>{translateText('common:PAGE_CONTENT')}</h1>
           {this.state.isRole && props.children}
         </main>
         {/* /this is main section */}
         {/* this is footer section */}
-        {this.state.isLogin && <FooterComponent currentState={props.location.pathname} />}
+        <FooterComponent currentState={props.location.pathname} />
         {/* /this is footer section */}
         {(props.popUpData || props.filterPopUpData || props.signOut) && <input type='button' className='btn btn-link btnnoPadding popUpPatch' onClick={this.hidePopUp} />}
         {props.feedbackPopup && <input type='button' className='btn btn-link btnnoPadding mycu-model-patchup popUpPatch' onClick={this.hidePopUp} />}
@@ -182,7 +176,7 @@ const mapStateToProps = (storeData) => (
   {
     popUpData: storeData.headerReducer.showPopUp,
     navData: storeData.headerReducer.showNav,
-    signOut: storeData.headerReducer.signOut,
+    signOut: storeData.signOutReducer.signOut,
     filterPopUpData: storeData.headerReducer.showFilterPopUp,
     feedbackPopup: storeData.feedbackReducer.showFeedbackPopUp,
     profileData: storeData.profileReducer.profileData.data,

@@ -25,7 +25,8 @@ class LibrarySearch extends React.PureComponent {
     const query = event.target.value;
     this.setState({ searchText: query});
   }
-  search() {
+  search(event) {
+    event.preventDefault();    
     if (!this.state.searchText) {
       return false;
     }

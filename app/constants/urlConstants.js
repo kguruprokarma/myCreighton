@@ -106,4 +106,6 @@ export const LAW_DATABASE_URL = 'http://culibraries.creighton.edu/az.php?';
 export const LINK_TO_DOIT_SERVICES = 'http://help.creighton.edu';
 export const CREIGHTON_LOGIN= 'https://login.cuhsl.creighton.edu/login';
 
-export const NOTIFICATION_URL = 'http://172.16.202.84:8081';
+
+//export const NOTIFICATION_URL = 'http://172.16.202.84:8081';
+export const NOTIFICATION_URL = 'https://dev-dl-api.creighton.edu:443';

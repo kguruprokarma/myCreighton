@@ -30,7 +30,7 @@ const classInfo = (classInfoProps) => (
             </Col>
             <Col xs={6} className='text-right'>
               <p>{(classInfoProps.instructor_name !== null && classInfoProps.instructor_name.last_name) ? classInfoProps.instructor_name.last_name:''}</p>
-              <p className='NextDate'><span>{translateText('NEXT')}</span>: {(classInfoProps.class_building_code !== CommonConstants.ONLINE_CLASSES && (classInfoProps.currentView === HEADER.EVENT_DETAILS || classInfoProps.currentView === HEADER.EVENT_LIST)) ? moment(classInfoProps.timeStamp).format('MMM DD') : (classInfoProps.nextDate?classInfoProps.nextDate:translateText('common:COMMON_NA'))}</p>
+              <p className='NextDate'><span>{translateText('NEXT')}</span>: {(classInfoProps.class_building_code !== CommonConstants.ONLINE_CLASSES && (classInfoProps.currentView === HEADER.EVENT_DETAILS || classInfoProps.currentView === HEADER.EVENT_LIST)) ? moment(classInfoProps.startDate).format('MMM DD') : (classInfoProps.nextDate?classInfoProps.nextDate:translateText('common:COMMON_NA'))}</p>
             </Col>
           </Row>
         </div>

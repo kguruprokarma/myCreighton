@@ -20,7 +20,7 @@ import FacultyProfileComponent from '../profile/faculty/bio';
 import FacultyAcademicComponent from '../profile/faculty/academic';
 import i18n from '../i18n'; // initialized i18next instance
 import * as ROUTE_URL from '../constants/routeContants';
-import { LINK_TO_DOIT_SERVICES } from '../constants/urlConstants';
+import { LINK_TO_DOIT_SERVICES, ADFS_LOGOUT_URL } from '../constants/urlConstants';
 import { WEEK, SIMPLE_SEARCH } from '../constants/commonConstants';
 import EventListComponent from '../nextEvents/eventList';
 import EventDetailsComponent from '../nextEvents/eventDetails';
@@ -32,7 +32,6 @@ import SearchResultsComponent from '../searchResults';
 import axiosInterceptor from './axiosInterceptor';
 /* eslint-enable */
 import StaffDetailComponent from '../staffDetail/index';
-import Logout from '../logout/index';
 import LibrarySearch from '../librarySearch';
 import FeedbackComponent from '../feedback';
 import MissionAndMinistryComponent from '../missionAndMinistry';
@@ -58,7 +57,7 @@ const routes = (
           <Route path={ROUTE_URL.FACULTY + ROUTE_URL.PROFILE} component={FacultyProfileComponent} title={TITLE[0]} smapgen={`${ROLE_ARRAY[2]}_${SITEMAP_POSITION_ARRAY[2]}`} />
           <Route path={ROUTE_URL.FACULTY + ROUTE_URL.ACADEMIC} component={FacultyAcademicComponent} title={TITLE[1]} smapgen={`${ROLE_ARRAY[2]}_${SITEMAP_POSITION_ARRAY[2]}`} />
           <Route path={ROUTE_URL.STAFF + ROUTE_URL.PROFESSIONAL} component={Professional} title={TITLE[3]} smapgen={`${ROLE_ARRAY[1]}_${SITEMAP_POSITION_ARRAY[2]}`} />
-          <Route path={ROUTE_URL.LOGOUT} component={Logout} title={TITLE[4]} smapgen={`${ROLE_ARRAY[3]}_${SITEMAP_POSITION_ARRAY[2]}`} />
+          <Route path={ADFS_LOGOUT_URL} title={TITLE[4]} smapgen={`${ROLE_ARRAY[3]}_${SITEMAP_POSITION_ARRAY[2]}`} isexternal='true' isLogout='true' />
 
           {/*..GLOBAL MENU...*/}
           <Route path={ROUTE_URL.DASHBOARD} component={DashboardComponent} title={TITLE[5]} smapgen={`${ROLE_ARRAY[3]}_${SITEMAP_POSITION_ARRAY[0]}`} />
@@ -77,7 +76,7 @@ const routes = (
           <Route path={ROUTE_URL.LIBRARY_SEARCH} component={LibrarySearch} title={TITLE[13]} smapgen={`${ROLE_ARRAY[3]}_${SITEMAP_POSITION_ARRAY[1]}`} />
 
           {/*..EXTERNAL LINKS FOR SITE MAP GENERATION..*/}
-          <Route path={LINK_TO_DOIT_SERVICES} title={TITLE[14]} smapgen={`${ROLE_ARRAY[3]}_${SITEMAP_POSITION_ARRAY[1]}`} isexternal='true' />
+          <Route path={LINK_TO_DOIT_SERVICES} title={TITLE[14]} smapgen={`${ROLE_ARRAY[3]}_${SITEMAP_POSITION_ARRAY[1]}`} isexternal='true' inNewtab='true' />
 
           {/*..APPLICATION LINKS...*/}
           <Route path={ROUTE_URL.CLASS_DETAILS + ROUTE_URL.CATEGORY_NAME_PARAM + ROUTE_URL.ID_PARAM + ROUTE_URL.INDEX_PARAM} component={ClassDetails} />

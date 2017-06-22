@@ -9,8 +9,7 @@ import { MISSION_AND_MINISTRY_LINKS } from '../../common/navLinksConstants';
 import { DOWN_ARROW } from '../../constants/imageConstants';
 
 const MissionAndMinistryInfo = (missionandministryProps) => (
-  <section role='region'>
-
+  <div>
     {MISSION_AND_MINISTRY_LINKS.map((missionItem, missionIdex) => (
       <ListGroup key={missionIdex} className='accord-active main-list-group accordian-list-data'>
         <a rel='noopener noreferrer' target='_blank' href={missionItem.link}>
@@ -31,7 +30,7 @@ const MissionAndMinistryInfo = (missionandministryProps) => (
         </a>
       </ListGroup>
     ))}
-  </section>
+  </div>
 );
 
 export default MissionAndMinistryInfo;

@@ -859,6 +859,11 @@
             "name": "Be Ready for School",
             "description": "Review and complete the items in this list to make sure you have the basic things needed to begin a successful academic year.",
             "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Site map",
+            "description": "Site map",
+            "url": "/sitemap"
         }
     ],
     "student": [

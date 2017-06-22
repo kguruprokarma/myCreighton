@@ -7,6 +7,7 @@ import * as ROUTE_URL from '../../constants/routeContants';
 const SemesterNav = (SemesterNavprops) => (
 
   <nav role='navigation'>
+    <h1 className='announced-only'>{translateText('common:SCHOOL_AND_SEMESTER_NAV')}</h1>
     <ListGroup className={'visible-xs main-list-group semester-links openSansLight'}>
       {
         SemesterNavprops.semesterLinks.map((semesterDetails, semesterIndex) => (

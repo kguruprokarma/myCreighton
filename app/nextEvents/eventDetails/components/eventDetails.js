@@ -11,7 +11,7 @@ import { convertDueDateTimeStamp, convertDateFromTimeStamp, htmlEncoding } from 
 const NextEventDetails = (assignmentsDetails) => (
   <article role='article'>
     <div className='graybtBorder mb10 pt5 pb5'>
-      <div className='eventDetailTitle'>{assignmentsDetails.data.assign_title}</div>
+      <h3 className='eventDetailTitle'>{assignmentsDetails.data.assign_title}</h3>
       <div className='eventDetailSubject'>{assignmentsDetails.data.class}</div>
     </div>
     <div className='eventTiming graybtBorder pb10'>

@@ -6,7 +6,9 @@ import React from 'react';
 import { map, filter, flatten, compact, find } from 'lodash';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
+import axios from 'axios';
 import { translateText } from '../common/translate';
+import { ADFS_LOGOUT_URL } from '../constants/urlConstants';
 import HeaderLabel from './../common/headerLabel';
 import { ROLES, ROLE_KEY, MENU_VALUE, ROLE_ARRAY, SITEMAP_POSITION_ARRAY } from '../constants/siteMapConstants';
 import { authUserDetails } from '../common/utility';
@@ -24,11 +26,28 @@ class SiteMap extends React.PureComponent {
     return '';
   }
 
+  removeLocalStorage(childObj) {
+    if (childObj && childObj.isLogout) {
+      localStorage.removeItem('roleInfo');
+      localStorage.removeItem('infos');
+      localStorage.removeItem('lang');
+      localStorage.removeItem('classMasterCopy');
+      localStorage.removeItem('assignmentMasterCopy');
+      localStorage.removeItem('classDetails');
+      localStorage.removeItem('i18nextLng');
+      localStorage.removeItem('eventList');
+      localStorage.removeItem('eventsFilterData');
+      sessionStorage.removeItem('first');
+      sessionStorage.removeItem('time');
+      axios.get(ADFS_LOGOUT_URL);
+    }
+  }
+
   linkGenareation(childrenArray) {
     return map(childrenArray, (childObj, childIndex) => <li key={childIndex} className='cls linkChildren openSansRegular'>
       {(!childObj.isexternal) ?
-        (<Link to={childObj.initialObj ? this.replaceLink(childObj.path, childObj.initialObj) : childObj.path} target='_blank' > {childObj.inputObj} {translateText(`common:${childObj.title}`)} </Link>) :
-        (<a href={childObj.path} rel='noopener noreferrer' target='_blank'>{translateText(`common:${childObj.title}`)}</a>)
+        (<Link to={childObj.initialObj ? this.replaceLink.bind(this, childObj.path, childObj.initialObj) : childObj.path} > {childObj.inputObj} {translateText(`common:${childObj.title}`)} </Link>) :
+        (childObj.isLogout ? <Link onClick={() => this.removeLocalStorage(childObj)} rel='noopener noreferrer'>{translateText(`common:${childObj.title}`)}</Link> : (childObj.inNewtab && <a href={childObj.path} rel='noopener noreferrer' target='_blank'>{translateText(`common:${childObj.title}`)}</a>))
       }
     </li>);
   }

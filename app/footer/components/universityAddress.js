@@ -7,10 +7,10 @@ import FooterNav from './footerNav';
 import CopyRightText from './copyRightText';
 import { translateText } from '../../common/translate';
 
-const universityAddress = () => (
+const universityAddress = (universityProps) => (
   <span className='footer-address'><span className='space-mb'>{translateText('common:FOOTER_UNIVERSITY_ADDRESS')}<span className='footer-space'>{translateText('common:FOOTER_UNIVERSITY_LANDLINE')}</span></span>
     <CopyRightText />
-    <FooterNav />
+    <FooterNav currentPath={universityProps.currentPath} />
   </span>
 );
 export default universityAddress;

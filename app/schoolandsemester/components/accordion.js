@@ -11,6 +11,7 @@ import { dynamicUrlGeneration } from '../../common/utility';
 
 const Accordion = (accordionProps) => (
   <section role='region'>
+    <h1 className='announced-only'>{translateText('common:SCHOOL_ACCORDION')}</h1>
     {accordionProps.accordionObj && accordionProps.accordionObj.map((accordionDetails, accordionIndex) => (
       <div key={accordionIndex}>
         {accordionIndex === 0 && <Row className='openSansLight fs1pt2 mb10'>

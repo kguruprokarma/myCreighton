@@ -94,7 +94,7 @@ export class Feedback extends React.PureComponent {
               </Row>
               <Row className='form-group mb10'>
                 <Col xs={4}>
-                  <label htmlFor className='gbl_lh-22'>{translateText('common:FEEDBACK_TOPIC')}</label>
+                  <label htmlFor={translateText('common:FEEDBACK_TOPIC')} className='gbl_lh-22'>{translateText('common:FEEDBACK_TOPIC')}</label>
                 </Col>
                 <Col xs={8} className='mb5'>
                   <div className='styled-select form-group'>

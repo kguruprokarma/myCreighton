@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.1" jmeter="3.1 r1770033">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -15,10 +15,10 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">${__P(loopcount,1)}</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(rampupperiod,5)}</stringProp>
         <longProp name="ThreadGroup.start_time">1496987934000</longProp>
         <longProp name="ThreadGroup.end_time">1496987934000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -30,6 +30,7 @@
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
           <stringProp name="CookieManager.policy">default</stringProp>
+          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
@@ -43,12 +44,12 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">http://mycu-rundev2.creighton.edu</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path"></stringProp>
           <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </ConfigTestElement>
         <hashTree/>
         <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
@@ -131,8 +132,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/</stringProp>
@@ -141,8 +140,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -177,8 +177,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/css/main.css</stringProp>
@@ -187,8 +185,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -223,8 +222,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/css/reset.css</stringProp>
@@ -233,8 +230,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -269,8 +267,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/app.css</stringProp>
@@ -279,8 +275,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -315,8 +312,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/css/bootstrap.min.css</stringProp>
@@ -325,8 +320,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -361,8 +357,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/js/bluebird.min.js</stringProp>
@@ -371,8 +365,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -407,8 +402,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/fonts/open-sans.regular.woff2</stringProp>
@@ -417,8 +410,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -453,8 +447,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/vendor.c95e158c5e13981bd175.js</stringProp>
@@ -463,8 +455,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -499,8 +492,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/d971cbafa0309a201e518acdac4f1ee4dabc7eaa.15109.png</stringProp>
@@ -509,8 +500,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -541,8 +533,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/eece887440e14634cc557f976a13a8d3e4d1fee4.11402.png</stringProp>
@@ -551,8 +541,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -583,8 +574,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/b4adc58dd3c02da355104977b910255060cfd6d8.10350.png</stringProp>
@@ -593,8 +582,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -625,8 +615,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/994538ea886e18a7524998b5e27df0ae463efa86.38079.png</stringProp>
@@ -635,8 +623,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -667,8 +656,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/a15c0403863847aef5943a6272cd992335f330f9.59611.png</stringProp>
@@ -677,8 +664,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -709,8 +697,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/ef8c1bab9b54c37fddbd8eeb15faf733571fc9f9.64436.png</stringProp>
@@ -719,8 +705,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -751,8 +738,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/8acf9436e1b315f5f04b9435a518bcd1aef131f8.5663.png</stringProp>
@@ -761,8 +746,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -793,8 +779,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/583de2b339502a7726bc05736a43b18e9c891350.2193.svg</stringProp>
@@ -803,8 +787,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -835,8 +820,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/720121e7462d8c7863b4dd8fa7b5c1089b5f5fb2.33862.png</stringProp>
@@ -845,8 +828,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -877,8 +861,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/1332a68badf11e3f7f69bf7364e79c0a7e2753bc.5316.png</stringProp>
@@ -887,8 +869,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -919,8 +902,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">tiles-cloudfront.cdn.mozilla.net</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/images/d11ba0b3095bb19d8092cd29be9cbb9e197671ea.28088.png</stringProp>
@@ -929,8 +910,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -961,8 +943,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/app.c95e158c5e13981bd175.js</stringProp>
@@ -971,8 +951,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1007,8 +988,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/app/locales/en/common.json</stringProp>
@@ -1017,8 +996,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1057,8 +1037,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/role</stringProp>
@@ -1067,8 +1045,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1126,8 +1105,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/socket.io/</stringProp>
@@ -1136,8 +1113,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1183,8 +1161,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/socket.io/?EIO=3&amp;transport=polling&amp;t=Loc3bRs&amp;sid=BhsNEafX1KTIYwk5AA2p</stringProp>
@@ -1193,8 +1169,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1237,8 +1214,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/notifications</stringProp>
@@ -1247,8 +1222,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1312,8 +1288,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/socket.io/</stringProp>
@@ -1322,8 +1296,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1362,8 +1337,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/images/mycreighton-logo.svg</stringProp>
@@ -1372,8 +1345,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1408,8 +1382,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/images/creighton_logo.png</stringProp>
@@ -1418,8 +1390,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1454,8 +1427,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/images/loading-img.gif</stringProp>
@@ -1464,8 +1435,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1500,8 +1472,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/fonts/glyphicons-halflings-regular.woff2</stringProp>
@@ -1510,8 +1480,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1546,8 +1517,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/fonts/open-sans.semibold.woff2</stringProp>
@@ -1556,8 +1525,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1599,8 +1569,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/loginadfs</stringProp>
@@ -1609,8 +1577,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
@@ -1650,8 +1619,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfsredirect</stringProp>
@@ -1660,8 +1627,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
@@ -1714,8 +1682,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">msauth.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfs/ls</stringProp>
@@ -1724,8 +1690,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="TestPlan.comments">Detected a redirect from the previous sample</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
@@ -1772,8 +1739,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">msauth.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfs/portal/css/style.css</stringProp>
@@ -1782,8 +1747,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1825,8 +1791,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">msauth.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfs/portal/logo/logo.png</stringProp>
@@ -1835,8 +1799,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1878,8 +1843,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">msauth.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfs/portal/illustration/illustration.jpg</stringProp>
@@ -1888,8 +1851,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1943,8 +1907,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">msauth.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/adfs/ls?SAMLRequest=fVBNT4NAED37L8jegQW0NBMgqenBJhqJJR68kIVdyyYwizuL8edLwZj20rlN3se8NxmJoR9hN7kO39TXpMh5P0OPBAuQs8kiGEGaAMWgCFwLx93LM8QBh9EaZ1rTM2%2Beu%2F2s1SicNpizzrmRIAwHErN10FqlT50zGCg5hUJ%2BUtjTIjvsc1an%2FEFuuEqaVIq42SZtwrcrSjSpA5IT6HIW8yj1%2BcaP7quIA48g5h8LrfwL8qhRajzdTt2sJIKnqir98vVYMe9dWVpyzwRWZOfusNy2F9%2B4bSuIlD2XZ4VU377sfTHq%2Br94PRfPwgvjYt2uf1%2F8Ag%3D%3D&amp;RelayState=</stringProp>
@@ -1953,8 +1915,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
@@ -2011,8 +1974,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">msauth.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/adfs/ls</stringProp>
@@ -2021,8 +1982,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2068,8 +2030,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfs/postResponse</stringProp>
@@ -2078,8 +2038,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
@@ -2123,8 +2084,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/notifications</stringProp>
@@ -2133,8 +2092,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2192,8 +2152,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/socket.io/</stringProp>
@@ -2202,8 +2160,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2249,8 +2208,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/socket.io/?EIO=3&amp;transport=polling&amp;t=Loc3gqs&amp;sid=ZSB2urmwlznQXB6bAA2q</stringProp>
@@ -2259,8 +2216,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2328,8 +2286,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/socket.io/</stringProp>
@@ -2338,8 +2294,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2378,8 +2335,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/role</stringProp>
@@ -2388,8 +2343,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2428,8 +2384,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/app/dashboard/mealPlan/components/webworker.js</stringProp>
@@ -2438,8 +2392,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2474,8 +2429,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfs/balances</stringProp>
@@ -2484,8 +2437,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2524,8 +2478,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfs/studentProfile</stringProp>
@@ -2534,8 +2486,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2574,8 +2527,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/images/dollar.png</stringProp>
@@ -2584,8 +2535,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2620,8 +2572,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/fonts/open-sans.light.woff2</stringProp>
@@ -2630,8 +2580,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2666,8 +2617,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/fonts/bebas.woff2</stringProp>
@@ -2676,8 +2625,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2712,8 +2662,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/adfs/studentProfile</stringProp>
@@ -2722,8 +2670,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2762,8 +2711,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfs/studentAcademic</stringProp>
@@ -2772,8 +2719,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2819,8 +2767,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/app/dashboard/mealPlan/components/webworker.js</stringProp>
@@ -2829,8 +2775,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2874,8 +2821,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/adfs/studentProfile</stringProp>
@@ -2884,8 +2829,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2924,8 +2870,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/adfs/balances</stringProp>
@@ -2934,8 +2878,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -2974,8 +2919,6 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfs/studentclasses</stringProp>
@@ -2984,8 +2927,9 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3036,8 +2980,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">safebrowsing.google.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/safebrowsing/downloads?client=navclient-auto-ffox&amp;appver=54.0&amp;pver=2.2&amp;key=AIzaSyD_Drzahe4dBzGCZ9ArvowCvrPx_yFrlCM</stringProp>
@@ -3046,8 +2988,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3090,8 +3033,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/adfs/assignments</stringProp>
@@ -3100,8 +3041,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3147,8 +3089,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/socket.io/?EIO=3&amp;transport=polling&amp;t=Loc3mxS&amp;sid=ZSB2urmwlznQXB6bAA2q</stringProp>
@@ -3157,8 +3097,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3226,8 +3167,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/socket.io/</stringProp>
@@ -3236,8 +3175,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3276,8 +3216,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/Calendar</stringProp>
@@ -3286,8 +3224,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3326,8 +3265,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">safebrowsing-cache.google.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/safebrowsing/rd/ChVnb29nLWJhZGJpbnVybC1zaGF2YXI4AEACSgwIARDfhggY34YIIAFKDAgBEN2GCBjdhgggAUoMCAEQ1IYIGNaGCCABSgwIARDShggY0oYIIAFKDAgBEMSGCBjEhgggAUoMCAEQvYYIGL6GCCABSgwIARCzhggYs4YIIAFKDAgBEKyGCBithgggAUoMCAEQpoYIGKaGCCABSgwIARCdhggYnYYIIAFKDAgBEI2GCBiNhgggAUoMCAEQ_YUIGP2FCCABSgwIARD6hQgY-oUIIAFKDAgBEPOFCBjzhQggAUoMCAEQ8IUIGPCFCCABSgwIARDqhQgY6oUIIAFKDAgBEM-FCBjPhQggAUoMCAEQyIUIGMiFCCABSgwIARDAhQgYwIUIIAFKDAgBELuFCBi7hQggAUoMCAEQn4UIGJ-FCCABSgwIARCChQgYgoUIIAFKDAgBEPmECBj6hAggAUoMCAEQ9YQIGPWECCABSgwIARDuhAgY7oQIIAFKDAgBEOuECBjrhAggAUoMCAEQ54QIGOiECCABSgwIARDghAgY4IQIIAFKDAgBENyECBjchAggAUoMCAEQ2YQIGNmECCABSgwIARDWhAgY1oQIIAFKDAgBENKECBjShAggAUoMCAEQyoQIGMqECCABSgwIARDEhAgYxYQIIAFKDAgBEMCECBjChAggAUoMCAEQu4QIGLuECCABSgwIARC1hAgYtoQIIAFKDAgBELGECBizhAggAUoMCAEQr4QIGK-ECCABSgwIARCthAgYrYQIIAFKDAgBEKWECBimhAggAUoMCAEQooQIGKKECCABSgwIARCdhAgYnYQIIAFKDAgBEJqECBiahAggAUoMCAEQkoQIGJOECCABSgwIARCDhAgYg4QIIAFKDAgBEICECBiAhAggAUoMCAEQ9IMIGPSDCCABSgwIARDlgwgY5YMIIAFKDAgBENaDCBjWgwggAUoMCAEQ0oMIGNKDCCABSgwIARDOgwgYzoMIIAFKDAgBEMqDCBjKgwggAUoMCAEQv4MIGL-DCCABSgwIARC8gwgYvIMIIAFKDAgBELmDCBi5gwggAUoMCAEQrYMIGK2DCCABSgwIARCqgwgYq4MIIAFKDAgBEKiDCBiogwggAUoMCAEQooMIGKKDCCABSgwIARCbgwgYm4MIIAFKDAgBEJmDCBiZgwggAUoMCAEQjoMIGI6DCCABSgwIARCFgwgYhYMIIAFKDAgBEP6CCBj-ggggAUoMCAEQ_IIIGPyCCCABSgwIARD0gggY9YIIIAFKDAgBEOmCCBjpggggAUoMCAEQ4IIIGOCCCCABSgwIARDPgggYz4IIIAFKDAgBEMOCCBjDggggAUoMCAEQvoIIGL-CCCABSgwIARC6gggYuoIIIAFKDAgBELiCCBi4ggggAUoMCAEQtoIIGLaCCCABSgwIARC0gggYtIIIIAFKDAgBEKqCCBiqggggAUoMCAEQqIIIGKiCCCABSgwIARCkgggYpIIIIAFKDAgBEJ2CCBidggggAUoMCAEQ_IEIGPyBCCABSgwIARDfgQgY34EIIAFKDAgBENeBCBjXgQggAUoMCAEQ0IEIGNCBCCABSgwIARDNgQgYzYEIIAFKDAgBEMaBCBjGgQggAUoMCAEQsoEIGLKBCCABSgwIARCpgQgYqYEIIAFKDAgBEKKBCBiigQggAUoMCAEQmoEIGJqBCCABSgwIARCVgQgYlYEIIAFKDAgBEI-BCBiPgQggAUoMCAEQiYEIGImBCCABSgwIARCDgQgYg4EIIAFKDAgBEP-ACBj_gAggAUoMCAEQ9IAIGPSACCABSgwIARDugAgY7oAIIAFKDAgBEOqACBjqgAggAUoMCAEQ4YAIGOGACCABSgwIARDYgAgY2IAIIAFKDAgBENCACBjQgAggAQ</stringProp>
@@ -3336,8 +3273,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3376,8 +3314,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/assets/images/todo-icon.svg</stringProp>
@@ -3386,8 +3322,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3422,8 +3359,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">safebrowsing-cache.google.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/safebrowsing/rd/ChVnb29nLWJhZGJpbnVybC1zaGF2YXI4AEACSgwIARDFgAgYxYAIIAFKDAgBEMGACBjBgAggAUoMCAEQtYAIGLWACCABSgwIARClgAgYpYAIIAFKDAgBEJuACBibgAggAQ</stringProp>
@@ -3432,8 +3367,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3472,8 +3408,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">safebrowsing-cache.google.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/safebrowsing/rd/ChVnb29nLWJhZGJpbnVybC1zaGF2YXI4AEACSgwIARDIkggYyZIIIAFKDAgBEJKSCBiSkgggAUoMCAEQ25EIGNuRCCABSgwIARDEkQgYxJEIIAFKDAgBEL6RCBi-kQggAUoMCAEQupEIGLqRCCABSgwIARCCkQgYgpEIIAFKDAgBEPqQCBj6kAggAUoMCAEQ45AIGOOQCCABSgwIARDfkAgY35AIIAFKDAgBEMaQCBjGkAggAUoMCAEQvpAIGL6QCCABSgwIARC6kAgYupAIIAFKDAgBELGQCBixkAggAUoMCAEQqpAIGKqQCCABSgwIARD9jwgY_Y8IIAFKDAgBEOGPCBjhjwggAUoMCAEQx48IGMePCCABSgwIARC_jwgYv48IIAFKDAgBEICPCBiAjwggAUoMCAEQ044IGNOOCCABSgwIARDDjggYw44IIAFKDAgBELiOCBi4jgggAUoMCAEQtI4IGLSOCCABSgwIARCsjggYrI4IIAFKDAgBEIOOCBiDjgggAUoMCAEQ7Y0IGO2NCCABSgwIARDjjQgY440IIAFKDAgBENKNCBjSjQggAUoMCAEQrI0IGK2NCCABSgwIARCkjQgYpI0IIAFKDAgBEJyNCBicjQggAUoMCAEQ_4wIGP-MCCABSgwIARD3jAgY94wIIAFKDAgBEPOMCBjzjAggAUoMCAEQ3owIGN6MCCABSgwIARDYjAgY2IwIIAFKDAgBENSMCBjUjAggAUoMCAEQw4wIGMOMCCABSgwIARDBjAgYwYwIIAFKDAgBEKaMCBimjAggAUoMCAEQ4YsIGOGLCCABSgwIARDfiwgY34sIIAFKDAgBEMGLCBjBiwggAUoMCAEQuIsIGLiLCCABSgwIARCniwgYp4sIIAFKDAgBEJuLCBibiwggAUoMCAEQk4sIGJOLCCABSgwIARCOiwgYjosIIAFKDAgBEIuLCBiLiwggAUoMCAEQiIsIGIiLCCABSgwIARCEiwgYhIsIIAFKDAgBEPyKCBj8igggAUoMCAEQ-IoIGPiKCCABSgwIARDHiggYx4oIIAFKDAgBEMWKCBjFigggAUoMCAEQkYoIGJGKCCABSgwIARCNiggYjYoIIAFKDAgBEIGKCBiEigggAUoMCAEQkYkIGJGJCCABSgwIARCKiQgYiokIIAFKDAgBEIWJCBiGiQggAUoMCAEQg4kIGIOJCCABSgwIARD7iAgY-4gIIAFKDAgBEPeICBj3iAggAUoMCAEQ8ogIGPKICCABSgwIARDriAgY64gIIAFKDAgBENqICBjaiAggAUoMCAEQ1ogIGNeICCABSgwIARDUiAgY1IgIIAFKDAgBEL-ICBi_iAggAUoMCAEQrYgIGK2ICCABSgwIARCriAgYq4gIIAFKDAgBEJ-ICBifiAggAUoMCAEQnYgIGJ2ICCABSgwIARCQiAgYkIgIIAFKDAgBEIOICBiDiAggAUoMCAEQ-ocIGPqHCCABSgwIARDyhwgY8ocIIAFKDAgBEOuHCBjshwggAUoMCAEQ6YcIGOmHCCABSgwIARDghwgY4IcIIAFKDAgBENmHCBjZhwggAUoMCAEQzocIGM6HCCABSgwIARDMhwgYzIcIIAFKDAgBEMqHCBjKhwggAUoMCAEQv4cIGL-HCCABSgwIARCzhwgYtocIIAFKDAgBELGHCBixhwggAUoMCAEQq4cIGKyHCCABSgwIARCehwgYnocIIAFKDAgBEJqHCBichwggAUoMCAEQlIcIGJSHCCABSgwIARCPhwgYj4cIIAFKDAgBEIyHCBiMhwggAUoMCAEQiYcIGImHCCABSgwIARCGhwgYhocIIAFKDAgBEPeGCBj3hgggAUoMCAEQ9YYIGPWGCCABSgwIARDphggY6YYIIAFKDAgAEPr5Bxj7-QcgAQ</stringProp>
@@ -3482,8 +3416,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3522,8 +3457,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">safebrowsing-cache.google.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/safebrowsing/rd/Chxnb29nLWRvd25sb2Fkd2hpdGUtZGlnZXN0MjU2OABAAkoICAEQOhg6IAFKCAgBEDYYNiABSggIARAvGDAgAUoICAEQHBgcIAFKCAgBEA4YDiABSggIARAHGAcgAUoICAEQAhgEIAE</stringProp>
@@ -3532,8 +3465,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3572,8 +3506,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">mycu-rundev2.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/app/dashboard/mealPlan/components/webworker.js</stringProp>
@@ -3582,8 +3514,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3618,8 +3551,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/adfs/balances</stringProp>
@@ -3628,8 +3559,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3668,8 +3600,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">dev-dl-api.creighton.edu</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/adfs/studentProfile</stringProp>
@@ -3678,8 +3608,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3718,8 +3649,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">safebrowsing-cache.google.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/safebrowsing/rd/ChNnb29nLW1hbHdhcmUtc2hhdmFyOABAAkoMCAEQ64sQGO2LECABSgwIARDCixAYwosQIAFKDAgBELuLEBi7ixAgAUoMCAEQuYsQGLmLECABSgwIARCtixAYrYsQIAFKDAgBEKeLEBinixAgAUoMCAEQoIsQGKCLECABSgwIARDlihAY5YoQIAFKDAgBENuKEBjbihAgAUoMCAEQpooQGKaKECABSgwIARCkihAYpIoQIAFKDAgBEKKKEBiiihAgAUoMCAEQnooQGJ6KECABSgwIARCcihAYnIoQIAFKDAgBEPiJEBj4iRAgAUoMCAEQ9YkQGPWJECABSgwIARDziRAY84kQIAFKDAgBEOqJEBjqiRAgAUoMCAEQ5IkQGOSJECABSgwIARCuiRAYrokQIAFKDAgBEO-IEBjviBAgAUoMCAEQwYgQGMGIECABSgwIARC6iBAYu4gQIAFKDAgBEKqIEBiqiBAgAUoMCAEQiYgQGImIECABSgwIARCBiBAYgYgQIAFKDAgBEPmHEBj5hxAgAUoMCAEQ8IcQGPCHECABSgwIARDfhxAY34cQIAFKDAgBENeHEBjXhxAgAUoMCAEQp4cQGKeHECABSgwIARCehxAYnocQIAFKDAgBENuGEBjbhhAgAUoMCAEQ14YQGNmGECABSgwIARDVhhAY1YYQIAFKDAgBELaGEBi2hhAgAUoMCAEQsoYQGLKGECABSgwIARCQhhAYkIYQIAFKDAgBEI6GEBiOhhAgAUoMCAEQioYQGIqGECABSgwIARDVhRAY1oUQIAFKDAgBEM6FEBjOhRAgAUoMCAEQwYUQGMGFECABSgwIARC9hRAYvoUQIAFKDAgBEJ2FEBiehRAgAUoMCAEQj4UQGI-FECABSgwIARCEhRAYhYUQIAFKDAgBEIKFEBiChRAgAUoMCAEQ_YQQGP6EECABSgwIARD6hBAY-oQQIAFKDAgBEPiEEBj4hBAgAUoMCAEQ5oQQGOeEECABSgwIARC8hBAYvIQQIAFKDAgBELmEEBi5hBAgAUoMCAEQtoQQGLaEECABSgwIARC0hBAYtIQQIAFKDAgBEKaEEBimhBAgAUoMCAEQnIQQGJyEECABSgwIARCXhBAYl4QQIAFKDAgBEIWEEBiFhBAgAUoMCAEQ7IMQGOyDECABSgwIARDogxAY6IMQIAFKDAgBEOKDEBjigxAgAUoMCAEQ-4IQGPuCECABSgwIARD4ghAY-IIQIAFKDAgBEPGCEBjxghAgAUoMCAEQqIIQGKiCECABSgwIARCkghAYpIIQIAFKDAgBEJ6CEBieghAgAUoMCAEQnIIQGJyCECABSgwIARCVghAYl4IQIAFKDAgBEPGBEBjygRAgAUoMCAEQ1IEQGNSBECABSgwIARDSgRAY0oEQIAFKDAgBEMiBEBjIgRAgAUoMCAEQk4EQGJOBECABSgwIARDsgBAY7IAQIAFKDAgBEOmAEBjpgBAgAUoMCAEQ4YAQGOKAECABSgwIARDdgBAY3oAQIAFKDAgBENmAEBjZgBAgAUoMCAEQ14AQGNeAECABSgwIARDOgBAYzoAQIAFKDAgBEMqAEBjLgBAgAUoMCAEQx4AQGMiAECABSgwIARDBgBAYwYAQIAFKDAgBEL6AEBi-gBAgAUoMCAEQpoAQGKaAECABSgwIARCfgBAYn4AQIAFKDAgBEJiAEBiYgBAgAUoMCAEQlYAQGJWAECABSgwIARCPgBAYkIAQIAFKDAgBEIqAEBiLgBAgAUoMCAEQhYAQGIaAECABSgwIARD7_w8Y-_8PIAFKDAgBEPb_Dxj2_w8gAUoMCAEQ8_8PGPP_DyABSgwIARDq_w8Y6v8PIAFKDAgBEOT_Dxjk_w8gAUoMCAEQz_8PGNL_DyABSgwIARDN_w8Yzf8PIAE</stringProp>
@@ -3728,8 +3657,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3768,8 +3698,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">safebrowsing-cache.google.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/safebrowsing/rd/ChNnb29nLW1hbHdhcmUtc2hhdmFyOABAAkoMCAEQyv8PGMv_DyABSgwIARDE_w8Yxf8PIAFKDAgBEML_DxjC_w8gAUoMCAEQvP8PGLz_DyABSgwIARC2_w8Ytv8PIAFKDAgBEKn_Dxip_w8gAUoMCAEQmf8PGJn_DyABSgwIARCT_w8Yk_8PIAFKDAgBEPz-Dxj8_g8gAUoMCAEQ8v4PGPL-DyABSgwIARDn_g8Y5_4PIAFKDAgBEOX-Dxjl_g8gAUoMCAEQ3f4PGN3-DyABSgwIARDR_g8Y0f4PIAFKDAgBEM_-DxjP_g8gAUoMCAEQzP4PGMz-DyABSgwIARDG_g8Yxv4PIAFKDAgBEL7-Dxi-_g8gAUoMCAEQrP4PGKz-DyABSgwIARCo_g8Yqf4PIAFKDAgBEKX-Dxil_g8gAUoMCAEQof4PGKH-DyABSgwIARCd_g8Ynv4PIAFKDAgBEJj-DxiY_g8gAUoMCAEQlv4PGJb-DyABSgwIARCT_g8YlP4PIAFKDAgBEJH-DxiR_g8gAUoMCAEQ9v0PGPb9DyABSgwIARDb_Q8Y3P0PIAFKDAgBEMb9DxjG_Q8gAUoMCAEQw_0PGMP9DyABSgwIARDA_Q8Ywf0PIAFKDAgBEL79Dxi-_Q8gAUoMCAEQr_0PGK_9DyABSgwIARCp_Q8Yqf0PIAFKDAgBEJv9Dxib_Q8gAUoMCAEQlP0PGJT9DyABSgwIARCR_Q8Ykv0PIAFKDAgBEIr9DxiK_Q8gAUoMCAEQ_fwPGP38DyABSgwIARD0_A8Y9PwPIAFKDAgBEO38Dxju_A8gAUoMCAEQ2fwPGNn8DyABSgwIARDN_A8YzfwPIAFKDAgBEMT8DxjF_A8gAUoMCAEQwfwPGMH8DyABSgwIARCz_A8Ys_wPIAFKDAgBELH8Dxix_A8gAUoMCAEQqfwPGKn8DyABSgwIARCG_A8YhvwPIAFKDAgBEPT7Dxj0-w8gAUoMCAEQ6vsPGOv7DyABSgwIARDe-w8Y3vsPIAFKDAgBENv7Dxjb-w8gAUoMCAEQ0_sPGNP7DyABSgwIARDO-w8YzvsPIAFKDAgBEMb7DxjG-w8gAUoMCAEQtPsPGLT7DyABSgwIARCD-w8Yg_sPIAFKDAgBEID7DxiA-w8gAUoMCAEQ_PoPGPz6DyABSgwIARD5-g8Y-foPIAFKDAgBEO36Dxjt-g8gAUoMCAEQ6PoPGOv6DyABSgwIARDj-g8Y5PoPIAFKDAgBEN36Dxje-g8gAUoMCAEQ1foPGNX6DyABSgwIARDO-g8Yz_oPIAFKDAgBEMn6DxjJ-g8gAUoMCAEQwfoPGMH6DyABSgwIARC6-g8Yu_oPIAFKDAgBELf6Dxi4-g8gAUoMCAEQsfoPGLL6DyABSgwIARCu-g8YrvoPIAFKDAgBEKf6Dxin-g8gAUoMCAEQpfoPGKX6DyABSgwIARCj-g8Yo_oPIAFKDAgBEKD6Dxih-g8gAUoMCAEQnvoPGJ76DyABSgwIARCa-g8YmvoPIAFKDAgBEJf6DxiX-g8gAUoMCAEQk_oPGJP6DyABSgwIARCP-g8YkPoPIAFKDAgBEI36DxiN-g8gAUoMCAEQ__kPGP_5DyABSgwIARD7-Q8Y-_kPIAFKDAgBEPf5Dxj3-Q8gAUoMCAEQ9fkPGPX5DyABSgwIARDq-Q8Y6vkPIAFKDAgBEOb5Dxjm-Q8gAUoMCAEQ5PkPGOT5DyABSgwIARDU-Q8Y1PkPIAFKDAgBEMz5DxjM-Q8gAUoMCAEQyfkPGMr5DyABSgwIARDA-Q8YwPkPIAFKDAgBELz5Dxi9-Q8gAUoMCAEQuPkPGLj5DyABSgwIARC2-Q8YtvkPIAFKDAgBELD5Dxix-Q8gAUoMCAEQrPkPGKz5DyABSgwIARCq-Q8YqvkPIAE</stringProp>
@@ -3778,8 +3706,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3818,8 +3747,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">safebrowsing-cache.google.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/safebrowsing/rd/ChNnb29nLW1hbHdhcmUtc2hhdmFyOABAAkoMCAEQqPkPGKj5DyABSgwIARCg-Q8YoPkPIAFKDAgBEJ35Dxie-Q8gAUoMCAEQmvkPGJr5DyABSgwIARCS-Q8YkvkPIAFKDAgBEIz5DxiN-Q8gAUoMCAEQgPkPGIH5DyABSgwIARD--A8Y_vgPIAFKDAgBEPr4Dxj6-A8gAUoMCAEQ8vgPGPL4DyABSgwIARDs-A8Y7fgPIAFKDAgBEOf4Dxjn-A8gAUoMCAEQ3PgPGNz4DyABSgwIARDY-A8Y2PgPIAFKDAgBEMj4DxjK-A8gAUoMCAEQxfgPGMX4DyABSgwIARDA-A8YwPgPIAFKDAgBEL74Dxi--A8gAUoMCAEQtvgPGLb4DyABSgwIARC0-A8YtPgPIAFKDAgBELL4Dxiy-A8gAUoMCAEQsPgPGLD4DyABSgwIARCs-A8YrfgPIAFKDAgBEKf4Dxin-A8gAUoMCAEQofgPGKL4DyABSgwIARCc-A8YnfgPIAFKDAgBEJj4DxiZ-A8gAUoMCAEQlvgPGJb4DyABSgwIARCU-A8YlPgPIAFKDAgBEJL4DxiS-A8gAUoMCAEQjfgPGJD4DyABSgwIARCJ-A8YivgPIAFKDAgBEIX4DxiH-A8gAUoMCAEQg_gPGIP4DyABSgwIARD_9w8YgfgPIAFKDAgBEPv3Dxj89w8gAUoMCAEQ-PcPGPj3DyABSgwIARD29w8Y9vcPIAFKDAgBEOz3Dxjy9w8gAUoMCAEQ6vcPGOr3DyABSgwIARDo9w8Y6PcPIAFKDAgBEOL3Dxjm9w8gAUoMCAEQ3_cPGN_3DyABSgwIARDd9w8Y3fcPIAFKDAgBENr3Dxja9w8gAUoMCAEQ2PcPGNj3DyABSgwIARDV9w8Y1vcPIAFKDAgBENH3DxjS9w8gAUoMCAEQzPcPGM73DyABSgwIARDF9w8YyPcPIAFKDAgBEMH3DxjB9w8gAUoMCAEQv_cPGL_3DyABSgwIARC89w8YvfcPIAFKDAgBELn3Dxi59w8gAUoMCAEQs_cPGLT3DyABSgwIARCw9w8YsPcPIAFKDAgBEK73Dxiu9w8gAUoMCAEQpvcPGKf3DyABSgwIARCi9w8YovcPIAFKDAgBEJ_3Dxif9w8gAUoMCAEQm_cPGJz3DyABSgwIARCT9w8YmfcPIAFKDAgBEJH3DxiR9w8gAUoMCAEQjPcPGI73DyABSgwIARCJ9w8YifcPIAFKDAgBEID3DxiG9w8gAUoMCAEQ_fYPGP32DyABSgwIARD79g8Y-_YPIAFKDAgBEPj2Dxj49g8gAUoMCAEQ8vYPGPT2DyABSgwIARDt9g8Y7vYPIAFKDAgBEOj2Dxjq9g8gAUoMCAEQ4fYPGOb2DyABSgwIARDd9g8Y3_YPIAFKDAgBENv2Dxjb9g8gAUoMCAEQ1vYPGNn2DyABSgwIARDT9g8Y1PYPIAFKDAgBEL_2DxjR9g8gAUoMCAEQtPYPGL32DyABSgwIARCy9g8YsvYPIAFKDAgBEK72Dxiw9g8gAUoMCAEQqfYPGKz2DyABSgwIARD59Q8Yp_YPIAFKDAgBENv1Dxj29Q8gAUoMCAEQkPUPGNn1DyABSgwIARCO9Q8YjvUPIAFKDAgBEIz1DxiM9Q8gAUoMCAEQivUPGIr1DyABSgwIARD-9A8YiPUPIAFKDAgBEPn0Dxj89A8gAUoMCAEQ9fQPGPf0DyABSgwIARDv9A8Y8_QPIAFKDAgBEOn0Dxjt9A8gAUoMCAEQ1PQPGOf0DyABSgwIARDJ9A8Y0vQPIAFKDAgBEKP0DxjH9A8gAUoMCAEQ-PMPGKH0DyABSgwIARDO8w8Y9vMPIAFKDAgBEMnzDxjM8w8gAUoMCAEQj_MPGMfzDyABSgwIARCN8w8YjfMPIAE</stringProp>
@@ -3828,8 +3755,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3868,8 +3796,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">safebrowsing-cache.google.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/safebrowsing/rd/ChNnb29nLW1hbHdhcmUtc2hhdmFyOABAAkoMCAEQiPMPGIzzDyABSgwIARCG8w8YhvMPIAFKDAgBEIPzDxiD8w8gAUoMCAEQgfMPGIHzDyABSgwIARD-8g8Y__IPIAFKDAgBEPryDxj88g8gAUoMCAEQ0PIPGPjyDyABSgwIARDH8g8YzvIPIAFKDAgBEL3yDxjF8g8gAUoMCAEQuPIPGLvyDyABSgwIARCz8g8YtvIPIAFKDAgBEIXyDxix8g8gAUoMCAEQ_vEPGIPyDyABSgwIARDy8Q8Y_PEPIAFKDAgBELLxDxjw8Q8gAUoMCAEQpfEPGK_xDyABSgwIARCi8Q8Yo_EPIAFKDAgBEIrxDxif8Q8gAUoMCAEQsvAPGIjxDyABSgwIARCr8A8YsPAPIAFKDAgBEJvwDxip8A8gAUoMCAEQ8e8PGJnwDyABSgwIARDj7w8Y7-8PIAFKDAgBEODvDxjh7w8gAUoMCAEQ3O8PGN7vDyABSgwIARDX7w8Y2u8PIAFKDAgBENHvDxjV7w8gAUoMCAEQw-8PGM_vDyABSgwIARCl7w8Ywe8PIAFKDAgBEKLvDxii7w8gAUoMCAEQmu8PGJ_vDyABSgwIARCX7w8YmO8PIAFKDAgBEJTvDxiV7w8gAUoMCAEQkO8PGJLvDyABSgwIARCK7w8Yju8PIAFKDAgBEP3uDxiI7w8gAUoMCAEQ-e4PGPvuDyABSgwIARD17g8Y9-4PIAFKDAgBEPDuDxjz7g8gAUoMCAEQ7u4PGO7uDyABSgwIARDq7g8Y6-4PIAFKDAgBEOfuDxjo7g8gAUoMCAEQ5e4PGOXuDyABSgwIARDf7g8Y4-4PIAFKDAgBENPuDxjd7g8gAUoMCAEQze4PGNHuDyABSgwIARDJ7g8Yy-4PIAFKDAgBEMbuDxjH7g8gAUoMCAEQse4PGMTuDyABSgwIARCU7g8Yr-4PIAFKDAgBEITuDxiS7g8gAUoMCAEQ8u0PGILuDyABSgwIARDK7Q8Y8O0PIAFKDAgBEMbtDxjI7Q8gAQ</stringProp>
@@ -3878,8 +3804,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -3943,8 +3870,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/socket.io/</stringProp>
@@ -3953,8 +3878,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -4018,8 +3944,6 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             </elementProp>
             <stringProp name="HTTPSampler.domain">172.16.202.84</stringProp>
             <stringProp name="HTTPSampler.port">8081</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/socket.io/</stringProp>
@@ -4028,8 +3952,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -4101,5 +4026,9 @@ goog-unwanted-shavar;a:87033-96073:s:83808-83809,83828,83843,83863,83875-83876,8
         <hashTree/>
       </hashTree>
     </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
   </hashTree>
 </jmeterTestPlan>

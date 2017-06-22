@@ -1,5 +1,5 @@
 const localStorageMock = (function () {
-  let store = {};
+  const store = {};
   return {
     getItem: function (key) {
       return store[key];
@@ -9,27 +9,15 @@ const localStorageMock = (function () {
     },
     removeItem: function (key) {
       delete store[key];
-    },
-    clear: function () {
-      store = {};
     }
   };
 })();
 
 const sessionStorageMock = (function () {
-  let store = {};
+  const store = {};
   return {
-    getItem: function (key) {
-      return store[key];
-    },
-    setItem: function (key, value) {
-      store[key] = value.toString();
-    },
     removeItem: function (key) {
       delete store[key];
-    },
-    clear: function () {
-      store = {};
     }
   };
 })();

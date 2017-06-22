@@ -46,10 +46,10 @@ export class FacultyAcademic extends React.PureComponent {
 
 const mapStateToProps = (bioState) => (
   {
-    profileData: bioState.profileReducer.profileData.data,
-    profile: bioState.profileReducer.profile,
-    isLoading: bioState.profileReducer.isLoading,
-    isError: bioState.profileReducer.error
+    profileData: bioState.facultyProfileReducer.profileData.data,
+    profile: bioState.facultyProfileReducer.profile,
+    isLoading: bioState.facultyProfileReducer.isLoading,
+    isError: bioState.facultyProfileReducer.error
 
   });
 

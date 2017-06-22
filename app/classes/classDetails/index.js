@@ -27,17 +27,60 @@ class ClassDetails extends React.PureComponent {
       hashHistory.push(ROUTE_URL.EVENT_LIST);
     }
   }
-
+  getCurrentView(path) {
+    let currentView = '';
+    if (path) {
+      currentView = path[1];
+    }
+    return currentView;
+  }
+  getAssinments(classData) {
+    let assignments = {};
+    if (classData.assignmentData && classData.assignmentData !== null) {
+      assignments = classData.assignmentData;
+    }
+    return assignments;
+  }
+  getNextObj(index, obj) {
+    let nextObject = {};
+    if (index < obj.length - 1) {
+      nextObject = obj[index + 1];
+    } else {
+      nextObject.sis_source_id = {};
+    }
+    return nextObject;
+  }
+  getPrevObj(index, obj) {
+    let prevObject = {};
+    if (index > 0) {
+      prevObject = obj[index - 1];
+    } else {
+      prevObject.sis_source_id = {};
+    }
+    return prevObject;
+  }
+  getSortedAssignDue(assignmentDue) {
+    let sortedassignmentDue = [];
+    if (assignmentDue && assignmentDue.length > 0) {
+      sortedassignmentDue = sortBy(assignmentDue, ['assign_due']);
+    }
+    return sortedassignmentDue;
+  }
+  getSortedUpcomingAssignments(upcomingAssignmentsData) {
+    let sortedUpcomingAssignments = [];
+    if (upcomingAssignmentsData && upcomingAssignmentsData.length > 0) {
+      sortedUpcomingAssignments = sortBy(upcomingAssignmentsData, ['assign_due']);
+    }
+    return sortedUpcomingAssignments;
+  }
   render() {
     if (localStorage.getItem('classDetails') || localStorage.getItem('eventsFilterData')) {
       const props = this.props;
       let classData;
       let obj = null;
       let showPrevNext = false;
-      let currentView = '';
-      if (props.params.routePath) {
-        currentView = props.params.routePath[1];
-      }
+      const currentView = this.getCurrentView(props.params.routePath);
+
       if (props.params.categoryname === CLASSES_DETAILS) {
         obj = JSON.parse(localStorage.getItem('eventsFilterData'));
         showPrevNext = false;
@@ -47,15 +90,14 @@ class ClassDetails extends React.PureComponent {
         showPrevNext = true;
         classData = obj[props.params.index];
       }
-      let assignments = {};
-      if (classData.assignmentData && classData.assignmentData !== null) {
-        assignments = classData.assignmentData;
-      }
+
+      const assignments = this.getAssinments(classData);
       const testOrQuizzesData = [];
       const assignmentDue = [];
       const upcomingAssignmentsData = [];
-      let sortedUpcomingAssignments = [];
-      let sortedassignmentDue = [];
+      const sortedUpcomingAssignments = this.getSortedUpcomingAssignments(upcomingAssignmentsData);
+      const sortedassignmentDue = this.getSortedAssignDue(assignmentDue);
+      
       if (assignments && assignments.length > 0) {
         assignments.map((assignmentObj) => {
           if (assignmentObj.assign_due) {
@@ -69,28 +111,10 @@ class ClassDetails extends React.PureComponent {
           return assignmentObj;
         });
       }
-
-      if (assignmentDue && assignmentDue.length > 0) {
-        sortedassignmentDue = sortBy(assignmentDue, ['assign_due']);
-      }
-      if (upcomingAssignmentsData && upcomingAssignmentsData.length > 0) {
-        sortedUpcomingAssignments = sortBy(upcomingAssignmentsData, ['assign_due']);
-      }
-
-
-      let nextObject = {};
-      let prevObject = {};
       const index = parseInt(props.params.index);
-      if (index < obj.length - 1) {
-        nextObject = obj[index + 1];
-      } else {
-        nextObject.sis_source_id = {};
-      }
-      if (index > 0) {
-        prevObject = obj[index - 1];
-      } else {
-        prevObject.sis_source_id = {};
-      }
+      const nextObject = this.getNextObj(index, obj);
+      const prevObject = this.getPrevObj(index, obj);
+
       return (
         <section role='region' className='classesDeatils section-container'>
           {showPrevNext &&

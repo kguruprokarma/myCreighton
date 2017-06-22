@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Grid } from 'react-bootstrap';
 import { translateText } from '../common/translate';
 import UserDetail from './components/userDetail';
 import MealPlanView from './mealPlan';
@@ -76,27 +76,25 @@ export class Dashboard extends Component {
     }
 
     return (
-      <section role='region' id='dashboard' className='section-container'>
+      <section role='region' id='dashboard' className='section-container row'>
+        <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
         {props.loading && <Spinner />}
-        {!props.loading && <article role='article'>
-          <h1 className='announced-only'>{translateText('common:DASH_BOARD')}</h1>
+        {!props.loading && <Grid fluid>
           <Row className='mb20'>
             <Col sm={5} xs={10} md={4}>
               {profileInformation && <UserDetail userDetail={profileInformation} role={this.role} />}
             </Col>
             <Col xs={2} className='pull-right text-right'>
-              {mealPlanData && mealPlanData.data && mealPlanData.data.length>0 && <div className={this.props.mealPlanView ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>}
+              {mealPlanData && mealPlanData.data && mealPlanData.data.length > 0 && <div className={this.props.mealPlanView ? 'imageHide' : ''}><ToggleMealPlan toggle={this.onClick} /></div>}
             </Col>
             <Col xs={12} sm={7} md={8} className='pull-right'>
-              {mealPlanData && mealPlanData.data && mealPlanData.data.length>0 && <MealPlanView showMeal={this.props.mealPlanView} toggleMeal={this.onClick} />}
+              {mealPlanData && mealPlanData.data && mealPlanData.data.length > 0 && <MealPlanView showMeal={this.props.mealPlanView} toggleMeal={this.onClick} />}
             </Col>
           </Row>
-          <article role='article' id='wells'>
-            <Row>
-              {this.role && this.role.trim().length > 0 && dashboardList && dashboardList.length > 0 && <ModuleBlock modulelist={dashboardList} />}
-            </Row>
-          </article>
-        </article>}
+          <Row id='wells'>
+            {this.role && this.role.trim().length > 0 && dashboardList && dashboardList.length > 0 && <ModuleBlock modulelist={dashboardList} />}
+          </Row>
+        </Grid>}
       </section>
     );
   }
@@ -111,7 +109,7 @@ Dashboard.propTypes = {
 const mapStateToProps = (dashboardState) => (
   {
     mealPlanView: dashboardState.mealPlanReducer.mealPlanView,
-    profileData: dashboardState.profileReducer.profileData.data,
+    profileData: dashboardState.profileReducer.profileData.data ? dashboardState.profileReducer.profileData.data : dashboardState.facultyProfileReducer.profileData.data,
     loading: dashboardState.profileReducer.isLoading,
     mealPlanData: dashboardState.mealPlanReducer.mealPlanData.data
   }

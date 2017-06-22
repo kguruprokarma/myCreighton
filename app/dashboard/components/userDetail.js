@@ -11,7 +11,7 @@ const userDetail = (userDetailProps) => {
   const userAvatar = userDetailProps.role === CommonConstants.ROLE_STUDENT ? userDetailProps.userDetail && userDetailProps.userDetail.pref_first_name ? userDetailProps.userDetail.pref_first_name : userDetailProps.userDetail.first_name : userDetailProps.userDetail.first_name && userDetailProps.userDetail.last_name && `${userDetailProps.userDetail.first_name.replace(/ /g, '')} ${userDetailProps.userDetail.last_name.replace(/ /g, '')}`;
   return (
     <article role='article'>
-      <h2 className='announced-only'>{translateText('common:USER_DETAIL_AVATAR')}</h2>
+      <h1 className='announced-only'>{translateText('common:USER_DETAIL_AVATAR')}</h1>
       <div className='avatar-container'>
         <div className='avatar-left'>
           <Avatar name={userAvatar} size={48} round />

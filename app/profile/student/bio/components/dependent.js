@@ -7,11 +7,11 @@ import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
 
 const Dependent = (depenndentProps) => (
-  <article>
+  <div>
     <BasicRow displayName={translateText('COMMON:PROFILE_FIRST')} displayValue={depenndentProps.dependent.first_name} />
     <BasicRow displayName={translateText('COMMON:PROFILE_MIDDLE')} displayValue={depenndentProps.dependent.middle_name} />
     <BasicRow displayName={translateText('COMMON:PROFILE_LAST')} displayValue={depenndentProps.dependent.last_name} />
-  </article>
+  </div>
 );
 
 export default Dependent;

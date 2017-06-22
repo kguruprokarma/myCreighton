@@ -22,7 +22,7 @@ class MainNav extends React.Component {
         <Grid>
           <Row>
             <ul className='main-navigation'>
-              <li className='navigation-item hidden-lg menu-heading'><h2 className=' pl15 pt10 pb10 pr15 menuHeading m0'>{translateText('common:HAMBURGER_MENU')}</h2></li>
+              <li className='navigation-item hidden-lg menu-heading'><p className=' pl15 pt10 pb10 pr15 menuHeading m0'>{translateText('common:HAMBURGER_MENU')}</p></li>
               <li className='navigation-item'><a href={`#${ROUTE_URL.QUICK_LAUNCH}`}>{translateText('common:QUICK_LAUNCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
               {
                 role === CommonConstants.ROLE_STUDENT || role === undefined ? <li className='navigation-item'>

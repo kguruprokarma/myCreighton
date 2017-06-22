@@ -1,9 +1,13 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import ClassTabController from '../components/classTabController';
 
+
 describe('ClassTabController component testing ----->', () => {
-  const ClassTabControllerC = shallow(<ClassTabController />);
+  const defaultProps = {
+    state: 'Today'
+  };
+  const ClassTabControllerC = shallow(<ClassTabController {...defaultProps} />);
 
   it('ClassTabController component is defined', () => {
     expect(ClassTabControllerC).toBeDefined();

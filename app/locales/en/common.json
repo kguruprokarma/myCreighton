@@ -577,7 +577,7 @@
     "CLASS_INFORMATION_LOCATION_HELP": "location",
     "CLASS_INFORMATION_DATE_HELP": "date",
     "CLASS_INFORMATION_START_END_HELP": "start/end time",
-    "RETURN_TO_DASHBOARD": "Return to Dashboard",
+    "RETURN_TO_PREVIOUS_PAGE": "Return to previous page",
     "NO_MATCHES": "No matches",
     "SEARCH_MYCREIGHTON_FEATURES": "Search myCreighton Features",
     "COMMON_SAVE": "Save",
@@ -585,5 +585,12 @@
     "SITE_MAP":"Site Map",
     "SITEMAP_MAIN_MENU": "Main menu",
     "SITEMAP_HEADER_MENU": "Header menu",
-    "SITEMAP_FOOTER_MENU": "Footer menu"    
+    "SITEMAP_FOOTER_MENU": "Footer menu",
+    "SCHOOL_ACCORDION" : "Accordian",
+    "SCHOOL_AND_SEMESTER_NAV" : "Shchool and Semester Navigation",
+    "CLASS_NAVIGATION" : "Class Navigation",
+    "NEXT_EVENTS_LIST": "Next Events List",
+    "PAGE_CONTENT": "Page Content",
+    "SEARCH_RESULT_DATA": "Search Results",
+    "LIBRARY_NAVIGATION": "Library Navigation"
 }
