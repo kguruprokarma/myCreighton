@@ -465,7 +465,6 @@
 
 }
 
-
 @media screen and (max-width: 590px) {
 
     .jbvalue {
@@ -555,7 +554,7 @@
     #dashboard .white-well {
       padding: 13px;
     } 
-    
+
     .jbvalue {
         font-size: 1.23333em;
     }

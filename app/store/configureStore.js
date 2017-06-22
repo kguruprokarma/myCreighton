@@ -11,7 +11,7 @@ import {facultyProfileReducer, profileReducer} from '../profile/reducer';
 import classesReducer from '../classes/classList/reducer';
 import {headerReducer, signOutReducer} from '../header/reducer';
 import mealPlanReducer from '../dashboard/mealPlan/reducer';
-import eventsReducer from '../nextEvents/eventList/reducer';
+import { eventsReducer, eventsCalenderReducer } from '../nextEvents/eventList/reducer';
 import professionalReducer from '../profile/staff/professional/reducer';
 import campusDirectoryReducer from '../campusDirectory/reducer';
 import eventsFilterReducer from '../nextEvents/eventFilter/reducer';
@@ -39,7 +39,8 @@ const reducers = {
   classesReducer: classesReducer,
   mealPlanReducer: mealPlanReducer,
   headerReducer: headerReducer,
-  eventsReducer: eventsReducer,
+  eventsReducer: eventsReducer, 
+  eventsCalenderReducer: eventsCalenderReducer,
   professionalReducer: professionalReducer,
   campusDirectoryReducer: campusDirectoryReducer,
   eventsFilterReducer: eventsFilterReducer,

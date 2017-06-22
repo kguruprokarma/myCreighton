@@ -498,7 +498,7 @@ const mapStateToProps = (eventsState) => (
     isMasterDataChange: eventsState.eventsReducer.isMasterDataChange,
     classLoading: eventsState.classesReducer.isLoading,
     EventChangedValue: eventsState.eventsFilterReducer.changedValue,
-    calendarDetailData: eventsState.eventsReducer.calendarDetailData,
+    calendarDetailData: eventsState.eventsCalenderReducer.calendarDetailData,
     changedDate: eventsState.eventsFilterReducer.changedDate,
     popUpData: eventsState.headerReducer.showPopUp,
     filterPopUpData: eventsState.headerReducer.showFilterPopUp

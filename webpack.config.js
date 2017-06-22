@@ -35,7 +35,7 @@ Object.assign(exports, {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')        
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       {
         test: /\.(img|png|gif|jpe?g|svg)$/i,
@@ -57,6 +57,7 @@ Object.assign(exports, {
     new CopyWebpackPlugin([
       { from: `${__dirname}/app/assets`, to: `${__dirname}/build/assets` },
       { from: `${__dirname}/app/topLevelSearch/constants`, to: `${__dirname}/build/topLevelSearch/constants` },
+      { from: `${__dirname}/app/mock_data/libraryInformation.json`, to: `${__dirname}/build/mock_data/libraryInformation.json` },
       { from: `${__dirname}/app/locales`, to: `${__dirname}/build/app/locales` },
       { from: `${__dirname}/serverMvc`, to: `${__dirname}/build/serverMvc` }
     ]),
@@ -73,7 +74,7 @@ Object.assign(exports, {
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor', 
+      name: 'vendor',
       filename: '[name].[hash].js'
     }),
     new ExtractTextPlugin('[name].css'),

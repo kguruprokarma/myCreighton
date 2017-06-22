@@ -12,7 +12,7 @@ const initialState = {
   calendarDetailData: {}
 };
 
-const eventsReducer = (state = initialState, action = null) => {
+export const eventsReducer = (state = initialState, action = null) => {
   switch (action && action.type) {
     case types.RECEIVE_EVENTS_DATA_ERROR:
       return Object.assign({}, state, {
@@ -29,42 +29,49 @@ const eventsReducer = (state = initialState, action = null) => {
       return Object.assign({}, state, {
         isLoading: false,
         eventsData: action.data
-      });      
+      });
     case types.ON_MASTER_DATA_CHANGE:
       return Object.assign({}, state, {
         isMasterDataChange: action.data
       });
-      
+
     case types.ON_LOADING_CHANGE:
       return Object.assign({}, state, {
         isLoading: true
       });
-      
+
     case types.OFF_LOADING_CHANGE:
       return Object.assign({}, state, {
         isLoading: false
       });
 
+    default:
+      return state;
+  }
+};
+
+export const eventsCalenderReducer = (state = initialState, action = null) => {
+  switch (action && action.type) {
     case types.REQUEST_CALENDAR_DETAILS_DATA:
       return Object.assign({}, state, {
         isLoading: true,
         error: false
       });
+
     case types.RECEIVE_CALENDAR_DETAILS_DATA:
       return Object.assign({}, state, {
         isLoading: false,
         calendarDetailData: action.data
       });
+      
     case types.RECEIVE_CALENDAR_DETAILS_DATA_ERROR:
       return Object.assign({}, state, {
         isLoading: false,
         error: true,
         calendarDetailData: []
       });
-      
     default:
       return state;
   }
 };
 
-export default eventsReducer;

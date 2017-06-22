@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import Perf from 'react-addons-perf';
 /* eslint-disable */
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 /* eslint-enable */
 import FooterComponent from '../footer/index';
 import * as actionCreators from '../header/actions';
@@ -24,13 +24,15 @@ import * as mealPlanDataAction from '../dashboard/mealPlan/actions';
 import { translateText } from '../common/translate';
 import * as ROUTE_URL from '../constants/routeContants';
 import Spinner from '../common/spinner';
+import { socket } from './utility';
 
 window.Perf = Perf;
 @translate([], { wait: true })
+
 class Main extends React.PureComponent {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.hidePopUp = this.hidePopUp.bind(this);
     this.state = {
       isRole: false
@@ -41,41 +43,35 @@ class Main extends React.PureComponent {
     }
     if (!sessionStorage.getItem('first')) {
       const xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
+      xhttp.onreadystatechange = function () {
         if (this.readyState === 4) {
-          if (this.status !== 200) { 
+          if (this.status !== 200) {
             sessionStorage.setItem('first', true);
             const currentUrl = encodeURIComponent(document.URL);
-            document.location.replace(urlConstants.ADFS_LOGIN_URL + currentUrl); 
-          }  
+            document.location.replace(urlConstants.ADFS_LOGIN_URL + currentUrl);
+          }
         }
       };
       xhttp.open('GET', `${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ROLE}?t=${new Date().getTime()}`, false);
       xhttp.send();
     }
-   /* if (!sessionStorage.getItem('time')) {
-      sessionStorage.setItem('time', CommonConstants.SESSION_STORAGE_INTERVAL_TIME);
-    }
-    this.timer = setInterval(() => {
-      let time = parseInt(sessionStorage.getItem('time'));
-      time = time - 1000;
-      if (time > 0) {
-        sessionStorage.setItem('time', time);
-      } else {
-        clearInterval(this.timer);
-        this.clearStorage();
-      }
-    }, 1000);*/
+    /* if (!sessionStorage.getItem('time')) {
+       sessionStorage.setItem('time', CommonConstants.SESSION_STORAGE_INTERVAL_TIME);
+     }
+     this.timer = setInterval(() => {
+       let time = parseInt(sessionStorage.getItem('time'));
+       time = time - 1000;
+       if (time > 0) {
+         sessionStorage.setItem('time', time);
+       } else {
+         clearInterval(this.timer);
+         this.clearStorage();
+       }
+     }, 1000);*/
 
-    const socket = io.connect(urlConstants.NOTIFICATION_URL);
-/*    socket.on('connect', () => {
-      socket.emit('join', 'Hello World from client');
-    });
-    socket.on('messages', (data) => {
-      console.log(data);
-    });*/
     socket.on('notifications', (msg) => {
-      console.log(msg);
+      console.log('data', msg);
+      props.updateNotifications(msg);
     });
   }
 
@@ -86,12 +82,11 @@ class Main extends React.PureComponent {
       this.checkRole = setInterval(() => {
         if (localStorage.getItem('roleInfo')) {
           clearInterval(this.checkRole);
-          props.getNotifications();
+          // props.getNotifications();
           this.setState({ isRole: true });
         }
       }, 1000);
     } else {
-      props.getNotifications();
       this.setState({ isRole: true });
     }
   }
@@ -101,12 +96,12 @@ class Main extends React.PureComponent {
     if (propsNext.location.pathname !== ROUTE_URL.DASHBOARD && this.worker) {
       this.worker.terminate();
       this.worker = undefined;
-    } 
+    }
     if (propsNext.location.pathname === ROUTE_URL.DASHBOARD && !this.worker) {
       this.startWebWorker();
     }
   }
-  
+
   startWebWorker() {
     const self = this;
     this.worker = new Worker(urlConstants.WEBWORKER_URL);

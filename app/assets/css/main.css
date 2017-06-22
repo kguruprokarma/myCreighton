@@ -17,32 +17,28 @@ body {
 
 @font-face {
     font-family: 'bebasregular';
-    src: url('../fonts/bebas.woff2') format('woff2'),
-         url('../fonts/bebas.woff') format('woff');
+    src:  url('../fonts/bebas.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'open_sanslight';
-    src: url('../fonts/open-sans.light.woff2') format('woff2'),
-         url('../fonts/open-sans.light.woff') format('woff');
+    src: url('../fonts/open-sans.light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'open_sansregular';
-    src: url('../fonts/open-sans.regular.woff2') format('woff2'),
-         url('../fonts/open-sans.regular.woff') format('woff');
+    src: url('../fonts/open-sans.regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'open_sanssemibold';
-    src: url('../fonts/open-sans.semibold.woff2') format('woff2'),
-         url('../fonts/open-sans.semibold.woff') format('woff');
+    src: url('../fonts/open-sans.semibold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

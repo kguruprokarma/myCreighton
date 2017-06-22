@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { Col } from 'react-bootstrap';
 import Navigation from '../../../common/mainNav';
 import * as actionCreators from '../../../footer/actions';
 import ImageComponent from '../../../common/imageComponent';
@@ -21,7 +22,7 @@ class ClassListHelp extends Component {
   render() {
     const props = this.props;
     return (
-      <div className='view-container help-container help-classes' onClick={this.closeHelpPopUp}>
+      <Col className='view-container help-container help-classes' onClick={this.closeHelpPopUp}>
         <input type='button' className='btn btn-link btnnoPadding mycu-model-patchup popUpPatch' value='' onClick={this.closeHelpPopUp} />
         <header role='banner' id='header'>
           <h1 className='announced-only'>Page header</h1>
@@ -101,7 +102,7 @@ class ClassListHelp extends Component {
             </div>
           </section>
         </main>
-      </div>
+      </Col>
     );
   }
 }

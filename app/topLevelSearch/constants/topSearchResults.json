@@ -371,11 +371,6 @@
             "url": "/feedback"
         },
         {
-            "name": "Search",
-            "description": "Search",
-            "url": "/search"
-        },
-        {
             "name": "Emergency Contact",
             "description": "Information about your contact information and other that may need to be contacted.",
             "url": "/schoolsandsemester"
@@ -866,7 +861,12 @@
             "url": "/sitemap"
         }
     ],
-    "student": [
+    "student": [        
+        {
+            "name": "Campus Directory",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
         {
             "name": "Next Events",
             "description": "What I need to be ready for.",

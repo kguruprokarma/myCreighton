@@ -60,7 +60,7 @@ class DashboardHelp extends Component {
     return (
       <div id='app' className='wrapper dashboard help-container'>
         <input type='button' className='btn btn-link btnnoPadding mycu-model-patchup popUpPatch' value='' onClick={this.closeHelpPopUp} />
-        <div className='view-container' onClick={this.closeHelpPopUp}>
+        <Col className='view-container' onClick={this.closeHelpPopUp}>
           <header role='banner' id='header'>
             <h1 className='announced-only'>Page header</h1>
             <nav role='navigation' id='navigation01' className='container'>
@@ -161,7 +161,7 @@ class DashboardHelp extends Component {
             </section>
           </main>
           <FooterComponent />
-        </div>
+        </Col>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import moment from 'moment';
+import io from 'socket.io-client';
 import 'moment-timezone';
 import { sortBy } from 'lodash';
 import * as CommonConstants from '../constants/commonConstants';
@@ -6,6 +7,9 @@ import * as urlConstants from '../constants/urlConstants';
 import { translateText } from './translate';
 import classesApi from '../middleware/classes/api';
 import EventListApi from '../middleware/events/api';
+
+
+export const socket = io.connect(urlConstants.NOTIFICATION_URL);
 
 /*Data sort method is used to sort the array items in asending or decending order*/
 export const dataSort = (dataArray, key, order) => {

@@ -7,7 +7,7 @@ const NotificationDetailView = (notificationDetailViewProps) => (
   <section role='region'>
     <Row className='pb20'>
       <Col md={1} sm={1} xs={1} className='text-center'>
-        <button className='btn btn-link btnnoPadding notification-delete'><span className='glyphicon glyphicon-remove-sign' /></button>
+        <button className='btn btn-link btnnoPadding notification-delete' onClick={() => notificationDetailViewProps.deleteNotification(notificationDetailViewProps.detailData)} > <span className='glyphicon glyphicon-remove-sign' /></button>
       </Col>
       <Col md={10} sm={9} xs={8}>
         <p className='notification-title fs1pt06 openSansRegulr notificationHeading'>{notificationDetailViewProps.detailData.title}</p>

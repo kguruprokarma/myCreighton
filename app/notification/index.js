@@ -5,7 +5,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { browserTitle } from '../common/utility';
+import { browserTitle, socket } from '../common/utility';
 import { translateText } from '../common/translate';
 import * as actionCreators from './actions';
 import NotificationDetailView from './components/notificationDetailView';
@@ -25,6 +25,7 @@ class Notification extends React.PureComponent {
     this.sendNotification = this.sendNotification.bind(this);
     this.showDetailNotification = this.showDetailNotification.bind(this);
     this.showAllNotifications = this.showAllNotifications.bind(this);
+    this.deleteNotification = this.deleteNotification.bind(this);
   }
 
   componentWillMount() {
@@ -32,12 +33,20 @@ class Notification extends React.PureComponent {
     browserTitle(titleValue);
     this.props.resetNewNotifications();
   }
+
+  deleteNotification(notification) {
+    socket.on('connect', () => {
+      socket.emit('dismiss', { notificationid: notification.notificationid });
+    });
+    this.setState({ showDetailNotification: false });
+  }
+
   sendNotification() {
     const notificationObj = {
       publisherKey: 'c87de60d-1e3c-438a-b606-32944749ea42',
-      title: 'Test Title',                     
-      message: document.getElementById('new-notification').value,          
-      netid: '6cb4db8459'                  
+      title: 'Test Title',
+      message: document.getElementById('new-notification').value,
+      netid: '6cb4db8459'
     };
     this.props.postNotifications(notificationObj);
     document.getElementById('new-notification').value = '';
@@ -48,6 +57,8 @@ class Notification extends React.PureComponent {
   showAllNotifications() {
     this.setState({ showDetailNotification: false });
   }
+
+
   render() {
     const props = this.props;
     const detailData = this.state.detailedComponent;
@@ -55,8 +66,8 @@ class Notification extends React.PureComponent {
       <section role='region' className='notification-section section-container'>
         {props.loading && <Spinner />}
         <div className='hidden-xs'><HeaderLabel headerLabel={translateText('common:NOTIFICATIONS')} /></div>
-        {!this.state.showDetailNotification && <NotificationListView listViewData={props.notificationData} sendNotification={this.sendNotification} showDetailNotification={this.showDetailNotification} showSearchThings={this.showSearchThings} />}
-        {this.state.showDetailNotification && <NotificationDetailView detailData={detailData} showAllNotifications={this.showAllNotifications} />}
+        {!this.state.showDetailNotification && <NotificationListView listViewData={props.notificationData} sendNotification={this.sendNotification} showDetailNotification={this.showDetailNotification} showSearchThings={this.showSearchThings} deleteNotification={this.deleteNotification} />}
+        {this.state.showDetailNotification && <NotificationDetailView detailData={detailData} showAllNotifications={this.showAllNotifications} deleteNotification={this.deleteNotification} />}
       </section>
     );
   }

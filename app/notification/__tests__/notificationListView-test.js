@@ -40,10 +40,6 @@ describe('Notification list view component testing ----->', () => {
   it('Notification list  view is defined or not', () => {
     expect(NotificationListViewC).toBeDefined();
   });
-  it('Notification list view checking length', () => {
-    expect(NotificationListViewC.find('.oldNotification').length).toBe(3);
-    //expect(NotificationListViewC.find('.newNotification').length).toBe(1);
-  });
   it('Notification list detail view method clicking', () => {
     NotificationListViewC.find('.oldNotification').at(0).simulate('click');
   });

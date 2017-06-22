@@ -36,8 +36,8 @@ export class Header extends React.PureComponent {
       self.props.navClose();
       self.props.filterPopUpClose();
       self.props.helpPopUpClose();
-      const oldUrlModule = event.oldURL ? event.oldURL.split('#/')[1].split('/')[0] : '';
-      if (['eventdetails', 'eventlist', 'classes', 'classesdetails'].indexOf(oldUrlModule) > 0) {
+      const oldUrl = event.newURL && event.newURL.split('#/')[1].split('/')[0];
+      if (['eventdetails', 'eventlist', 'classes', 'classesdetails'].indexOf(oldUrl) === -1) {
         localStorage.removeItem('assignmentMasterCopy');
         localStorage.removeItem('eventList');
         localStorage.removeItem('classDetails');
