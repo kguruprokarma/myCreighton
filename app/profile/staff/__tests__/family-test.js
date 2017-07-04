@@ -1,7 +1,3 @@
-/**
- * Created by sgarineypally on 2/14/2017.
- */
-
 /*Created Date: - 23rd -01 -2017
  *Usage of file: - This script is for unit test the 'HomeAddress' and 'SchoolAddress' components.*
  */

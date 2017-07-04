@@ -9,7 +9,7 @@ import { translateText } from '../../../common/translate';
 import * as CommonConstants from '../../../constants/commonConstants';
 
 const Other = (otherProps) => (
-  <article role='article' className='profileRow mt30'>
+  <article className='profileRow mt30'>
     <h2 className='dataHeading openSansRegular'>{translateText('common:PROFILE_OTHER')}</h2>
     <BasicRow displayName={translateText('common:PROFILE_BIRTHDATE')} displayValue={otherProps.detail.date_of_birth ? moment(otherProps.detail.date_of_birth).format('MMM D, YYYY'):''} />
     <BasicRow displayName={translateText('common:NET_ID')} displayValue={otherProps.detail.netid} />

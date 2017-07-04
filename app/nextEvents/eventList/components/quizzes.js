@@ -4,6 +4,7 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
+import { translateText } from '../../../common/translate';
 import * as ROUTE_URL from '../../../constants/routeContants';
 import { convertDateFromTimeStamp } from '../../../common/utility';
 
@@ -13,7 +14,7 @@ const Quiz = (quizProps) => (
       <div className='hidden-xs desktopEventsList'>
         <Col md={5} sm={5}>
           <h2 className='mb10 eventHeading'><span className='testIcon mr10'>&nbsp;</span> {quizProps.data.assign_title}</h2> 
-          <p className='eventOn'>{quizProps.data.ssrmeet_bldg_code === null ? 'N/A' : quizProps.data.ssrmeet_bldg_code}</p>
+          <p className='eventOn'>{quizProps.data.ssrmeet_bldg_code === null ? translateText('common:COMMON_NA'): quizProps.data.ssrmeet_bldg_code}</p>
         </Col>
         <Col md={2} sm={2}>
           <span className='eventPlace'>{quizProps.data.course_name}</span>
@@ -24,7 +25,7 @@ const Quiz = (quizProps) => (
       </div>
       <Row className='visible-xs mobileEventsList'>
         <Col xs={7}>
-          <span className='eventOn'>{quizProps.data.ssrmeet_bldg_code === null ? 'N/A' : quizProps.data.ssrmeet_bldg_code}</span>
+          <span className='eventOn'>{quizProps.data.ssrmeet_bldg_code === null ? translateText('common:COMMON_NA') : quizProps.data.ssrmeet_bldg_code}</span>
         </Col>
         <Col xs={5} className='text-right'>
           <span className='eventDate'>{convertDateFromTimeStamp(quizProps.data.assign_due)}</span>

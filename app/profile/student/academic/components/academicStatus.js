@@ -7,7 +7,7 @@ import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
 
 const AcademicStatus = (academicStatusProps) => (
-  <article role='article' className='profileRow'>
+  <article className='profileRow'>
     <h2 className='dataHeading openSansRegular'>{translateText('common:ACADEMIC_STATUS')}</h2>
     <BasicRow displayName={translateText('common:PROFILE_MAJOR')} displayValue={academicStatusProps.json.major_desc ? academicStatusProps.json.major_desc : ''} />
     <BasicRow displayName={translateText('common:PROFILE_MINOR')} displayValue={academicStatusProps.json.minor ? academicStatusProps.json.minor : ''} />

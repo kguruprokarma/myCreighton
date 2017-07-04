@@ -94,10 +94,10 @@ export function getEventsData(reqObj) {
   };
 }
 
-export function getCalendarData() {
+export function getCalendarData(reqObj) {
   return function (dispatch) {
     dispatch(requestCalendarDetailsData());
-    return EventListApi.getCalendarData().then((response) => {
+    return EventListApi.getCalendarData(reqObj).then((response) => {
       dispatch(receiveCalendarDetailsData(response.data));
     })
      .catch((error) => {

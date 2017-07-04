@@ -3,12 +3,12 @@
 */
 
 import React from 'react';
-import reducer from '../reducer';
+import {profileReducer, facultyProfileReducer} from '../reducer';
 import * as types from '../actionTypes';
 
 describe('<Student bio reducer />', () => {
   it('should return the initial state', () => {
-    expect(reducer(undefined, {})).toEqual({
+    expect(profileReducer(undefined, {})).toEqual({
       profileData: {},
       isLoading: false,
       error: false,
@@ -17,7 +17,7 @@ describe('<Student bio reducer />', () => {
   });
 
   it('should handle RECEIVE_STUDENT_DATA_ERROR', () => {
-    expect(reducer([], {
+    expect(profileReducer([], {
       type: types.RECEIVE_STUDENT_DATA_ERROR,
       data: {id: '1'},
       isLoading: false,
@@ -31,7 +31,7 @@ describe('<Student bio reducer />', () => {
   });
 
   it('should handle REQUEST_STUDENT_PROFILE_DATA', () => {
-    expect(reducer([], {
+    expect(profileReducer([], {
       type: types.REQUEST_STUDENT_PROFILE_DATA,
       data: {id: '1'}
     })
@@ -44,7 +44,7 @@ describe('<Student bio reducer />', () => {
   });
 
   it('should handle RECEIVE_STUDENT_PROFILE_DATA', () => {
-    expect(reducer([], {
+    expect(profileReducer([], {
       type: types.RECEIVE_STUDENT_PROFILE_DATA,
       isLoading: false,
       data: {id: '1'},
@@ -60,7 +60,7 @@ describe('<Student bio reducer />', () => {
 
   it('should handle RECEIVE_STAFF_DATA_ERROR', () => {
     expect(
-            reducer([], {
+            profileReducer([], {
               type: types.RECEIVE_STAFF_DATA_ERROR,
               data: {id: '1'},
               isLoading: false,
@@ -78,7 +78,7 @@ describe('<Student bio reducer />', () => {
 
   it('should handle REQUEST_STAFF_PROFILE_DATA', () => {
     expect(
-            reducer([], {
+            profileReducer([], {
               type: types.REQUEST_STAFF_PROFILE_DATA,
               data: {id: '1'}
             })
@@ -92,7 +92,7 @@ describe('<Student bio reducer />', () => {
 
   it('should handle RECEIVE_STAFF_PROFILE_DATA', () => {
     expect(
-            reducer([], {
+            profileReducer([], {
               type: types.RECEIVE_STAFF_PROFILE_DATA,
               data: {id: '1'},
               isLoading: false,
@@ -108,7 +108,7 @@ describe('<Student bio reducer />', () => {
   });
   it('should handle RECEIVE_FACULTY_ACADEMIC_DATA_ERROR', () => {
     expect(
-            reducer([], {
+            facultyProfileReducer([], {
               type: types.RECEIVE_FACULTY_ACADEMIC_DATA_ERROR,
               data: {id: '1'},
               isLoading: false,
@@ -126,7 +126,7 @@ describe('<Student bio reducer />', () => {
 
   it('should handle REQUEST_FACULTY_ACADEMIC_DATA', () => {
     expect(
-            reducer([], {
+            facultyProfileReducer([], {
               type: types.REQUEST_FACULTY_ACADEMIC_DATA,
               data: {id: '1'}
             })
@@ -140,7 +140,7 @@ describe('<Student bio reducer />', () => {
 
   it('should handle RECEIVE_FACULTY_ACADEMIC_DATA', () => {
     expect(
-            reducer([], {
+            facultyProfileReducer([], {
               type: types.RECEIVE_FACULTY_ACADEMIC_DATA,
               data: {id: '1'},
               isLoading: false,
@@ -157,7 +157,7 @@ describe('<Student bio reducer />', () => {
 
   it('should handle RECEIVE_FACULTY_DATA_ERROR', () => {
     expect(
-            reducer([], {
+            facultyProfileReducer([], {
               type: types.RECEIVE_FACULTY_DATA_ERROR,
               data: {id: '1'},
               isLoading: false,
@@ -175,7 +175,7 @@ describe('<Student bio reducer />', () => {
 
   it('should handle REQUEST_FACULTY_PROFILE_DATA', () => {
     expect(
-            reducer([], {
+            facultyProfileReducer([], {
               type: types.REQUEST_FACULTY_PROFILE_DATA,
               data: {id: '1'}
             })
@@ -189,7 +189,7 @@ describe('<Student bio reducer />', () => {
 
   it('should handle RECEIVE_FACULTY_PROFILE_DATA', () => {
     expect(
-            reducer([], {
+            facultyProfileReducer([], {
               type: types.RECEIVE_FACULTY_PROFILE_DATA,
               data: {id: '1'},
               isLoading: false,

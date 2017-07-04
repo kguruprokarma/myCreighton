@@ -4,118 +4,148 @@
 
 import React from 'react';
 import { sortBy } from 'lodash';
+import { hashHistory } from 'react-router';
+import * as ROUTE_URL from '../../constants/routeContants';
 import HeaderLabel from './../../common/headerLabel';
 import ClassInfo from './../classDetails/components/classInfo';
 import ClassAssignments from './../classDetails/components/classAssignments';
-//import TodaysClass from './../classDetails/components/todaysClass';
 import UpcomingAssignments from './../classDetails/components/upcomingAssignments';
-// import TestsOrQuizzes from './../classDetails/components/testsOrQuizzes';
 import '../classDetails/style.css';
 import PreviousNextComponent from '../../common/previousNext';
 import { translateText } from '../../common/translate';
 import { datesCompare, browserTitle } from '../../common/utility';
 import { CLASSES_DETAILS } from '../../constants/nextEventsConstants';
-//import * as locales from '../../locales/en/common';
 
 class ClassDetails extends React.PureComponent {
 
   componentWillMount() {
     browserTitle(translateText('common:CLASS_DETAIL'));
-  }
-
-  render() {
     const props = this.props;
-    let classData;
-    let obj = null;
-    let showPrevNext = false;
+    if (props.params.categoryname !== CLASSES_DETAILS && !localStorage.getItem('classDetails')) {
+      hashHistory.push(ROUTE_URL.CLASSES + ROUTE_URL.WEEK);
+    } else if (props.params.categoryname === CLASSES_DETAILS && !localStorage.getItem('eventsFilterData')) {
+      hashHistory.push(ROUTE_URL.EVENT_LIST);
+    }
+  }
+  getCurrentView(path) {
+    // createAndSendLogs('info', 'getCurrentView', 'Class Details', path);
     let currentView = '';
-    if (props.params.routePath) {
-      currentView = props.params.routePath[1];
+    if (path) {
+      currentView = path[1];
     }
-    if (props.params.categoryname === CLASSES_DETAILS) {
-      obj = JSON.parse(localStorage.getItem('eventsFilterData'));
-      showPrevNext = false;
-      classData = obj[props.params.objIndex]; //find(obj, { sis_source_id: stringEncodeURIComponent(props.params.id), type: props.params.categoryname });
-    } else {
-      obj = JSON.parse(localStorage.getItem('classDetails'));
-      showPrevNext = true;
-      classData = obj[props.params.index];
-    }
+    return currentView;
+  }
+  getAssinments(classData) {
+    // createAndSendLogs('info', 'getAssinments', 'Class Details', JSON.stringify(classData));
     let assignments = {};
     if (classData.assignmentData && classData.assignmentData !== null) {
       assignments = classData.assignmentData;
     }
-    const testOrQuizzesData = [];
-    const assignmentDue = [];
-    //const todaysClass = [];
-    const upcomingAssignmentsData = [];
-    let sortedUpcomingAssignments = [];
-    let sortedassignmentDue = [];
-    if (assignments && assignments.length > 0) {
-      assignments.map((assignmentObj) => {
-        // if (assignmentObj.submission_types === 'online_quiz') {
-        //   testOrQuizzesData.push(assignmentObj);
-        // } else {
-        if (assignmentObj.assign_due) {
-          const dateValue = datesCompare(assignmentObj.assign_due);
-          if (dateValue === 1) {
-            assignmentDue.push(assignmentObj);
-          } else if (dateValue === -1) {
-            upcomingAssignmentsData.push(assignmentObj);
-          }
-          // else if (dateValue === 0) {
-          //   todaysClass.push(assignmentObj);
-          // }
-        }
-        //}
-        return assignmentObj;
-      });
-    }
-
-    if (assignmentDue && assignmentDue.length > 0) {
-      sortedassignmentDue = sortBy(assignmentDue, ['assign_due']);
-    }
-    if (upcomingAssignmentsData && upcomingAssignmentsData.length > 0) {
-      sortedUpcomingAssignments = sortBy(upcomingAssignmentsData, ['assign_due']);
-    }
-
-
+    return assignments;
+  }
+  getNextObj(index, obj) {
+    // const logObj = { index: index, obj: obj };
+    // createAndSendLogs('info', 'getNextObj', 'Class Details', JSON.stringify(logObj));
     let nextObject = {};
-    let prevObject = {};
-    const index = parseInt(props.params.index);
     if (index < obj.length - 1) {
       nextObject = obj[index + 1];
     } else {
       nextObject.sis_source_id = {};
     }
+    return nextObject;
+  }
+  getPrevObj(index, obj) {
+    // const logObj = { index: index, obj: obj };
+    // createAndSendLogs('info', 'getNextObj', 'Class Details', JSON.stringify(logObj));
+    let prevObject = {};
     if (index > 0) {
       prevObject = obj[index - 1];
     } else {
       prevObject.sis_source_id = {};
     }
-    return (
-      <section role='region' className='classesDeatils section-container'>
-        {showPrevNext &&
-          <div className='hidden-xs'>
-            <HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />
-          </div>
-        }
-        {(classData && Object.keys(classData).length > 0) && (<div>
-          <ClassInfo {...classData} currentView={currentView} />
-          {(assignmentDue.length !== 0 || upcomingAssignmentsData.length !== 0 || testOrQuizzesData.length !== 0) ? (<div>
-            <ClassAssignments data={sortedassignmentDue} />
-            {/*<TodaysClass data={todaysClass} />*/}
-            <UpcomingAssignments data={sortedUpcomingAssignments} />
-            {/*<TestsOrQuizzes data={testOrQuizzesData} />*/}
-          </div>)
-            : <p className='openSansLight noContent gbl_lh mb30 mt20 text-italic'>{translateText('common:NO_DETAILS_PROVIDED')}</p>
-          }
-        </div>)
-        }
+    return prevObject;
+  }
+  getSortedAssignDue(assignmentDue) {
+    // createAndSendLogs('info', 'getSortedAssignDue', 'Class Details', JSON.stringify(assignmentDue));
+    let sortedassignmentDue = [];
+    if (assignmentDue && assignmentDue.length > 0) {
+      sortedassignmentDue = sortBy(assignmentDue, ['assign_due']);
+    }
+    return sortedassignmentDue;
+  }
+  getSortedUpcomingAssignments(upcomingAssignmentsData) {
+    // createAndSendLogs('info', 'getSortedUpcomingAssignments', 'Class Details', JSON.stringify(upcomingAssignmentsData));
+    let sortedUpcomingAssignments = [];
+    if (upcomingAssignmentsData && upcomingAssignmentsData.length > 0) {
+      sortedUpcomingAssignments = sortBy(upcomingAssignmentsData, ['assign_due']);
+    }
+    return sortedUpcomingAssignments;
+  }
+  render() {
+    if (localStorage.getItem('classDetails') || localStorage.getItem('eventsFilterData')) {
+      const props = this.props;
+      let classData;
+      let obj = null;
+      let showPrevNext = false;
+      const currentView = this.getCurrentView(props.params.routePath);
 
-        {showPrevNext && <PreviousNextComponent presentCategory={props.params.categoryname} totalLength={obj.length - 1} currentIndex={index} prevItem={prevObject.sis_source_id} nextItem={nextObject.sis_source_id} />}
-      </section>
-    );
+      if (props.params.categoryname === CLASSES_DETAILS) {
+        obj = JSON.parse(localStorage.getItem('eventsFilterData'));
+        showPrevNext = false;
+        classData = obj[props.params.objIndex];
+      } else {
+        obj = JSON.parse(localStorage.getItem('classDetails'));
+        showPrevNext = true;
+        classData = obj[props.params.index];
+      }
+
+      const assignments = this.getAssinments(classData);
+      const testOrQuizzesData = [];
+      const assignmentDue = [];
+      const upcomingAssignmentsData = [];
+      const sortedUpcomingAssignments = this.getSortedUpcomingAssignments(upcomingAssignmentsData);
+      const sortedassignmentDue = this.getSortedAssignDue(assignmentDue);
+
+      if (assignments && assignments.length > 0) {
+        assignments.map((assignmentObj) => {
+          if (assignmentObj.assign_due) {
+            const dateValue = datesCompare(assignmentObj.assign_due);
+            if (dateValue === 1) {
+              assignmentDue.push(assignmentObj);
+            } else if (dateValue === -1) {
+              upcomingAssignmentsData.push(assignmentObj);
+            }
+          }
+          return assignmentObj;
+        });
+      }
+      const index = parseInt(props.params.index);
+      const nextObject = this.getNextObj(index, obj);
+      const prevObject = this.getPrevObj(index, obj);
+
+      return (
+        <section role='region' className='classesDetails section-container'>
+          {showPrevNext &&
+            <div className='hidden-xs'>
+              <HeaderLabel headerLabel={translateText('common:CLASS_DETAIL')} />
+            </div>
+          }
+          {(classData && Object.keys(classData).length > 0) && (<div>
+            <ClassInfo {...classData} currentView={currentView} />
+            {(assignmentDue.length !== 0 || upcomingAssignmentsData.length !== 0 || testOrQuizzesData.length !== 0) ? (<div>
+              <ClassAssignments data={sortedassignmentDue} />
+              <UpcomingAssignments data={sortedUpcomingAssignments} />
+            </div>)
+              : <p className='openSansLight noContent gbl_lh mb30 mt20 text-italic'>{translateText('common:NO_DETAILS_PROVIDED')}</p>
+            }
+          </div>)
+          }
+
+          {showPrevNext && <PreviousNextComponent presentCategory={props.params.categoryname} totalLength={obj.length - 1} currentIndex={index} prevItem={prevObject.sis_source_id} nextItem={nextObject.sis_source_id} />}
+        </section>
+      );
+    }
+    return false;
   }
 }
 

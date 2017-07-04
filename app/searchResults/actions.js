@@ -6,10 +6,10 @@ import * as types from './actionType';
 
 const receiveData = (data) => (
   {
-    type: types.REQUEST_STAFF_PROFILE_DATA,
+    type: types.REQUEST_STAFF_SEARCH_PROFILE_DATA,
     data: data
-  } 
- );
+  }
+);
 
 export function onReceiveData(data) {
   return function (dispatch) {

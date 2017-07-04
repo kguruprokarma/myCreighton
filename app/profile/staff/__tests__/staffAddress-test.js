@@ -24,4 +24,11 @@ it('StaffAddress should have BasicRow', () => {
   expect(staffAddress.find('BasicRow').length).toBe(5);
 });
 
+const staffAddressPropsNullProps = {};
+
+it('workAddressPropsNullCheck checking', () => {
+  const staffAddressPropsNullCheck = shallow(<StaffAddress {...staffAddressPropsNullProps} />);
+  expect(staffAddressPropsNullCheck).toBeDefined();
+});
+
 

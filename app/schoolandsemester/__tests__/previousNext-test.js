@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import PreviousNext from '../components/previousNext';
-//import { translateText } from '../../common/translate';
 
 describe('index files in school and semester ----->', () => {
   const minProps = {

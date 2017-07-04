@@ -7,7 +7,7 @@ import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
 
 const LegalName = (legalNameProps) => (
-  <article role='article' className='profileRow'>
+  <article className='profileRow'>
     <h2 className='dataHeading openSansRegular'>{translateText('common:PROFILE_LEGAL_NAME')}</h2>
     <BasicRow displayName={translateText('common:PROFILE_FIRST')} displayValue={legalNameProps.legalName ? legalNameProps.legalName.first_name : ''} />
     <BasicRow displayName={translateText('common:PROFILE_MIDDLE')} displayValue={legalNameProps.legalName ? legalNameProps.legalName.middle_name : ''} />

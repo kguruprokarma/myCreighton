@@ -5,12 +5,15 @@ import { translateText } from '../../common/translate';
 
 describe('schoolAndSemester files in school and semester ----->', () => {
   const minProps = {
+    params: {
+      id: 'semesterstart'
+    },
     semesterDataObj: [
       {
-        objectKey: 'openrequestsstatus',
-        title: translateText('common:OPEN_REQUESSTS_STATUS'),
-        headlines: translateText('common:ACTION_REQUIRED_AND_STATUS_OF_MY_OPEN_ITEMS'),
-        description: translateText('common:OPEN_REQUEST_DESC'),
+        objectKey: 'semesterstart',
+        title: translateText('common:SEMESTER_START'),
+        headlines: translateText('common:BE_READY_FOR_SCHOOL'),
+        description: translateText('common:SEMESTER_START_DESC'),
         accordionObj: [
           {
             accordionTitle: '',
@@ -44,6 +47,7 @@ describe('schoolAndSemester files in school and semester ----->', () => {
       }
     ]
   };
+
   const schoolAndSemester = shallow(<SchoolAndSemester {...minProps} />);
   it('SchoolAndSemester is defined', () => {
     expect(schoolAndSemester).toBeDefined();
@@ -55,7 +59,7 @@ describe('schoolAndSemester files in school and semester ----->', () => {
     schoolAndSemester.instance().showAllDesc();
   });
   it('Simulates navigateOnClick', () => {
-    schoolAndSemester.instance().navigateOnClick('openrequestsstatus');    
+    schoolAndSemester.instance().navigateOnClick('semesterstart');
   });
   it('Simulates showAllAccordions', () => {
     schoolAndSemester.instance().showAllAccordions();

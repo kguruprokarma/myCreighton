@@ -19,7 +19,7 @@
     height: 45px;
 }
 
-.bootstrap-typeahead .bootstrap-typeahead-input input:nth-child(2){
+.bootstrap-typeahead .bootstrap-typeahead-input input:nth-child(2) {
     display: none !important;
 }
 
@@ -71,7 +71,7 @@
     cursor: default;
 }
 
-.icon-addon img{
+.icon-addon img {
     width: 16px;
 }
 
@@ -80,22 +80,21 @@
 }
 
 .icon-addon-right {   
-    background: #a2a2a2; 
     border-radius: 50%;    
     position: absolute;
+    background-color:#a2a2a2;
     width: 22px;
     height: 22px;
     right: 20px;
     top: 32px;
     text-align: center;
-    z-index: 2;
+    z-index: 0;
 }
 
 .icon-addon-right:focus,
 .icon-addon-right:hover,
-.icon-addon-right:active,  {
-    background: #a2a2a2; 
-    
+.icon-addon-right:active {
+    background-color: #a2a2a2; 
 }
 
 .search-field {
@@ -131,6 +130,7 @@
 }
 
 /* Styling for Campus Directory Advanced search */
+
 .searchPopup .popup-box-shaow {
     -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
     -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.58);
@@ -150,10 +150,9 @@
     margin-top: 6px;
 }
 
-.searchSelect
-{
-        font-size: 1.3333333333333333em;    /* font size 20 in pixel */
-        margin-left: 15px;
+.searchSelect {
+    font-size: 1.3333333333333333em;    /* font size 20 in pixel */
+    margin-left: 15px;
 }
 
 .searchSelect:hover,
@@ -233,7 +232,7 @@
     background-size: 15px auto;
     border: 1px solid #a2a2a2;
     box-shadow: none;
-
+    padding: 0 0 0 15px;
 }
 
 .styled-select {
@@ -291,6 +290,7 @@
     color: #313131;
     font-size: 1.3333333333333333em;    /* font size 20 in pixel */
 }
+
 .adv-search .form-control {
     border: 1px solid #a2a2a2;
     box-shadow: none;
@@ -309,13 +309,14 @@
     padding-right: 30px;
 }
 
-/* Styling for Campus Directory Advanced search */
+/* End of styling for Campus Directory Advanced search */
 
 @media screen and (max-width: 767px) {
 
     .cmpsDirSearch,.cmpsDirSearchBtn {
         font-size: 1.2em;
     }
+
     .adv-search label {
         white-space: pre-wrap
     }
@@ -343,6 +344,7 @@
 /* IE10 and IE11
 ================== */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    
     .styled-select select.form-control {
         width:108%;
         background-position: 90% 44%;
@@ -357,4 +359,3 @@
         border: 1px solid #a2a2a2;
     }
 }
-

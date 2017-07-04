@@ -18,7 +18,7 @@ import WorkAddress from '../../../staff/components/workAddress';
 import * as CommonConstants from '../../../../constants/commonConstants';
 
 const FacultyProfile = (facultyProfileProps) => (
-  <article role='article' className='profileRow mt30'>
+  <article className='profileRow mt30'>
     {facultyProfileProps.data && facultyProfileProps.data.data && facultyProfileProps.data.data.length > 0 &&
 
       <Row>

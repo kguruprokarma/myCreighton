@@ -3,11 +3,6 @@ import { translateText } from '../../common/translate';
 
 export const SemesterLinks = [
   {
-    'objectKey': 'openrequestsstatus',
-    'title': translateText('common:OPEN_REQUESSTS_STATUS'),
-    'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/openrequestsstatus`
-  },
-  {
     'objectKey': 'semesterstart',
     'title': translateText('common:SEMESTER_SEMESTER_START'),
     'linkto': `${ROUTE_URL.SEMESTERACADEMICS}/semesterstart`

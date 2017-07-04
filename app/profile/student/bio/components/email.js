@@ -8,25 +8,20 @@ import { Row, Col } from 'react-bootstrap';
 import { translateText } from '../../../../common/translate';
 
 const Email = (emailProps) => (
-  <article role='article' className='profileRow mt30'>
+  <article className='profileRow mt30'>
     <h2 className='dataHeading openSansRegular'>{ translateText('common:PROFILE_EMAIL')}</h2>
-    {/* School email address */}
     <Row className='show-grid pt5 pb5'>
       <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Profile School'>{emailProps.professionalLabel ? emailProps.professionalLabel :'' /*translateText('common:PROFILE_SCHOOL') */ }</label> </Col>
       <Col xs={8} md={9} sm={8} className='dataField emailAddress wordBreak'>
-        {/* Mailto added for open mail box popup */}
         <Mailto email={emailProps.professionalEmail ? emailProps.professionalEmail : ''}>{emailProps.professionalEmail ? emailProps.professionalEmail : ''}</Mailto>
       </Col>
     </Row>
-    {/* Personal email address */ }
-    {/* emailProps.isShowPersonalEmail && */
-      <Row className='show-grid pt5 pb5'>
-        <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Profile Personal'>{ /*emailProps.personalLabel*/ translateText('common:PROFILE_PERSONAL') }</label> </Col>
-        <Col xs={8} md={9} sm={8} className='dataField emailAddress wordBreak'>
-          {/* Mailto added for open mail box popup */}
-          <Mailto email={emailProps.personalEmail ? emailProps.personalEmail : ''}>{emailProps.personalEmail ? emailProps.personalEmail : ''}</Mailto>
-        </Col>
-      </Row>}
+    <Row className='show-grid pt5 pb5'>
+      <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Profile Personal'>{translateText('common:PROFILE_PERSONAL') }</label> </Col>
+      <Col xs={8} md={9} sm={8} className='dataField emailAddress wordBreak'>
+        <Mailto email={emailProps.personalEmail ? emailProps.personalEmail : ''}>{emailProps.personalEmail ? emailProps.personalEmail : ''}</Mailto>
+      </Col>
+    </Row>
   </article>
 );
 

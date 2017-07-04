@@ -8,10 +8,11 @@ const initialState = {
   showPopUp: false,
   showNav: false,
   showFilterPopUp: false,
-  signOut: false
+  signOut: false,
+  previousURL: ''
 };
 
-const headerReducer = (state = initialState, action = null) => {
+export const headerReducer = (state = initialState, action = null) => {
   switch (action && action.type) {
     case types.OPEN_POPUP:
       return Object.assign({}, state, {
@@ -37,6 +38,16 @@ const headerReducer = (state = initialState, action = null) => {
       return Object.assign({}, state, {
         showNav: false
       });
+    case types.HASH_CHANGE_OBJ:
+      return Object.assign({}, state, {
+        previousURL: action.data
+      });
+    default:
+      return state;
+  }
+};
+export const signOutReducer = (state = initialState, action = null) => {
+  switch (action && action.type) {
     case types.SIGN_OUT_OPEN:
       return Object.assign({}, state, {
         signOut: true
@@ -50,4 +61,4 @@ const headerReducer = (state = initialState, action = null) => {
   }
 };
 
-export default headerReducer;
+

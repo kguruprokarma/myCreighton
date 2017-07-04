@@ -73,7 +73,7 @@ class EventFilter extends React.Component {
                     <input type='checkbox' id={eventItem.itemName} name='eventPeriod' value={eventItem.itemName} onChange={() => this.toggleCheckBoxParentFilter(eventItem)} checked={eventItem.checked} />
                     <div className={eventItem.childrenUnselect ? 'control__indicator back_checkbox' : 'control__indicator'}><span className='box-minus' /></div>
                   </label>}
-                  {eventItem.children.length > 0 && <button className='btn btn-link btnnoPadding downArrowImage' onClick={() => this.showChildFilter(eventItem)}><img src={DOWN_ARROW} alt='' className={eventItem.showItem ? 'revImage' : ''} /></button>}
+                  {eventItem.children.length > 0 && <button className='btn btn-link btnnoPadding downArrowImage' onClick={() => this.showChildFilter(eventItem)}><img src={DOWN_ARROW} alt='Toggle Arrow' className={eventItem.showItem ? 'revImage' : ''} /></button>}
                   {eventItem.showItem && <ListGroup>
                     {
                       eventItem.children.map((eventItemChildren, childrenIndex) => (

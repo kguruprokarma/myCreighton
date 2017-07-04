@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Link } from 'react-router';
-import { Row, Col, Form, FormGroup, FormControl } from 'react-bootstrap';
+import { Row, Col, Form, FormGroup, FormControl, button } from 'react-bootstrap';
 import { translateText } from '../../common/translate';
 import ImageComponent from '../../common/imageComponent';
 import { SEARCH_ICON, MENUCLOSE_ICON } from '../../constants/imageConstants';
@@ -22,10 +22,13 @@ class LibrarySearch extends React.PureComponent {
     this.clearSearchText = this.clearSearchText.bind(this);
   }
   handleChange(event) {
+    //createAndSendLogs('infos', 'handleChange', 'Library Search', event.target.value);
     const query = event.target.value;
     this.setState({ searchText: query});
   }
-  search() {
+  search(event) {
+    event.preventDefault();    
+    //createAndSendLogs('infos', 'search', 'Library Search', 'Searching text');
     if (!this.state.searchText) {
       return false;
     }
@@ -67,13 +70,13 @@ class LibrarySearch extends React.PureComponent {
                 <FormGroup>
                   <FormControl type='search' autoFocus value={this.state.searchText} onChange={this.handleChange} className='openSansLight input-lg cmpsDirSearch mt20' placeholder={placeholder} />
                   {this.state.searchText.length === 0 &&
-                    <button className='icon-addon btn btn-link btnnoPadding openSansLight'><ImageComponent imagePath={SEARCH_ICON} /></button>}
-                  <Link className='icon-addon-right btnnoPadding openSansLight show' onClick={this.clearSearchText} ><ImageComponent imagePath={MENUCLOSE_ICON} /></Link>
+                    <button className='icon-addon btn btn-link btnnoPadding openSansLight'><ImageComponent imagePath={SEARCH_ICON} imagealtText={'Search Icon'} /></button>}
+                  <Link className='icon-addon-right btnnoPadding openSansLight show' onClick={this.clearSearchText} ><ImageComponent imagePath={MENUCLOSE_ICON} imagealtText={'Close Icon'} /></Link>
                 </FormGroup>
               </Col>
               <Col xs={12} sm={3}>
                 <FormGroup>
-                  <Link onClick={this.search} className='openSansLight btn btn-default btn-large btn-block librarySearchBtn mt20 pl10 searchButton' disabled={this.state.searchText.trim() === '' ? true : false}>{translateText('common:SEARCH')}</Link>
+                  <button onClick={this.search} className='openSansLight btn btn-default btn-large btn-block librarySearchBtn mt20 pl10 searchButton' disabled={this.state.searchText.trim() === '' ? true : false}>{translateText('common:SEARCH')}</button>
                 </FormGroup>
               </Col>
             </Row>

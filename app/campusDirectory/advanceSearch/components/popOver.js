@@ -4,6 +4,7 @@
 
 import React from 'react';
 import {Row, Col } from 'react-bootstrap';
+//import { createAndSendLogs } from '../../../common/utility';
 
 class PopOver extends React.Component {
   constructor(props) {
@@ -17,12 +18,14 @@ class PopOver extends React.Component {
   }
 
   toggleSkill(item) {
+    // createAndSendLogs('infos', 'toggleSkill', 'Advanced Search', JSON.stringify(item));
     const tempItem = item;
     tempItem.checked = !item.checked;
     this.forceUpdate();
   }
   
   doneSkills() {
+    // createAndSendLogs('infos', 'doneSkills', 'Advanced Search', '');
     const props = this.props;
     const selectedSkills = document.querySelectorAll(`input[name=${props.filedName}]`);
     const skillLength = selectedSkills.length;
@@ -32,7 +35,6 @@ class PopOver extends React.Component {
     }
     props.onFinalize(changedArray);
   }
-
 
   render() {
     const props = this.props;

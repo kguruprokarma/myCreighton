@@ -298,10 +298,6 @@ describe('index component testing for Next Events ----->', () => {
     EventListC.instance().render();
   });
 
-  it('Check getEventsData function', () => {
-  //  EventListC.instance().getEventsData('props');
-  });
-
   it('CheckinggetSelectedFilterData function', () => {
     EventListC.instance().getSelectedFilterData(mockFilterSelection, mockdisplay);
   });

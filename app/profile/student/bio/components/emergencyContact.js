@@ -9,7 +9,7 @@ import { translateText } from '../../../../common/translate';
 import { telephoneCheck } from '../../../../common/utility';
 
 const EmergencyContact = (emergencyProps) => (
-  <article role='article' className='profileRow mt30'>
+  <article className='profileRow mt30'>
     <h2 className='dataHeading openSansRegular'>{translateText('common:PROFILE_EMERGENCY_CONTACT')}</h2>
     <BasicRow displayName={translateText('common:PROFILE_FIRST_NAME')} displayValue={emergencyProps.data.emergency_contact ? emergencyProps.data.emergency_contact.first_name : ''} />
     <BasicRow displayName={translateText('common:PROFILE_LAST_NAME')} displayValue={emergencyProps.data.emergency_contact ? emergencyProps.data.emergency_contact.last_name : ''} />

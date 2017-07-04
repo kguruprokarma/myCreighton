@@ -58,4 +58,10 @@ describe('header actions', () => {
     store.dispatch(actions.filterPopUpClose());
     expect(store.getActions()).toEqual(expectedActions);
   });
+  it('testing action logHashChangeData case', () => {
+    const expectedActions = [{ type: types.HASH_CHANGE_OBJ }];
+    const store = mockStore();
+    store.dispatch(actions.logHashChangeData());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

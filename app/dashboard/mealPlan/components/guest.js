@@ -3,13 +3,14 @@
 */
 
 import React from 'react';
+import { Col } from 'react-bootstrap';
 import { translateText } from '../../../common/translate';
 
 const guest = (guestProps) => (
-  <div>
-    <span className='jbvalue openSansLight'>{guestProps.guestCount}</span>
-    <span className='jbText openSansBold'>{translateText('common:MEAL_PLAN_GUEST')}</span>
-  </div>
+  <Col xs={12}>
+    <div className='jbText text-center openSansBold'>{translateText('common:MEAL_PLAN_GUEST')}</div>
+    <div className='jbvalue text-center openSansLight'>{parseInt(guestProps.guestCount)}</div>
+  </Col>
 );
 
 export default guest;

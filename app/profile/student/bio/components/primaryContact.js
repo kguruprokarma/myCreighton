@@ -8,7 +8,7 @@ import { translateText } from '../../../../common/translate';
 import { telephoneCheck } from '../../../../common/utility';
 
 const PrimaryContact = (primaryContactProps) => (
-  <article role='article' className='profileRow mt30 emailAddress'>
+  <article className='profileRow mt30 emailAddress'>
     <h2 className='dataHeading openSansRegular'>{translateText('common:PROFILE_PRIMARY_CONTACT')}</h2>
     <Row className='show-grid pt5 pb5'>
       <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Phone'>{translateText('common:PROFILE_PHONE')}</label></Col>

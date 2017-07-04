@@ -13,4 +13,10 @@ describe('Event Filter actions', () => {
     store.dispatch(actions.filterChange());
     expect(store.getActions()).toEqual(expectedActions);
   });
+  it('testing dateChange', () => {
+    const expectedActions = [{ type: types.DATE_CHANGE }];
+    const store = mockStore();
+    store.dispatch(actions.dateChange());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

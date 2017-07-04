@@ -12,33 +12,39 @@ describe('Law library search ----->', () => {
     handleChange: () => {},
     onSearchText: () => {},
     tabindex: 0,
-    searchText: ''
+    searchText: '',
+    preventDefault: () => {}
   };
 
   it('Library search is defined', () => {
     const librarySearch = shallow(<LibrarySearch {...defaultProps} />);
-    expect(librarySearch).toBeDefined();
-    librarySearch.instance().search();
+    expect(librarySearch).toBeDefined();    
+    librarySearch.find('.librarySearchBtn').simulate('click', { preventDefault() { } });
+   // librarySearch.instance().search();
   });
   it('call search function when tabindex == 0', () => {
     const librarySearch = shallow(<LibrarySearch {...Object.assign({}, defaultProps, {tabindex: 0})} />);
-    librarySearch.instance().state.searchText = 'usman';
-    librarySearch.instance().search();
+    librarySearch.instance().state.searchText = 'Adam';
+    librarySearch.find('.librarySearchBtn').simulate('click', { preventDefault() { } });
+    //librarySearch.instance().search();
   });
   it('call search function when tabindex == 1', () => {
     const librarySearch = shallow(<LibrarySearch {...Object.assign({}, defaultProps, {tabindex: 1})} />);
-    librarySearch.instance().state.searchText = 'usman';
-    librarySearch.instance().search();
+    librarySearch.instance().state.searchText = 'Adam';
+    librarySearch.find('.librarySearchBtn').simulate('click', { preventDefault() { } });
+    //librarySearch.instance().search();
   });
   it('call search function when tabindex == 2', () => {
     const librarySearch = shallow(<LibrarySearch {...Object.assign({}, defaultProps, {tabindex: 2})} />);
-    librarySearch.instance().state.searchText = 'usman';
-    librarySearch.instance().search();
+    librarySearch.instance().state.searchText = 'Adam';
+    librarySearch.find('.librarySearchBtn').simulate('click', { preventDefault() { } });
+    //librarySearch.instance().search();
   });
   it('call search function when tabindex == 3', () => {
     const librarySearch = shallow(<LibrarySearch {...Object.assign({}, defaultProps, {tabindex: 3})} />);
-    librarySearch.instance().state.searchText = 'usman';
-    librarySearch.instance().search();
+    librarySearch.instance().state.searchText = 'Adam';
+    librarySearch.find('.librarySearchBtn').simulate('click', { preventDefault() { } });
+    //librarySearch.instance().search();
   });
   it('call clearSearchText function', () => {
     const librarySearch = shallow(<LibrarySearch {...defaultProps} />);
@@ -46,6 +52,6 @@ describe('Law library search ----->', () => {
   });
   it('call handleChange function', () => {
     const librarySearch = shallow(<LibrarySearch {...defaultProps} />);
-    librarySearch.instance().handleChange({target: {value: 'usman'}});
+    librarySearch.instance().handleChange({target: {value: 'Adam'}});
   });
 });

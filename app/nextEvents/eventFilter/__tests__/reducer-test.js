@@ -11,5 +11,10 @@ describe('Header reducer testing ----->', () => {
     const expectedState = { isLoading: false };
     const afterState = reducer({}, {type: types.FILTER_CHANGE});
     expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
+  });
+  it('reducer pop up state', () => {
+    const expectedState = { isLoading: false };
+    const afterState = reducer({}, {type: types.DATE_CHANGE});
+    expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
   });  
 });

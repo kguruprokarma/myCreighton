@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import { translateText } from '../../../common/translate';
-import { browserTitle } from '../../../common/utility';
+import { browserTitle, createAndSendLogs } from '../../../common/utility';
 import AlertComponent from '../../../common/alertComponent';
 import LegalName from './components/legalName';
 import HomeAddress from './components/homeAddress';
@@ -33,6 +33,11 @@ export class Profile extends React.PureComponent {
   render() {
     const props = this.props;
     const USER_DATA = props.profile === CommonConstants.STUDENT_LABEL && props.profileData;
+    if (((!USER_DATA && !props.loading) || (USER_DATA.error) || (USER_DATA && USER_DATA.data.length<=0))) {
+      createAndSendLogs('error', 'render', 'StundentProfile', JSON.stringify(USER_DATA));
+    } else if (USER_DATA && USER_DATA.data && USER_DATA.data.length > 0) {
+      // createAndSendLogs('info', 'render', 'StundentProfile', JSON.stringify(USER_DATA));
+    }
     return (
       <section role='region' className='section-container'>
         {props.loading && <Spinner />}

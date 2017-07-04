@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import { translateText } from '../../../common/translate';
-import { browserTitle } from '../../../common/utility';
+import { browserTitle, createAndSendLogs } from '../../../common/utility';
 import AcademicStatus from './components/academicStatus';
 import AdvisorInformation from './components/advisorInformation';
 import * as actionCreators from './actions';
@@ -30,6 +30,11 @@ export class Academic extends React.PureComponent {
   render() {
     const props = this.props;
     const USER_DATA = props.academicData;
+    if (USER_DATA && USER_DATA.data && USER_DATA.data.length < 0) {
+      createAndSendLogs('error', 'render', 'Academic', JSON.stringify(USER_DATA));
+    } else if (USER_DATA && USER_DATA.data && USER_DATA.data.length > 0) {
+      // createAndSendLogs('info', 'render', 'Academic', JSON.stringify(USER_DATA));
+    }
     return (
       <section role='region' id='academic' className='section-container'>
         {props.loading && <Spinner />}

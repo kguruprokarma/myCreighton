@@ -7,6 +7,7 @@ import * as types from './actionTypes';
 const initialState = {
   mealPlanData: {},
   isLoading: false,
+  mealPlanView: true,
   error: false
 };
 
@@ -27,6 +28,14 @@ const mealPlanReducer = (state = initialState, action = null) => {
         isLoading: false,
         error: true,
         mealPlanData: []
+      });
+    case types.MEAL_PLAN_VIEW_SHOW:
+      return Object.assign({}, state, {
+        mealPlanView: true
+      });
+    case types.MEAL_PLAN_VIEW_HIDE:
+      return Object.assign({}, state, {
+        mealPlanView: false
       });
     default:
       return state;

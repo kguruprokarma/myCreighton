@@ -7,7 +7,7 @@ import BasicRow from '../../../common/basicRow';
 import { translateText } from '../../../common/translate';
 
 const MailAddress = (mailAddressProps) => (
-  <article role='article' className='profileRow mt30'>
+  <article className='profileRow mt30'>
     <h2 className='dataHeading openSansRegular'>{translateText('common:MAILING_ADDRESS')}</h2>
     <BasicRow displayName={translateText('common:PROFILE_STREET_1')} displayValue={mailAddressProps.mailAddress ? mailAddressProps.mailAddress.mail_Address_line1 : ''} />
     <BasicRow displayName={translateText('common:PROFILE_STREET_2')} displayValue={mailAddressProps.mailAddress ? mailAddressProps.mailAddress.mail_Address_line2 : ''} />

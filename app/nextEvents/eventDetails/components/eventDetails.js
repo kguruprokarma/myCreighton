@@ -9,9 +9,9 @@ import { translateText } from '../../../common/translate';
 import { convertDueDateTimeStamp, convertDateFromTimeStamp, htmlEncoding } from '../../../common/utility';
 
 const NextEventDetails = (assignmentsDetails) => (
-  <article role='article'>
+  <article>
     <div className='graybtBorder mb10 pt5 pb5'>
-      <div className='eventDetailTitle'>{assignmentsDetails.data.assign_title}</div>
+      <h3 className='eventDetailTitle'>{assignmentsDetails.data.assign_title}</h3>
       <div className='eventDetailSubject'>{assignmentsDetails.data.class}</div>
     </div>
     <div className='eventTiming graybtBorder pb10'>

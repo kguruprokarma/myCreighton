@@ -9,46 +9,44 @@ import '../../../__mock_i18n__/i18n_mockKeys';
 const defaultProps ={
   getMealPlanData: () => {},
   mealPlanData: {
-    'mealBalance': {
-      'remainSwipes': '13',
-      'swipesExpire': 'SAT',
-      'guestSwipes': '5',
-      'dinning': '360.00',
-      'jaybucks': '750.25'
-    }
+    'data': [
+      {
+        'netid': '6cb4db8459',
+        'account': 'SWIPES',
+        'remainingbalance': '120.00'
+      },
+      {
+        'netid': '6cb4db8459',
+        'account': 'Guest Meal',
+        'remainingbalance': '120.00'
+      },
+      {
+        'netid': '6cb4db8459',
+        'account': 'Dining$ SV',
+        'remainingbalance': '20.00'
+      },
+      {
+        'netid': '6cb4db8459',
+        'account': 'JayBuck$ SV',
+        'remainingbalance': '39.9400'
+      },
+      {
+        'netid': '6cb4db8459',
+        'account': 'printcredits',
+        'remainingbalance': '9.9400'
+      }
+    ]
   },
   showMeal: true,
   role: {
     userRole: 'student'
   }
 };
-
+localStorage.setItem('roleInfo', JSON.stringify({'userRole': 'student'}));
 const mealPlanC = shallow(<MealPlan {...defaultProps} />);
 describe('Mealplan Test Suite', () => {
   it('should provide i18n context', () => {
     expect(mealPlanC).toBeDefined();
-    mealPlanC.instance().componentWillReceiveProps(defaultProps);
-  });
-
-  it('MealPlan component Swipes is there or not', () => {
-    expect(mealPlanC.find('swipes').length).toBe(1);
-    expect(mealPlanC.find('swipes').props().swipeCount).toBe(defaultProps.mealPlanData.mealBalance.remainSwipes);        
-  });
-
-  it('MealPlan component Guest is there or not', () => {
-    expect(mealPlanC.find('guest').length).toBe(1);
-  });
-
-  it('MealPlan component Dining is there or not', () => {
-    expect(mealPlanC.find('dining').length).toBe(1);
-  });
-
-  it('MealPlan component Jaybucks is there or not', () => {
-    expect(mealPlanC.find('jaybucks').length).toBe(1);
-  });
-
-  it('MealPlan component buttons', () => {
-    expect(mealPlanC.find('button').length).toBe(1);
-  });
+  });  
 });
 

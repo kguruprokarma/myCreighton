@@ -8,35 +8,37 @@ import htmlReactParser from 'html-react-parser';
 import { translateText } from '../../../common/translate';
 import { htmlEncoding, convertDateFromTimeStamp } from '../../../common/utility';
 
+const course = (quizDetails) => (
+  <div>
+    <Row>
+      <Col md={12} sm={12} xs={12}>
+        <div className='eventTiming graybtBorder pb10'>
+          <div>{translateText('TEST_IN_CLASS')}</div>
+          <div>{(quizDetails.data && quizDetails.data.course_name)?quizDetails.data.course_name:''}</div>
+          <Row>
+            <Col md={4} sm={6} xs={6}>                
+              <p><span>{translateText('DUE')} </span> {convertDateFromTimeStamp((quizDetails.data && quizDetails.data.date)?quizDetails.data.date:'')}</p>
+            </Col>
+            <Col md={8} sm={6} xs={6}>
+               &nbsp;
+            </Col>
+          </Row>
+        </div>
+      </Col>
+    </Row>
+  </div>
+);
 const QuizzesDetails = (quizDetails) => (
   <section role='region'>
     <Row>
       <Col xs={12}>
         <div className='graybtBorder mb10 pt5 pb5'>
-          <div className='eventDetailTitle'>{(quizDetails.data && quizDetails.data.assign_title) ?quizDetails.data.assign_title:''}</div>
+          <h3 className='eventDetailTitle'>{(quizDetails.data && quizDetails.data.assign_title) ?quizDetails.data.assign_title:''}</h3>
           <div className='eventDetailSubject'>{(quizDetails.data && quizDetails.data.class)?quizDetails.data.class:''}</div>
         </div>
       </Col>
     </Row>
-    <div>
-      <Row>
-        <Col md={12} sm={12} xs={12}>
-          <div className='eventTiming graybtBorder pb10'>
-            <div>{translateText('TEST_IN_CLASS')}</div>
-            <div>{(quizDetails.data && quizDetails.data.course_name)?quizDetails.data.course_name:''}</div>
-            <Row>
-              <Col md={4} sm={6} xs={6}>
-                {/* <div>{(quizDetails.data && quizDetails.data.startTime} - {(quizDetails.data && quizDetails.data.endTime}</div> */}
-                <p><span>{translateText('DUE')} </span> {convertDateFromTimeStamp((quizDetails.data && quizDetails.data.date)?quizDetails.data.date:'')}</p>
-              </Col>
-              <Col md={8} sm={6} xs={6}>
-               &nbsp;
-              </Col>
-            </Row>
-          </div>
-        </Col>
-      </Row>
-    </div>
+    {course(quizDetails)}
     <div className='questionsScoring mt20 mb25'>
       <h4 className='eventDetail graybtBorder mb10'>{translateText('QUESTIONS_AND_SCORING')}</h4>
       <div className='eventNotes pt5'>

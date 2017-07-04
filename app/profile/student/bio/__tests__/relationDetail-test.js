@@ -22,6 +22,5 @@ it('RelationDetail is defined', () => {
     }
   };
   const relationDetail = shallow(<RelationDetail {...defaultProps} />);
-
   expect(relationDetail).toBeDefined();
 });

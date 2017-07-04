@@ -8,14 +8,15 @@ import moment from 'moment';
 import { convertTo24Format, scheduleDays } from '../../../common/utility';
 import { translateText } from '../../../common/translate';
 import * as CommonConstants from '../../../constants/commonConstants';
+import * as HEADER from '../../../constants/headerTitleConstants';
 
 const classInfo = (classInfoProps) => (
-  <article role='article' className='classInfo'>
+  <article className='classInfo'>
     <Row>
       <Col xs={12}>
         <div className='graybtBorder mb10 pb10'>
           <h3 className='classDetailHeading mb0'>{classInfoProps.course_title} {classInfoProps.course_number}</h3>
-          <p className='classDetialOn'>{classInfoProps.course_section}</p>
+          <p className='classDetailOn'>{classInfoProps.course_section}</p>
         </div>
       </Col>
     </Row>
@@ -29,7 +30,7 @@ const classInfo = (classInfoProps) => (
             </Col>
             <Col xs={6} className='text-right'>
               <p>{(classInfoProps.instructor_name !== null && classInfoProps.instructor_name.last_name) ? classInfoProps.instructor_name.last_name:''}</p>
-              <p className='NextDate'><span>{translateText('NEXT')}</span>: {(classInfoProps.class_building_code !== CommonConstants.ONLINE_CLASSES && (classInfoProps.currentView === 'eventdetails' || classInfoProps.currentView === 'eventlist')) ? moment(classInfoProps.timeStamp).format('MMM DD') : (classInfoProps.nextDate?classInfoProps.nextDate:'N/A')}</p>
+              <p className='NextDate'><span>{translateText('NEXT')}</span>: {(classInfoProps.class_building_code !== CommonConstants.ONLINE_CLASSES && (classInfoProps.currentView === HEADER.EVENT_DETAILS || classInfoProps.currentView === HEADER.EVENT_LIST)) ? moment(classInfoProps.startDate).format('MMM DD') : (classInfoProps.nextDate?classInfoProps.nextDate:translateText('common:COMMON_NA'))}</p>
             </Col>
           </Row>
         </div>

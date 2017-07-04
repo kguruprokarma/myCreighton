@@ -94,7 +94,6 @@ describe('EventFilter component testing ----->', () => {
   });
 
   it(' toggleRadio ', () => {
-    // expect(eventFilterc.find('Title').length).toBe(1);
     eventFilter.instance().toggleRadio({ target: { value: 'today' } });
     eventFilter.instance().showChild({ showItem: true });
 

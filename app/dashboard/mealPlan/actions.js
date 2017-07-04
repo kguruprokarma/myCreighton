@@ -23,10 +23,21 @@ const receiveMealPlansError = (error) => (
   }
 );
 
-export function getMealPlanData(role) {
+const showMealPan = () => (
+  {
+    type: types.MEAL_PLAN_VIEW_SHOW
+  });
+
+const hideMealPlan = () => (
+  {
+    type: types.MEAL_PLAN_VIEW_HIDE
+  }
+);
+
+export function getMealPlanData() {
   return function (dispatch) {
     dispatch(requestMealPlanDetailsData());
-    return MealPlanApi.getMealPlanData(role).then((response) => {
+    return MealPlanApi.getMealPlanData().then((response) => {
       dispatch(receiveMealPlansData(response));
     })
       .catch((error) => {
@@ -37,4 +48,20 @@ export function getMealPlanData(role) {
   };
 }
 
-export default getMealPlanData;
+export function openMealPlan() {
+  return function (dispatch) {
+    dispatch(showMealPan());
+  };
+}
+
+export function closeMealPlan() {
+  return function (dispatch) {
+    dispatch(hideMealPlan());
+  };
+}
+
+export function updateMealPlanData(data) {
+  return function (dispatch) {
+    dispatch(receiveMealPlansData({data: data}));
+  };
+}

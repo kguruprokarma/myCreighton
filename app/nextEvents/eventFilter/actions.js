@@ -5,6 +5,11 @@ const onFilterChange = (data) => ({
   data: data
 });
 
+const onDateChange = (data) => ({
+  type: types.DATE_CHANGE,
+  data: data
+});
+
 
 export function filterChange(data) {
   return function (dispatch) {
@@ -12,4 +17,8 @@ export function filterChange(data) {
   };
 }
 
-export default filterChange;
+export function dateChange(data) {
+  return function (dispatch) {
+    dispatch(onDateChange(data));
+  };
+}

@@ -3,6 +3,7 @@ import { Row, Col, Form } from 'react-bootstrap';
 import { find } from 'lodash';
 import { translateText } from '../../common/translate';
 import { LIBRARY_GUIDES_LIBRARIES } from '../../common/navLinksConstants';
+//import { createAndSendLogs } from '../../common/utility';
 
 class LibraryGuide extends React.PureComponent {
 
@@ -13,16 +14,12 @@ class LibraryGuide extends React.PureComponent {
       subjectSelected: 1*/
     };
     this.handleLibraryGuideChange = this.handleLibraryGuideChange.bind(this);
-   // this.handleSubjectChange = this.handleSubjectChange.bind(this);
   }
   handleLibraryGuideChange(library) {
+    // createAndSendLogs('infos', 'handleLibraryGuideChange', 'Library Guide', library.target.value);
     this.setState({ librarySelected: parseInt(library.target.value) });
   }
- /* handleSubjectChange(subject) {
-    this.setState({ subjectSelected: parseInt(subject.target.value) });
-  }*/
   render() {
-    //const subjectUrl = find(LIBRARY_GUIDES_SUBJECTS, { id: this.state.subjectSelected }).link;
     const libraryUrl = this.state.librarySelected?find(LIBRARY_GUIDES_LIBRARIES, { id: this.state.librarySelected }).link:'';
     return (
       <Form>
@@ -43,21 +40,6 @@ class LibraryGuide extends React.PureComponent {
             {!libraryUrl && <a rel='noopener noreferrer' className='openSansLight btn btn-default btn-large btn-block librarySearchBtn pl10 searchButton' disabled>{translateText('common:GO_BUTTON')}</a>}
           </Col>
         </Row>
-        {/* <p className='openSansLight libraryGuideOr fs1pt2 pb10'>{translateText('common:OR_TEXT')}</p>
-        <Row className='form-group'>
-          <Col xs={9}>
-            <div className='fs1pt2 styled-select'>
-              <select className='form-control openSansLight subjectSelection input-lg textPadding' value={this.state.subjectSelected} onChange={this.handleSubjectChange} >
-                {
-                   LIBRARY_GUIDES_SUBJECTS.map((item, subIndex) => (<option key={subIndex} value={item.id}>{translateText(`common:${item.name}`)}</option>))
-                  }
-              </select>
-            </div>
-          </Col>
-          <Col xs={3}>
-            <a rel='noopener noreferrer' className='openSansLight btn btn-default btn-large btn-block librarySearchBtn pl10 searchButton' target='_blank' href={subjectUrl}>{translateText('common:GO_BUTTON')}</a>
-          </Col>
-        </Row>*/}
       </Form>
     );
   }

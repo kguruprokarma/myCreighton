@@ -24,4 +24,20 @@ it('WorkAddress should have BasicRow', () => {
   expect(workAddress.find('BasicRow').length).toBe(5);
 });
 
+const workAddressNullProps = {};
+
+it('workAddressPropsNullCheck checking', () => {
+  const workAddressPropsNullCheck = shallow(<WorkAddress {...workAddressNullProps} />);
+  expect(workAddressPropsNullCheck).toBeDefined();
+});
+
+const workAddressStaff = {
+  profile: 'STAFF'
+};
+
+it('workAddressStaff checking', () => {
+  const workAddressStaffC = shallow(<WorkAddress {...workAddressStaff} />);
+  expect(workAddressStaffC).toBeDefined();
+});
+
 

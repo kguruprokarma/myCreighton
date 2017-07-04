@@ -8,7 +8,7 @@ import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
 
 const BusinessInformation = (businessInfoProps) => (
-  <article role='article' className='profileRow'>
+  <article className='profileRow'>
     <h2 className='dataHeading openSansRegular'>{translateText('common:STAFF_BUSINESS_INFORMATION')}</h2>
     <BasicRow displayName={translateText('common:STAFF_TITLE')} displayValue={(businessInfoProps.data !==null && businessInfoProps.data.job_title) ? businessInfoProps.data.job_title:''} />
     <BasicRow displayName={translateText('common:STAFF_ORGANIZATION')} displayValue={(businessInfoProps.data !==null && businessInfoProps.data.organization !==null && businessInfoProps.data.organization.split(' ')[0])? businessInfoProps.data.organization.split(' ')[0]:''} />

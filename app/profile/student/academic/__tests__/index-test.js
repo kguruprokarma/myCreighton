@@ -28,12 +28,6 @@ describe('index files in academic testing ', () => {
     expect(academic).toBeDefined();
   });
 
-  // it('Check getAcademicData function', () => {
-  //     const wrapper = shallow(<Academic {...minProps} />);
-  //     const value = wrapper.instance().componentWillMount();
-  //     expect(value).toHaveBeenCalled
-  // });
-
   it('Academic component contails WeekDayData component length', () => {
     expect(academic.find('AcademicStatus').length).toBe(2);
   });

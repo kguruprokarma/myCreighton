@@ -1,7 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import TodayClasses from '../components/todayClasses';
-// import { todayHeader } from '../../../common/utility';
 
 describe('TodayClasses component testing ----->', () => {
   const defaultProps = {
@@ -34,17 +33,11 @@ describe('TodayClasses component testing ----->', () => {
       }
     ]
   };
-  // const todayHeaderText = todayHeader();
   const todayClassesC = shallow(<TodayClasses listOfData={defaultProps.data} />);
 
   it('TodayClasses is defined', () => {
     expect(todayClassesC).toBeDefined();
   });
-
-  // it('TodayClasses header text', () => {
-  //   const item = todayClassesC.find('DayHeader');
-  //   expect(item.props().day).toBe(todayHeaderText);
-  // });
 
   it('WeekClasses component contails ClassInfo component length', () => {
     expect(todayClassesC.find('ClassInfo').length).toBe(1);

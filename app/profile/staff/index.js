@@ -20,7 +20,7 @@ import LeftNav from '../../common/leftNav';
 import AlertComponent from '../../common/alertComponent';
 import HeaderLabel from '../../common/headerLabel';
 import * as CommonConstants from '../../constants/commonConstants';
-import { browserTitle } from '../../common/utility';
+import { browserTitle, createAndSendLogs } from '../../common/utility';
 import Spinner from '../../common/spinner';
 import FamilyDetail from '../faculty/bio/components/family';
 
@@ -35,6 +35,11 @@ export class StaffProfile extends React.PureComponent {
   render() {
     const props = this.props;
     const USER_DATA = props.profile === CommonConstants.STAFF_LABEL && props.profileData;    
+    if (((!USER_DATA && !props.loading) || (USER_DATA.error) || (USER_DATA && USER_DATA.data.length<=0))) {
+      createAndSendLogs('error', 'render', 'StaffProfile', JSON.stringify(USER_DATA));
+    } else if (USER_DATA && USER_DATA.data && USER_DATA.data.length > 0) {
+      // createAndSendLogs('info', 'render', 'StaffProfile', JSON.stringify(USER_DATA));
+    }
     return (
       <section role='region' className='section-container'>
         {props.loading && <Spinner />}

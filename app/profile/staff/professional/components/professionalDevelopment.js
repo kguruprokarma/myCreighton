@@ -6,9 +6,8 @@ import React from 'react';
 import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
 
-//const ProfessionalDevelopment = (professionalDevelopmentProps) => (
 const ProfessionalDevelopment = () => (
-  <article role='article' className='profileRow mt30'>
+  <article className='profileRow mt30'>
     <h2 className='dataHeading openSansRegular'>{translateText('common:STAFF_PROFESSIONAL_DEVELOPMENT')}</h2>
     <BasicRow displayName={translateText('common:STAFF_EXPERTISE/SKILLS')} displayValue='' />
     <BasicRow displayName={translateText('common:STAFF_APPLICATIONS/TOOLS')} displayValue='' />

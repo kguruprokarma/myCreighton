@@ -17,22 +17,20 @@ class MainNav extends React.Component {
     const props = this.props;
     const role = authUserDetails().userRole;
     return (
-      <nav role='navigation' id='navigation' className={props.navDisplay ? 'openNav' : 'closeNav'}>
+      <nav id='navigation' className={props.navDisplay ? 'openNav' : 'closeNav'}>
         <h1 className='announced-only'>{translateText('common:MAIN_MENU')}</h1>
         <Grid>
           <Row>
             <ul className='main-navigation'>
-              <li className='navigation-item hidden-lg menu-heading'><h2 className=' pl15 pt10 pb10 pr15 menuHeading m0'>{translateText('common:HAMBURGER_MENU')}</h2></li>
-              {/*<li className='navigation-item hidden-lg menu-heading'><a href={`#${ROUTE_URL.DASHBOARD}`}>{translateText('common:DASH_BOARD')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>*/}
-
-              <li className='navigation-item'><a>{translateText('common:CREIGHTON_SERVICES_AND_RESOURCES')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
+              <li className='navigation-item hidden-lg menu-heading'><p className=' pl15 pt10 pb10 pr15 menuHeading m0'>{translateText('common:HAMBURGER_MENU')}</p></li>
+              <li className='navigation-item'><a href={`#${ROUTE_URL.QUICK_LAUNCH}`}>{translateText('common:QUICK_LAUNCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' aria-hidden='true' /></a></li>
               {
                 role === CommonConstants.ROLE_STUDENT || role === undefined ? <li className='navigation-item'>
-                  <a href={`#${ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SIMPLE_SEARCH}`}>{translateText('common:CAMPUS_DIRECTORY')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a>
+                  <a href={`#${ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SIMPLE_SEARCH}`}>{translateText('common:CAMPUS_DIRECTORY')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' aria-hidden='true' /></a>
                 </li> : null
               }
-              <li className='navigation-item'><a href={`#${ROUTE_URL.LIBRARY_SEARCH}`}>{translateText('common:LIBRARY_SEARCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
-              <li className='navigation-item'><a rel='noopener noreferrer' target='_blank' href={URL_CONSTANTS.LINK_TO_DOIT_SERVICES}>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' /></a></li>
+              <li className='navigation-item'><a href={`#${ROUTE_URL.LIBRARY_SEARCH}`}>{translateText('common:LIBRARY_SEARCH')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' aria-hidden='true' /></a></li>
+              <li className='navigation-item'><a rel='noopener noreferrer' target='_blank' href={URL_CONSTANTS.LINK_TO_DOIT_SERVICES}>{translateText('common:DOIT_SERVICES_AND_SUPPORT')} <span className='glyphicon glyphicon-chevron-right pull-right hidden-lg' aria-hidden='true' /></a></li>
             </ul>
           </Row>
         </Grid>

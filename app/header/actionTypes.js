@@ -11,3 +11,9 @@ export const OPEN_NAV = 'request.nav.open';
 export const CLOSE_NAV = 'receive.nav.close';
 export const SIGN_OUT_OPEN = 'open.signout.popup';
 export const SIGN_OUT_CLOSE = 'close.signout.popup';
+
+export const SEND_LOG_DATA = 'send.log.data';
+export const RESPONSE_LOG_DATA = 'response.log.data';
+export const ERROR_LOG_DATA = 'error.log.data';
+
+export const HASH_CHANGE_OBJ = 'hash.change.obj';

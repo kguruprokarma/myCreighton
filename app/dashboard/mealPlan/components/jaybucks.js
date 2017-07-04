@@ -3,13 +3,14 @@
 */
 
 import React from 'react';
+import { Col } from 'react-bootstrap';
 import { translateText } from '../../../common/translate';
 
 const jaybucks = (jaybucksProps) => (
-  <div>
-    <span className='jbvalue openSansLight'><span className='meal-doller'>$</span>{jaybucksProps.jaybucksCount}</span>
-    <span className='jbText openSansBold'>{translateText('common:MEAL_PLAN_JAY_BUCKS')}<span className='mpDoller'>$</span></span>
-  </div>
+  <Col xs={12}>
+    <div className='jbText text-center openSansBold'>{translateText('common:MEAL_PLAN_JAY_BUCKS')}<span className='mpDoller'>$</span></div>
+    <div className='jbvalue text-center openSansLight'><span className='meal-doller'>$</span>{parseFloat(jaybucksProps.jaybucksCount).toFixed(2)}</div>
+  </Col>
 );
 
 export default jaybucks;

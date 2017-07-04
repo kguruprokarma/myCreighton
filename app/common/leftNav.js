@@ -9,7 +9,7 @@ import * as ROUTE_URL from '../constants/routeContants';
 import * as CommonConstants from '../constants/commonConstants';
 
 const LeftNav = (leftNavProps) => (
-  <nav role='navigation' id='localmenu' className='userLeftmenu'>
+  <nav id='localmenu' className='userLeftmenu'>
     <h1 className='announced-only'>{translateText('common:LOCAL_MENU')}</h1>
     <div className='list-group openSansLight'>
       <Link to={(leftNavProps.role === CommonConstants.STUDENT_LABEL) ? ROUTE_URL.PROFILE : (leftNavProps.role === CommonConstants.STAFF_LABEL ? ROUTE_URL.STAFF + ROUTE_URL.PROFILE : ROUTE_URL.FACULTY + ROUTE_URL.PROFILE)} className='list-group-item' activeClassName='active' >

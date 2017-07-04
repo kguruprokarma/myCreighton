@@ -12,7 +12,7 @@ import * as profileData from '../profile/actions';
 import * as headerActions from '../header/actions';
 import UserDetail from '../dashboard/components/userDetail';
 import profileMenu from '../header/components/profileMenu';
-import { authUserDetails } from './utility';
+import { authUserDetails, SocketSingleton } from './utility';
 import i18n from '../i18n';
 import { translateText } from '../common/translate';
 import * as urlConstants from '../constants/urlConstants';
@@ -43,22 +43,26 @@ export class CustomPopUp extends React.Component {
 
   signOutPopUp() {
     this.props.popUpClose();
+    SocketSingleton.getInstance().close();
+    //self.history.pushState(null, 'http://www.google.com');
+    localStorage.removeItem('roleInfo');
+    localStorage.removeItem('infos');
+    localStorage.removeItem('lang');
+    localStorage.removeItem('classMasterCopy');
+    localStorage.removeItem('assignmentMasterCopy');
+    //localStorage.removeItem('temp');
+    localStorage.removeItem('classDetails');
+    localStorage.removeItem('i18nextLng');
+    //localStorage.removeItem('setDisplayOptionValue');
+    //localStorage.removeItem('displayOptions');
+    localStorage.removeItem('eventList');
+    localStorage.removeItem('eventsFilterData');
+    sessionStorage.removeItem('first');
+    sessionStorage.removeItem('time');
+    hashHistory.replace('/');
+
     axios.get(urlConstants.ADFS_LOGOUT_URL).then((response) => {
       if (response.status === urlConstants.STATUS_CODE) {
-        localStorage.removeItem('roleInfo');
-        localStorage.removeItem('infos');
-        localStorage.removeItem('lang');
-        localStorage.removeItem('classMasterCopy');
-        localStorage.removeItem('assignmentMasterCopy');
-        localStorage.removeItem('temp');
-        localStorage.removeItem('classDetails');
-        localStorage.removeItem('i18nextLng');
-        //localStorage.removeItem('setFilterValue');
-        localStorage.removeItem('setDisplayOptionValue');
-        localStorage.removeItem('displayOptions');
-        localStorage.removeItem('eventList');
-        localStorage.removeItem('eventsFilterData');
-        //location.reload();
         hashHistory.replace(ROUTE_URL.LOGOUT);
       }
     }, (error) => {
@@ -67,13 +71,12 @@ export class CustomPopUp extends React.Component {
   }
   changeLanguage(langKey) {
     localStorage.setItem('lang', langKey);
-    localStorage.setItem('temp', localStorage.getItem('i18nextLng'));
+   // localStorage.setItem('temp', localStorage.getItem('i18nextLng'));
     i18n.init({ lng: localStorage.getItem('lang') });
     location.reload();
   }
   render() {
     const props = this.props;
-    //const userDetails = props.userDetailsData;
     const profileDetails = JSON.parse(localStorage.getItem('infos')) || props.profileData;
     const ProfileMenus = profileMenu(this.role);
     if (profileDetails && profileDetails.data) {
@@ -116,7 +119,7 @@ export class CustomPopUp extends React.Component {
           <ListGroupItem className='openSansLight'>
             <Row>
               <Col sm={2} xs={2}>
-                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); }} />
+                <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={() => { this.setState({ languageState: true }); }} aria-hidden='true' />
               </Col>
               <Col sm={10} xs={10}>
                 <p className='selectLang pt5'>{translateText('common:COMMON_SELECT_LANGUAGE')}</p>
@@ -124,8 +127,8 @@ export class CustomPopUp extends React.Component {
             </Row>
           </ListGroupItem>
           {languages.map((lanItem) => (
-            <ListGroupItem key={lanItem.language} onClick={() => { this.languageChangeBind(lanItem.langkey); }} className='openSansLight'>
-              <Link>{lanItem.language}</Link>
+            <ListGroupItem key={lanItem.language} className='openSansLight'>
+              <Link onClick={() => { this.languageChangeBind(lanItem.langkey); }}>{lanItem.language}</Link>
             </ListGroupItem>
           ))}
         </ListGroup>
@@ -146,8 +149,7 @@ CustomPopUp.propTypes = {
 
 const mapStateToProps = (dashboardState) => (
   {
-    profileData: dashboardState.profileReducer.profileData.data,
-    userData: dashboardState.auth.data
+    profileData: dashboardState.profileReducer.profileData.data
   }
 );
 

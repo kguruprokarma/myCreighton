@@ -11,11 +11,11 @@ export const profileMenuList = (roleType) => {
     student: [
       {
         'itemName': translateText('common:PROFILE_MY_PROFILE'),
-        'link': ROUTE_URL.PROFILE // '/Profile'
+        'link': ROUTE_URL.PROFILE 
       },
       {
         'itemName': translateText('common:PROFILE_ACADEMIC'),
-        'link': ROUTE_URL.ACADEMIC //'/Academic'
+        'link': ROUTE_URL.ACADEMIC 
       },
       {
         'itemName': translateText('common:COMMON_CHANGE_LANGUAGE'),

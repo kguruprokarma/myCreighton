@@ -14,7 +14,7 @@
     font-size: 1.133333333333333em;
     color: #313131;
     font-family: 'open_sansregular', 'sans-serif';
-    margin-bottom: 8px;
+    margin-bottom: 8px;  
 }
 
 .eventTiming {
@@ -22,7 +22,6 @@
     font-size: 1.1333333333333333em;
     color: #313131;
     line-height: 1.42857143;
-
 }
 
 .eventDetail {
@@ -58,7 +57,7 @@
 
 .btn-primary.nextEventBtn:hover, 
 .btn-primary.nextEventBtn:active,  
-.btn-primary.nextEventBtn:focus  {
+.btn-primary.nextEventBtn:focus {
     background-color: #fff;
     color: #0054a6;
     box-shadow: none;
@@ -71,7 +70,9 @@
     margin-left: 20px;
 }
 
-.btn-primary.nextEventBtn:hover, .btn-primary.nextEventBtn:active,  .btn-primary.nextEventBtn:focus  {
+.btn-primary.nextEventBtn:hover, 
+.btn-primary.nextEventBtn:active,  
+.btn-primary.nextEventBtn:focus {
     background-color: #fff;
     color: #0054a6;
     box-shadow: none;

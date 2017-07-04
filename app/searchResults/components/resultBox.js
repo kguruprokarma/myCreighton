@@ -3,9 +3,11 @@
  */
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { translateText } from '../../common/translate';
 
 const result = (resultProps) => (
-  <section role='region' className='openSansLight graybtBorder pt5 pb10 mb10 mt10'>
+  <article className='openSansLight graybtBorder pt5 pb10 mb10 mt10'>
+    <h1 className='announced-only'>{translateText('common:SEARCH_RESULT_DATA')}</h1>
     <Row>
       <Col md={9} sm={8}>
         <p className='cpmsDirProfName'>{resultProps.full_name}</p>
@@ -20,7 +22,7 @@ const result = (resultProps) => (
         <p className='cpmsDirProfWrk' />
       </Col>
     </Row>
-  </section>
+  </article>
 );
 
 

@@ -11,12 +11,14 @@ import CustomPopUpComponent from '../common/customPopUp';
 import Title from '../header/components/title';
 import './style.css';
 import * as actionCreators from './actions';
+import * as footerActions from '../footer/actions';
+import * as notificationActions from '../notification/actions';
 import { translateText } from '../common/translate';
 import ImageComponent from '../common/imageComponent';
 import NextEventFilterComponent from '../nextEvents/eventFilter/index';
 import * as RouteContants from '../constants/routeContants';
 import * as CommonContants from '../constants/commonConstants';
-import { HAMBURGER_ICON, MENUCLOSE_ICON, EVENTFILTER_ICON } from '../constants/imageConstants';
+import { HAMBURGER_ICON, MENUCLOSE_ICON, EVENTFILTER_ICON, EVENTFILTER_DEFAULT_ICON } from '../constants/imageConstants';
 
 export class Header extends React.PureComponent {
   constructor(props) {
@@ -29,10 +31,26 @@ export class Header extends React.PureComponent {
     this.goBack = this.goBack.bind(this);
     this.navClick = this.navClick.bind(this);
     const self = this;
-    window.onhashchange = function () {
+    window.onhashchange = function (/*event*/) {
+      self.props.logHashChangeData(event.oldURL);
       self.props.popUpClose();
       self.props.navClose();
       self.props.filterPopUpClose();
+      self.props.helpPopUpClose();
+     // const oldUrl = event.newURL && event.newURL.split('#/')[1].split('/')[0];
+/*      if (['eventdetails', 'eventlist', 'classes', 'classesdetails'].indexOf(oldUrl) === -1) {
+        localStorage.removeItem('assignmentMasterCopy');
+        localStorage.removeItem('eventList');
+        localStorage.removeItem('classDetails');
+        localStorage.removeItem('classMasterCopy');
+        localStorage.removeItem('eventsFilterData');
+      }
+*/
+/*      if (oldUrl.indexOf('notifications')>=0) {
+        self.props.resetNewNotifications();
+      } else {
+        self.props.setNewNotifications();
+      }*/
     };
   }
 
@@ -65,56 +83,77 @@ export class Header extends React.PureComponent {
   goBack() {
     browserHistory.goBack();
   }
+  actions(props, filterIndicator) {
+    return (
+      <Col xs={3} sm={3} lg={2} className='pull-right icons-list'>
+        <ul className='pull-right list-inline mobile-no-wrap mb0'>
+          <li className='head-Icons top-search-icon'>
+            <Link to={RouteContants.TOP_LEVEL_SEARCH} >
+              <span className='glyphicon glyphicon-search' aria-hidden='true' />
+            </Link>
+          </li>
+          {(props.currentState === RouteContants.EVENT_LIST || props.currentState === RouteContants.EVENT_DETAILS) &&
+            <li className='head-Icons event-icon'>
+              <div className='popUp'>
+                <button className='btn btn-link btnnoPadding filter-img' onClick={this.showFilterPopUp}><ImageComponent imagePath={filterIndicator ? EVENTFILTER_DEFAULT_ICON : EVENTFILTER_ICON} imagealtText={translateText('FILTER_ICON')} imgClassName={filterIndicator ? 'filter-default' : ''} /></button>
+                <div className='popUpContainer'>
+                  {props.filterPopUpData &&
+                    <NextEventFilterComponent />}
+                </div>
+              </div>
+            </li>
+          }
+          <li className='head-Icons notification-icon'>
+            <Link to={RouteContants.NOTIFICATION} className='btn btn-link btnnoPadding' activeClassName='active'>
+              <span className='glyphicon glyphicon-bell' title='Notifications' aria-hidden='true' />
+              {props.notificationData && props.notificationData.length > 0 && props.newNotification && <span className='badge-notification' />}
+            </Link>
+          </li>
+          <li className='head-Icons'>
+            <div className='popUp'>
+              <Link className='btn btn-link btnnoPadding' role='link' tabIndex='0' onClick={this.showPopUp}>
+                <span className='glyphicon glyphicon-user' title='Link to User Profile popup' aria-hidden='true' />
+              </Link>
+              <div className='popUpContainer'>
+                {props.popUpData &&
+                  <CustomPopUpComponent showPopValue={this.showPopUp} />}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </Col>
+    );
+  }
   render() {
     const props = this.props;
     let filterIndicator = true;
+    if (localStorage.getItem('setFilterValue')) {
+      filterIndicator = localStorage.getItem('setFilterValue') === CommonContants.EVENT_FILTER_ALL;
+    }
     if (localStorage.getItem('displayOptions') && localStorage.getItem('setFilterValue')) {
       const savedDisplayOptions = JSON.parse(localStorage.getItem('displayOptions'));
-      filterIndicator = (localStorage.getItem('setFilterValue') === CommonContants.EVENT_FILTER_7_DAYS && savedDisplayOptions[0].checked === true);
+      filterIndicator = (localStorage.getItem('setFilterValue') === CommonContants.EVENT_FILTER_ALL && savedDisplayOptions[0].checked === true);
     }
-    
+
     return (
-      <header role='banner' id='header'>
+      <header id='header'>
         <h1 className='announced-only'>{translateText('common:PAGE_HEADER')}</h1>
-        <nav role='navigation' id='navigation01' className='container'>
-          <Row >
-            <nav role='navigation' id='navigation01' className='col-xs-2 col-sm-2 hidden-lg hamburgerMenu'>
+        <nav id='navigation01' className='container'>
+          <Row>
+            <div className='pull-left ml15 mr0 hidden-lg hamburgerMenu'>
               {props.currentState.split('/')[1] === CommonContants.DASHBOARD ?
-                <button className='btn btn-link btnnoPadding' onClick={this.navClick}><ImageComponent imagePath={props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} imagealtText={props.navData ? translateText('common:MENU_ALT_CLOSE_TAG') : translateText('common:MENU_ALT_TAG')} /></button>
-                : <button className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ? () => hashHistory.replace(`${RouteContants.CAMPUSDIRECTORY}${RouteContants.SIMPLE_SEARCH}`): this.goBack} />
+                <button className='btn btn-link btnnoPadding menu-icon' onClick={this.navClick}><ImageComponent imagePath={props.navData ? MENUCLOSE_ICON : HAMBURGER_ICON} imagealtText={props.navData ? translateText('common:MENU_ALT_CLOSE_TAG') : translateText('common:MENU_ALT_TAG')} imgClassName={props.navData ? 'menu-close-icon' : 'menu-lines-icon'} /></button>
+                : <Col className='btn btn-link glyphicon glyphicon-menu-left popupBackBtn p0' onClick={props.currentState.split('/')[1] === CommonContants.SEARCH_RESULTS ? () => hashHistory.replace(`${RouteContants.CAMPUSDIRECTORY}${RouteContants.SIMPLE_SEARCH}`) : this.goBack} aria-hidden='true' />
               }
-            </nav>
+            </div>
             <Col lg={10} className='visible-lg'>
-              <h2 className='bebasregular logo mt0 mb0 fs1pt4'><Link className='myCreighton-logo' to={`${RouteContants.DASHBOARD}`}><span className='hidden'>{translateText('common:MY_CREIGHTON')}</span></Link></h2>
+              <div className='bebasregular logo mt0 mb0 fs1pt4'><Link className='myCreighton-logo' to={`${RouteContants.DASHBOARD}`}><span className='hidden'>{translateText('common:MY_CREIGHTON')}</span></Link></div>
             </Col>
-            <Col xs={8} sm={8} className='hidden-lg mobile-header text-center'>
-              <h2 className='bebasregular visible-sm visible-md logo mt10 mb0 fs1pt4'><Link className='myCreighton-logo' to={`${RouteContants.DASHBOARD}`}>{translateText('common:MY_CREIGHTON')}</Link></h2>
+            <Col xs={7} sm={8} className='hidden-lg mobile-header'>
+              <h2 className='bebasregular visible-sm visible-md logo mt0 mb0 fs1pt4'><Link className='myCreighton-logo' to={`${RouteContants.DASHBOARD}`}>{translateText('common:MY_CREIGHTON')}</Link></h2>
               <div className='visible-xs'><Title path={props.currentState} /></div>
             </Col>
-            <Col xs={2} sm={2} lg={2} className='pull-right icons-list'>
-              <ul className='pull-right list-inline mobile-no-wrap mb0'>
-                {(props.currentState === RouteContants.EVENT_LIST || props.currentState === RouteContants.EVENT_DETAILS) &&
-                  <li className='head-Icons mr10 event-icon'>
-                    <div className='popUp'>
-                      <button className='btn btn-link btnnoPadding filter-img' onClick={this.showFilterPopUp}><ImageComponent imagePath={EVENTFILTER_ICON} imageWidth='25' />{filterIndicator ? '' : <span className='filter-checkmark glyphicon glyphicon-ok' aria-hidden='true' />}</button>
-                      <div className='popUpContainer'>
-                        {props.filterPopUpData &&
-                          <NextEventFilterComponent />}
-                      </div>
-                    </div>
-                  </li>
-                }
-                <li className='head-Icons'>
-                  <div className='popUp'>
-                    <icon className='glyphicon glyphicon-user btnnoPadding' role='link' tabIndex='0' aria-label='Link to User Profile popup' onClick={this.showPopUp} />
-                    <div className='popUpContainer'>
-                      {props.popUpData &&
-                        <CustomPopUpComponent showPopValue={this.showPopUp} />}
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </Col>
+            {this.actions(props, filterIndicator)}
           </Row>
         </nav>
       </header>
@@ -126,10 +165,13 @@ const mapStateToProps = (storeData) => (
   {
     popUpData: storeData.headerReducer.showPopUp,
     filterPopUpData: storeData.headerReducer.showFilterPopUp,
-    navData: storeData.headerReducer.showNav
+    navData: storeData.headerReducer.showNav,
+    newNotification: storeData.notificationReducer.newNotification,
+    notificationData: storeData.notificationReducer.notificationData,
+    eventChangedValue: storeData.eventsFilterReducer.changedDate
   }
 );
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators), dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, footerActions, notificationActions), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

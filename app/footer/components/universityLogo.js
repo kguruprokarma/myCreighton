@@ -3,10 +3,11 @@
  */
 
 import React from 'react';
+import { translateText } from '../../common/translate';
 
 const universityLogo = () => (
   <div className='university-logo'>
-    <img src='../../assets/images/creighton_logo.png' alt='logo' />
+    <img src='../../assets/images/creighton_logo.png' alt={translateText('MYCREIGHTON_LOGO')} />
   </div>
 );
 

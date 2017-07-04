@@ -7,7 +7,7 @@ import BasicRow from '../../../../common/basicRow';
 import { translateText } from '../../../../common/translate';
 
 const FacultyAppointment = (facultyProps) => (
-  <article role='article' className='profileRow'>
+  <article className='profileRow'>
     <h2 className='dataHeading openSansRegular'>{translateText('common:FACULTY_APPOINTMENT')}</h2>
     <BasicRow displayName={translateText('common:STAFF_DEPARTMENT')} displayValue={facultyProps.data.department} />
     <BasicRow displayName={translateText('common:PROFILE_SCHOOL')} displayValue={facultyProps.data.school} />

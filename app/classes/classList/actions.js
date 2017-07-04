@@ -1,10 +1,7 @@
 /*Created Date: - 23rd -01 -2017
 *Usage of file: - This action is used to get class schedule of a user.*
 */
-
-//import classesApi from '../../middleware/classes/api';
 import * as types from './actionTypes';
-
 
 const requestData = () => ({
   type: types.REQUEST_CLASSES_DATA
@@ -38,12 +35,6 @@ const receiveAssignmentsData = (assignmentsData) => (
     data: assignmentsData
   });
 
-/*const receiveAssignmentsError = (error) => (
-  {
-    type: types.RECEIVE_ASSIGNMENTS_DATA_ERROR,
-    data: error
-  });
-*/
 export function onCatagoryChange(str) {
   return function (dispatch) {
     dispatch(catagoryChange(str));

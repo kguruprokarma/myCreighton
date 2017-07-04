@@ -9,11 +9,11 @@ import { convertTo24Format, scheduleDays } from '../../../common/utility';
 import * as CommonConstants from '../../../constants/commonConstants';
 
 const ClassInfo = (classInfoProps) => (
-  <article role='article' className='classesWeek'>
+  <article className='classesWeek'>
     <div className='hidden-xs desktopClassesList'>
       <Col md={5} sm={5}>
         <h2 className='mb10 classesHeading'>{classInfoProps.data.course_title} {classInfoProps.data.course_number}</h2>
-        <p className='classOn'>{classInfoProps.data.course_section}</p>
+        <p className='classOn'>{`${CommonConstants.SECTION} ${classInfoProps.data.course_section}`}</p>
       </Col>
       <Col md={2} sm={2}>
         <div>
@@ -33,7 +33,7 @@ const ClassInfo = (classInfoProps) => (
     </div>
     <Row className='visible-xs mobileClassesList'>
       <Col xs={7}>
-        <span className='classOn'>{classInfoProps.data.course_section}</span>
+        <span className='classOn'>{`${CommonConstants.SECTION} ${classInfoProps.data.course_section}`}</span>
       </Col>
       <Col xs={5} className='text-right'>
         <span className='classBy'>{(classInfoProps.data.instructor_name !==null && classInfoProps.data.instructor_name.last_name) ? classInfoProps.data.instructor_name.last_name:''}</span>

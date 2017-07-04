@@ -40,15 +40,17 @@ export class LibraryInformation extends React.PureComponent {
 
   componentWillMount() {
     const props = this.props;
-    browserTitle(translateText('common:CAMPUS_DIRECTORY'));
+    browserTitle(translateText('common:LIBRARY_SEARCH'));
     props.getLibraryData();
   }
 
   setTabindex(indexid) {
+    // createAndSendLogs('infos', 'setTabindex', 'Library Search', indexid);
     this.setState({ tabIndex: indexid });
   }
 
   scrollToPosition(positionId) {
+    // createAndSendLogs('infos', 'scrollToPosition', 'Library Search', positionId);
     if (document.getElementById(positionId) !== null) {
       document.getElementById(positionId).scrollIntoView();
     }
@@ -90,7 +92,6 @@ export class LibraryInformation extends React.PureComponent {
         {props.loading && <Spinner />}
         <LibraryTabs tabIndex={this.state.tabIndex} changeTab={this.setTabindex} navLibLinks={LIBRARY_NAV_LINKS} />
         <Row>
-          {/*<Col sm={12} md={9} className='pull-right'>*/}
           <Col sm={9} xs={12} className='pull-right'>
 
             {(this.state.tabIndex <= 1 || this.state.tabIndex === 3)&&

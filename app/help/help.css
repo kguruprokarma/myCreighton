@@ -1,0 +1,526 @@
+@font-face {
+    font-family: 'architects_daughterregular';
+    src: url('/assets/fonts/architectsdaughter-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.architects_daughterregular {
+    font-family: 'architects_daughterregular';
+}
+
+.help-container main {
+    background-color: #ffffff;
+}
+
+.help-container {
+    position: absolute;
+    top:0;
+    width: 100%;
+    z-index: 1;
+}
+
+.help-section .popUpPatch {
+    z-index: 1;
+    opacity: .75;
+    position: fixed;
+}
+
+.arrow_sprite {
+    background: url('/assets/images/sprite-image.png') no-repeat; 
+    overflow: hidden;
+    display: block;
+}
+
+.help-position {
+    position: absolute;
+    z-index: 3;
+    color: #ffffff;
+    background-color: transparent;
+    line-height: 20px;
+    font-family: 'architects_daughterregular';
+}
+
+.main-menu-arrow {
+    background-position: 0 -291px;
+    width: 36px;
+    height: 47px;
+    overflow: hidden;
+    display: block;
+    -ms-transform: rotate(-20deg); /* IE 9 */
+    -webkit-transform: rotate(-20deg); /* Chrome, Safari, Opera */
+    transform: rotate(-20deg);
+}
+
+.menu-icon-position {
+    top: 10px;
+    left: 48px;
+    width: 100px;
+    display: block;
+}
+
+.user-arrow {
+    background-position: -269px -278px;
+    width: 39px;
+    height: 47px;
+    position: relative;
+    left: 70px;
+    top: -6px;
+    -ms-transform: rotate(-12deg); /* IE 9 */
+    -webkit-transform: rotate(-12deg); /* Chrome, Safari, Opera */
+    transform: rotate(-12deg);
+}
+
+.user-icon-position {
+    top: 12px;
+    width: 120px;
+}
+
+.user-content {
+    position: relative;
+    top: -18px;
+    left: -5px;
+}
+
+.notification-position {
+    top: -12px;
+    left: 0px;    
+    width: 100px;
+}
+
+.notification-arrow {
+    background-position: -153px -291px;
+    width: 39px;
+    height: 47px;
+    position: relative;
+    left: 10px;
+    top: 2px;
+    -ms-transform: rotate(58deg); /* IE 9 */
+    -webkit-transform: rotate(58deg); /* Chrome, Safari, Opera */
+    transform: rotate(58deg);
+}
+
+.notification-content {
+    position: relative;
+    top:-34px;
+    left: -102px;
+}
+
+.card-arrow {
+    background-position: -389px -278px;
+    width: 39px;
+    height: 47px;
+    position: relative;
+    left: 12px;
+}
+
+.card-position {
+    top: 12px;
+    left: 30px;
+}
+
+.card-content {
+    position: relative;
+    top:-43px;
+    left: 66px;
+    min-width: 200px;
+    display: block;
+}
+
+.card-content .well-title, .white-color {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.card-content .well-title, .help-container .help-card-caption {
+    text-align: left;
+    max-width: 280px;
+}
+
+.meal-plan-arrow {
+    background-position: -269px -278px;
+    width: 31px;
+    height: 43px;
+    position: relative;
+    left: 86px;
+}
+
+.meal-plan-position {
+    top: 0px;
+    right: 0px;
+}
+
+.meal-plan-content {
+    position: relative;
+    top:-6px;
+    left: -66px;
+}
+
+.close-button {
+    z-index: 3;
+    position: absolute;
+    color: #ffffff;
+    background-color: transparent;
+    right: 15px;
+}
+
+.close-button:hover,
+.close-button:active,
+.close-button:focus {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.help-container #mealPlan {
+    position: relative;
+}
+
+.help-icon {
+    position: relative;
+    top: -22px;
+    font-size: 1.2em;   /* font size 18 in pixel */
+    color: #0054a6;
+}
+
+.help-icon:hover,
+.help-icon:focus,
+.help-icon:active {
+    color: #0054a6;
+}
+
+.close-help-icon {
+    background-position: 0 -394px;
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+}
+
+.close-container {
+    position: relative;
+}
+
+.help-container .desktop-navigation .menu-icon-position {
+    top: -36px;
+    left: 60px;
+}
+
+.dashboard {
+    background-color: #fff;
+}
+
+.help-container header .popUp, .popUp {
+    z-index: 0;
+}
+
+/* Classes help CSS */
+
+.help-classes {
+    top: 0;   
+}
+
+.help-classes ~ .close-container {
+    display: none;
+}
+
+.help-classes .close-button {
+    margin-top: 30px;
+}
+
+.clases-help-content
+{
+    position: absolute;
+    z-index: 3;
+    min-width: 200px;
+    max-width: 292px;
+    color: #ffffff;
+    background-color: transparent;
+    font-family: 'architects_daughterregular';
+    top: -32px;
+}
+
+.classes-arrows {
+    display: block;
+    position: relative;
+    height: 60px;
+    width: 110px;
+    margin: auto;
+}
+
+.classes-arrows .left-class-arrow {
+    width: 60px;
+    height: 60px;
+    background-position: 0px -278px;
+    display: inline-block;
+    position: absolute;
+    -ms-transform: rotate(-3deg); /* IE 9 */
+    -webkit-transform: rotate(-3deg); /* Chrome, Safari, Opera */
+    transform: rotate(-3deg);
+    left: -50px;
+}
+
+.classes-arrows .center-class-arrow {
+    width: 60px;
+    height: 60px;
+    background-position: -60px -278px;
+    display: inline-block;
+    position: absolute;
+    left: 12px;
+}
+
+.classes-arrows .right-class-arrow {
+    width: 60px;
+    height: 60px;
+    background-position: -152px -278px;
+    display: inline-block;
+    position: absolute;
+    left:122px;
+    -ms-transform: rotate(3deg); /* IE 9 */
+    -webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
+    transform: rotate(3deg);
+}
+
+.clases-help-content p {
+    font-size: 1.2666666666666667em; 
+}
+
+.return-icon-position {
+    top: 0px;
+    right: 0px;
+    width: 100%;
+}
+
+.return-menu-arrow {
+    background-position: -75px -278px;
+    width: 30px;
+    height: 60px;
+    position: relative;
+    left: 20px;
+    top: -12px;
+    -ms-transform: rotate(-88deg); /* IE 9 */
+    -webkit-transform: rotate(-88deg); /* Chrome, Safari, Opera */
+    transform: rotate(-88deg);
+}
+
+.return-content {
+    position: absolute;
+    top: 3px;
+    left: 74px;
+    width: 200px;
+}
+
+.help-tabs {
+    visibility: hidden;
+}
+
+.help-container.help-classes main {
+    background-color: transparent;
+}
+
+/* End of Classes help css */
+
+
+@media screen and (min-width:768px) and (max-width:992px) {
+
+    .clases-help-content  {
+        right: 40px;
+    }
+
+    .classes-arrows .left-class-arrow {
+        left: -50px;
+    }
+
+    .classes-arrows .right-class-arrow {
+        left: 122px;
+    }
+}
+
+@media screen and (min-width:991px) and (max-width:1024px) {
+    .card-position {
+        top: 84px;
+        left: 32px;
+    }
+
+    .meal-plan-position {
+        top: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .user-icon-position {
+        right: -22px;
+    }
+    
+    .notification-position {
+        left: -44px;
+    }
+
+    .help-classes ~ .close-container .close-button {
+        position: absolute;
+        bottom: 20px;
+        left: 77%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+
+    .help-container .hamburgerMenu {
+        display: inline-block;
+        position: absolute;
+    }
+
+    .menu-icon-position {
+        top: 39px;
+    }
+
+    .menu-content {
+        position: relative;
+        top: -8px;
+    }
+
+    .main-menu-arrow {
+        -ms-transform: rotate(-34deg); /* IE 9 */
+        -webkit-transform: rotate(-34deg); /* Chrome, Safari, Opera */
+        transform: rotate(-34deg);
+    }
+
+    .card-position {
+        top: 90px;
+        left: 26px;
+    }
+
+    .card-content .well-title {
+        font-size: 1.7333em;
+    }
+
+    .card-arrow {
+        left: 177px;
+        top: -42px;
+        -ms-transform: rotate(91deg); /* IE 9 */
+        -webkit-transform: rotate(91deg); /* Chrome, Safari, Opera */
+        transform: rotate(91deg);
+    }
+
+    .card-content .well-title, .help-container .help-card-caption {
+        text-align: center;
+    }
+        
+}
+
+@media screen and (min-width:992px) and (max-width:1024px) {
+    .card-arrow {
+        left: 177px;
+        top: -42px;
+        -ms-transform: rotate(91deg); /* IE 9 */
+        -webkit-transform: rotate(91deg); /* Chrome, Safari, Opera */
+        transform: rotate(91deg);
+    }
+    
+    .card-content .well-title, .help-container .help-card-caption {
+        text-align: center;
+        max-width: 293px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .meal-plan-arrow {
+        left: 10px;
+        top: 12px;
+    }   
+    
+    .close-container {
+        top: 34px;
+    }
+
+    .show-mobile {
+        display: block;
+    }
+    
+    .hide-mobile,
+    .meal-plan-doller .imageHide ~ .meal-plan-position {
+        display: none;
+    }
+    
+    .show-mobile .meal-plan-arrow {
+        left: 88px;
+    }
+
+    .close-container {
+        top: 1px;
+    }
+    
+    .user-icon-position {
+        right: -15px;
+    }
+
+    .notification-position {
+        left: -44px;
+    }
+    
+    .clases-help-content {
+        top: -20px;
+        left: auto;
+        right: auto;
+        max-width: 100%;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .classes-arrows .right-class-arrow {
+        left: 122px;
+    }
+
+    .classes-arrows .left-class-arrow {
+        left: -50px;
+    }
+}
+
+
+@media screen and (min-width: 560px) and (max-width:767px) {
+
+    .meal-plan-arrow {
+        left: 34px;
+        top: 14px;
+    }
+
+    .card-position {
+        top: 25px;
+        left: 54px;
+    }
+
+    .card-content .well-title, .help-container .help-card-caption {
+        max-width: 420px;
+    }
+
+     .clases-help-content {
+        top: -20px;
+        left: auto;
+        right: auto;
+        margin-right: 15px;
+        margin-left: 15px;
+        max-width: 100%;
+    }
+
+    .classes-arrows .right-class-arrow {
+        left: 186px;
+    }
+
+    .classes-arrows .left-class-arrow {
+        left: -120px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .card-content .well-title {
+        font-size: 1.3333em;    
+    }
+
+    .card-content {
+            max-width: 220px;
+    }
+}

@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -18,13 +20,6 @@ Object.assign(exports, {
     publicPath: '/'
   },
   module: {
-    /*preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/
-      }
-    ],*/
     loaders: [
       {
         test: /\.js?$/,
@@ -33,23 +28,10 @@ Object.assign(exports, {
       },
       {
         test: /\.css$/,
-        //exclude: /node_modules/,
-        /*loaders: [
-          'style-loader',
-          'css-loader?modules&importLoaders=1&sourceMap'
-          //'postcss-loader' Malappa removed for loader issue while building
-        ]*/
-        loader: 'style-loader!css-loader'
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       {
-        test: /node_modules\/.*\.css$/,
-        loaders: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
-        test: /\.(png|gif|jpe?g|svg)$/,
+        test: /\.(img|png|gif|jpe?g|svg)$/i,
         loaders: ['url-loader']
       },
       {
@@ -57,6 +39,7 @@ Object.assign(exports, {
         loader: 'json-loader'
       }
     ]
+
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -66,7 +49,8 @@ Object.assign(exports, {
     }),
     new CopyWebpackPlugin([
       { from: `${__dirname}/app/assets`, to: `${__dirname}/build/assets` },
-      { from: `${__dirname}/app/mock_data`, to: `${__dirname}/build/mock_data` },
+      { from: `${__dirname}/app/topLevelSearch/constants`, to: `${__dirname}/build/topLevelSearch/constants` },
+      { from: `${__dirname}/app/mock_data/libraryInformation.json`, to: `${__dirname}/build/mock_data/libraryInformation.json` },
       { from: `${__dirname}/app/locales`, to: `${__dirname}/build/app/locales` }
     ]),
     new HtmlWebpackPlugin({
@@ -84,11 +68,12 @@ Object.assign(exports, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: '[name].[hash].js'
-    })
+    }),
+    new ExtractTextPlugin('[name].css'),
+    new OptimizeCssAssetsPlugin()
   ]
 });
-console.log("=======>"+isProduction);
-if (isProduction==='production') {
+if (isProduction === 'dev' || isProduction === 'production' || isProduction === 'test') {
   Object.assign(exports, {
     bail: true,
     devtool: 'source-map',

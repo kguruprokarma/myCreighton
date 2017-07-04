@@ -3,13 +3,14 @@
 */
 
 import React from 'react';
+import { Col } from 'react-bootstrap';
 import { translateText } from '../../../common/translate';
 
 const dining = (diningProps) => (
-  <div>
-    <span className='jbvalue openSansLight'><span className='meal-doller'>$</span>{diningProps.diningCount}</span>
-    <span className='jbText openSansBold'>{translateText('common:MEAL_PLAN_DINING')}</span>
-  </div>
+  <Col xs={12}>
+    <div className='jbText text-center openSansBold'>{translateText('common:MEAL_PLAN_DINING')}</div>
+    <div className='jbvalue text-center openSansLight'><span className='meal-doller'>$</span>{parseFloat(diningProps.diningCount).toFixed(2)}</div>   
+  </Col>
 );
 
 export default dining;

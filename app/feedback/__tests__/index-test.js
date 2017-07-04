@@ -15,6 +15,7 @@ describe('Feedback ----->', () => {
     popUpOpen: () => {},
     resetStatus: () => {},
     resetFeedback: () => {},
+    handleSubmit: () => {},
     feedbackResponseData: {
       status: 200
     },
@@ -30,10 +31,10 @@ describe('Feedback ----->', () => {
     feedback.instance().postFeedback();
   });  
   it('Feedback addMessage is defined', () => {
-    feedback.instance().addMessage({target: {value: 'usman'}});
+    feedback.instance().addMessage({target: {value: 'Adam'}});
   });  
   it('Feedback selectSubject is defined', () => {
-    feedback.instance().selectSubject({target: {value: 'usman'}});
+    feedback.instance().selectSubject({target: {value: 'Adam'}});
   });  
   it('Feedback resetFeedback is defined and working', () => {
     feedback.instance().resetFeedback();

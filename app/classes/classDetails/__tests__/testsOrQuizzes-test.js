@@ -15,4 +15,12 @@ describe('TestsOrQuizzes component testing ----->', () => {
     const testsOrQuizzes = shallow( < TestsOrQuizzes {...defaultProps} />);
     expect(testsOrQuizzes).toBeDefined();
   });
+
+  it('TestsOrQuizzes null data checking', () => {
+    const defaultProps = {
+      data: ''
+    };
+    const testsOrQuizzes = shallow( < TestsOrQuizzes {...defaultProps} />);
+    expect(testsOrQuizzes).toBeDefined();
+  });
 });

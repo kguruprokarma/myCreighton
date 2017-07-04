@@ -29,6 +29,7 @@
 
 .libraryDataHeading {
     text-transform: uppercase;
+    font-size: 1.2em;   /* font size 18 in pixel */
 }
     
 .btn-group .btn-group.librarySearch {
@@ -48,17 +49,18 @@
 .btn.btn-default.libraryButton:focus,
 .btn.btn-default.libraryButton.active:hover,
 .btn.btn-default.libraryButton.active:active,
-.btn.btn-default.libraryButton.active:focus  {
+.btn.btn-default.libraryButton.active:focus {
     outline: 0;
     box-shadow: none;
     background-color: #019cdb;
     color: #fff;
 }
 
-.btn.btn-default.libraryButton.active  {
+.btn.btn-default.libraryButton.active {
     background-color: #019cdb;
     box-shadow: none;
     color: #fff;
+    z-index: 0;
 }
 
 .bookmarkContainer {
@@ -104,11 +106,25 @@
     box-shadow: none;
     font-family: 'open_sanslight', sans-serif;
 }
+
 .textPadding {
     padding: 8px 16px;
 }
 
-@media screen and (max-width: 769px) {
+.more-links li{
+    border-right: 1px solid #313131;
+    line-height: 1em;
+    padding-right: 10px;
+    margin-right: 5px;
+}
+
+.more-links li:last-child{
+    border-right: 0;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+@media screen and (max-width: 767px) {
 
     .libraryLinks {
         text-align: center;
@@ -135,6 +151,7 @@
     .librarySearchBtn  {
         margin-top: 5px;
     }
+    
     .libraryGuideContent .librarySearchBtn {
         margin-top: 0;
     }

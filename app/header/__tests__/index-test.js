@@ -8,7 +8,7 @@ describe('Header component testing ----->', () => {
     showPatch: () => { },
     navClick: () => { },
     popUpData: false,
-    navOpen: () => {},
+    navOpen: () => { },
     popUpOpen: () => { },
     goBack: () => { },
     showNav: false,
@@ -18,10 +18,26 @@ describe('Header component testing ----->', () => {
     filterPopUpOpen: () => { },
     popUpClose: () => { },
     navClose: () => { },
-    //window.onhashchange: () => { },
-    currentState: '/dashboard'
+    currentState: '/dashboard',
+    notificationData: [
+      {
+        'type': 'Security Alert',
+        'description': 'Person(s) reported checking for unlocked cars in main student parking lot.',
+        'date': new Date()
+      },
+      {
+        'type': 'Undergraduate Change',
+        'description': 'The application to the Registrar’s Office for changing from your major has been approved.',
+        'date': new Date()
+      },
+      {
+        'type': 'Low Balance Alert',
+        'description': 'Your JayBucks account is very low. You may want to add funds to this account soon.',
+        'date': new Date()
+      }
+    ]
   };
-  window.onhashchange= jest.fn( () => true);
+  window.onhashchange = jest.fn(() => true);
   const HeaderC = shallow(<Header {...defaultProps} />);
   it('Header is defined', () => {
     expect(HeaderC).toBeDefined();
@@ -32,7 +48,7 @@ describe('Header component testing ----->', () => {
     HeaderC.instance().goBack();
     HeaderC.instance().showPopUp();
     HeaderC.instance().showFilterPopUp();
-    HeaderC.instance().navClick();    
+    HeaderC.instance().navClick();
   });
   it('Header should contain Title components', () => {
     const changedProps = Object.assign({}, defaultProps, {
@@ -47,6 +63,6 @@ describe('Header component testing ----->', () => {
     HeaderC1.instance().goBack();
     HeaderC1.instance().showPopUp();
     HeaderC1.instance().showFilterPopUp();
-    HeaderC1.instance().navClick();    
+    HeaderC1.instance().navClick();
   });
 });

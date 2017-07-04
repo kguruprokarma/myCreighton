@@ -23,10 +23,8 @@ export function advisorNameRender(advisorFullName) {
   return advisorName;
 }
 
-// <BasicRow displayName={translateText('common:PROFILE_NAME')} displayValue={academicProps.json.advisor ? `${academicProps.json.advisor.first_name} ${academicProps.json.advisor.last_name}` : ''} />
-
 const AcademicStatus = (academicProps) => (
-  <article role='article' className='profileRow mt30'>
+  <article className='profileRow mt30'>
     <h2 className='dataHeading openSansRegular'>{translateText('common:PROFILE_ADVISOR_INFO')}</h2>
     <BasicRow displayName={translateText('common:PROFILE_NAME')} displayValue={academicProps.json.advisor ? advisorNameRender(academicProps.json.advisor) : ''} />
     <BasicRow displayName={translateText('common:PROFILE_AREA')} displayValue={academicProps.json.advisorDetail ? academicProps.json.advisorDetail.area : ''} />
@@ -37,7 +35,6 @@ const AcademicStatus = (academicProps) => (
       </Col>
     </Row>
     <BasicRow displayName={translateText('common:PROFILE_OFFICE_HOURS')} displayValue={academicProps.json.advisorDetail ? `${academicProps.json.advisorDetail.officeHours.startTime} - ${academicProps.json.advisorDetail.officeHours.endTime}., ${academicProps.json.advisorDetail.officeHours.weekDays}` : ''} />
-    {/* Mailto added for open mail box popup */}
     <Row className='show-grid pt5 pb5'>
       <Col xs={4} md={3} sm={4} className='labelField openSansLight'><label htmlFor='Profile Email'>{translateText('common:PROFILE_EMAIL')}</label></Col>
       <Col xs={8} md={9} sm={8} className='dataField emailAddress wordBreak'>

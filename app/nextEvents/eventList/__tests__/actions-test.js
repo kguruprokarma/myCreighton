@@ -101,11 +101,7 @@ describe('Next Event actions testing', () => {
     moxios.stubRequest(`${urlConstants.DEV_URL_CREIGHTON_ADFS + urlConstants.ADFS}${urlConstants.ASSIGNMENT}`, {
       status: 200,
       response: data
-    });
-    // moxios.stubRequest(urlConstants.ASSIGNMENTS_API, {
-    //   status: 200,
-    //   response: data
-    // });
+    });    
     const expectedActions = [
       { type: types.REQUEST_EVENTS_DATA },
       { type: types.RECEIVE_EVENTS_DATA, data: data }
@@ -130,10 +126,6 @@ describe('Next Event actions testing', () => {
       status: 404,
       responseText: 'error'
     });
-    // moxios.stubRequest(urlConstants.ASSIGNMENTS_API, {
-    //   status: 404,
-    //   responseText: 'error'
-    // });
     const expectedActions = [
       { type: types.REQUEST_EVENTS_DATA },
       { type: types.RECEIVE_EVENTS_DATA_ERROR, data: 'error' }

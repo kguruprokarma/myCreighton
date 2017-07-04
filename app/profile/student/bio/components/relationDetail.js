@@ -15,7 +15,7 @@ class RelationDetail extends React.Component {
     const props = this.props;
     const parentOrGuardian = getParentorGuardian(props.dateOfBirth);
     return (
-      <article role='article' className='profileRow mt30 mt30'>
+      <article className='profileRow mt30 mt30'>
         <h2 className='dataHeading openSansRegular'>{translateText('common:IF_NOT_AGE_OF_MAJORITY')}</h2>
         <div className='control-group'>
           <label htmlFor='parent' className='control control-checkbox labelField noclons'>

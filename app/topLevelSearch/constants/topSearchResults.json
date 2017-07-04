@@ -1,0 +1,1590 @@
+{
+    "common": [
+        {
+            "name": "Dashboard",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Quick Launch",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Campus Directory",
+            "description": "Campus directory",
+            "url": "/campusdirectory/simple"
+        },
+        {
+            "name": "Library search",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "School & Semester",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Feedback",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Mission and ministry",
+            "description": "What I need to do.",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Mission and ministry",
+            "description": "Mission and ministry",
+            "url": "/missionandministry"
+        },
+        {
+            "name": "DoIT Services & Support",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Notifications",
+            "description": "notifications",
+            "url": "/notifications"
+        },        
+        {
+            "name": "Quick Launch",
+            "description": "Quick Launch ",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "Office 365",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "Jaybuck$",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "BlueCafe",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "BlueLine",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "Nest",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "BlueTrain",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "BlueQ",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "DoIt Newsletters",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "Libraries",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "Calendar",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "Employee Benefits",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "HR Self-Service",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "Breakfast Bytes",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "SimplyWell",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "DoIT Cab",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "myHR",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },
+        {
+            "name": "myIT",
+            "description": "Quick launch",
+            "url": "/quicklaunch"
+        },        
+        {
+            "name": "Simple Search",
+            "description": "Campus directory",
+            "url": "/campusdirectory/simple"
+        },
+        {
+            "name": "Advanced Search",
+            "description": "Campus directory",
+            "url": "/campusdirectory/advancesearch"
+        },
+        {
+            "name": "Library Search",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "JaySearch",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "e-Journals",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Library Guides",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Databases",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Browse JaySearch",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Advanced JaySearch",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Reinert-Alumni Library",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Health Sciences Library",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Law Library",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Reference",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Circulation",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Main",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Text",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Automated attendant",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Chat",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "MORE",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Admin",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "2500 California Plz, Omaha, NE 60179",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Library hours",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "1234 Creighton St, Omaha, NE 60179",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Ahmanson Law Center, 2nd floor 2100 Cass St, Omaha, NE 60179",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Access to resources requires Creighton login or other login credentials",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Browse Health Sciences databases",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Browse Reinert-Alumni databases",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "Browse all databases",
+            "description": "Library search",
+            "url": "/librarysearch"
+        },
+        {
+            "name": "SWIPES",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "GUEST",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "DINING",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "JAYBUCK$",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "PRINT$",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Site",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Mission And Ministry",
+            "description": "Mission And Ministry",
+            "url": "/missionandministry"
+        },
+        {
+            "name": "Description",
+            "description": "Mission And Ministry",
+            "url": "/missionandministry"
+        },
+        {
+            "name": "Daily Reflection",
+            "description": "Mission And Ministry",
+            "url": "/missionandministry"
+        },
+        {
+            "name": "Mission and Ministry",
+            "description": "Mission and Ministry",
+            "url": "/missionandministry"
+        },
+        {
+            "name": "Schlegel Center for Service & Justice",
+            "description": "Mission And Ministry",
+            "url": "/missionandministry"
+        },
+        {
+            "name": "Campus Ministry",
+            "description": "Mission And Ministry",
+            "url": "/missionandministry"
+        },
+        {
+            "name": "Collaborative Ministry",
+            "description": "Mission And Ministry",
+            "url": "/missionandministry"
+        },
+        {
+            "name": "Creighton University Retreat",
+            "description": "Mission And Ministry",
+            "url": "/missionandministry"
+        },
+        {
+            "name": "Next Events",
+            "description": "Next Events",
+            "url": "/eventlist"
+        },
+        {
+            "name": "Feedback",
+            "description": "Feedback",
+            "url": "/feedback"
+        },
+        {
+            "name": "Select topic",
+            "description": "Feedback",
+            "url": "/feedback"
+        },
+        {
+            "name": "Please provide your feedback in the space below",
+            "description": "Feedback",
+            "url": "/feedback"
+        },
+        {
+            "name": "Emergency Contact",
+            "description": "Information about your contact information and other that may need to be contacted.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Other Contact Details",
+            "description": "Information about your contact information and other that may need to be contacted.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Academic Interests",
+            "description": "We strive to be the other education, in which students are able to discover their interests and potential, develop into mature leaders and deliver or give of themselves wholly to the world around them, both at Creighton and beyond.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Health Insurance Waiver",
+            "description": "Student Health Insurance Plan will remain on the student’s account unless the waiver process is completed.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Immunization Records",
+            "description": "Creighton University has immunization requirements for all students registered for classes on campus to protect the health and well-being of our campus community.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "FERPA",
+            "description": "Family Educational Rights and Privacy Act (FERPA). Information about students or former students will not be released without the consent of the student other than in the exceptions stated in the Federal Act.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Parents Weekend",
+            "description": "It’s an ideal time for you to tour campus, see old friends, visit with current students and your favorite faculty members and, of course, cheer on the Bluejays!",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Statement of Financial Responsibility",
+            "description": "Financial Application to become a student.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Accept Financial Aid Award",
+            "description": "Logging into your NEST to accept/decline the aid offer.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Load Dining Dollars",
+            "description": "This is a service that is supported by University Food Services.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Load JayBuck$",
+            "description": "Use this link to reload your Jay Bucks$.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Sign Housing Contact",
+            "description": "Link to sign your Housing Contract.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Lottery enrollment",
+            "description": "Link to see available living spaces.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Find a Roommate",
+            "description": "How to find, search and verify potential roommates.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Identify a Roommate",
+            "description": "How to find, search and verify potential roommates.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Verify a Roommate",
+            "description": "How to find, search and verify potential roommates.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Select a Meal Plan",
+            "description": "The following resource lists meal plan options for students attending Creighton University.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Update a Meal Plan",
+            "description": "The meal plans must be changed or selected within the first two weeks of every semester so please be aware of time sensitivity.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Service Trips",
+            "description": "Agreement needed with Creighton before you participate in a Service Trip",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Register for Classes",
+            "description": "Link to register for classes.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Enrollment Override - Prerequisites",
+            "description": "You have the option to seek an Override when you get a Registration Error.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Enrollment Override - Class Size",
+            "description": "You have the option to seek an Override when you get a Registration Error.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Drop or Add Classes",
+            "description": "You may change your schedule on your NEST account through the Add and Drop deadlines.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Course Registration Minimum",
+            "description": "Advance Planning Simplifies Your Registration Process.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Pay Tuition",
+            "description": "Information on how to pay your tuition.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Outstanding Fees and Holds",
+            "description": "Information on how to pay fees and holds.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "My Promissory Notes",
+            "description": "The instructions below will assist you in the electronic procedure for signing your Master Promissory Note (MPN)",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "My Current Class Schedule",
+            "description": "View the course schedule for that term.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Textbooks for Registered Classes",
+            "description": "Review our course schedules and textbook requirements for the current and upcoming terms.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Creighton Bookstore",
+            "description": "Links to all information on the Creighton Bookstore.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Change Undergraduate College",
+            "description": "Request application to the Registrar’s Office for changing from your major and current undergraduate college to a different college on campus.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Leave of Absence",
+            "description": "Request a short-term leave of absence (1 or 2 semesters) for full-time students with a cumulative of GPA 2.00 or above.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Withdrawal - Apply for Approval",
+            "description": "Details on how to withdraw from classes.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Withdrawal - Return Title 4 Funds",
+            "description": "Students withdrawing before the end of a semester need to understand potential tuition and recurring fees.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Apply for a Major",
+            "description": "Information about available majors and colleges at Creighton.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "My Incompletes",
+            "description": "An Incomplete (grade of “I”) may be given to a student who is unable to fulfill all requirements of a course due to extenuating circumstances",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Request a Tutor",
+            "description": "Academic Success provides free peer tutoring in a wide variety of courses.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Request Academic Support",
+            "description": "Information about the different options for adademic assistance.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "My Current Semester Scores",
+            "description": "Links for the grade information.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "My Current Semester GPA",
+            "description": "Link for GPA.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "View Progress Towards Graduation",
+            "description": "Students who complete their degrees in the Spring Semester are expected to be present at Commencement to receive their degrees.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "View Dismissal/Expulsion Record",
+            "description": "Creighton University's policy relating to the confidentiality and privacy of student education records is in keeping with the Family Educational Rights and Privacy Act (FERPA).",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Request Academic Standing Record",
+            "description": "Link to registar links to request your Academic Standing.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Request Enrollment Verification",
+            "description": "Creighton University has authorized the National Student Clearinghouse to provide enrollment and degree verifications",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Request Degree Verification",
+            "description": "Creighton University has authorized the National Student Clearinghouse to provide enrollment and degree verifications.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Request Transcript",
+            "description": "Current or former students may request transcripts in one of several wqays.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Current Semester Milestones",
+            "description": "Link to all couse catalogs.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "School of Pharmacy",
+            "description": "A career in pharmacy allows you to make a difference in the health and well being of the individuals you serve.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Pay Damage Bill",
+            "description": "Methods for paying any damage claims.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Pay Desk Fee",
+            "description": "Options for paying fees such as desk fees, etc.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Pay Conduct Fee",
+            "description": "Options for paying fees such as desk fees, etc.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Pay Parking Fee",
+            "description": "How to get a parking permit and details for its use.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Past-due Tuition",
+            "description": "Options for paying past due tuition and details that affect payment.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "How Much Do I Owe?",
+            "description": "Answers to all your billing questions",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Load Dining Dollars",
+            "description": "This is a service that is supported by University Food Services.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Load JayBuck$",
+            "description": "Use this link to reload your Jay Bucks$.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Load Print Credits",
+            "description": "Load more funds available for printing on campus.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "FAFSA",
+            "description": "Creighton University Online uses the FAFSA (Free Application for Federal Student Aid) to determine award amounts.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Financial Aid",
+            "description": "Creighton University offers a Financial Aid program to suit the needs of almost everyone because finding a way to pay for school can be a concern for many people.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Federal Work Study",
+            "description": "Federal Work Study (FWS) is a need-based employment program",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Change Loan Amount",
+            "description": "Low-interest loans for educational expenses are available to students and families",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "ParentPlus Loan",
+            "description": "The Federal Direct PLUS Loan assists eligible parents in meeting educational expenses of their dependent student.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Financial Status Change",
+            "description": "A more detailed discussion of these policies is found in the University Registrar's bulletins. These publications contain the official University statement on the specific policies outlined below.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "My Work Study",
+            "description": "Each year over 2,600 Creighton students help meet their educational expenses by working here at Creighton, both through the Federal Work Study program and University funded employment.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Work Study Opportunities",
+            "description": "Information about jobs at Creighton and detail needed before you beign your employment.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Campus Clubs",
+            "description": "If there’s one thing you can do at Creighton, it’s everything. Everyone can join in the fun: traditional undergrads, grad students, adult and professional students.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Academic Interests",
+            "description": "We strive to be the other education, in which students are able to discover their interests and potential, develop into mature leaders and deliver or give of themselves wholly to the world around them, both at Creighton and beyond.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Service Opportunities",
+            "description": "At Creighton University, our students, faculty and staff are committed to a spirit of service on campus and beyond.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Service Trips",
+            "description": "Agreement needed with Creighton before you participate in a Service Trip",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Report a Facilities Problem",
+            "description": "Link to Creighton Facilities request process.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "File a Dorm Work Order",
+            "description": "Service Request Form",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Current Semester End Milestones",
+            "description": "Information on Semester Milestones for every program",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Future Semester End Milestones",
+            "description": "Information on Semester Milestones for every program",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Grade Changes",
+            "description": "Information on Grade Changes",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "My Grade Appeals",
+            "description": "The student has the right to appeal a grade that the student believes to be in error",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Current Semester Final Grades",
+            "description": "Information on grades including final grades",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Apply for Graduation",
+            "description": "How to apply for graduation",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Career Survey",
+            "description": "The following career assessments focus on a variety of different areas",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Remove Holds",
+            "description": "Answers to holds questions",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "View Progress Toward Graduation",
+            "description": "Students who complete their degrees in the Spring Semester are expected to be present at Commencement to receive their degrees.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "GPA Calculator",
+            "description": "Pre-Health Advising BCPM Calculator Form",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Current Semester Graduation Dates",
+            "description": "Dates for the current Graduation Commencement",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Future Semester Graduation Dates",
+            "description": "Information concerning future graduation dates",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Semester Start",
+            "description": "School and Semester",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Class Registration",
+            "description": "School and Semester",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Academics",
+            "description": "School and Semester",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Finances",
+            "description": "School and Semester",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Student Life",
+            "description": "School and Semester",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Semester End",
+            "description": "School and Semester",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Graduation",
+            "description": "School and Semester",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "When Do I Graduate?",
+            "description": "Determine your graduation schedule; apply for graduation. View and plan for future graduation.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Finals and Grades",
+            "description": "View finals schedule. When the semester is over, view grades, request grade changes or appeals.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Campus Involvement and Facilities Requests",
+            "description": "Get involved in student activities. Report a facility problem or file a dorm work order.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "My School Expenses and Income",
+            "description": "Pay bills, load money, and get money for school.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "School Tasks and Activities",
+            "description": "Frequent functions and information needed during the semester",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Select and Pay for Classes",
+            "description": "Create your class schedule for the current semester, pay your tuition, and see the required textbooks and materials are need for you classes.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Be Ready for School",
+            "description": "Review and complete the items in this list to make sure you have the basic things needed to begin a successful academic year.",
+            "url": "/schoolsandsemester"
+        },
+        {
+            "name": "Site map",
+            "description": "Site map",
+            "url": "/sitemap"
+        }
+    ],
+    "student": [        
+        {
+            "name": "Campus Directory",
+            "description": "Dashboard",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Next Events",
+            "description": "What I need to be ready for.",
+            "url": "/dashboard"
+        },
+        {
+            "name": "My Profile",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Academic",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "LEGAL NAME",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "First",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Middle",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Last",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "HOME ADDRESS",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Street 1",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Street 2",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "City",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "State",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "ZIP code",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "SCHOOL ADDRESS",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "PRIMARY CONTACT",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Phone",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "EMERGENCY CONTACT",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "First name",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Last name",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Relationship",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "EMAIL",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "School",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Personal",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "OTHER",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Birthdate",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "NetID",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "IF NOT AGE OF MAJORITY",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Parent",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "Guardian",
+            "description": "My Profile",
+            "url": "/profile"
+        },
+        {
+            "name": "ACADEMIC STATUS",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Major",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Minor",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Class",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Academic Ranking",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Enrollment",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Disciplinary",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "ADVISOR INFORMATION",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Name",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Area",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Office",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Office hours",
+            "description": "Academic",
+            "url": "/academic"
+        },
+        {
+            "name": "Email",
+            "description": "Academic",
+            "url": "/academic"
+        },        
+        {
+            "name": "Class Schedule",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Class Schedule",
+            "description": "Class Schedule",
+            "url": "/classes/today"
+        },
+        {
+            "name": "Class Schedule",
+            "description": "Class Schedule",
+            "url": "/classes/list"
+        },
+        {
+            "name": "Week",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Online Classes",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Monday",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Tuesday",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Wednesday",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Thursday",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Friday",
+            "description": "Class Schedule",
+            "url": "/classes/week"
+        },
+        {
+            "name": "Online Classes",
+            "description": "Class Schedule",
+            "url": "/classes/today"
+        },
+        {
+            "name": "Today",
+            "description": "Class Schedule",
+            "url": "/classes/today"
+        },
+        {
+            "name": "A-Z",
+            "description": "Class Schedule",
+            "url": "/classes/list"
+        }        
+    ],
+    "staff": [
+        {
+            "name": "Campus Directory",
+            "description": "Online directory of Creighton staff.",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Next Events",
+            "description": "My lists of what needs to be done and when.",
+            "url": "/dashboard"
+        },
+        {
+            "name": "My Profile",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "LEGAL NAME",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "First",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Middle",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Last",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "HOME ADDRESS",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Street 1",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Street 2",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "City",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "State",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "ZIP code",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "SCHOOL ADDRESS",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "MAILING ADDRESS",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "PRIMARY CONTACT",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Phone",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "EMERGENCY CONTACT",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "First name",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Last name",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Relationship",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "EMAIL",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "School",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Personal",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "OTHER",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Birthdate",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "NetID",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Employee no.",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Marital status",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Spouse",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Dependents",
+            "description": "My Profile",
+            "url": "/staff/profile"
+        },
+        {
+            "name": "Professional",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "BUSINESS INFORMATION",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "Title",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "Organization",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "Department",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "Reports to",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "Hire date",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "Payroll",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "Assign. no.",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "PROFESSIONAL DEVELOPMENT",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "Expertise/skills",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "Applications/tools",
+            "description": "Professional",
+            "url": "/staff/professional"
+        },
+        {
+            "name": "Group(s)",
+            "description": "Professional",
+            "url": "/staff/professional"
+        }
+    ],
+    "faculty": [
+        {
+            "name": "Campus Directory",
+            "description": "Online directory of Creighton staff.",
+            "url": "/dashboard"
+        },
+        {
+            "name": "Next Events",
+            "description": "My lists of what needs to be done and when.",
+            "url": "/dashboard"
+        },
+        {
+            "name": "My Profile",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Academic",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "LEGAL NAME",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "First",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Middle",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Last",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "HOME ADDRESS",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Street 1",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Street 2",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "City",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "State",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "ZIP code",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "SCHOOL/OFFICE ADDRESS",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "MAILING ADDRESS",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "PRIMARY CONTACT",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Phone",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "EMERGENCY CONTACT",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "First name",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Last name",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Relationship",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "EMAIL",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "School",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Personal",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "OTHER",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Birthdate",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "NetID",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Employee no.",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Marital status",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Spouse",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "Dependents",
+            "description": "My Profile",
+            "url": "/faculty/profile"
+        },
+        {
+            "name": "APPOINTMENT",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "Department",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "School",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "Status",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "OFFICE INFORMATION",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "Location",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "Office hours",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "INSTRUCTION",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "Credit hours",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "Current courses",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "Past courses",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        },
+        {
+            "name": "Teaching assistants",
+            "description": "Academic",
+            "url": "/faculty/academic"
+        }
+    ]
+}

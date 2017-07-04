@@ -84,15 +84,8 @@ describe('LibraryInformation Test Suite', () => {
     expect(libraryInformation.find('LibraryTabs').length).toBe(1);
   });
 
-  // it('Test setTabindex, scrollToPosition functions', () => {
-  //   libraryInformation.instance().setTabindex('header');
-  //   libraryInformation.instance().scrollToPosition();
-  // });
-  //
-  // it('Test scrollReinertAlumni,scrollHealthScience,scrollLaw functions', () => {
-  //   libraryInformation.instance().scrollReinertAlumni();
-  //   libraryInformation.instance().scrollHealthScience();
-  //   libraryInformation.instance().scrollLaw();
-  // });
+  it('Link', () => {
+    libraryInformation.find('Link').at(0).simulate('click');
+  });
 });
 

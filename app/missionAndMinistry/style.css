@@ -13,6 +13,7 @@
 .school-and-semester .semester-internal-nav {
     display: none;
 }
+
 .school-and-semester .semester-internal-data {
     width: 100%;
 }
@@ -33,7 +34,7 @@
 }
 
 .semester-sub-title {
-    font-size: 1.8em;;
+    font-size: 1.8em;
     line-height: 1.8;
 }
 
@@ -55,9 +56,10 @@
     padding-top:10px;
     padding-bottom: 10px;
 }
+
 .accord-title:hover,
 .accord-title:focus,
-.accord-title:active{
+.accord-title:active {
     background-color: #f1f1f1;
     border-top: 1px solid #dbdbdd;
 }
@@ -71,8 +73,7 @@
     border-color: #dbdbdd; 
 }
 
-.main-list-group.accordian-list-data .list-group-item:hover,
-{
+.main-list-group.accordian-list-data .list-group-item:hover {
     cursor: pointer;
 }
 
@@ -129,7 +130,9 @@
 }
 
 /* Media for small devices */
+
 @media screen and (max-width: 767px) {
+    
     .school-and-semester  .semester-links {
         margin-left:-15px;
         margin-right: -15px;
@@ -137,8 +140,5 @@
     
     .main-list-group {
         margin-top: 0;
-    }
-    .semester-internal-data {
-        padding-top: 20px;
     }
 }

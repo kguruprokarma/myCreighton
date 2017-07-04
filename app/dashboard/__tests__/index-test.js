@@ -9,6 +9,10 @@ import '../../__mock_i18n__/i18n_mockKeys';
 const studentdefaultProps ={
   getUserDetailsData: () => {},
   getStudentProfileData: () => {},
+  getMealPlanData: () => {},
+  openMealPlan: () => {},
+  closeMealPlan: () => {},
+  onClick: () => {},
   userDetailsData: {
     'userName': {
       'firstName': 'Gary',
@@ -27,12 +31,17 @@ const studentdefaultProps ={
     }}]
   },
   'params': {
-    'roletype': 'Student'
+    'roletype': 'student'
   }
 };
 const staffdefaultProps ={
   getUserDetailsData: () => {},
   getStaffProfileData: () => {},
+  openMealPlan: () => {},
+  closeMealPlan: () => {},
+  getMealPlanData: () => {},
+  loading: true,
+  mealPlanView: true,
   userDetailsData: {
     'userName': {
       'firstName': 'Gary',
@@ -41,17 +50,44 @@ const staffdefaultProps ={
       'fullName': 'Gary Brady'
     },
     'userImageURL': '',
-    'userRole': 'Student'
+    'userRole': 'staff'
   },
   profileData: {
     data: [{'staff_name': {
       'first_name': 'John',
       'last_name': 'Edward',
-      'userRole': 'Student'
+      'userRole': 'staff'
     }}]
   },
   'params': {
-    'roletype': 'Student'
+    'roletype': 'staff'
+  }
+};
+
+const facultydefaultProps ={
+  getUserDetailsData: () => {},
+  getFacultyProfileData: () => {},
+  getMealPlanData: () => {},
+  openMealPlan: () => {},
+  userDetailsData: {
+    'userName': {
+      'firstName': 'Gary',
+      'middleName': 'G',
+      'lastName': 'Brady',
+      'fullName': 'Gary Brady'
+    },
+    'userImageURL': '',
+    'userRole': 'faculty'
+  },
+  profileData: {
+    data: [{'staff_name': {
+      'first_name': 'John',
+      'last_name': 'Edward',
+      'userRole': 'faculty'
+    }}]
+  },
+  'params': {
+    'roletype': 'faculty'
   }
 };
 
@@ -61,36 +97,21 @@ const studentdashboard = shallow(<Dashboard {...studentdefaultProps} />);
 describe('studentdashboard Test Suite', () => {
   it('should provide i18n context', () => {
     expect(studentdashboard).toBeDefined();
-  });
-
-  it('studentdashboard component UserDetail is there or not', () => {
-    expect(studentdashboard.find('userDetail').length).toBe(1);
-  });
-
-  it('studentdashboard component ToggleMealPlan is there or not', () => {
-    expect(studentdashboard.find('toggleMealPlan').length).toBe(1);
-  });
-
-  it('studentdashboard component MealPlanView is there or not', () => {
-    expect(studentdashboard.find('mealPlanView').length).toBe(0);
+    studentdashboard.instance().onClick();
   });
 
   localStorage.setItem('roleInfo', JSON.stringify({'userRole': 'staff'}));
   const staffdashboard = shallow(<Dashboard {...staffdefaultProps} />);
-  it('should provide i18n context', () => {
-    expect(staffdashboard).toBeDefined();
-  });
 
-  it('staffdashboard component UserDetail is there or not', () => {
-    expect(staffdashboard.find('userDetail').length).toBe(1);
-  });
+  it('staffdashboard onClick is there or not', () => {
+    staffdashboard.instance().onClick();
+  });  
 
-  it('staffdashboard component ToggleMealPlan is there or not', () => {
-    expect(staffdashboard.find('toggleMealPlan').length).toBe(1);
-  });
+  localStorage.setItem('roleInfo', JSON.stringify({'userRole': 'faculty'}));
+  const facultydashboard = shallow(<Dashboard {...facultydefaultProps} />);
 
-  it('staffdashboard component MealPlanView is there or not', () => {
-    expect(staffdashboard.find('mealPlanView').length).toBe(0);
+  it('facultydashboard component is there or not', () => {
+    expect(facultydashboard).toBeDefined();
   });
 });
 

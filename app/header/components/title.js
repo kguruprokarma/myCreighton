@@ -6,7 +6,7 @@ import React from 'react';
 import headerTitle from './headerTitle';
 
 const Title = (currentPath) => (
-  <h1 className='bebasregular logo mt10 mb10 fs1pt4'>{headerTitle(currentPath)}</h1>
+  <div className='bebasregular logo mt10 mb10 fs1pt4'>{headerTitle(currentPath)}</div>
   );
 
 export default Title;

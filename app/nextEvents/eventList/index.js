@@ -2,6 +2,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { filter, map, sortBy, uniqBy, each } from 'lodash';
 import { Col, Row, Alert } from 'react-bootstrap';
 import moment from 'moment';
@@ -21,11 +22,16 @@ import AlertComponent from '../../common/alertComponent';
 import './style.css';
 import Spinner from '../../common/spinner';
 import EventDetailsPage from '../eventDetails/index';
+import DateFilter from './components/dateFilter';
 
 export class EventList extends React.PureComponent {
   constructor() {
     super();
     this.masterObj = null;
+    this.state = {
+      dateFilter: true
+    };
+    this.onSaveCalendar = this.onSaveCalendar.bind(this);
   }
   componentWillMount() {
     const props = this.props;
@@ -38,8 +44,11 @@ export class EventList extends React.PureComponent {
       });
       result.then((masterObj1) => {
         this.masterObj = masterObj1;
+        const reqObj = {};
+        reqObj.startDate = moment().format('YYYY-MM-DD');
+        reqObj.stopDate = moment(moment().add(59, 'days')._d).format('YYYY-MM-DD');
         new Promise((resolve) => {
-          resolve(props.getCalendarData());
+          resolve(props.getCalendarData(reqObj));
         }).then(() => {
           props.onMasterDataChange(true);
         });
@@ -48,8 +57,11 @@ export class EventList extends React.PureComponent {
       //The below code has to be changed once we receive seperate API for faculty and staff
       if (localStorage.getItem('roleInfo')) {
         this.masterObj = {};
+        const reqObj = {};
+        reqObj.startDate = moment().format('YYYY-MM-DD');
+        reqObj.stopDate = moment(moment().add(59, 'days')._d).format('YYYY-MM-DD');
         new Promise((resolve) => {
-          resolve(props.getCalendarData());
+          resolve(props.getCalendarData(reqObj));
         }).then(() => {
           props.onMasterDataChange(true);
         });
@@ -57,11 +69,28 @@ export class EventList extends React.PureComponent {
     }
     browserTitle(translateText('common:NEXT_EVENTS'));
   }
+  componentWillReceiveProps(nextProps) {
+    const props = nextProps;
+    /* eslint-disable */
+    if (props.popUpData || props.filterPopUpData) {
+      /* eslint-disable */
+      this.onSaveCalendar();
+    }
+  }
+
+  onSaveCalendar() {
+    this.setState({ dateFilter: true });
+  }
 
   getEventsData(props) {
     const EVENT_DATA = [];
     const finalCalenderEvents = [];
+    let dateRange = null;
+    if (localStorage.getItem('dateRange')) {
+      dateRange = JSON.parse(localStorage.getItem('dateRange'));
+    }
     if (this.masterObj && props.calendarDetailData && props.calendarDetailData.data) {
+      //createAndSendLogs('info', 'getEventsData', 'EventList', 'Recieved all data');
       const assignmentsData = convertEncodeURIComponent(this.masterObj.assignmentMasterCopy);
       const classesData = convertEncodeURIComponent(this.masterObj.classMasterCopy);
       if (props.calendarDetailData && props.calendarDetailData.data) {
@@ -71,7 +100,7 @@ export class EventList extends React.PureComponent {
         const naEvents = [];
         calenderData = props.calendarDetailData.data;
         const calenderNaEvents = [];
-        for (let i=0; i<calenderData.length; i++) {
+        for (let i = 0; i < calenderData.length; i++) {
           const item = calenderData[i];
           item.type = NextEventsConstants.CALENDER;
           if (item.starttime === null || item.endtime === null) {
@@ -88,8 +117,8 @@ export class EventList extends React.PureComponent {
             }
           }
         }
-        const result1 = caldenderEventsTimeStamp(filter(calenderNaEvents, {allday_event: 'true'}));
-        const result2 = caldenderEventsTimeStamp(filter(calenderNaEvents, {allday_event: 'false'}));
+        const result1 = caldenderEventsTimeStamp(filter(calenderNaEvents, { allday_event: 'true' }));
+        const result2 = caldenderEventsTimeStamp(filter(calenderNaEvents, { allday_event: 'false' }));
         allDayEvents.push(...result1);
         naEvents.push(...result2);
         remainingEventsWithDates = caldenderEventsTimeStamp(remainingEventsWithDates.slice());
@@ -119,20 +148,26 @@ export class EventList extends React.PureComponent {
       }
       let val = props.EventChangedValue;
       if (localStorage.getItem('setFilterValue') === null) {
-        localStorage.setItem('setFilterValue', CommonConstants.EVENT_FILTER_7_DAYS);
+        //createAndSendLogs('info', 'getEventsData(setDefaultFilterValue)', 'EventList', CommonConstants.EVENT_FILTER_ALL);
+        localStorage.setItem('setFilterValue', CommonConstants.EVENT_FILTER_ALL);
       }
       if (localStorage.getItem(CommonConstants.DISPLAY_OPTIONS) === null) {
         this.getEventDisplayOptions();
       }
       val = localStorage.getItem('setFilterValue');
       const val1 = localStorage.getItem('setDisplayOptionValue');
-      const result = this.getSelectedFilterData(val, val1);
+      const result = this.getSelectedFilterData(val, val1, dateRange);
       return result;
     }
     return EVENT_DATA;
   }
 
-  getSelectedFilterData(filterSelection, displayOptionFilter) {
+  getSelectedFilterData(filterSelection, displayOptionFilter, range) {
+    let logObj={};
+    logObj.filterSelection = filterSelection;
+    logObj.displayOptionFilter = displayOptionFilter;
+    logObj.range = range;
+    //createAndSendLogs('info', 'getSelectedFilterData(in)', 'EventList', JSON.stringify(logObj));
     let day;
     let eventDetails;
     let sortedEventData;
@@ -141,6 +176,13 @@ export class EventList extends React.PureComponent {
     const filterlist = [];
     let eventFilterData;
     let options;
+    let dateRange;
+    if (range) {
+      dateRange = {
+        from: moment(range.from)._d,
+        to: moment(range.to)._d
+      };
+    }
 
     if (displayOptionFilter && filterSelection) {
       day = filterSelection;
@@ -169,13 +211,20 @@ export class EventList extends React.PureComponent {
         APITime = moment(eventObject.timeStamp).format('HH:mm');
       }
       const todayTime = moment(today).format('HH:mm');
-      if (day === CommonConstants.EVENT_FILTER_7_DAYS && APIDate >= todayDate && APIDate <= seventhDate) {
+      if (eventObject.class_building_code === CommonConstants.ONLINE_CLASSES) {
+        filterlist.push(eventObject);
+      }
+      if (eventObject.timeStamp && day === CommonConstants.EVENT_FILTER_7_DAYS && APIDate >= todayDate && APIDate <= seventhDate) {
         if (!(APIDate.toString() === todayDate.toString() && APITime < todayTime)) {
           filterlist.push(eventObject);
         }
-      } else if (day === CommonConstants.EVENT_FILTER_TODAY && (APIDate.toString() === todayDate.toString()) && (APITime > todayTime)) {
+      } else if (eventObject.timeStamp && day === CommonConstants.EVENT_FILTER_TODAY && (APIDate.toString() === todayDate.toString()) && (APITime > todayTime)) {
         filterlist.push(eventObject);
-      } else if ((day === CommonConstants.EVENT_FILTER_ALL || day === CommonConstants.EVENT_FILTER_NEXT_EVENT) && APIDate >= todayDate) {
+      } else if ((day === CommonConstants.EVENT_FILTER_ALL || day === CommonConstants.EVENT_FILTER_NEXT_EVENT) && eventObject.timeStamp && APIDate >= todayDate) {
+        if (!(APIDate.toString() === todayDate.toString() && APITime < todayTime)) {
+          filterlist.push(eventObject);
+        }
+      } else if (eventObject.timeStamp && day === CommonConstants.EVENT_FILTER_CALENDAR && dateRange && (moment(APIDate).startOf('day').diff(moment(dateRange.from).startOf('day'), 'days') >= 0 && moment(dateRange.to).startOf('day').diff(moment(APIDate).startOf('day'), 'days') >= 0)) {
         if (!(APIDate.toString() === todayDate.toString() && APITime < todayTime)) {
           filterlist.push(eventObject);
         }
@@ -184,22 +233,20 @@ export class EventList extends React.PureComponent {
 
     if (filterlist && filterlist.length > 0) {
       sortedEventData = sortBy(filterlist, ['timeStamp']);
-      if (sortedEventData && sortedEventData.length > 0 && day === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
-        const nextEventDetail = [];
-        nextEventDetail.push(sortedEventData[0]);
-        eventFilterData = nextEventDetail;
-      } else {
-        eventFilterData = sortedEventData;
-      }
     }
 
     let keys;
     if (options) {
       keys = Object.keys(options);
     }
-    if (eventFilterData) {
+    if (sortedEventData) {      
       if (options && keys && keys.length > 0) {
-        eventFilterData = this.sortingDisplayOptionSelection(options, eventFilterData);
+        eventFilterData = this.sortingDisplayOptionSelection(options, sortedEventData);
+        if (eventFilterData && eventFilterData.length > 0 && day === CommonConstants.EVENT_FILTER_NEXT_EVENT) {
+          const nextEventDetail = [];          
+          nextEventDetail.push(eventFilterData[0]);
+         eventFilterData = nextEventDetail;
+       }
         localStorage.setItem('eventsFilterData', JSON.stringify(eventFilterData));
       }
     }
@@ -224,7 +271,7 @@ export class EventList extends React.PureComponent {
           data.name = eventObject.course_title;
           data.sid = eventObject.sis_source_id;
           data.checked = true;
-          data.parentname = CommonConstants.CLASSES+eventObject.sis_source_id;
+          data.parentname = CommonConstants.CLASSES + eventObject.sis_source_id;
           classes.push(data);
           if (eventObject.assignmentData && eventObject.assignmentData.length > 0) {
             const assignmentDetails = eventObject.assignmentData;
@@ -234,7 +281,7 @@ export class EventList extends React.PureComponent {
                 data2.name = eventObject.course_title;
                 data2.sid = eventObject.sis_source_id;
                 data2.checked = true;
-                data2.parentname = NextEventsConstants.ASSIGNMENTS+eventObject.sis_source_id;
+                data2.parentname = NextEventsConstants.ASSIGNMENTS + eventObject.sis_source_id;
                 classAssignments.push(data2);
               }
             });
@@ -251,7 +298,6 @@ export class EventList extends React.PureComponent {
     const calenderObj = prepareDisplayObject(CommonConstants.CALENDAR_EVENTS, '');
     displayOptions.push(calenderObj);
     localStorage.setItem(CommonConstants.DISPLAY_OPTIONS, JSON.stringify(displayOptions));
-
     const selectedObj = {};
     selectedObj.displayOptions = {};
     const items = displayOptions.slice();
@@ -272,10 +318,12 @@ export class EventList extends React.PureComponent {
         }
       }
       localStorage.setItem('setDisplayOptionValue', JSON.stringify(selectedObj.displayOptions));
+      //createAndSendLogs('info', 'getEventDisplayOptions', 'EventList',JSON.stringify(selectedObj.displayOptions));
     }
   }
 
-  sortingDisplayOptionSelection(options, eventFilterData) {
+  sortingDisplayOptionSelection(options, eventFilterData) {    
+    //createAndSendLogs('info', 'sortingDisplayOptionSelection', 'EventList', 'in');
     let classesIds = [];
     let classEventsIds = [];
     let showCalendarEvents;
@@ -302,7 +350,7 @@ export class EventList extends React.PureComponent {
       finalResult.push(result);
     }
     if (showCalendarEvents) {
-      finalResult.push(filter(eventFilterData, {type: NextEventsConstants.CALENDER}));
+      finalResult.push(filter(eventFilterData, { type: NextEventsConstants.CALENDER }));
     }
     const displayFinal = [];
     each(finalResult, (nexteventchildObj) => {
@@ -315,21 +363,41 @@ export class EventList extends React.PureComponent {
   }
 
   checkEventPeriod(EVENT_DATA) {
+    //createAndSendLogs('info', 'checkEventPeriod', 'EventList', localStorage.getItem('setFilterValue'));
     const localStorageValue = localStorage.getItem('setFilterValue');
 
     return (localStorageValue === CommonConstants.EVENT_FILTER_NEXT_EVENT ? this.renderNextEventDetail(EVENT_DATA) : this.renderData(EVENT_DATA));
   }
 
+  renderDataCheck(EVENT_DATA) {
+    const props = this.props;
+    return (EVENT_DATA !== undefined && EVENT_DATA.length > 0) ? this.checkEventPeriod(EVENT_DATA) : (props.isError ? this.renderSeverError() : this.renderNoDataFound());
+  }
+
   renderNoDataFound() {
     return (
-      <Alert bsStyle='warning'>
-        <div className='mb0'>
-          <div>
-            <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
-            <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
-          </div>
-        </div>
-      </Alert>
+      <article className='event-topsection section-container init-top'>
+        <Row>
+          <Col xs={12}>
+            <p className='visible-xs calendarRow pb10'>
+              <button className='btn btn-link btnnoPadding' onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }} className='btn btn-link btnnoPadding'><span className='glyphicon glyphicon-calendar eventListCalendar' aria-hidden='true' /></button>
+              By date:
+              <button className='btn btn-link btnnoPadding' onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }}>
+                {this.state.dateFilter ? translateText('common:COMMON_SHOW') : translateText('common:COMMON_HIDE')}
+              </button>
+            </p>
+            <Col md={3} sm={4} xs={12} className={`pull-right ${this.state.dateFilter && 'calendarFilter'}`}><DateFilter onSave={this.onSaveCalendar} /></Col>
+            <Col md={9} sm={8} xs={12}>
+              <Alert className='noData-Alert' bsStyle='warning'>
+                <div>
+                  <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
+                  <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
+                </div>
+              </Alert>
+            </Col>
+          </Col>
+        </Row>
+      </article>
     );
   }
 
@@ -352,36 +420,49 @@ export class EventList extends React.PureComponent {
     const props = this.props;
     props.offLoading();
     return (
-      <article className='event-topsection section-container init-top'>
+      <article className='event-topsection section-container'>
         <Row><Col md={8} sm={6} xs={12}>
           <div className='hidden-xs'>
             <HeaderLabel headerLabel={translateText('common:NEXT_EVENTS')} />
           </div>
         </Col>
         </Row>
-        <ul className='list-unstyled event-listSection'>
-          {EVENT_DATA && EVENT_DATA.length > 0 ? EVENT_DATA.map((eventType, index) => ( <li key={index}>
-            {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} currentIndex={index} />}
-            {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} currentIndex={index} />}
-            {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} currentIndex={index} />}
-            {eventType.type === NextEventsConstants.CALENDER && <OutlookCalendar data={eventType} currentIndex={index} />}
-          </li>
-            )) :
-          <Alert bsStyle='warning'>
-            <div>
-              <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
-              <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
-            </div>
-          </Alert>
-            }
-        </ul>
+        <Row>
+          <Col xs={12}>
+            <Row>
+              <p className='visible-xs calendarRow pb10 pl15'>
+                <Link onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }} className='btn btn-link btnnoPadding'><span className='glyphicon glyphicon-calendar eventListCalendar' aria-hidden='true' /></Link>
+                <span> By date: </span>
+                <Link onClick={() => { this.state.dateFilter = this.setState({ dateFilter: !this.state.dateFilter }); }}>
+                  {this.state.dateFilter ? translateText('common:COMMON_SHOW') : translateText('common:COMMON_HIDE')}
+                </Link>
+              </p>
+              <Col md={3} sm={4} xs={12} className={`pull-right ${this.state.dateFilter && 'calendarFilter'}`}><DateFilter onSave={this.onSaveCalendar} /></Col>
+              <Col md={9} sm={8} xs={12}>
+                <ul className='list-unstyled event-listSection'>
+                  {EVENT_DATA && EVENT_DATA.length > 0 ? EVENT_DATA.map((eventType, index) => (<li key={index}>
+                    {eventType.type === NextEventsConstants.CLASSES_DETAILS && <Classes data={eventType} currentIndex={index} />}
+                    {eventType.type === NextEventsConstants.ASSIGNMENTS && <Assignments data={eventType} currentIndex={index} />}
+                    {eventType.type === NextEventsConstants.TEST_OR_QUIZ && <Quizzes data={eventType} currentIndex={index} />}
+                    {eventType.type === NextEventsConstants.CALENDER && <OutlookCalendar data={eventType} currentIndex={index} />}
+                  </li>
+                  )) :
+                  <Alert bsStyle='warning'>
+                    <div>
+                      <h4 className='mb10 mt0'>{translateText('common:NO_EVENTS_TO_DISPLAY')}</h4>
+                      <h4 className='mb0'>{translateText('common:SETTING_DISPLAY_CONTENT')}</h4>
+                    </div>
+                  </Alert>
+                  }
+                </ul>
+              </Col>
+            </Row>
+
+          </Col>
+
+        </Row>
       </article>
     );
-  }
-
-  renderDataCheck(EVENT_DATA) {
-    const props = this.props;
-    return (EVENT_DATA !== undefined && EVENT_DATA.length > 0) ? this.checkEventPeriod(EVENT_DATA) : (props.isError ? this.renderSeverError() : this.renderNoDataFound());
   }
 
   renderNextEventDetail(EVENT_DATA) {
@@ -415,7 +496,8 @@ export class EventList extends React.PureComponent {
     const props = this.props;
     const EVENT_DATA = this.getEventsData(this.props);
     return (
-      <section role='region'>
+      <section role='region' className='event-topsection section-container init-top'>
+        <h1 className='announced-only'>{translateText('common:NEXT_EVENTS_LIST')}</h1>
         {props.isMasterDataChange ? this.renderDataCheck(EVENT_DATA) : this.renderLoader()}
       </section>
     );
@@ -431,7 +513,10 @@ const mapStateToProps = (eventsState) => (
     isMasterDataChange: eventsState.eventsReducer.isMasterDataChange,
     classLoading: eventsState.classesReducer.isLoading,
     EventChangedValue: eventsState.eventsFilterReducer.changedValue,
-    calendarDetailData: eventsState.eventsReducer.calendarDetailData
+    calendarDetailData: eventsState.eventsCalenderReducer.calendarDetailData,
+    changedDate: eventsState.eventsFilterReducer.changedDate,
+    popUpData: eventsState.headerReducer.showPopUp,
+    filterPopUpData: eventsState.headerReducer.showFilterPopUp
   });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Object.assign(actionCreators, classesActionCreators), dispatch);

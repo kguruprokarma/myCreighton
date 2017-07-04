@@ -22,10 +22,14 @@ export const FACULTY_ACADEMIC_DATA = '/academicFaculty.json';
 export const MEAL_PLAN_DATA = '/getMealPlan.json';
 export const LOGIN_DETAILS_DATA = '/loginDetails.json';
 export const EVENTS_DATA = '/eventList.json';
-//export const ASSIGNMENTS = '/assignments.json';
 export const TESTORQUIZ = `${ROOT_URL}/testorquiz.json`;
 export const PROFESSIONAL_DATA = '/professional_data.json';
 export const LIBRARY_DATA = '/libraryInformation.json';
+export const SEARCH_DATA = '../.././topLevelSearch/constants/topSearchResults.json';
+export const STUDENT_MEALPLAN_JSON = '/studentMealPlan.json';
+export const STAFF_MEALPLAN_JSON = '/staffMealPlan.json';
+export const FACULTY_MEALPLAN_JSON = '/facultyMealPlan.json';
+export const WEBWORKER_URL = 'assets/js/webworker.js';
 
 ///
 /// API retrieved data json files for offline use links
@@ -44,18 +48,14 @@ export const CALENDER_API = `${ROOT_URL}/calendarAPI.json`;
 /// Add API related links below
 ///
 export const BLUE_LINE = 'https://blueline.instructure.com';
-export const API_GATEWAY = 'http://api-gateway01.creighton.edu'; //'http://reduxblog.herokuapp.com';
-//export const API_DATA = '/studentProfile/'; //'/myProfile.json'; //http://reduxblog.herokuapp.com/api/posts
-//export const DEV_URL_CREIGHTON = 'http://dev-api-node01.creighton.edu';
-//export const DEV_URL_CREIGHTON_ADFS = 'https://dev-dl-api.creighton.edu';
+export const API_GATEWAY = 'http://api-gateway01.creighton.edu'; 
 
 export const DEV_URL_CREIGHTON = `http://${process.env.NODE_ENV}-api-node01.creighton.edu`;
 export const DEV_URL_CREIGHTON_ADFS = `https://${process.env.NODE_ENV}-dl-api.creighton.edu`;
 export const ADFS = '/adfs';
-//export const ADFS_LOGIN_URL = 'https://dev-dl-api.creighton.edu/loginadfs?redirect=';
-//export const ADFS_LOGOUT_URL = 'https://dev-dl-api.creighton.edu/logoutadfs';
 export const ADFS_LOGIN_URL = `https://${process.env.NODE_ENV}-dl-api.creighton.edu/loginadfs?redirect=`;
 export const ADFS_LOGOUT_URL = `https://${process.env.NODE_ENV}-dl-api.creighton.edu/logoutadfs`;
+export const INTERCOLLEGE_TRANSFER = `http://workflowtest.web-${process.env.NODE_ENV}.creighton.edu/node/add/intercollege-transfer`;
 
 export const API_SINGLE = '/single';
 export const STUDENT_ACADEMIC = '/studentAcademic';
@@ -65,15 +65,17 @@ export const STAFF_BIO = '/staff_bio';
 export const STAFF_PROFESSIONAL = '/staff_professional';
 export const ASSIGNMENTS = '/assignments';
 export const PROFILE = 'profile';
-export const ACADEMIC = 'academic'; ///single?primaryKey=netid&primaryValue=6cb4db8459
+export const ACADEMIC = 'academic'; 
 export const FACULTY_BIO = '/faculty_bio';
 export const FACULTY_LEARN = '/faculty_learn';
 export const ASSIGNMENT = '/assignments';
 export const CAMPUS_DIRECTORY_SIMPLE = '/searchFaculty';
 export const NEXTEVENT_ASSIGNMENTS = `${API_GATEWAY}${ASSIGNMENTS}${API_SINGLE}?primaryKey=netid&primaryValue=9dfa6baa7a`;
 export const ROLE = '/role';
-export const CALENDAR_DATA ='/Calendar'; 
+export const CALENDAR_DATA ='/calendar'; 
 export const FEEDBACK ='/feedback';
+export const MEALPLAN_DATA ='/balances';
+export const SPA_LOG ='/spalog';
 
 export const LOCAL_URL = 'http://localhost:8000/#/';
 export const SERVER_URL = 'mycu-rundev1.creighton.edu';
@@ -104,3 +106,5 @@ export const LAW_DATABASE_URL = 'http://culibraries.creighton.edu/az.php?';
 
 export const LINK_TO_DOIT_SERVICES = 'http://help.creighton.edu';
 export const CREIGHTON_LOGIN= 'https://login.cuhsl.creighton.edu/login';
+
+export const NOTIFICATION_URL = 'https://dev-dl-api.creighton.edu:443';

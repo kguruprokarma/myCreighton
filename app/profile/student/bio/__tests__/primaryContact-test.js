@@ -3,14 +3,22 @@
 */
 
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import PrimaryContact from '../components/primaryContact';
 
-it('PrimaryContact is defined', () => {
-  const defaultProps = {
-    primaryContact: '7207585058'
-  };
-  const primaryContact = shallow(<PrimaryContact {...defaultProps} />);
-
-  expect(primaryContact).toBeDefined();
+describe('PrimaryContact component in Student', () => {
+  it('PrimaryContact is defined', () => {
+    const defaultProps = {
+      primaryContact: '7207585058'
+    };
+    const primaryContact = shallow(<PrimaryContact {...defaultProps} />);
+    expect(primaryContact).toBeDefined();
+  });
+  it('Passing null values in PrimaryContact component in Student', () => {
+    const defaultProps = {
+      primaryContact: ''
+    };
+    const primaryContact = shallow(<PrimaryContact {...defaultProps} />);
+    expect(primaryContact).toBeDefined();
+  });
 });

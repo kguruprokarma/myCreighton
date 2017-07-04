@@ -10,7 +10,7 @@ describe('Header reducer testing ----->', () => {
   it('reducer recieve state', () => {
     const data = { 'first_name': 'Jhon', 'job_title': 'Facluty' };
     const expectedState = { profileData: data };
-    const afterState = reducer({}, { type: types.REQUEST_STAFF_PROFILE_DATA, data: data });
+    const afterState = reducer({}, { type: types.REQUEST_STAFF_SEARCH_PROFILE_DATA, data: data });
     expect(JSON.stringify(afterState)).toBe(JSON.stringify(expectedState));
   });
 });

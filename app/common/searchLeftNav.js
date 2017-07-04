@@ -7,11 +7,11 @@ import { Link } from 'react-router';
 import { translateText } from '../common/translate';
 import * as ROUTE_URL from '../constants/routeContants';
 
-const LeftNav = () => (
-  <nav role='navigation' id='localmenu' className='userLeftmenu'>
+const LeftNav = (leftSearchNavProps) => (
+  <nav id='localmenu' className='userLeftmenu'>
     <h1 className='announced-only'>{translateText('common:SIMPLE_SEARCH')}</h1>
     <div className='list-group openSansLight'>
-      <Link to={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SIMPLE_SEARCH} className='list-group-item' activeClassName='active'>
+      <Link to={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.SIMPLE_SEARCH} className={`list-group-item ${leftSearchNavProps.url && 'active'}`} activeClassName='active'>
         {translateText('common:SIMPLE_SEARCH')}
       </Link>
       <Link to={ROUTE_URL.CAMPUSDIRECTORY + ROUTE_URL.ADVANCE_SEARCH_DIRECTORY} className='list-group-item' activeClassName='active' >

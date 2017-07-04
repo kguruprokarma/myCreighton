@@ -51,7 +51,6 @@ const AdvanceSearchComponent = (advanceSearchProps) => (
               <label className='gbl_lh-22' htmlFor={translateText('common:DEPARTMENT')}>{translateText('common:DEPARTMENT')}</label>
             </Col>
             <Col xs={8}>
-              {/*<select value={this.state.deptValue} className='form-control'>*/}
               <FormGroup controlId='formControlsSelect' className='styled-select'>
                 <FormControl componentClass='select' placeholder='select' className='input-lg'>
                   <option value=''>{CommonConstants.DROPDOWN_SELECT_TEXT}</option>
@@ -76,10 +75,9 @@ const AdvanceSearchComponent = (advanceSearchProps) => (
             <Col xs={8} className='select-content'>
               <Row>
                 <Col xs={10}>
-                  {/*<Link className='popUpClass searchSelect' onClick={advanceSearchProps.showSkillPopOver}>{advanceSearchProps.checkedSkills}</Link></Col>*/}
                   <Link className='popUpClass openSansLight searchSelect' >{advanceSearchProps.checkedSkills}</Link></Col>
                 <Col xs={2}>
-                  <button className='btn btn-link btnnoPadding pull-right mr10' onClick={advanceSearchProps.clearSkills}><span className='glyphicon glyphicon-remove-circle' /></button></Col>
+                  <button className='btn btn-link btnnoPadding pull-right mr10' onClick={advanceSearchProps.clearSkills}><span className='glyphicon glyphicon-remove-circle' aria-hidden='true' /></button></Col>
               </Row>
               <div className='skillPopUp'>
                 {advanceSearchProps.popOverSkills && <PopOver items={advanceSearchProps.skills.slice()} filedName='mySkills' headerText={translateText('common:EXPERTISE_SKILLS')} onFinalize={advanceSearchProps.selectedSkills} />}
@@ -93,11 +91,10 @@ const AdvanceSearchComponent = (advanceSearchProps) => (
             <Col xs={8} className='select-content'>
               <Row>
                 <Col xs={10}>
-                  {/*<Link className='popUpClass searchSelect' onClick={advanceSearchProps.showToolPopOver}>{CommonConstants.COMMON_SELECT_TEXT}</Link>*/}
                   <Link className='popUpClass openSansLight searchSelect'>{CommonConstants.COMMON_SELECT_TEXT}</Link>
                 </Col>
                 <Col xs={2}>
-                  <button className='btn btn-link btnnoPadding mr10 pull-right' onClick={advanceSearchProps.clearTools}><span className='glyphicon glyphicon-remove-circle' /></button>
+                  <button className='btn btn-link btnnoPadding mr10 pull-right' onClick={advanceSearchProps.clearTools}><span className='glyphicon glyphicon-remove-circle' aria-hidden='true' /></button>
                 </Col>
                 <div className='toolPopUp pt20 pl15'>
                   {advanceSearchProps.popOverTools && <PopOver items={advanceSearchProps.tools.slice()} filedName='myTools' headerText={translateText('common:STAFF_APPLICATIONS/TOOLS')} />}
@@ -114,11 +111,10 @@ const AdvanceSearchComponent = (advanceSearchProps) => (
             <Col xs={8} className='select-content'>
               <Row>
                 <Col xs={10}>
-                  {/*<Link className='popUpClass' onClick={advanceSearchProps.showGroupsPopOver}>{CommonConstants.COMMON_SELECT_TEXT}</Link>*/}
                   <Link className='popUpClass searchSelect openSansLight'>{CommonConstants.COMMON_SELECT_TEXT}</Link>
                 </Col>
                 <Col xs={2}>
-                  <button className='btn btn-link btnnoPadding mr10 pull-right' onClick={advanceSearchProps.clearGroups}><span className='glyphicon glyphicon-remove-circle' /></button>
+                  <button className='btn btn-link btnnoPadding mr10 pull-right' onClick={advanceSearchProps.clearGroups}><span className='glyphicon glyphicon-remove-circle' aria-hidden='true' /></button>
                 </Col>
                 <div className='groupPopUp pt20 pl15'>
                   {advanceSearchProps.popOverGroups && <PopOver items={advanceSearchProps.groups.slice()} filedName='myGroups' headerText={translateText('common:CAMPUSDIRECTORY_GROUPS')} />}
@@ -131,7 +127,6 @@ const AdvanceSearchComponent = (advanceSearchProps) => (
               <button className='btn btn-primary btn-block btn-lg openSansLight searchSubmit'>{translateText('common:SEARCH')}</button>
             </Col>
           </Row>
-          {/*JSON.stringify(this.state)*/}
         </Form>
       </Col>
     </Row>

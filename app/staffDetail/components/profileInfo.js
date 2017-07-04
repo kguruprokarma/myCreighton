@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 const ProfileInfo = (staffDetailsProps) => (
-  <article role='article' className='openSansLight'>
+  <article className='openSansLight'>
     <div className='graybtBorder pb20'>
       <Row>
         <Col sm={12}>

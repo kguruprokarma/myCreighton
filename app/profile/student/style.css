@@ -2,25 +2,26 @@
 *Usage of file: - Styling for student profile: bio and academic*
 */
 
-.dataHeading{
+.dataHeading {
     font-size: 1em; /* font size 15 in pixel */
-   color: #313131;
-   text-transform: uppercase; 
-   margin: 0 0 8px;
-   padding-bottom: 6px;
-   border-bottom: 1px solid #c8c7cc;
+    color: #313131;
+    text-transform: uppercase; 
+    margin: 0 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #c8c7cc;
 }
 
 .labelField {
     font-size: 1.3333333333333333em;    /* font size 20 in pixel */
     font-family: 'open_sanslight', sans-serif;
 }
+
 .dataField {
     font-size: 1.4em;   /* font size 21 in pixel */  
     font-family: 'open_sanslight', sans-serif;   
 }
 
-.mobileNumber{
+.mobileNumber {
     text-decoration: none !important;
 }
 
@@ -44,25 +45,24 @@
         font-size: 1.4em;
     }
 
-    .dataHeading{
+    .dataHeading {
         font-size: 1.063em;
     }
-
 }
 
 @media screen and (max-width: 400px) {
+
     .userData {
         width: 100%;
     }
 
-    .dataHeading{
+    .dataHeading {
         font-size: 0.8666666666666667em;    /* font size 13 in pixel */
     }
 
     .control-checkbox {
         line-height: 24px;
     }
-
 }
 
 @media screen and (max-width: 320px) {
@@ -79,7 +79,7 @@
         font-size: 1.2em;   /* font size 12 in pixel */
     }
 
-    .dataHeading{
+    .dataHeading {
         font-size: 0.8666666666666667em;    /* font size 13 in pixel */
     }
 }

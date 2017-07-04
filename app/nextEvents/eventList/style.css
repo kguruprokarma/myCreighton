@@ -1,7 +1,6 @@
 /*Created Date: - 23rd -02 -2017
 *Usage of file: - this file is used to add styles to Event list.*
 */
-
 .dayHeading {
     background-color: #f2f2f2;
     padding-top: 5px;
@@ -11,7 +10,7 @@
     border-top:1px solid #c8c7cc;    
 }
 
-.eventHeading{
+.eventHeading {
     font-size: 1.7333333333333334em;    /* font size 26 in pixel */
     line-height: 1.1;
     color: #019cdb;
@@ -24,8 +23,7 @@
     line-height: 1;
 }
 
-.eventOn, .eventDate
-{
+.eventOn, .eventDate {
      color: #757575; /*Changed as per given Hardening comments. Previously it was #9a9a9a*/   
 }
 
@@ -45,10 +43,9 @@
         padding-bottom:10px;
 }
 
-.eventDate label{
+.eventDate label {
     font-weight: normal;
 }
-
 
 .assignIcon {
     background: url(../../assets/images/assignment_icon.png) no-repeat 0 0;
@@ -69,22 +66,269 @@
 }
 
 a:hover, *:hover  {
-        text-decoration: none;
+    text-decoration: none;
 }
 
 .event-listSection li:last-child {
     border-bottom: 1px solid #c8c7cc;
 }
 
+/* DayPicker styles */
 
-@media (min-width:768px) and (max-width: 992px) {
+.calendarFilter {
+    vertical-align: top;
+}
+
+.DayPicker {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+}
+
+.DayPicker-Month {
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0 1rem;
+}
+
+.RangeExample .abbr[data-original-title], abbr[title] {
+    font-weight: bold;
+    border-bottom: none;
+    text-decoration: none;
+    color: #000;
+}
+
+.DayPicker-NavBar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0 .5rem;
+    top: 1rem;
+}
+
+.DayPicker-NavButton {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    background-color: #0054a6;
+    border-radius: 4px;
+}
+
+.DayPicker-NavButton--prev {
+    top: -1rem;
+    background-image: url(../../assets/images/left-calendar-arrow.png);
+    background-size: 8px 15px;
+    background-position-x: 7px;
+}
+
+.DayPicker-NavButton--next {
+    right: .5rem;
+    top: -1rem;
+    background-image: url(../../assets/images/right-calendar-arrow.png);
+    background-size: 6px 13px;
+    background-position-x: 10px;
+}
+
+.DayPicker-Caption {
+    display: table-caption;
+    height: 1.5rem;
+    text-align: center;
+    color: #0054a6;
+    background-color: transparent;
+    font-size: 1em; /* font size 15 in pixel */
+    font-weight: bold;
+}
+
+.DayPicker-Weekdays {
+    display: table-header-group;
+}
+
+.DayPicker-WeekdaysRow {
+    display: table-row;
+}
+
+.DayPicker-Weekday {
+    display: table-cell;
+    padding: .5rem;
+    font-size: .875em;
+    text-align: center;
+    color: #8b9898;
+}
+
+.DayPicker-Body {
+    display: table-row-group;
+}
+
+.DayPicker-Week {
+    display: table-row;
+}
+
+.DayPicker-Day {
+    display: table-cell;
+    padding: .5rem;
+    border: 1px solid #eaecec;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    border: none;
+}
+
+.DayPicker-Day:hover,
+.DayPicker-Day:active,
+.DayPicker-Day:focus {
+    border: none;
+    outline: 0;
+}
+      
+.DayPicker-WeekNumber {
+    display: table-cell;
+    padding: .5rem;
+    text-align: right;
+    vertical-align: middle;
+    min-width: 1rem;
+    font-size: 0.75em;
+    cursor: pointer;
+    color: #8b9898;
+}
+
+.DayPicker--interactionDisabled .DayPicker-Day {
+    cursor: default;
+}
+
+.DayPicker-Footer {
+    display: table-caption;
+    caption-side: bottom;
+    padding-top: .5rem;
+}
+  
+.DayPicker-TodayButton {
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    cursor: pointer;
+    color: #4A90E2;
+    font-size: 0.875em;
+}
+
+.DayPicker:hover,
+.DayPicker:active,
+.DayPicker:focus {
+    outline: none;
+}
+
+/* Default modifiers */
+
+.DayPicker-Day--today,
+.DayPicker-Day--today:hover,
+.DayPicker-Day--today:focus,
+.DayPicker-Day--today:active {
+    color: #0054a6;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.DayPicker-Day--disabled {
+    color: #5d5d5d;
+    cursor: default;
+    background-color: #eff1f1;
+}
+
+.DayPicker-Day--outside {
+    cursor: default;
+    color: #dce0e0;
+}
+
+/* Example modifiers */
+
+.DayPicker-Day--sunday {
+    background-color: #f7f8f8;
+}
+
+.DayPicker-Day--sunday:not(.DayPicker-Day--today) {
+    color: #dce0e0;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+    color: #FFF;
+    background-color: #4A90E2;
+}
+
+/* DayPickerInput */
+
+.DayPickerInput {
+    display: inline-block;
+}
+
+.DayPickerInput-OverlayWrapper {
+    position: relative;
+}
+
+.DayPickerInput-Overlay {
+    left: 0;
+    position: absolute;
+    background: white;
+    -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, .15);
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, .15);
+}
+
+.btn.btn-primary.calendarSave,
+.btn.btn-primary.calenderReset {
+    background-color: #0054a6;
+    color: #fff;
+}
+
+.btn.btn-primary.calendarSave:hover,
+.btn.btn-primary.calendarSave:active,
+.btn.btn-primary.calendarSave:focus,
+.btn.btn-primary.calenderReset:hover,
+.btn.btn-primary.calenderReset:active,
+.btn.btn-primary.calenderReset:focus {
+    outline: 0;
+}
+
+.DayPicker {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.eventListCalendar {
+    color: #019cdb;
+    font-size: 1.2em;
+}
+
+@media screen and (min-width:768px) and (max-width: 992px) {
    
     .eventHeading {
         font-size: 1.3333333333333333em;    /* font size 20 in pixel */
     } 
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
 
     .eventOn {
         padding-left: 0px;
@@ -92,9 +336,9 @@ a:hover, *:hover  {
     }
 
     .eventOn, .eventPlace, .eventBy, .eventTime, .eventDate {
-    font-size: 1.1em; /* font size 15 in pixel */
-    font-family: 'open_sansregular', sans-serif;
-    line-height: 1;
+        font-size: 1.1em; /* font size 15 in pixel */
+        font-family: 'open_sansregular', sans-serif;
+        line-height: 1;
     }
 
     .eventHeading {
@@ -102,8 +346,7 @@ a:hover, *:hover  {
        line-height: 1.1;
     }
 
-    .event-listSection li:last-child
-     {
+    .event-listSection li:last-child {
          border-bottom:0;
      }
 
@@ -115,5 +358,49 @@ a:hover, *:hover  {
         margin-top: 50px;
     }
 
+    .event-topsection .noData-Alert {
+        margin-top: 0px;
+    }
 
+    .calendarFilter {
+       display: none;
+     }
+
+    .RangeExample {
+        position: absolute;
+        top: -3px;
+        left: -09px;
+        z-index: 1;
+        background-color: white;
+        border: 1px solid #ccc;
+        margin-left: 15px;
+        margin-right: 15px;
+        border-radius: 12px;
+        padding-top: 0px;
+    }
+    
+    .calenderPointer {
+        background: url('./../../assets/images/popup-arrow.png') no-repeat;
+        position: absolute;
+        top: -10px;
+        left: 7px;
+        width: 20px;
+        height: 11px;
+    }
+
+    .DayPicker {
+        padding-bottom: 10px;
+        border: 0;
+        margin-bottom: 10px;
+    }
+
+    .DayPicker-NavButton--next {
+        right: .9rem;
+    }
+
+    .calendarRow {
+        padding-left: 15px;
+    }
 }
+
+

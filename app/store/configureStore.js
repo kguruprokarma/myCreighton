@@ -4,24 +4,23 @@
 
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-//import createLogger from 'redux-logger';
 import { routerReducer as routing } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 import academicReducer from '../profile/student/academic/reducer';
-import profileReducer from '../profile/reducer';
+import {facultyProfileReducer, profileReducer} from '../profile/reducer';
 import classesReducer from '../classes/classList/reducer';
-import headerReducer from '../header/reducer';
+import {headerReducer, signOutReducer} from '../header/reducer';
 import mealPlanReducer from '../dashboard/mealPlan/reducer';
-import eventsReducer from '../nextEvents/eventList/reducer';
-import auth from '../login/reducer';
+import { eventsReducer, eventsCalenderReducer } from '../nextEvents/eventList/reducer';
 import professionalReducer from '../profile/staff/professional/reducer';
 import campusDirectoryReducer from '../campusDirectory/reducer';
 import eventsFilterReducer from '../nextEvents/eventFilter/reducer';
 import staffProfileReducer from '../searchResults/reducer';
 import libraryInformationReducer from '../librarySearch/reducer';
-// import schoolAndSemesterReducer from '../schoolandsemester/reducer';
-// import accordionReducer from '../schoolandsemester/accordion/reducer';
 import feedbackReducer from '../feedback/reducer';
+import notificationReducer from '../notification/reducer';
+import helpReducer from '../footer/reducer';
+import topLevelSearchReducer from '../topLevelSearch/reducer';
 
 // enable Redux Dev Tools
 const enhancers = compose(
@@ -33,20 +32,24 @@ const enhancers = compose(
 /*it will create reducers only one time*/
 const reducers = {
   form: formReducer,
-  auth: auth,
   profileReducer: profileReducer,
   academicReducer: academicReducer,
-
+  signOutReducer: signOutReducer,
+  facultyProfileReducer: facultyProfileReducer,
   classesReducer: classesReducer,
   mealPlanReducer: mealPlanReducer,
   headerReducer: headerReducer,
-  eventsReducer: eventsReducer,
+  eventsReducer: eventsReducer, 
+  eventsCalenderReducer: eventsCalenderReducer,
   professionalReducer: professionalReducer,
   campusDirectoryReducer: campusDirectoryReducer,
   eventsFilterReducer: eventsFilterReducer,
   libraryInformationReducer: libraryInformationReducer,
   staffProfileReducer: staffProfileReducer,
   feedbackReducer: feedbackReducer,
+  notificationReducer: notificationReducer,
+  helpReducer: helpReducer,
+  topLevelSearchReducer: topLevelSearchReducer,
   routing: routing
 };
 
@@ -58,7 +61,6 @@ const configureStore = preloadedState => {
     ),
     preloadedState,
     compose(
-//      applyMiddleware(thunkMiddleware, createLogger()),
       applyMiddleware(thunkMiddleware),
       enhancers
     )

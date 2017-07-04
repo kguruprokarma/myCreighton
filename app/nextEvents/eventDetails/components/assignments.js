@@ -9,7 +9,7 @@ import { translateText } from '../../../common/translate';
 import { convertDueDateTimeStamp, convertDateFromTimeStamp, htmlEncoding } from '../../../common/utility';
 
 const Assignments = (assignmentsDetails) => (
-  <article role='article'>
+  <article>
     <div className='graybtBorder mb10 pt5 pb5'>
       <div className='eventDetailTitle'>{assignmentsDetails.data.assign_title}</div>
       <div className='eventDetailSubject'>{assignmentsDetails.data.class}</div>

@@ -8,7 +8,7 @@ const mockStore = configureMockStore(middlewares);
 
 describe('header actions', () => {
   it('testing action receive data case', () => {
-    const expectedActions = [{ type: types.REQUEST_STAFF_PROFILE_DATA }];
+    const expectedActions = [{ type: types.REQUEST_STAFF_SEARCH_PROFILE_DATA }];
     const store = mockStore();
     store.dispatch(actions.onReceiveData());
     expect(store.getActions()).toEqual(expectedActions);

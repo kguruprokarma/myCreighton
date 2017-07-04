@@ -1,6 +1,6 @@
 
 import * as types from './actionTypes';
-
+import LogApi from '../middleware/uilog/api';
 
 const openPopUp = () => ({
   type: types.OPEN_POPUP
@@ -37,6 +37,25 @@ const signOutOpen = () => (
 const signOutClose = () => (
   {
     type: types.SIGN_OUT_CLOSE
+  });
+
+const sendLogData = () => (
+  {
+    type: types.SEND_LOG_DATA
+  });
+
+const responseLogData = () => (
+  {
+    type: types.RESPONSE_LOG_DATA
+  });
+const errorLogData = () => (
+  {
+    type: types.RESPONSE_LOG_DATA
+  });
+const hashChangeData = (data) => (
+  {
+    type: types.HASH_CHANGE_OBJ,
+    data: data
   });
 
 export function popUpOpen() {
@@ -87,4 +106,25 @@ export function closeSignOutPopUp() {
   };
 }
 
+export function sendLog(log) {
+  return function (dispatch) {
+    dispatch(sendLogData());
+    return LogApi.sendLog(log)
+      .then((response) => {
+        dispatch(responseLogData(response));
+      }
+      )
+      .catch((error) => {
+        dispatch(errorLogData({
+          error: error
+        }));
+      }
+      );
+  };
+}
 
+export function logHashChangeData(data) {
+  return function (dispatch) {
+    dispatch(hashChangeData(data));
+  };
+}

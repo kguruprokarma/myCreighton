@@ -19,6 +19,7 @@ export const STUDENT_GUARDIAN = 'guardian';
 export const WEEK = 'week';
 export const LIST = 'list';
 export const TODAY = 'today';
+export const SECTION = 'Section';
 export const SORT_CLASS = 'ASC';
 export const STARTS = 'Starts in';
 export const HOUR = 'hour';
@@ -38,6 +39,7 @@ export const EVENT_FILTER_7_DAYS = '7 Days';
 export const EVENT_FILTER_TODAY = 'Today';
 export const EVENT_FILTER_ALL = 'All';
 export const EVENT_FILTER_NEXT_EVENT = 'Next event detail';
+export const EVENT_FILTER_CALENDAR = 'Calendar';
 export const EVENT_TYPE_QUIZ = 'testorquiz';
 export const EVENT_TYPE_ASSIGNMENTS = 'assignments';
 export const QUIZ_SUBMISSION_TYPES = 'online_quiz';
@@ -96,5 +98,14 @@ export const MOMENT_DAYS = 'days';
 export const MOMENT_AMERICA_CHICAGO_TIMEZONE = 'America/Chicago';
 export const DROPDOWN_SELECT_TEXT = '-Select-';
 export const COMMON_SELECT_TEXT = 'Select';
+
+export const MEAL_PLAN_ACCOUNT_DINING = 'Dining$ SV';
+export const MEAL_PLAN_ACCOUNT_JAYBUCK = 'JayBuck$ SV';
+export const MEAL_PLAN_ACCOUNT_PRINTCREDITS = 'printcredits';
+export const MEAL_PLAN_ACCOUNT_GUEST = 'Guest Meal';
+export const MEAL_PLAN_ACCOUNT_SWIPES = 'SWIPES';
+
+export const DESC_ORDER = 'DES';
+export const CREATED_DATE = 'created';
 
 

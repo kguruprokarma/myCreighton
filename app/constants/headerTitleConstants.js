@@ -36,3 +36,7 @@ export const SEMESTER_SEMESTER_END = 'semesterend';
 export const SEMESTER_GRADUATION = 'graduation';
 export const FEEDBACK = 'feedback';
 export const MISSION_AND_MINISTRY = 'missionandministry';
+export const QUICK_LAUNCH = 'quicklaunch';
+export const NOTIFICATIONS = 'notifications';
+export const SEARCH = 'search';
+export const SITEMAP = 'sitemap'; 

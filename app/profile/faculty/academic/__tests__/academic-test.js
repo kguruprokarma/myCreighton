@@ -13,6 +13,12 @@ const facultyAcademicProps = {
         officeInformation: '',
         instruction: ''
       }
+    ],
+    data: [{
+      department: 'department',
+      school: 'school',
+      status: 'status'
+    }
     ]
   }
 };

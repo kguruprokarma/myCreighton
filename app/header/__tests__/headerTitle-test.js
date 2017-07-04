@@ -66,12 +66,6 @@ describe('headerTitle component testing ----->', () => {
     expect(schoolsandsemesterC).toBe(i18n.properties.DASH_BOARD_SCHOOL_AND_SEMESTER);
   });
 
-/*  const semesteracademics = { path: '/semesteracademics/semesteracademics' };
-  const semesteracademicsC = headerTitle(semesteracademics);
-  it('semesteracademics is defined', () => {
-    expect(semesteracademicsC).toBe(i18n.properties.SEMESTER_ACADEMICS);
-  });*/
-
   const librarysearch = { path: '/librarysearch' };
   const librarysearchC = headerTitle(librarysearch);
   it('librarysearch is defined', () => {
@@ -112,5 +106,71 @@ describe('headerTitle component testing ----->', () => {
   const testorquizC = headerTitle(testorquiz);
   it('testorquiz is defined', () => {
     expect(testorquizC).toBe(i18n.properties.NEXT_EVENTS_TEST_DETAIL_HEADER);
+  }); 
+
+  const academics = { path: '/schoolsandsemester/academics' };
+  const academicsC = headerTitle(academics);
+  it('academicsC is defined', () => {
+    expect(academicsC).toBe(i18n.properties.SEMESTER_ACADEMICS);
+  }); 
+
+  const semesterstart = { path: '/schoolsandsemester/semesterstart' };
+  const semesterstartC = headerTitle(semesterstart);
+  it('semesterstart is defined', () => {
+    expect(semesterstartC).toBe(i18n.properties.SEMESTER_SEMESTER_START);
+  }); 
+
+  const openrequestsstatus = { path: '/schoolsandsemester/openrequestsstatus' };
+  const openrequestsstatusC = headerTitle(openrequestsstatus);
+  it('openrequestsstatus is defined', () => {
+    expect(openrequestsstatusC).toBe(i18n.properties.OPEN_REQUESSTS_STATUS);
+  }); 
+
+  const classregistration = { path: '/schoolsandsemester/classregistration' };
+  const classregistrationC = headerTitle(classregistration);
+  it('classregistration is defined', () => {
+    expect(classregistrationC).toBe(i18n.properties.CLASS_REGISTRATION);
+  }); 
+
+  const finances = { path: '/schoolsandsemester/finances' };
+  const financesC = headerTitle(finances);
+  it('finances is defined', () => {
+    expect(financesC).toBe(i18n.properties.FINANCES_TEXT);
+  });
+
+  const studentlife = { path: '/schoolsandsemester/studentlife' };
+  const studentlifeC = headerTitle(studentlife);
+  it('studentlife is defined', () => {
+    expect(studentlifeC).toBe(i18n.properties.STUDENT_LIFE);
+  });
+
+  const semesterend = { path: '/schoolsandsemester/semesterend' };
+  const semesterendC = headerTitle(semesterend);
+  it('semesterend is defined', () => {
+    expect(semesterendC).toBe(i18n.properties.SEMESTER_END);
+  }); 
+
+  const graduation = { path: '/schoolsandsemester/graduation' };
+  const graduationC = headerTitle(graduation);
+  it('graduation is defined', () => {
+    expect(graduationC).toBe(i18n.properties.GRADUATION_TEXT);
+  }); 
+
+  const feedback = { path: '/feedback' };
+  const feedbackC = headerTitle(feedback);
+  it('feedback is defined', () => {
+    expect(feedbackC).toBe(i18n.properties.POST_FEEDBACK);
+  });
+
+  const missionandministry = { path: '/missionandministry' };
+  const missionandministryC = headerTitle(missionandministry);
+  it('missionandministry is defined', () => {
+    expect(missionandministryC).toBe(i18n.properties.MISSION_AND_MINISTRY);
+  }); 
+
+  const calenderEventDetails = { path: '/eventdetails/calender' };
+  const calenderEventDetailsC = headerTitle(calenderEventDetails);
+  it('calenderEventDetails is defined', () => {
+    expect(calenderEventDetailsC).toBe(i18n.properties.NEXT_EVENTS_CALENDAR_HEADER);
   });  
 });

@@ -11,6 +11,7 @@ describe('<Meal Plan reducer />', () => {
     expect(reducer(undefined, {})).toEqual({
       mealPlanData: {},
       isLoading: false,
+      mealPlanView: true,
       error: false
     });
   });
@@ -55,6 +56,36 @@ describe('<Meal Plan reducer />', () => {
       {
         isLoading: false,
         mealPlanData: { id: '1' }
+      }
+      );
+  });
+  it('should handle MEAL_PLAN_VIEW_SHOW', () => {
+    expect(
+      reducer([], {
+        type: types.MEAL_PLAN_VIEW_SHOW,
+        data: { id: '1' },
+        isLoading: false,
+        mealPlanView: true,
+        error: false
+      })
+    ).toEqual(
+      {
+        mealPlanView: true
+      }
+      );
+  });
+  it('should handle MEAL_PLAN_VIEW_HIDE', () => {
+    expect(
+      reducer([], {
+        type: types.MEAL_PLAN_VIEW_HIDE,
+        data: { id: '1' },
+        isLoading: false,
+        mealPlanView: true,
+        error: false
+      })
+    ).toEqual(
+      {
+        mealPlanView: false
       }
       );
   });

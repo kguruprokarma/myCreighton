@@ -1,8 +1,6 @@
 import moment from 'moment';
 import { filter, each } from 'lodash';
 import * as CommonConstants from '../../../constants/commonConstants';
-//import { convertEncodeURIComponent } from './utility';
-
 
 export const showFeatureEvents = (apiDate, today) => {
   const APIDate = new Date(moment(apiDate).format('MMM D, YYYY'));
@@ -47,7 +45,6 @@ export const getAssigmentsAndQuizzesData = (arrayData, eventFilterData, today) =
       for (let i = 0; i<data.length; i++) {
         const assignmentOrQuizze = data[i];
         if (assignmentOrQuizze) {
-          //listOfAssignmentsOrQuizze.map((assignmentOrQuizze) => {
           if (assignmentOrQuizze.type === CommonConstants.EVENT_TYPE_ASSIGNMENTS ||
                 assignmentOrQuizze.type === CommonConstants.EVENT_TYPE_QUIZ) {
             const value = showFeatureEvents(assignmentOrQuizze.timeStamp, today);
@@ -55,7 +52,6 @@ export const getAssigmentsAndQuizzesData = (arrayData, eventFilterData, today) =
               displayOptionData.push(assignmentOrQuizze);
             }
           }
-         // });
         }
       }
     }

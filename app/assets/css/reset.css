@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /* Margin top from 0-50 in pixels */
 .mt0 {margin-top: 0;}
 .mt5 {margin-top: 5px;}
@@ -397,7 +399,7 @@
 
 /*line height with pixel value*/
 .gbl_lh-10 {
-	line-height: 10px;
+	line-height: 10;
 	height: 10px;
 }
 .gbl_lh-12 {
@@ -535,3 +537,10 @@
     font-size: 2.6666666666666665em;    /* font size 40 in pixel */
 }
 
+.mycu_darkgray {
+	color: #313131;
+}
+
+.position-relative {
+	position: relative;
+}
