@@ -122,18 +122,15 @@ module.exports = {
      },
        clickEvent : function(){
            this.api.elements('css selector','h2.mb10.classesHeading', function (result) {
-             if(result.value.length!==-1)
+             if(result.value.length!==0)
              {
                return this.waitForElementVisible('h2.mb10.classesHeading',20000)
                      .waitForElementPresent('h2.mb10.classesHeading','Click on first Event from eventlist ')
                     .click('h2.mb10.classesHeading');  
-
              }
              else{
-                return this.waitForElementVisible('h2.mb10.classesHeading',20000,'No events found')
+                return this.waitForElementVisible('h4.mb10.mt0',20000,'No events to display')
              }
-              
-  
     });
          
        } ,

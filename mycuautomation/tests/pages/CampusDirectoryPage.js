@@ -3,7 +3,7 @@ module.exports = {
    CampusDirectoryPageHeader :{
        selector:'h1.bebasregular.headerLabel.mt5.mb20',
    },
-   LoaclPageSimpleSearch:{
+   LocalPageSimpleSearch:{
        selector:"//h3[text()=Classes]",
               locateStrategy: 'xpath'
    },
@@ -33,11 +33,11 @@ module.exports = {
     },
      enterSearchQuery :function(){
      return this.waitForElementVisible('@CampusDirectorySearchfield',20000)
-                 .setValue('@CampusDirectorySearchfield', 'John,Smith');
+                 .setValue('@CampusDirectorySearchfield', 'abc');
            
    },
     clickOnSearch:function(){
-     return this .waitForElementVisible('@searchbutton',6000)   
+     return this .waitForElementVisible('@searchbutton',6000,"")   
                 .click('@searchbutton') ;      
                 console.log("clicked on search")              
     },
@@ -48,8 +48,18 @@ module.exports = {
                 this.click('@clearicon');
     },
     verifyResults :function(){
-    this.api.elements('css selector', 'div.col-md-9.col-sm-8 p.cpmsDirProfName', function (result) {
-        console.log("The Search results are  " + result.value.length) 
+   this.api.elements('css selector','p.cpmsDirProfName', function (result) {
+             if(result.value.length!==0)
+             {
+               return this.waitForElementVisible('p.cpmsDirProfName',20000)
+                     .waitForElementPresent('p.cpmsDirProfName','Click on first result from list of results ')
+                    .click('p.cpmsDirProfName');  
+             }
+             else{
+                return this.waitForElementVisible('col-md-9 col-xs-6',20000,'No matches found for the search')
+                           .assert.containsText('col-md-9 col-xs-6', "0 Results","0 Results")
+
+             }
      });               
     }
  }]

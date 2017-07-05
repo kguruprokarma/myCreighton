@@ -18,7 +18,7 @@ events.clickOnEventFilter();
 client.pause(2000);
 events.uncheckAllDisplayOptions();
 client.pause(3000);
-events.checkCreightonCalendarEvents();
+//events.checkCreightonCalendarEvents();
 events.clickDone();
 //events.verifyCalendarEvents();
 client.pause(8000);

@@ -25,5 +25,6 @@ console.log("verify results");
 client.pause(6000);
 campus.verifyResults();
 
+
   }
 };
