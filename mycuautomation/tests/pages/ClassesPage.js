@@ -4,7 +4,7 @@ var classes = require('../CommonFiles/ProfileReader');
 module.exports = {
   elements: {
     ClassScheduleTitle :{
-      selector: "h1[role='banner']#header"
+      selector: 'h1.bebasregular.headerLabel.mt5.mb20'
     },
     today :{
       selector : 'a[href="#/classes/today"]'

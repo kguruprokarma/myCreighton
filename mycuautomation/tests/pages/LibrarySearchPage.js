@@ -2,7 +2,7 @@ module.exports = {
 
   elements: {
     LibrarySearchPageheader :{
-      selector: "h1[role='banner']#header"  
+      selector: "h1.bebasregular.headerLabel.mt5.mb20"  
     },
     JaySearch :{
       selector : "//nav//div//a[contains(text(),'JaySearch')]",

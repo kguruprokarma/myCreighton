@@ -15,8 +15,6 @@ module.exports = {
 },
 'DashboardLinksTest' : function (client,done) {
 var dash = client.page.DashboardPage();
-dash.verifyDashboardLinks();
-
 dash.clickOnSchoolAndSemester();
 client.pause(5000);
 var school  = client.page.SchoolAndSemesterPage();
@@ -48,8 +46,6 @@ client.back();
 
 'NavigationLinksTest' : function (client,done){
     var dash = client.page.DashboardPage();  
-    dash.verifyNavigationLinks();
-
 dash.clickOnQuickLaunch();
 client.pause(5000);
 var quicklaunch  = client.page.QuickLaunchPage();

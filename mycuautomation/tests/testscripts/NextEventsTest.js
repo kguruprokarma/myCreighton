@@ -13,15 +13,15 @@ var dash = client.page.DashboardPage();
 client.pause(10000);
 dash.clickOnNextEvents();
 var events=client.page.NextEventsPage();
-client.pause(4000);
+client.pause(8000);
 events.clickOnEventFilter();
 client.pause(2000);
 events.uncheckAllDisplayOptions();
 client.pause(3000);
 events.checkCreightonCalendarEvents();
 events.clickDone();
-events.verifyCalendarEvents();
-client.pause(2000);
+//events.verifyCalendarEvents();
+client.pause(8000);
 events.clickEvent();
 events.verifyCalendarEventItem();
 },

@@ -5,4 +5,6 @@ module.exports = {
     reportDir: './report',
     reporter: allure.write,
     waitForConditionTimeout: 10000 
+
+  
 };

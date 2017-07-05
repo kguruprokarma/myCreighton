@@ -3,13 +3,13 @@ module.exports = {
 
   elements: {
     NextEventspageheader :{
-      selector: 'h1#header.bebasregular.headerLabel.mt5.mb20' 
+      selector: 'h1.bebasregular.headerLabel.mt5.mb20' 
     },
      Eventslist:{
       selector : 'h2.mb10.classesHeading',
     },
     eventfilter :{
-      selector : 'button.btn.btn-link.btnnoPadding.filter-img',
+      selector : "button [alt='Filter Icon']",
     },
     eventfilterDone :{
       selector : 'button.filterDoneBtn.openSansRegular.pull-right'
@@ -63,7 +63,7 @@ module.exports = {
 		 .assert.containsText('@NextEventspageheader', 'Next Events',msg + " verified");       
     },
    clickOnEventFilter :function(){
-     return this.waitForElementVisible('@eventfilter',5000)
+     return this.waitForElementVisible('@eventfilter',20000)
                 .waitForElementPresent('@eventfilter','Click on event filter')
                  .click('@eventfilter');                           
    },
@@ -121,9 +121,21 @@ module.exports = {
 });
      },
        clickEvent : function(){
-         return this.waitForElementVisible('@eventlistitem',5000)
-                     .waitForElementPresent('@eventlistitem','Click on Event from eventlist ')
-                    .click('@eventlistitem');   
+           this.api.elements('css selector','h2.mb10.classesHeading', function (result) {
+             if(result.value.length!==-1)
+             {
+               return this.waitForElementVisible('h2.mb10.classesHeading',20000)
+                     .waitForElementPresent('h2.mb10.classesHeading','Click on first Event from eventlist ')
+                    .click('h2.mb10.classesHeading');  
+
+             }
+             else{
+                return this.waitForElementVisible('h2.mb10.classesHeading',20000,'No events found')
+             }
+              
+  
+    });
+         
        } ,
 
        verifyCalendarEventItem : function(){

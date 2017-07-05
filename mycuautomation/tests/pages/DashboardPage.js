@@ -2,19 +2,19 @@ var label=require("../CommonFiles/LabelConstants")
 module.exports = {  
   elements: {
    schoolAndSemester:{
-        selector:"//h3[contains(text(),'School & Semester')]",
+        selector:"//h2[contains(text(),'School & Semester')]",
         locateStrategy: 'xpath'
    },
    Classes:{
-       selector:"//h3[contains(text(),'Classes')]",
+       selector:"//h2[contains(text(),'Classes')]",
        locateStrategy : 'xpath'            
    },
    nextEvents:{
-       selector:"//h3[contains(text(),'Next Events')]",
+       selector:"//h2[contains(text(),'Next Events')]",
        locateStrategy: 'xpath'
    },
    missionAndMinistry :{
-       selector:"//h3[contains(text(),'Mission and Ministry')]",
+       selector:"//h2[contains(text(),'Mission and Ministry')]",
        locateStrategy: 'xpath'   
     },
       quickLaunch:{
@@ -161,30 +161,7 @@ module.exports = {
 	              .waitForElementVisible('@signout',2000)
                  .click('@signout')
     },
-   verifyDashboardLinks:function(){
-       this.api.elements('css selector','h3.well-title.openSansLight', function (result) {
-    console.log("No. of Dashboard links are "+ result.value.length) ;
-    this.assert.equal(result.value.length, 4,"No. of Dashboard links are 4");
-// for (var i = 0; i < result.value.length; i++) {
-//     this.pause(20000);
-//    /* this.getText('h3.well-title.openSansLight',function(links){
-//             console.log(links.value[i])
-//             }
-//     );*/
-    
-//         //if(links.value===))
-//     this.elementIdClick(result.value[i].ELEMENT);
-//   //  console.log(result.value[i].ELEMENT)
-//    this.pause(8000);
-//      this.back();
-       });
- 
-      //this.assert.equal(result.value.length, 4);
-    //this.expect.element('h3.well-title.openSansLight').text.to.contain('School & Semester');
-
-    //this.expect.element('h3.well-title.openSansLight').to.be.present;
         
-       },
     verifySchoolAndSemester: function(){
         const msg ="School & Semester page header";
           return this.waitForElementPresent('h1.bebasregular.headerLabel.mt5.mb20')

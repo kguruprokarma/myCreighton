@@ -17,25 +17,25 @@ module.exports = {
       locateStrategy : 'xpath'
     },
     Academicpageheader :{
-      selector : "h1#header"
+      selector : "h1.bebasregular.headerLabel.mt5.mb20"
     },
     dataElements : {
       selector : '.dataHeading.openSansRegular'
     },
     firstname :{
-      selector : "//div[contains(text(),'1ae6e6416a')]",
+      selector : '//form/article[1]/div[1]/div[2]',
       locateStrategy : 'xpath'
     },
       Lastname : {
-      selector : "//div[contains(text(),'f186449d7e')]",
+      selector : '//form/article[1]/div[3]/div[2]',
       locateStrategy : 'xpath'
     },
       Middle :{
-      selector : "//div[contains(text(),'M')]",
+      selector : '//form/article[1]/div[2]/div[2]',
       locateStrategy : 'xpath'
     },
       NetID : {
-      selector : "//div[contains(text(),'b140849adb')]",
+      selector : "//form/article[7]/div[2]",
       locateStrategy : 'xpath'
     },
     LegalName : {
