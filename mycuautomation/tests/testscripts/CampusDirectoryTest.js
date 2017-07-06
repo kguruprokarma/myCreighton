@@ -7,7 +7,7 @@ module.exports = {
         loginPage.navigate()
                     .LoginStudent();
     },
-     after: client => client.end(),
+  //   after: client => client.end(),
 
 'campusDirectorySearchTest' : function (client,done) {
 
@@ -23,8 +23,13 @@ client.pause(6000);
 campus.clickOnSearch();
 console.log("verify results");
 client.pause(6000);
+console.log("Click on result title from result list");
 campus.verifyResults();
-
-
+console.log("verify staff detail page");
+client.pause(6000);
+campus.verifyStaffDetail();
+campus.clickOnResultList();
+client.pause(5000);
+campus.verifyResultsPage();
   }
 };

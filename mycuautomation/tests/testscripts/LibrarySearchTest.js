@@ -8,29 +8,35 @@
                     .LoginStudent();
 
     },
-     after: client => client.end(),
+ after: client => client.end(),
 'LibrarySearchTest' : function (client) {
 
 var dash = client.page.DashboardPage();
   client.pause(4000);
  dash.clickOnLibrarySearch();
 var lib = client.page.LibrarySearchPage();
- /*client.pause(4000);
+ client.pause(4000);
 lib.EnterSearchQuery();
-lib.clickSearchbutton(); */
+lib.clickOnSearch();
+lib.verifyJaySearchLibrary();
 
-//   client.pause(4000);
-// lib.clickeJournals();
-// lib.EnterSearchQuery();
-// lib.clickSearchbutton();
+  client.pause(8000);
+lib.clickeJournals();
+lib.clickOnSearch();
+lib.verifyEjournalsLibrary();
 
-client.pause(4000);
+ client.pause(6000);
 lib.clickLibraryGuides();
+client.pause(6000);
 lib.ClicklibraryGuideSelection();
+lib.clickGoButton();
+client.pause(4000);
+lib.verifyNavigatedLibraryGuides();
 
-/* client.pause(4000);
+client.pause(6000);
 lib.clickDatabases();
 lib.EnterSearchQuery();
-lib.clickSearchbutton(); */
+lib.clickOnSearch(); 
+lib.verifyNavigatedLibraryDatabase();
 }
  };

@@ -101,11 +101,11 @@ module.exports = {
      },
        ProfilePageheaderText : function () {
     return this.waitForElementVisible('@profilepageheader',5000)
-                .assert.containsText('@profilepageheader', 'My Profile');  
+                .assert.containsText('@profilepageheader', label.MYPROFILE_PAGEHEADER);  
        },
           AcademicPageheaderText : function () {
     return this.waitForElementVisible('@Academicpageheader',5000)
-                .assert.containsText('@Academicpageheader', 'Academic');  
+                .assert.containsText('@Academicpageheader', label.ACADEMIC_PAGEHEADER);  
        },
        verifyProfile : function() {
             this.assert.containsText('@firstname',profiledata[0].Firstname)
@@ -116,21 +116,21 @@ module.exports = {
 
        },
          verifyMyProfileLabels : function() {
-         this.assert.containsText('@LegalName',profiledata[0].MyProfileLabel)
-                .assert.containsText('@HomeAddress',profiledata[1].MyProfileLabel)
-                .assert.containsText('@SchoolAddress',profiledata[2].MyProfileLabel)
-                .assert.containsText('@PrimaryContact',profiledata[3].MyProfileLabel)
-                .assert.containsText('@EmergencyContact',profiledata[4].MyProfileLabel)
-                .assert.containsText('@Email',profiledata[5].MyProfileLabel)
-                .assert.containsText('@Other',profiledata[6].MyProfileLabel)
-                .assert.containsText('@AgeOfMajority',profiledata[7].MyProfileLabel)
+         this.assert.containsText('@LegalName',label.LEGALNAME)
+                .assert.containsText('@HomeAddress',label.HOME_ADDRESS)
+                .assert.containsText('@SchoolAddress',label.SCHOOL_ADDRESS)
+                .assert.containsText('@PrimaryContact',label.PRIMARY_CONTACT)
+                .assert.containsText('@EmergencyContact',label.EMERGENCY_CONTACT)
+                .assert.containsText('@Email',label.EMAIL_HEADER)
+                .assert.containsText('@Other',label.OTHER)
+                .assert.containsText('@AgeOfMajority',label.AGE_OF_MAJORITY)
                  
 
        },
         verifyAcademicLabels : function() {
       this.waitForElementVisible('@AcademicStatus',5000)
-               .assert.containsText('@AcademicStatus',profiledata[0].AcademicLabel)
-                .assert.containsText('@AdvisorInformation',profiledata[1].AcademicLabel)
+               .assert.containsText('@AcademicStatus',label.ACADEMIC_STATUS)
+                .assert.containsText('@AdvisorInformation',label.ADVISOR_INFORMATION)
         },
        verifyPhoneNumber : function () {
     return  this.getText('a[href*=tel]',function(result){
@@ -138,11 +138,11 @@ module.exports = {
       var phoneformat =  /^\(?([0-9]{3})\)?[.]?([0-9]{3})[.]?([0-9]{4})$/; 
       if(result.value.match(phoneformat))
         {  
-    this.assert.containsText('p.phoneNumber a',label.phonenumber,'Retrieved valid phone number format ')
+    this.assert.containsText('p.phoneNumber a',label.PHONE_NUMBER,'Retrieved valid phone number format ')
         }  
       else  
         {  
-        this.assert.containsText('p.phoneNumber a',label.phonenumber,'Retrieved Invalid phone number format');
+        this.assert.containsText('p.phoneNumber a',label.PHONE_NUMBER,'Retrieved Invalid phone number format');
         return false;  
        }
     });
@@ -157,11 +157,11 @@ module.exports = {
       
       if(result.value.match(emailformat))
         {  
-      this.assert.containsText("div  a[href*='@creighton.edu']",label.email,'Retrieved valid email format ')  
+      this.assert.containsText("div  a[href*='@creighton.edu']",label.EMAIL,'Retrieved valid email format ')  
         }  
       else  
         {  
-      this.assert.containsText("div  a[href*='@creighton.edu']",label.email,'Retrieved Invalid email format ')  
+      this.assert.containsText("div  a[href*='@creighton.edu']",label.EMAIL,'Retrieved Invalid email format ')  
         return false;  
        }
     });

@@ -170,8 +170,8 @@ module.exports = {
 
     verifyFooter :function(){
      return this.waitForElementVisible('@footer',20000)
-	              .assert.containsText('@footer',label.footerAddress)    
-                  .assert.containsText('@footer',label.footerphonenumber)    
+	              .assert.containsText('@footer',label.FOOTER_ADDRESS)    
+                  .assert.containsText('@footer',label.FOOTER_PHONENUMBER)    
     },
     verifyNavigationLinks:function(){
     this.api.elements('css selector','.navigation-item a', function (result) {
@@ -196,7 +196,7 @@ module.exports = {
         this.switchWindow(handle)
       })      
            .waitForElementVisible('body',20000)
-            .verify.urlContains(label.easyvistaurl,'DoIT Services & Support is verified')
+            .verify.urlContains(label.EASYVISTA_URL,'DoIT Services & Support is verified')
             .assert.title("CU SS Portal Shortcut (PROD)")
 
     }

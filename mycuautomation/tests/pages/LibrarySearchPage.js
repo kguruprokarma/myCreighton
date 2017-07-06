@@ -42,11 +42,14 @@ module.exports = {
       selector : "input[type='search']"
     },
      Searchbutton: {
-      selector : "a[class*='librarySearchBtn']"
+      selector : "button[class*='librarySearchBtn']"
     },
      libraryGuideSelection : {
-      selector : 'select[class*=librarySelection] option[value="2"]'
+      selector : "select option[value='2']"
     },
+    GoButton :{
+      selector :"a[class*=librarySearchBtn]"
+    }
   },
 
  commands : [{
@@ -95,7 +98,7 @@ module.exports = {
      return this.waitForElementVisible('@Creightonlogin',20000)
                  .click('@Creightonlogin');                           
    },
-   clickSearchbutton:function(){
+   clickOnSearch:function(){
      return this.waitForElementVisible('@Searchbutton',20000)
                  .click('@Searchbutton');                           
    },
@@ -105,9 +108,57 @@ module.exports = {
    },
     ClicklibraryGuideSelection:function(){
      return this.waitForElementVisible('@libraryGuideSelection',20000)
-                 .click('@libraryGuideSelection',1);                           
+                 .click('@libraryGuideSelection');                           
+   },  
+    clickGoButton:function(){
+     return this.waitForElementVisible('@GoButton',20000)
+                 .click('@GoButton');                           
    },
 
- }]
-
+   verifyJaySearchLibrary:function(){
+     this.api.windowHandles(function(result) {
+    var newWindow;
+    //this.verify.equal(result.value.length, 2, 'There should be 2 windows   open');
+    mainwindow=result.value[0];
+    newWindow = result.value[1];
+    this.switchWindow(newWindow);
+      this.verify.urlContains("http://creighton-primo.hosted.exlibrisgroup.com");
+    this.switchWindow(mainwindow);
+     });
+   },
+    verifyEjournalsLibrary:function(){
+     this.api.windowHandles(function(result) {
+    var newWindow;
+    //this.verify.equal(result.value.length, 2, 'There should be 2 windows   open');
+    mainwindow=result.value[0];
+    newWindow = result.value[2];
+    this.switchWindow(newWindow);
+      this.verify.urlContains("http://creighton-primo.hosted.exlibrisgroup.com");
+    this.switchWindow(mainwindow);
+     });
+   },
+    verifyNavigatedLibraryGuides:function(){
+     this.api.windowHandles(function(result) {
+    var newWindow;
+    //this.verify.equal(result.value.length, 2, 'There should be 2 windows   open');
+    mainwindow=result.value[0];
+    newWindow = result.value[3];
+    this.switchWindow(newWindow);
+      this.verify.urlContains("http://culibraries.creighton.edu");
+    this.switchWindow(mainwindow);
+      });
+   },
+   
+      verifyNavigatedLibraryDatabase:function(){
+     this.api.windowHandles(function(result) {
+    var newWindow;
+    //this.verify.equal(result.value.length, 2, 'There should be 2 windows open');
+    mainwindow=result.value[0];
+    newWindow = result.value[4];
+    this.switchWindow(newWindow);
+      this.verify.urlContains("http://culibraries.creighton.edu/az.php");
+    this.switchWindow(mainwindow);
+      });
+   },
+  }]
 };

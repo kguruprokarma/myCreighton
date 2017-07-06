@@ -1,3 +1,7 @@
+var excel = require('../CommonFiles/ProfileReader');
+  var user=excel.returnLoginData();
+var label=require("../CommonFiles/LabelConstants");
+
 module.exports = {  
   elements: {
    CampusDirectoryPageHeader :{
@@ -23,21 +27,24 @@ module.exports = {
    },
    result :{
        selector : "div.col-md-9.col-xs-6"
+   },
+   resultslist :{
+       selector : "button.btn.btn-primary.resultsList"
    }
   },
     commands : [{
-         verifyCampusDirectoryPageTitle: function(){
-        const msg ="Campus Directory page header";
- return this.waitForElementPresent('@CampusDirectoryPageHeader')
-		 .assert.containsText('@CampusDirectoryPageHeader', 'Campus Directory',msg + "verified");       
+verifyCampusDirectoryPageTitle: function(){
+   const msg ="Campus Directory page header";
+return this.waitForElementPresent('@CampusDirectoryPageHeader')
+		    .assert.containsText('@CampusDirectoryPageHeader', 'Campus Directory',msg + "verified");       
     },
-     enterSearchQuery :function(){
-     return this.waitForElementVisible('@CampusDirectorySearchfield',20000)
-                 .setValue('@CampusDirectorySearchfield', 'abc');
+enterSearchQuery :function(){
+return this.waitForElementVisible('@CampusDirectorySearchfield',20000)
+           .setValue('@CampusDirectorySearchfield', user[0].StaffName);
            
    },
-    clickOnSearch:function(){
-     return this .waitForElementVisible('@searchbutton',6000,"")   
+     clickOnSearch:function(){
+return this .waitForElementVisible('@searchbutton',6000)   
                 .click('@searchbutton') ;      
                 console.log("clicked on search")              
     },
@@ -52,8 +59,9 @@ module.exports = {
              if(result.value.length!==0)
              {
                return this.waitForElementVisible('p.cpmsDirProfName',20000)
-                     .waitForElementPresent('p.cpmsDirProfName','Click on first result from list of results ')
-                    .click('p.cpmsDirProfName');  
+                          .waitForElementPresent('p.cpmsDirProfName','Click on first result from list of results ')
+                          .click('p.cpmsDirProfName');  
+                    
              }
              else{
                 return this.waitForElementVisible('col-md-9 col-xs-6',20000,'No matches found for the search')
@@ -61,6 +69,20 @@ module.exports = {
 
              }
      });               
-    }
+    },
+verifyStaffDetail : function(){
+    return this.waitForElementVisible('body',20000,"wait till Staff Detail page is loaded")
+               .assert.containsText('@CampusDirectoryPageHeader',label.STAFFDETAIL_PAGEHEADER,"Verified STAFF DETAIL page header")
+},
+  clickOnResultList:function(){
+     return this .waitForElementVisible('@resultslist',6000,"click on resultlist tab to navigate back to Result page")   
+                 .click('@resultslist') ;      
+
+    },
+verifyResultsPage : function() {
+     return this.waitForElementVisible('@CampusDirectoryPageHeader',20000,"wait till results page is loaded")
+                .assert.containsText('@CampusDirectoryPageHeader',label.RESULTS_PAGEHEADER,"Verified Results page header")
+}
+
  }]
 };
