@@ -24,8 +24,8 @@
     "allurereports": "allure generate -c ./allure-results&& allure open",
     "mycu-automation-test": "nightwatch",
     "automation-test": "nightwatch ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/DashboardTest.js ./tests/testscripts/ClassesTest.js ./tests/testscripts/NextEventsTest.js ./tests/testscripts/LibrarySearchTest.js ./tests/testscripts/CampusDirectoryTest.js",
-   "automation-parallel" : "nightwatch -e default,firefox ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/DashboardTest.js ./tests/testscripts/NextEventsTest.js",
-    "automation-test-chrome" : "nightwatch -e default ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/DashboardTest.js ./tests/testscripts/NextEventsTest.js",
-     "automation-test-firefox" : "nightwatch -e firefox ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/DashboardTest.js ./tests/testscripts/NextEventsTest.js"
+   "automation-parallel" : "nightwatch -e default,firefox ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/DashboardTest.js ./tests/testscripts/NextEventsTest.js ./tests/testscripts/LibrarySearchTest.js ./tests/testscripts/CampusDirectoryTest.js",
+    "automation-test-chrome" : "nightwatch -e default ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/DashboardTest.js ./tests/testscripts/NextEventsTest.js ./tests/testscripts/LibrarySearchTest.js ./tests/testscripts/CampusDirectoryTest.js",
+     "automation-test-firefox" : "nightwatch -e firefox ./tests/testscripts/LoginTest.js ./tests/testscripts/ProfileTest.js ./tests/testscripts/DashboardTest.js ./tests/testscripts/NextEventsTest.js ./tests/testscripts/LibrarySearchTest.js ./tests/testscripts/CampusDirectoryTest.js"
   }
 }
