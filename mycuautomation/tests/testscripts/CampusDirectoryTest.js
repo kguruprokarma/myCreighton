@@ -7,7 +7,7 @@ module.exports = {
         loginPage.navigate()
                     .LoginStudent();
     },
-  //   after: client => client.end(),
+  after: client => client.end(),
 
 'campusDirectorySearchTest' : function (client,done) {
 
